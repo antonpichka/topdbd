@@ -1,0 +1,29 @@
+name: windows_topdbd
+version: 1.0.0+1
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: 3.10.0
+
+dependencies:
+  common_topdbd:
+    path: ../common_topdbd
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  library_architecture_mvvm_modify: ^0.1.4
+  intl: ^0.18.0
+  meta: ^1.8.0
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_lints: ^2.0.1
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/icon/app_icon.ico
+    - assets/icon/app_icon.png

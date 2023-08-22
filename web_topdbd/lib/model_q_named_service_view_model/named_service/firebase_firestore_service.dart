@@ -1,0 +1,43 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:library_architecture_mvvm_modify/utility/base_exception/local_exception.dart';
+
+final class FirebaseFirestoreService {
+  static final FirebaseFirestoreService instance = FirebaseFirestoreService._();
+  static FirebaseFirestore? _firebaseFirestore;
+  static bool _isExceptionInitialize = false;
+
+  FirebaseFirestoreService._();
+
+  Future<void> initialize(FirebaseApp? firebaseApp)
+  async {
+    if (_firebaseFirestore != null) {
+      return;
+    }
+    try {
+      _firebaseFirestore = FirebaseFirestore.instanceFor(app: firebaseApp!);
+      _firebaseFirestore?.settings = const Settings(
+        persistenceEnabled: true,
+        cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
+      );
+      await _firebaseFirestore?.enablePersistence(const PersistenceSettings(synchronizeTabs: true));
+    } catch(e) {
+      LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString());
+      _isExceptionInitialize = true;
+    }
+    return;
+  }
+
+  FirebaseFirestore? get getFirebaseFirestore {
+    if (_firebaseFirestore != null) {
+      return _firebaseFirestore;
+    }
+    _firebaseFirestore = FirebaseFirestore.instance;
+    return _firebaseFirestore;
+  }
+
+  bool get getIsExceptionInitialize {
+    return _isExceptionInitialize;
+  }
+}

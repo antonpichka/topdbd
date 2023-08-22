@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/named_service/firebase_app_service.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/named_service/firebase_auth_service.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/named_service/firebase_firestore_service.dart';
 import 'package:web_topdbd/named_view/app_view.dart';
 
-Future<void> main() async {
+Future<void> main()
+async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Removes "#" from URL, for more check out link below:
-  // https://docs.flutter.dev/development/ui/navigation/url-strategies
+  await FirebaseAppService.instance.initialize();
+  final firebaseApp = FirebaseAppService.instance.getFirebaseApp;
+  await FirebaseAuthService.instance.initialize(firebaseApp);
+  await FirebaseFirestoreService.instance.initialize(firebaseApp);
   usePathUrlStrategy();
   runApp(AppView());
 }

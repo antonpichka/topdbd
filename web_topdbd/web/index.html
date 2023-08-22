@@ -18,18 +18,18 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="TOPDBD">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="web_topdbd">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="TOPDBD">
+  <link rel="apple-touch-icon" href="icons/app_icon_192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="app_icon_16.png"/>
 
-  <title>web_topdbd</title>
+  <title>TOPDBD</title>
   <link rel="manifest" href="manifest.json">
 
   <script>
@@ -40,6 +40,26 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <script>
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyB-k1emqjRp6cZJjm2Area6gjS6CVKpC50",
+      authDomain: "topdbd-bb43f.firebaseapp.com",
+      projectId: "topdbd-bb43f",
+      storageBucket: "topdbd-bb43f.appspot.com",
+      messagingSenderId: "633219724387",
+      appId: "1:633219724387:web:cae81730d07ac1f57b7456"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
+
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js

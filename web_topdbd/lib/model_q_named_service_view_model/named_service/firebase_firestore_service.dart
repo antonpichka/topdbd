@@ -17,11 +17,6 @@ final class FirebaseFirestoreService {
     }
     try {
       _firebaseFirestore = FirebaseFirestore.instanceFor(app: firebaseApp!);
-      _firebaseFirestore?.settings = const Settings(
-        persistenceEnabled: true,
-        cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
-      );
-      await _firebaseFirestore?.enablePersistence(const PersistenceSettings(synchronizeTabs: true));
     } catch(e) {
       LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString());
       _isExceptionInitialize = true;

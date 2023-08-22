@@ -35,11 +35,11 @@ final class _AntiDDosViewState
     final dataForAntiDDosView = _antiDDosViewListViewModel.getDataForAntiDDosView;
     final form = ResponsiveValue<Widget>(
         context,
-        defaultValue: _buildDefaultForm(context,dataForAntiDDosView,300,24,24),
+        defaultValue: _buildForm(context,dataForAntiDDosView,300,24,24),
         conditionalValues: [
-          Condition.equals(name: TABLET, value: _buildDefaultForm(context,dataForAntiDDosView,300,24,24)),
-          Condition.largerThan(name: TABLET, value: _buildDefaultForm(context,dataForAntiDDosView,400,40,40)),
-          Condition.smallerThan(name: TABLET, value: _buildSmallForm(context,dataForAntiDDosView))
+          Condition.equals(name: TABLET, value: _buildForm(context,dataForAntiDDosView,300,24,24)),
+          Condition.largerThan(name: TABLET, value: _buildForm(context,dataForAntiDDosView,400,40,40)),
+          Condition.smallerThan(name: TABLET, value: _buildForm(context,dataForAntiDDosView,200,15,15))
         ]
     ).value;
     switch(dataForAntiDDosView?.getEnumDataForAntiDDosView) {
@@ -54,82 +54,78 @@ final class _AntiDDosViewState
     }
   }
 
-  Widget _buildDefaultForm(BuildContext context,DataForAntiDDosView? dataForAntiDDosView,double? sizedBoxWidth,double? textSize,double? textButtonSize) {
+  Widget _buildForm(BuildContext context,DataForAntiDDosView? dataForAntiDDosView,double? sizedBoxWidth,double? textSize,double? textButtonSize) {
     return Scaffold(
-      body: Align(
-        alignment: Alignment.center,
-        child: SizedBox(
-          width: sizedBoxWidth,
-          child: Card(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  dataForAntiDDosView?.code ?? "",
-                  style: TextStyle(
-                    fontSize: textSize,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 1.8,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: TextFormField(
-                    initialValue: dataForAntiDDosView?.inputCode ?? "",
-                    maxLength: 8,
-                    decoration: InputDecoration(
-                      border: const UnderlineInputBorder(),
-                      labelText: 'Input Code',
-                      labelStyle: TextStyle(color: Theme.of(context).colorScheme.secondary),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary),
-                      ),
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary),
-                      ),
-                    ),
-                    cursorColor: Theme.of(context).colorScheme.secondary,
-                    style: Theme.of(context).textTheme.bodyLarge,
-                    onChanged: (String text) {
-                      _antiDDosViewListViewModel
-                          .setInputCodeForAntiDDosView(text);
-                    },
-                  ),
-                ),
-                const SizedBox(height: 5,),
-                ElevatedButton(
-                  onPressed: () {
-                    _antiDDosViewListViewModel
-                        .clickButtonDoneForAntiDDosView((messageException) => null);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.secondary,
-                    foregroundColor: Theme.of(context).textTheme.bodyMedium?.color,
-                  ),
-                  child: Text(
-                    "Done",
+      body: SingleChildScrollView(
+        child: Align(
+          alignment: Alignment.center,
+          child: SizedBox(
+            width: sizedBoxWidth,
+            child: Card(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    dataForAntiDDosView?.code ?? "",
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyMedium?.color,
-                      fontSize: textButtonSize,
+                      fontSize: textSize,
                       fontWeight: FontWeight.w400,
                       letterSpacing: 1.8,
                     ),
                   ),
-                ),
-                const SizedBox(height: 5,),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: TextFormField(
+                      initialValue: dataForAntiDDosView?.inputCode ?? "",
+                      maxLength: 8,
+                      decoration: InputDecoration(
+                        border: const UnderlineInputBorder(),
+                        labelText: 'Input Code',
+                        labelStyle: TextStyle(color: Theme.of(context).colorScheme.secondary),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary),
+                        ),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary),
+                        ),
+                      ),
+                      cursorColor: Theme.of(context).colorScheme.secondary,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                      onChanged: (String text) {
+                        _antiDDosViewListViewModel
+                            .setInputCodeForAntiDDosView(text);
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 5,),
+                  ElevatedButton(
+                    onPressed: () {
+                      _antiDDosViewListViewModel.clickButtonDoneForAntiDDosView((messageException) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(messageException ?? "", style: Theme.of(context).textTheme.bodyMedium,),));
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.secondary,
+                      foregroundColor: Theme.of(context).textTheme.bodyMedium?.color,
+                    ),
+                    child: Text(
+                      "Done",
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyMedium?.color,
+                        fontSize: textButtonSize,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 1.8,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 5,),
+                ],
+              ),
             ),
           ),
         ),
       ),
     );
-  }
-
-  Widget _buildSmallForm(BuildContext context,DataForAntiDDosView? dataForAntiDDosView) {
-    return const Row(
-      children: [
-
-      ],);
   }
 
   void _init() {

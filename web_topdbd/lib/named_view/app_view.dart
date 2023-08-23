@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/l10n/l10n.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
-import 'package:web_topdbd/named_view/anti_ddos_view.dart';
+import 'package:web_topdbd/named_view/anti_ddos_system_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/app_view_list_view_model.dart';
 
 final class AppView
@@ -51,7 +51,7 @@ final class _AppViewState
         ),
         initialRoute: "/",
         routes: {
-          "/" : (context) => AntiDDosView()
+          "/" : (context) => AntiDDosSystemView()
         });
   }
 }

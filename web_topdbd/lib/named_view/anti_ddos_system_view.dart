@@ -2,63 +2,63 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
-import 'package:web_topdbd/data_for_named/data_for_anti_ddos_view/data_for_anti_ddos_view.dart';
-import 'package:web_topdbd/data_for_named/data_for_anti_ddos_view/enum_data_for_anti_ddos_view.dart';
+import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/data_for_anti_ddos_system_view.dart';
+import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/enum_data_for_anti_ddos_system_view.dart';
 import 'package:web_topdbd/named_view/defined_view.dart';
-import 'package:web_topdbd/named_view_list_view_model/anti_ddos_view_list_view_model.dart';
+import 'package:web_topdbd/named_view_list_view_model/anti_ddos_system_view_list_view_model.dart';
 
-final class AntiDDosView
+final class AntiDDosSystemView
     extends StatefulWidget
 {
   @override
-  State<AntiDDosView> createState() => _AntiDDosViewState();
+  State<AntiDDosSystemView> createState() => _AntiDDosSystemViewState();
 }
 
-final class _AntiDDosViewState
-    extends State<AntiDDosView>
+final class _AntiDDosSystemViewState
+    extends State<AntiDDosSystemView>
 {
-  late final AntiDDosViewListViewModel _antiDDosViewListViewModel;
+  late final AntiDDosSystemViewListViewModel _antiDDosSystemViewListViewModel;
 
   @override
   void initState() {
-    _antiDDosViewListViewModel = AntiDDosViewListViewModel();
+    _antiDDosSystemViewListViewModel = AntiDDosSystemViewListViewModel();
     super.initState();
     _init();
   }
 
   @override
   void dispose() {
-    _antiDDosViewListViewModel.dispose();
+    _antiDDosSystemViewListViewModel.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final dataForAntiDDosView = _antiDDosViewListViewModel.getDataForAntiDDosView;
+    final dataForAntiDDosSystemView = _antiDDosSystemViewListViewModel.getDataForAntiDDosSystemView;
     final form = ResponsiveValue<Widget>(
         context,
-        defaultValue: _buildForm(context,dataForAntiDDosView,300,24,24,70),
+        defaultValue: _buildForm(context,dataForAntiDDosSystemView,300,24,24,70),
         conditionalValues: [
-          Condition.equals(name: TABLET, value: _buildForm(context,dataForAntiDDosView,300,24,24,70)),
-          Condition.largerThan(name: TABLET, value: _buildForm(context,dataForAntiDDosView,400,40,40,200)),
-          Condition.smallerThan(name: TABLET, value: _buildForm(context,dataForAntiDDosView,200,18,18,60))
+          Condition.equals(name: TABLET, value: _buildForm(context,dataForAntiDDosSystemView,300,24,24,70)),
+          Condition.largerThan(name: TABLET, value: _buildForm(context,dataForAntiDDosSystemView,400,40,40,200)),
+          Condition.smallerThan(name: TABLET, value: _buildForm(context,dataForAntiDDosSystemView,200,18,18,60))
         ]
     ).value;
-    switch(dataForAntiDDosView?.getEnumDataForAntiDDosView) {
-      case EnumDataForAntiDDosView.isLoading:
+    switch(dataForAntiDDosSystemView?.getEnumDataForAntiDDosSystemView) {
+      case EnumDataForAntiDDosSystemView.isLoading:
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
-      case EnumDataForAntiDDosView.exception:
-        return Scaffold(body: Center(child: Text("Exception: ${dataForAntiDDosView?.exceptionController.getKeyParameterException}")));
-      case EnumDataForAntiDDosView.form:
+      case EnumDataForAntiDDosSystemView.exception:
+        return Scaffold(body: Center(child: Text("Exception: ${dataForAntiDDosSystemView?.exceptionController.getKeyParameterException}")));
+      case EnumDataForAntiDDosSystemView.form:
         return form!;
-      case EnumDataForAntiDDosView.definedView:
+      case EnumDataForAntiDDosSystemView.definedView:
         return DefinedView();
       default:
         return Container();
     }
   }
 
-  Widget _buildForm(BuildContext context,DataForAntiDDosView? dataForAntiDDosView,double sizedBoxWidth,double textSize,double textButtonSize,double inputDecorationMaxHeight) {
+  Widget _buildForm(BuildContext context,DataForAntiDDosSystemView? dataForAntiDDosSystemView,double sizedBoxWidth,double textSize,double textButtonSize,double inputDecorationMaxHeight) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -71,7 +71,7 @@ final class _AntiDDosViewState
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        dataForAntiDDosView?.code ?? "",
+                        dataForAntiDDosSystemView?.code ?? "",
                         style: TextStyle(
                           fontSize: textSize,
                           fontWeight: FontWeight.w400,
@@ -81,7 +81,7 @@ final class _AntiDDosViewState
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: TextFormField(
-                          initialValue: dataForAntiDDosView?.inputCode ?? "",
+                          initialValue: dataForAntiDDosSystemView?.inputCode ?? "",
                           maxLength: 8,
                           decoration: InputDecoration(
                             constraints: BoxConstraints(maxHeight: inputDecorationMaxHeight),
@@ -98,15 +98,15 @@ final class _AntiDDosViewState
                           cursorColor: Theme.of(context).colorScheme.secondary,
                           style: Theme.of(context).textTheme.bodyLarge,
                           onChanged: (String text) {
-                            _antiDDosViewListViewModel
-                                .setInputCodeForAntiDDosView(text);
+                            _antiDDosSystemViewListViewModel
+                                .setInputCodeForAntiDDosSystemView(text);
                             },
                         ),
                       ),
                       const SizedBox(height: 5,),
                       ElevatedButton(
                         onPressed: () {
-                          _antiDDosViewListViewModel.clickButtonDoneForAntiDDosView((messageException) {
+                          _antiDDosSystemViewListViewModel.clickButtonDoneForAntiDDosSystemView((messageException) {
                             showTopSnackBar(
                               Overlay.of(context),
                               CustomSnackBar.error(message: messageException ?? "",),
@@ -139,17 +139,17 @@ final class _AntiDDosViewState
   }
 
   void _init() {
-    _antiDDosViewListViewModel
-        .getStreamDataForAntiDDosView
+    _antiDDosSystemViewListViewModel
+        .getStreamDataForAntiDDosSystemView
         ?.listen((event) {
           setState(() {});
         });
-    final result = _antiDDosViewListViewModel.initForAntiDDosView();
+    final result = _antiDDosSystemViewListViewModel.initForAntiDDosSystemView();
     debugPrint(result);
     if(!mounted) {
       return;
     }
-    _antiDDosViewListViewModel.notifyStreamDataForAntiDDosView();
+    _antiDDosSystemViewListViewModel.notifyStreamDataForAntiDDosSystemView();
   }
 
 }

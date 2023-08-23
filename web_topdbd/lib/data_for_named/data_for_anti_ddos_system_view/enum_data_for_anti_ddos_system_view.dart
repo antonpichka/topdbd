@@ -1,4 +1,4 @@
-enum EnumDataForAntiDDosView {
+enum EnumDataForAntiDDosSystemView {
   isLoading,
   exception,
   form,

@@ -16,10 +16,13 @@ final class DataForAntiDDosView
     if(isLoading ?? false) {
       return EnumDataForAntiDDosView.isLoading;
     }
-    if(isNotSuccessCodeLetsGoNavigationMainView() ?? false) {
+    if(exceptionController.isNotEqualsNullParameterException()) {
+      return EnumDataForAntiDDosView.exception;
+    }
+    if(isNotSuccessCodeLetsGoNavigationMainViewParameterIsSuccessCodeLetsGoNavigationMainView() ?? false) {
       return EnumDataForAntiDDosView.form;
     }
-    return EnumDataForAntiDDosView.mainView;
+    return EnumDataForAntiDDosView.definedView;
   }
 
   String? get getExceptionInStringWhereNotEqualsParametersCodeAndInputCode {
@@ -29,7 +32,7 @@ final class DataForAntiDDosView
     return "";
   }
 
-  bool? isNotSuccessCodeLetsGoNavigationMainView() {
+  bool? isNotSuccessCodeLetsGoNavigationMainViewParameterIsSuccessCodeLetsGoNavigationMainView() {
     return !(isSuccessCodeLetsGoNavigationMainView ?? false);
   }
 }

@@ -1,7 +1,7 @@
 final class KeysExceptionUtility {
-  // UNKNOWN (UNKNOWN);
+  /* UNKNOWN (UNKNOWN) */
   static const String uNKNOWN = "uNKNOWN";
-  // DataForAntiDDosView (DFADDV)
+  /* DataForAntiDDosView (DFADDV) */
   static const String dFADDVWhereNotEqualsParametersCodeAndInputCode = "dFADDVWhereNotEqualsParametersCodeAndInputCode";
 
   KeysExceptionUtility._();

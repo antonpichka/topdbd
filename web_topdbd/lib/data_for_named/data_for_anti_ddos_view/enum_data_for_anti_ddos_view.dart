@@ -1,5 +1,6 @@
 enum EnumDataForAntiDDosView {
   isLoading,
+  exception,
   form,
-  mainView
+  definedView
 }

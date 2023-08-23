@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/named_service/firebase_app_service.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/named_service/firebase_auth_service.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/named_service/firebase_firestore_service.dart';
+import 'package:web_topdbd/named_utility/initialize_service_utility.dart';
 import 'package:web_topdbd/named_view_list_view_model/main_view_list_view_model.dart';
 
 final class MainView
@@ -82,13 +80,10 @@ final class _MainViewState
 
   Future<void> _init()
   async {
-    await FirebaseAppService.instance.initialize();
-    final firebaseApp = FirebaseAppService.instance.getFirebaseApp;
-    await FirebaseAuthService.instance.initialize(firebaseApp);
-    await FirebaseFirestoreService.instance.initialize(firebaseApp);
+    final result = await InitializeServiceUtility.init();
+    debugPrint(result);
     if(!mounted) {
       return;
     }
-    debugPrint("Success");
   }
 }

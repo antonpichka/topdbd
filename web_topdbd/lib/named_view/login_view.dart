@@ -1,5 +1,8 @@
 import 'package:custom_signin_buttons/custom_signin_buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
+import 'package:web_topdbd/data_for_named/data_for_login_view/data_for_login_view.dart';
+import 'package:web_topdbd/data_for_named/data_for_login_view/enum_data_for_login_view.dart';
 import 'package:web_topdbd/named_utility/initialize_service_utility.dart';
 import 'package:web_topdbd/named_view_list_view_model/login_view_list_view_model.dart';
 
@@ -30,10 +33,29 @@ final class _LoginViewState
 
   @override
   Widget build(BuildContext context) {
-    return _buildLogin(context, 400,380);
+    final dataForLoginView = _loginViewListViewModel.getDataForLoginView;
+    final login = ResponsiveValue<Widget>(
+        context,
+        defaultValue: _buildLogin(context,dataForLoginView,300,280),
+        conditionalValues: [
+          Condition.equals(name: TABLET, value: _buildLogin(context,dataForLoginView,300,280)),
+          Condition.largerThan(name: TABLET, value: _buildLogin(context,dataForLoginView,400,380)),
+          Condition.smallerThan(name: TABLET, value: _buildLogin(context,dataForLoginView,200,180))
+        ]
+    ).value;
+    switch(dataForLoginView?.getEnumDataForLoginView) {
+      case EnumDataForLoginView.isLoading:
+        return const Scaffold(body: Center(child: CircularProgressIndicator()));
+      case EnumDataForLoginView.exception:
+        return Scaffold(body: Center(child: Text("Exception: ${dataForLoginView?.exceptionController.getKeyParameterException}")));
+      case EnumDataForLoginView.login:
+        return login!;
+      default:
+        return Container();
+    }
   }
 
-  Widget _buildLogin(BuildContext context,double sizedBoxWidth,double discordButtonWidth) {
+  Widget _buildLogin(BuildContext context,DataForLoginView? dataForLoginView,double sizedBoxWidth,double discordButtonWidth) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -45,17 +67,17 @@ final class _LoginViewState
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Card(
+                      Card(
                         color: Colors.black,
                         child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text("OPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPPOPPP"),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(dataForLoginView?.termsOfUse ?? ""),
                         ),
                       ),
                       const SizedBox(height: 5,),
                       const Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: Text("By clicking on the login button you agree to the 'Terms of Use 'TOPDBD' '"),
+                        child: Text("By clicking on the login button you agree to the 'Terms of Use 'TOPDBD' '",),
                       ),
                       const SizedBox(height: 5,),
                       SignInButton(
@@ -73,10 +95,19 @@ final class _LoginViewState
 
   Future<void> _init()
   async {
+    _loginViewListViewModel
+        .getStreamDataForLoginView
+        ?.listen((event) {
+          setState(() {});
+        });
     final result = await InitializeServiceUtility.init();
-    debugPrint(result);
+    final resultTwo = await _loginViewListViewModel
+        .initForLoginView();
+    debugPrint("LoginView: $result | $resultTwo");
     if(!mounted) {
       return;
     }
+    _loginViewListViewModel
+        .notifyStreamDataForLoginView();
   }
 }

@@ -86,7 +86,7 @@ final class _DefinedViewState
           setState(() {});
         });
     final result = await _definedViewListViewModel.initForDefinedView();
-    debugPrint(result);
+    debugPrint("DefinedView: $result");
     if(!mounted) {
       return;
     }

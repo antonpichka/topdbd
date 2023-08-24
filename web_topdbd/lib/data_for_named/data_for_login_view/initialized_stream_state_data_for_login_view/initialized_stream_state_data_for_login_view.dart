@@ -8,5 +8,5 @@ final class InitializedStreamStateDataForLoginView
 {
   @override
   IStreamStateDataForNamed<DataForLoginView> get getStreamStateDataForNamed => DefaultStreamStateDataForNamed<DataForLoginView>(
-      DataForLoginView(false));
+      DataForLoginView(true,""));
 }

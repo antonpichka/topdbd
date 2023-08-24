@@ -27,6 +27,9 @@ final class AntiDDosSystemViewListViewModel
   String? initForAntiDDosSystemView() {
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
         .getDataForAntiDDosSystemView
+        ?.isLoading = false;
+    _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
+        .getDataForAntiDDosSystemView
         ?.code = AlgorithmsUtility.getRandomNumbersFromNumberOfScrollsParameterString(8);
     return KeysSuccessUtility.sUCCESS;
   }

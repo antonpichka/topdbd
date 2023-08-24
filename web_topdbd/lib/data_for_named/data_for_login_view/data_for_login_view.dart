@@ -5,8 +5,9 @@ final class DataForLoginView
     extends BaseDataForNamed
 {
   bool? isLoading;
+  String? termsOfUse;
 
-  DataForLoginView(this.isLoading) : super();
+  DataForLoginView(this.isLoading,this.termsOfUse) : super();
 
   EnumDataForLoginView get getEnumDataForLoginView {
     if(isLoading ?? false) {

@@ -8,5 +8,5 @@ final class InitializedStreamStateDataForDefinedView
 {
   @override
   IStreamStateDataForNamed<DataForDefinedView> get getStreamStateDataForNamed => DefaultStreamStateDataForNamed<DataForDefinedView>(
-      DataForDefinedView(false,"",false));
+      DataForDefinedView(true,"",false));
 }

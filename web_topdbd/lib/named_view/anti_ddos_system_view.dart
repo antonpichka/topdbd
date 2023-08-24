@@ -145,7 +145,7 @@ final class _AntiDDosSystemViewState
           setState(() {});
         });
     final result = _antiDDosSystemViewListViewModel.initForAntiDDosSystemView();
-    debugPrint(result);
+    debugPrint("AntiDDosSystemView: $result");
     if(!mounted) {
       return;
     }

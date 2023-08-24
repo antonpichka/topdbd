@@ -34,6 +34,9 @@ final class DefinedViewListViewModel
         .getVerifiedUserSPFromSharedPreferencesServiceNPDS();
     _dataForDefinedViewQThereIsStreamStateViewModel
         .getDataForDefinedView
+        ?.isLoading = false;
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .getDataForDefinedView
         ?.exceptionController = resultUser.exceptionController;
     _dataForDefinedViewQThereIsStreamStateViewModel
         .getDataForDefinedView

@@ -8,6 +8,10 @@ final class KeysAPIUtility {
   /* FirebaseAuth */
   static const String firebaseAuthEmail = "qgjewtyssqw@gmail.com";
   static const String firebaseAuthPassword = "111111";
+  /* DiscordOAUTH */
+  static const String discordOAUTHClientId = "1144182626689749002";
+  static const String discordOAUTHClientSecret = "O5AHkF-WYWO5SAenNT5m-jsLhrnis81E";
+  static const String discordOAUTHRedirectUri  = "http://localhost/auth.html";
 
   KeysAPIUtility._();
 }

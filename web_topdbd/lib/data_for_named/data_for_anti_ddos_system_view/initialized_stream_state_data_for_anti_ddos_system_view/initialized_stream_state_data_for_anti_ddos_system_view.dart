@@ -8,5 +8,5 @@ final class InitializedStreamStateDataForAntiDDosSystemView
 {
   @override
   IStreamStateDataForNamed<DataForAntiDDosSystemView> get getStreamStateDataForNamed => DefaultStreamStateDataForNamed<DataForAntiDDosSystemView>(
-      DataForAntiDDosSystemView(false,"",false,""));
+      DataForAntiDDosSystemView(true,"",false,""));
 }

@@ -16,10 +16,10 @@ final class FirebaseAppService {
       return;
     }
     const option = FirebaseOptions(
-        apiKey: KeysAPIUtility.firebaseApiKey,
-        appId: KeysAPIUtility.firebaseWebAppId,
-        messagingSenderId: KeysAPIUtility.firebaseMessagingSenderId,
-        projectId: KeysAPIUtility.firebaseProjectId);
+        apiKey: KeysAPIUtility.firebaseQApiKey,
+        appId: KeysAPIUtility.firebaseQWebAppId,
+        messagingSenderId: KeysAPIUtility.firebaseQMessagingSenderId,
+        projectId: KeysAPIUtility.firebaseQProjectId);
     try {
       _firebaseApp = await Firebase.initializeApp(options: option);
     } catch(e) {
@@ -33,7 +33,7 @@ final class FirebaseAppService {
     if (_firebaseApp != null) {
       return _firebaseApp;
     }
-    _firebaseApp = Firebase.app(KeysAPIUtility.firebaseProjectName);
+    _firebaseApp = Firebase.app(KeysAPIUtility.firebaseQProjectName);
     return _firebaseApp;
   }
 

@@ -23,7 +23,7 @@ base class VerifiedUserSPQSharedPreferencesServiceViewModelUsingGetNP<T extends 
   async {
     try {
       final sharedPreferences = await sharedPreferencesService.getSharedPreferences;
-      final isVerifiedUser = sharedPreferences?.getBool(KeysSharedPreferencesServiceUtility.parameterIsVerifiedUserByVerifiedUserSP) ?? false;
+      final isVerifiedUser = sharedPreferences?.getBool(KeysSharedPreferencesServiceUtility.verifiedUserSPQIsVerifiedUserByVerifiedUserSP) ?? false;
       return VerifiedUserSP.success(isVerifiedUser) as T;
     } catch (e) {
       return VerifiedUserSP.exception(LocalException(this, EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;

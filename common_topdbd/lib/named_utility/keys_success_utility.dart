@@ -1,9 +1,8 @@
 final class KeysSuccessUtility {
-  /* SUCCESS (SUCCESS) */
+  /* SUCCESS */
   static const String sUCCESS = "sUCCESS";
-  /* DataForAntiDDosView (DFADDV) */
-  /* InitializeServiceUtility (ISU) */
-  static const String iSUWhereTrueParameterIsInit = "iSUWhereTrueParameterIsInit";
+  /* InitializeServiceUtility */
+  static const String initializeServiceUtilityQWhereTrueParameterIsInit = "initializeServiceUtilityQWhereTrueParameterIsInit";
 
   KeysSuccessUtility._();
 }

@@ -27,7 +27,7 @@ final class DataForAntiDDosSystemView
 
   String? get getExceptionInStringWhereNotEqualsParametersCodeAndInputCode {
     if(code != inputCode) {
-      return KeysExceptionUtility.dFADDSVWhereNotEqualsParametersCodeAndInputCode;
+      return KeysExceptionUtility.dataForAntiDDosSystemViewQWhereNotEqualsParametersCodeAndInputCode;
     }
     return "";
   }

@@ -9,7 +9,7 @@ base class ListUser<T extends User> extends BaseListModel<T> {
   ListUser<T> get getCloneListModel {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel ?? List.empty(growable: true)) {
-      newListModel.add(User.success(model.uniqueId) as T);
+      newListModel.add(model.getCloneModel as T);
     }
     return ListUser<T>.success(newListModel);
   }

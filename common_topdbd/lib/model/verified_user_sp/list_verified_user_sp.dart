@@ -9,7 +9,7 @@ base class ListVerifiedUserSP<T extends VerifiedUserSP> extends BaseListModel<T>
   ListVerifiedUserSP<T> get getCloneListModel {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel ?? List.empty(growable: true)) {
-      newListModel.add(VerifiedUserSP.success(model.isVerifiedUser) as T);
+      newListModel.add(model.getCloneModel as T);
     }
     return ListVerifiedUserSP<T>.success(newListModel);
   }

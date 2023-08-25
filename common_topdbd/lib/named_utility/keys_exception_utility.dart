@@ -1,8 +1,8 @@
 final class KeysExceptionUtility {
-  /* UNKNOWN (UNKNOWN) */
+  /* UNKNOWN */
   static const String uNKNOWN = "uNKNOWN";
-  /* DataForAntiDDosSystemView (DFADDSV) */
-  static const String dFADDSVWhereNotEqualsParametersCodeAndInputCode = "dFADDSVWhereNotEqualsParametersCodeAndInputCode";
+  /* DataForAntiDDosSystemView */
+  static const String dataForAntiDDosSystemViewQWhereNotEqualsParametersCodeAndInputCode = "dataForAntiDDosSystemViewQWhereNotEqualsParametersCodeAndInputCode";
 
   KeysExceptionUtility._();
 }

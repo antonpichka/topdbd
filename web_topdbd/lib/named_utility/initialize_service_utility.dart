@@ -11,7 +11,7 @@ final class InitializeServiceUtility {
   static Future<String> init()
   async {
     if(_isInit) {
-      return KeysSuccessUtility.iSUWhereTrueParameterIsInit;
+      return KeysSuccessUtility.initializeServiceUtilityQWhereTrueParameterIsInit;
     }
     _isInit = true;
     await FirebaseAppService.instance.initialize();

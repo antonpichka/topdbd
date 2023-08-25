@@ -1,8 +1,8 @@
 final class KeysSharedPreferencesServiceUtility {
   /* User */
-  static const String parameterUniqueIdByUser = "uniqueIdByUser";
+  static const String userQUniqueIdByUser = "uniqueIdByUser";
   /* VerifiedUserSP */
-  static const String parameterIsVerifiedUserByVerifiedUserSP = "isVerifiedUserByVerifiedUserSP";
+  static const String verifiedUserSPQIsVerifiedUserByVerifiedUserSP = "isVerifiedUserByVerifiedUserSP";
 
   KeysSharedPreferencesServiceUtility._();
 }

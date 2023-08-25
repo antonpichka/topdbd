@@ -23,7 +23,7 @@ base class UserQSharedPreferencesServiceViewModelUsingGetNP<T extends User,Y ext
   async {
     try {
       final sharedPreferences = await sharedPreferencesService.getSharedPreferences;
-      final uniqueId = sharedPreferences?.getString(KeysSharedPreferencesServiceUtility.parameterUniqueIdByUser) ?? "";
+      final uniqueId = sharedPreferences?.getString(KeysSharedPreferencesServiceUtility.userQUniqueIdByUser) ?? "";
       return User.success(uniqueId) as T;
     } catch (e) {
       return User.exception(LocalException(this, EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;

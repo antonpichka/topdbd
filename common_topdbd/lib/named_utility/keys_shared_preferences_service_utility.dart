@@ -1,8 +1,9 @@
 final class KeysSharedPreferencesServiceUtility {
   /* User */
-  static const String userQUniqueIdByUser = "uniqueIdByUser";
+  static const String userQUniqueId = "userQUniqueId";
+  static const String userQCreationTime = "userQCreationTime";
   /* VerifiedUserSP */
-  static const String verifiedUserSPQIsVerifiedUserByVerifiedUserSP = "isVerifiedUserByVerifiedUserSP";
+  static const String verifiedUserSPQIsVerifiedUser = "verifiedUserSPQIsVerifiedUser";
 
   KeysSharedPreferencesServiceUtility._();
 }

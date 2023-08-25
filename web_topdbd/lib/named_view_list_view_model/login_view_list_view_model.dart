@@ -4,7 +4,7 @@ import 'package:web_topdbd/data_for_named/data_for_login_view/data_for_login_vie
 import 'package:web_topdbd/data_for_named/data_for_login_view/initialized_stream_state_data_for_login_view/initialized_stream_state_data_for_login_view.dart';
 import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/data_for_login_view_q_there_is_stream_state_view_model/data_for_login_view_q_there_is_stream_state_view_model.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/strings_q_asset_bundle_service_view_model/strings_q_asset_bundle_service_view_model_using_get_np_for_terms_of_use.dart';
-import 'package:web_topdbd/named_utility/singleton_dfnqtissvm_utility.dart';
+import 'package:web_topdbd/named_utility/singleton_data_for_named_q_there_is_stream_state_view_model_utility.dart';
 
 final class LoginViewListViewModel
     extends BaseNamedViewListViewModel
@@ -15,7 +15,7 @@ final class LoginViewListViewModel
 
   // DataForNamedQThereIsStreamStateViewModel
   final _dataForDefinedViewQThereIsStreamStateViewModel =
-      SingletonDFNQTISSVMUtility.instanceForDataForDefinedViewQThereIsStreamStateViewModel;
+      SingletonDataForNamedQThereIsStreamStateViewModelUtility.instanceForDataForDefinedViewQThereIsStreamStateViewModel;
   final _dataForLoginViewQThereIsStreamStateViewModel =
   DataForLoginViewQThereIsStreamStateViewModel(InitializedStreamStateDataForLoginView());
 

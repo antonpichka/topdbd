@@ -3,7 +3,7 @@ import 'package:library_architecture_mvvm_modify/base_named_view_list_view_model
 import 'package:web_topdbd/data_for_named/data_for_defined_view/data_for_defined_view.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/user_q_shared_preferences_service_view_model/user_q_shared_preferences_service_view_model_using_get_np.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/verified_user_sp_q_shared_preferences_service_view_model/verified_user_sp_q_shared_preferences_service_view_model_using_get_np.dart';
-import 'package:web_topdbd/named_utility/singleton_dfnqtissvm_utility.dart';
+import 'package:web_topdbd/named_utility/singleton_data_for_named_q_there_is_stream_state_view_model_utility.dart';
 
 final class DefinedViewListViewModel
     extends BaseNamedViewListViewModel
@@ -16,7 +16,7 @@ final class DefinedViewListViewModel
 
   // DataForNamedQThereIsStreamStateViewModel
   final _dataForDefinedViewQThereIsStreamStateViewModel =
-      SingletonDFNQTISSVMUtility.instanceForDataForDefinedViewQThereIsStreamStateViewModel;
+      SingletonDataForNamedQThereIsStreamStateViewModelUtility.instanceForDataForDefinedViewQThereIsStreamStateViewModel;
 
   // NamedUtility
 

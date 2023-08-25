@@ -23,8 +23,9 @@ base class UserQSharedPreferencesServiceViewModelUsingGetNP<T extends User,Y ext
   async {
     try {
       final sharedPreferences = await sharedPreferencesService.getSharedPreferences;
-      final uniqueId = sharedPreferences?.getString(KeysSharedPreferencesServiceUtility.userQUniqueIdByUser) ?? "";
-      return User.success(uniqueId) as T;
+      final uniqueId = sharedPreferences?.getString(KeysSharedPreferencesServiceUtility.userQUniqueId) ?? "";
+      final creationTime = DateTime.fromMillisecondsSinceEpoch(sharedPreferences?.getInt(KeysSharedPreferencesServiceUtility.userQCreationTime) ?? 0);
+      return User.success(uniqueId,creationTime) as T;
     } catch (e) {
       return User.exception(LocalException(this, EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
     }

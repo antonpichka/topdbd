@@ -9,5 +9,5 @@ base class VerifiedUserSP extends BaseModel {
         super.exception();
 
   @override
-  VerifiedUserSP get getCloneModel => VerifiedUserSP.success(false);
+  VerifiedUserSP get getCloneModel => VerifiedUserSP.success(isVerifiedUser);
 }

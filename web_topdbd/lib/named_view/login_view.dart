@@ -17,10 +17,12 @@ final class _LoginViewState
     extends State<LoginView>
 {
   late final LoginViewListViewModel _loginViewListViewModel;
+  late final ScrollController _scrollController;
 
   @override
   void initState() {
     _loginViewListViewModel = LoginViewListViewModel();
+    _scrollController = ScrollController();
     super.initState();
     _init();
   }
@@ -28,6 +30,7 @@ final class _LoginViewState
   @override
   void dispose() {
     _loginViewListViewModel.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -36,11 +39,11 @@ final class _LoginViewState
     final dataForLoginView = _loginViewListViewModel.getDataForLoginView;
     final login = ResponsiveValue<Widget>(
         context,
-        defaultValue: _buildLogin(context,dataForLoginView,300,280),
+        defaultValue: _buildLogin(context,dataForLoginView,300,280,150),
         conditionalValues: [
-          Condition.equals(name: TABLET, value: _buildLogin(context,dataForLoginView,300,280)),
-          Condition.largerThan(name: TABLET, value: _buildLogin(context,dataForLoginView,400,380)),
-          Condition.smallerThan(name: TABLET, value: _buildLogin(context,dataForLoginView,200,180))
+          Condition.equals(name: TABLET, value: _buildLogin(context,dataForLoginView,300,280,170)),
+          Condition.largerThan(name: TABLET, value: _buildLogin(context,dataForLoginView,400,380,200)),
+          Condition.smallerThan(name: TABLET, value: _buildLogin(context,dataForLoginView,250,230,150))
         ]
     ).value;
     switch(dataForLoginView?.getEnumDataForLoginView) {
@@ -55,39 +58,68 @@ final class _LoginViewState
     }
   }
 
-  Widget _buildLogin(BuildContext context,DataForLoginView? dataForLoginView,double sizedBoxWidth,double discordButtonWidth) {
+  Widget _buildLogin(BuildContext context,DataForLoginView? dataForLoginView,double sizedBoxWidthLogin,double discordButtonWidth,double sizedBoxHeightTermsOfUse) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
           child: Column(
             children: [
               SizedBox(
-                width: sizedBoxWidth,
+                width: sizedBoxWidthLogin,
                 child: Card(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Card(
-                        color: Colors.black,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(dataForLoginView?.termsOfUse ?? ""),
+                      SizedBox(
+                        height: sizedBoxHeightTermsOfUse,
+                        child: RawScrollbar(
+                          controller: _scrollController,
+                          thumbColor: Theme.of(context).colorScheme.secondary,
+                          radius: const Radius.circular(20),
+                          thickness: 5,
+                          thumbVisibility: true,
+                          child: SingleChildScrollView(
+                            controller: _scrollController,
+                            child: Card(
+                              color: Colors.black,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(dataForLoginView?.termsOfUse ?? ""),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                       const SizedBox(height: 5,),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text("By clicking on the login button you agree to the 'Terms of Use 'TOPDBD' '",),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Theme(
+                              data: ThemeData.dark().copyWith(
+                                unselectedWidgetColor: Theme.of(context).colorScheme.secondary,
+                              ),
+                              child: Checkbox(
+                                  checkColor: Theme.of(context).colorScheme.secondary,
+                                  activeColor: Theme.of(context).colorScheme.primary,
+                                  value: dataForLoginView?.isCheckAgreeTermsOfUse,
+                                  onChanged: (value) {
+                                    _loginViewListViewModel.checkForLoginView(value);
+                                  }),
+                            ),
+                            const Flexible(child: Text("I agree to the terms of use of 'TOPDBD'",)),
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 5,),
-                      SignInButton(
+                      (dataForLoginView?.isCheckAgreeTermsOfUse ?? false)  ? SignInButton(
                         width: discordButtonWidth,
                         button: Button.Discord,
                         text: 'Sign in with Discord',
                         onPressed: () {
-                          _loginViewListViewModel.signInWithDiscordForLoginView();
+                          _loginViewListViewModel.signInWithDiscordForLoginView((){},(messageException){});
                         },
-                      ),
+                      ) : Container(),
                       const SizedBox(height: 5,),
                     ],),),),
             ],),),),);

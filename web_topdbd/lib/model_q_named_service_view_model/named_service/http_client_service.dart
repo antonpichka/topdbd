@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 
 final class HttpClientService {
   static final HttpClientService instance = HttpClientService._();
-  static http.Client? _httpClient;
+  http.Client? _httpClient;
 
   HttpClientService._();
 

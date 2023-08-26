@@ -5,8 +5,8 @@ import 'package:library_architecture_mvvm_modify/utility/base_exception/local_ex
 
 final class FirebaseFirestoreService {
   static final FirebaseFirestoreService instance = FirebaseFirestoreService._();
-  static FirebaseFirestore? _firebaseFirestore;
-  static bool _isExceptionInitialize = false;
+  FirebaseFirestore? _firebaseFirestore;
+  bool _isExceptionInitialize = false;
 
   FirebaseFirestoreService._();
 

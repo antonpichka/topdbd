@@ -5,8 +5,8 @@ import 'package:library_architecture_mvvm_modify/utility/base_exception/local_ex
 
 final class FirebaseAppService {
   static final FirebaseAppService instance = FirebaseAppService._();
-  static FirebaseApp? _firebaseApp;
-  static bool _isExceptionInitialize = false;
+  FirebaseApp? _firebaseApp;
+  bool _isExceptionInitialize = false;
 
   FirebaseAppService._();
 

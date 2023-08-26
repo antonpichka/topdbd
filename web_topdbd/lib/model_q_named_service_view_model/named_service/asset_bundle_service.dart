@@ -2,7 +2,7 @@ import 'package:flutter/services.dart';
 
 final class AssetBundleService {
   static final AssetBundleService instance = AssetBundleService._();
-  static AssetBundle? _assetBundle;
+  AssetBundle? _assetBundle;
 
   AssetBundleService._();
 

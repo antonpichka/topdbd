@@ -1,9 +1,0 @@
-import 'package:web_topdbd/data_for_named/data_for_defined_view/initialized_stream_state_data_for_defined_view/initialized_stream_state_data_for_defined_view.dart';
-import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/data_for_defined_view_q_there_is_stream_state_view_model/data_for_defined_view_q_there_is_stream_state_view_model.dart';
-
-final class SingletonDataForNamedQThereIsStreamStateViewModelUtility {
-  static final instanceForDataForDefinedViewQThereIsStreamStateViewModel =
-  DataForDefinedViewQThereIsStreamStateViewModel(InitializedStreamStateDataForDefinedView());
-
-  SingletonDataForNamedQThereIsStreamStateViewModelUtility._();
-}

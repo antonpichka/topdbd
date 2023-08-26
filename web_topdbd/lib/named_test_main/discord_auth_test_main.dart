@@ -73,7 +73,7 @@ final class _AppViewState
             'authorization': '${jsonFromResponseDiscordOauth2Token["token_type"]} ${jsonFromResponseDiscordOauth2Token["access_token"]}',
           });
       if(responseDiscordUser?.statusCode != 200) {
-        throw NetworkException.fromKeyAndStatusCode(this, responseDiscordOauth2Token.statusCode.toString(), responseDiscordUser!.statusCode);
+        throw NetworkException.fromKeyAndStatusCode(this, responseDiscordUser!.statusCode.toString(), responseDiscordUser.statusCode);
       }
       final Map<String,dynamic> data = jsonDecode(responseDiscordUser!.body);
       debugPrint(data.toString());

@@ -13,5 +13,5 @@ base class DiscordUser extends BaseModel {
         super.exception();
 
   @override
-  DiscordUser get getCloneModel => DiscordUser.success(uniqueId, username, globalName);
+  DiscordUser get getCloneModel => DiscordUser.success(id, username, globalName);
 }

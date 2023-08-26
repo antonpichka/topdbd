@@ -6,8 +6,9 @@ final class DataForLoginView
 {
   bool? isLoading;
   String? termsOfUse;
+  bool? isCheckAgreeTermsOfUse;
 
-  DataForLoginView(this.isLoading,this.termsOfUse) : super();
+  DataForLoginView(this.isLoading,this.termsOfUse,this.isCheckAgreeTermsOfUse) : super();
 
   EnumDataForLoginView get getEnumDataForLoginView {
     if(isLoading ?? false) {

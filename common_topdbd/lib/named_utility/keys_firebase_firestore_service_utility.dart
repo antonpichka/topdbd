@@ -3,7 +3,7 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String user = "user";
   static const String userQUniqueId = "uniqueId";
   static const String userQCreationTime = "creationTime";
-  /* DiscordUser */
+  /* DiscordUser as DiscordUserFirestore */
   static const String discordUser = "discordUser";
   static const String discordUserQUniqueId = "uniqueId";
   static const String discordUserQUniqueIdByUser = "uniqueIdByUser";

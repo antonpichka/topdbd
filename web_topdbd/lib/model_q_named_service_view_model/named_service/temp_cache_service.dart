@@ -1,3 +1,5 @@
+import 'package:library_architecture_mvvm_modify/utility/base_exception/local_exception.dart';
+
 final class TempCacheService {
   static final TempCacheService instance = TempCacheService._();
   final Map<String,dynamic> _preTempCache;
@@ -22,6 +24,13 @@ final class TempCacheService {
       _tempCache[key] = preValue;
       yield preValue;
     }
+  }
+
+  dynamic getObjectFromTempCache(String key) {
+    if(!_preTempCache.containsKey(key)) {
+      return throw LocalException(this, EnumGuiltyForLocalException.device,key,"no exists key");
+    }
+    return _preTempCache[key];
   }
 
   void insertOrUpdateObjectToTempCache(String key,dynamic value) {

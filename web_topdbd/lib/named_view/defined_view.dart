@@ -85,6 +85,7 @@ final class _DefinedViewState
         ?.listen((event) {
           setState(() {});
         });
+    _definedViewListViewModel.listeningStreamsTempCacheServiceForDefinedView();
     final result = await _definedViewListViewModel.initForDefinedView();
     debugPrint("DefinedView: $result");
     if(!mounted) {

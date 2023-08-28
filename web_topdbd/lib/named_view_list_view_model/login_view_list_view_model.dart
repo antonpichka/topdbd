@@ -8,10 +8,17 @@ import 'package:library_architecture_mvvm_modify/utility/exception_controller.da
 import 'package:web_topdbd/data_for_named/data_for_login_view/data_for_login_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_login_view/initialized_stream_state_data_for_login_view/initialized_stream_state_data_for_login_view.dart';
 import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/data_for_login_view_q_there_is_stream_state_view_model/data_for_login_view_q_there_is_stream_state_view_model.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_update_parameter_bool_for_is_verified_user_by_verified_user_sp.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/dates_times_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model_using_update_parameter_date_time_for_creation_time_by_user.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/dates_times_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model_using_update_parameter_date_time_for_last_login_time_by_last_login_time_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/discord_user_firestore_q_firebase_firestore_service_view_model/discord_user_firestore_q_firebase_firestore_service_view_model_using_get_parameter_registration_discord_user_firestore_utility.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/discord_user_firestore_q_firebase_firestore_service_view_model/discord_user_firestore_q_firebase_firestore_service_view_model_using_get_parameter_string_for_unique_id.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/discord_user_q_http_client_service_view_model/discord_user_q_http_client_service_view_model_using_get_np_for_discord_auth.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/last_login_time_user_q_firebase_firestore_service_view_model/last_login_time_user_q_firebase_firestore_service_view_model_using_get_parameter_string_for_unique_id_by_user_where_registration.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/strings_q_asset_bundle_service_view_model/strings_q_asset_bundle_service_view_model_using_get_np_for_terms_of_use.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_global_name_by_discord_user.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_unique_id_by_user.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_username_by_discord_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/user_q_firebase_firestore_service_view_model/user_q_firebase_firestore_service_view_model_using_get_parameter_string_for_unique_id_where_registration.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/verified_user_q_firebase_firestore_service_view_model/verified_user_q_firebase_firestore_service_view_model_using_get_parameter_registration_verified_user_utility.dart';
 import 'package:web_topdbd/named_utility/algorithms_utility.dart';
@@ -32,6 +39,20 @@ final class LoginViewListViewModel
   DiscordUserFirestoreQFirebaseFirestoreServiceViewModelUsingGetParameterRegistrationDiscordUserFirestoreUtility();
   final _verifiedUserQFirebaseFirestoreServiceViewModelUsingGetParameterRegistrationVerifiedUserUtility =
   VerifiedUserQFirebaseFirestoreServiceViewModelUsingGetParameterRegistrationVerifiedUserUtility();
+  final _lastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUserWhereRegistration =
+  LastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUserWhereRegistration();
+  final _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser =
+  StringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser();
+  final _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser =
+  DatesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser();
+  final _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForLastLoginTimeByLastLoginTimeUser =
+  DatesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForLastLoginTimeByLastLoginTimeUser();
+  final _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUsernameByDiscordUser =
+  StringsQTempCacheServiceViewModelUsingUpdateParameterStringForUsernameByDiscordUser();
+  final _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForGlobalNameByDiscordUser =
+  StringsQTempCacheServiceViewModelUsingUpdateParameterStringForGlobalNameByDiscordUser();
+  final _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUserSP =
+  BoolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUserSP();
 
   // DataForNamedQThereIsStreamStateViewModel
   final _dataForLoginViewQThereIsStreamStateViewModel =
@@ -161,7 +182,32 @@ final class LoginViewListViewModel
       _exceptionFirstBranchFourForSignInWithDiscordForLoginViewForGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultVerifiedUser.exceptionController, callbackException);
       return;
     }
-    // createLastLoginTimeUser
+    final resultLastLoginTimeUserForUniqueIdByUserWhereRegistration = await _lastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUserWhereRegistration
+        .getLastLoginTimeUserFromFirebaseFirestoreServiceParameterStringDS(resultUserForUniqueIdWhereRegistration.uniqueId ?? "");
+    if(resultLastLoginTimeUserForUniqueIdByUserWhereRegistration
+        .exceptionController
+        .isNotEqualsNullParameterException())
+    {
+      _exceptionFirstBranchFiveForSignInWithDiscordForLoginViewForGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultLastLoginTimeUserForUniqueIdByUserWhereRegistration.exceptionController, callbackException);
+      return;
+    }
+    await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser
+        .updateStringsToTempCacheServiceParameterStringDS(resultUserForUniqueIdWhereRegistration.uniqueId ?? "");
+    await _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser
+        .updateDatesTimesToTempCacheServiceParameterDateTimeDS(resultUserForUniqueIdWhereRegistration.creationTime ?? DateTime.now());
+    await _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForLastLoginTimeByLastLoginTimeUser
+        .updateDatesTimesToTempCacheServiceParameterDateTimeDS(resultLastLoginTimeUserForUniqueIdByUserWhereRegistration.lastLoginTime ?? DateTime.now());
+    await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUsernameByDiscordUser
+        .updateStringsToTempCacheServiceParameterStringDS(resultDiscordUserFirestore.username ?? "");
+    await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForGlobalNameByDiscordUser
+        .updateStringsToTempCacheServiceParameterStringDS(resultDiscordUserFirestore.globalName ?? "");
+    await _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUserSP
+        .updateBoolsToTempCacheServiceParameterBoolDS(resultVerifiedUser.isVerifiedUser ?? false);
+    _dataForLoginViewQThereIsStreamStateViewModel
+        .getDataForLoginView
+        ?.isLoading = false;
+    _dataForLoginViewQThereIsStreamStateViewModel
+        .notifyStreamDataForLoginView();
   }
 
   void _exceptionFirstBranchTwoForSignInWithDiscordForLoginViewForGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(ExceptionController exceptionController,Function(String? messageException) callbackException) {
@@ -183,6 +229,15 @@ final class LoginViewListViewModel
   }
 
   void _exceptionFirstBranchFourForSignInWithDiscordForLoginViewForGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(ExceptionController exceptionController,Function(String? messageException) callbackException) {
+    _dataForLoginViewQThereIsStreamStateViewModel
+        .getDataForLoginView
+        ?.isLoading = false;
+    _dataForLoginViewQThereIsStreamStateViewModel
+        .notifyStreamDataForLoginView();
+    callbackException(exceptionController.getKeyParameterException);
+  }
+
+  void _exceptionFirstBranchFiveForSignInWithDiscordForLoginViewForGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(ExceptionController exceptionController,Function(String? messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;

@@ -28,7 +28,7 @@ final class TempCacheService {
 
   dynamic getObjectFromTempCache(String key) {
     if(!_preTempCache.containsKey(key)) {
-      return throw LocalException(this, EnumGuiltyForLocalException.device,key,"no exists key");
+      return throw LocalException(this, EnumGuiltyForLocalException.developer,key,"no exists key");
     }
     return _preTempCache[key];
   }

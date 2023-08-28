@@ -51,7 +51,7 @@ final class _DefinedViewState
         return LoginView();
       case EnumDataForDefinedView.notVerifiedUser:
         return notVerifiedUser!;
-      case EnumDataForDefinedView.mainView:
+      case EnumDataForDefinedView.success:
         return MainView();
       default:
         return Container();

@@ -3,5 +3,5 @@ enum EnumDataForDefinedView {
   exception,
   loginView,
   notVerifiedUser,
-  mainView
+  success
 }

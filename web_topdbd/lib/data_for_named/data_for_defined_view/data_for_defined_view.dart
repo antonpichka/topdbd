@@ -23,7 +23,7 @@ final class DataForDefinedView
     if(isNotVerifiedUserByVerifiedUserSPParameterIsVerifiedUserByVerifiedUserSP() ?? false) {
       return EnumDataForDefinedView.notVerifiedUser;
     }
-    return EnumDataForDefinedView.mainView;
+    return EnumDataForDefinedView.success;
   }
 
   bool? isNotVerifiedUserByVerifiedUserSPParameterIsVerifiedUserByVerifiedUserSP() {

@@ -17,6 +17,14 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String lastLoginTimeUser = "lastLoginTimeUser";
   static const String lastLoginTimeUserQUniqueIdByUser = "uniqueIdByUser";
   static const String lastLoginTimeUserQLastLoginTime = "lastLoginTime";
+  /* IPAddress as IPAddressFirestore */
+  static const String ipAddress = "ipAddress";
+  static const String ipAddressQUniqueIdByUser = "uniqueIdByUser";
+  static const String ipAddressQIp = "ip";
+  /* Country */
+  static const String country = "country";
+  static const String countryQUniqueIdByUser = "uniqueIdByUser";
+  static const String countryQNameCountry = "nameCountry";
 
   KeysFirebaseFirestoreServiceUtility._();
 }

@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:common_topdbd/named_utility/keys_api_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
@@ -21,7 +20,7 @@ final class AppView
 final class _AppViewState
     extends State<AppView>
 {
-  final _httpClientService = HttpClientService.instance;
+  final httpClientService = HttpClientService.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +46,7 @@ final class _AppViewState
             'scope': 'identify'
           }).toString(),
           callbackUrlScheme: "valid-callback-scheme");
-      final responseDiscordOauth2Token = await _httpClientService
+      final responseDiscordOauth2Token = await httpClientService
           .getHttpClient
           ?.post(Uri.parse('https://discord.com/api/oauth2/token'),
           headers: {
@@ -66,7 +65,7 @@ final class _AppViewState
         throw NetworkException.fromKeyAndStatusCode(this, responseDiscordOauth2Token!.statusCode.toString(), responseDiscordOauth2Token.statusCode);
       }
       final jsonFromResponseDiscordOauth2Token = jsonDecode(responseDiscordOauth2Token!.body);
-      final responseDiscordUser = await _httpClientService
+      final responseDiscordUser = await httpClientService
           .getHttpClient
           ?.get(Uri.parse('https://discord.com/api/users/@me'),
           headers: {

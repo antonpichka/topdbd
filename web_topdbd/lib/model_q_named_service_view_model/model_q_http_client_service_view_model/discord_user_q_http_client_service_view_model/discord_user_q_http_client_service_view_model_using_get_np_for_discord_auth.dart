@@ -1,41 +1,29 @@
 import 'dart:convert';
+import 'package:common_topdbd/model/discord_user/discord_user.dart';
+import 'package:common_topdbd/model/discord_user/list_discord_user.dart';
 import 'package:common_topdbd/named_utility/keys_api_utility.dart';
-import 'package:flutter/material.dart';
+import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
+import 'package:common_topdbd/named_utility/keys_http_client_service_utility.dart';
 import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
+import 'package:library_architecture_mvvm_modify/interface_model_q_named_service_data_source/i_get_model_from_named_service_np_data_source.dart';
+import 'package:library_architecture_mvvm_modify/utility/base_exception/local_exception.dart';
 import 'package:library_architecture_mvvm_modify/utility/base_exception/network_exception.dart';
+import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/http_client_service.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(AppView());
-}
-
-final class AppView
-    extends StatefulWidget
+base class DiscordUserQHttpClientServiceViewModelUsingGetNPForDiscordAuth<T extends DiscordUser,Y extends ListDiscordUser<T>>
+    implements IGetModelFromNamedServiceNPDataSource<T>
 {
-  @override
-  State<AppView> createState() => _AppViewState();
-}
-
-final class _AppViewState
-    extends State<AppView>
-{
+  @protected
   final httpClientService = HttpClientService.instance;
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
-          body: ElevatedButton(
-            onPressed: () async {
-              await _discordAuth();
-            },
-            child: const Text("Discord"),
-          ),
-        ));
+  Future<T> getDiscordUserFromHttpClientServiceNPDS() {
+    return getModelFromNamedServiceNPDS();
   }
 
-  Future<void> _discordAuth()
+  @protected
+  @override
+  Future<T> getModelFromNamedServiceNPDS()
   async {
     try {
       final responseAuthenticateDiscord = await FlutterWebAuth2.authenticate(
@@ -75,13 +63,14 @@ final class _AppViewState
         throw NetworkException.fromKeyAndStatusCode(this, responseDiscordUser!.statusCode.toString(), responseDiscordUser.statusCode);
       }
       final Map<String,dynamic> data = jsonDecode(responseDiscordUser!.body);
-      debugPrint(data.toString());
-    // ignore: unused_catch_clause
+      return DiscordUser.success(
+          data[KeysHttpClientServiceUtility.discordUserQId],
+          data[KeysHttpClientServiceUtility.discordUserQUsername],
+          data[KeysHttpClientServiceUtility.discordUserQGlobalName]) as T;
     } on NetworkException catch(e) {
-      return;
+      return DiscordUser.exception(e) as T;
     } catch(e) {
-      debugPrint(e.toString());
-      return;
+      return DiscordUser.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN)) as T;
     }
   }
 }

@@ -4,7 +4,7 @@ base class IPAddress extends BaseModel {
   final String? ip;
   final String? nameCountry;
 
-  IPAddress.success(this.ip,this.nameCountry) : super.success(ip.toString());
+  IPAddress.success(this.ip,this.nameCountry) : super.success(ip);
   IPAddress.exception(super.exception) :
         ip = null,
         nameCountry = null,

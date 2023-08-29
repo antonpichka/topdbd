@@ -1,7 +1,7 @@
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/named_service/firebase_app_service.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/named_service/firebase_auth_service.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/named_service/firebase_firestore_service.dart';
+import 'package:web_topdbd/named_service/firebase_app_service.dart';
+import 'package:web_topdbd/named_service/firebase_auth_service.dart';
+import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 final class InitializeServiceUtility {
   static bool _isInit = false;

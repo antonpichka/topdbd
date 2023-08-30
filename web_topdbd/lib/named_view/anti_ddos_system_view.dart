@@ -109,7 +109,7 @@ final class _AntiDDosSystemViewState
                           _antiDDosSystemViewListViewModel.clickButtonDoneForAntiDDosSystemView((messageException) {
                             showTopSnackBar(
                               Overlay.of(context),
-                              CustomSnackBar.error(message: messageException ?? "",),
+                              CustomSnackBar.error(message: messageException,),
                             );
                           });
                         },

@@ -1,4 +1,3 @@
-import 'package:common_topdbd/model/discord_user_firestore/discord_user_firestore.dart';
 import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
 import 'package:library_architecture_mvvm_modify/base_model/base_model.dart';
 
@@ -17,12 +16,12 @@ base class DiscordUser extends BaseModel {
   @override
   DiscordUser get getCloneModel => DiscordUser.success(id, username, globalName);
 
-  String? getStringFromDiscordUserFirestoreWhereNotEqualsParametersUsernameAndGlobalName(DiscordUserFirestore discordUserFirestore) {
-    if(username != discordUserFirestore.username) {
-      return KeysExceptionUtility.discordUserQGetStringFromDiscordUserFirestoreWhereNotEqualsParametersUsernameAndGlobalName;
+  String? getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(String username, String globalName) {
+    if(this.username != username) {
+      return KeysExceptionUtility.discordUserQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName;
     }
-    if(globalName != discordUserFirestore.globalName) {
-      return KeysExceptionUtility.discordUserQGetStringFromDiscordUserFirestoreWhereNotEqualsParametersUsernameAndGlobalNameTWO;
+    if(this.globalName != globalName) {
+      return KeysExceptionUtility.discordUserQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalNameTWO;
     }
     return "";
   }

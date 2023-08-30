@@ -151,10 +151,10 @@ final class LoginViewListViewModel
       _firstBranchOneForSignInWithDiscordForLoginViewForGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultDiscordUserFirestoreForUniqueId,callbackSuccess,callbackException,resultDiscordUserForDiscordAuth);
       return;
     }
-    final getStringFromDiscordUserFirestoreWhereNotEqualsParametersUsernameAndGlobalName = resultDiscordUserForDiscordAuth
-        .getStringFromDiscordUserFirestoreWhereNotEqualsParametersUsernameAndGlobalName(resultDiscordUserFirestoreForUniqueId);
-    if(getStringFromDiscordUserFirestoreWhereNotEqualsParametersUsernameAndGlobalName?.isNotEmpty ?? false) {
-      _firstBranchOneForSignInWithDiscordForLoginViewForGetStringFromDiscordUserFirestoreWhereNotEqualsParametersUsernameAndGlobalName(getStringFromDiscordUserFirestoreWhereNotEqualsParametersUsernameAndGlobalName,callbackSuccess,callbackException,resultDiscordUserFirestoreForUniqueId);
+    final getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName = resultDiscordUserForDiscordAuth
+        .getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultDiscordUserFirestoreForUniqueId.username ?? "",resultDiscordUserFirestoreForUniqueId.globalName ?? "");
+    if(getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName?.isNotEmpty ?? false) {
+      _firstBranchOneForSignInWithDiscordForLoginViewForGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName,callbackSuccess,callbackException,resultDiscordUserFirestoreForUniqueId);
       return;
     }
     _dataForLoginViewQThereIsStreamStateViewModel
@@ -340,7 +340,7 @@ final class LoginViewListViewModel
     callbackException(country.exceptionController.getKeyParameterException);
   }
 
-  Future<void> _firstBranchOneForSignInWithDiscordForLoginViewForGetStringFromDiscordUserFirestoreWhereNotEqualsParametersUsernameAndGlobalName(String? getStringFromDiscordUserFirestoreWhereNotEqualsParametersUsernameAndGlobalName, Function() callbackSuccess, Function(String messageException) callbackException, DiscordUserFirestore discordUserFirestore)
+  Future<void> _firstBranchOneForSignInWithDiscordForLoginViewForGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(String? getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName, Function() callbackSuccess, Function(String messageException) callbackException, DiscordUserFirestore discordUserFirestore)
   async {
 
   }

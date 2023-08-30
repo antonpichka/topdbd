@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:common_topdbd/model/last_login_time_user/last_login_time_user.dart';
 import 'package:common_topdbd/model/last_login_time_user/list_last_login_time_user.dart';
 import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
@@ -23,20 +22,18 @@ base class LastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingGetParameterS
   Future<T> getModelFromNamedServiceParameterNamedDS(String parameter)
   async {
     try {
-      final documentByLastLoginTimeUserWhereAdding = await firebaseFirestoreService
+      final documentByLastLoginTimeUser = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUser)
-          .add({
-        KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser : parameter,
-        KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime : FieldValue.serverTimestamp()
-          });
-      final documentByLastLoginTimeUser = await documentByLastLoginTimeUserWhereAdding?.get();
-      if(!(documentByLastLoginTimeUser?.exists ?? false)) {
+          .where(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser,isEqualTo: parameter)
+          .limit(1)
+          .get();
+      if((documentByLastLoginTimeUser?.size ?? 0) <= 0) {
         return LastLoginTimeUser.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.lastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUserQWhereLocalExceptionGuiltyUserNoExists)) as T;
       }
       return LastLoginTimeUser.success(
-          documentByLastLoginTimeUser?.data()?[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser],
-          documentByLastLoginTimeUser?.data()?[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime]) as T;
+          documentByLastLoginTimeUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser],
+          documentByLastLoginTimeUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime]) as T;
     } catch(e) {
       return LastLoginTimeUser.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
     }

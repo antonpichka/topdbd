@@ -25,9 +25,9 @@ final class DataForAntiDDosSystemView
     return EnumDataForAntiDDosSystemView.definedView;
   }
 
-  String? get getExceptionInStringWhereNotEqualsParametersCodeAndInputCode {
+  String? get getStringWhereNotEqualsParametersCodeAndInputCode {
     if(code != inputCode) {
-      return KeysExceptionUtility.dataForAntiDDosSystemViewQWhereNotEqualsParametersCodeAndInputCode;
+      return KeysExceptionUtility.dataForAntiDDosSystemViewQGetStringWhereNotEqualsParametersCodeAndInputCode;
     }
     return "";
   }

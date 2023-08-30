@@ -47,7 +47,7 @@ final class AntiDDosSystemViewListViewModel
         .notifyStreamDataForAntiDDosSystemView();
   }
 
-  void clickButtonDoneForAntiDDosSystemView(Function(String? messageException) callbackException) {
+  void clickButtonDoneForAntiDDosSystemView(Function(String messageException) callbackException) {
     if(_dataForAntiDDosSystemViewQThereIsStreamStateViewModel
         .getDataForAntiDDosSystemView
         ?.isLoading ?? false)
@@ -59,11 +59,11 @@ final class AntiDDosSystemViewListViewModel
         ?.isLoading = true;
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
         .notifyStreamDataForAntiDDosSystemView();
-    final getExceptionInStringWhereNotEqualsParametersCodeAndInputCode = _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
+    final getStringWhereNotEqualsParametersCodeAndInputCode = _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
         .getDataForAntiDDosSystemView
-        ?.getExceptionInStringWhereNotEqualsParametersCodeAndInputCode;
-    if(getExceptionInStringWhereNotEqualsParametersCodeAndInputCode?.isNotEmpty ?? false) {
-      _exceptionFirstBranchOneToClickButtonDoneForAntiDDosSystemViewForGetExceptionInStringWhereNotEqualsParametersCodeAndInputCode(getExceptionInStringWhereNotEqualsParametersCodeAndInputCode,callbackException);
+        ?.getStringWhereNotEqualsParametersCodeAndInputCode;
+    if(getStringWhereNotEqualsParametersCodeAndInputCode?.isNotEmpty ?? false) {
+      _firstBranchOneToClickButtonDoneForAntiDDosSystemViewForGetStringWhereNotEqualsParametersCodeAndInputCode(getStringWhereNotEqualsParametersCodeAndInputCode,callbackException);
       return;
     }
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
@@ -76,12 +76,12 @@ final class AntiDDosSystemViewListViewModel
         .notifyStreamDataForAntiDDosSystemView();
   }
 
-  void _exceptionFirstBranchOneToClickButtonDoneForAntiDDosSystemViewForGetExceptionInStringWhereNotEqualsParametersCodeAndInputCode(String? getExceptionInStringWhereNotEqualsParametersCodeAndInputCode, Function(String? messageException) callbackException) {
+  void _firstBranchOneToClickButtonDoneForAntiDDosSystemViewForGetStringWhereNotEqualsParametersCodeAndInputCode(String? getStringWhereNotEqualsParametersCodeAndInputCode, Function(String messageException) callbackException) {
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
         .getDataForAntiDDosSystemView
         ?.isLoading = false;
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
         .notifyStreamDataForAntiDDosSystemView();
-    callbackException(getExceptionInStringWhereNotEqualsParametersCodeAndInputCode);
+    callbackException(getStringWhereNotEqualsParametersCodeAndInputCode ?? "");
   }
 }

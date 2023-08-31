@@ -251,8 +251,9 @@ final class LoginViewListViewModel
       _firstBranchEightForSignInWithDiscordForLoginViewForGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultCountry,callbackSuccess,callbackException);
       return;
     }
+    
     // Create AboutMe and Stats (Firestore)
-    // Create AboutMe and Stats (TempCache)
+    // Create AboutMe and Stats and SeasonNumber by Season (TempCache)
     await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser
         .updateStringsToTempCacheServiceParameterStringDS(resultUserForUniqueIdWhereRegistration.uniqueId ?? "");
     await _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser

@@ -51,7 +51,7 @@ final class _AntiDDosSystemViewState
         return Scaffold(body: Center(child: Text("Exception: ${dataForAntiDDosSystemView?.exceptionController.getKeyParameterException}")));
       case EnumDataForAntiDDosSystemView.form:
         return form!;
-      case EnumDataForAntiDDosSystemView.definedView:
+      case EnumDataForAntiDDosSystemView.success:
         return DefinedView();
       default:
         return Container();

@@ -22,7 +22,7 @@ final class DataForAntiDDosSystemView
     if(isNotSuccessCodeParameterIsSuccessCode() ?? false) {
       return EnumDataForAntiDDosSystemView.form;
     }
-    return EnumDataForAntiDDosSystemView.definedView;
+    return EnumDataForAntiDDosSystemView.success;
   }
 
   String? get getStringWhereNotEqualsParametersCodeAndInputCode {

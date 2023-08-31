@@ -1,4 +1,15 @@
+// ignore_for_file: constant_identifier_names
+
 final class KeysFirebaseFirestoreServiceUtility {
+  /* ThoseWorks  */
+  static const String thoseWorks = "thoseWorks";
+  static const String thoseWorksQIsThoseWorks = "isThoseWorks";
+  /* TOPDBDVersionWeb */
+  static const String TOPDBDVersionWeb = "TOPDBDVersionWeb";
+  static const String TOPDBDVersionWebQVersion = "version";
+  /* TOPDBDVersionWindows */
+  static const String TOPDBDVersionWindows = "TOPDBDVersionWindows";
+  static const String TOPDBDVersionWindowsQVersion = "version";
   /* User */
   static const String user = "user";
   static const String userQUniqueId = "uniqueId";
@@ -33,12 +44,13 @@ final class KeysFirebaseFirestoreServiceUtility {
   /* Season */
   static const String season = "season";
   static const String seasonQSeasonNumber = "seasonNumber";
-  static const String seasonQNumberOfMatchesPlayedPerSeason = "numberOfMatchesPlayedPerSeason";
-  static const String seasonQNumberOfUniquePlayersWhoPlayedInASeason = "numberOfUniquePlayersWhoPlayedInASeason";
+  static const String seasonQStrNumberOfMatchesPlayedPerSeason = "strNumberOfMatchesPlayedPerSeason";
+  static const String seasonQStrNumberOfUniquePlayersWhoPlayedInASeason = "strNumberOfUniquePlayersWhoPlayedInASeason";
+  static const String seasonQEndOfSeasonTime = "endOfSeasonTime";
   /* Stats */
   static const String stats = "stats";
   static const String statsQUniqueIdByUser = "uniqueIdByUser";
-  static const String statsQSeasonNumber = "seasonNumber";
+  static const String statsQSeasonNumberBySeason = "seasonNumberBySeason";
   static const String statsQMatchesWon = "matchesWon";
   static const String statsQMatchesLost = "matchesLost";
   static const String statsQRatingPoints = "ratingPoints";
@@ -55,15 +67,18 @@ final class KeysFirebaseFirestoreServiceUtility {
   /* Matches */
   static const String matches = "matches";
   static const String matchesQUniqueId = "uniqueId";
-  static const String matchesQSeasonNumber = "seasonNumber";
+  static const String matchesQSeasonNumberBySeason = "seasonNumberBySeason";
   static const String matchesQCreationTime = "creationTime";
   static const String matchesQIsCompleted = "isCompleted";
   static const String matchesQNumberOfRoundsByInformationDBDMatch = "NumberOfRoundsByInformationDBDMatch";
   static const String matchesQListPerkByInformationDBDMatch = "listPerkByInformationDBDMatch";
   static const String matchesQListManiacWithHisMapsByInformationDBDMatch = "listManiacWithHisMapsByInformationDBDMatch";
+  static const String matchesQTextLogAction = "textLogAction";
   static const String matchesQUniqueIdByUserWhereFirst = "uniqueIdByUserWhereFirst";
   static const String matchesQUniqueIdByUserWhereSecond = "uniqueIdByUserWhereSecond";
-  static const String matchesQIsRoleManiacForUniqueIdByUserWhereFirst = "IsRoleManiacForUniqueIdByUserWhereFirst";
+  static const String matchesQIsRoleManiacForUniqueIdByUserWhereFirst = "isRoleManiacForUniqueIdByUserWhereFirst";
+  static const String matchesQIsTimerStartForUniqueIdByUserWhereFirst = "isTimerStartForUniqueIdByUserWhereFirst";
+  static const String matchesQIsTimerStartForUniqueIdByUserWhereSecond = "isTimerStartForUniqueIdByUserWhereSecond";
   static const String matchesQListBanManiacWithHisMapsForUniqueIdByUserWhereFirst = "listBanManiacWithHisMapsForUniqueIdByUserWhereFirst";
   static const String matchesQListBanManiacWithHisMapsForUniqueIdByUserWhereSecond = "listBanManiacWithHisMapsForUniqueIdByUserWhereSecond";
   static const String matchesQListPickManiacWithHisMapForUniqueIdByUserWhereFirst = "listPickManiacWithHisMapForUniqueIdByUserWhereFirst";

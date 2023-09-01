@@ -3,16 +3,12 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/named_utility/initialize_service_utility.dart';
 import 'package:web_topdbd/named_view_list_view_model/main_view_list_view_model.dart';
 
-final class MainView
-    extends StatefulWidget
-{
+final class MainView extends StatefulWidget {
   @override
   State<MainView> createState() => _MainViewState();
 }
 
-final class _MainViewState
-    extends State<MainView>
-{
+final class _MainViewState extends State<MainView> {
   late final MainViewListViewModel _mainViewListViewModel;
 
   @override

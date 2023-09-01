@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'package:common_topdbd/named_utility/keys_temp_cache_service_utility.dart';
-import 'package:library_architecture_mvvm_modify/base_model/list_strings.dart';
-import 'package:library_architecture_mvvm_modify/base_model/strings.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
-import 'package:web_topdbd/named_service/temp_cache_service.dart';
 
 base class StringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser<T extends Strings,Y extends ListStrings<T>> {
   @protected

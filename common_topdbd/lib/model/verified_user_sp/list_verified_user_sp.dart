@@ -1,5 +1,5 @@
 import 'package:common_topdbd/model/verified_user_sp/verified_user_sp.dart';
-import 'package:library_architecture_mvvm_modify/base_model/base_list_model.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 
 base class ListVerifiedUserSP<T extends VerifiedUserSP> extends BaseListModel<T> {
   ListVerifiedUserSP.success(super.listModel) : super.success();

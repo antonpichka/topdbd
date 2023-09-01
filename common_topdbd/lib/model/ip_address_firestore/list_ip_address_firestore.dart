@@ -1,5 +1,5 @@
 import 'package:common_topdbd/model/ip_address_firestore/ip_address_firestore.dart';
-import 'package:library_architecture_mvvm_modify/base_model/base_list_model.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 
 base class ListIPAddressFirestore<T extends IPAddressFirestore> extends BaseListModel<T> {
   ListIPAddressFirestore.success(super.listModel) : super.success();

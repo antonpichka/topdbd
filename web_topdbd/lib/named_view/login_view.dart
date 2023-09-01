@@ -6,16 +6,12 @@ import 'package:web_topdbd/data_for_named/data_for_login_view/enum_data_for_logi
 import 'package:web_topdbd/named_utility/initialize_service_utility.dart';
 import 'package:web_topdbd/named_view_list_view_model/login_view_list_view_model.dart';
 
-final class LoginView
-    extends StatefulWidget
-{
+final class LoginView extends StatefulWidget {
   @override
   State<LoginView> createState() => _LoginViewState();
 }
 
-final class _LoginViewState
-    extends State<LoginView>
-{
+final class _LoginViewState extends State<LoginView> {
   late final LoginViewListViewModel _loginViewListViewModel;
   late final ScrollController _scrollController;
 

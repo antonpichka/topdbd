@@ -1,5 +1,5 @@
 import 'package:common_topdbd/model/role_user/role_user.dart';
-import 'package:library_architecture_mvvm_modify/base_model/base_list_model.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 
 base class ListRoleUser<T extends RoleUser> extends BaseListModel<T> {
   ListRoleUser.success(super.listModel) : super.success();

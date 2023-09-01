@@ -1,4 +1,4 @@
-import 'package:library_architecture_mvvm_modify/base_model/base_model.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 
 base class Season extends BaseModel {
   final int? seasonNumber;

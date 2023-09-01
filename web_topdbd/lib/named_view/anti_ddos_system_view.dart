@@ -7,16 +7,12 @@ import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/enum_da
 import 'package:web_topdbd/named_view/defined_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/anti_ddos_system_view_list_view_model.dart';
 
-final class AntiDDosSystemView
-    extends StatefulWidget
-{
+final class AntiDDosSystemView extends StatefulWidget {
   @override
   State<AntiDDosSystemView> createState() => _AntiDDosSystemViewState();
 }
 
-final class _AntiDDosSystemViewState
-    extends State<AntiDDosSystemView>
-{
+final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
   late final AntiDDosSystemViewListViewModel _antiDDosSystemViewListViewModel;
 
   @override

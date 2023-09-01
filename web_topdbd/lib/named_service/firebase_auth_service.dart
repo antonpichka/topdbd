@@ -2,7 +2,7 @@ import 'package:common_topdbd/named_utility/keys_api_utility.dart';
 import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:library_architecture_mvvm_modify/utility/base_exception/local_exception.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 
 final class FirebaseAuthService {
   static final FirebaseAuthService instance = FirebaseAuthService._();

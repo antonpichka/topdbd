@@ -5,15 +5,11 @@ import 'package:common_topdbd/named_utility/keys_api_utility.dart';
 import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
 import 'package:common_topdbd/named_utility/keys_http_client_service_utility.dart';
 import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
-import 'package:library_architecture_mvvm_modify/interface_model_q_named_service_data_source/i_get_model_from_named_service_np_data_source.dart';
-import 'package:library_architecture_mvvm_modify/utility/base_exception/local_exception.dart';
-import 'package:library_architecture_mvvm_modify/utility/base_exception/network_exception.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/http_client_service.dart';
 
-base class DiscordUserQHttpClientServiceViewModelUsingGetNPForDiscordAuth<T extends DiscordUser,Y extends ListDiscordUser<T>>
-    implements IGetModelFromNamedServiceNPDataSource<T>
-{
+base class DiscordUserQHttpClientServiceViewModelUsingGetNPForDiscordAuth<T extends DiscordUser,Y extends ListDiscordUser<T>> extends BaseGetModelFromNamedServiceNPDataSource<T> {
   @protected
   final httpClientService = HttpClientService.instance;
 

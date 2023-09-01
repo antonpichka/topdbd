@@ -1,16 +1,9 @@
 import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
 import 'package:common_topdbd/named_utility/keys_temp_cache_service_utility.dart';
-import 'package:library_architecture_mvvm_modify/base_model/bools.dart';
-import 'package:library_architecture_mvvm_modify/base_model/list_bools.dart';
-import 'package:library_architecture_mvvm_modify/interface_model_q_named_service_data_source/i_update_model_to_named_service_parameter_named_data_source.dart';
-import 'package:library_architecture_mvvm_modify/utility/base_exception/local_exception.dart';
-import 'package:library_architecture_mvvm_modify/utility/result.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
-import 'package:web_topdbd/named_service/temp_cache_service.dart';
 
-base class BoolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUserSP<T extends Bools,Y extends ListBools<T>>
-    implements IUpdateModelToNamedServiceParameterNamedDataSource<bool,bool>
-{
+base class BoolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUserSP<T extends Bools,Y extends ListBools<T>> extends BaseUpdateModelToNamedServiceParameterNamedDataSource<bool,bool> {
   @protected
   final tempCacheService = TempCacheService.instance;
 

@@ -1,5 +1,5 @@
 import 'package:common_topdbd/model/ip_address/ip_address.dart';
-import 'package:library_architecture_mvvm_modify/base_model/base_list_model.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 
 base class ListIPAddress<T extends IPAddress> extends BaseListModel<T> {
   ListIPAddress.success(super.listModel) : super.success();

@@ -1,5 +1,5 @@
 import 'package:common_topdbd/model/discord_user_firestore/discord_user_firestore.dart';
-import 'package:library_architecture_mvvm_modify/base_model/base_list_model.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 
 base class ListDiscordUserFirestore<T extends DiscordUserFirestore> extends BaseListModel<T> {
   ListDiscordUserFirestore.success(super.listModel) : super.success();

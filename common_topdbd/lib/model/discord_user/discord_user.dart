@@ -1,5 +1,5 @@
 import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
-import 'package:library_architecture_mvvm_modify/base_model/base_model.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 
 base class DiscordUser extends BaseModel {
   final String? id;

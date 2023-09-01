@@ -5,16 +5,12 @@ import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_view/anti_ddos_system_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/app_view_list_view_model.dart';
 
-final class AppView
-    extends StatefulWidget
-{
+final class AppView extends StatefulWidget {
   @override
   State<AppView> createState() => _AppViewState();
 }
 
-final class _AppViewState
-    extends State<AppView>
-{
+final class _AppViewState extends State<AppView> {
   late final AppViewListViewModel _appViewListViewModel;
 
   @override

@@ -5,16 +5,12 @@ import 'package:web_topdbd/named_view/login_view.dart';
 import 'package:web_topdbd/named_view/main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/defined_view_list_view_model.dart';
 
-final class DefinedView
-    extends StatefulWidget
-{
+final class DefinedView extends StatefulWidget {
   @override
   State<DefinedView> createState() => _DefinedViewState();
 }
 
-final class _DefinedViewState
-    extends State<DefinedView>
-{
+final class _DefinedViewState extends State<DefinedView> {
   late final DefinedViewListViewModel _definedViewListViewModel;
 
   @override

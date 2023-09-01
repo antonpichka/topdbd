@@ -1,5 +1,5 @@
 import 'package:common_topdbd/model/stats/stats.dart';
-import 'package:library_architecture_mvvm_modify/base_model/base_list_model.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 
 base class ListStats<T extends Stats> extends BaseListModel<T> {
   ListStats.success(super.listModel) : super.success();

@@ -1,18 +1,16 @@
 import 'package:common_topdbd/named_utility/algorithms_utility.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
-import 'package:library_architecture_mvvm_modify/base_named_view_list_view_model/base_named_view_list_view_model.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/data_for_anti_ddos_system_view.dart';
-import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/initialized_stream_state_data_for_anti_ddos_system_view/initialized_stream_state_data_for_anti_ddos_system_view.dart';
+import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/initialized_named_stream_state_q_data_for_anti_ddos_system_view/initialized_default_stream_state_q_data_for_anti_ddos_system_view.dart';
 import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/data_for_anti_ddos_system_view_q_there_is_stream_state_view_model/data_for_anti_ddos_system_view_q_there_is_stream_state_view_model.dart';
 
-final class AntiDDosSystemViewListViewModel
-    extends BaseNamedViewListViewModel
-{
+final class AntiDDosSystemViewListViewModel extends BaseNamedViewListViewModel {
   // ModelQNamedServiceViewModel
 
   // DataForNamedQThereIsStreamStateViewModel
   final _dataForAntiDDosSystemViewQThereIsStreamStateViewModel =
-  DataForAntiDDosSystemViewQThereIsStreamStateViewModel(InitializedStreamStateDataForAntiDDosSystemView());
+  DataForAntiDDosSystemViewQThereIsStreamStateViewModel(InitializedDefaultStreamStateQDataForAntiDDosSystemView());
 
   // NamedUtility
 

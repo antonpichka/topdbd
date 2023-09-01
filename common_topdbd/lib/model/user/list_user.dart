@@ -1,5 +1,5 @@
 import 'package:common_topdbd/model/user/user.dart';
-import 'package:library_architecture_mvvm_modify/base_model/base_list_model.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 
 base class ListUser<T extends User> extends BaseListModel<T> {
   ListUser.success(super.listModel) : super.success();

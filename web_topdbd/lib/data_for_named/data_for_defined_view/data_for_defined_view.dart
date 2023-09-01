@@ -1,21 +1,20 @@
-import 'package:library_architecture_mvvm_modify/base_data_for_named/base_data_for_named.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:web_topdbd/data_for_named/data_for_defined_view/enum_data_for_defined_view.dart';
 
 final class DataForDefinedView extends BaseDataForNamed {
-  bool? isLoading;
-  String? uniqueIdByUser;
-  bool? isVerifiedUserByVerifiedUserSP;
+  String uniqueIdByUser;
+  bool isVerifiedUserByVerifiedUserSP;
 
-  DataForDefinedView(this.isLoading,this.uniqueIdByUser,this.isVerifiedUserByVerifiedUserSP) : super();
+  DataForDefinedView(super.isLoading,this.uniqueIdByUser,this.isVerifiedUserByVerifiedUserSP) : super();
 
   EnumDataForDefinedView get getEnumDataForDefinedView {
-    if(isLoading ?? false) {
+    if(isLoading) {
       return EnumDataForDefinedView.isLoading;
     }
     if(exceptionController.isNotEqualsNullParameterException()) {
       return EnumDataForDefinedView.exception;
     }
-    if(uniqueIdByUser?.isEmpty ?? false) {
+    if(uniqueIdByUser.isEmpty) {
       return EnumDataForDefinedView.loginView;
     }
     if(isNotVerifiedUserByVerifiedUserSPParameterIsVerifiedUserByVerifiedUserSP() ?? false) {
@@ -25,6 +24,6 @@ final class DataForDefinedView extends BaseDataForNamed {
   }
 
   bool? isNotVerifiedUserByVerifiedUserSPParameterIsVerifiedUserByVerifiedUserSP() {
-    return !(isVerifiedUserByVerifiedUserSP ?? false);
+    return !isVerifiedUserByVerifiedUserSP;
   }
 }

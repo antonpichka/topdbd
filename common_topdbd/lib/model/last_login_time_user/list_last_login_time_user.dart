@@ -1,5 +1,5 @@
 import 'package:common_topdbd/model/last_login_time_user/last_login_time_user.dart';
-import 'package:library_architecture_mvvm_modify/base_model/base_list_model.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 
 base class ListLastLoginTimeUser<T extends LastLoginTimeUser> extends BaseListModel<T> {
   ListLastLoginTimeUser.success(super.listModel) : super.success();

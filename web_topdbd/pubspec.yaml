@@ -15,10 +15,10 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
-  library_architecture_mvvm_modify: ^0.1.4
+  library_architecture_mvvm_modify: ^0.1.5
   intl: ^0.18.0
   responsive_framework: ^1.1.0
-  meta: ^1.8.0
+  meta: ^1.9.1
   firebase_core: ^2.10.0
   flutter_web_auth_2_platform_interface: ^2.1.4
   flutter_web_auth_2: ^2.1.4
@@ -31,7 +31,7 @@ dependencies:
   uuid: ^3.0.7
 
 dev_dependencies:
-  flutter_lints: ^2.0.1
+  flutter_lints: ^2.0.3
 
 flutter:
   uses-material-design: true

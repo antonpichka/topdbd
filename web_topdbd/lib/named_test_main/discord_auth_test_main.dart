@@ -1,8 +1,10 @@
+// ignore_for_file: library_prefixes
+
 import 'dart:convert';
 import 'package:common_topdbd/named_utility/keys_api_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
-import 'package:library_architecture_mvvm_modify/utility/base_exception/network_exception.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart' as LAMM;
 import 'package:web_topdbd/named_service/http_client_service.dart';
 
 void main() {
@@ -62,7 +64,7 @@ final class _AppViewState
                 .queryParameters['code'],
           });
       if (responseDiscordOauth2Token?.statusCode != 200) {
-        throw NetworkException.fromKeyAndStatusCode(this, responseDiscordOauth2Token!.statusCode.toString(), responseDiscordOauth2Token.statusCode);
+        throw LAMM.NetworkException.fromKeyAndStatusCode(this, responseDiscordOauth2Token!.statusCode.toString(), responseDiscordOauth2Token.statusCode);
       }
       final jsonFromResponseDiscordOauth2Token = jsonDecode(responseDiscordOauth2Token!.body);
       final responseDiscordUser = await httpClientService
@@ -72,15 +74,15 @@ final class _AppViewState
             'authorization': '${jsonFromResponseDiscordOauth2Token["token_type"]} ${jsonFromResponseDiscordOauth2Token["access_token"]}',
           });
       if(responseDiscordUser?.statusCode != 200) {
-        throw NetworkException.fromKeyAndStatusCode(this, responseDiscordUser!.statusCode.toString(), responseDiscordUser.statusCode);
+        throw LAMM.NetworkException.fromKeyAndStatusCode(this, responseDiscordUser!.statusCode.toString(), responseDiscordUser.statusCode);
       }
       final Map<String,dynamic> data = jsonDecode(responseDiscordUser!.body);
-      debugPrint(data.toString());
+      LAMM.debugPrint(data.toString());
     // ignore: unused_catch_clause
-    } on NetworkException catch(e) {
+    } on LAMM.NetworkException catch(e) {
       return;
     } catch(e) {
-      debugPrint(e.toString());
+      LAMM.debugPrint(e.toString());
       return;
     }
   }

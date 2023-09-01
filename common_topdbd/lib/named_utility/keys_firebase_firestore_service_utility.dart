@@ -24,6 +24,11 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String verifiedUser = "verifiedUser";
   static const String verifiedUserQUniqueIdByUser = "uniqueIdByUser";
   static const String verifiedUserQIsVerifiedUser = "isVerifiedUser";
+  /* RoleUser */
+  static const String roleUser = "roleUser";
+  static const String roleUserQUniqueIdByUser = "uniqueIdByUser";
+  static const String roleUserQIsAdmin = "isAdmin";
+  static const String roleUserQIsTest = "isTest";
   /* LastLoginTimeUser */
   static const String lastLoginTimeUser = "lastLoginTimeUser";
   static const String lastLoginTimeUserQUniqueIdByUser = "uniqueIdByUser";

@@ -2,9 +2,7 @@ import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
 import 'package:library_architecture_mvvm_modify/base_data_for_named/base_data_for_named.dart';
 import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/enum_data_for_anti_ddos_system_view.dart';
 
-final class DataForAntiDDosSystemView
-    extends BaseDataForNamed
-{
+final class DataForAntiDDosSystemView extends BaseDataForNamed {
   bool? isLoading;
   String? code;
   bool? isSuccessCode;

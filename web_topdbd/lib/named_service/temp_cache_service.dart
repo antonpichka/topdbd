@@ -9,11 +9,10 @@ final class TempCacheService {
         _preTempCache = {},
         _tempCache = {};
 
-  Stream<dynamic> getStreamObjectFromTempCache(String key)
+  Stream<dynamic> getStreamObjectFromTempCache(String key,[int milliseconds = 500])
   async* {
-    _beforeActivatingTheStream(key);
     while(true) {
-      await Future.delayed(const Duration(milliseconds: 500));
+      await Future.delayed(Duration(milliseconds: milliseconds));
       if(!_preTempCache.containsKey(key)) {
         continue;
       }
@@ -45,12 +44,5 @@ final class TempCacheService {
   void deleteObjectToTempCache(String key) {
     _preTempCache.remove(key);
     _tempCache.remove(key);
-  }
-
-  void _beforeActivatingTheStream(String key) {
-    if(!_preTempCache.containsKey(key)) {
-      return;
-    }
-    _tempCache[key] = _preTempCache[key];
   }
 }

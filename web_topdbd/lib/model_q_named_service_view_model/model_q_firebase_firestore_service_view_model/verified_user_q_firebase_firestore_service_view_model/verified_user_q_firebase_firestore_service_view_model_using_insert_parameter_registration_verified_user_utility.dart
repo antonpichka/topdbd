@@ -7,17 +7,17 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
-base class VerifiedUserQFirebaseFirestoreServiceViewModelUsingGetParameterRegistrationVerifiedUserUtility<T extends VerifiedUser,Y extends ListVerifiedUser<T>> extends BaseGetModelFromNamedServiceParameterNamedDataSource<T,RegistrationVerifiedUserUtility> {
+base class VerifiedUserQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationVerifiedUserUtility<T extends VerifiedUser,Y extends ListVerifiedUser<T>> extends BaseInsertModelToNamedServiceParameterNamedDataSource<T,RegistrationVerifiedUserUtility> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<T> getVerifiedUserFromFirebaseFirestoreServiceParameterRegistrationVerifiedUserUtilityDS(RegistrationVerifiedUserUtility parameter) {
-    return getModelFromNamedServiceParameterNamedDS(parameter);
+  Future<Result<T>> insertVerifiedUserToFirebaseFirestoreServiceParameterRegistrationVerifiedUserUtilityDS(RegistrationVerifiedUserUtility parameter) {
+    return insertModelToNamedServiceParameterNamedDS(parameter);
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceParameterNamedDS(RegistrationVerifiedUserUtility parameter)
+  Future<Result<T>> insertModelToNamedServiceParameterNamedDS(RegistrationVerifiedUserUtility parameter)
   async {
     try {
       final documentByVerifiedUserWhereAdding = await firebaseFirestoreService
@@ -29,13 +29,13 @@ base class VerifiedUserQFirebaseFirestoreServiceViewModelUsingGetParameterRegist
           });
       final documentByVerifiedUser = await documentByVerifiedUserWhereAdding?.get();
       if(!(documentByVerifiedUser?.exists ?? false)) {
-        return VerifiedUser.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.verifiedUserQFirebaseFirestoreServiceViewModelUsingGetParameterRegistrationVerifiedUserUtilityQWhereLocalExceptionGuiltyUserNoExists)) as T;
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.verifiedUserQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationVerifiedUserUtilityQWhereLocalExceptionGuiltyUserNoExists));
       }
-      return VerifiedUser.success(
+      return Result<T>.success(VerifiedUser(
           documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQUniqueIdByUser],
-          documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQIsVerifiedUser]) as T;
+          documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQIsVerifiedUser]) as T);
     } catch(e) {
-      return VerifiedUser.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

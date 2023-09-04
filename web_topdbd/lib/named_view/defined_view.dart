@@ -78,7 +78,7 @@ final class _DefinedViewState extends State<DefinedView> {
   async {
     _definedViewListViewModel
         .getStreamDataForDefinedView
-        ?.listen((event) {
+        .listen((event) {
           setState(() {});
         });
     _definedViewListViewModel.listeningStreamsTempCacheServiceForDefinedView();

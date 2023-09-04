@@ -10,20 +10,20 @@ base class VerifiedUserSPQSharedPreferencesServiceViewModelUsingGetNP<T extends 
   @protected
   final sharedPreferencesService = SharedPreferencesService.instance;
 
-  Future<T> getVerifiedUserSPFromSharedPreferencesServiceNPDS() {
+  Future<Result<T>> getVerifiedUserSPFromSharedPreferencesServiceNPDS() {
     return getModelFromNamedServiceNPDS();
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceNPDS()
+  Future<Result<T>> getModelFromNamedServiceNPDS()
   async {
     try {
       final sharedPreferences = await sharedPreferencesService.getSharedPreferences;
       final isVerifiedUser = sharedPreferences?.getBool(KeysSharedPreferencesServiceUtility.verifiedUserSPQIsVerifiedUser) ?? false;
-      return VerifiedUserSP.success(isVerifiedUser) as T;
+      return Result<T>.success(VerifiedUserSP(isVerifiedUser) as T);
     } catch (e) {
-      return VerifiedUserSP.exception(LocalException(this, EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this, EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

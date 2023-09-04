@@ -11,13 +11,13 @@ base class IPAddressQHttpClientServiceViewModelUsingGetNPForJsonipAPI<T extends 
   @protected
   final httpClientService = HttpClientService.instance;
 
-  Future<T> getIPAddressFromHttpClientServiceNPDS() {
+  Future<Result<T>> getIPAddressFromHttpClientServiceNPDS() {
     return getModelFromNamedServiceNPDS();
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceNPDS()
+  Future<Result<T>> getModelFromNamedServiceNPDS()
   async {
     try {
       final response = await httpClientService
@@ -27,13 +27,13 @@ base class IPAddressQHttpClientServiceViewModelUsingGetNPForJsonipAPI<T extends 
         throw NetworkException.fromKeyAndStatusCode(this,response!.statusCode.toString(),response.statusCode);
       }
       final Map<String,dynamic> data = jsonDecode(response!.body);
-      return IPAddress.success(
+      return Result<T>.success(IPAddress(
           data[KeysHttpClientServiceUtility.iPAddressQIp],
-          data[KeysHttpClientServiceUtility.iPAddressQNameCountry]) as T;
+          data[KeysHttpClientServiceUtility.iPAddressQNameCountry]) as T);
     } on NetworkException catch(e) {
-      return IPAddress.exception(e) as T;
+      return Result<T>.exception(e);
     } catch(e) {
-      return IPAddress.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN)) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN));
     }
   }
 }

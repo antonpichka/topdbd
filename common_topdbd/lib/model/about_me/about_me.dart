@@ -1,17 +1,14 @@
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
+import 'package:meta/meta.dart';
 
+@immutable
 base class AboutMe extends BaseModel {
-  final String? uniqueIdByUser;
-  final String? codeDBD;
-  final String? codeSteam;
+  final String uniqueIdByUser;
+  final String codeDBD;
+  final String codeSteam;
 
-  AboutMe.success(this.uniqueIdByUser,this.codeDBD,this.codeSteam) : super.success(uniqueIdByUser);
-  AboutMe.exception(super.exception) :
-        uniqueIdByUser = null,
-        codeDBD = null,
-        codeSteam = null,
-        super.exception();
+  const AboutMe(this.uniqueIdByUser,this.codeDBD,this.codeSteam) : super(uniqueIdByUser);
 
   @override
-  AboutMe get getCloneModel => AboutMe.success(uniqueIdByUser,codeDBD,codeSteam);
+  AboutMe get getCloneModel => AboutMe(uniqueIdByUser,codeDBD,codeSteam);
 }

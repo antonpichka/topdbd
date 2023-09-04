@@ -7,21 +7,21 @@ base class StringsQAssetBundleServiceViewModelUsingGetNPForTermsOfUse<T extends 
   @protected
   final assetBundleService = AssetBundleService.instance;
 
-  Future<T> getStringsFromAssetBundleServiceNPDS() {
+  Future<Result<T>> getStringsFromAssetBundleServiceNPDS() {
     return getModelFromNamedServiceNPDS();
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceNPDS()
+  Future<Result<T>> getModelFromNamedServiceNPDS()
   async {
     try {
       final result = await assetBundleService
           .getAssetBundle
           ?.loadString('assets/txt/terms_of_use_topdbd.txt');
-      return Strings.success(result) as T;
+      return Result.success(Strings(result ?? "") as T);
     } catch(e) {
-      return Strings.exception(LocalException(this, EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result.exception(LocalException(this, EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

@@ -7,17 +7,17 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
-base class StatsQFirebaseFirestoreServiceViewModelUsingGetParameterRegistrationStatsUtility<T extends Stats,Y extends ListStats<T>> extends BaseGetModelFromNamedServiceParameterNamedDataSource<T,RegistrationStatsUtility> {
+base class StatsQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationStatsUtility<T extends Stats,Y extends ListStats<T>> extends BaseInsertModelToNamedServiceParameterNamedDataSource<T,RegistrationStatsUtility> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<T> getStatsFromFirebaseFirestoreServiceParameterRegistrationStatsUtilityDS(RegistrationStatsUtility parameter) {
-    return getModelFromNamedServiceParameterNamedDS(parameter);
+  Future<Result<T>> insertStatsToFirebaseFirestoreServiceParameterRegistrationStatsUtilityDS(RegistrationStatsUtility parameter) {
+    return insertModelToNamedServiceParameterNamedDS(parameter);
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceParameterNamedDS(RegistrationStatsUtility parameter)
+  Future<Result<T>> insertModelToNamedServiceParameterNamedDS(RegistrationStatsUtility parameter)
   async {
     try {
       final documentByStatsWhereAdding = await firebaseFirestoreService
@@ -32,16 +32,16 @@ base class StatsQFirebaseFirestoreServiceViewModelUsingGetParameterRegistrationS
       });
       final documentByStats = await documentByStatsWhereAdding?.get();
       if(!(documentByStats?.exists ?? false)) {
-        return Stats.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.statsQFirebaseFirestoreServiceViewModelUsingGetParameterRegistrationStatsUtilityQWhereLocalExceptionGuiltyUserNoExists)) as T;
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.statsQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationStatsUtilityQWhereLocalExceptionGuiltyUserNoExists));
       }
-      return Stats.success(
+      return Result<T>.success(Stats(
           documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQUniqueIdByUser],
           documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQSeasonNumberBySeason],
           documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQMatchesWon],
           documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQMatchesLost],
-          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQRatingPoints]) as T;
+          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQRatingPoints]) as T);
     } catch(e) {
-      return Stats.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

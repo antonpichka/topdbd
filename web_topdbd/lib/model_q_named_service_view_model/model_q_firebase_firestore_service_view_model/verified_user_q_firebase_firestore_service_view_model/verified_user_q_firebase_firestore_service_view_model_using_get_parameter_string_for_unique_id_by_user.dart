@@ -10,13 +10,13 @@ base class VerifiedUserQFirebaseFirestoreServiceViewModelUsingGetParameterString
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<T> getVerifiedUserFromFirebaseFirestoreServiceParameterStringDS(String parameter) {
+  Future<Result<T>> getVerifiedUserFromFirebaseFirestoreServiceParameterStringDS(String parameter) {
     return getModelFromNamedServiceParameterNamedDS(parameter);
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceParameterNamedDS(String parameter)
+  Future<Result<T>> getModelFromNamedServiceParameterNamedDS(String parameter)
   async {
     try {
       final documentByVerifiedUser = await firebaseFirestoreService
@@ -26,13 +26,13 @@ base class VerifiedUserQFirebaseFirestoreServiceViewModelUsingGetParameterString
           .limit(1)
           .get();
       if((documentByVerifiedUser?.size ?? 0) <= 0) {
-        return VerifiedUser.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.verifiedUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUserQWhereLocalExceptionGuiltyUserNoExists)) as T;
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.verifiedUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUserQWhereLocalExceptionGuiltyUserNoExists));
       }
-      return VerifiedUser.success(
+      return Result<T>.success(VerifiedUser(
           documentByVerifiedUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.verifiedUserQUniqueIdByUser],
-          documentByVerifiedUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.verifiedUserQIsVerifiedUser]) as T;
+          documentByVerifiedUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.verifiedUserQIsVerifiedUser]) as T);
     } catch(e) {
-      return VerifiedUser.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 

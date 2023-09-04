@@ -7,21 +7,21 @@ base class DatesTimesQTempCacheServiceViewModelUsingGetNPForLastLoginTimeByLastL
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Future<T> getDatesTimesFromTempCacheServiceNPDS() {
+  Future<Result<T>> getDatesTimesFromTempCacheServiceNPDS() {
     return getModelFromNamedServiceNPDS();
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceNPDS()
+  Future<Result<T>> getModelFromNamedServiceNPDS()
   async {
     try {
       final creationTimeByUser = tempCacheService.getObjectFromTempCache(KeysTempCacheServiceUtility.datesTimesQLastLoginTimeByLastLoginTimeUser) as DateTime;
-      return DatesTimes.success(creationTimeByUser) as T;
+      return Result<T>.success(DatesTimes(creationTimeByUser) as T);
     } on LocalException catch(e) {
-      return DatesTimes.exception(e) as T;
+      return Result<T>.exception(e);
     } catch(e) {
-      return DatesTimes.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

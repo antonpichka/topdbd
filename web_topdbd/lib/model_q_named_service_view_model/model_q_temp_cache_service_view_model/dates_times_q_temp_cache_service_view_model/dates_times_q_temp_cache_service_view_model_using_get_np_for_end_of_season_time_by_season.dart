@@ -7,21 +7,21 @@ base class DatesTimesQTempCacheServiceViewModelUsingGetNPForEndOfSeasonTimeBySea
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Future<T> getDatesTimesFromTempCacheServiceNPDS() {
+  Future<Result<T>> getDatesTimesFromTempCacheServiceNPDS() {
     return getModelFromNamedServiceNPDS();
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceNPDS()
+  Future<Result<T>> getModelFromNamedServiceNPDS()
   async {
     try {
       final endOfSeasonTimeBySeason = tempCacheService.getObjectFromTempCache(KeysTempCacheServiceUtility.datesTimesQEndOfSeasonTimeBySeason) as DateTime;
-      return DatesTimes.success(endOfSeasonTimeBySeason) as T;
+      return Result<T>.success(DatesTimes(endOfSeasonTimeBySeason) as T);
     } on LocalException catch(e) {
-      return DatesTimes.exception(e) as T;
+      return Result<T>.exception(e);
     } catch(e) {
-      return DatesTimes.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

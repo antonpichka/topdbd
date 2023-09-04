@@ -10,13 +10,13 @@ base class SeasonQFirebaseFirestoreServiceViewModelUsingGetNPForLastSeasonWhereS
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<T> getSeasonFromFirebaseFirestoreServiceNPDS() {
+  Future<Result<T>> getSeasonFromFirebaseFirestoreServiceNPDS() {
     return getModelFromNamedServiceNPDS();
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceNPDS()
+  Future<Result<T>> getModelFromNamedServiceNPDS()
   async {
     try {
       final documentBySeason = await firebaseFirestoreService
@@ -26,15 +26,15 @@ base class SeasonQFirebaseFirestoreServiceViewModelUsingGetNPForLastSeasonWhereS
           .limit(1)
           .get();
       if((documentBySeason?.size ?? 0) <= 0) {
-        return Season.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.seasonQFirebaseFirestoreServiceViewModelUsingGetNPForLastSeasonWhereSortParameterSeasonNumberQWhereLocalExceptionGuiltyUserNoExists)) as T;
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.seasonQFirebaseFirestoreServiceViewModelUsingGetNPForLastSeasonWhereSortParameterSeasonNumberQWhereLocalExceptionGuiltyUserNoExists));
       }
-      return Season.success(
+      return Result<T>.success(Season(
           documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQSeasonNumber],
           documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQStrNumberOfMatchesPlayedPerSeason],
           documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQStrNumberOfUniquePlayersWhoPlayedInASeason],
-          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQEndOfSeasonTime]) as T;
+          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQEndOfSeasonTime]) as T);
     } catch(e) {
-      return Season.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

@@ -7,17 +7,17 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
-base class DiscordUserFirestoreQFirebaseFirestoreServiceViewModelUsingGetParameterRegistrationDiscordUserFirestoreUtility<T extends DiscordUserFirestore,Y extends ListDiscordUserFirestore<T>> extends BaseGetModelFromNamedServiceParameterNamedDataSource<T,RegistrationDiscordUserFirestoreUtility> {
+base class DiscordUserFirestoreQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationDiscordUserFirestoreUtility<T extends DiscordUserFirestore,Y extends ListDiscordUserFirestore<T>> extends BaseInsertModelToNamedServiceParameterNamedDataSource<T,RegistrationDiscordUserFirestoreUtility> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<T> getDiscordUserFirestoreFromFirebaseFirestoreServiceParameterRegistrationDiscordUserFirestoreUtilityDS(RegistrationDiscordUserFirestoreUtility parameter) {
-    return getModelFromNamedServiceParameterNamedDS(parameter);
+  Future<Result<T>> insertDiscordUserFirestoreToFirebaseFirestoreServiceParameterRegistrationDiscordUserFirestoreUtilityDS(RegistrationDiscordUserFirestoreUtility parameter) {
+    return insertModelToNamedServiceParameterNamedDS(parameter);
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceParameterNamedDS(RegistrationDiscordUserFirestoreUtility parameter)
+  Future<Result<T>> insertModelToNamedServiceParameterNamedDS(RegistrationDiscordUserFirestoreUtility parameter)
   async {
     try {
       final documentByDiscordUserWhereAdding = await firebaseFirestoreService
@@ -31,15 +31,15 @@ base class DiscordUserFirestoreQFirebaseFirestoreServiceViewModelUsingGetParamet
           });
       final documentByDiscordUser = await documentByDiscordUserWhereAdding?.get();
       if(!(documentByDiscordUser?.exists ?? false)) {
-        return DiscordUserFirestore.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.discordUserFirestoreQFirebaseFirestoreServiceViewModelUsingGetParameterRegistrationDiscordUserFirestoreUtilityQWhereLocalExceptionGuiltyUserNoExists)) as T;
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.discordUserFirestoreQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationDiscordUserFirestoreUtilityQWhereLocalExceptionGuiltyUserNoExists));
       }
-      return DiscordUserFirestore.success(
+      return Result<T>.success(DiscordUserFirestore(
           documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId],
           documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQUniqueIdByUser],
           documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQUsername],
-          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQGlobalName]) as T;
+          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQGlobalName]) as T);
     } catch(e) {
-      return DiscordUserFirestore.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

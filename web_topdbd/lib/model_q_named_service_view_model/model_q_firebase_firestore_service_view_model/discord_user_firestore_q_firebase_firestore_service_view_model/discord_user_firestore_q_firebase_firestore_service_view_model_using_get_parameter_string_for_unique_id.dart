@@ -10,13 +10,13 @@ base class DiscordUserFirestoreQFirebaseFirestoreServiceViewModelUsingGetParamet
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<T> getDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(String parameter) {
+  Future<Result<T>> getDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(String parameter) {
     return getModelFromNamedServiceParameterNamedDS(parameter);
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceParameterNamedDS(String parameter)
+  Future<Result<T>> getModelFromNamedServiceParameterNamedDS(String parameter)
   async {
     try {
       final documentByDiscordUser = await firebaseFirestoreService
@@ -26,15 +26,15 @@ base class DiscordUserFirestoreQFirebaseFirestoreServiceViewModelUsingGetParamet
           .limit(1)
           .get();
       if((documentByDiscordUser?.size ?? 0) <= 0) {
-        return DiscordUserFirestore.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.discordUserFirestoreQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdQWhereLocalExceptionGuiltyUserNoExists)) as T;
+        return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.discordUserFirestoreQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdQWhereLocalExceptionGuiltyUserNoExists));
       }
-      return DiscordUserFirestore.success(
+      return Result.success(DiscordUserFirestore(
           documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId],
           documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQUniqueIdByUser],
           documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQUsername],
-          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQGlobalName]) as T;
+          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQGlobalName]) as T);
     } catch(e) {
-      return DiscordUserFirestore.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

@@ -7,21 +7,21 @@ base class IntsQTempCacheServiceViewModelUsingGetNPForRatingPointsByStats<T exte
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Future<T> getIntsFromTempCacheServiceNPDS() {
+  Future<Result<T>> getIntsFromTempCacheServiceNPDS() {
     return getModelFromNamedServiceNPDS();
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceNPDS()
+  Future<Result<T>> getModelFromNamedServiceNPDS()
   async {
     try {
       final ratingPointsByStats = tempCacheService.getObjectFromTempCache(KeysTempCacheServiceUtility.intsQRatingPointsByStats) as int;
-      return Ints.success(ratingPointsByStats) as T;
+      return Result<T>.success(Ints(ratingPointsByStats) as T);
     } on LocalException catch(e) {
-      return Ints.exception(e) as T;
+      return Result<T>.exception(e);
     } catch(e) {
-      return Ints.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

@@ -1,15 +1,13 @@
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
+import 'package:meta/meta.dart';
 
+@immutable
 base class Country extends BaseModel {
-  final String? uniqueIdByUser;
-  final String? nameCountry;
+  final String uniqueIdByUser;
+  final String nameCountry;
 
-  Country.success(this.uniqueIdByUser,this.nameCountry) : super.success(uniqueIdByUser);
-  Country.exception(super.exception) :
-        uniqueIdByUser = null,
-        nameCountry = null,
-        super.exception();
+  const Country(this.uniqueIdByUser,this.nameCountry) : super(uniqueIdByUser);
 
   @override
-  Country get getCloneModel => Country.success(uniqueIdByUser,nameCountry);
+  Country get getCloneModel => Country(uniqueIdByUser,nameCountry);
 }

@@ -1,16 +1,17 @@
 import 'package:common_topdbd/model/ip_address/ip_address.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
+import 'package:meta/meta.dart';
 
+@immutable
 base class ListIPAddress<T extends IPAddress> extends BaseListModel<T> {
-  ListIPAddress.success(super.listModel) : super.success();
-  ListIPAddress.exception(super.exception) : super.exception();
+  const ListIPAddress(super.listModel) : super();
 
   @override
   ListIPAddress<T> get getCloneListModel {
     List<T> newListModel = List.empty(growable: true);
-    for (T model in listModel ?? List.empty(growable: true)) {
+    for (T model in listModel) {
       newListModel.add(model.getCloneModel as T);
     }
-    return ListIPAddress<T>.success(newListModel);
+    return ListIPAddress<T>(newListModel);
   }
 }

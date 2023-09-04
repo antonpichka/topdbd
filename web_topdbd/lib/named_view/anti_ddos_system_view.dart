@@ -102,7 +102,9 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                       const SizedBox(height: 5,),
                       ElevatedButton(
                         onPressed: () {
-                          _antiDDosSystemViewListViewModel.clickButtonDoneForAntiDDosSystemView((messageException) {
+                          _antiDDosSystemViewListViewModel.clickButtonDoneForAntiDDosSystemView(() {
+
+                          },(messageException) {
                             showTopSnackBar(
                               Overlay.of(context),
                               CustomSnackBar.error(message: messageException,),
@@ -137,7 +139,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
   void _init() {
     _antiDDosSystemViewListViewModel
         .getStreamDataForAntiDDosSystemView
-        ?.listen((event) {
+        .listen((event) {
           setState(() {});
         });
     final result = _antiDDosSystemViewListViewModel.initForAntiDDosSystemView();

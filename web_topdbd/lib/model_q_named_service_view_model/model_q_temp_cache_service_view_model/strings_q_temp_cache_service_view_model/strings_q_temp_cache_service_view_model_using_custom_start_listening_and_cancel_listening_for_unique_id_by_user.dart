@@ -9,12 +9,12 @@ base class StringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelLi
   @protected
   StreamSubscription<dynamic>? streamSubscription;
 
-  void startListening(Function(T strings) callback) {
+  void startListening(Function(Result<T> resultStrings) callback) {
     streamSubscription = tempCacheService
         .getStreamObjectFromTempCache(KeysTempCacheServiceUtility.stringsQUniqueIdByUser)
         .listen((event) {
           final uniqueIdByUser = event as String;
-          callback(Strings.success(uniqueIdByUser) as T);
+          callback(Result<T>.success(Strings(uniqueIdByUser) as T));
         });
   }
 

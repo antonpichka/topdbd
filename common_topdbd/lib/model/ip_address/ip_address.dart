@@ -1,15 +1,13 @@
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
+import 'package:meta/meta.dart';
 
+@immutable
 base class IPAddress extends BaseModel {
-  final String? ip;
-  final String? nameCountry;
+  final String ip;
+  final String nameCountry;
 
-  IPAddress.success(this.ip,this.nameCountry) : super.success(ip);
-  IPAddress.exception(super.exception) :
-        ip = null,
-        nameCountry = null,
-        super.exception();
+  const IPAddress(this.ip,this.nameCountry) : super(ip);
 
   @override
-  IPAddress get getCloneModel => IPAddress.success(ip,nameCountry);
+  IPAddress get getCloneModel => IPAddress(ip,nameCountry);
 }

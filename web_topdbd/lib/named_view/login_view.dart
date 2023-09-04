@@ -125,7 +125,7 @@ final class _LoginViewState extends State<LoginView> {
   async {
     _loginViewListViewModel
         .getStreamDataForLoginView
-        ?.listen((event) {
+        .listen((event) {
           setState(() {});
         });
     final result = await InitializeServiceUtility.init();

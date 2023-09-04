@@ -17,13 +17,13 @@ final class DataForDefinedView extends BaseDataForNamed {
     if(uniqueIdByUser.isEmpty) {
       return EnumDataForDefinedView.loginView;
     }
-    if(isNotVerifiedUserByVerifiedUserSPParameterIsVerifiedUserByVerifiedUserSP() ?? false) {
+    if(isNotVerifiedUserByVerifiedUserSPParameterIsVerifiedUserByVerifiedUserSP()) {
       return EnumDataForDefinedView.notVerifiedUser;
     }
     return EnumDataForDefinedView.success;
   }
 
-  bool? isNotVerifiedUserByVerifiedUserSPParameterIsVerifiedUserByVerifiedUserSP() {
+  bool isNotVerifiedUserByVerifiedUserSPParameterIsVerifiedUserByVerifiedUserSP() {
     return !isVerifiedUserByVerifiedUserSP;
   }
 }

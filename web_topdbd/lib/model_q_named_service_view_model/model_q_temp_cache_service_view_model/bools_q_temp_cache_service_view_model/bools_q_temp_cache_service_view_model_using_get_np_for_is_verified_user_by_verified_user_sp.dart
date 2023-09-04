@@ -7,21 +7,21 @@ base class BoolsQTempCacheServiceViewModelUsingGetNPForIsVerifiedUserByVerifiedU
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Future<T> getBoolsFromTempCacheServiceNPDS() {
+  Future<Result<T>> getBoolsFromTempCacheServiceNPDS() {
     return getModelFromNamedServiceNPDS();
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceNPDS()
+  Future<Result<T>> getModelFromNamedServiceNPDS()
   async {
     try {
       final isVerifiedUserByVerifiedUserSP = tempCacheService.getObjectFromTempCache(KeysTempCacheServiceUtility.boolsQIsVerifiedUserByVerifiedUserSP) as bool;
-      return Bools.success(isVerifiedUserByVerifiedUserSP) as T;
+      return Result<T>.success(Bools(isVerifiedUserByVerifiedUserSP) as T);
     } on LocalException catch(e) {
-      return Bools.exception(e) as T;
+      return Result<T>.exception(e);
     } catch(e) {
-      return Bools.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

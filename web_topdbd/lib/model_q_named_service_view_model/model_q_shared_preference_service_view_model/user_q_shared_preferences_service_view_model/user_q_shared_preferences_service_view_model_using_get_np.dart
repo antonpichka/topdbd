@@ -10,21 +10,21 @@ base class UserQSharedPreferencesServiceViewModelUsingGetNP<T extends User,Y ext
   @protected
   final sharedPreferencesService = SharedPreferencesService.instance;
 
-  Future<T> getUserFromSharedPreferencesServiceNPDS() {
+  Future<Result<T>> getUserFromSharedPreferencesServiceNPDS() {
     return getModelFromNamedServiceNPDS();
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceNPDS()
+  Future<Result<T>> getModelFromNamedServiceNPDS()
   async {
     try {
       final sharedPreferences = await sharedPreferencesService.getSharedPreferences;
       final uniqueId = sharedPreferences?.getString(KeysSharedPreferencesServiceUtility.userQUniqueId) ?? "";
       final creationTime = DateTime.fromMillisecondsSinceEpoch(sharedPreferences?.getInt(KeysSharedPreferencesServiceUtility.userQCreationTime) ?? 0);
-      return User.success(uniqueId,creationTime) as T;
+      return Result<T>.success(User(uniqueId,creationTime) as T);
     } catch (e) {
-      return User.exception(LocalException(this, EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this, EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

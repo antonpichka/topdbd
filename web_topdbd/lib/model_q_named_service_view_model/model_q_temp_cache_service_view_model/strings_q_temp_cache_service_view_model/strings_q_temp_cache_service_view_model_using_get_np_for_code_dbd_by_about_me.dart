@@ -7,21 +7,21 @@ base class StringsQTempCacheServiceViewModelUsingGetNPForCodeDBDByAboutMe<T exte
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Future<T> getStringsFromTempCacheServiceNPDS() {
+  Future<Result<T>> getStringsFromTempCacheServiceNPDS() {
     return getModelFromNamedServiceNPDS();
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceNPDS()
+  Future<Result<T>> getModelFromNamedServiceNPDS()
   async {
     try {
       final codeDBDByAboutMe = tempCacheService.getObjectFromTempCache(KeysTempCacheServiceUtility.stringsQCodeDBDByAboutMe) as String;
-      return Strings.success(codeDBDByAboutMe) as T;
+      return Result<T>.success(Strings(codeDBDByAboutMe) as T);
     } on LocalException catch(e) {
-      return Strings.exception(e) as T;
+      return Result<T>.exception(e);
     } catch(e) {
-      return Strings.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

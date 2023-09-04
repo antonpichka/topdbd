@@ -7,17 +7,17 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
-base class LastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUserWhereRegistration<T extends LastLoginTimeUser,Y extends ListLastLoginTimeUser<T>> extends BaseGetModelFromNamedServiceParameterNamedDataSource<T,String> {
+base class LastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdByUser<T extends LastLoginTimeUser,Y extends ListLastLoginTimeUser<T>> extends BaseInsertModelToNamedServiceParameterNamedDataSource<T,String> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<T> getLastLoginTimeUserFromFirebaseFirestoreServiceParameterStringDS(String parameter) {
-    return getModelFromNamedServiceParameterNamedDS(parameter);
+  Future<Result<T>> insertLastLoginTimeUserToFirebaseFirestoreServiceParameterStringDS(String parameter) {
+    return insertModelToNamedServiceParameterNamedDS(parameter);
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceParameterNamedDS(String parameter)
+  Future<Result<T>> insertModelToNamedServiceParameterNamedDS(String parameter)
   async {
     try {
       final documentByLastLoginTimeUserWhereAdding = await firebaseFirestoreService
@@ -29,13 +29,13 @@ base class LastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingGetParameterS
           });
       final documentByLastLoginTimeUser = await documentByLastLoginTimeUserWhereAdding?.get();
       if(!(documentByLastLoginTimeUser?.exists ?? false)) {
-        return LastLoginTimeUser.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.lastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUserQWhereLocalExceptionGuiltyUserNoExists)) as T;
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.lastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdByUserQWhereLocalExceptionGuiltyUserNoExists));
       }
-      return LastLoginTimeUser.success(
+      return Result<T>.success(LastLoginTimeUser(
           documentByLastLoginTimeUser?.data()?[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser],
-          documentByLastLoginTimeUser?.data()?[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime]) as T;
+          documentByLastLoginTimeUser?.data()?[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime]) as T);
     } catch(e) {
-      return LastLoginTimeUser.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

@@ -1,17 +1,14 @@
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
+import 'package:meta/meta.dart';
 
+@immutable
 base class RoleUser extends BaseModel {
-  final String? uniqueIdByUser;
-  final bool? isAdmin;
-  final bool? isTest;
+  final String uniqueIdByUser;
+  final bool isAdmin;
+  final bool isTest;
 
-  RoleUser.success(this.uniqueIdByUser,this.isAdmin,this.isTest) : super.success(uniqueIdByUser);
-  RoleUser.exception(super.exception) :
-        uniqueIdByUser = null,
-        isAdmin = null,
-        isTest = null,
-        super.exception();
+  const RoleUser(this.uniqueIdByUser,this.isAdmin,this.isTest) : super(uniqueIdByUser);
 
   @override
-  RoleUser get getCloneModel => RoleUser.success(uniqueIdByUser,isAdmin,isTest);
+  RoleUser get getCloneModel => RoleUser(uniqueIdByUser,isAdmin,isTest);
 }

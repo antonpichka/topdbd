@@ -13,13 +13,13 @@ base class DiscordUserQHttpClientServiceViewModelUsingGetNPForDiscordAuth<T exte
   @protected
   final httpClientService = HttpClientService.instance;
 
-  Future<T> getDiscordUserFromHttpClientServiceNPDS() {
+  Future<Result<T>> getDiscordUserFromHttpClientServiceNPDS() {
     return getModelFromNamedServiceNPDS();
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceNPDS()
+  Future<Result<T>> getModelFromNamedServiceNPDS()
   async {
     try {
       final responseAuthenticateDiscord = await FlutterWebAuth2.authenticate(
@@ -59,14 +59,14 @@ base class DiscordUserQHttpClientServiceViewModelUsingGetNPForDiscordAuth<T exte
         throw NetworkException.fromKeyAndStatusCode(this, responseDiscordUser!.statusCode.toString(), responseDiscordUser.statusCode);
       }
       final Map<String,dynamic> data = jsonDecode(responseDiscordUser!.body);
-      return DiscordUser.success(
+      return Result<T>.success(DiscordUser(
           data[KeysHttpClientServiceUtility.discordUserQId],
           data[KeysHttpClientServiceUtility.discordUserQUsername],
-          data[KeysHttpClientServiceUtility.discordUserQGlobalName]) as T;
+          data[KeysHttpClientServiceUtility.discordUserQGlobalName]) as T);
     } on NetworkException catch(e) {
-      return DiscordUser.exception(e) as T;
+      return Result<T>.exception(e);
     } catch(e) {
-      return DiscordUser.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN)) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN));
     }
   }
 }

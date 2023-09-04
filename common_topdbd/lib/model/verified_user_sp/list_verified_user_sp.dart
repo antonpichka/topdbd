@@ -1,16 +1,17 @@
 import 'package:common_topdbd/model/verified_user_sp/verified_user_sp.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
+import 'package:meta/meta.dart';
 
+@immutable
 base class ListVerifiedUserSP<T extends VerifiedUserSP> extends BaseListModel<T> {
-  ListVerifiedUserSP.success(super.listModel) : super.success();
-  ListVerifiedUserSP.exception(super.exception) : super.exception();
+  const ListVerifiedUserSP(super.listModel) : super();
 
   @override
   ListVerifiedUserSP<T> get getCloneListModel {
     List<T> newListModel = List.empty(growable: true);
-    for (T model in listModel ?? List.empty(growable: true)) {
+    for (T model in listModel) {
       newListModel.add(model.getCloneModel as T);
     }
-    return ListVerifiedUserSP<T>.success(newListModel);
+    return ListVerifiedUserSP<T>(newListModel);
   }
 }

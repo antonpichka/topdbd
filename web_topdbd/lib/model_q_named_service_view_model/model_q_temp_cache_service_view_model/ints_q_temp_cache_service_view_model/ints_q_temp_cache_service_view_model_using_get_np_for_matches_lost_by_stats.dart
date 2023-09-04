@@ -7,21 +7,21 @@ base class IntsQTempCacheServiceViewModelUsingGetNPForMatchesLostByStats<T exten
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Future<T> getIntsFromTempCacheServiceNPDS() {
+  Future<Result<T>> getIntsFromTempCacheServiceNPDS() {
     return getModelFromNamedServiceNPDS();
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceNPDS()
+  Future<Result<T>> getModelFromNamedServiceNPDS()
   async {
     try {
       final matchesLostByStats = tempCacheService.getObjectFromTempCache(KeysTempCacheServiceUtility.intsQMatchesLostByStats) as int;
-      return Ints.success(matchesLostByStats) as T;
+      return Result<T>.success(Ints(matchesLostByStats) as T);
     } on LocalException catch(e) {
-      return Ints.exception(e) as T;
+      return Result<T>.exception(e);
     } catch(e) {
-      return Ints.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

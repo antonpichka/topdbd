@@ -32,29 +32,29 @@ final class DefinedViewListViewModel extends BaseNamedViewListViewModel {
     _dataForDefinedViewQThereIsStreamStateViewModel.dispose();
   }
 
-  Stream<DataForDefinedView?>? get getStreamDataForDefinedView => _dataForDefinedViewQThereIsStreamStateViewModel.getStreamDataForDefinedView;
+  Stream<DataForDefinedView?> get getStreamDataForDefinedView => _dataForDefinedViewQThereIsStreamStateViewModel.getStreamDataForDefinedView;
   DataForDefinedView? get getDataForDefinedView => _dataForDefinedViewQThereIsStreamStateViewModel.getDataForDefinedView;
 
   void listeningStreamsTempCacheServiceForDefinedView() {
     _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser
-        .startListening((Strings strings) {
+        .startListening((Result<Strings> resultStrings) {
           _dataForDefinedViewQThereIsStreamStateViewModel
               .getDataForDefinedView
-              ?.uniqueIdByUser = strings.field ?? "";
+              ?.uniqueIdByUser = resultStrings.parameter?.field ?? "";
           _dataForDefinedViewQThereIsStreamStateViewModel
               .notifyStreamDataForDefinedView();
         });
     _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsVerifiedUserByVerifiedUserSP
-        .startListening((Bools bools) {
+        .startListening((Result<Bools> resultBools) {
           _dataForDefinedViewQThereIsStreamStateViewModel
               .getDataForDefinedView
-              ?.isVerifiedUserByVerifiedUserSP = bools.isField ?? false;
+              ?.isVerifiedUserByVerifiedUserSP = resultBools.parameter?.isField ?? false;
           _dataForDefinedViewQThereIsStreamStateViewModel
               .notifyStreamDataForDefinedView();
         });
   }
 
-  Future<String?> initForDefinedView()
+  Future<String> initForDefinedView()
   async {
     final resultUser = await _userQSharedPreferencesServiceViewModelUsingGetNP
         .getUserFromSharedPreferencesServiceNPDS();
@@ -68,10 +68,10 @@ final class DefinedViewListViewModel extends BaseNamedViewListViewModel {
         ?.exceptionController = resultUser.exceptionController;
     _dataForDefinedViewQThereIsStreamStateViewModel
         .getDataForDefinedView
-        ?.uniqueIdByUser = resultUser.uniqueId ?? "";
+        ?.uniqueIdByUser = resultUser.parameter?.uniqueId ?? "";
     _dataForDefinedViewQThereIsStreamStateViewModel
         .getDataForDefinedView
-        ?.isVerifiedUserByVerifiedUserSP = resultVerifiedUserSP.isVerifiedUser ?? false;
+        ?.isVerifiedUserByVerifiedUserSP = resultVerifiedUserSP.parameter?.isVerifiedUser ?? false;
     return KeysSuccessUtility.sUCCESS;
   }
 

@@ -1,13 +1,12 @@
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
+import 'package:meta/meta.dart';
 
+@immutable
 base class VerifiedUserSP extends BaseModel {
-  final bool? isVerifiedUser;
+  final bool isVerifiedUser;
 
-  VerifiedUserSP.success(this.isVerifiedUser) : super.success(isVerifiedUser.toString());
-  VerifiedUserSP.exception(super.exception) :
-        isVerifiedUser = null,
-        super.exception();
+  const VerifiedUserSP(this.isVerifiedUser) : super("$isVerifiedUser");
 
   @override
-  VerifiedUserSP get getCloneModel => VerifiedUserSP.success(isVerifiedUser);
+  VerifiedUserSP get getCloneModel => VerifiedUserSP(isVerifiedUser);
 }

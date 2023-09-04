@@ -6,17 +6,17 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
-base class AboutMeQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUserWhereRegistration<T extends AboutMe,Y extends ListAboutMe<T>> extends BaseGetModelFromNamedServiceParameterNamedDataSource<T,String> {
+base class AboutMeQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdByUser<T extends AboutMe,Y extends ListAboutMe<T>> extends BaseInsertModelToNamedServiceParameterNamedDataSource<T,String> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<T> getAboutMeFromFirebaseFirestoreServiceParameterStringDS(String parameter) {
-    return getModelFromNamedServiceParameterNamedDS(parameter);
+  Future<Result<T>> insertAboutMeToFirebaseFirestoreServiceParameterStringDS(String parameter) {
+    return insertModelToNamedServiceParameterNamedDS(parameter);
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceParameterNamedDS(String parameter)
+  Future<Result<T>> insertModelToNamedServiceParameterNamedDS(String parameter)
   async {
     try {
       final documentByAboutMeWhereAdding = await firebaseFirestoreService
@@ -29,14 +29,14 @@ base class AboutMeQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUn
           });
       final documentByAboutMe = await documentByAboutMeWhereAdding?.get();
       if(!(documentByAboutMe?.exists ?? false)) {
-        return AboutMe.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.aboutMeQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUserWhereRegistrationQWhereLocalExceptionGuiltyUserNoExists)) as T;
+        return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.aboutMeQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdByUserQWhereLocalExceptionGuiltyUserNoExists));
       }
-      return AboutMe.success(
+      return Result.success(AboutMe(
           documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQUniqueIdByUser],
           documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQCodeDBD],
-          documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQCodeSteam]) as T;
+          documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQCodeSteam]) as T);
     } catch(e) {
-      return AboutMe.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

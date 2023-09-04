@@ -7,17 +7,17 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
-base class IPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingGetParameterRegistrationIPAddressFirestoreUtility<T extends IPAddressFirestore,Y extends ListIPAddressFirestore<T>> extends BaseGetModelFromNamedServiceParameterNamedDataSource<T,RegistrationIPAddressFirestoreUtility> {
+base class IPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationIPAddressFirestoreUtility<T extends IPAddressFirestore,Y extends ListIPAddressFirestore<T>> extends BaseInsertModelToNamedServiceParameterNamedDataSource<T,RegistrationIPAddressFirestoreUtility> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<T> getIPAddressFirestoreFromFirebaseFirestoreServiceParameterRegistrationIPAddressFirestoreUtilityDS(RegistrationIPAddressFirestoreUtility parameter) {
-    return getModelFromNamedServiceParameterNamedDS(parameter);
+  Future<Result<T>> insertIPAddressFirestoreToFirebaseFirestoreServiceParameterRegistrationIPAddressFirestoreUtilityDS(RegistrationIPAddressFirestoreUtility parameter) {
+    return insertModelToNamedServiceParameterNamedDS(parameter);
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceParameterNamedDS(RegistrationIPAddressFirestoreUtility parameter)
+  Future<Result<T>> insertModelToNamedServiceParameterNamedDS(RegistrationIPAddressFirestoreUtility parameter)
   async {
     try {
       final documentByIPAddressWhereAdding = await firebaseFirestoreService
@@ -29,13 +29,13 @@ base class IPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingGetParameter
           });
       final documentByIPAddress = await documentByIPAddressWhereAdding?.get();
       if(!(documentByIPAddress?.exists ?? false)) {
-        return IPAddressFirestore.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.iPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingGetParameterRegistrationIPAddressFirestoreUtilityQWhereLocalExceptionGuiltyUserNoExists)) as T;
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.iPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationIPAddressFirestoreUtilityQWhereLocalExceptionGuiltyUserNoExists));
       }
-      return IPAddressFirestore.success(
+      return Result<T>.success(IPAddressFirestore(
           documentByIPAddress?.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser],
-          documentByIPAddress?.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQIp]) as T;
+          documentByIPAddress?.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQIp]) as T);
     } catch(e) {
-      return IPAddressFirestore.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 

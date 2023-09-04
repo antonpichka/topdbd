@@ -7,17 +7,17 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
-base class UserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdWhereRegistration<T extends User,Y extends ListUser<T>> extends BaseGetModelFromNamedServiceParameterNamedDataSource<T,String> {
+base class UserQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueId<T extends User,Y extends ListUser<T>> extends BaseInsertModelToNamedServiceParameterNamedDataSource<T,String> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<T> getUserFromFirebaseFirestoreServiceParameterStringDS(String parameter) {
-    return getModelFromNamedServiceParameterNamedDS(parameter);
+  Future<Result<T>> insertUserToFirebaseFirestoreServiceParameterStringDS(String parameter) {
+    return insertModelToNamedServiceParameterNamedDS(parameter);
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceParameterNamedDS(String parameter)
+  Future<Result<T>> insertModelToNamedServiceParameterNamedDS(String parameter)
   async {
     try {
       final documentByUserWhereAdding = await firebaseFirestoreService
@@ -29,13 +29,13 @@ base class UserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqu
           });
       final documentByUser = await documentByUserWhereAdding?.get();
       if(!(documentByUser?.exists ?? false)) {
-        return User.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.userQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdWhereRegistrationQWhereLocalExceptionGuiltyUserNoExists)) as T;
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.userQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdQWhereLocalExceptionGuiltyUserNoExists));
       }
-      return User.success(
+      return Result<T>.success(User(
           documentByUser?.data()?[KeysFirebaseFirestoreServiceUtility.userQUniqueId],
-          documentByUser?.data()?[KeysFirebaseFirestoreServiceUtility.userQCreationTime]) as T;
+          documentByUser?.data()?[KeysFirebaseFirestoreServiceUtility.userQCreationTime]) as T);
     } catch(e) {
-      return User.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

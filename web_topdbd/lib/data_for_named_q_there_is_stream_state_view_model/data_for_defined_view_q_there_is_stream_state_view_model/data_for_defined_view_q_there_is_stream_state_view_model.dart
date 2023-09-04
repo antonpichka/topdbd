@@ -4,7 +4,7 @@ import 'package:web_topdbd/data_for_named/data_for_defined_view/data_for_defined
 final class DataForDefinedViewQThereIsStreamStateViewModel<T extends DataForDefinedView> extends BaseDataForNamedQThereIsStreamStateViewModel<T> {
   DataForDefinedViewQThereIsStreamStateViewModel(super.baseInitializedNamedStreamStateQDataForNamed);
 
-  Stream<T?>? get getStreamDataForDefinedView {
+  Stream<T?> get getStreamDataForDefinedView {
     return getStreamDataForNamed;
   }
 

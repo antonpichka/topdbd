@@ -4,7 +4,7 @@ import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/data_fo
 final class DataForAntiDDosSystemViewQThereIsStreamStateViewModel<T extends DataForAntiDDosSystemView> extends BaseDataForNamedQThereIsStreamStateViewModel<T> {
   DataForAntiDDosSystemViewQThereIsStreamStateViewModel(super.baseInitializedNamedStreamStateQDataForNamed);
 
-  Stream<T?>? get getStreamDataForAntiDDosSystemView {
+  Stream<T?> get getStreamDataForAntiDDosSystemView {
     return getStreamDataForNamed;
   }
 

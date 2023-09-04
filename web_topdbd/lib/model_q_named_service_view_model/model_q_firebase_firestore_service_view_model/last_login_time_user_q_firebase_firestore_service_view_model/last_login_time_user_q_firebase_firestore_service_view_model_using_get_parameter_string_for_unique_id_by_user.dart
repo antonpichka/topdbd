@@ -10,13 +10,13 @@ base class LastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingGetParameterS
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<T> getLastLoginTimeUserFromFirebaseFirestoreServiceParameterStringDS(String parameter) {
+  Future<Result<T>> getLastLoginTimeUserFromFirebaseFirestoreServiceParameterStringDS(String parameter) {
     return getModelFromNamedServiceParameterNamedDS(parameter);
   }
 
   @protected
   @override
-  Future<T> getModelFromNamedServiceParameterNamedDS(String parameter)
+  Future<Result<T>> getModelFromNamedServiceParameterNamedDS(String parameter)
   async {
     try {
       final documentByLastLoginTimeUser = await firebaseFirestoreService
@@ -26,13 +26,13 @@ base class LastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingGetParameterS
           .limit(1)
           .get();
       if((documentByLastLoginTimeUser?.size ?? 0) <= 0) {
-        return LastLoginTimeUser.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.lastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUserQWhereLocalExceptionGuiltyUserNoExists)) as T;
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.lastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUserQWhereLocalExceptionGuiltyUserNoExists));
       }
-      return LastLoginTimeUser.success(
+      return Result<T>.success(LastLoginTimeUser(
           documentByLastLoginTimeUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser],
-          documentByLastLoginTimeUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime]) as T;
+          documentByLastLoginTimeUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime]) as T);
     } catch(e) {
-      return LastLoginTimeUser.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())) as T;
+      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

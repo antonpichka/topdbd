@@ -4,7 +4,7 @@ import 'package:web_topdbd/data_for_named/data_for_login_view/data_for_login_vie
 final class DataForLoginViewQThereIsStreamStateViewModel<T extends DataForLoginView> extends BaseDataForNamedQThereIsStreamStateViewModel<T> {
   DataForLoginViewQThereIsStreamStateViewModel(super.baseInitializedNamedStreamStateQDataForNamed);
 
-  Stream<T?>? get getStreamDataForLoginView {
+  Stream<T?> get getStreamDataForLoginView {
     return getStreamDataForNamed;
   }
 

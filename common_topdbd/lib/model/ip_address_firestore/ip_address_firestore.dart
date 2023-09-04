@@ -1,15 +1,13 @@
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
+import 'package:meta/meta.dart';
 
+@immutable
 base class IPAddressFirestore extends BaseModel {
-  final String? uniqueIdByUser;
-  final String? ip;
+  final String uniqueIdByUser;
+  final String ip;
 
-  IPAddressFirestore.success(this.uniqueIdByUser,this.ip) : super.success(uniqueIdByUser);
-  IPAddressFirestore.exception(super.exception) :
-        uniqueIdByUser = null,
-        ip = null,
-        super.exception();
+  const IPAddressFirestore(this.uniqueIdByUser,this.ip) : super(uniqueIdByUser);
 
   @override
-  IPAddressFirestore get getCloneModel => IPAddressFirestore.success(uniqueIdByUser,ip);
+  IPAddressFirestore get getCloneModel => IPAddressFirestore(uniqueIdByUser,ip);
 }

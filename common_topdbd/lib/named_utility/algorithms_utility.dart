@@ -1,7 +1,9 @@
 import 'dart:math';
+import 'package:meta/meta.dart';
 
+@immutable
 final class AlgorithmsUtility {
-  AlgorithmsUtility._();
+  const AlgorithmsUtility._();
 
   static String getRandomNumbersFromNumberOfScrollsParameterString(int? numberOfScrolls) {
     String result = "";

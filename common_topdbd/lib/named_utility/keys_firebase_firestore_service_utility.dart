@@ -1,5 +1,8 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:meta/meta.dart';
+
+@immutable
 final class KeysFirebaseFirestoreServiceUtility {
   /* ThoseWorks  */
   static const String thoseWorks = "thoseWorks";
@@ -59,26 +62,34 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String statsQMatchesWon = "matchesWon";
   static const String statsQMatchesLost = "matchesLost";
   static const String statsQRatingPoints = "ratingPoints";
-  /* InformationDBD */
-  static const String informationDBD = "informationDBD";
-  static const String informationDBDQListManiac = "listManiac";
-  static const String informationDBDQListMap = "listMap";
-  static const String informationDBDQListPerk = "listPerk";
-  /* InformationDBDMatch */
-  static const String informationDBDMatch = "informationDBDMatch";
-  static const String informationDBDMatchQNumberOfRounds = "numberOfRounds";
-  static const String informationDBDMatchQListPerk = "listPerk";
-  static const String informationDBDMatchQListManiacWithHisMaps= "listManiacWithHisMaps";
+  /* Maniac */
+  static const String maniac = "maniac";
+  static const String maniacQName = "name";
+  static const String maniacQImagePath = "imagePath";
+  /* Maps */
+  static const String maps = "maps";
+  static const String mapsQName = "name";
+  static const String mapsQImagePath = "imagePath";
+  /* Perk */
+  static const String perk = "perk";
+  static const String perkQName = "name";
+  static const String perkQImagePath = "imagePath";
+  /* MatchBalance */
+  static const String matchBalance = "matchBalance";
+  static const String matchBalanceQSeasonNumberBySeason = "seasonNumberBySeason";
+  static const String matchBalanceQNumberOfRounds = "numberOfRounds";
+  static const String matchBalanceQListPerk = "listPerk";
+  static const String matchBalanceQListManiacWithHisMaps= "listManiacWithHisMaps";
   /* Matches */
   static const String matches = "matches";
   static const String matchesQUniqueId = "uniqueId";
-  static const String matchesQSeasonNumberBySeason = "seasonNumberBySeason";
   static const String matchesQCreationTime = "creationTime";
   static const String matchesQIsCompleted = "isCompleted";
-  static const String matchesQNumberOfRoundsByInformationDBDMatch = "NumberOfRoundsByInformationDBDMatch";
-  static const String matchesQListPerkByInformationDBDMatch = "listPerkByInformationDBDMatch";
-  static const String matchesQListManiacWithHisMapsByInformationDBDMatch = "listManiacWithHisMapsByInformationDBDMatch";
   static const String matchesQTextLogAction = "textLogAction";
+  static const String matchesQSeasonNumberBySeason = "seasonNumberBySeason";
+  static const String matchesQNumberOfRoundsByMatchBalance = "numberOfRoundsByMatchBalance";
+  static const String matchesQListPerkByMatchBalance = "listPerkByMatchBalance";
+  static const String matchesQListManiacWithHisMapsByMatchBalance = "listManiacWithHisMapsByMatchBalance";
   static const String matchesQUniqueIdByUserWhereFirst = "uniqueIdByUserWhereFirst";
   static const String matchesQUniqueIdByUserWhereSecond = "uniqueIdByUserWhereSecond";
   static const String matchesQIsRoleManiacForUniqueIdByUserWhereFirst = "isRoleManiacForUniqueIdByUserWhereFirst";
@@ -99,5 +110,5 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchesQResultRatingPointsForUniqueIdByUserWhereFirst = "resultRatingPointsForUniqueIdByUserWhereFirst";
   static const String matchesQResultRatingPointsForUniqueIdByUserWhereSecond = "resultRatingPointsForUniqueIdByUserWhereSecond";
 
-  KeysFirebaseFirestoreServiceUtility._();
+  const KeysFirebaseFirestoreServiceUtility._();
 }

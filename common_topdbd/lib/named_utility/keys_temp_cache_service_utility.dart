@@ -13,11 +13,13 @@ final class KeysTempCacheServiceUtility {
   static const String intsQMatchesLostByStats = "intsQMatchesLostByStats";
   static const String intsQRatingPointsByStats = "intsQRatingPointsByStats";
   /* Bools */
-  static const String boolsQIsVerifiedUserByVerifiedUserSP = "boolsQIsVerifiedUserByVerifiedUserSP";
+  static const String boolsQIsVerifiedUserByVerifiedUser = "boolsQIsVerifiedUserByVerifiedUser";
+  static const String boolsQIsAdminByRoleUser = "boolsQIsAdminByRoleUser";
+  static const String boolsQIsTestByRoleUser = "boolsQIsTestByRoleUser";
   /* DatesTimes */
   static const String datesTimesQCreationTimeByUser = "datesTimesQCreationTimeByUser";
   static const String datesTimesQLastLoginTimeByLastLoginTimeUser = "datesTimesQLastLoginTimeByLastLoginTimeUser";
   static const String datesTimesQEndOfSeasonTimeBySeason = "datesTimesQEndOfSeasonTimeBySeason";
 
-  KeysTempCacheServiceUtility._();
+  const KeysTempCacheServiceUtility._();
 }

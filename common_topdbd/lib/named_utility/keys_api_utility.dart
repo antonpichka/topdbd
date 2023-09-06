@@ -1,3 +1,6 @@
+import 'package:meta/meta.dart';
+
+@immutable
 final class KeysAPIUtility {
   /* Firebase */
   static const String firebaseQProjectName = "topdbd";
@@ -13,5 +16,5 @@ final class KeysAPIUtility {
   static const String discordOAUTHQClientSecret = "O5AHkF-WYWO5SAenNT5m-jsLhrnis81E";
   static const String discordOAUTHQRedirectUri  = "http://localhost/auth.html";
 
-  KeysAPIUtility._();
+  const KeysAPIUtility._();
 }

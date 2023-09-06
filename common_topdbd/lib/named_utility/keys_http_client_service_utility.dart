@@ -1,3 +1,6 @@
+import 'package:meta/meta.dart';
+
+@immutable
 final class KeysHttpClientServiceUtility {
   /* DiscordUser */
   static const String discordUserQId = "id";
@@ -7,5 +10,5 @@ final class KeysHttpClientServiceUtility {
   static const String iPAddressQIp = "ip";
   static const String iPAddressQNameCountry = "country";
 
-  KeysHttpClientServiceUtility._();
+  const KeysHttpClientServiceUtility._();
 }

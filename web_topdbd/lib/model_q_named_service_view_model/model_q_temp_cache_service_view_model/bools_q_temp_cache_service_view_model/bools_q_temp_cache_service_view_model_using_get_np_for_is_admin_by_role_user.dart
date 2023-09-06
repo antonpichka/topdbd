@@ -3,7 +3,7 @@ import 'package:common_topdbd/named_utility/keys_temp_cache_service_utility.dart
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
-base class BoolsQTempCacheServiceViewModelUsingGetNPForIsVerifiedUserByVerifiedUserSP<T extends Bools,Y extends ListBools<T>> extends BaseGetModelFromNamedServiceNPDataSource<T> {
+base class BoolsQTempCacheServiceViewModelUsingGetNPForIsAdminByRoleUser<T extends Bools,Y extends ListBools<T>> extends BaseGetModelFromNamedServiceNPDataSource<T> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
@@ -16,8 +16,8 @@ base class BoolsQTempCacheServiceViewModelUsingGetNPForIsVerifiedUserByVerifiedU
   Future<Result<T>> getModelFromNamedServiceNPDS()
   async {
     try {
-      final isVerifiedUserByVerifiedUserSP = tempCacheService.getObjectFromTempCache(KeysTempCacheServiceUtility.boolsQIsVerifiedUserByVerifiedUserSP) as bool;
-      return Result<T>.success(Bools(isVerifiedUserByVerifiedUserSP) as T);
+      final isAdminByRoleUser = tempCacheService.getObjectFromTempCache(KeysTempCacheServiceUtility.boolsQIsAdminByRoleUser) as bool;
+      return Result<T>.success(Bools(isAdminByRoleUser) as T);
     } on LocalException catch(e) {
       return Result<T>.exception(e);
     } catch(e) {

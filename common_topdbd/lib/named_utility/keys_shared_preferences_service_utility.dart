@@ -1,3 +1,6 @@
+import 'package:meta/meta.dart';
+
+@immutable
 final class KeysSharedPreferencesServiceUtility {
   /* User */
   static const String userQUniqueId = "userQUniqueId";
@@ -5,5 +8,5 @@ final class KeysSharedPreferencesServiceUtility {
   /* VerifiedUserSP */
   static const String verifiedUserSPQIsVerifiedUser = "verifiedUserSPQIsVerifiedUser";
 
-  KeysSharedPreferencesServiceUtility._();
+  const KeysSharedPreferencesServiceUtility._();
 }

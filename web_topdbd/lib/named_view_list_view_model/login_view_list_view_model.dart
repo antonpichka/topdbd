@@ -5,6 +5,7 @@ import 'package:common_topdbd/model/discord_user_firestore/discord_user_firestor
 import 'package:common_topdbd/model/ip_address/ip_address.dart';
 import 'package:common_topdbd/model/ip_address_firestore/ip_address_firestore.dart';
 import 'package:common_topdbd/model/last_login_time_user/last_login_time_user.dart';
+import 'package:common_topdbd/model/role_user/role_user.dart';
 import 'package:common_topdbd/model/season/season.dart';
 import 'package:common_topdbd/model/stats/stats.dart';
 import 'package:common_topdbd/model/user/user.dart';
@@ -16,6 +17,7 @@ import 'package:common_topdbd/named_utility/registration_discord_user_firestore_
 import 'package:common_topdbd/named_utility/registration_ip_address_firestore_utility.dart';
 import 'package:common_topdbd/named_utility/registration_stats_utility.dart';
 import 'package:common_topdbd/named_utility/registration_verified_user_utility.dart';
+import 'package:common_topdbd/named_utility/update_username_and_global_name_to_discord_user_firestore_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:web_topdbd/data_for_named/data_for_login_view/data_for_login_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_login_view/initialized_named_stream_state_q_data_for_login_view/initialized_default_stream_state_q_data_for_login_view.dart';
@@ -25,17 +27,29 @@ import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_fir
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/country_q_firebase_firestore_service_view_model/country_q_firebase_firestore_service_view_model_using_insert_parameter_registration_country_utility.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/discord_user_firestore_q_firebase_firestore_service_view_model/discord_user_firestore_q_firebase_firestore_service_view_model_using_get_parameter_string_for_unique_id.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/discord_user_firestore_q_firebase_firestore_service_view_model/discord_user_firestore_q_firebase_firestore_service_view_model_using_insert_parameter_registration_discord_user_firestore_utility.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/discord_user_firestore_q_firebase_firestore_service_view_model/discord_user_firestore_q_firebase_firestore_service_view_model_using_update_parameter_update_username_and_global_name_to_discord_user_firestore_utility.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/ip_address_firestore_q_firebase_firestore_service_view_model/ip_address_firestore_q_firebase_firestore_service_view_model_using_insert_parameter_registration_ip_address_firestore_utility.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/last_login_time_user_q_firebase_firestore_service_view_model/last_login_time_user_q_firebase_firestore_service_view_model_using_insert_parameter_string_for_unique_id_by_user.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/role_user_q_firebase_firestore_service_view_model/role_user_q_firebase_firestore_service_view_model_using_insert_parameter_string_for_unique_id_by_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/season_q_firebase_firestore_service_view_model/season_q_firebase_firestore_service_view_model_using_get_np_for_last_season_where_sort_parameter_season_number.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/stats_q_firebase_firestore_service_view_model/stats_q_firebase_firestore_service_view_model_using_insert_parameter_registration_stats_utility.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/user_q_firebase_firestore_service_view_model/user_q_firebase_firestore_service_view_model_using_get_parameter_string_for_unique_id.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/user_q_firebase_firestore_service_view_model/user_q_firebase_firestore_service_view_model_using_insert_parameter_string_for_unique_id.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/verified_user_q_firebase_firestore_service_view_model/verified_user_q_firebase_firestore_service_view_model_using_insert_parameter_registration_verified_user_utility.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_http_client_service_view_model/discord_user_q_http_client_service_view_model/discord_user_q_http_client_service_view_model_using_get_np_for_discord_auth.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_http_client_service_view_model/ip_address_q_http_client_service_view_model/ip_address_q_http_client_service_view_model_using_get_np_for_jsonip_api.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_update_parameter_bool_for_is_verified_user_by_verified_user_sp.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_update_parameter_bool_for_is_admin_by_role_user.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_update_parameter_bool_for_is_test_by_role_user.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_update_parameter_bool_for_is_verified_user_by_verified_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model_using_update_parameter_date_time_for_creation_time_by_user.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model_using_update_parameter_date_time_for_end_of_season_time_by_season.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model_using_update_parameter_date_time_for_last_login_time_by_last_login_time_user.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/ints_q_temp_cache_service_view_model/ints_q_temp_cache_service_view_model_using_update_parameter_int_for_matches_lost_by_stats.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/ints_q_temp_cache_service_view_model/ints_q_temp_cache_service_view_model_using_update_parameter_int_for_matches_won_by_stats.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/ints_q_temp_cache_service_view_model/ints_q_temp_cache_service_view_model_using_update_parameter_int_for_rating_points_by_stats.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/ints_q_temp_cache_service_view_model/ints_q_temp_cache_service_view_model_using_update_parameter_int_for_season_number_by_season.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_code_dbd_by_about_me.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_code_steam_by_about_me.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_global_name_by_discord_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_ip_by_ip_address.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_name_country_by_country.dart';
@@ -61,8 +75,8 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
   StringsQTempCacheServiceViewModelUsingUpdateParameterStringForUsernameByDiscordUser();
   final _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForGlobalNameByDiscordUser =
   StringsQTempCacheServiceViewModelUsingUpdateParameterStringForGlobalNameByDiscordUser();
-  final _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUserSP =
-  BoolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUserSP();
+  final _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUser =
+  BoolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUser();
   final _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForIpByIPAddress =
   StringsQTempCacheServiceViewModelUsingUpdateParameterStringForIpByIPAddress();
   final _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForNameCountryByCountry =
@@ -87,6 +101,30 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
   IPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationIPAddressFirestoreUtility();
   final _aboutMeQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdByUser =
   AboutMeQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdByUser();
+  final _roleUserQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdByUser =
+  RoleUserQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdByUser();
+  final _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForCodeSteamByAboutMe =
+  StringsQTempCacheServiceViewModelUsingUpdateParameterStringForCodeSteamByAboutMe();
+  final _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForCodeDBDByAboutMe =
+  StringsQTempCacheServiceViewModelUsingUpdateParameterStringForCodeDBDByAboutMe();
+  final _intsQTempCacheServiceViewModelUsingUpdateParameterIntForMatchesWonByStats =
+  IntsQTempCacheServiceViewModelUsingUpdateParameterIntForMatchesWonByStats();
+  final _intsQTempCacheServiceViewModelUsingUpdateParameterIntForMatchesLostByStats =
+  IntsQTempCacheServiceViewModelUsingUpdateParameterIntForMatchesLostByStats();
+  final _intsQTempCacheServiceViewModelUsingUpdateParameterIntForRatingPointsByStats =
+  IntsQTempCacheServiceViewModelUsingUpdateParameterIntForRatingPointsByStats();
+  final _intsQTempCacheServiceViewModelUsingUpdateParameterIntForSeasonNumberBySeason =
+  IntsQTempCacheServiceViewModelUsingUpdateParameterIntForSeasonNumberBySeason();
+  final _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsAdminByRoleUser =
+  BoolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsAdminByRoleUser();
+  final _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsTestByRoleUser =
+  BoolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsTestByRoleUser();
+  final _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForEndOfSeasonTimeBySeason =
+  DatesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForEndOfSeasonTimeBySeason();
+  final _discordUserFirestoreQFirebaseFirestoreServiceViewModelUsingUpdateParameterUpdateUsernameAndGlobalNameToDiscordUserFirestoreUtility =
+  DiscordUserFirestoreQFirebaseFirestoreServiceViewModelUsingUpdateParameterUpdateUsernameAndGlobalNameToDiscordUserFirestoreUtility();
+  final _userQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueId =
+  UserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueId();
 
   // DataForNamedQThereIsStreamStateViewModel
   final _dataForLoginViewQThereIsStreamStateViewModel =
@@ -290,8 +328,15 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
       _firstBranchElevenQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultStats,callbackSuccess,callbackException);
       return;
     }
-    // Create RoleUser (FirebaseFirestore)
-    // Create AboutMe and Stats and Season and RoleUser (TempCache)
+    final resultRoleUserForUniqueIdByUser = await _roleUserQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdByUser
+        .insertRoleUserToFirebaseFirestoreServiceParameterStringDS(resultUserForUniqueId.parameter?.uniqueId ?? "");
+    if(resultRoleUserForUniqueIdByUser
+        .exceptionController
+        .isNotEqualsNullParameterException())
+    {
+      _firstBranchTwelveQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultRoleUserForUniqueIdByUser,callbackSuccess,callbackException);
+      return;
+    }
     await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser
         .updateStringsToTempCacheServiceParameterStringDS(resultUserForUniqueId.parameter?.uniqueId ?? "");
     await _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser
@@ -302,12 +347,30 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .updateStringsToTempCacheServiceParameterStringDS(resultDiscordUserFirestore.parameter?.username ?? "");
     await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForGlobalNameByDiscordUser
         .updateStringsToTempCacheServiceParameterStringDS(resultDiscordUserFirestore.parameter?.globalName ?? "");
-    await _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUserSP
+    await _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUser
         .updateBoolsToTempCacheServiceParameterBoolDS(resultVerifiedUser.parameter?.isVerifiedUser ?? false);
     await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForIpByIPAddress
         .updateStringsToTempCacheServiceParameterStringDS(resultIPAddressForJsonipAPI.parameter?.ip ?? "");
     await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForNameCountryByCountry
-        .updateStringsToTempCacheServiceParameterStringDS(resultIPAddressForJsonipAPI.parameter?.nameCountry ?? "");
+        .updateStringsToTempCacheServiceParameterStringDS(resultCountry.parameter?.nameCountry ?? "");
+    await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForCodeSteamByAboutMe
+        .updateStringsToTempCacheServiceParameterStringDS(resultAboutMeForUniqueIdByUser.parameter?.codeSteam ?? "");
+    await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForCodeDBDByAboutMe
+        .updateStringsToTempCacheServiceParameterStringDS(resultAboutMeForUniqueIdByUser.parameter?.codeDBD ?? "");
+    await _intsQTempCacheServiceViewModelUsingUpdateParameterIntForMatchesWonByStats
+        .updateIntsToTempCacheServiceParameterIntDS(resultStats.parameter?.matchesWon ?? 0);
+    await _intsQTempCacheServiceViewModelUsingUpdateParameterIntForMatchesLostByStats
+        .updateIntsToTempCacheServiceParameterIntDS(resultStats.parameter?.matchesLost ?? 0);
+    await _intsQTempCacheServiceViewModelUsingUpdateParameterIntForRatingPointsByStats
+        .updateIntsToTempCacheServiceParameterIntDS(resultStats.parameter?.ratingPoints ?? 0);
+    await _intsQTempCacheServiceViewModelUsingUpdateParameterIntForSeasonNumberBySeason
+        .updateIntsToTempCacheServiceParameterIntDS(resultSeasonForLastSeasonWhereSortParameterSeasonNumber.parameter?.seasonNumber ?? 0);
+    await _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsAdminByRoleUser
+        .updateBoolsToTempCacheServiceParameterBoolDS(resultRoleUserForUniqueIdByUser.parameter?.isAdmin ?? false);
+    await _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsTestByRoleUser
+        .updateBoolsToTempCacheServiceParameterBoolDS(resultRoleUserForUniqueIdByUser.parameter?.isTest ?? false);
+    await _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForEndOfSeasonTimeBySeason
+        .updateDatesTimesToTempCacheServiceParameterDateTimeDS(resultSeasonForLastSeasonWhereSortParameterSeasonNumber.parameter?.endOfSeasonTime ?? DateTime.now());
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -406,8 +469,70 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultStats.exceptionController.getKeyParameterException);
   }
 
+  void _firstBranchTwelveQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<RoleUser> resultRoleUserForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
+    _dataForLoginViewQThereIsStreamStateViewModel
+        .getDataForLoginView
+        ?.isLoading = false;
+    _dataForLoginViewQThereIsStreamStateViewModel
+        .notifyStreamDataForLoginView();
+    callbackException(resultRoleUserForUniqueIdByUser.exceptionController.getKeyParameterException);
+  }
+
   Future<void> _firstBranchOneQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(String getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName, Function() callbackSuccess, Function(String messageException) callbackException, DiscordUserFirestore discordUserFirestore)
   async {
+    if(getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName == KeysExceptionUtility.uNKNOWN) {
+      _dataForLoginViewQThereIsStreamStateViewModel
+          .getDataForLoginView
+          ?.isLoading = false;
+      _dataForLoginViewQThereIsStreamStateViewModel
+          .notifyStreamDataForLoginView();
+      callbackException(getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName);
+      return;
+    }
+    final resultDiscordUserFirestore = await _discordUserFirestoreQFirebaseFirestoreServiceViewModelUsingUpdateParameterUpdateUsernameAndGlobalNameToDiscordUserFirestoreUtility
+        .updateDiscordUserFirestoreToFirebaseFirestoreServiceParameterUpdateUsernameAndGlobalNameToDiscordUserFirestoreUtilityDS(UpdateUsernameAndGlobalNameToDiscordUserFirestoreUtility(discordUserFirestore.uniqueId, discordUserFirestore.uniqueIdByUser, discordUserFirestore.username, discordUserFirestore.globalName));
+    if(resultDiscordUserFirestore
+        .exceptionController
+        .isNotEqualsNullParameterException())
+    {
+      _firstBranchTwoQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultDiscordUserFirestore,callbackSuccess,callbackException);
+      return;
+    }
+    final resultUserForUniqueId = await _userQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueId
+        .getUserFromFirebaseFirestoreServiceParameterStringDS(resultDiscordUserFirestore.parameter?.uniqueIdByUser ?? "");
+    if(resultUserForUniqueId
+        .exceptionController
+        .isNotEqualsNullParameterException())
+    {
+      _firstBranchThreeQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultUserForUniqueId,callbackSuccess,callbackException);
+      return;
+    }
+    // Get IPAddress (Http)
+    // Get VerifiedUser,RoleUser,IPAddressFirestore,Country,AboutMe,Season,Stats (Firestore)
+    // Update LastLoginTimeUser
+    _dataForLoginViewQThereIsStreamStateViewModel
+        .getDataForLoginView
+        ?.isLoading = false;
+    _dataForLoginViewQThereIsStreamStateViewModel
+        .notifyStreamDataForLoginView();
+    callbackSuccess();
+  }
 
+  void _firstBranchTwoQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<DiscordUserFirestore> resultDiscordUserFirestore, Function() callbackSuccess, Function(String messageException) callbackException) {
+    _dataForLoginViewQThereIsStreamStateViewModel
+        .getDataForLoginView
+        ?.isLoading = false;
+    _dataForLoginViewQThereIsStreamStateViewModel
+        .notifyStreamDataForLoginView();
+    callbackException(resultDiscordUserFirestore.exceptionController.getKeyParameterException);
+  }
+
+  void _firstBranchThreeQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<User> resultUserForUniqueId, Function() callbackSuccess, Function(String messageException) callbackException) {
+    _dataForLoginViewQThereIsStreamStateViewModel
+        .getDataForLoginView
+        ?.isLoading = false;
+    _dataForLoginViewQThereIsStreamStateViewModel
+        .notifyStreamDataForLoginView();
+    callbackException(resultUserForUniqueId.exceptionController.getKeyParameterException);
   }
 }

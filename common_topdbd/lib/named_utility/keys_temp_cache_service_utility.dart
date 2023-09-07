@@ -1,3 +1,6 @@
+import 'package:meta/meta.dart';
+
+@immutable
 final class KeysTempCacheServiceUtility {
   /* Strings */
   static const String stringsQUniqueIdByUser = "stringsQUniqueIdByUser";
@@ -20,6 +23,14 @@ final class KeysTempCacheServiceUtility {
   static const String datesTimesQCreationTimeByUser = "datesTimesQCreationTimeByUser";
   static const String datesTimesQLastLoginTimeByLastLoginTimeUser = "datesTimesQLastLoginTimeByLastLoginTimeUser";
   static const String datesTimesQEndOfSeasonTimeBySeason = "datesTimesQEndOfSeasonTimeBySeason";
+  /* Maniac */
+  static const String maniacQListManiac = "maniacQListManiac";
+  /* Maps */
+  static const String mapsQListMaps = "mapsQListMaps";
+  /* ManiacPerk */
+  static const String maniacPerkQListManiacPerk = "maniacPerkQListManiacPerk";
+  /* SurvivorPerk */
+  static const String survivorPerkQListSurvivorPerk = "survivorPerkQListSurvivorPerk";
 
   const KeysTempCacheServiceUtility._();
 }

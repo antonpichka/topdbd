@@ -62,24 +62,11 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String statsQMatchesWon = "matchesWon";
   static const String statsQMatchesLost = "matchesLost";
   static const String statsQRatingPoints = "ratingPoints";
-  /* Maniac */
-  static const String maniac = "maniac";
-  static const String maniacQName = "name";
-  static const String maniacQImagePath = "imagePath";
-  /* Maps */
-  static const String maps = "maps";
-  static const String mapsQName = "name";
-  static const String mapsQImagePath = "imagePath";
-  /* Perk */
-  static const String perk = "perk";
-  static const String perkQName = "name";
-  static const String perkQImagePath = "imagePath";
   /* MatchBalance */
   static const String matchBalance = "matchBalance";
   static const String matchBalanceQSeasonNumberBySeason = "seasonNumberBySeason";
   static const String matchBalanceQNumberOfRounds = "numberOfRounds";
-  static const String matchBalanceQListPerk = "listPerk";
-  static const String matchBalanceQListManiacWithHisMaps= "listManiacWithHisMaps";
+  static const String matchBalanceQListManiacWithHisLengthPickManiacPerkAndLengthPickSurvivorPerkAndListMapsAndListManiacPerkAndListSurvivorPerk = "listManiacWithHisLengthPickManiacPerkAndLengthPickSurvivorPerkAndListMapsAndListManiacPerkAndListSurvivorPerk";
   /* Matches */
   static const String matches = "matches";
   static const String matchesQUniqueId = "uniqueId";
@@ -88,21 +75,28 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchesQTextLogAction = "textLogAction";
   static const String matchesQSeasonNumberBySeason = "seasonNumberBySeason";
   static const String matchesQNumberOfRoundsByMatchBalance = "numberOfRoundsByMatchBalance";
-  static const String matchesQListPerkByMatchBalance = "listPerkByMatchBalance";
-  static const String matchesQListManiacWithHisMapsByMatchBalance = "listManiacWithHisMapsByMatchBalance";
+  static const String matchesQListManiacWithHisLengthPickManiacPerkAndLengthPickSurvivorPerkAndListMapsAndListManiacPerkAndListSurvivorPerkByMatchBalance = "listManiacWithHisLengthPickManiacPerkAndLengthPickSurvivorPerkAndListMapsAndListManiacPerkAndListSurvivorPerkByMatchBalance";
   static const String matchesQUniqueIdByUserWhereFirst = "uniqueIdByUserWhereFirst";
   static const String matchesQUniqueIdByUserWhereSecond = "uniqueIdByUserWhereSecond";
   static const String matchesQIsRoleManiacForUniqueIdByUserWhereFirst = "isRoleManiacForUniqueIdByUserWhereFirst";
   static const String matchesQIsTimerStartForUniqueIdByUserWhereFirst = "isTimerStartForUniqueIdByUserWhereFirst";
   static const String matchesQIsTimerStartForUniqueIdByUserWhereSecond = "isTimerStartForUniqueIdByUserWhereSecond";
-  static const String matchesQListBanManiacWithHisMapsForUniqueIdByUserWhereFirst = "listBanManiacWithHisMapsForUniqueIdByUserWhereFirst";
-  static const String matchesQListBanManiacWithHisMapsForUniqueIdByUserWhereSecond = "listBanManiacWithHisMapsForUniqueIdByUserWhereSecond";
-  static const String matchesQListPickManiacWithHisMapForUniqueIdByUserWhereFirst = "listPickManiacWithHisMapForUniqueIdByUserWhereFirst";
-  static const String matchesQListPickManiacWithHisMapForUniqueIdByUserWhereSecond = "listPickManiacWithHisMapForUniqueIdByUserWhereSecond";
-  static const String matchesQListBanPerkForUniqueIdByUserWhereFirst = "listBanPerkForUniqueIdByUserWhereFirst";
-  static const String matchesQListBanPerkForUniqueIdByUserWhereSecond = "listBanPerkForUniqueIdByUserWhereSecond";
-  static const String matchesQListPickPerkForUniqueIdByUserWhereFirst = "listPickPerkForUniqueIdByUserWhereFirst";
-  static const String matchesQListPickPerkForUniqueIdByUserWhereSecond = "listPickPerkForUniqueIdByUserWhereSecond";
+  static const String matchesQListBanManiacWithHisNameForUniqueIdByUserWhereFirst = "listBanManiacWithHisNameForUniqueIdByUserWhereFirst";
+  static const String matchesQListBanManiacWithHisNameForUniqueIdByUserWhereSecond = "listBanManiacWithHisNameForUniqueIdByUserWhereSecond";
+  static const String matchesQListPickManiacWithHisNameForUniqueIdByUserWhereFirst = "listPickManiacWithHisNameForUniqueIdByUserWhereFirst";
+  static const String matchesQListPickManiacWithHisNameForUniqueIdByUserWhereSecond = "listPickManiacWithHisNameForUniqueIdByUserWhereSecond";
+  static const String matchesQListBanMapsWithHisNameAndNameManiacForUniqueIdByUserWhereFirst = "listBanMapsWithHisNameAndNameManiacForUniqueIdByUserWhereFirst";
+  static const String matchesQListBanMapsWithHisNameAndNameManiacForUniqueIdByUserWhereSecond = "listBanMapsWithHisNameAndNameManiacForUniqueIdByUserWhereSecond";
+  static const String matchesQListPickMapsWithHisNameAndNameManiacForUniqueIdByUserWhereFirst = "listPickMapsWithHisNameAndNameManiacForUniqueIdByUserWhereFirst";
+  static const String matchesQListPickMapsWithHisNameAndNameManiacForUniqueIdByUserWhereSecond = "listPickMapsWithHisNameAndNameManiacForUniqueIdByUserWhereSecond";
+  static const String matchesQListBanManiacPerkWithHisNameAndNameManiacForUniqueIdByUserWhereFirst = "listBanManiacPerkWithHisNameAndNameManiacForUniqueIdByUserWhereFirst";
+  static const String matchesQListBanManiacPerkWithHisNameAndNameManiacForUniqueIdByUserWhereSecond = "listBanManiacPerkWithHisNameAndNameManiacForUniqueIdByUserWhereSecond";
+  static const String matchesQListPickManiacPerkWithHisNameAndNameManiacForUniqueIdByUserWhereFirst = "listPickManiacPerkWithHisNameAndNameManiacForUniqueIdByUserWhereFirst";
+  static const String matchesQListPickManiacPerkWithHisNameAndNameManiacForUniqueIdByUserWhereSecond = "listPickManiacPerkWithHisNameAndNameManiacForUniqueIdByUserWhereSecond";
+  static const String matchesQListBanSurvivorPerkWithHisNameAndNameManiacForUniqueIdByUserWhereFirst = "listBanSurvivorPerkWithHisNameAndNameManiacForUniqueIdByUserWhereFirst";
+  static const String matchesQListBanSurvivorPerkWithHisNameAndNameManiacForUniqueIdByUserWhereSecond = "listBanSurvivorPerkWithHisNameAndNameManiacForUniqueIdByUserWhereSecond";
+  static const String matchesQListPickSurvivorPerkWithHisNameAndNameManiacForUniqueIdByUserWhereFirst = "listPickSurvivorPerkWithHisNameAndNameManiacForUniqueIdByUserWhereFirst";
+  static const String matchesQListPickSurvivorPerkWithHisNameAndNameManiacForUniqueIdByUserWhereSecond = "listPickSurvivorPerkWithHisNameAndNameManiacForUniqueIdByUserWhereSecond";
   static const String matchesQRoundWinForUniqueIdByUserWhereFirst = "roundWinForUniqueIdByUserWhereFirst";
   static const String matchesQRoundWinForUniqueIdByUserWhereSecond = "roundWinForUniqueIdByUserWhereSecond";
   static const String matchesQListElapsedSecondsPerRoundsForUniqueIdByUserWhereFirst = "listElapsedSecondsPerRoundsForUniqueIdByUserWhereFirst";

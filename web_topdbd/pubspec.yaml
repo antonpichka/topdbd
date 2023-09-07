@@ -39,4 +39,20 @@ flutter:
   assets:
     - assets/icon/app_icon.ico
     - assets/icon/app_icon.png
+    - assets/icon/dbd/maniac/maniac_anna.png
+    - assets/icon/dbd/maniac/maniac_bilyas.png
+    - assets/icon/dbd/maniac/maniac_bubba.png
+    - assets/icon/dbd/maniac/maniac_demogorgon.png
+    - assets/icon/dbd/maniac/maniac_doctor.png
+    - assets/icon/dbd/maniac/maniac_kolya.png
+    - assets/icon/dbd/maniac/maniac_mor.png
+    - assets/icon/dbd/maniac/maniac_nurse.png
+    - assets/icon/dbd/maniac/maniac_trapper.png
+    - assets/icon/dbd/maniac/maniac_vesker.png
+    - assets/icon/dbd/maps/maps_asy_chapel.png
+    - assets/icon/dbd/maps/maps_ind_coal_tower.png
+    - assets/icon/dbd/maps/maps_ind_mine.png
+    - assets/icon/dbd/maps/maps_ind_storehouse.png
+    - assets/icon/dbd/maps/maps_jnk_gas_station.png
+    - assets/icon/dbd/maps/maps_jnk_scrapyard.png
     - assets/txt/terms_of_use_topdbd.txt

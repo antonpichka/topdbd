@@ -509,6 +509,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     }
     // Get IPAddress (Http)
     // Get VerifiedUser,RoleUser,IPAddressFirestore,Country,AboutMe,Season,Stats (Firestore)
+    // Check equals IPAddress (Http) Country (Firestore)
     // Update LastLoginTimeUser
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView

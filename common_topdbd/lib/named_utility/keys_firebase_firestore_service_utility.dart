@@ -48,7 +48,6 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String aboutMe = "aboutMe";
   static const String aboutMeQUniqueIdByUser = "uniqueIdByUser";
   static const String aboutMeQCodeDBD = "codeDBD";
-  static const String aboutMeQCodeSteam = "codeSteam";
   /* Season */
   static const String season = "season";
   static const String seasonQSeasonNumber = "seasonNumber";

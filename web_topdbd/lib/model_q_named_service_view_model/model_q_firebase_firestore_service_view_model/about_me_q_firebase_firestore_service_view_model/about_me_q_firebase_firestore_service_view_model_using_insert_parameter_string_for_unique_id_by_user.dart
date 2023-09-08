@@ -25,7 +25,6 @@ base class AboutMeQFirebaseFirestoreServiceViewModelUsingInsertParameterStringFo
           .add({
         KeysFirebaseFirestoreServiceUtility.aboutMeQUniqueIdByUser : parameter,
         KeysFirebaseFirestoreServiceUtility.aboutMeQCodeDBD : "",
-        KeysFirebaseFirestoreServiceUtility.aboutMeQCodeSteam : ""
           });
       final documentByAboutMe = await documentByAboutMeWhereAdding?.get();
       if(!(documentByAboutMe?.exists ?? false)) {
@@ -33,8 +32,7 @@ base class AboutMeQFirebaseFirestoreServiceViewModelUsingInsertParameterStringFo
       }
       return Result.success(AboutMe(
           documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQUniqueIdByUser],
-          documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQCodeDBD],
-          documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQCodeSteam]) as T);
+          documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQCodeDBD]) as T);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

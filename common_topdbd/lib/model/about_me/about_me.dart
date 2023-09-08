@@ -5,10 +5,9 @@ import 'package:meta/meta.dart';
 base class AboutMe extends BaseModel {
   final String uniqueIdByUser;
   final String codeDBD;
-  final String codeSteam;
 
-  const AboutMe(this.uniqueIdByUser,this.codeDBD,this.codeSteam) : super(uniqueIdByUser);
+  const AboutMe(this.uniqueIdByUser,this.codeDBD) : super(uniqueIdByUser);
 
   @override
-  AboutMe get getCloneModel => AboutMe(uniqueIdByUser,codeDBD,codeSteam);
+  AboutMe get getCloneModel => AboutMe(uniqueIdByUser,codeDBD);
 }

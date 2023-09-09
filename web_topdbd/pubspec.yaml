@@ -19,13 +19,13 @@ dependencies:
   intl: ^0.18.0
   responsive_framework: ^1.1.0
   meta: ^1.9.1
-  firebase_core: ^2.10.0
+  firebase_core: ^2.15.1
   flutter_web_auth_2_platform_interface: ^2.1.4
-  flutter_web_auth_2: ^2.1.4
+  flutter_web_auth_2: ^2.2.1
   http: ^0.13.5
   shared_preferences: ^2.1.0
-  cloud_firestore: ^4.5.3
-  firebase_auth: ^4.6.1
+  cloud_firestore: ^4.9.1
+  firebase_auth: ^4.9.0
   top_snackbar_flutter: ^3.1.0
   custom_signin_buttons: ^1.0.2
   uuid: ^3.0.7

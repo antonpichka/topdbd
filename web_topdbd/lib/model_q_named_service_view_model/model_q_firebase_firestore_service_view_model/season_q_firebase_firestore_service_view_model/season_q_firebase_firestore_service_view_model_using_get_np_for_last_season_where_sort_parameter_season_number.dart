@@ -32,6 +32,7 @@ base class SeasonQFirebaseFirestoreServiceViewModelUsingGetNPForLastSeasonWhereS
           documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQSeasonNumber],
           documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQStrNumberOfMatchesPlayedPerSeason],
           documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQStrNumberOfUniquePlayersWhoPlayedInASeason],
+          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQStartOfSeasonTime],
           documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQEndOfSeasonTime]) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));

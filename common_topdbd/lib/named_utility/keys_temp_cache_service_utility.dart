@@ -22,6 +22,7 @@ final class KeysTempCacheServiceUtility {
   /* DatesTimes */
   static const String datesTimesQCreationTimeByUser = "datesTimesQCreationTimeByUser";
   static const String datesTimesQLastLoginTimeByLastLoginTimeUser = "datesTimesQLastLoginTimeByLastLoginTimeUser";
+  static const String datesTimesQStartOfSeasonTimeBySeason = "datesTimesQStartOfSeasonTimeBySeason";
   static const String datesTimesQEndOfSeasonTimeBySeason = "datesTimesQEndOfSeasonTimeBySeason";
   /* Maniac */
   static const String maniacQListManiac = "maniacQListManiac";

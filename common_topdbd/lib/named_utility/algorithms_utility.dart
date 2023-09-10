@@ -13,4 +13,8 @@ final class AlgorithmsUtility {
     }
     return result;
   }
+
+  static int getInterestFormulaFromParameterInt(int number, int findPercent) {
+    return ((number / 100) * findPercent).toInt();
+  }
 }

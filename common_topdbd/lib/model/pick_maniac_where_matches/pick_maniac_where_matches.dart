@@ -19,4 +19,9 @@ base class PickManiacWhereMatches extends BaseModel {
 
   @override
   PickManiacWhereMatches get getCloneModel => PickManiacWhereMatches(name,listBanMapsWhereMatches.getCloneListModel,pickMapsWhereMatches.getCloneModel,listPickManiacPerkWhereMatches.getCloneListModel,listPickSurvivorPerkWhereMatches.getCloneListModel,isRoundWin,elapsedSecondsPerRounds);
+
+  @override
+  String toString() {
+    return name;
+  }
 }

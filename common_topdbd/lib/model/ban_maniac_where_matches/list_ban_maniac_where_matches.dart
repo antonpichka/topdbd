@@ -14,4 +14,12 @@ base class ListBanManiacWhereMatches<T extends BanManiacWhereMatches> extends Ba
     }
     return ListBanManiacWhereMatches<T>(newListModel);
   }
+
+  void insertToListBanManiacWhereMatches(T banManiacWhereMatches) {
+    insertToListModel(banManiacWhereMatches);
+  }
+
+  void insertListToListBanManiacWhereMatches(List<T> listBanManiacWhereMatches) {
+    insertListToListModel(listBanManiacWhereMatches);
+  }
 }

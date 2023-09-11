@@ -10,4 +10,9 @@ base class Maniac extends BaseModel {
 
   @override
   Maniac get getCloneModel => Maniac(name,imagePath);
+
+  @override
+  String toString() {
+    return name;
+  }
 }

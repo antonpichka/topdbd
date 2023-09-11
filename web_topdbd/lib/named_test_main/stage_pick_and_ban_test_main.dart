@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:common_topdbd/model/ban_maniac_where_matches/ban_maniac_where_matches.dart';
 import 'package:common_topdbd/model/ban_maniac_where_matches/list_ban_maniac_where_matches.dart';
 import 'package:common_topdbd/model/maniac/maniac.dart';
 import 'package:common_topdbd/model/maniac_perk/list_maniac_perk.dart';
@@ -57,10 +58,11 @@ enum EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond {
 
 final class DataForStagePickAndBanTestMain {
   bool isLoading;
+  bool isLoadingForButton;
   User user;
   Matches matches;
 
-  DataForStagePickAndBanTestMain(this.isLoading,this.user,this.matches);
+  DataForStagePickAndBanTestMain(this.isLoading,this.isLoadingForButton,this.user,this.matches);
 
   EnumDataForStagePickAndBanTestMain get getEnumDataForStagePickAndBanTestMain {
     if(isLoading) {
@@ -170,18 +172,12 @@ Future<void> main() async {
   _streamControllerForDataForStagePickAndBanTestMain
       .stream
       .listen((event) {
-         _buildWidget(event);
+         _buildView();
       });
-  /// INIT DATA
-  final user = _getUser;
-  _dataForStagePickAndBanTestMain = DataForStagePickAndBanTestMain(true,user,_getMatches);
-  _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
-  await Future.delayed(const Duration(milliseconds: 1000));
-  _dataForStagePickAndBanTestMain?.isLoading = false;
-  _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
+  /// INIT CLIENT
+  _dataForStagePickAndBanTestMain = DataForStagePickAndBanTestMain(false,false,_dataSourceOne,_dataSourceThree);
   /// INIT BACKEND
-  final matches = _getMatches;
-  _streamControllerForMatches.sink.add(matches);
+  _streamControllerForMatches.sink.add(_dataSourceThree);
 }
 
 void _listenMatches(Matches event) {
@@ -189,8 +185,8 @@ void _listenMatches(Matches event) {
   _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
 }
 
-void _buildWidget(DataForStagePickAndBanTestMain dataForStagePickAndBanTestMain) {
-  switch(dataForStagePickAndBanTestMain.getEnumDataForStagePickAndBanTestMain) {
+void _buildView() {
+  switch(_dataForStagePickAndBanTestMain?.getEnumDataForStagePickAndBanTestMain) {
     case EnumDataForStagePickAndBanTestMain.isLoading:
       debugPrint("IsLoading");
       break;
@@ -199,22 +195,34 @@ void _buildWidget(DataForStagePickAndBanTestMain dataForStagePickAndBanTestMain)
       break;
     case EnumDataForStagePickAndBanTestMain.myUniqueIdByUserWhereFirst:
       debugPrint("MyUniqueIdByUserWhereFirst");
-      _buildWidgetWhereMyUniqueIdByUserWhereFirst(dataForStagePickAndBanTestMain);
+      _buildViewWhereMyUniqueIdByUserWhereFirst(_dataForStagePickAndBanTestMain!);
       break;
     case EnumDataForStagePickAndBanTestMain.myUniqueIdByUserWhereSecond:
       debugPrint("MyUniqueIdByUserWhereSecond");
-      _buildWidgetWhereMyUniqueIdByUserWhereSecond(dataForStagePickAndBanTestMain);
+      _buildViewWhereMyUniqueIdByUserWhereSecond(_dataForStagePickAndBanTestMain!);
+      break;
+    default:
       break;
   }
 }
 
-void _buildWidgetWhereMyUniqueIdByUserWhereFirst(DataForStagePickAndBanTestMain dataForStagePickAndBanTestMain) {
+void _buildViewWhereMyUniqueIdByUserWhereFirst(DataForStagePickAndBanTestMain dataForStagePickAndBanTestMain) {
   switch(dataForStagePickAndBanTestMain.getEnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst) {
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsMyTurnsBanManiac:
-     // debugPrint("List Maniac: ${dataForStagePickAndBanTestMain.matches.matchBalance}");
-      debugPrint("You turns Ban Maniac: ");
-      final name = stdin.readLineSync();
-      
+      /// VIEW LIST PICK MANIAC (CLICK DETAIL INFO (PickedMap,ListPickManiacPerk,ListPickSurvivorPerk))
+      debugPrint("ListPickManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel}");
+      debugPrint("ListPickManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      /// VIEW LIST BANS MANIAC
+      debugPrint("ListBanManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel}");
+      debugPrint("ListBanManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      /// VIEW LIST MANIAC (WHO CAN BE BANED)
+      debugPrint("ListManiac: ${dataForStagePickAndBanTestMain.matches.getListManiacWhereBanOrPickParametersFourList.listModel}");
+      /// STAGE BAN MANIAC
+      debugPrint("You turns Ban Maniac (index): ");
+      final input = stdin.readLineSync();
+      final intInput = int.parse(input ?? "");
+      _listViewModelOne(dataForStagePickAndBanTestMain.matches.getListManiacWhereBanOrPickParametersFourList.listModel[intInput]);
+      break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsMyTurnsPickManiac:
       // TODO: Handle this case.
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsMyTurnsBansMapsToManiac:
@@ -242,7 +250,7 @@ void _buildWidgetWhereMyUniqueIdByUserWhereFirst(DataForStagePickAndBanTestMain 
   }
 }
 
-void _buildWidgetWhereMyUniqueIdByUserWhereSecond(DataForStagePickAndBanTestMain dataForStagePickAndBanTestMain) {
+void _buildViewWhereMyUniqueIdByUserWhereSecond(DataForStagePickAndBanTestMain dataForStagePickAndBanTestMain) {
   switch(dataForStagePickAndBanTestMain.getEnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond) {
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsMyTurnsBanManiac:
       // TODO: Handle this case.
@@ -273,25 +281,91 @@ void _buildWidgetWhereMyUniqueIdByUserWhereSecond(DataForStagePickAndBanTestMain
   }
 }
 
-/*void _listenForUniqueIdByUserWhereFirst(String uniqueIdByUserWhereFirst, Matches matches) {
-  String? name = stdin.readLineSync();
-  _printTextLogAction(textLogAction);
+/* START ListViewModel */
+void _listViewModelOne(Maniac maniac) {
+  if(_dataForStagePickAndBanTestMain?.isLoadingForButton ?? false) {
+    return;
+  }
+  _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
+  final matches = _dataForStagePickAndBanTestMain?.matches;
+  matches
+      ?.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst
+      .insertToListBanManiacWhereMatches(BanManiacWhereMatches(maniac.name));
+  final textLogAction = "${matches?.textLogAction}\nPlayer: ${matches?.uniqueIdByUserWhereFirst} banned maniac ${maniac.name}";
+  if(matches?.isNumberOfBannedManiacsLessTotalNumberOfBannedManiacsInTheFirstStageParametersMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond() ?? false) {
+    _firstBranchOneQListViewModelOne(matches!,textLogAction);
+    return;
+  }
+  _dataForStagePickAndBanTestMain?.matches = _dataSourceFive(matches!,textLogAction,false,EnumBanOrPickNamed.pickManiac);
+  _utilityOne();
 }
 
-void _listenForUniqueIdByUserWhereSecond(String uniqueIdByUserWhereSecond, Matches matches) {
-  String? name = stdin.readLineSync();
-  _printTextLogAction(textLogAction);
-}*/
-
-void _printTextLogAction(String textLogAction) {
-  debugPrint(textLogAction);
+void _firstBranchOneQListViewModelOne(Matches matches, String textLogAction) {
+  _dataForStagePickAndBanTestMain?.matches = _dataSourceFour(matches,textLogAction,false);
+  _utilityOne();
 }
 
-User get _getUser {
+/* END ListViewModel */
+
+/* START Utility */
+void _utilityOne() {
+  _dataForStagePickAndBanTestMain?.isLoadingForButton = false;
+  _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
+  debugPrint("\n<-------TEXT LOG ACTION------->");
+  debugPrint("\n${_dataForStagePickAndBanTestMain?.matches.textLogAction ?? ""}\n");
+  debugPrint("<-------TEXT LOG ACTION------->\n");
+}
+
+/* END Utility */
+
+/* START DataSource */
+Matches _dataSourceFour(Matches matches,String textLogAction,bool isStageBanOrPickForUniqueIdByUserWhereFirst) {
+  return Matches(
+      matches.uniqueId,
+      matches.creationTime,
+      matches.isCompleted,
+      matches.enumBanOrPickNamed.name,
+      textLogAction,
+      matches.matchBalance.getCloneModel,
+      matches.uniqueIdByUserWhereFirst,
+      matches.uniqueIdByUserWhereSecond,
+      isStageBanOrPickForUniqueIdByUserWhereFirst,
+      matches.isRoleManiacForUniqueIdByUserWhereFirst,
+      matches.enumHowToStartATimer.name,
+      matches.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel,
+      matches.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel,
+      matches.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel,
+      matches.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel,
+      matches.resultRatingPointsForUniqueIdByUserWhereFirst,
+      matches.resultRatingPointsForUniqueIdByUserWhereSecond);
+}
+
+Matches _dataSourceFive(Matches matches,String textLogAction,bool isStageBanOrPickForUniqueIdByUserWhereFirst, EnumBanOrPickNamed enumBanOrPickNamed) {
+  return Matches(
+      matches.uniqueId,
+      matches.creationTime,
+      matches.isCompleted,
+      enumBanOrPickNamed.name,
+      textLogAction,
+      matches.matchBalance.getCloneModel,
+      matches.uniqueIdByUserWhereFirst,
+      matches.uniqueIdByUserWhereSecond,
+      isStageBanOrPickForUniqueIdByUserWhereFirst,
+      matches.isRoleManiacForUniqueIdByUserWhereFirst,
+      matches.enumHowToStartATimer.name,
+      matches.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel,
+      matches.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel,
+      matches.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel,
+      matches.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel,
+      matches.resultRatingPointsForUniqueIdByUserWhereFirst,
+      matches.resultRatingPointsForUniqueIdByUserWhereSecond);
+}
+
+User get _dataSourceOne {
   return User("51d1a9f2-4fb0-11ee-be56-0242ac120002", DateTime.now());
 }
 
-MatchBalance get _getMatchBalance {
+MatchBalance get _dataSourceTwo {
   /// 6
   return MatchBalance(1,3,ListManiacWhereMatchBalance([
     ManiacWhereMatchBalance(
@@ -370,18 +444,18 @@ MatchBalance get _getMatchBalance {
   ]));
 }
 
-Matches get _getMatches {
+Matches get _dataSourceThree {
   return Matches(
       "409419d6-4fb0-11ee-be56-0242ac120002",
       DateTime.now(),
       false,
       EnumBanOrPickNamed.banManiac.name,
       "",
-      _getMatchBalance,
+      _dataSourceTwo,
       "51d1a9f2-4fb0-11ee-be56-0242ac120002",
       "5f8cd3aa-4fb0-11ee-be56-0242ac120002",
-      false,
-      false,
+      true,
+      true,
       EnumHowToStartATimer.isRoleManiacForUniqueIdByUserWhereSecond.name,
       ListBanManiacWhereMatches(List.empty(growable: true)),
       ListBanManiacWhereMatches(List.empty(growable: true)),
@@ -390,3 +464,5 @@ Matches get _getMatches {
       0,
       0);
 }
+
+/* END DataSource */

@@ -9,4 +9,9 @@ base class BanManiacWhereMatches extends BaseModel {
 
   @override
   BanManiacWhereMatches get getCloneModel => BanManiacWhereMatches(name);
+
+  @override
+  String toString() {
+    return name;
+  }
 }

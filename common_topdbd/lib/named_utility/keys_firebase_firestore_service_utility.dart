@@ -66,7 +66,6 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchBalance = "matchBalance";
   static const String matchBalanceQSeasonNumberBySeason = "seasonNumberBySeason";
   static const String matchBalanceQNumberOfRounds = "numberOfRounds";
-  static const String matchBalanceQIsStagePick = "isStagePick";
   static const String matchBalanceQListManiacWhereMatchBalance = "listManiacWhereMatchBalance";
   static const String matchBalanceQListManiacWhereMatchBalanceQManiac = "maniac";
   static const String matchBalanceQListManiacWhereMatchBalanceQManiacQName = "name";
@@ -89,7 +88,7 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchesQUniqueId = "uniqueId";
   static const String matchesQCreationTime = "creationTime";
   static const String matchesQIsCompleted = "isCompleted";
-  static const String matchesQEnumBanOrPickNamedToManiac = "enumBanOrPickNamedToManiac";
+  static const String matchesQEnumBanOrPickNamed = "enumBanOrPickNamed";
   static const String matchesQTextLogAction = "textLogAction";
   static const String matchesQMatchBalance = "matchBalance";
   static const String matchesQMatchBalanceQSeasonNumberBySeason = "seasonNumberBySeason";

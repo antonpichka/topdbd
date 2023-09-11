@@ -7,13 +7,12 @@ import 'package:meta/meta.dart';
 base class MatchBalance extends BaseModel {
   final int seasonNumberBySeason;
   final int numberOfRounds;
-  final bool isStagePick;
   final ListManiacWhereMatchBalance listManiacWhereMatchBalance;
 
-  const MatchBalance(this.seasonNumberBySeason,this.numberOfRounds,this.isStagePick,this.listManiacWhereMatchBalance) : super("$seasonNumberBySeason");
+  const MatchBalance(this.seasonNumberBySeason,this.numberOfRounds,this.listManiacWhereMatchBalance) : super("$seasonNumberBySeason");
 
   @override
-  MatchBalance get getCloneModel => MatchBalance(seasonNumberBySeason, numberOfRounds,isStagePick, listManiacWhereMatchBalance.getCloneListModel);
+  MatchBalance get getCloneModel => MatchBalance(seasonNumberBySeason, numberOfRounds, listManiacWhereMatchBalance.getCloneListModel);
 
   int get getTotalNumberOfBannedManiacsInTheFirstStageParametersLengthByListModelByListManiacWhereMatchBalanceAndNumberOfRounds  {
     return AlgorithmsUtility.getInterestFormulaFromParameterInt(_getTotalNumberOfBannedManiacsParametersLengthByListModelByListManiacWhereMatchBalanceAndNumberOfRounds, 50);
@@ -25,9 +24,5 @@ base class MatchBalance extends BaseModel {
 
   int get _getTotalNumberOfBannedManiacsParametersLengthByListModelByListManiacWhereMatchBalanceAndNumberOfRounds  {
     return listManiacWhereMatchBalance.listModel.length - numberOfRounds;
-  }
-
-  bool isNotStagePickParameterIsStagePick() {
-    return !isStagePick;
   }
 }

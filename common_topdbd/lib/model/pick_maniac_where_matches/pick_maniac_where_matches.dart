@@ -22,6 +22,6 @@ base class PickManiacWhereMatches extends BaseModel {
 
   @override
   String toString() {
-    return name;
+    return "$name (Maps: ${pickMapsWhereMatches.name}) (ListManiacPerk: ${listPickManiacPerkWhereMatches.toString()}) (ListSurvivorPerk: ${listPickSurvivorPerkWhereMatches.toString()})";
   }
 }

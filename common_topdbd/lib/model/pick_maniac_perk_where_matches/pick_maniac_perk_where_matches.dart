@@ -9,4 +9,9 @@ base class PickManiacPerkWhereMatches extends BaseModel {
 
   @override
   PickManiacPerkWhereMatches get getCloneModel => PickManiacPerkWhereMatches(name);
+
+  @override
+  String toString() {
+    return name;
+  }
 }

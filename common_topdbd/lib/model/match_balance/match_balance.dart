@@ -14,15 +14,15 @@ base class MatchBalance extends BaseModel {
   @override
   MatchBalance get getCloneModel => MatchBalance(seasonNumberBySeason, numberOfRounds, listManiacWhereMatchBalance.getCloneListModel);
 
-  int get getTotalNumberOfBannedManiacsInTheFirstStageParametersLengthByListModelByListManiacWhereMatchBalanceAndNumberOfRounds  {
-    return AlgorithmsUtility.getInterestFormulaFromParameterInt(_getTotalNumberOfBannedManiacsParametersLengthByListModelByListManiacWhereMatchBalanceAndNumberOfRounds, 50);
+  int get getTotalNumberOfBannedManiacsInTheFirstStageParametersListManiacWhereMatchBalanceAndNumberOfRounds  {
+    return AlgorithmsUtility.getInterestFormulaFromParameterInt(getTotalNumberOfBannedManiacsParametersListManiacWhereMatchBalanceAndNumberOfRounds, 50);
   }
 
   int get getTotalNumberOfPickManiacsInTheFirstStageParameterNumberOfRounds {
     return numberOfRounds - 1;
   }
 
-  int get _getTotalNumberOfBannedManiacsParametersLengthByListModelByListManiacWhereMatchBalanceAndNumberOfRounds  {
+  int get getTotalNumberOfBannedManiacsParametersListManiacWhereMatchBalanceAndNumberOfRounds  {
     return listManiacWhereMatchBalance.listModel.length - numberOfRounds;
   }
 }

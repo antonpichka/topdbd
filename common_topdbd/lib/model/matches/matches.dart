@@ -16,6 +16,8 @@ base class Matches extends BaseModel {
   final DateTime creationTime;
   final bool isCompleted;
   final EnumBanOrPickNamed enumBanOrPickNamed;
+  final int numberStageBan;
+  final int numberStagePick;
   final String textLogAction;
   final MatchBalance matchBalance;
   final String uniqueIdByUserWhereFirst;
@@ -30,7 +32,7 @@ base class Matches extends BaseModel {
   final int resultRatingPointsForUniqueIdByUserWhereFirst;
   final int resultRatingPointsForUniqueIdByUserWhereSecond;
 
-  Matches(super.uniqueId, this.creationTime, this.isCompleted, String strBanOrPickNamed, this.textLogAction, this.matchBalance, this.uniqueIdByUserWhereFirst, this.uniqueIdByUserWhereSecond, this.isStageBanOrPickForUniqueIdByUserWhereFirst, this.isRoleManiacForUniqueIdByUserWhereFirst, String strHowToStartATimer, this.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst, this.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond, this.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst, this.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond, this.resultRatingPointsForUniqueIdByUserWhereFirst, this.resultRatingPointsForUniqueIdByUserWhereSecond)
+  Matches(super.uniqueId, this.creationTime, this.isCompleted, String strBanOrPickNamed,this.numberStageBan,this.numberStagePick,this.textLogAction, this.matchBalance, this.uniqueIdByUserWhereFirst, this.uniqueIdByUserWhereSecond, this.isStageBanOrPickForUniqueIdByUserWhereFirst, this.isRoleManiacForUniqueIdByUserWhereFirst, String strHowToStartATimer, this.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst, this.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond, this.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst, this.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond, this.resultRatingPointsForUniqueIdByUserWhereFirst, this.resultRatingPointsForUniqueIdByUserWhereSecond)
       : enumBanOrPickNamed = _getFromStrBanOrPickNamedToManiacParameterEnumBanOrPickNamed(strBanOrPickNamed),
         enumHowToStartATimer = _getFromStrHowToStartATimerParameterEnumHowToStartATimer(strHowToStartATimer);
 
@@ -73,7 +75,7 @@ base class Matches extends BaseModel {
   }
 
   @override
-  Matches get getCloneModel => Matches(uniqueId, creationTime, isCompleted, enumBanOrPickNamed.name, textLogAction,matchBalance.getCloneModel, uniqueIdByUserWhereFirst, uniqueIdByUserWhereSecond, isStageBanOrPickForUniqueIdByUserWhereFirst, isRoleManiacForUniqueIdByUserWhereFirst, enumHowToStartATimer.name, listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel, listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel, listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel, listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel, resultRatingPointsForUniqueIdByUserWhereFirst, resultRatingPointsForUniqueIdByUserWhereSecond);
+  Matches get getCloneModel => Matches(uniqueId, creationTime, isCompleted, enumBanOrPickNamed.name, numberStageBan, numberStagePick, textLogAction,matchBalance.getCloneModel, uniqueIdByUserWhereFirst, uniqueIdByUserWhereSecond, isStageBanOrPickForUniqueIdByUserWhereFirst, isRoleManiacForUniqueIdByUserWhereFirst, enumHowToStartATimer.name, listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel, listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel, listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel, listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel, resultRatingPointsForUniqueIdByUserWhereFirst, resultRatingPointsForUniqueIdByUserWhereSecond);
 
   ListManiac<Maniac> get getListManiacWhereBanOrPickParametersFourList {
     final listManiac = ListManiac<Maniac>(List.empty(growable: true));
@@ -171,14 +173,36 @@ base class Matches extends BaseModel {
         enumBanOrPickNamed == EnumBanOrPickNamed.pickSurvivorPerkToManiac;
   }
 
-  bool isNumberOfBannedManiacsLessTotalNumberOfBannedManiacsInTheFirstStageParametersMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond() {
+  bool isBannedManiacInTheFirstNumberStageBanParametersNumberStageBanAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond() {
     return _getNumberOfBannedManiacsParametersListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond
-        < matchBalance.getTotalNumberOfBannedManiacsInTheFirstStageParametersLengthByListModelByListManiacWhereMatchBalanceAndNumberOfRounds;
+        < matchBalance.getTotalNumberOfBannedManiacsInTheFirstStageParametersListManiacWhereMatchBalanceAndNumberOfRounds &&
+        numberStageBan == 1;
   }
 
-  bool _isNumberOfPickManiacsLessTotalNumberOfPickManiacsInTheFirstStageParametersMatchBalanceAndListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond() {
+  bool isBannedManiacInTheSecondNumberStageBanParametersNumberStageBanAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond() {
+    return _getNumberOfBannedManiacsParametersListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond
+        < matchBalance.getTotalNumberOfBannedManiacsParametersListManiacWhereMatchBalanceAndNumberOfRounds &&
+        numberStageBan == 2;
+  }
+
+  bool isNumberStageBanEqualsTwoParameterNumberStageBan() {
+    return numberStageBan == 2;
+  }
+
+  bool isPickedManiacInTheFirstNumberStagePickParametersNumberStagePickAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond() {
     return _getNumberOfPickManiacsParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond
-        < matchBalance.getTotalNumberOfPickManiacsInTheFirstStageParameterNumberOfRounds;
+        < matchBalance.getTotalNumberOfPickManiacsInTheFirstStageParameterNumberOfRounds &&
+        numberStagePick == 1;
+  }
+
+  bool isPickedManiacInTheSecondNumberStagePickParametersNumberStagePickAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond() {
+    return _getNumberOfPickManiacsParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond
+        == matchBalance.getTotalNumberOfPickManiacsInTheFirstStageParameterNumberOfRounds &&
+        numberStagePick == 2;
+  }
+
+  bool isNumberStagePickEqualsTwoParameterNumberStagePick() {
+    return numberStagePick == 2;
   }
 
   bool _isLengthByListBanMapsLessThanLengthByListMapsByMatchBalanceParametersMatchBalanceAndListPickManiacWhereMatchesForUniqueIdByUserWhereFirst() {

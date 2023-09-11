@@ -89,6 +89,8 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchesQCreationTime = "creationTime";
   static const String matchesQIsCompleted = "isCompleted";
   static const String matchesQEnumBanOrPickNamed = "enumBanOrPickNamed";
+  static const String matchesQNumberStageBan = "numberStageBan";
+  static const String matchesQNumberStagePick = "numberStagePick";
   static const String matchesQTextLogAction = "textLogAction";
   static const String matchesQMatchBalance = "matchBalance";
   static const String matchesQMatchBalanceQSeasonNumberBySeason = "seasonNumberBySeason";

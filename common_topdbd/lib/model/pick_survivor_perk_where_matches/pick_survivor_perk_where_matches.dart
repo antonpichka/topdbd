@@ -9,4 +9,9 @@ base class PickSurvivorPerkWhereMatches extends BaseModel {
 
   @override
   PickSurvivorPerkWhereMatches get getCloneModel => PickSurvivorPerkWhereMatches(name);
+
+  @override
+  String toString() {
+    return name;
+  }
 }

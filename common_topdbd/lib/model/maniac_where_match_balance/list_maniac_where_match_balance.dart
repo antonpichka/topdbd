@@ -14,4 +14,8 @@ base class ListManiacWhereMatchBalance<T extends ManiacWhereMatchBalance> extend
     }
     return ListManiacWhereMatchBalance<T>(newListModel);
   }
+
+  void deleteToListManiacWhereMatchBalance(String uniqueIdByModel) {
+    super.deleteToListModel(uniqueIdByModel);
+  }
 }

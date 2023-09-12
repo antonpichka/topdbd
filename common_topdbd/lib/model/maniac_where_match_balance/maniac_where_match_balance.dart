@@ -18,4 +18,9 @@ base class ManiacWhereMatchBalance extends BaseModel {
 
   @override
   ManiacWhereMatchBalance get getCloneModel => ManiacWhereMatchBalance(maniac.getCloneModel, lengthPickManiacPerk, lengthPickSurvivorPerk, listMaps.getCloneListModel, listManiacPerk.getCloneListModel, listSurvivorPerk.getCloneListModel);
+
+  @override
+  String toString() {
+    return "${maniac.name} (ListMaps: ${listMaps.listModel}) (ListManiacPerk: ${listManiacPerk.listModel}) (ListSurvivorPerk: ${listSurvivorPerk.listModel})\n";
+  }
 }

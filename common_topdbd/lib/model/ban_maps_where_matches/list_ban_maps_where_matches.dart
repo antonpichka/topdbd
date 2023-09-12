@@ -14,4 +14,8 @@ base class ListBanMapsWhereMatches<T extends BanMapsWhereMatches> extends BaseLi
     }
     return ListBanMapsWhereMatches<T>(newListModel);
   }
+
+  void insertToListBanMapsWhereMatches(T model) {
+    super.insertToListModel(model);
+  }
 }

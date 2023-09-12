@@ -10,4 +10,9 @@ base class ManiacPerk extends BaseModel {
 
   @override
   ManiacPerk get getCloneModel => ManiacPerk(perk.getCloneModel);
+
+  @override
+  String toString() {
+    return perk.name;
+  }
 }

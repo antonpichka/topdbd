@@ -113,6 +113,17 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchesQMatchBalanceQListManiacWhereMatchBalanceQListSurvivorPerkQPerk = "perk";
   static const String matchesQMatchBalanceQListManiacWhereMatchBalanceQListSurvivorPerkQPerkQName = "name";
   static const String matchesQMatchBalanceQListManiacWhereMatchBalanceQListSurvivorPerkQPerkQImagePath = "imagePath";
+  static const String matchesQPickManiacWhereMatchesForLastPick = "pickManiacWhereMatchesForLastPick";
+  static const String matchesQPickManiacWhereMatchesForLastPickQName = "name";
+  static const String matchesQPickManiacWhereMatchesForLastPickQCreationTime = "creationTime";
+  static const String matchesQPickManiacWhereMatchesForLastPickQListBanMapsWhereMatches = "listBanMapsWhereMatches";
+  static const String matchesQPickManiacWhereMatchesForLastPickQListBanMapsWhereMatchesQName = "name";
+  static const String matchesQPickManiacWhereMatchesForLastPickQPickMapsWhereMatches = "pickMapsWhereMatches";
+  static const String matchesQPickManiacWhereMatchesForLastPickQPickMapsWhereMatchesQName = "name";
+  static const String matchesQPickManiacWhereMatchesForLastPickQListPickManiacPerkWhereMatches = "listPickManiacPerkWhereMatches";
+  static const String matchesQPickManiacWhereMatchesForLastPickQListPickManiacPerkWhereMatchesQName = "name";
+  static const String matchesQPickManiacWhereMatchesForLastPickQListPickSurvivorPerkWhereMatches = "listPickSurvivorPerkWhereMatches";
+  static const String matchesQPickManiacWhereMatchesForLastPickQListPickSurvivorPerkWhereMatchesQName = "name";
   static const String matchesQUniqueIdByUserWhereFirst = "uniqueIdByUserWhereFirst";
   static const String matchesQUniqueIdByUserWhereSecond = "uniqueIdByUserWhereSecond";
   static const String matchesQIsStageBanOrPickForUniqueIdByUserWhereFirst = "isStageBanOrPickForUniqueIdByUserWhereFirst";
@@ -124,6 +135,7 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchesQListBanManiacWhereMatchesForUniqueIdByUserWhereSecondQName = "name";
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereFirst = "listPickManiacWhereMatchesForUniqueIdByUserWhereFirst";
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereFirstQName = "name";
+  static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereFirstQCreationTime = "creationTime";
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereFirstQListBanMapsWhereMatches = "listBanMapsWhereMatches";
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereFirstQListBanMapsWhereMatchesQName = "name";
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereFirstQPickMapsWhereMatches = "pickMapsWhereMatches";
@@ -132,10 +144,9 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereFirstQListPickManiacPerkWhereMatchesQName = "name";
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereFirstQListPickSurvivorPerkWhereMatches = "listPickSurvivorPerkWhereMatches";
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereFirstQListPickSurvivorPerkWhereMatchesQName = "name";
-  static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereFirstQIsRoundWin = "isRoundWin";
-  static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereFirstQElapsedSecondsPerRounds = "elapsedSecondsPerRounds";
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereSecond = "listPickManiacWhereMatchesForUniqueIdByUserWhereSecond";
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereSecondQName = "name";
+  static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereSecondQCreationTime = "creationTime";
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereSecondQListBanMapsWhereMatches = "listBanMapsWhereMatches";
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereSecondQListBanMapsWhereMatchesQName = "name";
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereSecondQPickMapsWhereMatches = "pickMapsWhereMatches";
@@ -144,8 +155,6 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereSecondQListPickManiacPerkWhereMatchesQName = "name";
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereSecondQListPickSurvivorPerkWhereMatches = "listPickSurvivorPerkWhereMatches";
   static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereSecondQListPickSurvivorPerkWhereMatchesQName = "name";
-  static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereSecondQIsRoundWin = "isRoundWin";
-  static const String matchesQListPickManiacWhereMatchesForUniqueIdByUserWhereSecondQElapsedSecondsPerRounds = "elapsedSecondsPerRounds";
   static const String matchesQResultRatingPointsForUniqueIdByUserWhereFirst = "resultRatingPointsForUniqueIdByUserWhereFirst";
   static const String matchesQResultRatingPointsForUniqueIdByUserWhereSecond = "resultRatingPointsForUniqueIdByUserWhereSecond";
 

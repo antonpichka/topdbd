@@ -8,20 +8,22 @@ import 'package:meta/meta.dart';
 @immutable
 base class PickManiacWhereMatches extends BaseModel {
   final String name;
+  /*ADDING uniqueIdByUser*/
+  final DateTime creationTime;
   final ListBanMapsWhereMatches listBanMapsWhereMatches;
   final PickMapsWhereMatches pickMapsWhereMatches;
   final ListPickManiacPerkWhereMatches listPickManiacPerkWhereMatches;
   final ListPickSurvivorPerkWhereMatches listPickSurvivorPerkWhereMatches;
-  final bool isRoundWin;
-  final int elapsedSecondsPerRounds;
+  /*final bool isRoundWin;
+  final int elapsedSecondsPerRounds;*/
 
-  const PickManiacWhereMatches(this.name, this.listBanMapsWhereMatches, this.pickMapsWhereMatches,this.listPickManiacPerkWhereMatches,this.listPickSurvivorPerkWhereMatches, this.isRoundWin,this.elapsedSecondsPerRounds) : super(name);
+  const PickManiacWhereMatches(this.name,this.creationTime,this.listBanMapsWhereMatches, this.pickMapsWhereMatches,this.listPickManiacPerkWhereMatches,this.listPickSurvivorPerkWhereMatches) : super(name);
 
   @override
-  PickManiacWhereMatches get getCloneModel => PickManiacWhereMatches(name,listBanMapsWhereMatches.getCloneListModel,pickMapsWhereMatches.getCloneModel,listPickManiacPerkWhereMatches.getCloneListModel,listPickSurvivorPerkWhereMatches.getCloneListModel,isRoundWin,elapsedSecondsPerRounds);
+  PickManiacWhereMatches get getCloneModel => PickManiacWhereMatches(name,creationTime,listBanMapsWhereMatches.getCloneListModel,pickMapsWhereMatches.getCloneModel,listPickManiacPerkWhereMatches.getCloneListModel,listPickSurvivorPerkWhereMatches.getCloneListModel);
 
   @override
   String toString() {
-    return "$name (Maps: ${pickMapsWhereMatches.name}) (ListManiacPerk: ${listPickManiacPerkWhereMatches.toString()}) (ListSurvivorPerk: ${listPickSurvivorPerkWhereMatches.toString()})";
+    return "$name (CreationTime: ${creationTime.toString()} (Maps: ${pickMapsWhereMatches.name}) (ListManiacPerk: ${listPickManiacPerkWhereMatches.listModel}) (ListSurvivorPerk: ${listPickSurvivorPerkWhereMatches.listModel})\n";
   }
 }

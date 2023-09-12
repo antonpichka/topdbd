@@ -10,4 +10,9 @@ base class Maps extends BaseModel {
 
   @override
   Maps get getCloneModel => Maps(name,imagePath);
+
+  @override
+  String toString() {
+    return name;
+  }
 }

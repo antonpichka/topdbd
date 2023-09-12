@@ -10,4 +10,9 @@ base class SurvivorPerk extends BaseModel {
 
   @override
   SurvivorPerk get getCloneModel => SurvivorPerk(perk.getCloneModel);
+
+  @override
+  String toString() {
+    return perk.name;
+  }
 }

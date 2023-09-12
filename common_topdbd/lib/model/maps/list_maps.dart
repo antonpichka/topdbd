@@ -14,4 +14,8 @@ base class ListMaps<T extends Maps> extends BaseListModel<T> {
     }
     return ListMaps<T>(newListModel);
   }
+
+  void deleteToListMaps(String uniqueIdByModel) {
+    super.deleteToListModel(uniqueIdByModel);
+  }
 }

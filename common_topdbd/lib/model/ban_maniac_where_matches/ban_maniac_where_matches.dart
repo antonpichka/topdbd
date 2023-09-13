@@ -4,11 +4,12 @@ import 'package:meta/meta.dart';
 @immutable
 base class BanManiacWhereMatches extends BaseModel {
   final String name;
+  final String uniqueIdByUser;
 
-  const BanManiacWhereMatches(this.name) : super(name);
+  const BanManiacWhereMatches(this.name,this.uniqueIdByUser) : super(name);
 
   @override
-  BanManiacWhereMatches get getCloneModel => BanManiacWhereMatches(name);
+  BanManiacWhereMatches get getCloneModel => BanManiacWhereMatches(name,uniqueIdByUser);
 
   @override
   String toString() {

@@ -8,7 +8,7 @@ import 'package:meta/meta.dart';
 @immutable
 base class PickManiacWhereMatches extends BaseModel {
   final String name;
-  /*ADDING uniqueIdByUser*/
+  final String uniqueIdByUser;
   final DateTime creationTime;
   final ListBanMapsWhereMatches listBanMapsWhereMatches;
   final PickMapsWhereMatches pickMapsWhereMatches;
@@ -17,13 +17,13 @@ base class PickManiacWhereMatches extends BaseModel {
   /*final bool isRoundWin;
   final int elapsedSecondsPerRounds;*/
 
-  const PickManiacWhereMatches(this.name,this.creationTime,this.listBanMapsWhereMatches, this.pickMapsWhereMatches,this.listPickManiacPerkWhereMatches,this.listPickSurvivorPerkWhereMatches) : super(name);
+  const PickManiacWhereMatches(this.name,this.uniqueIdByUser,this.creationTime,this.listBanMapsWhereMatches, this.pickMapsWhereMatches,this.listPickManiacPerkWhereMatches,this.listPickSurvivorPerkWhereMatches) : super(name);
 
   @override
-  PickManiacWhereMatches get getCloneModel => PickManiacWhereMatches(name,creationTime,listBanMapsWhereMatches.getCloneListModel,pickMapsWhereMatches.getCloneModel,listPickManiacPerkWhereMatches.getCloneListModel,listPickSurvivorPerkWhereMatches.getCloneListModel);
+  PickManiacWhereMatches get getCloneModel => PickManiacWhereMatches(name,uniqueIdByUser,creationTime,listBanMapsWhereMatches.getCloneListModel,pickMapsWhereMatches.getCloneModel,listPickManiacPerkWhereMatches.getCloneListModel,listPickSurvivorPerkWhereMatches.getCloneListModel);
 
   @override
   String toString() {
-    return "$name (CreationTime: ${creationTime.toString()} (Maps: ${pickMapsWhereMatches.name}) (ListManiacPerk: ${listPickManiacPerkWhereMatches.listModel}) (ListSurvivorPerk: ${listPickSurvivorPerkWhereMatches.listModel})\n";
+    return "$name (CreationTime: ${creationTime.toString()}) (Maps: ${pickMapsWhereMatches.name}) (ListManiacPerk: ${listPickManiacPerkWhereMatches.listModel}) (ListSurvivorPerk: ${listPickSurvivorPerkWhereMatches.listModel})\n";
   }
 }

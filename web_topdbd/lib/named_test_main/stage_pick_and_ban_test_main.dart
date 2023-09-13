@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:common_topdbd/model/ban_maniac_where_matches/ban_maniac_where_matches.dart';
+
 import 'package:common_topdbd/model/ban_maniac_where_matches/list_ban_maniac_where_matches.dart';
-import 'package:common_topdbd/model/ban_maps_where_matches/list_ban_maps_where_matches.dart';
 import 'package:common_topdbd/model/maniac/maniac.dart';
 import 'package:common_topdbd/model/maniac_perk/list_maniac_perk.dart';
 import 'package:common_topdbd/model/maniac_where_match_balance/list_maniac_where_match_balance.dart';
@@ -13,11 +12,7 @@ import 'package:common_topdbd/model/match_balance/match_balance.dart';
 import 'package:common_topdbd/model/matches/enum_ban_or_pick_named.dart';
 import 'package:common_topdbd/model/matches/enum_how_to_start_a_timer.dart';
 import 'package:common_topdbd/model/matches/matches.dart';
-import 'package:common_topdbd/model/pick_maniac_perk_where_matches/list_pick_maniac_perk_where_matches.dart';
 import 'package:common_topdbd/model/pick_maniac_where_matches/list_pick_maniac_where_matches.dart';
-import 'package:common_topdbd/model/pick_maniac_where_matches/pick_maniac_where_matches.dart';
-import 'package:common_topdbd/model/pick_maps_where_matches/pick_maps_where_matches.dart';
-import 'package:common_topdbd/model/pick_survivor_perk_where_matches/list_pick_survivor_perk_where_matches.dart';
 import 'package:common_topdbd/model/survivor_perk/list_survivor_perk.dart';
 import 'package:common_topdbd/model/user/user.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
@@ -199,51 +194,62 @@ void _buildViewWhereMyUniqueIdByUserWhereFirst(DataForStagePickAndBanTestMain da
   switch(dataForStagePickAndBanTestMain.getEnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst) {
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsMyTurnsBanManiac:
       /// VIEW LIST PICK MANIAC (CLICK DETAIL INFO (PickedMap,ListPickManiacPerk,ListPickSurvivorPerk))
-      debugPrint("ListPickManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel}");
-      debugPrint("ListPickManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      debugPrint("ListPickManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereFirst.listModel}");
+      debugPrint("ListPickManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereSecond.listModel}");
       /// VIEW LIST BANS MANIAC
-      debugPrint("ListBanManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel}");
-      debugPrint("ListBanManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      debugPrint("ListBanManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.getListBanManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListBanManiacWhereMatchesAndUniqueIdByUserWhereFirst.listModel}");
+      debugPrint("ListBanManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.getListBanManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListBanManiacWhereMatchesAndUniqueIdByUserWhereSecond.listModel}");
       /// VIEW LIST MANIAC (WHO CAN BE BANED)
-      debugPrint("ListManiac: ${dataForStagePickAndBanTestMain.matches.getListManiacWhereMatchBalanceWhereBanOrPickParametersFourList.listModel}");
+      debugPrint("ListManiac: ${dataForStagePickAndBanTestMain.matches.getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance.listModel}");
       /// STAGE BAN MANIAC
       debugPrint("You turns Ban Maniac (index): ");
       final input = stdin.readLineSync();
       final intInput = int.parse(input ?? "");
-      _listViewModelOne(dataForStagePickAndBanTestMain.matches.getListManiacWhereMatchBalanceWhereBanOrPickParametersFourList.listModel[intInput]);
+      final maniacWhereMatchBalance = dataForStagePickAndBanTestMain
+          .matches
+          .getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance
+          .listModel[intInput];
+      _listViewModelOne(maniacWhereMatchBalance);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsMyTurnsPickManiac:
       /// VIEW LIST PICK MANIAC (CLICK DETAIL INFO (PickedMap,ListPickManiacPerk,ListPickSurvivorPerk))
-      debugPrint("ListPickManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel}");
-      debugPrint("ListPickManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      debugPrint("ListPickManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereFirst.listModel}");
+      debugPrint("ListPickManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereSecond.listModel}");
       /// VIEW LIST BANS MANIAC
-      debugPrint("ListBanManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel}");
-      debugPrint("ListBanManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      debugPrint("ListBanManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.getListBanManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListBanManiacWhereMatchesAndUniqueIdByUserWhereFirst.listModel}");
+      debugPrint("ListBanManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.getListBanManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListBanManiacWhereMatchesAndUniqueIdByUserWhereSecond.listModel}");
       /// VIEW LIST MANIAC (WHO CAN BE PICKED)
-      debugPrint("ListManiac: ${dataForStagePickAndBanTestMain.matches.getListManiacWhereMatchBalanceWhereBanOrPickParametersFourList.listModel}");
+      debugPrint("ListManiac: ${dataForStagePickAndBanTestMain.matches.getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance.listModel}");
       /// STAGE PICK MANIAC
       debugPrint("You turns Pick Maniac (index): ");
       final input = stdin.readLineSync();
       final intInput = int.parse(input ?? "");
-      _listViewModelThree(dataForStagePickAndBanTestMain.matches.getListManiacWhereMatchBalanceWhereBanOrPickParametersFourList.listModel[intInput]);
+      final maniacWhereMatchBalance = dataForStagePickAndBanTestMain
+          .matches
+          .getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance
+          .listModel[intInput];
+      _listViewModelThree(maniacWhereMatchBalance);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsMyTurnsBansMapsToManiac:
       /// VIEW LIST PICK MANIAC (CLICK DETAIL INFO (PickedMap,ListPickManiacPerk,ListPickSurvivorPerk))
-      debugPrint("ListPickManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel}");
-      debugPrint("ListPickManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      debugPrint("ListPickManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereFirst.listModel}");
+      debugPrint("ListPickManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereSecond.listModel}");
       /// VIEW LIST BANS MANIAC
-      debugPrint("ListBanManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel}");
-      debugPrint("ListBanManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      debugPrint("ListBanManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.getListBanManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListBanManiacWhereMatchesAndUniqueIdByUserWhereFirst.listModel}");
+      debugPrint("ListBanManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.getListBanManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListBanManiacWhereMatchesAndUniqueIdByUserWhereSecond.listModel}");
       /// VIEW PICKED KILLER
-        // LAST ITEM PICKED MANIAC
-      debugPrint("\nPickedManiac: ${dataForStagePickAndBanTestMain.matches.getLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond}");
+      debugPrint("\nPickedManiac: ${dataForStagePickAndBanTestMain.matches.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches}");
       /// VIEW LIST MAPS TO PICK MANIAC (WHO CAN BE BANED)
-      debugPrint("ListMapsToPickedManiac: ${dataForStagePickAndBanTestMain.matches.getNotBannedListMapsByLastItemManiacWhereMatchBalanceParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      debugPrint("ListMapsToPickedManiac: ${dataForStagePickAndBanTestMain.matches.getNotBannedListMapsByLastItemManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance.listModel}");
       /// STAGE BAN MAPS TO PICKED MANIAC
       debugPrint("You turns Ban Maps to Picked Maniac (index): ");
       final input = stdin.readLineSync();
       final intInput = int.parse(input ?? "");
-      _listViewModelFive(dataForStagePickAndBanTestMain.matches.getNotBannedListMapsByLastItemManiacWhereMatchBalanceParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel[intInput]);
+      final maps = dataForStagePickAndBanTestMain
+          .matches
+          .getNotBannedListMapsByLastItemManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance
+          .listModel[intInput];
+      _listViewModelFive(maps);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsMyTurnsPickManiacPerkToManiac:
       break;
@@ -251,49 +257,62 @@ void _buildViewWhereMyUniqueIdByUserWhereFirst(DataForStagePickAndBanTestMain da
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsEnemyTurnBanManiac:
       /// VIEW LIST PICK MANIAC (CLICK DETAIL INFO (PickedMap,ListPickManiacPerk,ListPickSurvivorPerk))
-      debugPrint("ListPickManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel}");
-      debugPrint("ListPickManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      debugPrint("ListPickManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereFirst.listModel}");
+      debugPrint("ListPickManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereSecond.listModel}");
       /// VIEW LIST BANS MANIAC
-      debugPrint("ListBanManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel}");
-      debugPrint("ListBanManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      debugPrint("ListBanManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.getListBanManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListBanManiacWhereMatchesAndUniqueIdByUserWhereFirst.listModel}");
+      debugPrint("ListBanManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.getListBanManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListBanManiacWhereMatchesAndUniqueIdByUserWhereSecond.listModel}");
       /// VIEW LIST MANIAC (WHO CAN BE BANED)
-      debugPrint("ListManiac: ${dataForStagePickAndBanTestMain.matches.getListManiacWhereMatchBalanceWhereBanOrPickParametersFourList.listModel}");
+      debugPrint("ListManiac: ${dataForStagePickAndBanTestMain.matches.getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance.listModel}");
       debugPrint("Enemy turns Ban Maniac: 0");
-      _listViewModelTwo(dataForStagePickAndBanTestMain.matches.getListManiacWhereMatchBalanceWhereBanOrPickParametersFourList.listModel[0]);
+      final firstManiacWhereMatchBalance = dataForStagePickAndBanTestMain
+          .matches
+          .getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance
+          .listModel[0];
+      _listViewModelTwo(firstManiacWhereMatchBalance);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsEnemyTurnPickManiac:
       /// VIEW LIST PICK MANIAC (CLICK DETAIL INFO (PickedMap,ListPickManiacPerk,ListPickSurvivorPerk))
-      debugPrint("ListPickManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel}");
-      debugPrint("ListPickManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      debugPrint("ListPickManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereFirst.listModel}");
+      debugPrint("ListPickManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereSecond.listModel}");
       /// VIEW LIST BANS MANIAC
-      debugPrint("ListBanManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel}");
-      debugPrint("ListBanManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      debugPrint("ListBanManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.getListBanManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListBanManiacWhereMatchesAndUniqueIdByUserWhereFirst.listModel}");
+      debugPrint("ListBanManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.getListBanManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListBanManiacWhereMatchesAndUniqueIdByUserWhereSecond.listModel}");
       /// VIEW LIST MANIAC (WHO CAN BE PICKED)
-      debugPrint("ListManiac: ${dataForStagePickAndBanTestMain.matches.getListManiacWhereMatchBalanceWhereBanOrPickParametersFourList.listModel}");
+      debugPrint("ListManiac: ${dataForStagePickAndBanTestMain.matches.getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance.listModel}");
       debugPrint("Enemy turns Pick Maniac: 0");
-      _listViewModelFour(dataForStagePickAndBanTestMain.matches.getListManiacWhereMatchBalanceWhereBanOrPickParametersFourList.listModel[0]);
+      final firstManiacWhereMatchBalance = dataForStagePickAndBanTestMain
+          .matches
+          .getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance
+          .listModel[0];
+      _listViewModelFour(firstManiacWhereMatchBalance);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsEnemyBansMapsToManiac:
       /// VIEW LIST PICK MANIAC (CLICK DETAIL INFO (PickedMap,ListPickManiacPerk,ListPickSurvivorPerk))
-      debugPrint("ListPickManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel}");
-      debugPrint("ListPickManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      debugPrint("ListPickManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereFirst.listModel}");
+      debugPrint("ListPickManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereSecond.listModel}");
       /// VIEW LIST BANS MANIAC
-      debugPrint("ListBanManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel}");
-      debugPrint("ListBanManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      debugPrint("ListBanManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.getListBanManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListBanManiacWhereMatchesAndUniqueIdByUserWhereFirst.listModel}");
+      debugPrint("ListBanManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.getListBanManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListBanManiacWhereMatchesAndUniqueIdByUserWhereSecond.listModel}");
       /// VIEW PICKED KILLER
       // LAST ITEM PICKED MANIAC
-      debugPrint("\nPickedManiac: ${dataForStagePickAndBanTestMain.matches.getLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond}");
+      debugPrint("\nPickedManiac: ${dataForStagePickAndBanTestMain.matches.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches}");
       /// VIEW LIST MAPS TO PICK MANIAC (WHO CAN BE BANED)
-      debugPrint("ListMapsToPickedManiac: ${dataForStagePickAndBanTestMain.matches.getNotBannedListMapsByLastItemManiacWhereMatchBalanceParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel}");
+      debugPrint("ListMapsToPickedManiac: ${dataForStagePickAndBanTestMain.matches.getNotBannedListMapsByLastItemManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance.listModel}");
       /// STAGE BAN MAPS TO PICKED MANIAC
       debugPrint("Enemy turns Ban Maps to Picked Maniac: 0");
-      _listViewModelSix(dataForStagePickAndBanTestMain.matches.getNotBannedListMapsByLastItemManiacWhereMatchBalanceParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel[0]);
+      final firstMaps = dataForStagePickAndBanTestMain
+          .matches
+          .getNotBannedListMapsByLastItemManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance
+          .listModel[0];
+      _listViewModelSix(firstMaps);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsEnemyPickManiacPerkToManiac:
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsEnemyPickSurvivorPerkToManiac:
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.ready:
+      debugPrint("READY");
       break;
   }
 }
@@ -334,14 +353,13 @@ void _listViewModelOne(ManiacWhereMatchBalance maniacWhereMatchBalance) {
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst
-      .insertToListBanManiacWhereMatches(BanManiacWhereMatches(maniacWhereMatchBalance.maniac.name));
+      ?.insertBanManiacWhereMatchesForUniqueIdByUserWhereFirstFromNameManiacParameterListBanManiacWhereMatches(maniacWhereMatchBalance.maniac.name);
   final textLogAction = "${matches?.textLogAction}\nPlayer: ${matches?.uniqueIdByUserWhereFirst} banned maniac ${maniacWhereMatchBalance.maniac.name}";
-  if(matches?.isBannedManiacInTheFirstNumberStageBanParametersNumberStageBanAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond() ?? false) {
+  if(matches?.isDoneFirstStageBanManiacWhereMatchesParametersListBanManiacWhereMatchesAndMatchBalance() ?? false) {
     _firstBranchOneQListViewModelOne(matches!,textLogAction);
     return;
   }
-  if(matches?.isBannedManiacInTheSecondNumberStageBanParametersNumberStageBanAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond() ?? false) {
+  if(matches?.isDoneSecondStageBanManiacWhereMatchesParametersListBanManiacWhereMatchesAndMatchBalance() ?? false) {
     _secondBranchOneQListViewModelOne(matches!,textLogAction);
     return;
   }
@@ -355,7 +373,6 @@ void _firstBranchOneQListViewModelOne(Matches matches, String textLogAction) {
 }
 
 void _secondBranchOneQListViewModelOne(Matches matches, String textLogAction) {
-  // ADDING TO PICK LAST MANIAC
   _dataForStagePickAndBanTestMain?.matches = _dataSourceSix(matches,textLogAction,false,EnumBanOrPickNamed.bansMapsToManiac);
   _utilityOne();
 }
@@ -368,14 +385,13 @@ void _listViewModelTwo(ManiacWhereMatchBalance maniacWhereMatchBalance) {
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond
-      .insertToListBanManiacWhereMatches(BanManiacWhereMatches(maniacWhereMatchBalance.maniac.name));
+      ?.insertBanManiacWhereMatchesForUniqueIdByUserWhereSecondFromNameManiacParameterListBanManiacWhereMatches(maniacWhereMatchBalance.maniac.name);
   final textLogAction = "${matches?.textLogAction}\nPlayer: ${matches?.uniqueIdByUserWhereSecond} banned maniac ${maniacWhereMatchBalance.maniac.name}";
-  if(matches?.isBannedManiacInTheFirstNumberStageBanParametersNumberStageBanAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond() ?? false) {
+  if(matches?.isDoneFirstStageBanManiacWhereMatchesParametersListBanManiacWhereMatchesAndMatchBalance() ?? false) {
     _firstBranchOneQListViewModelTwo(matches!,textLogAction);
     return;
   }
-  if(matches?.isBannedManiacInTheSecondNumberStageBanParametersNumberStageBanAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond() ?? false) {
+  if(matches?.isDoneSecondStageBanManiacWhereMatchesParametersListBanManiacWhereMatchesAndMatchBalance() ?? false) {
     _secondBranchOneQListViewModelTwo(matches!,textLogAction);
     return;
   }
@@ -389,7 +405,6 @@ void _firstBranchOneQListViewModelTwo(Matches matches, String textLogAction) {
 }
 
 void _secondBranchOneQListViewModelTwo(Matches matches, String textLogAction) {
-  // ADDING TO PICK LAST MANIAC
   _dataForStagePickAndBanTestMain?.matches = _dataSourceSix(matches,textLogAction,true,EnumBanOrPickNamed.bansMapsToManiac);
   _utilityOne();
 }
@@ -402,8 +417,7 @@ void _listViewModelThree(ManiacWhereMatchBalance maniacWhereMatchBalance) {
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst
-      .insertToListPickManiacWhereMatches(PickManiacWhereMatches(maniacWhereMatchBalance.maniac.name,DateTime.now(),ListBanMapsWhereMatches(List.empty(growable: true)), const PickMapsWhereMatches(""),ListPickManiacPerkWhereMatches(List.empty(growable: true)), ListPickSurvivorPerkWhereMatches(List.empty(growable: true))));
+      ?.insertPickManiacWhereMatchesForUniqueIdByUserWhereFirstFromNameManiacParameterListPickManiacWhereMatches(maniacWhereMatchBalance.maniac.name);
   final textLogAction = "${matches?.textLogAction}\nPlayer: ${matches?.uniqueIdByUserWhereFirst} picked maniac ${maniacWhereMatchBalance.maniac.name}";
   _dataForStagePickAndBanTestMain?.matches = _dataSourceFour(matches!,textLogAction,false,EnumBanOrPickNamed.bansMapsToManiac);
   _utilityOne();
@@ -417,8 +431,7 @@ void _listViewModelFour(ManiacWhereMatchBalance maniacWhereMatchBalance) {
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond
-      .insertToListPickManiacWhereMatches(PickManiacWhereMatches(maniacWhereMatchBalance.maniac.name,DateTime.now(),ListBanMapsWhereMatches(List.empty(growable: true)), const PickMapsWhereMatches(""),ListPickManiacPerkWhereMatches(List.empty(growable: true)), ListPickSurvivorPerkWhereMatches(List.empty(growable: true))));
+      ?.insertPickManiacWhereMatchesForUniqueIdByUserWhereSecondFromNameManiacParameterListPickManiacWhereMatches(maniacWhereMatchBalance.maniac.name);
   final textLogAction = "${matches?.textLogAction}\nPlayer: ${matches?.uniqueIdByUserWhereSecond} picked maniac ${maniacWhereMatchBalance.maniac.name}";
   _dataForStagePickAndBanTestMain?.matches = _dataSourceFour(matches!,textLogAction,true,EnumBanOrPickNamed.bansMapsToManiac);
   _utilityOne();
@@ -432,8 +445,8 @@ void _listViewModelFive(Maps maps) {
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.insertBanMapsWhereMatchesToPickManiacWhereMatchesFromMapsParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond(maps.getCloneModel);
-  final textLogAction = "${matches?.textLogAction}\nPlayer: ${matches?.uniqueIdByUserWhereFirst} banned maps ${maps.name} to maniac ${matches?.getLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond.name}";
+      ?.insertBanMapsWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereFirstFromMapsParametersListPickManiacWhereMatches(maps.getCloneModel);
+  final textLogAction = "${matches?.textLogAction}\nPlayer: ${matches?.uniqueIdByUserWhereFirst} banned maps ${maps.name} to maniac ${matches?.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches.name}";
   if(matches?.isBanMapsEqualsLengthMinusOneParametersMatchBalanceAndListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond() ?? false) {
     _firstBranchOneQListViewModelFive(matches!,textLogAction);
     return;
@@ -443,17 +456,17 @@ void _listViewModelFive(Maps maps) {
 }
 
 void _firstBranchOneQListViewModelFive(Matches matches, String textLogAction) {
-  if(matches.isPickedManiacInTheFirstNumberStagePickParametersNumberStagePickAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond()) {
-    _dataForStagePickAndBanTestMain?.matches = _dataSourceFive(matches,textLogAction,false,EnumBanOrPickNamed.pickManiac);
+  if(matches.isDoneFirstStagePickManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance()) {
+    _dataForStagePickAndBanTestMain?.matches = _dataSourceFive(matches,textLogAction,false,EnumBanOrPickNamed.banManiac);
     _utilityOne();
     return;
   }
-  if(matches.isPickedManiacInTheSecondNumberStagePickParametersNumberStagePickAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond()) {
+  if(matches.isDoneSecondStagePickManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance()) {
     _dataForStagePickAndBanTestMain?.matches = _dataSourceFive(matches,textLogAction,false,EnumBanOrPickNamed.ready);
     _utilityOne();
     return;
   }
-  _dataForStagePickAndBanTestMain?.matches = _dataSourceFive(matches,textLogAction,false,EnumBanOrPickNamed.banManiac);
+  _dataForStagePickAndBanTestMain?.matches = _dataSourceFive(matches,textLogAction,false,EnumBanOrPickNamed.pickManiac);
   _utilityOne();
 }
 
@@ -465,8 +478,8 @@ void _listViewModelSix(Maps maps) {
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.insertBanMapsWhereMatchesToPickManiacWhereMatchesFromMapsParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond(maps.getCloneModel);
-  final textLogAction = "${matches?.textLogAction}\nPlayer: ${matches?.uniqueIdByUserWhereSecond} banned maps ${maps.name} to maniac ${matches?.getLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond.name}";
+      ?.insertBanMapsWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereSecondFromMapsParametersListPickManiacWhereMatches(maps.getCloneModel);
+  final textLogAction = "${matches?.textLogAction}\nPlayer: ${matches?.uniqueIdByUserWhereSecond} banned maps ${maps.name} to maniac ${matches?.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches.name}";
   if(matches?.isBanMapsEqualsLengthMinusOneParametersMatchBalanceAndListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond() ?? false) {
     _firstBranchOneQListViewModelSix(matches!,textLogAction);
     return;
@@ -476,17 +489,17 @@ void _listViewModelSix(Maps maps) {
 }
 
 void _firstBranchOneQListViewModelSix(Matches matches, String textLogAction) {
-  if(matches.isPickedManiacInTheFirstNumberStagePickParametersNumberStagePickAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond()) {
-    _dataForStagePickAndBanTestMain?.matches = _dataSourceFive(matches,textLogAction,true,EnumBanOrPickNamed.pickManiac);
+  if(matches.isDoneFirstStagePickManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance()) {
+    _dataForStagePickAndBanTestMain?.matches = _dataSourceFive(matches,textLogAction,true,EnumBanOrPickNamed.banManiac);
     _utilityOne();
     return;
   }
-  if(matches.isPickedManiacInTheSecondNumberStagePickParametersNumberStagePickAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond()) {
+  if(matches.isDoneSecondStagePickManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance()) {
     _dataForStagePickAndBanTestMain?.matches = _dataSourceFive(matches,textLogAction,true,EnumBanOrPickNamed.ready);
     _utilityOne();
     return;
   }
-  _dataForStagePickAndBanTestMain?.matches = _dataSourceFive(matches,textLogAction,true,EnumBanOrPickNamed.banManiac);
+  _dataForStagePickAndBanTestMain?.matches = _dataSourceFive(matches,textLogAction,true,EnumBanOrPickNamed.pickManiac);
   _utilityOne();
 }
 /* END ListViewModel */
@@ -499,7 +512,6 @@ void _utilityOne() {
   debugPrint("\n${_dataForStagePickAndBanTestMain?.matches.textLogAction ?? ""}\n");
   debugPrint("<-------TEXT LOG ACTION------->\n");
 }
-
 /* END Utility */
 
 /* START DataSource */
@@ -509,93 +521,56 @@ Matches _dataSourceFour(Matches matches,String textLogAction,bool isStageBanOrPi
       matches.creationTime,
       matches.isCompleted,
       enumBanOrPickNamed.name,
-      matches.numberStageBan,
-      matches.numberStagePick,
       textLogAction,
       matches.matchBalance.getCloneModel,
-      matches.pickManiacWhereMatchesForLastPick.getCloneModel,
       matches.uniqueIdByUserWhereFirst,
       matches.uniqueIdByUserWhereSecond,
       isStageBanOrPickForUniqueIdByUserWhereFirst,
       matches.isRoleManiacForUniqueIdByUserWhereFirst,
       matches.enumHowToStartATimer.name,
-      matches.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel,
-      matches.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel,
-      matches.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel,
-      matches.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel,
+      matches.listBanManiacWhereMatches.getCloneListModel,
+      matches.listPickManiacWhereMatches.getCloneListModel,
       matches.resultRatingPointsForUniqueIdByUserWhereFirst,
       matches.resultRatingPointsForUniqueIdByUserWhereSecond);
 }
 
 Matches _dataSourceFive(Matches matches,String textLogAction,bool isStageBanOrPickForUniqueIdByUserWhereFirst, EnumBanOrPickNamed enumBanOrPickNamed) {
-  textLogAction += "\nSystem: picked maps ${matches.getNotBannedListMapsByLastItemManiacWhereMatchBalanceParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel[0].name} to maniac ${matches.getLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond.name}";
-  if(matches.isPickManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond()) {
-    return Matches(
-        matches.uniqueId,
-        matches.creationTime,
-        matches.isCompleted,
-        enumBanOrPickNamed.name,
-        matches.numberStageBan,
-        matches.numberStagePick,
-        textLogAction,
-        matches.matchBalance.getCloneModel,
-        matches.pickManiacWhereMatchesForLastPick.getCloneModel,
-        matches.uniqueIdByUserWhereFirst,
-        matches.uniqueIdByUserWhereSecond,
-        isStageBanOrPickForUniqueIdByUserWhereFirst,
-        matches.isRoleManiacForUniqueIdByUserWhereFirst,
-        matches.enumHowToStartATimer.name,
-        matches.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel,
-        matches.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel,
-        matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereFirstWhereUpdatePickMapsWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel,
-        matches.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel,
-        matches.resultRatingPointsForUniqueIdByUserWhereFirst,
-        matches.resultRatingPointsForUniqueIdByUserWhereSecond);
-  }
+  textLogAction += "\nSystem: picked maps ${matches.getNotBannedListMapsByLastItemManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance.listModel.last.name} to maniac ${matches.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches.name}";
   return Matches(
       matches.uniqueId,
       matches.creationTime,
       matches.isCompleted,
       enumBanOrPickNamed.name,
-      matches.numberStageBan,
-      matches.numberStagePick,
       textLogAction,
       matches.matchBalance.getCloneModel,
-      matches.pickManiacWhereMatchesForLastPick.getCloneModel,
       matches.uniqueIdByUserWhereFirst,
       matches.uniqueIdByUserWhereSecond,
       isStageBanOrPickForUniqueIdByUserWhereFirst,
       matches.isRoleManiacForUniqueIdByUserWhereFirst,
       matches.enumHowToStartATimer.name,
-      matches.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel,
-      matches.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel,
-      matches.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel,
-      matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereSecondWhereUpdatePickMapsWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel,
+      matches.listBanManiacWhereMatches.getCloneListModel,
+      matches.getUpdatedPickMapsToListPickManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance.getCloneListModel,
       matches.resultRatingPointsForUniqueIdByUserWhereFirst,
       matches.resultRatingPointsForUniqueIdByUserWhereSecond);
 }
 
 Matches _dataSourceSix(Matches matches,String textLogAction,bool isStageBanOrPickForUniqueIdByUserWhereFirst, EnumBanOrPickNamed enumBanOrPickNamed) {
-  // matches.getListManiacWhereMatchBalanceWhereBanOrPickParametersFourList.listModel.last;
+  matches.insertLastPickManiacWhereMatchesParameterListPickManiacWhereMatches();
+  textLogAction += "\nSystem: picked man ${matches.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches.name}";
   return Matches(
       matches.uniqueId,
       matches.creationTime,
       matches.isCompleted,
       enumBanOrPickNamed.name,
-      matches.numberStageBan,
-      matches.numberStagePick,
       textLogAction,
       matches.matchBalance.getCloneModel,
-      matches.pickManiacWhereMatchesForLastPick.getCloneModel,
       matches.uniqueIdByUserWhereFirst,
       matches.uniqueIdByUserWhereSecond,
       isStageBanOrPickForUniqueIdByUserWhereFirst,
       matches.isRoleManiacForUniqueIdByUserWhereFirst,
       matches.enumHowToStartATimer.name,
-      matches.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel,
-      matches.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel,
-      matches.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel,
-      matches.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel,
+      matches.listBanManiacWhereMatches.getCloneListModel,
+      matches.listPickManiacWhereMatches.getCloneListModel,
       matches.resultRatingPointsForUniqueIdByUserWhereFirst,
       matches.resultRatingPointsForUniqueIdByUserWhereSecond);
 }
@@ -700,25 +675,14 @@ Matches get _dataSourceThree {
       DateTime.now(),
       false,
       EnumBanOrPickNamed.banManiac.name,
-      1,
-      1,
       "",
       _dataSourceTwo,
-      PickManiacWhereMatches(
-          "",
-          DateTime.now(),
-          ListBanMapsWhereMatches(List.empty(growable: true)),
-          const PickMapsWhereMatches(""),
-          ListPickManiacPerkWhereMatches(List.empty(growable: true)),
-          ListPickSurvivorPerkWhereMatches(List.empty(growable: true))),
       "51d1a9f2-4fb0-11ee-be56-0242ac120002",
       "5f8cd3aa-4fb0-11ee-be56-0242ac120002",
       true,
       true,
       EnumHowToStartATimer.isRoleManiacForUniqueIdByUserWhereSecond.name,
       ListBanManiacWhereMatches(List.empty(growable: true)),
-      ListBanManiacWhereMatches(List.empty(growable: true)),
-      ListPickManiacWhereMatches(List.empty(growable: true)),
       ListPickManiacWhereMatches(List.empty(growable: true)),
       0,
       0);

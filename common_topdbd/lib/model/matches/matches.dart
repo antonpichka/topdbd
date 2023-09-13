@@ -1,6 +1,7 @@
 import 'package:common_topdbd/model/ban_maniac_where_matches/ban_maniac_where_matches.dart';
 import 'package:common_topdbd/model/ban_maniac_where_matches/list_ban_maniac_where_matches.dart';
 import 'package:common_topdbd/model/ban_maps_where_matches/ban_maps_where_matches.dart';
+import 'package:common_topdbd/model/ban_maps_where_matches/list_ban_maps_where_matches.dart';
 import 'package:common_topdbd/model/maniac_where_match_balance/list_maniac_where_match_balance.dart';
 import 'package:common_topdbd/model/maniac_where_match_balance/maniac_where_match_balance.dart';
 import 'package:common_topdbd/model/maps/list_maps.dart';
@@ -8,9 +9,11 @@ import 'package:common_topdbd/model/maps/maps.dart';
 import 'package:common_topdbd/model/match_balance/match_balance.dart';
 import 'package:common_topdbd/model/matches/enum_ban_or_pick_named.dart';
 import 'package:common_topdbd/model/matches/enum_how_to_start_a_timer.dart';
+import 'package:common_topdbd/model/pick_maniac_perk_where_matches/list_pick_maniac_perk_where_matches.dart';
 import 'package:common_topdbd/model/pick_maniac_where_matches/list_pick_maniac_where_matches.dart';
 import 'package:common_topdbd/model/pick_maniac_where_matches/pick_maniac_where_matches.dart';
 import 'package:common_topdbd/model/pick_maps_where_matches/pick_maps_where_matches.dart';
+import 'package:common_topdbd/model/pick_survivor_perk_where_matches/list_pick_survivor_perk_where_matches.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -19,26 +22,19 @@ base class Matches extends BaseModel {
   final DateTime creationTime;
   final bool isCompleted;
   final EnumBanOrPickNamed enumBanOrPickNamed;
-  final int numberStageBan;
-  final int numberStagePick;
   final String textLogAction;
   final MatchBalance matchBalance;
-  /* DELETE */
-  final PickManiacWhereMatches pickManiacWhereMatchesForLastPick;
   final String uniqueIdByUserWhereFirst;
   final String uniqueIdByUserWhereSecond;
   final bool isStageBanOrPickForUniqueIdByUserWhereFirst;
   final bool isRoleManiacForUniqueIdByUserWhereFirst;
   final EnumHowToStartATimer enumHowToStartATimer;
-  /*REFACTORING ListPickManiacWhereMatches (one list) ListBanManiacWhereMatches*/
-  final ListBanManiacWhereMatches listBanManiacWhereMatchesForUniqueIdByUserWhereFirst;
-  final ListBanManiacWhereMatches listBanManiacWhereMatchesForUniqueIdByUserWhereSecond;
-  final ListPickManiacWhereMatches listPickManiacWhereMatchesForUniqueIdByUserWhereFirst;
-  final ListPickManiacWhereMatches listPickManiacWhereMatchesForUniqueIdByUserWhereSecond;
+  final ListBanManiacWhereMatches listBanManiacWhereMatches;
+  final ListPickManiacWhereMatches listPickManiacWhereMatches;
   final int resultRatingPointsForUniqueIdByUserWhereFirst;
   final int resultRatingPointsForUniqueIdByUserWhereSecond;
 
-  Matches(super.uniqueId, this.creationTime, this.isCompleted, String strBanOrPickNamed,this.numberStageBan,this.numberStagePick,this.textLogAction, this.matchBalance,this.pickManiacWhereMatchesForLastPick, this.uniqueIdByUserWhereFirst, this.uniqueIdByUserWhereSecond, this.isStageBanOrPickForUniqueIdByUserWhereFirst, this.isRoleManiacForUniqueIdByUserWhereFirst, String strHowToStartATimer, this.listBanManiacWhereMatchesForUniqueIdByUserWhereFirst, this.listBanManiacWhereMatchesForUniqueIdByUserWhereSecond, this.listPickManiacWhereMatchesForUniqueIdByUserWhereFirst, this.listPickManiacWhereMatchesForUniqueIdByUserWhereSecond, this.resultRatingPointsForUniqueIdByUserWhereFirst, this.resultRatingPointsForUniqueIdByUserWhereSecond)
+  Matches(super.uniqueId, this.creationTime, this.isCompleted, String strBanOrPickNamed,this.textLogAction, this.matchBalance, this.uniqueIdByUserWhereFirst, this.uniqueIdByUserWhereSecond, this.isStageBanOrPickForUniqueIdByUserWhereFirst, this.isRoleManiacForUniqueIdByUserWhereFirst, String strHowToStartATimer, this.listBanManiacWhereMatches, this.listPickManiacWhereMatches, this.resultRatingPointsForUniqueIdByUserWhereFirst, this.resultRatingPointsForUniqueIdByUserWhereSecond)
       : enumBanOrPickNamed = _getFromStrBanOrPickNamedToManiacParameterEnumBanOrPickNamed(strBanOrPickNamed),
         enumHowToStartATimer = _getFromStrHowToStartATimerParameterEnumHowToStartATimer(strHowToStartATimer);
 
@@ -78,16 +74,54 @@ base class Matches extends BaseModel {
   }
 
   @override
-  Matches get getCloneModel => Matches(uniqueId, creationTime, isCompleted, enumBanOrPickNamed.name, numberStageBan, numberStagePick, textLogAction,matchBalance.getCloneModel,pickManiacWhereMatchesForLastPick.getCloneModel, uniqueIdByUserWhereFirst, uniqueIdByUserWhereSecond, isStageBanOrPickForUniqueIdByUserWhereFirst, isRoleManiacForUniqueIdByUserWhereFirst, enumHowToStartATimer.name, listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel, listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel, listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel, listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel,resultRatingPointsForUniqueIdByUserWhereFirst, resultRatingPointsForUniqueIdByUserWhereSecond);
+  Matches get getCloneModel => Matches(uniqueId, creationTime, isCompleted, enumBanOrPickNamed.name,textLogAction,matchBalance.getCloneModel, uniqueIdByUserWhereFirst, uniqueIdByUserWhereSecond, isStageBanOrPickForUniqueIdByUserWhereFirst, isRoleManiacForUniqueIdByUserWhereFirst, enumHowToStartATimer.name, listBanManiacWhereMatches.getCloneListModel, listPickManiacWhereMatches.getCloneListModel,resultRatingPointsForUniqueIdByUserWhereFirst, resultRatingPointsForUniqueIdByUserWhereSecond);
 
-  ListManiacWhereMatchBalance<ManiacWhereMatchBalance> get getListManiacWhereMatchBalanceWhereBanOrPickParametersFourList {
+  ListPickManiacWhereMatches<PickManiacWhereMatches> get getListPickManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereFirst {
+    final listPickManiacWhereMatchesForUniqueIdByUserWhereFirst = ListPickManiacWhereMatches<PickManiacWhereMatches>(List.empty(growable: true));
+    for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatches.listModel) {
+      if(pickManiacWhereMatches.uniqueIdByUser == uniqueIdByUserWhereFirst) {
+        listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.insertToListPickManiacWhereMatches(pickManiacWhereMatches.getCloneModel);
+        continue;
+      }
+    }
+    return listPickManiacWhereMatchesForUniqueIdByUserWhereFirst;
+  }
+
+  ListPickManiacWhereMatches<PickManiacWhereMatches> get getListPickManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereSecond {
+    final listPickManiacWhereMatchesForUniqueIdByUserWhereSecond = ListPickManiacWhereMatches<PickManiacWhereMatches>(List.empty(growable: true));
+    for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatches.listModel) {
+      if(pickManiacWhereMatches.uniqueIdByUser == uniqueIdByUserWhereSecond) {
+        listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.insertToListPickManiacWhereMatches(pickManiacWhereMatches.getCloneModel);
+        continue;
+      }
+    }
+    return listPickManiacWhereMatchesForUniqueIdByUserWhereSecond;
+  }
+
+  ListBanManiacWhereMatches<BanManiacWhereMatches> get getListBanManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListBanManiacWhereMatchesAndUniqueIdByUserWhereFirst {
+    final listBanManiacWhereMatchesForUniqueIdByUserWhereFirst = ListBanManiacWhereMatches<BanManiacWhereMatches>(List.empty(growable: true));
+    for(BanManiacWhereMatches banManiacWhereMatches in listBanManiacWhereMatches.listModel) {
+      if(banManiacWhereMatches.uniqueIdByUser == uniqueIdByUserWhereFirst) {
+        listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.insertToListBanManiacWhereMatches(banManiacWhereMatches.getCloneModel);
+        continue;
+      }
+    }
+    return listBanManiacWhereMatchesForUniqueIdByUserWhereFirst;
+  }
+
+  ListBanManiacWhereMatches<BanManiacWhereMatches> get getListBanManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListBanManiacWhereMatchesAndUniqueIdByUserWhereSecond {
+    final listBanManiacWhereMatchesForUniqueIdByUserWhereSecond = ListBanManiacWhereMatches<BanManiacWhereMatches>(List.empty(growable: true));
+    for(BanManiacWhereMatches banManiacWhereMatches in listBanManiacWhereMatches.listModel) {
+      if(banManiacWhereMatches.uniqueIdByUser == uniqueIdByUserWhereSecond) {
+        listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.insertToListBanManiacWhereMatches(banManiacWhereMatches.getCloneModel);
+        continue;
+      }
+    }
+    return listBanManiacWhereMatchesForUniqueIdByUserWhereSecond;
+  }
+
+  ListManiacWhereMatchBalance<ManiacWhereMatchBalance> get getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance {
     final listManiacWhereMatchBalance = matchBalance.listManiacWhereMatchBalance.getCloneListModel;
-    final listBanManiacWhereMatches = ListBanManiacWhereMatches<BanManiacWhereMatches>(List.empty(growable: true));
-    listBanManiacWhereMatches.insertListToListBanManiacWhereMatches(listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel.listModel);
-    listBanManiacWhereMatches.insertListToListBanManiacWhereMatches(listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel.listModel);
-    final listPickManiacWhereMatches = ListPickManiacWhereMatches<PickManiacWhereMatches>(List.empty(growable: true));
-    listPickManiacWhereMatches.insertListToListPickManiacWhereMatches(listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel.listModel);
-    listPickManiacWhereMatches.insertListToListPickManiacWhereMatches(listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel.listModel);
     for(ManiacWhereMatchBalance maniacWhereMatchBalance in matchBalance.listManiacWhereMatchBalance.listModel) {
       for(BanManiacWhereMatches banManiacWhereMatches in listBanManiacWhereMatches.listModel) {
         if(banManiacWhereMatches.name == maniacWhereMatchBalance.maniac.name) {
@@ -105,16 +139,14 @@ base class Matches extends BaseModel {
     return listManiacWhereMatchBalance;
   }
 
-  PickManiacWhereMatches get getLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond {
-    final listPickManiacWhereMatches = ListPickManiacWhereMatches<PickManiacWhereMatches>(List.empty(growable: true));
-    listPickManiacWhereMatches.insertListToListPickManiacWhereMatches(listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.getCloneListModel.listModel);
-    listPickManiacWhereMatches.insertListToListPickManiacWhereMatches(listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.getCloneListModel.listModel);
-    listPickManiacWhereMatches.pickManiacWhereMatchesQWhereOrderByAscParameterCreationTimeIterator();
-    return listPickManiacWhereMatches.listModel.last;
+  PickManiacWhereMatches get getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches {
+    final list = listPickManiacWhereMatches.getCloneListModel;
+    list.pickManiacWhereMatchesQWhereOrderByAscParameterCreationTimeIterator();
+    return list.listModel.last;
   }
 
-  ListMaps<Maps> get getNotBannedListMapsByLastItemManiacWhereMatchBalanceParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond {
-    final lastItemPickManiacWhereMatches = getLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond;
+  ListMaps<Maps> get getNotBannedListMapsByLastItemManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance {
+    final lastItemPickManiacWhereMatches = getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches;
     ManiacWhereMatchBalance? newManiacWhereMatchBalance;
     for(ManiacWhereMatchBalance itemManiacWhereMatchBalance in matchBalance.listManiacWhereMatchBalance.listModel) {
       if(lastItemPickManiacWhereMatches.name == itemManiacWhereMatchBalance.maniac.name) {
@@ -137,87 +169,82 @@ base class Matches extends BaseModel {
     return maniacWhereMatchBalanceForDelete.listMaps;
   }
 
-  ListPickManiacWhereMatches get getListPickManiacWhereMatchesForUniqueIdByUserWhereFirstWhereUpdatePickMapsWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond {
-    final lastItemPickManiacWhereMatches = getLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond;
-    final firstItemMapsToNotBannedListMapsByLastItemManiacWhereMatchBalance = getNotBannedListMapsByLastItemManiacWhereMatchBalanceParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel[0];
-    final newListPickManiacWhereMatchesForUniqueIdByUserWhereFirst = ListPickManiacWhereMatches<PickManiacWhereMatches>(List.empty(growable: true));
-    for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel) {
+  ListPickManiacWhereMatches get getUpdatedPickMapsToListPickManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance {
+    final lastItemPickManiacWhereMatches = getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches;
+    final firstItemMapsFromNotBannedListMapsByLastItemManiacWhereMatchBalance = getNotBannedListMapsByLastItemManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance.listModel.last;
+    final newListPickManiacWhereMatches = ListPickManiacWhereMatches<PickManiacWhereMatches>(List.empty(growable: true));
+    for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatches.listModel) {
       if(lastItemPickManiacWhereMatches.name == pickManiacWhereMatches.name) {
-        newListPickManiacWhereMatchesForUniqueIdByUserWhereFirst.insertToListPickManiacWhereMatches(PickManiacWhereMatches(
+        newListPickManiacWhereMatches.insertToListPickManiacWhereMatches(PickManiacWhereMatches(
             pickManiacWhereMatches.name,
+            pickManiacWhereMatches.uniqueIdByUser,
             pickManiacWhereMatches.creationTime,
             pickManiacWhereMatches.listBanMapsWhereMatches.getCloneListModel,
-            PickMapsWhereMatches(firstItemMapsToNotBannedListMapsByLastItemManiacWhereMatchBalance.name),
+            PickMapsWhereMatches(firstItemMapsFromNotBannedListMapsByLastItemManiacWhereMatchBalance.name),
             pickManiacWhereMatches.listPickManiacPerkWhereMatches.getCloneListModel,
             pickManiacWhereMatches.listPickSurvivorPerkWhereMatches.getCloneListModel));
         continue;
       }
-      newListPickManiacWhereMatchesForUniqueIdByUserWhereFirst
+      newListPickManiacWhereMatches
           .insertToListPickManiacWhereMatches(pickManiacWhereMatches.getCloneModel);
     }
-    return newListPickManiacWhereMatchesForUniqueIdByUserWhereFirst;
+    return newListPickManiacWhereMatches;
   }
 
-  ListPickManiacWhereMatches get getListPickManiacWhereMatchesForUniqueIdByUserWhereSecondWhereUpdatePickMapsWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond {
-    final lastItemPickManiacWhereMatches = getLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond;
-    final firstItemMapsToNotBannedListMapsByLastItemManiacWhereMatchBalance = getNotBannedListMapsByLastItemManiacWhereMatchBalanceParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel[0];
-    final newListPickManiacWhereMatchesForUniqueIdByUserWhereSecond = ListPickManiacWhereMatches<PickManiacWhereMatches>(List.empty(growable: true));
-    for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel) {
-      if(lastItemPickManiacWhereMatches.name == pickManiacWhereMatches.name) {
-        newListPickManiacWhereMatchesForUniqueIdByUserWhereSecond.insertToListPickManiacWhereMatches(PickManiacWhereMatches(
-            pickManiacWhereMatches.name,
-            pickManiacWhereMatches.creationTime,
-            pickManiacWhereMatches.listBanMapsWhereMatches.getCloneListModel,
-            PickMapsWhereMatches(firstItemMapsToNotBannedListMapsByLastItemManiacWhereMatchBalance.name),
-            pickManiacWhereMatches.listPickManiacPerkWhereMatches.getCloneListModel,
-            pickManiacWhereMatches.listPickSurvivorPerkWhereMatches.getCloneListModel));
-      }
-      newListPickManiacWhereMatchesForUniqueIdByUserWhereSecond
-          .insertToListPickManiacWhereMatches(pickManiacWhereMatches.getCloneModel);
-    }
-    return newListPickManiacWhereMatchesForUniqueIdByUserWhereSecond;
+  void insertBanManiacWhereMatchesForUniqueIdByUserWhereFirstFromNameManiacParameterListBanManiacWhereMatches(String nameManiac) {
+    listBanManiacWhereMatches
+        .insertToListBanManiacWhereMatches(BanManiacWhereMatches(nameManiac,uniqueIdByUserWhereFirst));
   }
 
-  int get _getNumberOfBannedManiacsParametersListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond {
-    return listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel.length +
-        listBanManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel.length;
+  void insertBanManiacWhereMatchesForUniqueIdByUserWhereSecondFromNameManiacParameterListBanManiacWhereMatches(String nameManiac) {
+    listBanManiacWhereMatches
+        .insertToListBanManiacWhereMatches(BanManiacWhereMatches(nameManiac,uniqueIdByUserWhereSecond));
   }
 
-  int get getNumberOfPickManiacsParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond {
-    return listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel.length +
-        listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel.length;
+  void insertPickManiacWhereMatchesForUniqueIdByUserWhereFirstFromNameManiacParameterListPickManiacWhereMatches(String nameManiac) {
+    listPickManiacWhereMatches
+        .insertToListPickManiacWhereMatches(PickManiacWhereMatches(nameManiac,uniqueIdByUserWhereFirst,DateTime.now(),ListBanMapsWhereMatches(List.empty(growable: true)),PickMapsWhereMatches(""),ListPickManiacPerkWhereMatches(List.empty(growable: true)),ListPickSurvivorPerkWhereMatches(List.empty(growable: true))));
   }
 
-  void insertBanMapsWhereMatchesToPickManiacWhereMatchesFromMapsParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond(Maps maps) {
-    final lastItemPickManiacWhereMatches = getLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond;
-    bool isPickManiacWhereMatchesForUniqueIdByUserWhereFirst = false;
+  void insertPickManiacWhereMatchesForUniqueIdByUserWhereSecondFromNameManiacParameterListPickManiacWhereMatches(String nameManiac) {
+    listPickManiacWhereMatches
+        .insertToListPickManiacWhereMatches(PickManiacWhereMatches(nameManiac,uniqueIdByUserWhereSecond,DateTime.now(),ListBanMapsWhereMatches(List.empty(growable: true)),PickMapsWhereMatches(""),ListPickManiacPerkWhereMatches(List.empty(growable: true)),ListPickSurvivorPerkWhereMatches(List.empty(growable: true))));
+  }
+
+  void insertLastPickManiacWhereMatchesParameterListPickManiacWhereMatches() {
+    final lastManiacWhereMatchBalance = getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance.listModel.last;
+    listPickManiacWhereMatches
+        .insertToListPickManiacWhereMatches(PickManiacWhereMatches(lastManiacWhereMatchBalance.maniac.name,"",DateTime.now(),ListBanMapsWhereMatches(List.empty(growable: true)),PickMapsWhereMatches(""),ListPickManiacPerkWhereMatches(List.empty(growable: true)),ListPickSurvivorPerkWhereMatches(List.empty(growable: true))));
+  }
+
+  void insertBanMapsWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereFirstFromMapsParametersListPickManiacWhereMatches(Maps maps) {
+    final lastItemPickManiacWhereMatches = getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches;
     int iterationForListPickManiacWhereMatchesForUniqueIdByUserWhereFirst = 0;
-    for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel) {
+    for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatches.listModel) {
       if(lastItemPickManiacWhereMatches.name == pickManiacWhereMatches.name) {
-        isPickManiacWhereMatchesForUniqueIdByUserWhereFirst = true;
         break;
       }
       iterationForListPickManiacWhereMatchesForUniqueIdByUserWhereFirst++;
     }
+    listPickManiacWhereMatches
+        .listModel[iterationForListPickManiacWhereMatchesForUniqueIdByUserWhereFirst]
+        .listBanMapsWhereMatches
+        .insertToListBanMapsWhereMatches(BanMapsWhereMatches(maps.name,uniqueIdByUserWhereFirst));
+  }
+
+  void insertBanMapsWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereSecondFromMapsParametersListPickManiacWhereMatches(Maps maps) {
+    final lastItemPickManiacWhereMatches = getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches;
     int iterationForListPickManiacWhereMatchesForUniqueIdByUserWhereSecond = 0;
-    for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel) {
+    for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatches.listModel) {
       if(lastItemPickManiacWhereMatches.name == pickManiacWhereMatches.name) {
-        isPickManiacWhereMatchesForUniqueIdByUserWhereFirst = false;
         break;
       }
       iterationForListPickManiacWhereMatchesForUniqueIdByUserWhereSecond++;
     }
-    if(isPickManiacWhereMatchesForUniqueIdByUserWhereFirst) {
-      listPickManiacWhereMatchesForUniqueIdByUserWhereFirst
-          .listModel[iterationForListPickManiacWhereMatchesForUniqueIdByUserWhereFirst]
-          .listBanMapsWhereMatches
-          .insertToListBanMapsWhereMatches(BanMapsWhereMatches(maps.name));
-      return;
-    }
-    listPickManiacWhereMatchesForUniqueIdByUserWhereSecond
+    listPickManiacWhereMatches
         .listModel[iterationForListPickManiacWhereMatchesForUniqueIdByUserWhereSecond]
         .listBanMapsWhereMatches
-        .insertToListBanMapsWhereMatches(BanMapsWhereMatches(maps.name));
+        .insertToListBanMapsWhereMatches(BanMapsWhereMatches(maps.name,uniqueIdByUserWhereSecond));
   }
 
   bool isTrueAndBanManiacParametersIsStageBanOrPickForUniqueIdByUserWhereFirstAndEnumBanOrPickNamed() {
@@ -270,28 +297,28 @@ base class Matches extends BaseModel {
         enumBanOrPickNamed == EnumBanOrPickNamed.pickSurvivorPerkToManiac;
   }
 
-  bool isBannedManiacInTheFirstNumberStageBanParametersNumberStageBanAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond() {
-    return _getNumberOfBannedManiacsParametersListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond
-        == matchBalance.getTotalNumberOfBannedManiacsInTheFirstStageParametersListManiacWhereMatchBalanceAndNumberOfRounds;
+  bool isDoneFirstStageBanManiacWhereMatchesParametersListBanManiacWhereMatchesAndMatchBalance() {
+    return listBanManiacWhereMatches.listModel.length
+        == matchBalance.getNeedsResultNumberOfBannedManiacsInTheFirstStageParametersListManiacWhereMatchBalanceAndNumberOfRounds;
   }
 
-  bool isBannedManiacInTheSecondNumberStageBanParametersNumberStageBanAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond() {
-    return _getNumberOfBannedManiacsParametersListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond
-        == matchBalance.getTotalNumberOfBannedManiacsParametersListManiacWhereMatchBalanceAndNumberOfRounds;
+  bool isDoneSecondStageBanManiacWhereMatchesParametersListBanManiacWhereMatchesAndMatchBalance() {
+    return listBanManiacWhereMatches.listModel.length
+        == matchBalance.getNeedsResultNumberOfBannedManiacsParametersListManiacWhereMatchBalanceAndNumberOfRounds;
   }
 
-  bool isPickedManiacInTheFirstNumberStagePickParametersNumberStagePickAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond() {
-    return getNumberOfPickManiacsParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond
-        < matchBalance.getTotalNumberOfPickManiacsInTheFirstStageParameterNumberOfRounds;
+  bool isDoneFirstStagePickManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance() {
+    return listPickManiacWhereMatches.listModel.length
+        == (matchBalance.numberOfRounds - 1);
   }
 
-  bool isPickedManiacInTheSecondNumberStagePickParametersNumberStagePickAndMatchBalanceAndListBanManiacWhereMatchesForUniqueIdByUserWhereFirstAndListBanManiacWhereMatchesForUniqueIdByUserWhereSecond() {
-    return getNumberOfPickManiacsParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond
+  bool isDoneSecondStagePickManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance() {
+    return listPickManiacWhereMatches.listModel.length
         == matchBalance.numberOfRounds;
   }
 
   bool isBanMapsEqualsLengthMinusOneParametersMatchBalanceAndListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond() {
-    final lastItemPickManiacWhereMatches = getLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond;
+    final lastItemPickManiacWhereMatches = getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches;
     ManiacWhereMatchBalance? newManiacWhereMatchBalance;
     for(ManiacWhereMatchBalance maniacWhereMatchBalance in matchBalance.listManiacWhereMatchBalance.listModel) {
       if(lastItemPickManiacWhereMatches.name == maniacWhereMatchBalance.maniac.name) {
@@ -309,26 +336,5 @@ base class Matches extends BaseModel {
         .length ?? 0;
     return lengthByListBanMapsWhereMatchesByLastItemPickManiacWhereMatches
        == (lengthByListMapsByNewManiacWhereMatchBalance-1);
-  }
-
-  bool isPickManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond() {
-    final lastItemPickManiacWhereMatches = getLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesForUniqueIdByUserWhereFirstAndListPickManiacWhereMatchesForUniqueIdByUserWhereSecond;
-    bool isPickManiacWhereMatchesForUniqueIdByUserWhereFirst = false;
-    for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatchesForUniqueIdByUserWhereFirst.listModel) {
-      if(lastItemPickManiacWhereMatches.name == pickManiacWhereMatches.name) {
-        isPickManiacWhereMatchesForUniqueIdByUserWhereFirst = true;
-        break;
-      }
-    }
-    if(isPickManiacWhereMatchesForUniqueIdByUserWhereFirst) {
-      return isPickManiacWhereMatchesForUniqueIdByUserWhereFirst;
-    }
-    for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.listModel) {
-      if(lastItemPickManiacWhereMatches.name == pickManiacWhereMatches.name) {
-        isPickManiacWhereMatchesForUniqueIdByUserWhereFirst = false;
-        break;
-      }
-    }
-    return isPickManiacWhereMatchesForUniqueIdByUserWhereFirst;
   }
 }

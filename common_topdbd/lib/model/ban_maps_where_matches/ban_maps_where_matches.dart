@@ -4,9 +4,15 @@ import 'package:meta/meta.dart';
 @immutable
 base class BanMapsWhereMatches extends BaseModel {
   final String name;
+  final String uniqueIdByUser;
 
-  const BanMapsWhereMatches(this.name) : super(name);
+  const BanMapsWhereMatches(this.name,this.uniqueIdByUser) : super(name);
 
   @override
-  BanMapsWhereMatches get getCloneModel => BanMapsWhereMatches(name);
+  BanMapsWhereMatches get getCloneModel => BanMapsWhereMatches(name,uniqueIdByUser);
+
+  @override
+  String toString() {
+    return "$name (UniqueIdByUser: $uniqueIdByUser)";
+  }
 }

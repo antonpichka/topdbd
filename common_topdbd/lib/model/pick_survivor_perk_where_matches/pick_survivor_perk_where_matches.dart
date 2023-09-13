@@ -4,14 +4,15 @@ import 'package:meta/meta.dart';
 @immutable
 base class PickSurvivorPerkWhereMatches extends BaseModel {
   final String name;
+  final String uniqueIdByUser;
 
-  const PickSurvivorPerkWhereMatches(this.name) : super(name);
+  const PickSurvivorPerkWhereMatches(this.name,this.uniqueIdByUser) : super(name);
 
   @override
-  PickSurvivorPerkWhereMatches get getCloneModel => PickSurvivorPerkWhereMatches(name);
+  PickSurvivorPerkWhereMatches get getCloneModel => PickSurvivorPerkWhereMatches(name,uniqueIdByUser);
 
   @override
   String toString() {
-    return name;
+    return "$name (UniqueIdByUser: $uniqueIdByUser)";
   }
 }

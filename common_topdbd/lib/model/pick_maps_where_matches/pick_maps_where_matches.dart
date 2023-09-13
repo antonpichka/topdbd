@@ -9,4 +9,9 @@ base class PickMapsWhereMatches extends BaseModel {
 
   @override
   PickMapsWhereMatches get getCloneModel => PickMapsWhereMatches(name);
+
+  @override
+  String toString() {
+    return name;
+  }
 }

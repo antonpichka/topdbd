@@ -14,4 +14,8 @@ base class ListPickManiacPerkWhereMatches<T extends PickManiacPerkWhereMatches> 
     }
     return ListPickManiacPerkWhereMatches<T>(newListModel);
   }
+
+  void insertToListPickManiacPerkWhereMatches(T model) {
+    super.insertToListModel(model);
+  }
 }

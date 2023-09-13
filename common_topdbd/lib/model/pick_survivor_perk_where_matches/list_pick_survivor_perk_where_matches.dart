@@ -14,4 +14,8 @@ base class ListPickSurvivorPerkWhereMatches<T extends PickSurvivorPerkWhereMatch
     }
     return ListPickSurvivorPerkWhereMatches<T>(newListModel);
   }
+
+  void insertToListPickSurvivorPerkWhereMatches(T model) {
+    super.insertToListModel(model);
+  }
 }

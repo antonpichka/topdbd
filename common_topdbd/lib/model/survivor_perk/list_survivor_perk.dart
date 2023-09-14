@@ -14,4 +14,16 @@ base class ListSurvivorPerk<T extends SurvivorPerk> extends BaseListModel<T> {
     }
     return ListSurvivorPerk<T>(newListModel);
   }
+
+  void insertToListSurvivorPerk(T model) {
+    super.insertToListModel(model);
+  }
+
+  void insertListToListSurvivorPerk(List<T> list) {
+    super.insertListToListModel(list);
+  }
+
+  void deleteToListSurvivorPerk(String uniqueIdByModel) {
+    super.deleteToListModel(uniqueIdByModel);
+  }
 }

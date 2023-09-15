@@ -1,4 +1,8 @@
 enum EnumBanOrPickNamed {
+  systemPickManiac,
+  systemPickMapsToManiac,
+  systemPickManiacPerkToManiac,
+  systemPickSurvivorPerkToManiac,
   banManiac,
   pickManiac,
   bansMapsToManiac,

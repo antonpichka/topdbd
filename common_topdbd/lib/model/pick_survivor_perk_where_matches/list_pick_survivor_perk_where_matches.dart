@@ -15,13 +15,13 @@ base class ListPickSurvivorPerkWhereMatches<T extends PickSurvivorPerkWhereMatch
     return ListPickSurvivorPerkWhereMatches<T>(newListModel);
   }
 
-  ListPickSurvivorPerkWhereMatches getListPickSurvivorPerkWhereMatchesFromUniqueIdByUserParameterListModel(String uniqueIdByUser) {
-    final listPickSurvivorPerkWhereMatches = ListPickSurvivorPerkWhereMatches<T>(List.empty(growable: true));
+  List<T> getListPickSurvivorPerkWhereMatchesFromUniqueIdByUserParameterListModel(String uniqueIdByUser) {
+    final listPickSurvivorPerkWhereMatches = List<T>.empty(growable: true);
     for(T pickSurvivorPerkWhereMatches in listModel) {
       if(pickSurvivorPerkWhereMatches.uniqueIdByUser != uniqueIdByUser) {
         continue;
       }
-      listPickSurvivorPerkWhereMatches.insertToListPickSurvivorPerkWhereMatches(pickSurvivorPerkWhereMatches.getCloneModel as T);
+      listPickSurvivorPerkWhereMatches.add(pickSurvivorPerkWhereMatches.getCloneModel as T);
     }
     return listPickSurvivorPerkWhereMatches;
   }

@@ -24,6 +24,10 @@ base class ListPickManiacWhereMatches<T extends PickManiacWhereMatches> extends 
     insertToListModel(pickManiacWhereMatches);
   }
 
+  void updateToListPickManiacWhereMatches(T pickManiacWhereMatches) {
+    updateToListModel(pickManiacWhereMatches);
+  }
+
   void insertListToListPickManiacWhereMatches(List<T> listPickManiacWhereMatches) {
     insertListToListModel(listPickManiacWhereMatches);
   }

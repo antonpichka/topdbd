@@ -27,6 +27,13 @@ base class ManiacWhereMatchBalance extends BaseModel {
     return lengthPickSurvivorPerk != listSurvivorPerk.listModel.length;
   }
 
+  bool isLengthPickSPEqualsLengthListSPAndIsNotEmptyListSPParametersLengthPickSurvivorPerkAndListSurvivorPerk() {
+    if(listSurvivorPerk.listModel.isEmpty) {
+      return false;
+    }
+    return lengthPickSurvivorPerk == listSurvivorPerk.listModel.length;
+  }
+
   @override
   String toString() {
     return "${maniac.name} (ListMaps: ${listMaps.listModel}) (ListManiacPerk: ${listManiacPerk.listModel}) (ListSurvivorPerk: ${listSurvivorPerk.listModel})\n";

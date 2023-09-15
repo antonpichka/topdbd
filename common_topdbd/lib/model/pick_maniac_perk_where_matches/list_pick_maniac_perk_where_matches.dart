@@ -15,13 +15,13 @@ base class ListPickManiacPerkWhereMatches<T extends PickManiacPerkWhereMatches> 
     return ListPickManiacPerkWhereMatches<T>(newListModel);
   }
 
-  ListPickManiacPerkWhereMatches getListPickManiacPerkWhereMatchesFromUniqueIdByUserParameterListModel(String uniqueIdByUser) {
-    final listPickManiacPerkWhereMatches = ListPickManiacPerkWhereMatches<T>(List.empty(growable: true));
+  List<T> getListPickManiacPerkWhereMatchesFromUniqueIdByUserParameterListModel(String uniqueIdByUser) {
+    final listPickManiacPerkWhereMatches = List<T>.empty(growable: true);
     for(T pickManiacPerkWhereMatches in listModel) {
       if(pickManiacPerkWhereMatches.uniqueIdByUser != uniqueIdByUser) {
         continue;
       }
-      listPickManiacPerkWhereMatches.insertToListPickManiacPerkWhereMatches(pickManiacPerkWhereMatches.getCloneModel as T);
+      listPickManiacPerkWhereMatches.add(pickManiacPerkWhereMatches.getCloneModel as T);
     }
     return listPickManiacPerkWhereMatches;
   }

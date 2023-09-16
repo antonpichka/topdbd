@@ -10,7 +10,6 @@ import 'package:common_topdbd/model/maps/list_maps.dart';
 import 'package:common_topdbd/model/maps/maps.dart';
 import 'package:common_topdbd/model/match_balance/match_balance.dart';
 import 'package:common_topdbd/model/matches/enum_ban_or_pick_named.dart';
-import 'package:common_topdbd/model/matches/enum_how_to_start_a_timer.dart';
 import 'package:common_topdbd/model/pick_maniac_perk_where_matches/list_pick_maniac_perk_where_matches.dart';
 import 'package:common_topdbd/model/pick_maniac_perk_where_matches/pick_maniac_perk_where_matches.dart';
 import 'package:common_topdbd/model/pick_maniac_where_matches/list_pick_maniac_where_matches.dart';
@@ -18,6 +17,7 @@ import 'package:common_topdbd/model/pick_maniac_where_matches/pick_maniac_where_
 import 'package:common_topdbd/model/pick_maps_where_matches/pick_maps_where_matches.dart';
 import 'package:common_topdbd/model/pick_survivor_perk_where_matches/list_pick_survivor_perk_where_matches.dart';
 import 'package:common_topdbd/model/pick_survivor_perk_where_matches/pick_survivor_perk_where_matches.dart';
+import 'package:common_topdbd/model/round_where_matches/list_round_where_matches.dart';
 import 'package:common_topdbd/model/survivor_perk/list_survivor_perk.dart';
 import 'package:common_topdbd/model/survivor_perk/survivor_perk.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
@@ -33,16 +33,14 @@ base class Matches extends BaseModel {
   final String uniqueIdByUserWhereFirst;
   final String uniqueIdByUserWhereSecond;
   final bool isStageBanOrPickForUniqueIdByUserWhereFirst;
-  final bool isRoleManiacForUniqueIdByUserWhereFirst;
-  final EnumHowToStartATimer enumHowToStartATimer;
   final ListBanManiacWhereMatches listBanManiacWhereMatches;
   final ListPickManiacWhereMatches listPickManiacWhereMatches;
+  final ListRoundWhereMatches listRoundWhereMatches;
   final int resultRatingPointsForUniqueIdByUserWhereFirst;
   final int resultRatingPointsForUniqueIdByUserWhereSecond;
 
-  Matches(super.uniqueId, this.creationTime, this.isCompleted, String strBanOrPickNamed,this.textLogAction, this.matchBalance, this.uniqueIdByUserWhereFirst, this.uniqueIdByUserWhereSecond, this.isStageBanOrPickForUniqueIdByUserWhereFirst, this.isRoleManiacForUniqueIdByUserWhereFirst, String strHowToStartATimer, this.listBanManiacWhereMatches, this.listPickManiacWhereMatches, this.resultRatingPointsForUniqueIdByUserWhereFirst, this.resultRatingPointsForUniqueIdByUserWhereSecond)
-      : enumBanOrPickNamed = _getFromStrBanOrPickNamedToManiacParameterEnumBanOrPickNamed(strBanOrPickNamed),
-        enumHowToStartATimer = _getFromStrHowToStartATimerParameterEnumHowToStartATimer(strHowToStartATimer);
+  Matches(super.uniqueId, this.creationTime, this.isCompleted, String strBanOrPickNamed,this.textLogAction, this.matchBalance, this.uniqueIdByUserWhereFirst, this.uniqueIdByUserWhereSecond, this.isStageBanOrPickForUniqueIdByUserWhereFirst, this.listBanManiacWhereMatches, this.listPickManiacWhereMatches, this.listRoundWhereMatches, this.resultRatingPointsForUniqueIdByUserWhereFirst, this.resultRatingPointsForUniqueIdByUserWhereSecond)
+      : enumBanOrPickNamed = _getFromStrBanOrPickNamedToManiacParameterEnumBanOrPickNamed(strBanOrPickNamed);
 
   static EnumBanOrPickNamed _getFromStrBanOrPickNamedToManiacParameterEnumBanOrPickNamed(String strBanOrPickNamed) {
     if(strBanOrPickNamed == EnumBanOrPickNamed.systemPickManiac.name) {
@@ -75,24 +73,8 @@ base class Matches extends BaseModel {
     return EnumBanOrPickNamed.ready;
   }
 
-  static EnumHowToStartATimer _getFromStrHowToStartATimerParameterEnumHowToStartATimer(String strHowToStartATimer) {
-    if(strHowToStartATimer == EnumHowToStartATimer.isRoleManiacForUniqueIdByUserWhereFirst.name) {
-      return EnumHowToStartATimer.isRoleManiacForUniqueIdByUserWhereFirst;
-    }
-    if(strHowToStartATimer == EnumHowToStartATimer.isNotRoleManiacForUniqueIdByUserWhereSecond.name) {
-      return EnumHowToStartATimer.isNotRoleManiacForUniqueIdByUserWhereSecond;
-    }
-    if(strHowToStartATimer == EnumHowToStartATimer.isRoleManiacForUniqueIdByUserWhereSecond.name) {
-      return EnumHowToStartATimer.isRoleManiacForUniqueIdByUserWhereSecond;
-    }
-    if(strHowToStartATimer == EnumHowToStartATimer.isNotRoleManiacForUniqueIdByUserWhereFirst.name) {
-      return EnumHowToStartATimer.isNotRoleManiacForUniqueIdByUserWhereFirst;
-    }
-    return EnumHowToStartATimer.turnOffTheTimer;
-  }
-
   @override
-  Matches get getCloneModel => Matches(uniqueId, creationTime, isCompleted, enumBanOrPickNamed.name,textLogAction,matchBalance.getCloneModel, uniqueIdByUserWhereFirst, uniqueIdByUserWhereSecond, isStageBanOrPickForUniqueIdByUserWhereFirst, isRoleManiacForUniqueIdByUserWhereFirst, enumHowToStartATimer.name, listBanManiacWhereMatches.getCloneListModel, listPickManiacWhereMatches.getCloneListModel,resultRatingPointsForUniqueIdByUserWhereFirst, resultRatingPointsForUniqueIdByUserWhereSecond);
+  Matches get getCloneModel => Matches(uniqueId, creationTime, isCompleted, enumBanOrPickNamed.name,textLogAction,matchBalance.getCloneModel, uniqueIdByUserWhereFirst, uniqueIdByUserWhereSecond, isStageBanOrPickForUniqueIdByUserWhereFirst,listBanManiacWhereMatches.getCloneListModel, listPickManiacWhereMatches.getCloneListModel,listRoundWhereMatches.getCloneListModel,resultRatingPointsForUniqueIdByUserWhereFirst, resultRatingPointsForUniqueIdByUserWhereSecond);
 
   ListPickManiacWhereMatches<PickManiacWhereMatches> get getListPickManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereFirst {
     return getListPickManiacWhereMatchesForUniqueIdByUserParameterListPickManiacWhereMatches(uniqueIdByUserWhereFirst);
@@ -222,26 +204,26 @@ base class Matches extends BaseModel {
 
   @protected
   ListPickManiacWhereMatches<PickManiacWhereMatches> getListPickManiacWhereMatchesForUniqueIdByUserParameterListPickManiacWhereMatches(String uniqueIdByUser) {
-    final listPickManiacWhereMatchesForUniqueIdByUserWhereSecond = ListPickManiacWhereMatches<PickManiacWhereMatches>(List.empty(growable: true));
+    final listPickManiacWhereMatchesForUniqueIdByUser = ListPickManiacWhereMatches<PickManiacWhereMatches>(List.empty(growable: true));
     for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatches.listModel) {
       if(pickManiacWhereMatches.uniqueIdByUser == uniqueIdByUser) {
-        listPickManiacWhereMatchesForUniqueIdByUserWhereSecond.insertToListPickManiacWhereMatches(pickManiacWhereMatches.getCloneModel);
+        listPickManiacWhereMatchesForUniqueIdByUser.insertToListPickManiacWhereMatches(pickManiacWhereMatches.getCloneModel);
         continue;
       }
     }
-    return listPickManiacWhereMatchesForUniqueIdByUserWhereSecond;
+    return listPickManiacWhereMatchesForUniqueIdByUser;
   }
 
   @protected
   ListBanManiacWhereMatches<BanManiacWhereMatches> getListBanManiacWhereMatchesForUniqueIdByUserParameterListBanManiacWhereMatches(String uniqueIdByUser) {
-    final listBanManiacWhereMatchesForUniqueIdByUserWhereFirst = ListBanManiacWhereMatches<BanManiacWhereMatches>(List.empty(growable: true));
+    final listBanManiacWhereMatchesForUniqueIdByUser = ListBanManiacWhereMatches<BanManiacWhereMatches>(List.empty(growable: true));
     for(BanManiacWhereMatches banManiacWhereMatches in listBanManiacWhereMatches.listModel) {
       if(banManiacWhereMatches.uniqueIdByUser == uniqueIdByUser) {
-        listBanManiacWhereMatchesForUniqueIdByUserWhereFirst.insertToListBanManiacWhereMatches(banManiacWhereMatches.getCloneModel);
+        listBanManiacWhereMatchesForUniqueIdByUser.insertToListBanManiacWhereMatches(banManiacWhereMatches.getCloneModel);
         continue;
       }
     }
-    return listBanManiacWhereMatchesForUniqueIdByUserWhereFirst;
+    return listBanManiacWhereMatchesForUniqueIdByUser;
   }
 
   @protected

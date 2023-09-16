@@ -113,8 +113,6 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchesQUniqueIdByUserWhereFirst = "uniqueIdByUserWhereFirst";
   static const String matchesQUniqueIdByUserWhereSecond = "uniqueIdByUserWhereSecond";
   static const String matchesQIsStageBanOrPickForUniqueIdByUserWhereFirst = "isStageBanOrPickForUniqueIdByUserWhereFirst";
-  static const String matchesQIsRoleManiacForUniqueIdByUserWhereFirst = "isRoleManiacForUniqueIdByUserWhereFirst";
-  static const String matchesQEnumHowToStartATimer = "enumHowToStartATimer";
   static const String matchesQListBanManiacWhereMatches = "listBanManiacWhereMatches";
   static const String matchesQListBanManiacWhereMatchesQName = "name";
   static const String matchesQListBanManiacWhereMatchesQUniqueIdByUser = "uniqueIdByUser";
@@ -133,6 +131,25 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchesQListPickManiacWhereMatchesQListPickSurvivorPerkWhereMatches = "listPickSurvivorPerkWhereMatches";
   static const String matchesQListPickManiacWhereMatchesQListPickSurvivorPerkWhereMatchesQName = "name";
   static const String matchesQListPickManiacWhereMatchesQListPickSurvivorPerkWhereMatchesQUniqueIdByUser = "uniqueIdByUser";
+  static const String matchesQListRoundWhereMatches = "listRoundWhereMatches";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatches = "pickManiacWhereMatches";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQName = "name";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQUniqueIdByUser = "uniqueIdByUser";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQCreationTime = "creationTime";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQListBanMapsWhereMatches = "listBanMapsWhereMatches";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQListBanMapsWhereMatchesQName = "name";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQListBanMapsWhereMatchesQUniqueIdByUser = "uniqueIdByUser";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQPickMapsWhereMatches = "pickMapsWhereMatches";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQPickMapsWhereMatchesQName = "name";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQListPickManiacPerkWhereMatches = "listPickManiacPerkWhereMatches";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQListPickManiacPerkWhereMatchesQName = "name";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQListPickManiacPerkWhereMatchesQUniqueIdByUser = "uniqueIdByUser";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQListPickSurvivorPerkWhereMatches = "listPickSurvivorPerkWhereMatches";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQListPickSurvivorPerkWhereMatchesQName = "name";
+  static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQListPickSurvivorPerkWhereMatchesQUniqueIdByUser = "uniqueIdByUser";
+  static const String matchesQListRoundWhereMatchesQEnumWhoStartsTheTimerAndWhoIsTheManiac = "enumWhoStartsTheTimerAndWhoIsTheManiac";
+  static const String matchesQListRoundWhereMatchesQNumberOfSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst = "numberOfSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst";
+  static const String matchesQListRoundWhereMatchesQNumberOfSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond = "numberOfSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond";
   static const String matchesQResultRatingPointsForUniqueIdByUserWhereFirst = "resultRatingPointsForUniqueIdByUserWhereFirst";
   static const String matchesQResultRatingPointsForUniqueIdByUserWhereSecond = "resultRatingPointsForUniqueIdByUserWhereSecond";
 

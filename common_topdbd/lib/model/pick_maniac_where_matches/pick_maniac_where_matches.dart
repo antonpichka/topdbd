@@ -14,8 +14,6 @@ base class PickManiacWhereMatches extends BaseModel {
   final PickMapsWhereMatches pickMapsWhereMatches;
   final ListPickManiacPerkWhereMatches listPickManiacPerkWhereMatches;
   final ListPickSurvivorPerkWhereMatches listPickSurvivorPerkWhereMatches;
-  /*final bool isRoundWin;
-  final int elapsedSecondsPerRounds;*/
 
   const PickManiacWhereMatches(this.name,this.uniqueIdByUser,this.creationTime,this.listBanMapsWhereMatches, this.pickMapsWhereMatches,this.listPickManiacPerkWhereMatches,this.listPickSurvivorPerkWhereMatches) : super(name);
 

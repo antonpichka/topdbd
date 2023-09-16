@@ -10,10 +10,10 @@ import 'package:common_topdbd/model/maps/list_maps.dart';
 import 'package:common_topdbd/model/maps/maps.dart';
 import 'package:common_topdbd/model/match_balance/match_balance.dart';
 import 'package:common_topdbd/model/matches/enum_ban_or_pick_named.dart';
-import 'package:common_topdbd/model/matches/enum_how_to_start_a_timer.dart';
 import 'package:common_topdbd/model/matches/matches.dart';
 import 'package:common_topdbd/model/perk/perk.dart';
 import 'package:common_topdbd/model/pick_maniac_where_matches/list_pick_maniac_where_matches.dart';
+import 'package:common_topdbd/model/round_where_matches/list_round_where_matches.dart';
 import 'package:common_topdbd/model/survivor_perk/list_survivor_perk.dart';
 import 'package:common_topdbd/model/survivor_perk/survivor_perk.dart';
 import 'package:common_topdbd/model/user/user.dart';
@@ -68,6 +68,11 @@ enum EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond {
   itsEnemyPickManiacPerkToManiac,
   itsEnemyPickSurvivorPerkToManiac,
   ready
+}
+
+enum EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirstWhereStartRound {
+
+  done
 }
 
 final class DataForStagePickAndBanTestMain {
@@ -210,45 +215,33 @@ final class DataForStagePickAndBanTestMain {
 
 final StreamController<DataForStagePickAndBanTestMain> _streamControllerForDataForStagePickAndBanTestMain = StreamController.broadcast();
 DataForStagePickAndBanTestMain? _dataForStagePickAndBanTestMain;
-final StreamController<Matches> _streamControllerForMatches = StreamController.broadcast();
 
 Future<void> main() async {
   /// INIT LISTEN
-  _streamControllerForMatches
-      .stream
-      .listen((event) {
-        _listenMatches(event);
-      });
   _streamControllerForDataForStagePickAndBanTestMain
       .stream
       .listen((event) {
          _buildView();
       });
-  /// INIT CLIENT
+  /// INIT DATA
   _dataForStagePickAndBanTestMain = DataForStagePickAndBanTestMain(false,false,_dataSourceGetUser,_dataSourceGetMatches);
-  /// INIT BACKEND
-  _streamControllerForMatches.sink.add(_dataSourceGetMatches);
-}
-
-void _listenMatches(Matches event) {
-  _dataForStagePickAndBanTestMain?.matches = event;
   _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
 }
 
 void _buildView() {
   switch(_dataForStagePickAndBanTestMain?.getEnumDataForStagePickAndBanTestMain) {
     case EnumDataForStagePickAndBanTestMain.isLoading:
-      debugPrint("IsLoading");
+      debugPrint("IsLoading\n");
       break;
     case EnumDataForStagePickAndBanTestMain.isCompletedMatch:
-      debugPrint("IsCompletedMatch");
+      debugPrint("IsCompletedMatch\n");
       break;
     case EnumDataForStagePickAndBanTestMain.myUniqueIdByUserWhereFirst:
-      debugPrint("MyUniqueIdByUserWhereFirst");
+      debugPrint("MyUniqueIdByUserWhereFirst\n");
       _buildViewWhereMyUniqueIdByUserWhereFirst(_dataForStagePickAndBanTestMain!);
       break;
     case EnumDataForStagePickAndBanTestMain.myUniqueIdByUserWhereSecond:
-      debugPrint("MyUniqueIdByUserWhereSecond");
+      debugPrint("MyUniqueIdByUserWhereSecond\n");
       _buildViewWhereMyUniqueIdByUserWhereSecond(_dataForStagePickAndBanTestMain!);
       break;
     default:
@@ -1177,6 +1170,7 @@ void _firstBranchOneQListViewModelSecondPickSurvivorPerkToManiac(Matches matches
     return;
   }
   if(matches.isDoneSecondStagePickManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance()) {
+    /// Adding ListPickManiacWhereMatches to ListRoundWhereMatches
     _dataForStagePickAndBanTestMain?.matches = _dataSource(matches,textLogAction,true,EnumBanOrPickNamed.ready);
     _utility();
     return;
@@ -1208,10 +1202,9 @@ Matches _dataSource(Matches matches,String textLogAction,bool isStageBanOrPickFo
       matches.uniqueIdByUserWhereFirst,
       matches.uniqueIdByUserWhereSecond,
       isStageBanOrPickForUniqueIdByUserWhereFirst,
-      matches.isRoleManiacForUniqueIdByUserWhereFirst,
-      matches.enumHowToStartATimer.name,
       matches.listBanManiacWhereMatches.getCloneListModel,
       matches.listPickManiacWhereMatches.getCloneListModel,
+      matches.listRoundWhereMatches.getCloneListModel,
       matches.resultRatingPointsForUniqueIdByUserWhereFirst,
       matches.resultRatingPointsForUniqueIdByUserWhereSecond);
 }
@@ -1396,10 +1389,9 @@ Matches get _dataSourceGetMatches {
       "MyPlayer 51d1a9f2-4fb0-11ee-be56-0242ac120002",
       "EnemyPlayer 5f8cd3aa-4fb0-11ee-be56-0242ac120002",
       true,
-      true,
-      EnumHowToStartATimer.isRoleManiacForUniqueIdByUserWhereSecond.name,
       ListBanManiacWhereMatches(List.empty(growable: true)),
       ListPickManiacWhereMatches(List.empty(growable: true)),
+      ListRoundWhereMatches(List.empty(growable: true)),
       0,
       0);
 }

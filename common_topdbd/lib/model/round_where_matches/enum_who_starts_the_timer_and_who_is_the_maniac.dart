@@ -1,4 +1,4 @@
-enum EnumHowToStartATimer {
+enum EnumWhoStartsTheTimerAndWhoIsTheManiac {
   /// TRUE
   isRoleManiacForUniqueIdByUserWhereFirst,  /// FIRST CLICK (1)
   isNotRoleManiacForUniqueIdByUserWhereSecond, /// SECOND CLICK (2)

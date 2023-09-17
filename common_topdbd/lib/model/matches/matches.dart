@@ -17,7 +17,9 @@ import 'package:common_topdbd/model/pick_maniac_where_matches/pick_maniac_where_
 import 'package:common_topdbd/model/pick_maps_where_matches/pick_maps_where_matches.dart';
 import 'package:common_topdbd/model/pick_survivor_perk_where_matches/list_pick_survivor_perk_where_matches.dart';
 import 'package:common_topdbd/model/pick_survivor_perk_where_matches/pick_survivor_perk_where_matches.dart';
+import 'package:common_topdbd/model/round_where_matches/enum_turn_of_maniacs_and_end_of_the_round.dart';
 import 'package:common_topdbd/model/round_where_matches/list_round_where_matches.dart';
+import 'package:common_topdbd/model/round_where_matches/round_where_matches.dart';
 import 'package:common_topdbd/model/survivor_perk/list_survivor_perk.dart';
 import 'package:common_topdbd/model/survivor_perk/survivor_perk.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
@@ -125,9 +127,7 @@ base class Matches extends BaseModel {
   }
 
   PickManiacWhereMatches get getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches {
-    final newListPickManiacWhereMatches = listPickManiacWhereMatches.getCloneListModel;
-    newListPickManiacWhereMatches.pickManiacWhereMatchesQWhereOrderByAscParameterCreationTimeIterator();
-    return newListPickManiacWhereMatches.listModel.last;
+    return listPickManiacWhereMatches.getCloneListModel.listModel.last;
   }
 
   ManiacWhereMatchBalance get getManiacWhereMatchBalanceForLastItemPickManiacWhereMatchesParameterMatchBalance {
@@ -200,6 +200,26 @@ base class Matches extends BaseModel {
 
   ListSurvivorPerk<SurvivorPerk> get getNotPickedListSurvivorPerkForUniqueIdByUserWhereSecondParameterListPickManiacWhereMatchesAndMatchBalance {
     return getNotPickedListSurvivorPerkForUniqueIdByUserParameterListPickManiacWhereMatchesAndMatchBalance(uniqueIdByUserWhereSecond);
+  }
+
+  RoundWhereMatches get getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches {
+    final enumTurnOfManiacsAndEndOfTheRoundWhereEndOfTheRound = EnumTurnOfManiacsAndEndOfTheRound.endOfTheRound;
+    RoundWhereMatches? newRoundWhereMatches;
+    for(RoundWhereMatches roundWhereMatches in listRoundWhereMatches.listModel) {
+      if(roundWhereMatches.enumTurnOfManiacsAndEndOfTheRound == enumTurnOfManiacsAndEndOfTheRoundWhereEndOfTheRound) {
+        continue;
+      }
+      newRoundWhereMatches = roundWhereMatches.getCloneModel;
+      break;
+    }
+    return newRoundWhereMatches!;
+  }
+
+  String get getUniqueIdByUserWhoRoleManiacParameterListRoundWhereMatches {
+    if(getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.isRoleManiacForUniqueIdByUserWhereFirst) {
+      return uniqueIdByUserWhereFirst;
+    }
+    return uniqueIdByUserWhereSecond;
   }
 
   @protected
@@ -281,6 +301,27 @@ base class Matches extends BaseModel {
         }
         break;
       }
+    }
+  }
+
+  void insertListRoundWhereMatchesParameterListRoundWhereMatches() {
+    listPickManiacWhereMatches.pickManiacWhereMatchesQWhereOrderByAscParameterCreationTimeIterator();
+    int round = 1;
+    for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatches.listModel) {
+      final isRoleManiacUniqueIdByUserWhereFirst =
+          pickManiacWhereMatches.uniqueIdByUser == uniqueIdByUserWhereFirst
+              ? true
+              : false;
+      listRoundWhereMatches.insertToListRoundWhereMatches(RoundWhereMatches(
+          round,
+          pickManiacWhereMatches.getCloneModel,
+          EnumTurnOfManiacsAndEndOfTheRound.firstManiac.name,
+          isRoleManiacUniqueIdByUserWhereFirst,
+          false,
+          false,
+          0,
+          0));
+      round++;
     }
   }
 

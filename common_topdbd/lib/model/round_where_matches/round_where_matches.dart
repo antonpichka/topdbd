@@ -1,35 +1,39 @@
 import 'package:common_topdbd/model/pick_maniac_where_matches/pick_maniac_where_matches.dart';
-import 'package:common_topdbd/model/round_where_matches/enum_who_starts_the_timer_and_who_is_the_maniac.dart';
+import 'package:common_topdbd/model/round_where_matches/enum_turn_of_maniacs_and_end_of_the_round.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
 @immutable
 base class RoundWhereMatches extends BaseModel {
+  final int round;
   final PickManiacWhereMatches pickManiacWhereMatches;
-  final EnumWhoStartsTheTimerAndWhoIsTheManiac enumWhoStartsTheTimerAndWhoIsTheManiac;
-  final int numberOfSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst;
-  final int numberOfSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond;
+  final EnumTurnOfManiacsAndEndOfTheRound enumTurnOfManiacsAndEndOfTheRound;
+  final bool isRoleManiacForUniqueIdByUserWhereFirst;
+  final bool isStartTimerForUniqueIdByUserWhereFirst;
+  final bool isStartTimerForUniqueIdByUserWhereSecond;
+  final int numberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst;
+  final int numberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond;
 
-  RoundWhereMatches(this.pickManiacWhereMatches,String strWhoStartsTheTimerAndWhoIsTheManiac,this.numberOfSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst,this.numberOfSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond)
-      : enumWhoStartsTheTimerAndWhoIsTheManiac = _getFromStrWhoStartsTheTimerAndWhoIsTheManiacParameterEnumWhoStartsTheTimerAndWhoIsTheManiac(strWhoStartsTheTimerAndWhoIsTheManiac),
-        super(pickManiacWhereMatches.uniqueId);
+  RoundWhereMatches(this.round,this.pickManiacWhereMatches,String strTurnOfManiacsAndEndOfTheRound,this.isRoleManiacForUniqueIdByUserWhereFirst,this.isStartTimerForUniqueIdByUserWhereFirst,this.isStartTimerForUniqueIdByUserWhereSecond,this.numberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst,this.numberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond)
+      : enumTurnOfManiacsAndEndOfTheRound = _getFromStrTurnOfManiacsAndEndOfTheRoundParameterEnumTurnOfManiacsAndEndOfTheRound(strTurnOfManiacsAndEndOfTheRound),
+        super("$round");
 
-  static EnumWhoStartsTheTimerAndWhoIsTheManiac _getFromStrWhoStartsTheTimerAndWhoIsTheManiacParameterEnumWhoStartsTheTimerAndWhoIsTheManiac(String strWhoStartsTheTimerAndWhoIsTheManiac) {
-    if(strWhoStartsTheTimerAndWhoIsTheManiac == EnumWhoStartsTheTimerAndWhoIsTheManiac.isRoleManiacForUniqueIdByUserWhereFirst.name) {
-      return EnumWhoStartsTheTimerAndWhoIsTheManiac.isRoleManiacForUniqueIdByUserWhereFirst;
+  static EnumTurnOfManiacsAndEndOfTheRound _getFromStrTurnOfManiacsAndEndOfTheRoundParameterEnumTurnOfManiacsAndEndOfTheRound(String strTurnOfManiacsAndEndOfTheRound) {
+    if(strTurnOfManiacsAndEndOfTheRound == EnumTurnOfManiacsAndEndOfTheRound.firstManiac.name) {
+      return EnumTurnOfManiacsAndEndOfTheRound.firstManiac;
     }
-    if(strWhoStartsTheTimerAndWhoIsTheManiac == EnumWhoStartsTheTimerAndWhoIsTheManiac.isNotRoleManiacForUniqueIdByUserWhereSecond.name) {
-      return EnumWhoStartsTheTimerAndWhoIsTheManiac.isNotRoleManiacForUniqueIdByUserWhereSecond;
+    if(strTurnOfManiacsAndEndOfTheRound == EnumTurnOfManiacsAndEndOfTheRound.secondManiac.name) {
+      return EnumTurnOfManiacsAndEndOfTheRound.secondManiac;
     }
-    if(strWhoStartsTheTimerAndWhoIsTheManiac == EnumWhoStartsTheTimerAndWhoIsTheManiac.isRoleManiacForUniqueIdByUserWhereSecond.name) {
-      return EnumWhoStartsTheTimerAndWhoIsTheManiac.isRoleManiacForUniqueIdByUserWhereSecond;
-    }
-    if(strWhoStartsTheTimerAndWhoIsTheManiac == EnumWhoStartsTheTimerAndWhoIsTheManiac.isNotRoleManiacForUniqueIdByUserWhereFirst.name) {
-      return EnumWhoStartsTheTimerAndWhoIsTheManiac.isNotRoleManiacForUniqueIdByUserWhereFirst;
-    }
-    return EnumWhoStartsTheTimerAndWhoIsTheManiac.turnOffTheTimer;
+    return EnumTurnOfManiacsAndEndOfTheRound.endOfTheRound;
   }
 
   @override
-  RoundWhereMatches get getCloneModel => RoundWhereMatches(pickManiacWhereMatches,enumWhoStartsTheTimerAndWhoIsTheManiac.name, numberOfSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst, numberOfSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond);
+  RoundWhereMatches get getCloneModel => RoundWhereMatches(round, pickManiacWhereMatches.getCloneModel, enumTurnOfManiacsAndEndOfTheRound.name, isRoleManiacForUniqueIdByUserWhereFirst, isStartTimerForUniqueIdByUserWhereFirst, isStartTimerForUniqueIdByUserWhereSecond, numberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst, numberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond);
+
+  /*  bool isQw(String uniqueIdByUserWhereFirst) {
+    if(pickManiacWhereMatches.uniqueIdByUser == uniqueIdByUserWhereFirst) {
+
+    }
+  }*/
 }

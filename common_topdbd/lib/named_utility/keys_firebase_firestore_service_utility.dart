@@ -132,6 +132,7 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchesQListPickManiacWhereMatchesQListPickSurvivorPerkWhereMatchesQName = "name";
   static const String matchesQListPickManiacWhereMatchesQListPickSurvivorPerkWhereMatchesQUniqueIdByUser = "uniqueIdByUser";
   static const String matchesQListRoundWhereMatches = "listRoundWhereMatches";
+  static const String matchesQListRoundWhereMatchesQRound = "round";
   static const String matchesQListRoundWhereMatchesQPickManiacWhereMatches = "pickManiacWhereMatches";
   static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQName = "name";
   static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQUniqueIdByUser = "uniqueIdByUser";
@@ -147,9 +148,12 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQListPickSurvivorPerkWhereMatches = "listPickSurvivorPerkWhereMatches";
   static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQListPickSurvivorPerkWhereMatchesQName = "name";
   static const String matchesQListRoundWhereMatchesQPickManiacWhereMatchesQListPickSurvivorPerkWhereMatchesQUniqueIdByUser = "uniqueIdByUser";
-  static const String matchesQListRoundWhereMatchesQEnumWhoStartsTheTimerAndWhoIsTheManiac = "enumWhoStartsTheTimerAndWhoIsTheManiac";
-  static const String matchesQListRoundWhereMatchesQNumberOfSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst = "numberOfSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst";
-  static const String matchesQListRoundWhereMatchesQNumberOfSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond = "numberOfSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond";
+  static const String matchesQListRoundWhereMatchesQEnumTurnOfManiacsAndEndOfTheRound = "enumTurnOfManiacsAndEndOfTheRound";
+  static const String matchesQListRoundWhereMatchesQIsRoleManiacForUniqueIdByUserWhereFirst = "isRoleManiacForUniqueIdByUserWhereFirst";
+  static const String matchesQListRoundWhereMatchesQIsStartTimerForUniqueIdByUserWhereFirst = "isStartTimerForUniqueIdByUserWhereFirst";
+  static const String matchesQListRoundWhereMatchesQIsStartTimerForUniqueIdByUserWhereSecond = "isStartTimerForUniqueIdByUserWhereSecond";
+  static const String matchesQListRoundWhereMatchesQNumberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst = "numberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst";
+  static const String matchesQListRoundWhereMatchesQNumberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond = "numberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond";
   static const String matchesQResultRatingPointsForUniqueIdByUserWhereFirst = "resultRatingPointsForUniqueIdByUserWhereFirst";
   static const String matchesQResultRatingPointsForUniqueIdByUserWhereSecond = "resultRatingPointsForUniqueIdByUserWhereSecond";
 

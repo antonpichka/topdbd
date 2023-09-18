@@ -11,10 +11,10 @@ base class RoundWhereMatches extends BaseModel {
   final bool isRoleManiacForUniqueIdByUserWhereFirst;
   final bool isStartTimerForUniqueIdByUserWhereFirst;
   final bool isStartTimerForUniqueIdByUserWhereSecond;
-  final int numberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst;
-  final int numberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond;
+  final int numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst;
+  final int numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond;
 
-  RoundWhereMatches(this.round,this.pickManiacWhereMatches,String strTurnOfManiacsAndEndOfTheRound,this.isRoleManiacForUniqueIdByUserWhereFirst,this.isStartTimerForUniqueIdByUserWhereFirst,this.isStartTimerForUniqueIdByUserWhereSecond,this.numberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst,this.numberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond)
+  RoundWhereMatches(this.round,this.pickManiacWhereMatches,String strTurnOfManiacsAndEndOfTheRound,this.isRoleManiacForUniqueIdByUserWhereFirst,this.isStartTimerForUniqueIdByUserWhereFirst,this.isStartTimerForUniqueIdByUserWhereSecond,this.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst,this.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond)
       : enumTurnOfManiacsAndEndOfTheRound = _getFromStrTurnOfManiacsAndEndOfTheRoundParameterEnumTurnOfManiacsAndEndOfTheRound(strTurnOfManiacsAndEndOfTheRound),
         super("$round");
 
@@ -29,11 +29,64 @@ base class RoundWhereMatches extends BaseModel {
   }
 
   @override
-  RoundWhereMatches get getCloneModel => RoundWhereMatches(round, pickManiacWhereMatches.getCloneModel, enumTurnOfManiacsAndEndOfTheRound.name, isRoleManiacForUniqueIdByUserWhereFirst, isStartTimerForUniqueIdByUserWhereFirst, isStartTimerForUniqueIdByUserWhereSecond, numberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereFirst, numberOfMilliSecondsTheSurvivorRanPerRoundsForUniqueIdByUserWhereSecond);
+  RoundWhereMatches get getCloneModel => RoundWhereMatches(round, pickManiacWhereMatches.getCloneModel, enumTurnOfManiacsAndEndOfTheRound.name, isRoleManiacForUniqueIdByUserWhereFirst, isStartTimerForUniqueIdByUserWhereFirst, isStartTimerForUniqueIdByUserWhereSecond, numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst, numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond);
 
-  /*  bool isQw(String uniqueIdByUserWhereFirst) {
-    if(pickManiacWhereMatches.uniqueIdByUser == uniqueIdByUserWhereFirst) {
+  /// FIRST USER  | SECOND USER
+  /// My Maniac and my turns start timer | Enemy Survivor and wait my maniac
+  bool isTrueAndFalseAndNotEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereFirstAndEnumTurnOfManiacsAndEndOfTheRound() {
+    return isRoleManiacForUniqueIdByUserWhereFirst &&
+        !isStartTimerForUniqueIdByUserWhereFirst &&
+        enumTurnOfManiacsAndEndOfTheRound != EnumTurnOfManiacsAndEndOfTheRound.endOfTheRound;
+  }
 
-    }
-  }*/
+  /// My Maniac and wait enemy survivor | Enemy Survivor and enemy turns start timer
+  bool isTrueAndFalseAndTrueAndNotEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereSecondAndIsStartTimerForUniqueIdByUserWhereFirstAndEnumTurnOfManiacsAndEndOfTheRound() {
+    return isRoleManiacForUniqueIdByUserWhereFirst &&
+        !isStartTimerForUniqueIdByUserWhereSecond &&
+        isStartTimerForUniqueIdByUserWhereFirst &&
+        enumTurnOfManiacsAndEndOfTheRound != EnumTurnOfManiacsAndEndOfTheRound.endOfTheRound;
+  }
+
+  /// My Maniac and stop timer | Enemy Survivor and stop timer
+  bool isTrueAndTrueAndTrueAndNotEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereSecondAndEnumTurnOfManiacsAndEndOfTheRound() {
+    return isRoleManiacForUniqueIdByUserWhereFirst &&
+        isStartTimerForUniqueIdByUserWhereFirst &&
+        isStartTimerForUniqueIdByUserWhereSecond &&
+        enumTurnOfManiacsAndEndOfTheRound != EnumTurnOfManiacsAndEndOfTheRound.endOfTheRound;
+  }
+
+  /// My Maniac and next round | Enemy Survivor and next round
+  bool isTrueAndEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndEnumTurnOfManiacsAndEndOfTheRound() {
+    return isRoleManiacForUniqueIdByUserWhereFirst &&
+        enumTurnOfManiacsAndEndOfTheRound == EnumTurnOfManiacsAndEndOfTheRound.endOfTheRound;
+  }
+
+  /// My Survivor and wait enemy maniac | Enemy Maniac and enemy turns start timer
+  bool isFalseAndFalseAndNotEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereSecondAndEnumTurnOfManiacsAndEndOfTheRound() {
+    return !isRoleManiacForUniqueIdByUserWhereFirst &&
+        !isStartTimerForUniqueIdByUserWhereSecond &&
+        enumTurnOfManiacsAndEndOfTheRound != EnumTurnOfManiacsAndEndOfTheRound.endOfTheRound;
+  }
+
+  /// My Survivor and my turns start timer | Enemy Maniac and wait my survivor
+  bool isFalseAndFalseAndTrueAndNotEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereSecondAndEnumTurnOfManiacsAndEndOfTheRound() {
+    return !isRoleManiacForUniqueIdByUserWhereFirst &&
+        !isStartTimerForUniqueIdByUserWhereFirst &&
+        isStartTimerForUniqueIdByUserWhereSecond &&
+        enumTurnOfManiacsAndEndOfTheRound != EnumTurnOfManiacsAndEndOfTheRound.endOfTheRound;
+  }
+
+  /// My Survivor and stop timer | Enemy Maniac and stop timer
+  bool isFalseAndTrueAndTrueAndNotEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereSecondAndEnumTurnOfManiacsAndEndOfTheRound() {
+    return !isRoleManiacForUniqueIdByUserWhereFirst &&
+        isStartTimerForUniqueIdByUserWhereFirst &&
+        isStartTimerForUniqueIdByUserWhereSecond &&
+        enumTurnOfManiacsAndEndOfTheRound != EnumTurnOfManiacsAndEndOfTheRound.endOfTheRound;
+  }
+
+  /// My Survivor and next round | Enemy Maniac and next round
+  bool isFalseAndEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndEnumTurnOfManiacsAndEndOfTheRound() {
+    return !isRoleManiacForUniqueIdByUserWhereFirst &&
+        enumTurnOfManiacsAndEndOfTheRound == EnumTurnOfManiacsAndEndOfTheRound.endOfTheRound;
+  }
 }

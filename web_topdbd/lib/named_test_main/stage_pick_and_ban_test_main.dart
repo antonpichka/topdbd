@@ -208,13 +208,8 @@ final class DataForStagePickAndBanTestMain {
   }
 }
 
-enum EnumDataForListRoundTestMain {
-  isLoading,
-  myUniqueIdByUserWhereFirst,
-  myUniqueIdByUserWhereSecond
-}
-
 enum EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst {
+  isLoading,
   itsMyManiacAndMyTurnsStartTimer,
   itsMyManiacAndWaitEnemySurvivor,
   itsMyManiacAndStopTimer,
@@ -226,37 +221,18 @@ enum EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst {
   ready
 }
 
-enum EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond {
-  itsMyManiacAndMyTurnsStartTimer,
-  itsMyManiacAndWaitEnemySurvivor,
-  itsMyManiacAndStopTimer,
-  itsMyManiacAndNextRound,
-  itsMySurvivorAndWaitEnemyManiac,
-  itsMySurvivorAndMyTurnsStartTimer,
-  itsMySurvivorAndStopTimer,
-  itsMySurvivorAndNextRound,
-  ready
-}
-
-final class DataForListRoundTestMain {
+final class DataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst {
   bool isLoading;
   bool isLoadingForButton;
   User user;
   Matches matches;
 
-  DataForListRoundTestMain(this.isLoading,this.isLoadingForButton,this.user,this.matches);
-
-  EnumDataForListRoundTestMain get getEnumDataForListRoundTestMain {
-    if(isLoading) {
-      return EnumDataForListRoundTestMain.isLoading;
-    }
-    if(user.uniqueId == matches.uniqueIdByUserWhereFirst) {
-      return EnumDataForListRoundTestMain.myUniqueIdByUserWhereFirst;
-    }
-    return EnumDataForListRoundTestMain.myUniqueIdByUserWhereSecond;
-  }
+  DataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(this.isLoading,this.isLoadingForButton,this.user,this.matches);
 
   EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst get getEnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst {
+    if(isLoading) {
+      return EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.isLoading;
+    }
     if(matches.isUniqueIdByUserWhereFirstManiacAndUniqueIdByUserWhereFirstTurnsStartTimerOrUniqueIdByUserWhereSecondSurvivorAndWaitUniqueIdByUserWhereFirstManiacParameterListRoundWhereMatches()) {
       return EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMyManiacAndMyTurnsStartTimer;
     }
@@ -283,8 +259,33 @@ final class DataForListRoundTestMain {
     }
     return EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.ready;
   }
+}
+
+enum EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond {
+  isLoading,
+  itsMyManiacAndMyTurnsStartTimer,
+  itsMyManiacAndWaitEnemySurvivor,
+  itsMyManiacAndStopTimer,
+  itsMyManiacAndNextRound,
+  itsMySurvivorAndWaitEnemyManiac,
+  itsMySurvivorAndMyTurnsStartTimer,
+  itsMySurvivorAndStopTimer,
+  itsMySurvivorAndNextRound,
+  ready
+}
+
+final class DataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond {
+  bool isLoading;
+  bool isLoadingForButton;
+  User user;
+  Matches matches;
+
+  DataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(this.isLoading,this.isLoadingForButton,this.user,this.matches);
 
   EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond get getEnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond {
+    if(isLoading) {
+      return EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.isLoading;
+    }
     if(matches.isUniqueIdByUserWhereFirstSurvivorAndWaitUniqueIdByUserWhereSecondManiacOrUniqueIdByUserWhereSecondManiacAndUniqueIdByUserWhereSecondTurnsStartTimerParameterListRoundWhereMatches()) {
       return EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.itsMyManiacAndMyTurnsStartTimer;
     }
@@ -315,8 +316,10 @@ final class DataForListRoundTestMain {
 
 final StreamController<DataForStagePickAndBanTestMain> _streamControllerForDataForStagePickAndBanTestMain = StreamController.broadcast();
 DataForStagePickAndBanTestMain? _dataForStagePickAndBanTestMain;
-final StreamController<DataForListRoundTestMain> _streamControllerForDataForListRoundTestMain = StreamController.broadcast();
-DataForListRoundTestMain? _dataForListRoundTestMain;
+final StreamController<DataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst> _streamControllerForDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst = StreamController.broadcast();
+DataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst? _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst;
+final StreamController<DataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond> _streamControllerForDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond = StreamController.broadcast();
+DataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond? _dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond;
 
 Future<void> main() async {
   /// INIT LISTEN
@@ -325,10 +328,15 @@ Future<void> main() async {
       .listen((event) {
          _buildWidgetDataForStagePickAndBanTestMain();
       });
-  _streamControllerForDataForListRoundTestMain
+  _streamControllerForDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst
       .stream
       .listen((event) {
-        _buildWidgetDataForListRoundTestMain();
+        _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst();
+      });
+  _streamControllerForDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond
+      .stream
+      .listen((event) {
+        _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond();
       });
   /// INIT DATA
   _dataForStagePickAndBanTestMain = DataForStagePickAndBanTestMain(false,false,_dataSourceGetUser,_dataSourceGetMatches);
@@ -356,10 +364,10 @@ void _buildWidgetDataForStagePickAndBanTestMain() {
   }
 }
 
-Future<void> _buildWidgetDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst(DataForStagePickAndBanTestMain dataForStagePickAndBanTestMain) async {
+Future<void> _buildWidgetDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst(DataForStagePickAndBanTestMain dataForStagePickAndBanTestMain)
+async {
   switch(dataForStagePickAndBanTestMain.getEnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst) {
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsMyTurnsSystemPickManiac:
-      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       /// VIEW LIST PICK MANIAC (CLICK DETAIL INFO (PickedMap,ListPickManiacPerk,ListPickSurvivorPerk))
       debugPrint("ListPickManiacForUniqueIdByUserWhereFirst: ${dataForStagePickAndBanTestMain.matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereFirst.listModel}");
       debugPrint("ListPickManiacForUniqueIdByUserWhereSecond: ${dataForStagePickAndBanTestMain.matches.getListPickManiacWhereMatchesForUniqueIdByUserWhereSecondParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereSecond.listModel}");
@@ -538,6 +546,7 @@ Future<void> _buildWidgetDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWher
       debugPrint("ListManiac: ${dataForStagePickAndBanTestMain.matches.getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance.listModel}");
       /// SYSTEM PICKED LAST MAPS TO PICKED MANIAC
       debugPrint("System: Now Pick Last Maniac");
+      /// TO PRODUCTION CODE NO LIST VIEW
       _listViewModelSecondSystemPickManiac();
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsEnemyTurnsSystemPickMapsToManiac:
@@ -554,6 +563,7 @@ Future<void> _buildWidgetDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWher
       debugPrint("ListMapsToPickedManiac: ${dataForStagePickAndBanTestMain.matches.getNotBannedListMapsByLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance.listModel}");
       /// SYSTEM PICKED LAST MAPS TO PICKED MANIAC
       debugPrint("System: Now Pick Last Map");
+      /// TO PRODUCTION CODE NO LIST VIEW
       _listViewModelSecondSystemPickMapsToManiac();
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsEnemyTurnsSystemPickManiacPerkToManiac:
@@ -570,6 +580,7 @@ Future<void> _buildWidgetDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWher
       debugPrint("ListManiacPerkToPickedManiac: ${dataForStagePickAndBanTestMain.matches.getListManiacPerkForLastItemPickManiacWhereMatchesParameterMatchBalance.listModel}");
       /// SYSTEM PICKED LIST MANIAC PERK TO PICKED MANIAC
       debugPrint("System: Now Pick Maniac Perk");
+      /// TO PRODUCTION CODE NO LIST VIEW
       _listViewModelSecondSystemPickManiacPerkToManiac();
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsEnemyTurnsSystemPickSurvivorPerkToManiac:
@@ -586,6 +597,7 @@ Future<void> _buildWidgetDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWher
       debugPrint("ListSurvivorPerkToPickedManiac: ${dataForStagePickAndBanTestMain.matches.getListSurvivorPerkForLastItemPickManiacWhereMatchesParameterMatchBalance.listModel}");
       /// SYSTEM PICKED LIST SURVIVOR PERK TO PICKED MANIAC
       debugPrint("System: Now Pick Survivor Perk");
+      /// TO PRODUCTION CODE NO LIST VIEW
       _listViewModelSecondSystemPickSurvivorPerkToManiac();
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsEnemyTurnBanManiac:
@@ -603,6 +615,7 @@ Future<void> _buildWidgetDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWher
           .matches
           .getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance
           .listModel[0];
+      /// TO PRODUCTION CODE NO LIST VIEW
       _listViewModelSecondBanManiac(firstManiacWhereMatchBalance);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsEnemyTurnPickManiac:
@@ -620,6 +633,7 @@ Future<void> _buildWidgetDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWher
           .matches
           .getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance
           .listModel[0];
+      /// TO PRODUCTION CODE NO LIST VIEW
       _listViewModelSecondPickManiac(firstManiacWhereMatchBalance);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsEnemyBansMapsToManiac:
@@ -641,6 +655,7 @@ Future<void> _buildWidgetDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWher
           .matches
           .getNotBannedListMapsByLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance
           .listModel[0];
+      /// TO PRODUCTION CODE NO LIST VIEW
       _listViewModelSecondBanMapsToManiac(firstMaps);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsEnemyPickManiacPerkToManiac:
@@ -661,6 +676,7 @@ Future<void> _buildWidgetDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWher
           .matches
           .getNotPickedListManiacPerkForUniqueIdByUserWhereSecondParameterListPickManiacWhereMatchesAndMatchBalance
           .listModel[0];
+      /// TO PRODUCTION CODE NO LIST VIEW
       _listViewModelSecondPickManiacPerkToManiac(firstManiacPerk);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.itsEnemyPickSurvivorPerkToManiac:
@@ -681,6 +697,7 @@ Future<void> _buildWidgetDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWher
           .matches
           .getNotPickedListSurvivorPerkForUniqueIdByUserWhereSecondParameterListPickManiacWhereMatchesAndMatchBalance
           .listModel[0];
+      /// TO PRODUCTION CODE NO LIST VIEW
       _listViewModelSecondPickSurvivorPerkToManiac(survivorPerk);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereFirst.ready:
@@ -696,156 +713,186 @@ Future<void> _buildWidgetDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWher
       debugPrint("\nREADY");
       debugPrint("Please wait");
       await Future.delayed(const Duration(seconds: 1));
-      await _initWidgetDataForListRoundTestMain();
+      await _initWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst();
       break;
   }
 }
 
-void _buildWidgetDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond(DataForStagePickAndBanTestMain dataForStagePickAndBanTestMain) {
+Future<void> _buildWidgetDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond(DataForStagePickAndBanTestMain dataForStagePickAndBanTestMain)
+async {
   switch(dataForStagePickAndBanTestMain.getEnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond) {
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsMyTurnsSystemPickManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsMyTurnsSystemPickMapsToManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsMyTurnsSystemPickManiacPerkToManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsMyTurnsSystemPickSurvivorPerkToManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsMyTurnsBanManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsMyTurnsPickManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsMyTurnsBansMapsToManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsMyTurnsPickManiacPerkToManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsMyTurnsPickSurvivorPerkToManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsEnemyTurnsSystemPickManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsEnemyTurnsSystemPickMapsToManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsEnemyTurnsSystemPickManiacPerkToManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsEnemyTurnsSystemPickSurvivorPerkToManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsEnemyTurnBanManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsEnemyTurnPickManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsEnemyBansMapsToManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsEnemyPickManiacPerkToManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.itsEnemyPickSurvivorPerkToManiac:
+      _utilityDataForStagePickAndBanTestMain(dataForStagePickAndBanTestMain);
       break;
     case EnumDataForStagePickAndBanTestMainWhereMyUniqueIdByUserWhereSecond.ready:
+      await _initWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond();
       break;
   }
 }
 
-Future<void> _initWidgetDataForListRoundTestMain()
+Future<void> _initWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst()
 async {
-  await _listViewModelInitListRound();
-  _buildWidgetDataForListRoundTestMain();
+  await _listViewModelInitListRoundWhereMyUniqueIdByUserWhereFirst();
+  _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst();
 }
 
-void _buildWidgetDataForListRoundTestMain() {
-  switch(_dataForListRoundTestMain?.getEnumDataForListRoundTestMain) {
-    case EnumDataForListRoundTestMain.isLoading:
-      debugPrint("IsLoading\n");
-      break;
-    case EnumDataForListRoundTestMain.myUniqueIdByUserWhereFirst:
-      debugPrint("MyUniqueIdByUserWhereFirst\n");
-      _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(_dataForListRoundTestMain!);
-      break;
-    case EnumDataForListRoundTestMain.myUniqueIdByUserWhereSecond:
-      debugPrint("MyUniqueIdByUserWhereSecond\n");
-      _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(_dataForListRoundTestMain!);
-      break;
-    default:
-      break;
-  }
+Future<void> _initWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond()
+async {
+  await _listViewModelInitListRoundWhereMyUniqueIdByUserWhereSecond();
+  _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond();
 }
 
-void _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(DataForListRoundTestMain dataForListRoundTestMain) {
-  switch(dataForListRoundTestMain.getEnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst) {
+void _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst() {
+  switch(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.getEnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst) {
+    case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.isLoading:
+      debugPrint("isLoading\n");
+      break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMyManiacAndMyTurnsStartTimer:
-      _utilityDataForListRoundTestMain(dataForListRoundTestMain);
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
       /// VIEW NUMBER ROUND
-      debugPrint("Round: ${dataForListRoundTestMain.matches.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.round}");
+      debugPrint("Round: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.round}");
       /// VIEW WHO THE MANIAC IS
       debugPrint("You are a maniac");
       /// VIEW MANIAC TO ROUND
-      debugPrint("Maniac: ${dataForListRoundTestMain.matches.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.pickManiacWhereMatches}");
+      debugPrint("Maniac: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.pickManiacWhereMatches}");
       /// VIEW CHASE TIME
-      debugPrint("Chase Time (You): ${dataForListRoundTestMain.matches.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst}");
-      debugPrint("Chase Time (Player '${dataForListRoundTestMain.matches.uniqueIdByUserWhereSecond}'): ${dataForListRoundTestMain.matches.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond}");
+      debugPrint("Chase Time (You): ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst}");
+      debugPrint("Chase Time (Player '${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.uniqueIdByUserWhereSecond}'): ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond}");
       /// START ROUND
-      final input = stdin.readLineSync();
       debugPrint("Are you ready to start for a Maniac ? (Input 'yes'): ");
+      final input = stdin.readLineSync();
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMyManiacAndWaitEnemySurvivor:
-      _utilityDataForListRoundTestMain(dataForListRoundTestMain);
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMyManiacAndStopTimer:
-      _utilityDataForListRoundTestMain(dataForListRoundTestMain);
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMyManiacAndNextRound:
-      _utilityDataForListRoundTestMain(dataForListRoundTestMain);
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMySurvivorAndWaitEnemyManiac:
-      _utilityDataForListRoundTestMain(dataForListRoundTestMain);
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMySurvivorAndMyTurnsStartTimer:
-      _utilityDataForListRoundTestMain(dataForListRoundTestMain);
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMySurvivorAndStopTimer:
-      _utilityDataForListRoundTestMain(dataForListRoundTestMain);
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMySurvivorAndNextRound:
-      _utilityDataForListRoundTestMain(dataForListRoundTestMain);
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.ready:
-      _utilityDataForListRoundTestMain(dataForListRoundTestMain);
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
       break;
   }
 }
 
-void _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(DataForListRoundTestMain dataForListRoundTestMain) {
-  switch(dataForListRoundTestMain.getEnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond) {
+void _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond() {
+  switch(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond!.getEnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond) {
+    case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.isLoading:
+      debugPrint("isLoading\n");
+      break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.itsMyManiacAndMyTurnsStartTimer:
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.itsMyManiacAndWaitEnemySurvivor:
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.itsMyManiacAndStopTimer:
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.itsMyManiacAndNextRound:
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.itsMySurvivorAndWaitEnemyManiac:
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.itsMySurvivorAndMyTurnsStartTimer:
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.itsMySurvivorAndStopTimer:
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.itsMySurvivorAndNextRound:
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond!);
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.ready:
+      _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond!);
       break;
   }
 }
 
 /* START ListViewModel */
-/// INIT LIST ROUND
-Future<void> _listViewModelInitListRound()
+/// INIT LIST ROUND WHERE MY UNIQUE ID BY USER WHERE FIRST
+Future<void> _listViewModelInitListRoundWhereMyUniqueIdByUserWhereFirst()
 async {
-  _dataForListRoundTestMain = DataForListRoundTestMain(false, false, _dataSourceGetUser, _dataForStagePickAndBanTestMain!.matches.getCloneModel);
-  final matches = _dataForListRoundTestMain?.matches;
+  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst = DataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(false, false, _dataSourceGetUser, _dataForStagePickAndBanTestMain!.matches.getCloneModel);
+  final matches = _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.matches;
   matches
       ?.insertListRoundWhereMatchesParameterListRoundWhereMatches();
   // This line will also be applied to enum 'itsMyManiacAndNextRound' and 'itsMySurvivorAndNextRound'
-  final textLogAction = "${matches?.textLogAction}\nSystem: start ${matches?.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.round} round. Maniac ${matches?.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.pickManiacWhereMatches.name}. RoleManiac ${matches?.getUniqueIdByUserWhoRoleManiacParameterListRoundWhereMatches}";
-  _dataForListRoundTestMain?.matches = _dataSourceDataForListRoundTestMain(matches!,textLogAction);
+  final textLogAction = "${matches?.textLogAction}\nSystem: start ${matches?.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.round} round. Maniac '${matches?.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.pickManiacWhereMatches.name}'.RoleManiac '${matches?.getUniqueIdByUserWhoRoleManiacParameterListRoundWhereMatches}'";
+  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.matches = _dataSourceDataForListRoundTestMain(matches!,textLogAction);
+  return;
+}
+
+/// INIT LIST ROUND WHERE MY UNIQUE ID BY USER WHERE SECOND
+Future<void> _listViewModelInitListRoundWhereMyUniqueIdByUserWhereSecond()
+async {
+  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond = DataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(false, false, _dataSourceGetUser, _dataForStagePickAndBanTestMain!.matches.getCloneModel);
   return;
 }
 
@@ -1486,9 +1533,15 @@ void _utilityDataForStagePickAndBanTestMain(DataForStagePickAndBanTestMain dataF
   debugPrint("<-------TEXT LOG ACTION------->\n");
 }
 
-void _utilityDataForListRoundTestMain(DataForListRoundTestMain dataForListRoundTestMain) {
+void _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(DataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst) {
   debugPrint("\n<-------TEXT LOG ACTION------->");
-  debugPrint("\n${dataForListRoundTestMain.matches.textLogAction}\n");
+  debugPrint("\n${dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.matches.textLogAction}\n");
+  debugPrint("<-------TEXT LOG ACTION------->\n");
+}
+
+void _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(DataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond) {
+  debugPrint("\n<-------TEXT LOG ACTION------->");
+  debugPrint("\n${dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.matches.textLogAction}\n");
   debugPrint("<-------TEXT LOG ACTION------->\n");
 }
 /* END Utility */

@@ -18,4 +18,8 @@ base class ListRoundWhereMatches<T extends RoundWhereMatches> extends BaseListMo
   void insertToListRoundWhereMatches(T model) {
     super.insertToListModel(model);
   }
+
+  void updateToListRoundWhereMatches(T model) {
+    super.updateToListModel(model);
+  }
 }

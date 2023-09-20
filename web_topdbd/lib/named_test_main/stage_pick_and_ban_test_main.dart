@@ -226,8 +226,10 @@ final class DataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst {
   bool isLoadingForButton;
   User user;
   Matches matches;
+  String commandStopCustomTimer;
+  int iterationCustomTimer;
 
-  DataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(this.isLoading,this.isLoadingForButton,this.user,this.matches);
+  DataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(this.isLoading,this.isLoadingForButton,this.user,this.matches,this.commandStopCustomTimer,this.iterationCustomTimer);
 
   EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst get getEnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst {
     if(isLoading) {
@@ -279,8 +281,10 @@ final class DataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond {
   bool isLoadingForButton;
   User user;
   Matches matches;
+  String commandStopCustomTimer;
+  int iterationCustomTimer;
 
-  DataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(this.isLoading,this.isLoadingForButton,this.user,this.matches);
+  DataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(this.isLoading,this.isLoadingForButton,this.user,this.matches,this.commandStopCustomTimer,this.iterationCustomTimer);
 
   EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond get getEnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond {
     if(isLoading) {
@@ -331,11 +335,25 @@ Future<void> main() async {
   _streamControllerForDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst
       .stream
       .listen((event) {
+        if(event.getEnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst == EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMyManiacAndStopTimer
+            || event.getEnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst == EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMySurvivorAndStopTimer)
+        {
+          _utilityCustomTimerForDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst();
+          _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst();
+          return;
+        }
         _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst();
       });
   _streamControllerForDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond
       .stream
       .listen((event) {
+        if(event.getEnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond == EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.itsMyManiacAndStopTimer
+            || event.getEnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond == EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.itsMySurvivorAndStopTimer)
+        {
+          _utilityCustomTimerForDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond();
+          _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond();
+          return;
+        }
         _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond();
       });
   /// INIT DATA
@@ -793,31 +811,70 @@ async {
   _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond();
 }
 
-void _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst() {
+Future<void> _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst()
+async {
   switch(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.getEnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst) {
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.isLoading:
       debugPrint("isLoading\n");
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMyManiacAndMyTurnsStartTimer:
       _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
+      /// VIEW LIST ROUND
+      debugPrint("ListRoundWhereMatches: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.listRoundWhereMatches}");
       /// VIEW NUMBER ROUND
-      debugPrint("Round: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.round}");
+      debugPrint("Round: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.round}");
       /// VIEW WHO THE MANIAC IS
       debugPrint("You are a maniac");
       /// VIEW MANIAC TO ROUND
-      debugPrint("Maniac: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.pickManiacWhereMatches}");
+      debugPrint("Maniac: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.pickManiacWhereMatches}");
       /// VIEW CHASE TIME
-      debugPrint("Chase Time (You): ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst}");
-      debugPrint("Chase Time (Player '${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.uniqueIdByUserWhereSecond}'): ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond}");
-      /// START ROUND
-      debugPrint("Are you ready to start for a Maniac ? (Input 'yes'): ");
+      debugPrint("Chase Time (You): ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst}");
+      debugPrint("Chase Time (Player '${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.uniqueIdByUserWhereSecond}'): ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond}");
+      /// START TIMER
+      debugPrint("Start timer (Input 'yes'): ");
       final input = stdin.readLineSync();
+      if(input != "yes") {
+        break;
+      }
+      _listViewModelMyManiacAndMyTurnsStartTimerWhereMyUniqueIdByUserWhereFirst();
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMyManiacAndWaitEnemySurvivor:
       _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
+      /// VIEW LIST ROUND
+      debugPrint("ListRoundWhereMatches: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.listRoundWhereMatches}");
+      /// VIEW NUMBER ROUND
+      debugPrint("Round: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.round}");
+      /// VIEW WHO THE MANIAC IS
+      debugPrint("You are a maniac");
+      /// VIEW MANIAC TO ROUND
+      debugPrint("Maniac: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.pickManiacWhereMatches}");
+      /// VIEW CHASE TIME
+      debugPrint("Chase Time (You): ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst}");
+      debugPrint("Chase Time (Player '${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.uniqueIdByUserWhereSecond}'): ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond}");
+      /// START TIMER
+      debugPrint("Wait enemy survivor");
+      await Future.delayed(const Duration(seconds: 1));
+      _listViewModelMyManiacAndWaitEnemySurvivorWhereMyUniqueIdByUserWhereFirst();
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMyManiacAndStopTimer:
       _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
+      /// VIEW LIST ROUND
+      debugPrint("ListRoundWhereMatches: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.listRoundWhereMatches}");
+      /// VIEW NUMBER ROUND
+      debugPrint("Round: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.round}");
+      /// VIEW WHO THE MANIAC IS
+      debugPrint("You are a maniac");
+      /// VIEW MANIAC TO ROUND
+      debugPrint("Maniac: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.pickManiacWhereMatches}");
+      /// VIEW CHASE TIME
+      debugPrint("Chase Time (You): ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst}");
+      debugPrint("Chase Time (Player '${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.uniqueIdByUserWhereSecond}'): ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond}");
+      /// STOP TIMER
+      debugPrint("Stop timer (Input 'yes'): ");
+      final input = stdin.readLineSync();
+      if(input != "yes") {
+        break;
+      }
       break;
     case EnumDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.itsMyManiacAndNextRound:
       _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
@@ -879,20 +936,50 @@ void _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond() {
 /// INIT LIST ROUND WHERE MY UNIQUE ID BY USER WHERE FIRST
 Future<void> _listViewModelInitListRoundWhereMyUniqueIdByUserWhereFirst()
 async {
-  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst = DataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(false, false, _dataSourceGetUser, _dataForStagePickAndBanTestMain!.matches.getCloneModel);
+  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst = DataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(false, false, _dataSourceGetUser, _dataForStagePickAndBanTestMain!.matches.getCloneModel,"",0);
   final matches = _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.matches;
   matches
       ?.insertListRoundWhereMatchesParameterListRoundWhereMatches();
   // This line will also be applied to enum 'itsMyManiacAndNextRound' and 'itsMySurvivorAndNextRound'
-  final textLogAction = "${matches?.textLogAction}\nSystem: start ${matches?.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.round} round. Maniac '${matches?.getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.pickManiacWhereMatches.name}'.RoleManiac '${matches?.getUniqueIdByUserWhoRoleManiacParameterListRoundWhereMatches}'";
+  final textLogAction = "${matches?.textLogAction}\nSystem: start ${matches?.getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.round} round. Maniac '${matches?.getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.pickManiacWhereMatches.name}'.RoleManiac '${matches?.getUniqueIdByUserWhoRoleManiacParameterListRoundWhereMatches}'";
   _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.matches = _dataSourceDataForListRoundTestMain(matches!,textLogAction);
   return;
+}
+
+/// MY MANIAC AND MY TURNS START TIMER WHERE MY UNIQUE ID BY USER WHERE FIRST
+void _listViewModelMyManiacAndMyTurnsStartTimerWhereMyUniqueIdByUserWhereFirst() {
+  if(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.isLoadingForButton ?? false) {
+    return;
+  }
+  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.isLoadingForButton = true;
+  final matches = _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.matches;
+  matches
+      ?.updateRoundWhereMatchesWhereTrueQIsStartTimerForUniqueIdByUserWhereFirstParameterListRoundWhereMatches();
+  final textLogAction = "${matches?.textLogAction}\nPlayer: '${matches?.uniqueIdByUserWhereFirst}' start timer. The maniac is ready, we are waiting for a survivor";
+  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.matches = _dataSourceDataForListRoundTestMain(matches!,textLogAction);
+  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.isLoadingForButton = false;
+  _streamControllerForDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.sink.add(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
+}
+
+/// MY MANIAC AND WAIT ENEMY SURVIVOR WHERE MY UNIQUE ID BY USER WHERE FIRST
+void _listViewModelMyManiacAndWaitEnemySurvivorWhereMyUniqueIdByUserWhereFirst() {
+  if(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.isLoadingForButton ?? false) {
+    return;
+  }
+  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.isLoadingForButton = true;
+  final matches = _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.matches;
+  matches
+      ?.updateRoundWhereMatchesWhereTrueQIsStartTimerForUniqueIdByUserWhereSecondParameterListRoundWhereMatches();
+  final textLogAction = "${matches?.textLogAction}\nPlayer: '${matches?.uniqueIdByUserWhereSecond}' start timer. The survivor is ready. Let the escape begin";
+  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.matches = _dataSourceDataForListRoundTestMain(matches!,textLogAction);
+  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.isLoadingForButton = false;
+  _streamControllerForDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst.sink.add(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!);
 }
 
 /// INIT LIST ROUND WHERE MY UNIQUE ID BY USER WHERE SECOND
 Future<void> _listViewModelInitListRoundWhereMyUniqueIdByUserWhereSecond()
 async {
-  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond = DataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(false, false, _dataSourceGetUser, _dataForStagePickAndBanTestMain!.matches.getCloneModel);
+  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond = DataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(false, false, _dataSourceGetUser, _dataForStagePickAndBanTestMain!.matches.getCloneModel,"",0);
   return;
 }
 
@@ -1543,6 +1630,36 @@ void _utilityDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(DataForLis
   debugPrint("\n<-------TEXT LOG ACTION------->");
   debugPrint("\n${dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond.matches.textLogAction}\n");
   debugPrint("<-------TEXT LOG ACTION------->\n");
+}
+
+Future<void> _utilityCustomTimerForDataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst()
+async {
+  int iteration = 0;
+  while(true) {
+    if(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.commandStopCustomTimer == "yes") {
+      _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.commandStopCustomTimer = "";
+      _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.iterationCustomTimer = iteration;
+      break;
+    }
+    await Future.delayed(const Duration(seconds: 1));
+    iteration++;
+    _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.iterationCustomTimer = iteration;
+  }
+}
+
+Future<void> _utilityCustomTimerForDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond()
+async {
+  int iteration = 0;
+  while(true) {
+    if(_dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond?.commandStopCustomTimer == "yes") {
+      _dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond?.commandStopCustomTimer = "";
+      _dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond?.iterationCustomTimer = iteration;
+      break;
+    }
+    await Future.delayed(const Duration(seconds: 1));
+    iteration++;
+    _dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond?.iterationCustomTimer = iteration;
+  }
 }
 /* END Utility */
 

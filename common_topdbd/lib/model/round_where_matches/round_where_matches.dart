@@ -31,6 +31,22 @@ base class RoundWhereMatches extends BaseModel {
   @override
   RoundWhereMatches get getCloneModel => RoundWhereMatches(round, pickManiacWhereMatches.getCloneModel, enumTurnOfManiacsAndEndOfTheRound.name, isRoleManiacForUniqueIdByUserWhereFirst, isStartTimerForUniqueIdByUserWhereFirst, isStartTimerForUniqueIdByUserWhereSecond, numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst, numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond);
 
+  @override
+  String toString() {
+    return "$round (PickManiacWhereMatches: $pickManiacWhereMatches) "
+        "(EnumTurnOfManiacsAndEndOfTheRound: ${enumTurnOfManiacsAndEndOfTheRound.name}) "
+        "(isRoleManiacForUniqueIdByUserWhereFirst: $isRoleManiacForUniqueIdByUserWhereFirst) "
+        "(isStartTimerForUniqueIdByUserWhereFirst: $isStartTimerForUniqueIdByUserWhereFirst) "
+        "(isStartTimerForUniqueIdByUserWhereSecond: $isStartTimerForUniqueIdByUserWhereSecond) "
+        "(NumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst: $numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst) "
+        "(NumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond: $numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond) "
+        "(isWinRoundForUniqueIdByUserWhereFirst: ${isWinRoundForUniqueIdByUserWhereFirstParametersNumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirstAndNumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond()})";
+  }
+
+  bool isWinRoundForUniqueIdByUserWhereFirstParametersNumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirstAndNumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond() {
+    return numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst > numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond;
+  }
+
   /// FIRST USER  | SECOND USER
   /// My Maniac and my turns start timer | Enemy Survivor and wait my maniac
   bool isTrueAndFalseAndNotEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereFirstAndEnumTurnOfManiacsAndEndOfTheRound() {

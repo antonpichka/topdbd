@@ -202,7 +202,7 @@ base class Matches extends BaseModel {
     return getNotPickedListSurvivorPerkForUniqueIdByUserParameterListPickManiacWhereMatchesAndMatchBalance(uniqueIdByUserWhereSecond);
   }
 
-  ListRoundWhereMatches<RoundWhereMatches> get getListOneItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches {
+  ListRoundWhereMatches<RoundWhereMatches> get getListOneUnfinishedRoundWhereMatchesParameterListRoundWhereMatches {
     final enumTurnOfManiacsAndEndOfTheRoundWhereEndOfTheRound = EnumTurnOfManiacsAndEndOfTheRound.endOfTheRound;
     final newListRoundWhereMatches = ListRoundWhereMatches<RoundWhereMatches>(List.empty(growable: true));
     for(RoundWhereMatches roundWhereMatches in listRoundWhereMatches.listModel) {
@@ -215,12 +215,12 @@ base class Matches extends BaseModel {
     return newListRoundWhereMatches;
   }
 
-  RoundWhereMatches get getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches {
-    return getListOneItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.listModel[0];
+  RoundWhereMatches get getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches {
+    return getListOneUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.listModel.last;
   }
 
   String get getUniqueIdByUserWhoRoleManiacParameterListRoundWhereMatches {
-    if(getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.isRoleManiacForUniqueIdByUserWhereFirst) {
+    if(getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.isRoleManiacForUniqueIdByUserWhereFirst) {
       return uniqueIdByUserWhereFirst;
     }
     return uniqueIdByUserWhereSecond;
@@ -270,6 +270,60 @@ base class Matches extends BaseModel {
       listSurvivorPerkForDelete.deleteToListSurvivorPerk(pickSurvivorPerkWhereMatches.uniqueId);
     }
     return listSurvivorPerkForDelete;
+  }
+
+  void qw(int numberOfMilliSecondsTheSurvivorRan) {
+    final lastItemUnfinishedRoundWhereMatches = getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches;
+    for(RoundWhereMatches roundWhereMatches in listRoundWhereMatches.listModel) {
+      if(roundWhereMatches.round == lastItemUnfinishedRoundWhereMatches.round) {
+        listRoundWhereMatches.updateToListRoundWhereMatches(RoundWhereMatches(
+            roundWhereMatches.round,
+            roundWhereMatches.pickManiacWhereMatches.getCloneModel,
+            EnumTurnOfManiacsAndEndOfTheRound.secondManiac.name,
+            !roundWhereMatches.isRoleManiacForUniqueIdByUserWhereFirst,
+            false,
+            false,
+            numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst,
+            numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond));
+        break;
+      }
+    }
+  }
+
+  void updateRoundWhereMatchesWhereTrueQIsStartTimerForUniqueIdByUserWhereFirstParameterListRoundWhereMatches() {
+    final lastItemUnfinishedRoundWhereMatches = getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches;
+    for(RoundWhereMatches roundWhereMatches in listRoundWhereMatches.listModel) {
+      if(roundWhereMatches.round == lastItemUnfinishedRoundWhereMatches.round) {
+        listRoundWhereMatches.updateToListRoundWhereMatches(RoundWhereMatches(
+            roundWhereMatches.round,
+            roundWhereMatches.pickManiacWhereMatches.getCloneModel,
+            roundWhereMatches.enumTurnOfManiacsAndEndOfTheRound.name,
+            roundWhereMatches.isRoleManiacForUniqueIdByUserWhereFirst,
+            true,
+            roundWhereMatches.isStartTimerForUniqueIdByUserWhereSecond,
+            roundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst,
+            roundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond));
+        break;
+      }
+    }
+  }
+
+  void updateRoundWhereMatchesWhereTrueQIsStartTimerForUniqueIdByUserWhereSecondParameterListRoundWhereMatches() {
+    final lastItemUnfinishedRoundWhereMatches = getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches;
+    for(RoundWhereMatches roundWhereMatches in listRoundWhereMatches.listModel) {
+      if(roundWhereMatches.round == lastItemUnfinishedRoundWhereMatches.round) {
+        listRoundWhereMatches.updateToListRoundWhereMatches(RoundWhereMatches(
+            roundWhereMatches.round,
+            roundWhereMatches.pickManiacWhereMatches.getCloneModel,
+            roundWhereMatches.enumTurnOfManiacsAndEndOfTheRound.name,
+            roundWhereMatches.isRoleManiacForUniqueIdByUserWhereFirst,
+            roundWhereMatches.isStartTimerForUniqueIdByUserWhereFirst,
+            true,
+            roundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst,
+            roundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond));
+        break;
+      }
+    }
   }
 
   void insertListPickManiacPerkWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance() {
@@ -622,49 +676,49 @@ base class Matches extends BaseModel {
   }
 
   bool isUniqueIdByUserWhereFirstManiacAndUniqueIdByUserWhereFirstTurnsStartTimerOrUniqueIdByUserWhereSecondSurvivorAndWaitUniqueIdByUserWhereFirstManiacParameterListRoundWhereMatches() {
-    return getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
+    return getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
         .isTrueAndFalseAndNotEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereFirstAndEnumTurnOfManiacsAndEndOfTheRound() &&
         !isCompleted;
   }
 
   bool isUniqueIdByUserWhereFirstManiacAndWaitUniqueIdByUserWhereSecondSurvivorOrUniqueIdByUserWhereSecondSurvivorAndUniqueIdByUserWhereSecondTurnsStartTimerParameterListRoundWhereMatches() {
-    return getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
+    return getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
         .isTrueAndFalseAndTrueAndNotEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereSecondAndIsStartTimerForUniqueIdByUserWhereFirstAndEnumTurnOfManiacsAndEndOfTheRound() &&
         !isCompleted;
   }
 
   bool isUniqueIdByUserWhereFirstManiacAndStopTimerOrUniqueIdByUserWhereSecondSurvivorAndStopTimerParameterListRoundWhereMatches() {
-    return getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
+    return getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
         .isTrueAndTrueAndTrueAndNotEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereSecondAndEnumTurnOfManiacsAndEndOfTheRound() &&
         !isCompleted;
   }
 
   bool isUniqueIdByUserWhereFirstManiacAndNextRoundOrUniqueIdByUserWhereSecondSurvivorAndNextRoundParameterListRoundWhereMatches() {
-    return getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
+    return getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
         .isTrueAndEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndEnumTurnOfManiacsAndEndOfTheRound() &&
         !isCompleted;
   }
 
   bool isUniqueIdByUserWhereFirstSurvivorAndWaitUniqueIdByUserWhereSecondManiacOrUniqueIdByUserWhereSecondManiacAndUniqueIdByUserWhereSecondTurnsStartTimerParameterListRoundWhereMatches() {
-    return getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
+    return getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
         .isFalseAndFalseAndNotEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereSecondAndEnumTurnOfManiacsAndEndOfTheRound() &&
         !isCompleted;
   }
 
   bool isUniqueIdByUserWhereFirstSurvivorAndUniqueIdByUserWhereFirstTurnsStartTimerOrUniqueIdByUserWhereSecondManiacAndWaitUniqueIdByUserWhereFirstSurvivorParameterListRoundWhereMatches() {
-    return getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
+    return getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
         .isFalseAndFalseAndTrueAndNotEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereSecondAndEnumTurnOfManiacsAndEndOfTheRound() &&
         !isCompleted;
   }
 
   bool isUniqueIdByUserWhereFirstSurvivorAndStopTimerOrUniqueIdByUserWhereSecondManiacAndStopTimerParameterListRoundWhereMatches() {
-    return getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
+    return getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
         .isFalseAndTrueAndTrueAndNotEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereSecondAndEnumTurnOfManiacsAndEndOfTheRound() &&
         !isCompleted;
   }
 
   bool isUniqueIdByUserWhereFirstSurvivorAndNextRoundOrUniqueIdByUserWhereSecondManiacAndNextRoundParameterListRoundWhereMatches() {
-    return getUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
+    return getLastItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
         .isFalseAndEqualsEndOfTheRoundParametersIsRoleManiacForUniqueIdByUserWhereFirstAndEnumTurnOfManiacsAndEndOfTheRound() &&
         !isCompleted;
   }

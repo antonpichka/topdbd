@@ -78,6 +78,27 @@ base class Matches extends BaseModel {
   @override
   Matches get getCloneModel => Matches(uniqueId, creationTime, isCompleted, enumBanOrPickNamed.name,textLogAction,matchBalance.getCloneModel, uniqueIdByUserWhereFirst, uniqueIdByUserWhereSecond, isStageBanOrPickForUniqueIdByUserWhereFirst,listBanManiacWhereMatches.getCloneListModel, listPickManiacWhereMatches.getCloneListModel,listRoundWhereMatches.getCloneListModel,resultRatingPointsForUniqueIdByUserWhereFirst, resultRatingPointsForUniqueIdByUserWhereSecond);
 
+  int getResultRatingPointsForUniqueIdByUserWhereFirstFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondAndSubtractFromTheRatingParameterListRoundWhereMatches(int ratingPointsForUniqueIdByUserWhereFirst,int ratingPointsForUniqueIdByUserWhereSecond,int subtractFromTheRating) {
+    final listFinishedRoundWhereMatches = getListFinishedRoundWhereMatchesParameterListRoundWhereMatches;
+    int iterationWinRoundForUniqueIdByUserWhereFirst = 0;
+    int iterationWinRoundForUniqueIdByUserWhereSecond = 0;
+    for(RoundWhereMatches roundWhereMatches in listFinishedRoundWhereMatches.listModel)  {
+      if(roundWhereMatches.isWinRoundForUniqueIdByUserWhereFirstParametersNumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirstAndNumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond()) {
+        iterationWinRoundForUniqueIdByUserWhereFirst++;
+        continue;
+      }
+      iterationWinRoundForUniqueIdByUserWhereSecond++;
+    }
+    if(iterationWinRoundForUniqueIdByUserWhereFirst > iterationWinRoundForUniqueIdByUserWhereSecond) {
+      /*final resultRatingPointsForUniqueIdByUserWhereFirst = ratingPointsForUniqueIdByUserWhereFirst + ratingPointsForUniqueIdByUserWhereSecond;
+      return resultRatingPointsForUniqueIdByUserWhereFirst;*/
+    }
+  }
+
+  int getResultRatingPointsForUniqueIdByUserWhereSecondFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(int ratingPointsForUniqueIdByUserWhereFirst,int ratingPointsForUniqueIdByUserWhereSecond) {
+
+  }
+
   ListPickManiacWhereMatches<PickManiacWhereMatches> get getListPickManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereFirst {
     return getListPickManiacWhereMatchesForUniqueIdByUserParameterListPickManiacWhereMatches(uniqueIdByUserWhereFirst);
   }
@@ -362,7 +383,25 @@ base class Matches extends BaseModel {
     }
   }
 
-  void updateRoundWhereMatchesWhereNameByEndOfTheRoundQStrTurnOfManiacsAndEndOfTheRoundParameterListRoundWhereMatches() {
+  void updateRoundWhereMatchesWhereFalseQIsStartTimerForUniqueIdByUserWhereFirstAndIsStartTimerForUniqueIdByUserWhereSecondAndIsSwapRoleManiacForUniqueIdByUserWhereFirstAndNextOrEndFromNumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirstParameterListRoundWhereMatches(int numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst) {
+    final firstItemUnfinishedRoundWhereMatches = getFirstItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches;
+    for(RoundWhereMatches roundWhereMatches in listRoundWhereMatches.listModel) {
+      if(roundWhereMatches.round == firstItemUnfinishedRoundWhereMatches.round) {
+        listRoundWhereMatches.updateToListRoundWhereMatches(RoundWhereMatches(
+            roundWhereMatches.round,
+            roundWhereMatches.pickManiacWhereMatches.getCloneModel,
+            roundWhereMatches.getNextOrEndParameterEnumTurnOfManiacsAndEndOfTheRound.name,
+            roundWhereMatches.isSwapParameterIsRoleManiacForUniqueIdByUserWhereFirst(),
+            false,
+            false,
+            numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst,
+            roundWhereMatches.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond));
+        break;
+      }
+    }
+  }
+
+  void updateRoundWhereMatchesWhereNameByEndOfTheRoundQEnumTurnOfManiacsAndEndOfTheRoundParameterListRoundWhereMatches() {
     final firstItemUnfinishedRoundWhereMatches = getFirstItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches;
     for(RoundWhereMatches roundWhereMatches in listRoundWhereMatches.listModel) {
       if(roundWhereMatches.round == firstItemUnfinishedRoundWhereMatches.round) {
@@ -733,6 +772,32 @@ base class Matches extends BaseModel {
     return getListUnfinishedRoundWhereMatchesParameterListRoundWhereMatches
         .listModel
         .isEmpty;
+  }
+
+  bool isLengthByListFinishedRoundWhereMatchesMoreThanLengthByListUnfinishedRoundWhereMatchesParameterListRoundWhereMatches() {
+    final listFinishedRoundWhereMatches = getListFinishedRoundWhereMatchesParameterListRoundWhereMatches;
+    final listUnfinishedRoundWhereMatches = getListUnfinishedRoundWhereMatchesParameterListRoundWhereMatches;
+    return listFinishedRoundWhereMatches.listModel.length > listUnfinishedRoundWhereMatches.listModel.length;
+  }
+
+  bool isListFinishedRoundWhereMatchesWereWonByOneUserParameterListRoundWhereMatches() {
+    final listFinishedRoundWhereMatches = getListFinishedRoundWhereMatchesParameterListRoundWhereMatches;
+    int iterationWinRoundForUniqueIdByUserWhereFirst = 0;
+    int iterationWinRoundForUniqueIdByUserWhereSecond = 0;
+    for(RoundWhereMatches roundWhereMatches in listFinishedRoundWhereMatches.listModel)  {
+      if(roundWhereMatches.isWinRoundForUniqueIdByUserWhereFirstParametersNumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirstAndNumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond()) {
+        iterationWinRoundForUniqueIdByUserWhereFirst++;
+        continue;
+      }
+      iterationWinRoundForUniqueIdByUserWhereSecond++;
+    }
+    if(iterationWinRoundForUniqueIdByUserWhereFirst == listFinishedRoundWhereMatches.listModel.length) {
+      return true;
+    }
+    if(iterationWinRoundForUniqueIdByUserWhereSecond == listFinishedRoundWhereMatches.listModel.length) {
+      return true;
+    }
+    return false;
   }
 
   bool isUniqueIdByUserWhereFirstManiacAndUniqueIdByUserWhereFirstTurnsStartTimerOrUniqueIdByUserWhereSecondSurvivorAndWaitUniqueIdByUserWhereFirstManiacParameterListRoundWhereMatches() {

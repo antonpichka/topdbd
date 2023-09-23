@@ -22,6 +22,8 @@ import 'package:common_topdbd/model/round_where_matches/list_round_where_matches
 import 'package:common_topdbd/model/round_where_matches/round_where_matches.dart';
 import 'package:common_topdbd/model/survivor_perk/list_survivor_perk.dart';
 import 'package:common_topdbd/model/survivor_perk/survivor_perk.dart';
+import 'package:common_topdbd/named_utility/algorithms_utility.dart';
+import 'package:common_topdbd/named_utility/enum_elo_score.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -78,7 +80,7 @@ base class Matches extends BaseModel {
   @override
   Matches get getCloneModel => Matches(uniqueId, creationTime, isCompleted, enumBanOrPickNamed.name,textLogAction,matchBalance.getCloneModel, uniqueIdByUserWhereFirst, uniqueIdByUserWhereSecond, isStageBanOrPickForUniqueIdByUserWhereFirst,listBanManiacWhereMatches.getCloneListModel, listPickManiacWhereMatches.getCloneListModel,listRoundWhereMatches.getCloneListModel,resultRatingPointsForUniqueIdByUserWhereFirst, resultRatingPointsForUniqueIdByUserWhereSecond);
 
-  int getResultRatingPointsForUniqueIdByUserWhereFirstFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondAndSubtractFromTheRatingParameterListRoundWhereMatches(int ratingPointsForUniqueIdByUserWhereFirst,int ratingPointsForUniqueIdByUserWhereSecond,int subtractFromTheRating) {
+  List<int> get getListTwoItemIterationWinRoundForUniqueIdByUserParameterListRoundWhereMatches {
     final listFinishedRoundWhereMatches = getListFinishedRoundWhereMatchesParameterListRoundWhereMatches;
     int iterationWinRoundForUniqueIdByUserWhereFirst = 0;
     int iterationWinRoundForUniqueIdByUserWhereSecond = 0;
@@ -89,14 +91,43 @@ base class Matches extends BaseModel {
       }
       iterationWinRoundForUniqueIdByUserWhereSecond++;
     }
+    final listInt = List<int>.empty(growable: true);
+    listInt.add(iterationWinRoundForUniqueIdByUserWhereFirst);
+    listInt.add(iterationWinRoundForUniqueIdByUserWhereSecond);
+    return listInt;
+  }
+
+  int getResultRatingPointsForUniqueIdByUserWhereFirstFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(int ratingPointsForUniqueIdByUserWhereFirst,int ratingPointsForUniqueIdByUserWhereSecond) {
+    final n = ratingPointsForUniqueIdByUserWhereFirst >= ratingPointsForUniqueIdByUserWhereSecond
+        ? ratingPointsForUniqueIdByUserWhereSecond
+        : ratingPointsForUniqueIdByUserWhereFirst;
+    final listTwoItemIterationWinRoundForUniqueIdByUser = getListTwoItemIterationWinRoundForUniqueIdByUserParameterListRoundWhereMatches;
+    final iterationWinRoundForUniqueIdByUserWhereFirst = listTwoItemIterationWinRoundForUniqueIdByUser[0];
+    final iterationWinRoundForUniqueIdByUserWhereSecond = listTwoItemIterationWinRoundForUniqueIdByUser[1];
     if(iterationWinRoundForUniqueIdByUserWhereFirst > iterationWinRoundForUniqueIdByUserWhereSecond) {
-      /*final resultRatingPointsForUniqueIdByUserWhereFirst = ratingPointsForUniqueIdByUserWhereFirst + ratingPointsForUniqueIdByUserWhereSecond;
-      return resultRatingPointsForUniqueIdByUserWhereFirst;*/
+      return AlgorithmsUtility.eloForUserWhereFirst(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumEloScore.winForUserWhereFirst);
     }
+    return AlgorithmsUtility.eloForUserWhereFirst(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumEloScore.winForUserWhereSecond);
   }
 
   int getResultRatingPointsForUniqueIdByUserWhereSecondFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(int ratingPointsForUniqueIdByUserWhereFirst,int ratingPointsForUniqueIdByUserWhereSecond) {
+    final n = ratingPointsForUniqueIdByUserWhereFirst >= ratingPointsForUniqueIdByUserWhereSecond
+        ? ratingPointsForUniqueIdByUserWhereSecond
+        : ratingPointsForUniqueIdByUserWhereFirst;
+    final listTwoItemIterationWinRoundForUniqueIdByUser = getListTwoItemIterationWinRoundForUniqueIdByUserParameterListRoundWhereMatches;
+    final iterationWinRoundForUniqueIdByUserWhereFirst = listTwoItemIterationWinRoundForUniqueIdByUser[0];
+    final iterationWinRoundForUniqueIdByUserWhereSecond = listTwoItemIterationWinRoundForUniqueIdByUser[1];
+    if(iterationWinRoundForUniqueIdByUserWhereFirst < iterationWinRoundForUniqueIdByUserWhereSecond) {
+      return AlgorithmsUtility.eloForUserWhereSecond(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumEloScore.winForUserWhereSecond);
+    }
+    return AlgorithmsUtility.eloForUserWhereSecond(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumEloScore.winForUserWhereFirst);
+  }
 
+  String get getScoreParameterListRoundWhereMatches {
+    final listTwoItemIterationWinRoundForUniqueIdByUser = getListTwoItemIterationWinRoundForUniqueIdByUserParameterListRoundWhereMatches;
+    final iterationWinRoundForUniqueIdByUserWhereFirst = listTwoItemIterationWinRoundForUniqueIdByUser[0];
+    final iterationWinRoundForUniqueIdByUserWhereSecond = listTwoItemIterationWinRoundForUniqueIdByUser[1];
+    return "$iterationWinRoundForUniqueIdByUserWhereFirst:$iterationWinRoundForUniqueIdByUserWhereSecond";
   }
 
   ListPickManiacWhereMatches<PickManiacWhereMatches> get getListPickManiacWhereMatchesForUniqueIdByUserWhereFirstParametersListPickManiacWhereMatchesAndUniqueIdByUserWhereFirst {
@@ -795,6 +826,16 @@ base class Matches extends BaseModel {
       return true;
     }
     if(iterationWinRoundForUniqueIdByUserWhereSecond == listFinishedRoundWhereMatches.listModel.length) {
+      return true;
+    }
+    return false;
+  }
+
+  bool isWinMatchesForUniqueIdByUserWhereFirstParameterListRoundWhereMatches() {
+    final listTwoItemIterationWinRoundForUniqueIdByUser = getListTwoItemIterationWinRoundForUniqueIdByUserParameterListRoundWhereMatches;
+    final iterationWinRoundForUniqueIdByUserWhereFirst = listTwoItemIterationWinRoundForUniqueIdByUser[0];
+    final iterationWinRoundForUniqueIdByUserWhereSecond = listTwoItemIterationWinRoundForUniqueIdByUser[1];
+    if(iterationWinRoundForUniqueIdByUserWhereFirst > iterationWinRoundForUniqueIdByUserWhereSecond) {
       return true;
     }
     return false;

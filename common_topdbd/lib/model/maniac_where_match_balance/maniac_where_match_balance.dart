@@ -36,6 +36,6 @@ base class ManiacWhereMatchBalance extends BaseModel {
 
   @override
   String toString() {
-    return "${maniac.name} (ListMaps: ${listMaps.listModel}) (ListManiacPerk: ${listManiacPerk.listModel}) (ListSurvivorPerk: ${listSurvivorPerk.listModel})\n";
+    return "${maniac.name} (ListMaps: ${listMaps.listModel}) (ListManiacPerk: ${listManiacPerk.listModel} (LengthPickManiacPerk: $lengthPickManiacPerk)) (ListSurvivorPerk: ${listSurvivorPerk.listModel} (LengthPickSurvivorPerk: $lengthPickSurvivorPerk))\n";
   }
 }

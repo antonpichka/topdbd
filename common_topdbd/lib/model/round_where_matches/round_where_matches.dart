@@ -43,7 +43,8 @@ base class RoundWhereMatches extends BaseModel {
         "(isStartTimerForUniqueIdByUserWhereSecond: $isStartTimerForUniqueIdByUserWhereSecond) "
         "(NumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst: $numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst) "
         "(NumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond: $numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond) "
-        "(isWinRoundForUniqueIdByUserWhereFirst: ${isWinRoundForUniqueIdByUserWhereFirstParametersNumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirstAndNumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond()})";
+        "(isWinRoundForUniqueIdByUserWhereFirst: ${isWinRoundForUniqueIdByUserWhereFirstParametersNumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirstAndNumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond()})"
+        "\n";
   }
 
   EnumTurnOfManiacsAndEndOfTheRound get getNextOrEndParameterEnumTurnOfManiacsAndEndOfTheRound {

@@ -1,0 +1,4 @@
+enum EnumEloScore {
+  winForUserWhereFirst,
+  winForUserWhereSecond
+}

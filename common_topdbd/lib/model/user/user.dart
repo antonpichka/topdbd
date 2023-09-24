@@ -1,3 +1,4 @@
+import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -9,4 +10,11 @@ base class User extends BaseModel {
 
   @override
   User get getCloneModel => User(uniqueId,creationTime);
+
+  String get getStringWhereIsEmptyParameterUniqueId {
+    if(uniqueId.isEmpty) {
+      return KeysExceptionUtility.userQGetStringWhereIsEmptyParameterUniqueId;
+    }
+    return "";
+  }
 }

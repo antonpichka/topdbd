@@ -97,7 +97,7 @@ base class Matches extends BaseModel {
     return listInt;
   }
 
-  int getResultRatingPointsForUniqueIdByUserWhereFirstFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(int ratingPointsForUniqueIdByUserWhereFirst,int ratingPointsForUniqueIdByUserWhereSecond) {
+  int getNewStatsForUniqueIdByUserWhereFirstFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(int ratingPointsForUniqueIdByUserWhereFirst,int ratingPointsForUniqueIdByUserWhereSecond) {
     final n = ratingPointsForUniqueIdByUserWhereFirst >= ratingPointsForUniqueIdByUserWhereSecond
         ? ratingPointsForUniqueIdByUserWhereSecond
         : ratingPointsForUniqueIdByUserWhereFirst;
@@ -110,7 +110,11 @@ base class Matches extends BaseModel {
     return AlgorithmsUtility.eloForUserWhereFirst(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumEloScore.winForUserWhereSecond);
   }
 
-  int getResultRatingPointsForUniqueIdByUserWhereSecondFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(int ratingPointsForUniqueIdByUserWhereFirst,int ratingPointsForUniqueIdByUserWhereSecond) {
+  int getResultRatingPointsForUniqueIdByUserWhereFirstFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(int ratingPointsForUniqueIdByUserWhereFirst,int ratingPointsForUniqueIdByUserWhereSecond) {
+    return getNewStatsForUniqueIdByUserWhereFirstFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(ratingPointsForUniqueIdByUserWhereFirst,ratingPointsForUniqueIdByUserWhereSecond) - ratingPointsForUniqueIdByUserWhereFirst;
+  }
+
+  int getNewStatsForUniqueIdByUserWhereSecondFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(int ratingPointsForUniqueIdByUserWhereFirst,int ratingPointsForUniqueIdByUserWhereSecond) {
     final n = ratingPointsForUniqueIdByUserWhereFirst >= ratingPointsForUniqueIdByUserWhereSecond
         ? ratingPointsForUniqueIdByUserWhereSecond
         : ratingPointsForUniqueIdByUserWhereFirst;
@@ -121,6 +125,10 @@ base class Matches extends BaseModel {
       return AlgorithmsUtility.eloForUserWhereSecond(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumEloScore.winForUserWhereSecond);
     }
     return AlgorithmsUtility.eloForUserWhereSecond(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumEloScore.winForUserWhereFirst);
+  }
+
+  int getResultRatingPointsForUniqueIdByUserWhereSecondFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(int ratingPointsForUniqueIdByUserWhereFirst,int ratingPointsForUniqueIdByUserWhereSecond) {
+    return getNewStatsForUniqueIdByUserWhereSecondFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(ratingPointsForUniqueIdByUserWhereFirst,ratingPointsForUniqueIdByUserWhereSecond) - ratingPointsForUniqueIdByUserWhereSecond;
   }
 
   String get getScoreParameterListRoundWhereMatches {

@@ -4,5 +4,5 @@ import 'package:web_topdbd/data_for_named/data_for_defined_view/data_for_defined
 final class InitializedDefaultStreamStateQDataForDefinedView<T extends DataForDefinedView> extends BaseInitializedNamedStreamStateQDataForNamed<T> {
   @override
   BaseNamedStreamStateQDataForNamed<T> get getNamedStreamStateQDataForNamed =>
-      DefaultStreamStateQDataForNamed<T>(DataForDefinedView(true,"",false) as T);
+      DefaultStreamStateQDataForNamed<T>(DataForDefinedView(true,"",false,false) as T);
 }

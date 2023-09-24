@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/data_for_named/data_for_defined_view/enum_data_for_defined_view.dart';
 import 'package:web_topdbd/named_view/login_view.dart';
-import 'package:web_topdbd/named_view/main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/defined_view_list_view_model.dart';
 
 final class DefinedView extends StatefulWidget {
@@ -47,8 +46,10 @@ final class _DefinedViewState extends State<DefinedView> {
         return LoginView();
       case EnumDataForDefinedView.notVerifiedUser:
         return notVerifiedUser!;
+      case EnumDataForDefinedView.preSuccess:
+        return Container();
       case EnumDataForDefinedView.success:
-        return MainView();
+        return Container(); ///MainView();
       default:
         return Container();
     }

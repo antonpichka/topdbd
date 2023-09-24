@@ -1,3 +1,5 @@
+import 'package:common_topdbd/model/user/user.dart';
+import 'package:common_topdbd/model/verified_user_sp/verified_user_sp.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:web_topdbd/data_for_named/data_for_defined_view/data_for_defined_view.dart';
@@ -58,8 +60,48 @@ final class DefinedViewListViewModel extends BaseNamedViewListViewModel {
   async {
     final resultUser = await _userQSharedPreferencesServiceViewModelUsingGetNP
         .getUserFromSharedPreferencesServiceNPDS();
+    if(resultUser
+        .exceptionController
+        .isNotEqualsNullParameterException())
+    {
+      return _firstBranchOneQInitForDefinedViewQGetUserFromSharedPreferencesServiceNPDS(resultUser);
+    }
     final resultVerifiedUserSP = await _verifiedUserSPQSharedPreferencesServiceViewModelUsingGetNP
         .getVerifiedUserSPFromSharedPreferencesServiceNPDS();
+    if(resultVerifiedUserSP
+        .exceptionController
+        .isNotEqualsNullParameterException())
+    {
+      return _firstBranchOneQInitForDefinedViewQGetVerifiedUserSPFromSharedPreferencesServiceNPDS(resultVerifiedUserSP);
+    }
+    final getStringWhereIsEmptyParameterUniqueId = resultUser
+        .parameter
+        ?.getStringWhereIsEmptyParameterUniqueId ?? "";
+    if(getStringWhereIsEmptyParameterUniqueId.isNotEmpty) {
+      return _firstBranchOneQInitForDefinedViewQGetStringWhereIsEmptyParameterUniqueId(getStringWhereIsEmptyParameterUniqueId);
+    }
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .getDataForDefinedView
+        ?.isLoading = false;
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .getDataForDefinedView
+        ?.uniqueIdByUser = resultUser.parameter?.uniqueId ?? "";
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .getDataForDefinedView
+        ?.isVerifiedUserByVerifiedUserSP = resultVerifiedUserSP.parameter?.isVerifiedUser ?? false;
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .getDataForDefinedView
+        ?.isPreSuccess = true;
+    return KeysSuccessUtility.sUCCESS;
+  }
+
+  void notifyStreamDataForDefinedView() {
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .notifyStreamDataForDefinedView();
+  }
+
+  Future<String> _firstBranchOneQInitForDefinedViewQGetUserFromSharedPreferencesServiceNPDS(Result<User> resultUser)
+  async {
     _dataForDefinedViewQThereIsStreamStateViewModel
         .getDataForDefinedView
         ?.isLoading = false;
@@ -68,15 +110,50 @@ final class DefinedViewListViewModel extends BaseNamedViewListViewModel {
         ?.exceptionController = resultUser.exceptionController;
     _dataForDefinedViewQThereIsStreamStateViewModel
         .getDataForDefinedView
-        ?.uniqueIdByUser = resultUser.parameter?.uniqueId ?? "";
+        ?.uniqueIdByUser = "";
     _dataForDefinedViewQThereIsStreamStateViewModel
         .getDataForDefinedView
-        ?.isVerifiedUserByVerifiedUserSP = resultVerifiedUserSP.parameter?.isVerifiedUser ?? false;
-    return KeysSuccessUtility.sUCCESS;
+        ?.isVerifiedUserByVerifiedUserSP = false;
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .getDataForDefinedView
+        ?.isPreSuccess = false;
+    return resultUser.exceptionController.getKeyParameterException;
   }
 
-  void notifyStreamDataForDefinedView() {
+  Future<String> _firstBranchOneQInitForDefinedViewQGetVerifiedUserSPFromSharedPreferencesServiceNPDS(Result<VerifiedUserSP> resultVerifiedUserSP)
+  async {
     _dataForDefinedViewQThereIsStreamStateViewModel
-        .notifyStreamDataForDefinedView();
+        .getDataForDefinedView
+        ?.isLoading = false;
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .getDataForDefinedView
+        ?.exceptionController = resultVerifiedUserSP.exceptionController;
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .getDataForDefinedView
+        ?.uniqueIdByUser = "";
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .getDataForDefinedView
+        ?.isVerifiedUserByVerifiedUserSP = false;
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .getDataForDefinedView
+        ?.isPreSuccess = false;
+    return resultVerifiedUserSP.exceptionController.getKeyParameterException;
+  }
+
+  Future<String> _firstBranchOneQInitForDefinedViewQGetStringWhereIsEmptyParameterUniqueId(String getStringWhereIsEmptyParameterUniqueId)
+  async {
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .getDataForDefinedView
+        ?.isLoading = false;
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .getDataForDefinedView
+        ?.uniqueIdByUser = "";
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .getDataForDefinedView
+        ?.isVerifiedUserByVerifiedUserSP = false;
+    _dataForDefinedViewQThereIsStreamStateViewModel
+        .getDataForDefinedView
+        ?.isPreSuccess = false;
+    return getStringWhereIsEmptyParameterUniqueId;
   }
 }

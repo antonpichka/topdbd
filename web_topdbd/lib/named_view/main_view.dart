@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:web_topdbd/named_utility/initialize_service_utility.dart';
 import 'package:web_topdbd/named_view_list_view_model/main_view_list_view_model.dart';
 
 final class MainView extends StatefulWidget {
@@ -76,10 +75,6 @@ final class _MainViewState extends State<MainView> {
 
   Future<void> _init()
   async {
-    final result = await InitializeServiceUtility.init();
-    debugPrint(result);
-    if(!mounted) {
-      return;
-    }
+
   }
 }

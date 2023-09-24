@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/data_for_named/data_for_login_view/data_for_login_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_login_view/enum_data_for_login_view.dart';
-import 'package:web_topdbd/named_utility/initialize_service_utility.dart';
 import 'package:web_topdbd/named_view_list_view_model/login_view_list_view_model.dart';
 
 final class LoginView extends StatefulWidget {
@@ -128,10 +127,9 @@ final class _LoginViewState extends State<LoginView> {
         .listen((event) {
           setState(() {});
         });
-    final result = await InitializeServiceUtility.init();
-    final resultTwo = await _loginViewListViewModel
+    final result = await _loginViewListViewModel
         .initForLoginView();
-    debugPrint("LoginView: $result | $resultTwo");
+    debugPrint("LoginView: $result");
     if(!mounted) {
       return;
     }

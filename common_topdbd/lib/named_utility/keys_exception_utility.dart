@@ -53,6 +53,8 @@ final class KeysExceptionUtility {
   static const String seasonQFirebaseFirestoreServiceViewModelUsingGetNPForLastSeasonWhereSortParameterSeasonNumberQWhereLocalExceptionGuiltyUserNoExists = "seasonQFirebaseFirestoreServiceViewModelUsingGetNPForLastSeasonWhereSortParameterSeasonNumberQWhereLocalExceptionGuiltyUserNoExists";
   /* IPAddress */
   static const String iPAddressQGetStringFromNameCountryWhereNotEqualsParameterNameCountry = "iPAddressQGetStringFromNameCountryWhereNotEqualsParameterNameCountry";
+  /* User */
+  static const String userQGetStringWhereIsEmptyParameterUniqueId = "userQGetStringWhereIsEmptyParameterUniqueId";
 
   const KeysExceptionUtility._();
 }

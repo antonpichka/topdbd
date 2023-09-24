@@ -47,4 +47,8 @@ final class ReadyDataUtility {
     final listSurvivorPerk = List<SurvivorPerk>.empty(growable: true);
     return ListSurvivorPerk(listSurvivorPerk);
   }
+
+  static String get getVersionByTOPDBDVersionWeb {
+    return "v0.0.1_beta";
+  }
 }

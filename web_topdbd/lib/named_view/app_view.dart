@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:web_topdbd/data_for_named/data_for_app_view/enum_data_for_app_view.dart';
 import 'package:web_topdbd/l10n/l10n.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_view/anti_ddos_system_view.dart';
@@ -17,6 +18,7 @@ final class _AppViewState extends State<AppView> {
   void initState() {
     _appViewListViewModel = AppViewListViewModel();
     super.initState();
+    _init();
   }
 
   @override
@@ -47,7 +49,34 @@ final class _AppViewState extends State<AppView> {
         ),
         initialRoute: "/",
         routes: {
-          "/" : (context) => AntiDDosSystemView()
+          "/" : (context) {
+            final dataForAppView = _appViewListViewModel.getDataForAppView;
+            switch(dataForAppView?.getEnumDataForAppView) {
+              case EnumDataForAppView.isLoading:
+                return const Scaffold(body: Center(child: CircularProgressIndicator()));
+              case EnumDataForAppView.exception:
+                return Scaffold(body: Center(child: Text("Exception: ${dataForAppView?.exceptionController.getKeyParameterException}")));
+              case EnumDataForAppView.success:
+                return AntiDDosSystemView();
+              default:
+                return Container();
+            }
+          }
         });
+  }
+
+  Future<void> _init()
+  async {
+    _appViewListViewModel
+        .getStreamDataForAppView
+        .listen((event) {
+          setState(() {});
+        });
+    final result = await _appViewListViewModel.initForAppView();
+    debugPrint("AppView: $result");
+    if(!mounted) {
+      return;
+    }
+    _appViewListViewModel.notifyStreamDataForAppView();
   }
 }

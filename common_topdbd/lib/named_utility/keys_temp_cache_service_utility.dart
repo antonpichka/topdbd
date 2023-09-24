@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:meta/meta.dart';
 
 @immutable
@@ -9,7 +11,7 @@ final class KeysTempCacheServiceUtility {
   static const String stringsQIpByIPAddress = "stringsQIpByIPAddress";
   static const String stringsQNameCountryByCountry = "stringsQNameCountryByCountry";
   static const String stringsQCodeDBDByAboutMe = "stringsQCodeDBDByAboutMe";
-  static const String stringsQCodeSteamByAboutMe = "stringsQCodeSteamByAboutMe";
+  static const String stringsQVersionByTOPDBDVersionWeb = "stringsQVersionByTOPDBDVersionWeb";
   /* Ints */
   static const String intsQSeasonNumberBySeason = "intsQSeasonNumberBySeason";
   static const String intsQMatchesWonByStats = "intsQMatchesWonByStats";

@@ -31,11 +31,7 @@ final class ThoseWorksSystemViewListViewModel extends BaseNamedViewListViewModel
               .exceptionController
               .isNotEqualsNullParameterException())
           {
-            _dataForThoseWorksSystemViewQThereIsStreamStateViewModel
-                .getDataForThoseWorksSystemView
-                ?.exceptionController = resultThoseWorks.exceptionController;
-            _dataForThoseWorksSystemViewQThereIsStreamStateViewModel
-                .notifyStreamDataForThoseWorksSystemView();
+            _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForThoseWorksSystemViewQStartListening(resultThoseWorks);
             return;
           }
           _dataForThoseWorksSystemViewQThereIsStreamStateViewModel
@@ -54,6 +50,14 @@ final class ThoseWorksSystemViewListViewModel extends BaseNamedViewListViewModel
   }
 
   void notifyStreamDataForThoseWorksSystemView() {
+    _dataForThoseWorksSystemViewQThereIsStreamStateViewModel
+        .notifyStreamDataForThoseWorksSystemView();
+  }
+
+  void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForThoseWorksSystemViewQStartListening(Result<ThoseWorks> resultThoseWorks) {
+    _dataForThoseWorksSystemViewQThereIsStreamStateViewModel
+        .getDataForThoseWorksSystemView
+        ?.exceptionController = resultThoseWorks.exceptionController;
     _dataForThoseWorksSystemViewQThereIsStreamStateViewModel
         .notifyStreamDataForThoseWorksSystemView();
   }

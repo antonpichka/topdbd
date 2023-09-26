@@ -31,7 +31,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
   @override
   Widget build(BuildContext context) {
     final dataForAntiDDosSystemView = _antiDDosSystemViewListViewModel.getDataForAntiDDosSystemView;
-    final form = ResponsiveValue<Widget>(
+    final rvWidgetForm = ResponsiveValue<Widget>(
         context,
         defaultValue: _buildForm(context,dataForAntiDDosSystemView,300,24,24,70),
         conditionalValues: [
@@ -46,7 +46,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
       case EnumDataForAntiDDosSystemView.exception:
         return Scaffold(body: Center(child: Text("Exception: ${dataForAntiDDosSystemView?.exceptionController.getKeyParameterException}")));
       case EnumDataForAntiDDosSystemView.form:
-        return form!;
+        return rvWidgetForm!;
       case EnumDataForAntiDDosSystemView.success:
         return InitializeServiceSystemView();
       default:

@@ -54,6 +54,9 @@ final class VerifiedUserSystemViewListViewModel extends BaseNamedViewListViewMod
               .updateBoolsToTempCacheServiceParameterBoolDS(resultVerifiedUser.parameter?.isVerifiedUser ?? false);
           _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel
               .getDataForVerifiedUserSystemView
+              ?.isLoading = false;
+          _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel
+              .getDataForVerifiedUserSystemView
               ?.isVerifiedUserByVerifiedUser = resultVerifiedUser.parameter?.isVerifiedUser ?? false;
           _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel
               .notifyStreamDataForVerifiedUserSystemView();
@@ -61,9 +64,6 @@ final class VerifiedUserSystemViewListViewModel extends BaseNamedViewListViewMod
   }
 
   String initForVerifiedUserSystemView() {
-    _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForVerifiedUserSystemView
-        ?.isLoading = false;
     return KeysSuccessUtility.sUCCESS;
   }
 
@@ -75,12 +75,18 @@ final class VerifiedUserSystemViewListViewModel extends BaseNamedViewListViewMod
   void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForVerifiedUserSystemViewQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForUniqueIdByUser) {
     _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel
         .getDataForVerifiedUserSystemView
+        ?.isLoading = false;
+    _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel
+        .getDataForVerifiedUserSystemView
         ?.exceptionController = resultStringsForUniqueIdByUser.exceptionController;
     _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel
         .notifyStreamDataForVerifiedUserSystemView();
   }
 
   void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForVerifiedUserSystemViewQStartListening(Result<VerifiedUser> resultVerifiedUser) {
+    _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel
+        .getDataForVerifiedUserSystemView
+        ?.isLoading = false;
     _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel
         .getDataForVerifiedUserSystemView
         ?.exceptionController = resultVerifiedUser.exceptionController;

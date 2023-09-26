@@ -31,7 +31,7 @@ base class UserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqu
       final documentByUser = listDocumentByUser?.docs[0];
       return Result<T>.success(User(
           documentByUser?.data()[KeysFirebaseFirestoreServiceUtility.userQUniqueId],
-          documentByUser?.data()[KeysFirebaseFirestoreServiceUtility.userQCreationTime]) as T);
+          (documentByUser?.data()[KeysFirebaseFirestoreServiceUtility.userQCreationTime]).toDate()) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

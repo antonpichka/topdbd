@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/data_for_named/data_for_those_works_system_view/enum_data_for_those_works_system_view.dart';
 import 'package:web_topdbd/named_view/topdbd_version_web_system_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/those_works_system_view_list_view_model.dart';
@@ -26,6 +27,15 @@ final class _ThoseWorksSystemViewState extends State<ThoseWorksSystemView> {
 
   @override
   Widget build(BuildContext context) {
+    final rvWidgetThoseWorks = ResponsiveValue<Widget>(
+        context,
+        defaultValue: _buildThoseWorks(context,300,24),
+        conditionalValues: [
+          Condition.equals(name: TABLET, value: _buildThoseWorks(context,300,24)),
+          Condition.largerThan(name: TABLET, value: _buildThoseWorks(context,400,30)),
+          Condition.smallerThan(name: TABLET, value: _buildThoseWorks(context,250,18))
+        ]
+    ).value;
     final dataForThoseWorksSystemView = _thoseWorksSystemViewListViewModel.getDataForThoseWorksSystemView;
     switch(dataForThoseWorksSystemView?.getEnumDataForThoseWorksSystemView) {
       case EnumDataForThoseWorksSystemView.isLoading:
@@ -33,12 +43,45 @@ final class _ThoseWorksSystemViewState extends State<ThoseWorksSystemView> {
       case EnumDataForThoseWorksSystemView.exception:
         return Scaffold(body: Center(child: Text("Exception: ${dataForThoseWorksSystemView?.exceptionController.getKeyParameterException}")));
       case EnumDataForThoseWorksSystemView.thoseWorks:
-        return const Scaffold(body: Center(child: Text("Engineering works. Check back later")));
+        return rvWidgetThoseWorks!;
       case EnumDataForThoseWorksSystemView.success:
         return TOPDBDVersionWebSystemView();
       default:
         return Container();
     }
+  }
+
+  Widget _buildThoseWorks(BuildContext context,double sizedBoxWidth,double textSize) {
+    return Scaffold(
+      body: Center(
+        child: SingleChildScrollView(
+            child: Column(
+                children: [
+                  SizedBox(
+                    width: sizedBoxWidth,
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.all(16.0),
+                        child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                "Engineering works. Check back later",
+                                style: TextStyle(
+                                  fontSize: textSize,
+                                  fontWeight: FontWeight.w400,
+                                  letterSpacing: 1.8,
+                                ),
+                              ),
+                            ]
+                        ),
+                      ),
+                    ),
+                  ),
+                ])
+        ),
+      ),
+    );
   }
 
   void _init() {

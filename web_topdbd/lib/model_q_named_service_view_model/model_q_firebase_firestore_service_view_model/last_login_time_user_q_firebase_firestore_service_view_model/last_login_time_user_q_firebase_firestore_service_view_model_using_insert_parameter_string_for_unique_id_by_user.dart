@@ -33,7 +33,7 @@ base class LastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingInsertParamet
       }
       return Result<T>.success(LastLoginTimeUser(
           documentByLastLoginTimeUser?.data()?[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser],
-          documentByLastLoginTimeUser?.data()?[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime]) as T);
+          (documentByLastLoginTimeUser?.data()?[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime]).toDate()) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

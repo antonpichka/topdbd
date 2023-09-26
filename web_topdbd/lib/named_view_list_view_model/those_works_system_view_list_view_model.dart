@@ -36,6 +36,9 @@ final class ThoseWorksSystemViewListViewModel extends BaseNamedViewListViewModel
           }
           _dataForThoseWorksSystemViewQThereIsStreamStateViewModel
               .getDataForThoseWorksSystemView
+              ?.isLoading = false;
+          _dataForThoseWorksSystemViewQThereIsStreamStateViewModel
+              .getDataForThoseWorksSystemView
               ?.isThoseWorksByThoseWorks = resultThoseWorks.parameter?.isThoseWorks ?? false;
           _dataForThoseWorksSystemViewQThereIsStreamStateViewModel
               .notifyStreamDataForThoseWorksSystemView();
@@ -43,9 +46,6 @@ final class ThoseWorksSystemViewListViewModel extends BaseNamedViewListViewModel
   }
 
   String initForThoseWorksSystemView() {
-    _dataForThoseWorksSystemViewQThereIsStreamStateViewModel
-        .getDataForThoseWorksSystemView
-        ?.isLoading = false;
     return KeysSuccessUtility.sUCCESS;
   }
 
@@ -55,6 +55,9 @@ final class ThoseWorksSystemViewListViewModel extends BaseNamedViewListViewModel
   }
 
   void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForThoseWorksSystemViewQStartListening(Result<ThoseWorks> resultThoseWorks) {
+    _dataForThoseWorksSystemViewQThereIsStreamStateViewModel
+        .getDataForThoseWorksSystemView
+        ?.isLoading = false;
     _dataForThoseWorksSystemViewQThereIsStreamStateViewModel
         .getDataForThoseWorksSystemView
         ?.exceptionController = resultThoseWorks.exceptionController;

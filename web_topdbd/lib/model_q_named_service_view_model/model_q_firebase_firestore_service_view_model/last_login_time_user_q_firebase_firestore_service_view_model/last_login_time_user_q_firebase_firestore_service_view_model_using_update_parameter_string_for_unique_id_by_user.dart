@@ -49,7 +49,7 @@ base class LastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingUpdateParamet
       }
       return Result<T>.success(LastLoginTimeUser(
           listDocumentTwoByLastLoginTimeUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser],
-          listDocumentTwoByLastLoginTimeUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime]) as T);
+          (listDocumentTwoByLastLoginTimeUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime]).toDate()) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

@@ -46,6 +46,7 @@ import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_fir
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/verified_user_q_firebase_firestore_service_view_model/verified_user_q_firebase_firestore_service_view_model_using_insert_parameter_registration_verified_user_utility.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_http_client_service_view_model/discord_user_q_http_client_service_view_model/discord_user_q_http_client_service_view_model_using_get_np_for_discord_auth.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_http_client_service_view_model/ip_address_q_http_client_service_view_model/ip_address_q_http_client_service_view_model_using_get_np_for_jsonip_api.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_shared_preference_service_view_model/user_q_shared_preferences_service_view_model/user_q_shared_preferences_service_view_model_using_update_parameter_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_update_parameter_bool_for_is_admin_by_role_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_update_parameter_bool_for_is_test_by_role_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model_using_update_parameter_date_time_for_creation_time_by_user.dart';
@@ -142,6 +143,8 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
   StatsQFirebaseFirestoreServiceViewModelUsingGetParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility();
   final _lastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingUpdateParameterStringForUniqueIdByUser =
   LastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingUpdateParameterStringForUniqueIdByUser();
+  final _userQSharedPreferencesServiceViewModelUsingUpdateParameterUser =
+  UserQSharedPreferencesServiceViewModelUsingUpdateParameterUser();
 
   // DataForNamedQThereIsStreamStateViewModel
   final _dataForLoginViewQThereIsStreamStateViewModel =
@@ -159,17 +162,17 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
 
   Future<String> initForLoginView()
   async {
-    final resultStrings = await _stringsQAssetBundleServiceViewModelUsingGetNPForTermsOfUse
+    final resultStringsForTermsOfUse = await _stringsQAssetBundleServiceViewModelUsingGetNPForTermsOfUse
         .getStringsFromAssetBundleServiceNPDS();
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
-        ?.exceptionController = resultStrings.exceptionController;
+        ?.exceptionController = resultStringsForTermsOfUse.exceptionController;
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
-        ?.termsOfUse = resultStrings.parameter?.field ?? "";
+        ?.termsOfUse = resultStringsForTermsOfUse.parameter?.field ?? "";
     return KeysSuccessUtility.sUCCESS;
   }
 
@@ -312,6 +315,8 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
       _firstBranchOneQSignInWithDiscordForLoginViewQUpdateLastLoginTimeUserToFirebaseFirestoreServiceParameterStringDS(resultLastLoginTimeUserForUniqueIdByUser,callbackSuccess,callbackException);
       return;
     }
+    await _userQSharedPreferencesServiceViewModelUsingUpdateParameterUser
+        .updateUserToSharedPreferencesServiceParameterUserDS(resultUserForUniqueId.parameter?.getCloneModel ?? User("",DateTime.now()));
     await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser
         .updateStringsToTempCacheServiceParameterStringDS(resultUserForUniqueId.parameter?.uniqueId ?? "");
     await _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser
@@ -474,6 +479,8 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
       _firstBranchTwelveQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultRoleUserForUniqueIdByUser,callbackSuccess,callbackException);
       return;
     }
+    await _userQSharedPreferencesServiceViewModelUsingUpdateParameterUser
+        .updateUserToSharedPreferencesServiceParameterUserDS(resultUserForUniqueId.parameter?.getCloneModel ?? User("",DateTime.now()));
     await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser
         .updateStringsToTempCacheServiceParameterStringDS(resultUserForUniqueId.parameter?.uniqueId ?? "");
     await _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser
@@ -615,15 +622,6 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
 
   Future<void> _firstBranchOneQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(String getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName, Function() callbackSuccess, Function(String messageException) callbackException, DiscordUserFirestore discordUserFirestore)
   async {
-    if(getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName == KeysExceptionUtility.uNKNOWN) {
-      _dataForLoginViewQThereIsStreamStateViewModel
-          .getDataForLoginView
-          ?.isLoading = false;
-      _dataForLoginViewQThereIsStreamStateViewModel
-          .notifyStreamDataForLoginView();
-      callbackException(getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName);
-      return;
-    }
     final resultDiscordUserFirestore = await _discordUserFirestoreQFirebaseFirestoreServiceViewModelUsingUpdateParameterUpdateUsernameAndGlobalNameToDiscordUserFirestoreUtility
         .updateDiscordUserFirestoreToFirebaseFirestoreServiceParameterUpdateUsernameAndGlobalNameToDiscordUserFirestoreUtilityDS(UpdateUsernameAndGlobalNameToDiscordUserFirestoreUtility(discordUserFirestore.uniqueId, discordUserFirestore.uniqueIdByUser, discordUserFirestore.username, discordUserFirestore.globalName));
     if(resultDiscordUserFirestore
@@ -721,6 +719,8 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
       _firstBranchTwelveQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultLastLoginTimeUserForUniqueIdByUser,callbackSuccess,callbackException);
       return;
     }
+    await _userQSharedPreferencesServiceViewModelUsingUpdateParameterUser
+        .updateUserToSharedPreferencesServiceParameterUserDS(resultUserForUniqueId.parameter?.getCloneModel ?? User("",DateTime.now()));
     await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser
         .updateStringsToTempCacheServiceParameterStringDS(resultUserForUniqueId.parameter?.uniqueId ?? "");
     await _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser

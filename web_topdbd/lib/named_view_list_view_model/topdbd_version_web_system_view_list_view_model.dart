@@ -55,6 +55,9 @@ final class TOPDBDVersionWebSystemViewListViewModel extends BaseNamedViewListVie
           }
           _dataForTOPDBDVersionWebSystemViewQThereIsStreamStateViewModel
               .getDataForTOPDBDVersionWebSystemView
+              ?.isLoading = false;
+          _dataForTOPDBDVersionWebSystemViewQThereIsStreamStateViewModel
+              .getDataForTOPDBDVersionWebSystemView
               ?.isValidVersionTOPDBDVersionWeb = true;
           _dataForTOPDBDVersionWebSystemViewQThereIsStreamStateViewModel
               .getDataForTOPDBDVersionWebSystemView
@@ -65,9 +68,6 @@ final class TOPDBDVersionWebSystemViewListViewModel extends BaseNamedViewListVie
   }
 
   String initForTOPDBDVersionWebSystemView() {
-    _dataForTOPDBDVersionWebSystemViewQThereIsStreamStateViewModel
-        .getDataForTOPDBDVersionWebSystemView
-        ?.isLoading = false;
     return KeysSuccessUtility.sUCCESS;
   }
 
@@ -79,6 +79,9 @@ final class TOPDBDVersionWebSystemViewListViewModel extends BaseNamedViewListVie
   void _firstBranchOneQListeningStreamFirebaseFirestoreServiceForTOPDBDVersionWebSystemViewQStartListening(Result<TOPDBDVersionWeb> resultTOPDBDVersionWeb) {
     _dataForTOPDBDVersionWebSystemViewQThereIsStreamStateViewModel
         .getDataForTOPDBDVersionWebSystemView
+        ?.isLoading = false;
+    _dataForTOPDBDVersionWebSystemViewQThereIsStreamStateViewModel
+        .getDataForTOPDBDVersionWebSystemView
         ?.exceptionController = resultTOPDBDVersionWeb.exceptionController;
     _dataForTOPDBDVersionWebSystemViewQThereIsStreamStateViewModel
         .notifyStreamDataForTOPDBDVersionWebSystemView();
@@ -87,12 +90,18 @@ final class TOPDBDVersionWebSystemViewListViewModel extends BaseNamedViewListVie
   void _firstBranchOneQListeningStreamFirebaseFirestoreServiceForTOPDBDVersionWebSystemViewQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForVersionByTOPDBDVersionWeb) {
     _dataForTOPDBDVersionWebSystemViewQThereIsStreamStateViewModel
         .getDataForTOPDBDVersionWebSystemView
+        ?.isLoading = false;
+    _dataForTOPDBDVersionWebSystemViewQThereIsStreamStateViewModel
+        .getDataForTOPDBDVersionWebSystemView
         ?.exceptionController = resultStringsForVersionByTOPDBDVersionWeb.exceptionController;
     _dataForTOPDBDVersionWebSystemViewQThereIsStreamStateViewModel
         .notifyStreamDataForTOPDBDVersionWebSystemView();
   }
 
   void _firstBranchOneQListeningStreamFirebaseFirestoreServiceForTOPDBDVersionWebSystemViewQGetStringWhereNotEqualsFromVersionParameterVersion(String getStringWhereNotEqualsFromVersionParameterVersion, Result<TOPDBDVersionWeb> resultTOPDBDVersionWeb) {
+    _dataForTOPDBDVersionWebSystemViewQThereIsStreamStateViewModel
+        .getDataForTOPDBDVersionWebSystemView
+        ?.isLoading = false;
     _dataForTOPDBDVersionWebSystemViewQThereIsStreamStateViewModel
         .getDataForTOPDBDVersionWebSystemView
         ?.isValidVersionTOPDBDVersionWeb = false;

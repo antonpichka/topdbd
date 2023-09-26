@@ -27,13 +27,13 @@ final class _VerifiedUserSystemViewState extends State<VerifiedUserSystemView> {
 
   @override
   Widget build(BuildContext context) {
-    final notVerifiedUser = ResponsiveValue<Widget>(
+    final rvWidgetNotVerifiedUser = ResponsiveValue<Widget>(
         context,
-        defaultValue: _buildNotVerifiedUser(context,24),
+        defaultValue: _buildNotVerifiedUser(context,300,24,24),
         conditionalValues: [
-          Condition.equals(name: TABLET, value: _buildNotVerifiedUser(context,24)),
-          Condition.largerThan(name: TABLET, value: _buildNotVerifiedUser(context,40)),
-          Condition.smallerThan(name: TABLET, value: _buildNotVerifiedUser(context,18))
+          Condition.equals(name: TABLET, value: _buildNotVerifiedUser(context,300,24,24)),
+          Condition.largerThan(name: TABLET, value: _buildNotVerifiedUser(context,400,30,30)),
+          Condition.smallerThan(name: TABLET, value: _buildNotVerifiedUser(context,250,18,18))
         ]
     ).value;
     final dataForVerifiedUserSystemView = _verifiedUserSystemViewListViewModel.getDataForVerifiedUserSystemView;
@@ -43,7 +43,7 @@ final class _VerifiedUserSystemViewState extends State<VerifiedUserSystemView> {
       case EnumDataForVerifiedUserSystemView.exception:
         return Scaffold(body: Center(child: Text("Exception: ${dataForVerifiedUserSystemView?.exceptionController.getKeyParameterException}")));
       case EnumDataForVerifiedUserSystemView.isNotVerifiedUserByVerifiedUser:
-        return notVerifiedUser!;
+        return rvWidgetNotVerifiedUser!;
       case EnumDataForVerifiedUserSystemView.success:
         return IPAddressFirestoreSystemView();
       default:
@@ -51,18 +51,50 @@ final class _VerifiedUserSystemViewState extends State<VerifiedUserSystemView> {
     }
   }
 
-  Widget _buildNotVerifiedUser(BuildContext context,double textSize) {
+  Widget _buildNotVerifiedUser(BuildContext context,double sizedBoxWidth,double textSize,double textButtonSize) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
             child: Column(
                 children: [
-                  Text(
-                    "You are not a verified user",
-                    style: TextStyle(
-                      fontSize: textSize,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: 1.8,
+                  SizedBox(
+                    width: sizedBoxWidth,
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.all(16.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              "You are not a verified user",
+                              style: TextStyle(
+                                fontSize: textSize,
+                                fontWeight: FontWeight.w400,
+                                letterSpacing: 1.8,
+                              ),
+                            ),
+                            const SizedBox(height: 5,),
+                            ElevatedButton(
+                                onPressed: () {
+
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                                  foregroundColor: Theme.of(context).textTheme.bodyMedium?.color,
+                                ),
+                                child: Text(
+                                  "Logout",
+                                  style: TextStyle(
+                                    color: Theme.of(context).textTheme.bodyMedium?.color,
+                                    fontSize: textButtonSize,
+                                    fontWeight: FontWeight.w400,
+                                    letterSpacing: 1.8,
+                                  ),
+                                )
+                            ),
+                          ]
+                        ),
+                      ),
                     ),
                   ),
                 ])

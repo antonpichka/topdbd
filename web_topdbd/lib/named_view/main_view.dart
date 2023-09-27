@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_framework.dart';
+import 'package:web_topdbd/named_view/drawer_for_main_view.dart';
+import 'package:web_topdbd/named_view/footer_view.dart';
+import 'package:web_topdbd/named_view/title_for_app_bar_for_main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/main_view_list_view_model.dart';
 
 final class MainView extends StatefulWidget {
@@ -25,52 +27,64 @@ final class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    final text = ResponsiveValue<String>(
-      context,
-      defaultValue: "Hello World TABLET",
-      conditionalValues: [
-        Condition.equals(name: TABLET, value: "Hello World TABLET"),
-        Condition.largerThan(name: TABLET, value: "Hello World DESKTOP"),
-        Condition.smallerThan(name: TABLET, value: "Hello World MOBILE")
-      ],
+  /*  final rvWidgetAppBar = ResponsiveValue<Widget>(
+        context,
+        defaultValue: WebDesktopAppBarTitleView(),
+        conditionalValues: [
+          Condition.equals(name: TABLET, value: WebTabletAndMobileAppBarTitleView()),
+          Condition.largerThan(name: TABLET, value: WebDesktopAppBarTitleView()),
+          Condition.smallerThan(name: TABLET, value: WebTabletAndMobileAppBarTitleView())
+        ]
     ).value;
-    final textSize = ResponsiveValue<double>(
-      context,
-      defaultValue: 24.0,
-      conditionalValues: [
-        Condition.equals(name: TABLET, value: 24.0),
-        Condition.largerThan(name: TABLET, value: 40.0),
-        Condition.smallerThan(name: TABLET, value: 14.0)
-      ],
+    final rvDrawer = ResponsiveValue<Drawer?>(
+        context,
+        defaultValue: Drawer(child: WebTabletAndMobileDrawerView()),
+        conditionalValues: [
+          Condition.equals(name: TABLET, value: Drawer(child: WebTabletAndMobileDrawerView())),
+          Condition.largerThan(name: TABLET, value: null),
+          Condition.smallerThan(name: TABLET, value: Drawer(child: WebTabletAndMobileDrawerView()))
+        ]
     ).value;
-    return Scaffold(
-        body: Align(
-          alignment: Alignment.center,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SelectableText(
-                text ?? "",
-                style: TextStyle(
-                  fontSize: textSize,
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 1.8,
-                ),
+    final webDesktopOrTabletAndMobileNavigationItemZeroViewResponsiveValue = ResponsiveValue<Widget>(
+        context,
+        defaultValue: WebDesktopNavigationItemZeroView(),
+        conditionalValues: [
+          Condition.equals(name: TABLET, value: WebTabletAndMobileNavigationItemZeroView()),
+          Condition.largerThan(name: TABLET, value: WebDesktopNavigationItemZeroView()),
+          Condition.smallerThan(name: TABLET, value: WebTabletAndMobileNavigationItemZeroView())
+        ]
+    ).value;*/
+    return SelectionArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: TitleForAppBarForMainView(),
+            iconTheme: const IconThemeData(
+                color: Colors.white60,
+                size: 40),
+            bottom: PreferredSize(
+              preferredSize: const Size.fromHeight(4.0),
+              child: Column(
+                children: [
+                  Container(
+                    color: Theme.of(context).dividerColor,
+                    height: 1.0,
+                  ),
+                ],
               ),
-              ElevatedButton(
-                  onPressed: null,
-                  child: Text(
-                    text ?? "",
-                    style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyMedium?.color,
-                      fontSize: textSize,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: 1.8,
-                    ),
-                  )),
-            ],
+            ),
           ),
-        ));
+          drawer: DrawerForMainView(),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                const SizedBox(height: 5),
+                // webDesktopOrTabletAndMobileNavigationItemZeroViewResponsiveValue!,
+                // WebDesktopAndTabletAndMobileNavigationItemOneView(),
+                FooterView()
+              ],),
+          ),
+        )
+    );
   }
 
   Future<void> _init()

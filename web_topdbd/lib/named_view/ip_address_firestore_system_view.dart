@@ -66,7 +66,7 @@ final class _IPAddressFirestoreSystemViewState extends State<IPAddressFirestoreS
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                "Someone logged into your account (IP addresses do not match)",
+                                "Someone logged into your account OR your ip address has changed (IP addresses do not match)",
                                 style: TextStyle(
                                   fontSize: textSize,
                                   fontWeight: FontWeight.w400,

@@ -18,4 +18,11 @@ base class IPAddress extends BaseModel {
     }
     return "";
   }
+
+  String getStringWhereNotEqualsFromIpParameterIp(String ip) {
+    if(this.ip != ip) {
+      return KeysExceptionUtility.iPAddressQGetStringWhereNotEqualsFromIpParameterIp;
+    }
+    return "";
+  }
 }

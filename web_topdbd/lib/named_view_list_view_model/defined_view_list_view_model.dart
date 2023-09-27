@@ -5,6 +5,7 @@ import 'package:web_topdbd/data_for_named/data_for_defined_view/data_for_defined
 import 'package:web_topdbd/data_for_named/data_for_defined_view/initialized_named_stream_state_q_data_for_defined_view/initialized_default_stream_state_q_data_for_defined_view.dart';
 import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/data_for_defined_view_q_there_is_stream_state_view_model/data_for_defined_view_q_there_is_stream_state_view_model.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_shared_preference_service_view_model/user_q_shared_preferences_service_view_model/user_q_shared_preferences_service_view_model_using_get_np.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model_using_update_parameter_date_time_for_creation_time_by_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_custom_start_listening_and_cancel_listening_for_unique_id_by_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_unique_id_by_user.dart';
 
@@ -16,6 +17,8 @@ final class DefinedViewListViewModel extends BaseNamedViewListViewModel {
   StringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser();
   final _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser =
   StringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser();
+  final _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser =
+  DatesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser();
 
   // DataForNamedQThereIsStreamStateViewModel
   final _dataForDefinedViewQThereIsStreamStateViewModel =
@@ -61,6 +64,8 @@ final class DefinedViewListViewModel extends BaseNamedViewListViewModel {
     }
     await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser
         .updateStringsToTempCacheServiceParameterStringDS(resultUser.parameter?.uniqueId ?? "");
+    await _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser
+        .updateDatesTimesToTempCacheServiceParameterDateTimeDS(resultUser.parameter?.creationTime ?? DateTime.now());
     _dataForDefinedViewQThereIsStreamStateViewModel
         .getDataForDefinedView
         ?.isLoading = false;

@@ -29,7 +29,6 @@ final class _ThoseWorksSystemViewState extends State<ThoseWorksSystemView> {
   Widget build(BuildContext context) {
     final rvWidgetThoseWorks = ResponsiveValue<Widget>(
         context,
-        defaultValue: _buildThoseWorks(context,300,24),
         conditionalValues: [
           Condition.equals(name: TABLET, value: _buildThoseWorks(context,300,24)),
           Condition.largerThan(name: TABLET, value: _buildThoseWorks(context,400,30)),

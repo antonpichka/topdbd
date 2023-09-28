@@ -34,7 +34,6 @@ final class _LoginViewState extends State<LoginView> {
     final dataForLoginView = _loginViewListViewModel.getDataForLoginView;
     final login = ResponsiveValue<Widget>(
         context,
-        defaultValue: _buildLogin(context,dataForLoginView,300,280,150),
         conditionalValues: [
           Condition.equals(name: TABLET, value: _buildLogin(context,dataForLoginView,300,280,170)),
           Condition.largerThan(name: TABLET, value: _buildLogin(context,dataForLoginView,400,380,200)),

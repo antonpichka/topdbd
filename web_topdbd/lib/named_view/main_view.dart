@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:web_topdbd/named_view/drawer_for_main_view.dart';
-import 'package:web_topdbd/named_view/footer_view.dart';
-import 'package:web_topdbd/named_view/title_for_app_bar_for_main_view.dart';
+import 'package:responsive_framework/responsive_framework.dart';
+import 'package:web_topdbd/named_view/drawer_to_main_view.dart';
+import 'package:web_topdbd/named_view/title_to_app_bar_to_main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/main_view_list_view_model.dart';
 
 final class MainView extends StatefulWidget {
@@ -27,37 +27,19 @@ final class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-  /*  final rvWidgetAppBar = ResponsiveValue<Widget>(
+    final rvDrawerToMainView = ResponsiveValue<Drawer?>(
         context,
-        defaultValue: WebDesktopAppBarTitleView(),
         conditionalValues: [
-          Condition.equals(name: TABLET, value: WebTabletAndMobileAppBarTitleView()),
-          Condition.largerThan(name: TABLET, value: WebDesktopAppBarTitleView()),
-          Condition.smallerThan(name: TABLET, value: WebTabletAndMobileAppBarTitleView())
-        ]
-    ).value;
-    final rvDrawer = ResponsiveValue<Drawer?>(
-        context,
-        defaultValue: Drawer(child: WebTabletAndMobileDrawerView()),
-        conditionalValues: [
-          Condition.equals(name: TABLET, value: Drawer(child: WebTabletAndMobileDrawerView())),
+          Condition.equals(name: TABLET, value: Drawer(child: DrawerToMainView())),
           Condition.largerThan(name: TABLET, value: null),
-          Condition.smallerThan(name: TABLET, value: Drawer(child: WebTabletAndMobileDrawerView()))
+          Condition.smallerThan(name: TABLET, value: Drawer(child: DrawerToMainView()))
         ]
     ).value;
-    final webDesktopOrTabletAndMobileNavigationItemZeroViewResponsiveValue = ResponsiveValue<Widget>(
-        context,
-        defaultValue: WebDesktopNavigationItemZeroView(),
-        conditionalValues: [
-          Condition.equals(name: TABLET, value: WebTabletAndMobileNavigationItemZeroView()),
-          Condition.largerThan(name: TABLET, value: WebDesktopNavigationItemZeroView()),
-          Condition.smallerThan(name: TABLET, value: WebTabletAndMobileNavigationItemZeroView())
-        ]
-    ).value;*/
     return SelectionArea(
         child: Scaffold(
           appBar: AppBar(
-            title: TitleForAppBarForMainView(),
+            centerTitle: true,
+            title: TitleToAppBarToMainView(),
             iconTheme: const IconThemeData(
                 color: Colors.white60,
                 size: 40),
@@ -73,14 +55,16 @@ final class _MainViewState extends State<MainView> {
               ),
             ),
           ),
-          drawer: DrawerForMainView(),
-          body: SingleChildScrollView(
+          drawer: rvDrawerToMainView,
+          body: const SingleChildScrollView(
             child: Column(
               children: [
-                const SizedBox(height: 5),
+                SizedBox(height: 5),
                 // webDesktopOrTabletAndMobileNavigationItemZeroViewResponsiveValue!,
                 // WebDesktopAndTabletAndMobileNavigationItemOneView(),
-                FooterView()
+               // Expanded(child: Container()),
+               // Expanded(flex:2,child: Container()),
+              //  Expanded(child: FooterView())
               ],),
           ),
         )

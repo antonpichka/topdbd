@@ -55,4 +55,5 @@ flutter:
     - assets/icon/dbd/maps/maps_ind_storehouse.png
     - assets/icon/dbd/maps/maps_jnk_gas_station.png
     - assets/icon/dbd/maps/maps_jnk_scrapyard.png
+    - assets/icon/flags/france.png
     - assets/txt/terms_of_use_topdbd.txt

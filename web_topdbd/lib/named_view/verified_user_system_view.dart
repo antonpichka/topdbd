@@ -29,7 +29,6 @@ final class _VerifiedUserSystemViewState extends State<VerifiedUserSystemView> {
   Widget build(BuildContext context) {
     final rvWidgetNotVerifiedUser = ResponsiveValue<Widget>(
         context,
-        defaultValue: _buildNotVerifiedUser(context,300,24,24),
         conditionalValues: [
           Condition.equals(name: TABLET, value: _buildNotVerifiedUser(context,300,24,24)),
           Condition.largerThan(name: TABLET, value: _buildNotVerifiedUser(context,400,30,30)),

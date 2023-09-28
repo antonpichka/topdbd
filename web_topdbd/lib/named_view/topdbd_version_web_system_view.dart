@@ -31,7 +31,6 @@ final class _TOPDBDVersionWebSystemViewState extends State<TOPDBDVersionWebSyste
     final dataForTOPDBDVersionWebSystemView = _tOPDBDVersionWebSystemViewListViewModel.getDataForTOPDBDVersionWebSystemView;
     final rvWidgetIsNotValidVersionTOPDBDVersionWeb = ResponsiveValue<Widget>(
         context,
-        defaultValue: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForTOPDBDVersionWebSystemView,300,24),
         conditionalValues: [
           Condition.equals(name: TABLET, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForTOPDBDVersionWebSystemView,300,24)),
           Condition.largerThan(name: TABLET, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForTOPDBDVersionWebSystemView,400,30)),

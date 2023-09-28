@@ -33,7 +33,6 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
     final dataForAntiDDosSystemView = _antiDDosSystemViewListViewModel.getDataForAntiDDosSystemView;
     final rvWidgetForm = ResponsiveValue<Widget>(
         context,
-        defaultValue: _buildForm(context,dataForAntiDDosSystemView,300,24,24,70),
         conditionalValues: [
           Condition.equals(name: TABLET, value: _buildForm(context,dataForAntiDDosSystemView,300,24,24,70)),
           Condition.largerThan(name: TABLET, value: _buildForm(context,dataForAntiDDosSystemView,400,40,40,200)),

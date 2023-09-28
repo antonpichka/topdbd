@@ -29,7 +29,6 @@ final class _IPAddressFirestoreSystemViewState extends State<IPAddressFirestoreS
   Widget build(BuildContext context) {
     final rvWidgetIsHack = ResponsiveValue<Widget>(
         context,
-        defaultValue: _buildIsHack(context,300,24),
         conditionalValues: [
           Condition.equals(name: TABLET, value: _buildIsHack(context,300,24)),
           Condition.largerThan(name: TABLET, value: _buildIsHack(context,400,30)),

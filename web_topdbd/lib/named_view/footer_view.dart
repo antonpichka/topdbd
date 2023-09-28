@@ -8,7 +8,14 @@ final class FooterView extends StatefulWidget {
 final class _FooterViewState extends State<FooterView> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Container(
+      color: Colors.black,
+      width: MediaQuery.of(context).size.width,
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+      child: Row(
+        children: [
+          Text("SSS")
+        ],),
+    );
   }
 }

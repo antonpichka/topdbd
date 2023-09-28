@@ -1,14 +1,16 @@
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
+import 'package:meta/meta.dart';
 import 'package:web_topdbd/data_for_named/data_for_login_view/data_for_login_view.dart';
 
-final class DataForLoginViewQThereIsStreamStateViewModel<T extends DataForLoginView> extends BaseDataForNamedQThereIsStreamStateViewModel<T> {
+@immutable
+final class DataForLoginViewQThereIsStreamStateViewModel extends BaseDataForNamedQThereIsStreamStateViewModel<DataForLoginView> {
   DataForLoginViewQThereIsStreamStateViewModel(super.baseInitializedNamedStreamStateQDataForNamed);
 
-  Stream<T?> get getStreamDataForLoginView {
+  Stream<DataForLoginView?> get getStreamDataForLoginView {
     return getStreamDataForNamed;
   }
 
-  T? get getDataForLoginView {
+  DataForLoginView? get getDataForLoginView {
     return getDataForNamed;
   }
 

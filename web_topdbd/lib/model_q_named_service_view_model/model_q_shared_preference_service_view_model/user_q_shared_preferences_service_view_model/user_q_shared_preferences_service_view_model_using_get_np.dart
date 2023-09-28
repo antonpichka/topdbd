@@ -6,6 +6,7 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/shared_preferences_service.dart';
 
+@immutable
 base class UserQSharedPreferencesServiceViewModelUsingGetNP<T extends User,Y extends ListUser<T>> extends BaseGetModelFromNamedServiceNPDataSource<T> {
   @protected
   final sharedPreferencesService = SharedPreferencesService.instance;

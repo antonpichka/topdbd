@@ -7,6 +7,7 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
+@immutable
 base class StatsQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationStatsUtility<T extends Stats,Y extends ListStats<T>> extends BaseInsertModelToNamedServiceParameterNamedDataSource<T,RegistrationStatsUtility> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;

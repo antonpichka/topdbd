@@ -7,6 +7,7 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
+@immutable
 base class DiscordUserFirestoreQFirebaseFirestoreServiceViewModelUsingUpdateParameterUpdateUsernameAndGlobalNameToDiscordUserFirestoreUtility<T extends DiscordUserFirestore,Y extends ListDiscordUserFirestore<T>> extends BaseUpdateModelToNamedServiceParameterNamedDataSource<T,UpdateUsernameAndGlobalNameToDiscordUserFirestoreUtility> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;

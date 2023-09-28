@@ -7,6 +7,7 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
+@immutable
 base class LastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingUpdateParameterStringForUniqueIdByUser<T extends LastLoginTimeUser,Y extends ListLastLoginTimeUser<T>> extends BaseUpdateModelToNamedServiceParameterNamedDataSource<T,String> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;

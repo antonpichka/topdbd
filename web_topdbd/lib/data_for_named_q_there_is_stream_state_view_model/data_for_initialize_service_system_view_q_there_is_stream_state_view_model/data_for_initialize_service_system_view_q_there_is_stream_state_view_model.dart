@@ -1,14 +1,16 @@
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
+import 'package:meta/meta.dart';
 import 'package:web_topdbd/data_for_named/data_for_initialize_service_system_view/data_for_initialize_service_system_view.dart';
 
-final class DataForInitializeServiceSystemViewQThereIsStreamStateViewModel<T extends DataForInitializeServiceSystemView> extends BaseDataForNamedQThereIsStreamStateViewModel<T> {
+@immutable
+final class DataForInitializeServiceSystemViewQThereIsStreamStateViewModel extends BaseDataForNamedQThereIsStreamStateViewModel<DataForInitializeServiceSystemView> {
   DataForInitializeServiceSystemViewQThereIsStreamStateViewModel(super.baseInitializedNamedStreamStateQDataForNamed);
 
-  Stream<T?> get getStreamDataForInitializeServiceSystemView {
+  Stream<DataForInitializeServiceSystemView?> get getStreamDataForInitializeServiceSystemView {
     return getStreamDataForNamed;
   }
 
-  T? get getDataForInitializeServiceSystemView {
+  DataForInitializeServiceSystemView? get getDataForInitializeServiceSystemView {
     return getDataForNamed;
   }
 

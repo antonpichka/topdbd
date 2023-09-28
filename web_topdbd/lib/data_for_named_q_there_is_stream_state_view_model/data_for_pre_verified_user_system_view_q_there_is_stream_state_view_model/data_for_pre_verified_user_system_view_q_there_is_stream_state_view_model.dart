@@ -1,14 +1,16 @@
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
+import 'package:meta/meta.dart';
 import 'package:web_topdbd/data_for_named/data_for_pre_verified_user_system_view/data_for_pre_verified_user_system_view.dart';
 
-final class DataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel<T extends DataForPreVerifiedUserSystemView> extends BaseDataForNamedQThereIsStreamStateViewModel<T> {
+@immutable
+final class DataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel extends BaseDataForNamedQThereIsStreamStateViewModel<DataForPreVerifiedUserSystemView> {
   DataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel(super.baseInitializedNamedStreamStateQDataForNamed);
 
-  Stream<T?> get getStreamDataForPreVerifiedUserSystemView {
+  Stream<DataForPreVerifiedUserSystemView?> get getStreamDataForPreVerifiedUserSystemView {
     return getStreamDataForNamed;
   }
 
-  T? get getDataForPreVerifiedUserSystemView {
+  DataForPreVerifiedUserSystemView? get getDataForPreVerifiedUserSystemView {
     return getDataForNamed;
   }
 

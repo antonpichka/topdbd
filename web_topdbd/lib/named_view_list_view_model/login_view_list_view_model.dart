@@ -21,6 +21,7 @@ import 'package:common_topdbd/named_utility/registration_stats_utility.dart';
 import 'package:common_topdbd/named_utility/registration_verified_user_utility.dart';
 import 'package:common_topdbd/named_utility/update_username_and_global_name_to_discord_user_firestore_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
+import 'package:meta/meta.dart';
 import 'package:web_topdbd/data_for_named/data_for_login_view/data_for_login_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_login_view/initialized_named_stream_state_q_data_for_login_view/initialized_default_stream_state_q_data_for_login_view.dart';
 import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/data_for_login_view_q_there_is_stream_state_view_model/data_for_login_view_q_there_is_stream_state_view_model.dart';
@@ -65,6 +66,7 @@ import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_s
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_username_by_discord_user.dart';
 import 'package:web_topdbd/named_utility/algorithms_utility.dart';
 
+@immutable
 final class LoginViewListViewModel extends BaseNamedViewListViewModel {
   // ModelQNamedServiceViewModel
   final _stringsQAssetBundleServiceViewModelUsingGetNPForTermsOfUse =

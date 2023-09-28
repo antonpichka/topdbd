@@ -7,6 +7,7 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
+@immutable
 base class IPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationIPAddressFirestoreUtility<T extends IPAddressFirestore,Y extends ListIPAddressFirestore<T>> extends BaseInsertModelToNamedServiceParameterNamedDataSource<T,RegistrationIPAddressFirestoreUtility> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;

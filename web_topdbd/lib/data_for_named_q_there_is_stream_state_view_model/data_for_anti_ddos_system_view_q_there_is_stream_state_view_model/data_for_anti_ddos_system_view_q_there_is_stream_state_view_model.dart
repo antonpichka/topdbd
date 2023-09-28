@@ -1,14 +1,16 @@
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
+import 'package:meta/meta.dart';
 import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/data_for_anti_ddos_system_view.dart';
 
-final class DataForAntiDDosSystemViewQThereIsStreamStateViewModel<T extends DataForAntiDDosSystemView> extends BaseDataForNamedQThereIsStreamStateViewModel<T> {
+@immutable
+final class DataForAntiDDosSystemViewQThereIsStreamStateViewModel extends BaseDataForNamedQThereIsStreamStateViewModel<DataForAntiDDosSystemView> {
   DataForAntiDDosSystemViewQThereIsStreamStateViewModel(super.baseInitializedNamedStreamStateQDataForNamed);
 
-  Stream<T?> get getStreamDataForAntiDDosSystemView {
+  Stream<DataForAntiDDosSystemView?> get getStreamDataForAntiDDosSystemView {
     return getStreamDataForNamed;
   }
 
-  T? get getDataForAntiDDosSystemView {
+  DataForAntiDDosSystemView? get getDataForAntiDDosSystemView {
     return getDataForNamed;
   }
 

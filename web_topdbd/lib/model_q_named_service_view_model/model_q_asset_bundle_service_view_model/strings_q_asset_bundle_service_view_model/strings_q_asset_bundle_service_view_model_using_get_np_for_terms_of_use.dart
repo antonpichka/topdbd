@@ -3,6 +3,7 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/asset_bundle_service.dart';
 
+@immutable
 base class StringsQAssetBundleServiceViewModelUsingGetNPForTermsOfUse<T extends Strings,Y extends ListStrings<T>> extends BaseGetModelFromNamedServiceNPDataSource<T> {
   @protected
   final assetBundleService = AssetBundleService.instance;

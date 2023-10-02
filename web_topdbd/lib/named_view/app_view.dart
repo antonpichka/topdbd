@@ -3,7 +3,6 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/data_for_named/data_for_app_view/enum_data_for_app_view.dart';
 import 'package:web_topdbd/l10n/l10n.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
-//import 'package:web_topdbd/named_view/anti_ddos_system_view.dart';
 import 'package:web_topdbd/named_view/main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/app_view_list_view_model.dart';
 
@@ -60,6 +59,7 @@ final class _AppViewState extends State<AppView> {
               case EnumDataForAppView.success:
                 // return AntiDDosSystemView();
                 return MainView();
+                // return InitializeServiceSystemView();
               default:
                 return Container();
             }

@@ -4,6 +4,7 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/data_for_named/data_for_app_view/data_for_app_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_app_view/initialized_named_stream_state_q_data_for_app_view/initialized_default_stream_state_q_data_for_app_view.dart';
 import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/data_for_app_view_q_there_is_stream_state_view_model/data_for_app_view_q_there_is_stream_state_view_model.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/country_tc_q_temp_cache_service_view_model/country_tc_q_temp_cache_service_view_model_using_update_list_np.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/maniac_perk_q_temp_cache_service_view_model/maniac_perk_q_temp_cache_service_view_model_using_update_list_np.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/maniac_q_temp_cache_service_view_model/maniac_q_temp_cache_service_view_model_using_update_list_np.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/maps_q_temp_cache_service_view_model/maps_q_temp_cache_service_view_model_using_update_list_np.dart';
@@ -23,6 +24,8 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
   ManiacQTempCacheServiceViewModelUsingUpdateListNP();
   final _maniacPerkQTempCacheServiceViewModelUsingUpdateListNP =
   ManiacPerkQTempCacheServiceViewModelUsingUpdateListNP();
+  final _countryTCQTempCacheServiceViewModelUsingUpdateListNP =
+  CountryTCQTempCacheServiceViewModelUsingUpdateListNP();
 
   // DataForNamedQThereIsStreamStateViewModel
   final _dataForAppViewQThereIsStreamStateViewModel =
@@ -77,6 +80,14 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
         .isNotEqualsNullParameterException())
     {
       return _firstBranchOneQInitForAppViewQUpdateListManiacPerkToTempCacheServiceNPDS(resultBoolFour);
+    }
+    final resultBoolFive = await _countryTCQTempCacheServiceViewModelUsingUpdateListNP
+        .updateListCountryTCToTempCacheServiceNPDS();
+    if(resultBoolFive
+        .exceptionController
+        .isNotEqualsNullParameterException())
+    {
+      return _firstBranchOneQInitForAppViewQUpdateListCountryTCToTempCacheServiceNPDS(resultBoolFive);
     }
     _dataForAppViewQThereIsStreamStateViewModel
         .getDataForAppView
@@ -142,5 +153,16 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
         .getDataForAppView
         ?.exceptionController = resultBoolFour.exceptionController;
     return resultBoolFour.exceptionController.getKeyParameterException;
+  }
+
+  Future<String> _firstBranchOneQInitForAppViewQUpdateListCountryTCToTempCacheServiceNPDS(Result<bool> resultBoolFive)
+  async {
+    _dataForAppViewQThereIsStreamStateViewModel
+        .getDataForAppView
+        ?.isLoading = false;
+    _dataForAppViewQThereIsStreamStateViewModel
+        .getDataForAppView
+        ?.exceptionController = resultBoolFive.exceptionController;
+    return resultBoolFive.exceptionController.getKeyParameterException;
   }
 }

@@ -34,6 +34,8 @@ final class KeysTempCacheServiceUtility {
   static const String maniacPerkQListManiacPerk = "maniacPerkQListManiacPerk";
   /* SurvivorPerk */
   static const String survivorPerkQListSurvivorPerk = "survivorPerkQListSurvivorPerk";
+  /* CountryTC */
+  static const String countryTCQListCountryTC = "countryTCQListCountryTC";
 
   const KeysTempCacheServiceUtility._();
 }

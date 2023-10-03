@@ -4,6 +4,8 @@ import 'package:footer/footer.dart';
 import 'package:footer/footer_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/named_view/drawer_to_main_view.dart';
+import 'package:web_topdbd/named_view/navigation_item_view.dart';
+import 'package:web_topdbd/named_view/navigation_view.dart';
 import 'package:web_topdbd/named_view/title_to_app_bar_to_main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/main_view_list_view_model.dart';
 
@@ -65,32 +67,32 @@ final class _MainViewState extends State<MainView> {
               backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
               alignment: Alignment.center,
               child: RichText(
-                  text: TextSpan(
-                      text: "Terms of Use",
-                      style: TextStyle(
-                          color: _color,
-                          fontSize: Theme.of(context).textTheme.bodyMedium?.fontSize),
-                      onEnter: (p1) {
-                        setState(() {
-                          _color = Theme.of(context).colorScheme.secondary;
-                        });
+                text: TextSpan(
+                    text: "Terms of Use",
+                    style: TextStyle(
+                        color: _color,
+                        fontSize: Theme.of(context).textTheme.bodyMedium?.fontSize),
+                    onEnter: (p1) {
+                      setState(() {
+                        _color = Theme.of(context).colorScheme.secondary;
+                      });
                       },
-                      onExit: (p2) {
-                        setState(() {
-                          _color = Colors.white;
-                        });
+                    onExit: (p2) {
+                      setState(() {
+                        _color = Colors.white;
+                      });
                       },
-                      recognizer: TapGestureRecognizer()..onTap = () {
+                    recognizer: TapGestureRecognizer()..onTap = () {
 
-                      }
+                    }
                   ),
               ),
             ),
             flex: 1,
-            children: const [
-              SizedBox(height: 5),
-              // webDesktopOrTabletAndMobileNavigationItemZeroViewResponsiveValue!,
-              // WebDesktopAndTabletAndMobileNavigationItemOneView(),
+            children: [
+              const SizedBox(height: 10),
+              NavigationView(),
+              NavigationItemView()
             ],
           ),
         )

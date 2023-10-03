@@ -28,7 +28,7 @@ final class _SearchUserViewState extends State<SearchUserView> {
           decoration: InputDecoration(
             filled: true,
             fillColor: Theme.of(context).dividerColor,
-            hintText: 'Search users',
+            hintText: 'Search players',
             prefixIcon: const Icon(
               Icons.search,
               size: 20.0,

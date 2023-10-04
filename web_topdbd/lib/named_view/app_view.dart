@@ -44,7 +44,9 @@ final class _AppViewState extends State<AppView> {
           breakpoints: [
             const Breakpoint(start: 0, end: 599, name: MOBILE),
             const Breakpoint(start: 600, end: 800, name: TABLET),
-            const Breakpoint(start: 801, end: double.infinity, name: DESKTOP),
+            const Breakpoint(start: 801, end: 1000, name: desktopSmall),
+            /// desktopMedium
+            const Breakpoint(start: 1001, end: double.infinity, name: DESKTOP),
           ],
         ),
         initialRoute: "/",
@@ -82,3 +84,5 @@ final class _AppViewState extends State<AppView> {
     _appViewListViewModel.notifyStreamDataForAppView();
   }
 }
+
+const desktopSmall = "desktopSmall";

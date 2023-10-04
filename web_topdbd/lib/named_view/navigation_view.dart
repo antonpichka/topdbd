@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 final class NavigationView extends StatefulWidget {
   @override
@@ -22,8 +23,16 @@ final class _NavigationViewState extends State<NavigationView> {
 
   @override
   Widget build(BuildContext context) {
+    final rvDoubleWidthSizedBox = ResponsiveValue<double>(
+        context,
+        conditionalValues: [
+          Condition.smallerThan(name: TABLET, value: 1.0),
+          Condition.equals(name: TABLET, value: 1.0),
+          Condition.largerThan(name: TABLET, value: 2.1),
+          Condition.equals(name: DESKTOP,value: 2.05),
+        ]).value;
     return SizedBox(
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width / rvDoubleWidthSizedBox!,
       child: Card(
         color: Theme.of(context).colorScheme.surface,
         child: Column(
@@ -100,8 +109,8 @@ final class _NavigationViewState extends State<NavigationView> {
                                 onTap: () {
 
                                 },
-                                leading: const Icon(Icons.tour,color: Colors.white,),
-                                title: Text("Tournaments",
+                                leading: const Icon(Icons.balance,color: Colors.white,),
+                                title: Text("Balance",
                                   style: Theme.of(context).textTheme.bodyMedium,),
                               ),
                             ),
@@ -116,8 +125,8 @@ final class _NavigationViewState extends State<NavigationView> {
                                 onTap: () {
 
                                 },
-                                leading: const Icon(Icons.balance,color: Colors.white,),
-                                title: Text("Balance",
+                                leading: const Icon(Icons.tour,color: Colors.white,),
+                                title: Text("Tournaments",
                                   style: Theme.of(context).textTheme.bodyMedium,),
                               ),
                             ),

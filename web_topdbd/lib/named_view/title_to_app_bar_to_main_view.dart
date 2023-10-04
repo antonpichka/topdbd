@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/named_view/buttons_account_view.dart';
-import 'package:web_topdbd/named_view/search_user_view.dart';
+import 'package:web_topdbd/named_view/search_users_view.dart';
 
 final class TitleToAppBarToMainView extends StatefulWidget {
   @override
@@ -49,7 +49,7 @@ final class _TitleToAppBarToMainViewState extends State<TitleToAppBarToMainView>
             height: 75,
             fit: BoxFit.cover),
         Expanded(child: Container()),
-        Expanded(flex: 2,child: SearchUserView()),
+        Expanded(flex: 2,child: SearchUsersView()),
         const SizedBox(width: 10,),
         Expanded(flex: 3,child: ButtonsAccountView()),
       ],

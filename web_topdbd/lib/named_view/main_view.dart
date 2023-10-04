@@ -5,7 +5,8 @@ import 'package:footer/footer_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/named_view/drawer_to_main_view.dart';
 import 'package:web_topdbd/named_view/favorites_navigation_view.dart';
-import 'package:web_topdbd/named_view/navigation_item_view.dart';
+import 'package:web_topdbd/named_view/season_view.dart';
+import 'package:web_topdbd/named_view/selected_navigation_item_view.dart';
 import 'package:web_topdbd/named_view/navigation_view.dart';
 import 'package:web_topdbd/named_view/title_to_app_bar_to_main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/main_view_list_view_model.dart';
@@ -94,15 +95,20 @@ final class _MainViewState extends State<MainView> {
               const SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: FavoritesNavigationView(),
+                child: SeasonView(),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: NavigationView(),
+                child: Wrap(
+                  children: [
+                    FavoritesNavigationView(),
+                    NavigationView()
+                  ],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: NavigationItemView(),
+                child: SelectedNavigationItemView(),
               )
             ],
           ),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-final class SearchUserView extends StatefulWidget {
+final class SearchUsersView extends StatefulWidget {
   @override
-  State<SearchUserView> createState() => _SearchUserViewState();
+  State<SearchUsersView> createState() => _SearchUsersViewState();
 }
 
-final class _SearchUserViewState extends State<SearchUserView> {
+final class _SearchUsersViewState extends State<SearchUsersView> {
   @override
   void initState() {
     super.initState();
@@ -22,13 +22,13 @@ final class _SearchUserViewState extends State<SearchUserView> {
       width: 250,
       height: 30,
       child: Theme(data: Theme.of(context).copyWith(
-          textSelectionTheme: TextSelectionThemeData(selectionColor: Theme.of(context).colorScheme.secondary)),
+            textSelectionTheme: TextSelectionThemeData(selectionColor: Theme.of(context).colorScheme.secondary)),
         child: TextFormField(
           cursorColor: Theme.of(context).colorScheme.secondary,
           decoration: InputDecoration(
             filled: true,
             fillColor: Theme.of(context).dividerColor,
-            hintText: 'Search players',
+            hintText: 'Search users',
             prefixIcon: const Icon(
               Icons.search,
               size: 20.0,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 final class FavoritesNavigationView extends StatefulWidget {
   @override
@@ -23,8 +24,17 @@ final class _FavoritesNavigationViewState extends State<FavoritesNavigationView>
 
   @override
   Widget build(BuildContext context) {
+    final rvDoubleWidthSizedBox = ResponsiveValue<double>(
+        context,
+        conditionalValues: [
+          Condition.smallerThan(name: TABLET, value: 1.0),
+          Condition.equals(name: TABLET, value: 1.0),
+          Condition.largerThan(name: TABLET, value: 2.1),
+          Condition.equals(name: DESKTOP,value: 2.05),
+        ]).value;
+    debugPrint("${rvDoubleWidthSizedBox}");
     return SizedBox(
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width / rvDoubleWidthSizedBox!,
       child: Card(
         color: Theme.of(context).colorScheme.surface,
         child: Column(

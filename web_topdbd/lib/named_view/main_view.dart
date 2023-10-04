@@ -4,6 +4,7 @@ import 'package:footer/footer.dart';
 import 'package:footer/footer_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/named_view/drawer_to_main_view.dart';
+import 'package:web_topdbd/named_view/favorites_navigation_view.dart';
 import 'package:web_topdbd/named_view/navigation_item_view.dart';
 import 'package:web_topdbd/named_view/navigation_view.dart';
 import 'package:web_topdbd/named_view/title_to_app_bar_to_main_view.dart';
@@ -76,12 +77,12 @@ final class _MainViewState extends State<MainView> {
                       setState(() {
                         _color = Theme.of(context).colorScheme.secondary;
                       });
-                      },
+                    },
                     onExit: (p2) {
                       setState(() {
                         _color = Colors.white;
                       });
-                      },
+                    },
                     recognizer: TapGestureRecognizer()..onTap = () {
 
                     }
@@ -90,9 +91,19 @@ final class _MainViewState extends State<MainView> {
             ),
             flex: 1,
             children: [
-              const SizedBox(height: 10),
-              NavigationView(),
-              NavigationItemView()
+              const SizedBox(height: 5),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: FavoritesNavigationView(),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: NavigationView(),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: NavigationItemView(),
+              )
             ],
           ),
         )

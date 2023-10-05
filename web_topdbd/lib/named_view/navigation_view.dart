@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:web_topdbd/named_view/app_view.dart';
 
 final class NavigationView extends StatefulWidget {
   @override
@@ -26,9 +27,10 @@ final class _NavigationViewState extends State<NavigationView> {
     final rvDoubleWidthSizedBox = ResponsiveValue<double>(
         context,
         conditionalValues: [
-          Condition.smallerThan(name: TABLET, value: 1.0),
+          Condition.equals(name: MOBILE, value: 1.0),
           Condition.equals(name: TABLET, value: 1.0),
-          Condition.largerThan(name: TABLET, value: 2.1),
+          Condition.equals(name: desktopSmall, value: 2.1),
+          Condition.equals(name: desktopMedium, value: 2.06),
           Condition.equals(name: DESKTOP,value: 2.05),
         ]).value;
     return SizedBox(

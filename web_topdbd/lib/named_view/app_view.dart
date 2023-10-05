@@ -44,9 +44,9 @@ final class _AppViewState extends State<AppView> {
           breakpoints: [
             const Breakpoint(start: 0, end: 599, name: MOBILE),
             const Breakpoint(start: 600, end: 800, name: TABLET),
-            const Breakpoint(start: 801, end: 1000, name: desktopSmall),
-            /// desktopMedium
-            const Breakpoint(start: 1001, end: double.infinity, name: DESKTOP),
+            const Breakpoint(start: 801, end: 1280, name: desktopSmall),
+            const Breakpoint(start: 1281, end: 1600, name: desktopMedium),
+            const Breakpoint(start: 1601, end: double.infinity, name: DESKTOP),
           ],
         ),
         initialRoute: "/",
@@ -86,3 +86,4 @@ final class _AppViewState extends State<AppView> {
 }
 
 const desktopSmall = "desktopSmall";
+const desktopMedium = "desktopMedium";

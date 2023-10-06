@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_topdbd/named_view/top_players_view.dart';
+import 'package:web_topdbd/named_view/search_users_to_list_view.dart';
 
 final class SelectedNavigationItemView extends StatefulWidget {
   @override
@@ -9,10 +9,11 @@ final class SelectedNavigationItemView extends StatefulWidget {
 final class _SelectedNavigationItemViewState extends State<SelectedNavigationItemView> {
   @override
   Widget build(BuildContext context) {
-    /// TopPlayersView()
+    /// TopPlayersView() -- READY
     /// BalanceView()
     /// TournamentsView()
-    /// SearchUsersToListView()
-    return TopPlayersView();
+    /// SearchUsersToListView() -- READY
+    /// DetailsSeasonView()
+    return SearchUsersToListView();
   }
 }

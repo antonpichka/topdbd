@@ -36,6 +36,8 @@ final class KeysTempCacheServiceUtility {
   static const String survivorPerkQListSurvivorPerk = "survivorPerkQListSurvivorPerk";
   /* CountryTC */
   static const String countryTCQListCountryTC = "countryTCQListCountryTC";
+  /* Season */
+  static const String seasonQListSeason = "seasonQListSeason";
 
   const KeysTempCacheServiceUtility._();
 }

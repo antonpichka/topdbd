@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/named_utility/keys_responsive_breakpoints_utility.dart';
 
-final class FavoritesNavigationView extends StatefulWidget {
+final class ListSeasonView extends StatefulWidget {
   @override
-  State<FavoritesNavigationView> createState() => _FavoritesNavigationViewState();
+  State<ListSeasonView> createState() => _ListSeasonViewState();
 }
 
-final class _FavoritesNavigationViewState extends State<FavoritesNavigationView> {
+final class _ListSeasonViewState extends State<ListSeasonView> {
   late final ScrollController _scrollController;
 
   @override
@@ -47,12 +46,10 @@ final class _FavoritesNavigationViewState extends State<FavoritesNavigationView>
                 child: Wrap(
                   alignment: WrapAlignment.center,
                   children: [
-                    Icon(Icons.favorite, color: Colors.white,),
-                    SizedBox(width: 1,),
-                    Icon(Icons.navigation, color: Colors.white,),
+                    Icon(Icons.rocket, color: Colors.white,),
                     Padding(
                       padding: EdgeInsets.only(top: 3.0),
-                      child: Text("Favorites Navigation"),
+                      child: Text("Seasons"),
                     ),
                   ],
                 ),
@@ -82,7 +79,7 @@ final class _FavoritesNavigationViewState extends State<FavoritesNavigationView>
                       scrollDirection: Axis.vertical,
                       itemCount: 10,
                       itemBuilder: (context,index) {
-                        return _buildItemToListView(Icons.stacked_bar_chart,"TOP Players");
+                        return _buildItemToListView("1","Sep 1, 2023","Sep 30, 2023","120","10");
                       },
                       separatorBuilder: (context,index) {
                         return  Container(
@@ -101,7 +98,7 @@ final class _FavoritesNavigationViewState extends State<FavoritesNavigationView>
     );
   }
 
-  Widget _buildItemToListView(IconData iconData,String name) {
+  Widget _buildItemToListView(String name,String startOfSeasonTime,String endOfSeasonTime,String strNumberOfMatchesPlayedPerSeason,String strNumberOfUniquePlayersWhoPlayedInASeason) {
     return Container(
       decoration: BoxDecoration(
           border: Border(
@@ -111,35 +108,25 @@ final class _FavoritesNavigationViewState extends State<FavoritesNavigationView>
         onTap: () {
 
         },
-        title: Wrap(
-          alignment: WrapAlignment.center,
+        title: Column(
           children: [
-            const SizedBox(width: 2,),
-            Icon(iconData,
-              color: Colors.white,),
-            const SizedBox(width: 2,),
-            Padding(
-              padding: const EdgeInsets.only(top: 4),
-              child: Text(name.length >  45 ? "${name.substring(0,45)}..." : name,
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
+            Wrap(
+              children: [
+                const Icon(Icons.history_edu, color: Colors.white,),
+                Padding(
+                  padding: const EdgeInsets.only(top: 4),
+                  child: Text("$name Season",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(width: 2,),
-            RatingBar.builder(
-              initialRating: 1,
-              minRating: 1,
-              direction: Axis.horizontal,
-              allowHalfRating: true,
-              itemCount: 5,
-              itemSize: 30,
-              itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-              itemBuilder: (context, _) => Icon(
-                Icons.star,
-                color: Theme.of(context).colorScheme.secondary,
-              ),
-              onRatingUpdate: (rating) {
-              },
-            )
+            Text("$startOfSeasonTime - $endOfSeasonTime",
+              style: Theme.of(context).textTheme.bodyMedium,),
+            Text("Number of matches played per season: $strNumberOfMatchesPlayedPerSeason",
+              style: Theme.of(context).textTheme.bodyMedium,),
+            Text("Number of unique players who played in a season: $strNumberOfUniquePlayersWhoPlayedInASeason",
+              style: Theme.of(context).textTheme.bodyMedium,),
           ],
         ),
       ),

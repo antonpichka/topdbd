@@ -1,5 +1,6 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
+import 'package:web_topdbd/named_utility/keys_responsive_breakpoints_utility.dart';
 
 final class SeasonView extends StatefulWidget {
   @override
@@ -9,8 +10,17 @@ final class SeasonView extends StatefulWidget {
 final class _SeasonViewState extends State<SeasonView> {
   @override
   Widget build(BuildContext context) {
+    final rvDoubleWidthSizedBox = ResponsiveValue<double>(
+        context,
+        conditionalValues: [
+          Condition.equals(name: MOBILE, value: 1.0),
+          Condition.equals(name: TABLET, value: 1.0),
+          Condition.equals(name: KeysResponsiveBreakpointsUtility.desktopSmall, value: 2.1),
+          Condition.equals(name: KeysResponsiveBreakpointsUtility.desktopMedium, value: 2.06),
+          Condition.equals(name: DESKTOP,value: 2.05),
+        ]).value;
     return SizedBox(
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width / rvDoubleWidthSizedBox!,
       child: Card(
         color: Theme.of(context).colorScheme.surface,
         child: Column(
@@ -26,7 +36,7 @@ final class _SeasonViewState extends State<SeasonView> {
                     SizedBox(width: 2,),
                     Padding(
                       padding: EdgeInsets.only(top: 3.0),
-                      child: Text("1 Season"),
+                      child: Text("10 Season"),
                     ),
                   ],
                 ),
@@ -38,32 +48,14 @@ final class _SeasonViewState extends State<SeasonView> {
                       bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: double.infinity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Start of Season Time: Sep 1, 2023"),
-                  const Text("End of Season Time: Sep 30, 2023"),
-                  Wrap(
-                    children: [
-                      const Icon(Icons.history_edu, color: Colors.white,),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4.0),
-                        child: RichText(
-                            text: TextSpan(
-                              text: "History of the Seasons",
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: Theme.of(context).textTheme.bodyMedium?.fontSize),
-                              recognizer: TapGestureRecognizer()..onTap = () {
-                              },
-                            )
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 5,),
+                  Text("Start of Season Time: Sep 1, 2023"),
+                  Text("End of Season Time: Sep 30, 2023"),
+                  SizedBox(height: 5,),
                 ],)
             ),
           ],

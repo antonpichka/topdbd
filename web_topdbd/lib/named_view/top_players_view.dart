@@ -139,21 +139,23 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
                   style: Theme.of(context).textTheme.bodyLarge),
             ),
             Expanded(
-              flex: 1,
+                child: Text(
+                    'Rating',
+                    style: Theme.of(context).textTheme.bodyLarge)),
+            Expanded(
               child: Text(
                   "Victory %",
                   style: Theme.of(context).textTheme.bodyLarge),
             ),
             Expanded(
-              flex: 1,
               child: Text(
                   "Total matches played",
                   style: Theme.of(context).textTheme.bodyLarge),
             ),
-            Expanded(
+           /* Expanded(
                 child: Text(
-                    'Rating',
-                    style: Theme.of(context).textTheme.bodyLarge)),
+                    'Favorite Maniacs',
+                    style: Theme.of(context).textTheme.bodyLarge)),*/
           ],
         ),
         const Divider(height: 2.0,thickness: 2.0,),
@@ -176,26 +178,56 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
           flex: 2,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: RichText(
-                text: TextSpan(
-                  text: username,
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: Theme.of(context).textTheme.bodyMedium?.fontSize),
-                  recognizer: TapGestureRecognizer()..onTap = () {
-                  },
-                )
+            child: Row(
+              children: [
+                Image.asset(
+                    'assets/icon/flags/france.png',
+                    width: 32,
+                    height: 32,
+                    fit: BoxFit.cover),
+                const SizedBox(width: 2,),
+                RichText(
+                    text: TextSpan(
+                      text: username,
+                      style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: Theme.of(context).textTheme.bodyMedium?.fontSize),
+                      recognizer: TapGestureRecognizer()..onTap = () {
+                      },
+                    )
+                ),
+              ],
             ),
           ),
         ),
+        const Expanded(
+            child: Text("300")),
         const Expanded(
           child: Text("100%"),
         ),
         const Expanded(
           child: Text("10"),
         ),
-        const Expanded(
-            child: Text("300")),
+       /* Expanded(
+            child: Wrap(
+              children: [
+                Image.asset(
+                    'assets/icon/dbd/maniac/maniac_trapper.png',
+                    width: 32,
+                    height: 32,
+                    fit: BoxFit.cover),
+                Image.asset(
+                    'assets/icon/dbd/maniac/maniac_kolya.png',
+                    width: 32,
+                    height: 32,
+                    fit: BoxFit.cover),
+                Image.asset(
+                    'assets/icon/dbd/maniac/maniac_nurse.png',
+                    width: 32,
+                    height: 32,
+                    fit: BoxFit.cover),
+              ],)
+        ),*/
       ],
     );
   }

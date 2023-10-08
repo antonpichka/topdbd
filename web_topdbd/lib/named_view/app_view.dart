@@ -3,7 +3,6 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/data_for_named/data_for_app_view/enum_data_for_app_view.dart';
 import 'package:web_topdbd/l10n/l10n.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
-import 'package:web_topdbd/named_utility/keys_responsive_breakpoints_utility.dart';
 import 'package:web_topdbd/named_view/main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/app_view_list_view_model.dart';
 
@@ -45,9 +44,7 @@ final class _AppViewState extends State<AppView> {
           breakpoints: [
             const Breakpoint(start: 0, end: 599, name: MOBILE),
             const Breakpoint(start: 600, end: 800, name: TABLET),
-            const Breakpoint(start: 801, end: 1280, name: KeysResponsiveBreakpointsUtility.desktopSmall),
-            const Breakpoint(start: 1281, end: 1600, name: KeysResponsiveBreakpointsUtility.desktopMedium),
-            const Breakpoint(start: 1601, end: double.infinity, name: DESKTOP),
+            const Breakpoint(start: 801, end: double.infinity, name: DESKTOP),
           ],
         ),
         initialRoute: "/",

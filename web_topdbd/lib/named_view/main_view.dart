@@ -96,20 +96,44 @@ final class _MainViewState extends State<MainView> {
               const SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Wrap(
-                  children: [
-                    SeasonView(),
-                    ListSeasonView()
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Wrap(
-                  children: [
-                    FavoritesNavigationView(),
-                    NavigationView()
-                  ],
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Card(
+                    color: Colors.transparent,
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Wrap(
+                              alignment: WrapAlignment.center,
+                              children: [
+                                const Icon(Icons.home, color: Colors.white,),
+                                const SizedBox(width: 2,),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 2),
+                                  child: Text("Home",
+                                    style: Theme.of(context).textTheme.bodyLarge,),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Wrap(
+                          children: [
+                            SeasonView(),
+                            ListSeasonView()
+                          ],
+                        ),
+                        Wrap(
+                          children: [
+                            FavoritesNavigationView(),
+                            NavigationView()
+                          ],
+                        ),
+                      ],),
+                  ),
                 ),
               ),
               Padding(

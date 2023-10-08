@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_topdbd/named_view/search_users_to_list_view.dart';
+import 'package:web_topdbd/named_view/account_view.dart';
 
 final class SelectedNavigationItemView extends StatefulWidget {
   @override
@@ -14,6 +14,7 @@ final class _SelectedNavigationItemViewState extends State<SelectedNavigationIte
     /// TournamentsView()
     /// SearchUsersToListView() -- READY
     /// DetailsSeasonView()
-    return SearchUsersToListView();
+    /// AccountView()
+    return AccountView();
   }
 }

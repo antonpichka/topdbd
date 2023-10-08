@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:web_topdbd/named_utility/keys_responsive_breakpoints_utility.dart';
 
 final class ListSeasonView extends StatefulWidget {
   @override
@@ -29,9 +28,7 @@ final class _ListSeasonViewState extends State<ListSeasonView> {
         conditionalValues: [
           Condition.equals(name: MOBILE, value: 1.0),
           Condition.equals(name: TABLET, value: 1.0),
-          Condition.equals(name: KeysResponsiveBreakpointsUtility.desktopSmall, value: 2.1),
-          Condition.equals(name: KeysResponsiveBreakpointsUtility.desktopMedium, value: 2.06),
-          Condition.equals(name: DESKTOP,value: 2.05),
+          Condition.equals(name: DESKTOP,value: 2.1),
         ]).value;
     return SizedBox(
       width: MediaQuery.of(context).size.width / rvDoubleWidthSizedBox!,

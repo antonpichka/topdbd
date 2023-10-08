@@ -53,11 +53,8 @@ final class _SearchUsersToListViewState extends State<SearchUsersToListView> {
                   primary: false,
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
-                  itemCount: 100, /// hasReachedMax == true ? listModel.length : listModel.length + 1
+                  itemCount: 100,
                   itemBuilder: (context,index) {
-                    /*if(index >= listModel.length) {
-                      return buildButtonMoreDataToListView();
-                    }*/
                     if(index == 0) {
                       return _buildHeaderToListView(index,"Vicar32");
                     }

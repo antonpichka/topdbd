@@ -482,7 +482,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
       return;
     }
     final resultStats = await _statsQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationStatsUtility
-        .insertStatsToFirebaseFirestoreServiceParameterRegistrationStatsUtilityDS(RegistrationStatsUtility(resultUserForUniqueId.parameter?.uniqueId ?? "", resultSeasonForLastSeasonWhereSortParameterSeasonNumber.parameter?.seasonNumber ?? 0, 25));
+        .insertStatsToFirebaseFirestoreServiceParameterRegistrationStatsUtilityDS(RegistrationStatsUtility(resultUserForUniqueId.parameter?.uniqueId ?? "", resultSeasonForLastSeasonWhereSortParameterSeasonNumber.parameter?.seasonNumber ?? 0, 300));
     if(resultStats
         .exceptionController
         .isNotEqualsNullParameterException())

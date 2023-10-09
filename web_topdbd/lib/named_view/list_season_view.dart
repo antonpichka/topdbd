@@ -46,7 +46,7 @@ final class _ListSeasonViewState extends State<ListSeasonView> {
                     Icon(Icons.rocket, color: Colors.white,),
                     Padding(
                       padding: EdgeInsets.only(top: 3.0),
-                      child: Text("Seasons"),
+                      child: Text("Past Seasons"),
                     ),
                   ],
                 ),
@@ -96,36 +96,30 @@ final class _ListSeasonViewState extends State<ListSeasonView> {
   }
 
   Widget _buildItemToListView(String name,String startOfSeasonTime,String endOfSeasonTime,String strNumberOfMatchesPlayedPerSeason,String strNumberOfUniquePlayersWhoPlayedInASeason) {
-    return Container(
-      decoration: BoxDecoration(
-          border: Border(
-              bottom: BorderSide(color: Theme.of(context).dividerColor))
-      ),
-      child: ListTile(
-        onTap: () {
+    return ListTile(
+      onTap: () {
 
-        },
-        title: Column(
-          children: [
-            Wrap(
-              children: [
-                const Icon(Icons.history_edu, color: Colors.white,),
-                Padding(
-                  padding: const EdgeInsets.only(top: 4),
-                  child: Text("$name Season",
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
+      },
+      title: Column(
+        children: [
+          Wrap(
+            children: [
+              const Icon(Icons.history_edu, color: Colors.white,),
+              Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: Text("Season #$name",
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
-              ],
-            ),
-            Text("$startOfSeasonTime - $endOfSeasonTime",
-              style: Theme.of(context).textTheme.bodyMedium,),
-            Text("Number of matches played per season: $strNumberOfMatchesPlayedPerSeason",
-              style: Theme.of(context).textTheme.bodyMedium,),
-            Text("Number of unique players who played in a season: $strNumberOfUniquePlayersWhoPlayedInASeason",
-              style: Theme.of(context).textTheme.bodyMedium,),
-          ],
-        ),
+              ),
+            ],
+          ),
+          Text("$startOfSeasonTime - $endOfSeasonTime",
+            style: Theme.of(context).textTheme.bodyMedium,),
+          Text("Number of matches played per season: $strNumberOfMatchesPlayedPerSeason",
+            style: Theme.of(context).textTheme.bodyMedium,),
+          Text("Number of unique players who played in a season: $strNumberOfUniquePlayersWhoPlayedInASeason",
+            style: Theme.of(context).textTheme.bodyMedium,),
+        ],
       ),
     );
   }

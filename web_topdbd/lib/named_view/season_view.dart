@@ -33,7 +33,7 @@ final class _SeasonViewState extends State<SeasonView> {
                     SizedBox(width: 2,),
                     Padding(
                       padding: EdgeInsets.only(top: 3.0),
-                      child: Text("10 Season"),
+                      child: Text("Season 10"),
                     ),
                   ],
                 ),

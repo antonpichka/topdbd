@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:web_topdbd/named_view/about_me_view.dart';
 import 'package:web_topdbd/named_view/desktop_auth_id_view.dart';
+import 'package:web_topdbd/named_view/list_matches_view.dart';
+import 'package:web_topdbd/named_view/list_season_stats_user_view.dart';
 import 'package:web_topdbd/named_view/mode_about_me_view.dart';
+import 'package:web_topdbd/named_view/stats_view.dart';
 
 final class AccountView extends StatefulWidget {
   @override
@@ -28,7 +31,15 @@ final class _AccountViewState extends State<AccountView> {
                     const SizedBox(width: 2,),
                     Padding(
                       padding: const EdgeInsets.only(top: 2),
-                      child: Text("My Profile",
+                      child: Text("(You)",
+                        style: TextStyle(
+                            fontSize: Theme.of(context).textTheme.bodyLarge?.fontSize,
+                            color:  Colors.green),),
+                    ),
+                    const SizedBox(width: 1,),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 2),
+                      child: Text("Vicar32",
                         style: Theme.of(context).textTheme.bodyLarge,),
                     ),
                   ],
@@ -42,6 +53,16 @@ final class _AccountViewState extends State<AccountView> {
                 AboutMeView()
               ],
             ),
+            Wrap(
+              children: [
+                StatsView(),
+                ListSeasonStatsUserView()
+              ],
+            ),
+            Wrap(
+              children: [
+                ListMatchesView()
+              ],)
           ],),
       ),
     );

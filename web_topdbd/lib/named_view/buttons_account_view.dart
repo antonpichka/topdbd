@@ -18,7 +18,7 @@ final class _ButtonsAccountViewState extends State<ButtonsAccountView> {
             message: username,
             child: Container(
               decoration: BoxDecoration(
-                  border: Border.all(color: Theme.of(context).colorScheme.secondary)
+                  border: Border.all(color: Colors.white)
               ),
               child: ListTile(
                 onTap: () {
@@ -30,10 +30,10 @@ final class _ButtonsAccountViewState extends State<ButtonsAccountView> {
                     fit: BoxFit.cover),
                 title: Text(username.length >  9 ? "${username.substring(0,9)}..." : username,
                   style: Theme.of(context).textTheme.bodyMedium,),
-                trailing: Icon(
+                trailing: const Icon(
                   Icons.check,
                   size: 30,
-                  color: Theme.of(context).colorScheme.secondary,),
+                  color: Colors.white,),
               ),
             ),
           ),
@@ -43,7 +43,7 @@ final class _ButtonsAccountViewState extends State<ButtonsAccountView> {
             Icons.logout,
           ),
           iconSize: 30,
-          color: Theme.of(context).colorScheme.secondary,
+          color: Colors.white,
           onPressed: () {
             showDialog(context: context, builder: (BuildContext context){
               return CupertinoAlertDialog(

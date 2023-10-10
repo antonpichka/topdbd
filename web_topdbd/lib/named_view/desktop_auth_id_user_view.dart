@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
-final class DesktopAuthIdView extends StatefulWidget {
+final class DesktopAuthIdUserView extends StatefulWidget {
   @override
-  State<DesktopAuthIdView> createState() => _DesktopAuthIdViewState();
+  State<DesktopAuthIdUserView> createState() => _DesktopAuthIdUserViewState();
 }
 
-final class _DesktopAuthIdViewState extends State<DesktopAuthIdView> {
+final class _DesktopAuthIdUserViewState extends State<DesktopAuthIdUserView> {
   @override
   Widget build(BuildContext context) {
+    final rvDoubleWidthSizedBox = ResponsiveValue<double>(
+        context,
+        conditionalValues: [
+          Condition.equals(name: MOBILE, value: 1.0),
+          Condition.equals(name: TABLET, value: 1.0),
+          Condition.equals(name: DESKTOP,value: 1.05),
+        ]).value;
     return SizedBox(
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width / rvDoubleWidthSizedBox!,
       child: Card(
         color: Theme.of(context).colorScheme.surface,
         child: Column(
@@ -128,10 +136,10 @@ final class _DesktopAuthIdViewState extends State<DesktopAuthIdView> {
                                           duration: const Duration(seconds: 1),));
                                   });
                                 },
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.copy,
                                   size: 20,
-                                  color: Theme.of(context).colorScheme.secondary,)
+                                  color: Colors.white,)
                             ),
                           ),
                           const SizedBox(width: 10,),
@@ -148,10 +156,10 @@ final class _DesktopAuthIdViewState extends State<DesktopAuthIdView> {
                                           style: Theme.of(context).textTheme.bodyMedium,),
                                         duration: const Duration(seconds: 1),));
                                 },
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.refresh,
                                   size: 20,
-                                  color: Theme.of(context).colorScheme.secondary,)
+                                  color: Colors.white,)
                             ),
                           ),
                         ],

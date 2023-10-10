@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:web_topdbd/named_view/about_me_view.dart';
-import 'package:web_topdbd/named_view/desktop_auth_id_view.dart';
-import 'package:web_topdbd/named_view/list_matches_view.dart';
+import 'package:web_topdbd/named_view/about_me_user_view.dart';
+import 'package:web_topdbd/named_view/desktop_auth_id_user_view.dart';
+import 'package:web_topdbd/named_view/list_matches_user_view.dart';
 import 'package:web_topdbd/named_view/list_season_stats_user_view.dart';
-import 'package:web_topdbd/named_view/mode_about_me_view.dart';
-import 'package:web_topdbd/named_view/stats_view.dart';
+import 'package:web_topdbd/named_view/mode_about_me_user_view.dart';
+import 'package:web_topdbd/named_view/stats_user_view.dart';
 
 final class AccountView extends StatefulWidget {
   @override
@@ -27,18 +27,30 @@ final class _AccountViewState extends State<AccountView> {
                 child: Wrap(
                   alignment: WrapAlignment.center,
                   children: [
-                    const Icon(Icons.account_box, color: Colors.white,),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 4),
+                      child: Icon(Icons.account_box, color: Colors.white,),
+                    ),
                     const SizedBox(width: 2,),
                     Padding(
-                      padding: const EdgeInsets.only(top: 2),
+                      padding: const EdgeInsets.only(top: 4),
                       child: Text("(You)",
                         style: TextStyle(
                             fontSize: Theme.of(context).textTheme.bodyLarge?.fontSize,
                             color:  Colors.green),),
                     ),
                     const SizedBox(width: 1,),
+                    Tooltip(
+                      message: "France",
+                      child: Image.asset(
+                          'assets/icon/flags/france.png',
+                          width: 32,
+                          height: 32,
+                          fit: BoxFit.cover),
+                    ),
+                    const SizedBox(width: 1,),
                     Padding(
-                      padding: const EdgeInsets.only(top: 2),
+                      padding: const EdgeInsets.only(top: 5),
                       child: Text("Vicar32",
                         style: Theme.of(context).textTheme.bodyLarge,),
                     ),
@@ -46,23 +58,25 @@ final class _AccountViewState extends State<AccountView> {
                 ),
               ),
             ),
-            DesktopAuthIdView(),
+            DesktopAuthIdUserView(),
             Wrap(
               children: [
-                ModeAboutMeView(),
-                AboutMeView()
+                ModeAboutMeUserView(),
+                AboutMeUserView()
               ],
             ),
             Wrap(
               children: [
-                StatsView(),
+                StatsUserView(),
                 ListSeasonStatsUserView()
               ],
             ),
             Wrap(
               children: [
-                ListMatchesView()
-              ],)
+                ListMatchesUserView(),
+                // Statistics
+              ],
+            )
           ],),
       ),
     );

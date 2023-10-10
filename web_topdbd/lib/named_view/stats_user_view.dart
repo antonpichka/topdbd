@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-final class StatsView extends StatefulWidget {
+final class StatsUserView extends StatefulWidget {
   @override
-  State<StatsView> createState() => _StatsViewState();
+  State<StatsUserView> createState() => _StatsUserViewState();
 }
 
-final class _StatsViewState extends State<StatsView> {
+final class _StatsUserViewState extends State<StatsUserView> {
   @override
   Widget build(BuildContext context) {
     final rvDoubleWidthSizedBox = ResponsiveValue<double>(
@@ -49,7 +49,7 @@ final class _StatsViewState extends State<StatsView> {
             SizedBox(
                 width: double.infinity,
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: Column(
                     children: [
                       const Row(

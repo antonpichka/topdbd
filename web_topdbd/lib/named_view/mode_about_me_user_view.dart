@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-final class ModeAboutMeView extends StatefulWidget {
+final class ModeAboutMeUserView extends StatefulWidget {
   @override
-  State<ModeAboutMeView> createState() => _ModeAboutMeViewState();
+  State<ModeAboutMeUserView> createState() => _ModeAboutMeUserViewState();
 }
 
-final class _ModeAboutMeViewState extends State<ModeAboutMeView> {
+final class _ModeAboutMeUserViewState extends State<ModeAboutMeUserView> {
   @override
   Widget build(BuildContext context) {
     final rvDoubleWidthSizedBox = ResponsiveValue<double>(
@@ -102,11 +102,7 @@ final class _ModeAboutMeViewState extends State<ModeAboutMeView> {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: BoxDecoration(
-                        border: Border(
-                            top: BorderSide(color: Theme.of(context).colorScheme.secondary),
-                            left: BorderSide(color: Theme.of(context).colorScheme.secondary),
-                            right: BorderSide(color: Theme.of(context).colorScheme.secondary),
-                            bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
+                        border: Border.all(color: Colors.white)
                     ),
                     child: ListTile(
                       titleAlignment: ListTileTitleAlignment.titleHeight,

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-final class AboutMeView extends StatefulWidget {
+final class AboutMeUserView extends StatefulWidget {
   @override
-  State<AboutMeView> createState() => _AboutMeViewState();
+  State<AboutMeUserView> createState() => _AboutMeUserViewState();
 }
 
-final class _AboutMeViewState extends State<AboutMeView> {
+final class _AboutMeUserViewState extends State<AboutMeUserView> {
   @override
   Widget build(BuildContext context) {
     final rvDoubleWidthSizedBox = ResponsiveValue<double>(
@@ -138,10 +138,10 @@ final class _AboutMeViewState extends State<AboutMeView> {
                                           duration: const Duration(seconds: 1),));
                                   });
                                 },
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.copy,
                                   size: 20,
-                                  color: Theme.of(context).colorScheme.secondary,)
+                                  color: Colors.white,)
                             ),
                           ),
                         ),

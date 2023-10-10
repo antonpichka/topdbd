@@ -4,7 +4,6 @@ import 'package:footer/footer.dart';
 import 'package:footer/footer_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/named_view/drawer_to_main_view.dart';
-import 'package:web_topdbd/named_view/favorites_navigation_view.dart';
 import 'package:web_topdbd/named_view/list_season_view.dart';
 import 'package:web_topdbd/named_view/navigation_view.dart';
 import 'package:web_topdbd/named_view/season_view.dart';
@@ -126,12 +125,7 @@ final class _MainViewState extends State<MainView> {
                             ListSeasonView()
                           ],
                         ),
-                        Wrap(
-                          children: [
-                            FavoritesNavigationView(),
-                            NavigationView()
-                          ],
-                        ),
+                        NavigationView(),
                       ],),
                   ),
                 ),

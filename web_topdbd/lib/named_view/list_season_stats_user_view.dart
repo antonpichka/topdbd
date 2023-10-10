@@ -99,27 +99,30 @@ final class _ListSeasonStatsUserViewState extends State<ListSeasonStatsUserView>
   }
 
   Widget _buildItemToListView(String name,String matchesWon,String matchesLost,String ratingPoints) {
-    return Row(
-      children: [
-        Expanded(
-          child: Wrap(
-            children: [
-              const Icon(Icons.history_edu, color: Colors.white,),
-              Padding(
-                padding: const EdgeInsets.only(top: 4),
-                child: Text("Season #$name",
-                  style: Theme.of(context).textTheme.bodyMedium,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: Wrap(
+              children: [
+                const Icon(Icons.history_edu, color: Colors.white,),
+                Padding(
+                  padding: const EdgeInsets.only(top: 4),
+                  child: Text("Season #$name",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        Expanded(
-          child: Text("$matchesWon-$matchesLost | $ratingPoints Points",
-            style: Theme.of(context).textTheme.bodyMedium,
+          Expanded(
+            child: Text("$matchesWon-$matchesLost | $ratingPoints Points",
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

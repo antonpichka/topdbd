@@ -28,7 +28,7 @@ final class _NavigationViewState extends State<NavigationView> {
         conditionalValues: [
           Condition.equals(name: MOBILE, value: 1.0),
           Condition.equals(name: TABLET, value: 1.0),
-          Condition.equals(name: DESKTOP,value: 2.1),
+          Condition.equals(name: DESKTOP,value: 1.05),
         ]).value;
     return SizedBox(
       width: MediaQuery.of(context).size.width / rvDoubleWidthSizedBox!,
@@ -81,11 +81,11 @@ final class _NavigationViewState extends State<NavigationView> {
                           crossAxisCount: 1,
                           children: [
                             Container(
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                   border: Border(
-                                      left: BorderSide(color: Theme.of(context).colorScheme.secondary),
-                                      right: BorderSide(color: Theme.of(context).colorScheme.secondary),
-                                      bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
+                                      left: BorderSide(color: Colors.white),
+                                      right: BorderSide(color: Colors.white),
+                                      bottom: BorderSide(color: Colors.white))
                               ),
                               child: ListTile(
                                 titleAlignment: ListTileTitleAlignment.titleHeight,
@@ -98,10 +98,10 @@ final class _NavigationViewState extends State<NavigationView> {
                               ),
                             ),
                             Container(
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                   border: Border(
-                                      right: BorderSide(color: Theme.of(context).colorScheme.secondary),
-                                      bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
+                                      right: BorderSide(color: Colors.white),
+                                      bottom: BorderSide(color: Colors.white))
                               ),
                               child: ListTile(
                                 titleAlignment: ListTileTitleAlignment.titleHeight,
@@ -114,10 +114,10 @@ final class _NavigationViewState extends State<NavigationView> {
                               ),
                             ),
                             Container(
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                   border: Border(
-                                      right: BorderSide(color: Theme.of(context).colorScheme.secondary),
-                                      bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
+                                      right: BorderSide(color: Colors.white),
+                                      bottom: BorderSide(color: Colors.white))
                               ),
                               child: ListTile(
                                 titleAlignment: ListTileTitleAlignment.titleHeight,

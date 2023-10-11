@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 final class NavigationView extends StatefulWidget {
@@ -29,9 +30,9 @@ final class _NavigationViewState extends State<NavigationView> {
           Condition.equals(name: MOBILE, value: 1.0),
           Condition.equals(name: TABLET, value: 1.0),
           Condition.equals(name: DESKTOP,value: 1.05),
-        ]).value;
+        ]).value ?? 1.05;
     return SizedBox(
-      width: MediaQuery.of(context).size.width / rvDoubleWidthSizedBox!,
+      width: MediaQuery.of(context).size.width / rvDoubleWidthSizedBox,
       child: Card(
         color: Theme.of(context).colorScheme.surface,
         child: Column(
@@ -80,49 +81,37 @@ final class _NavigationViewState extends State<NavigationView> {
                           childAspectRatio: 1 / 3.0,
                           crossAxisCount: 1,
                           children: [
-                            Container(
-                              decoration: const BoxDecoration(
-                                  border: Border(
-                                      left: BorderSide(color: Colors.white),
-                                      right: BorderSide(color: Colors.white),
-                                      bottom: BorderSide(color: Colors.white))
-                              ),
+                            Card(
+                              color: Theme.of(context).colorScheme.primary,
                               child: ListTile(
                                 titleAlignment: ListTileTitleAlignment.titleHeight,
                                 onTap: () {
-
+                                  context.go('/topPlayers');
                                 },
                                 leading: const Icon(Icons.stacked_bar_chart,color: Colors.white,),
                                 title: Text("TOP Players",
                                   style: Theme.of(context).textTheme.bodyMedium,),
                               ),
                             ),
-                            Container(
-                              decoration: const BoxDecoration(
-                                  border: Border(
-                                      right: BorderSide(color: Colors.white),
-                                      bottom: BorderSide(color: Colors.white))
-                              ),
+                            Card(
+                              color: Theme.of(context).colorScheme.primary,
                               child: ListTile(
                                 titleAlignment: ListTileTitleAlignment.titleHeight,
                                 onTap: () {
-
+                                  context.go('/balance');
                                 },
                                 leading: const Icon(Icons.balance,color: Colors.white,),
                                 title: Text("Balance",
                                   style: Theme.of(context).textTheme.bodyMedium,),
                               ),
                             ),
-                            Container(
-                              decoration: const BoxDecoration(
-                                  border: Border(
-                                      right: BorderSide(color: Colors.white),
-                                      bottom: BorderSide(color: Colors.white))
-                              ),
+                            Card(
+                              elevation: 1.0,
+                              color: Theme.of(context).colorScheme.primary,
                               child: ListTile(
                                 titleAlignment: ListTileTitleAlignment.titleHeight,
                                 onTap: () {
-
+                                  context.go('/tournaments');
                                 },
                                 leading: const Icon(Icons.tour,color: Colors.white,),
                                 title: Text("Tournaments",

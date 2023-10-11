@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:graphic/graphic.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 final class StatisticsOnManiacsUserView extends StatefulWidget {
@@ -50,33 +49,7 @@ final class _StatisticsOnManiacsUserViewState extends State<StatisticsOnManiacsU
                 const SizedBox(height: 5,),
                 SizedBox(
                     width: double.infinity,
-                    child: SingleChildScrollView(
-                      child: SizedBox(
-                        width: 350,
-                        height: 300,
-                        child: Chart(
-                          data: const [
-                            { 'genre': 'Sports', 'sold': 1 },
-                            { 'genre': 'Strategy', 'sold': 3 },
-                            { 'genre': 'Action', 'sold': 5 },
-                            { 'genre': 'Shooter', 'sold': 7 },
-                            { 'genre': 'Other', 'sold': 9 },
-                          ],
-                          variables: {
-                            'genre': Variable(
-                              accessor: (Map map) => map['genre'] as String,
-                            ),
-                            'sold': Variable(
-                              accessor: (Map map) => map['sold'] as num,
-                            ),
-                          },
-                          marks: [IntervalMark()],
-                          axes: [
-                            Defaults.horizontalAxis,
-                          ],
-                        ),
-                      ),
-                    ),
+                    child: Container()
                 ),
               ],)
         )

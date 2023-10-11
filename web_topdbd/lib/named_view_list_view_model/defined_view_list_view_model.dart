@@ -1,26 +1,19 @@
-import 'package:common_topdbd/model/user/user.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/data_for_named/data_for_defined_view/data_for_defined_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_defined_view/initialized_named_stream_state_q_data_for_defined_view/initialized_default_stream_state_q_data_for_defined_view.dart';
 import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/data_for_defined_view_q_there_is_stream_state_view_model/data_for_defined_view_q_there_is_stream_state_view_model.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_shared_preference_service_view_model/user_q_shared_preferences_service_view_model/user_q_shared_preferences_service_view_model_using_get_np.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model_using_update_parameter_date_time_for_creation_time_by_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_custom_start_listening_and_cancel_listening_for_unique_id_by_user.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_unique_id_by_user.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_get_np_for_unique_id_by_user.dart';
 
 @immutable
 final class DefinedViewListViewModel extends BaseNamedViewListViewModel {
   // ModelQNamedServiceViewModel
-  final _userQSharedPreferencesServiceViewModelUsingGetNP =
-  UserQSharedPreferencesServiceViewModelUsingGetNP();
   final _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser =
   StringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser();
-  final _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser =
-  StringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser();
-  final _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser =
-  DatesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser();
+  final _stringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser =
+  StringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser();
 
   // DataForNamedQThereIsStreamStateViewModel
   final _dataForDefinedViewQThereIsStreamStateViewModel =
@@ -39,10 +32,10 @@ final class DefinedViewListViewModel extends BaseNamedViewListViewModel {
 
   void listeningStreamsTempCacheServiceForDefinedView() {
     _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser
-        .startListening((Result<Strings> resultStrings) {
+        .startListening((Result<Strings> resultStringsForUniqueIdByUser) {
           _dataForDefinedViewQThereIsStreamStateViewModel
               .getDataForDefinedView
-              ?.uniqueIdByUser = resultStrings.parameter?.field ?? "";
+              ?.uniqueIdByUser = resultStringsForUniqueIdByUser.parameter?.field ?? "";
           _dataForDefinedViewQThereIsStreamStateViewModel
               .notifyStreamDataForDefinedView();
         });
@@ -50,30 +43,20 @@ final class DefinedViewListViewModel extends BaseNamedViewListViewModel {
 
   Future<String> initForDefinedView()
   async {
-    final resultUser = await _userQSharedPreferencesServiceViewModelUsingGetNP
-        .getUserFromSharedPreferencesServiceNPDS();
-    if(resultUser
+    final resultStringsForUniqueIdByUser = await _stringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser
+        .getStringsFromTempCacheServiceNPDS();
+    if(resultStringsForUniqueIdByUser
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      return _firstBranchOneQInitForDefinedViewQGetUserFromSharedPreferencesServiceNPDS(resultUser);
+      return _firstBranchOneQInitForDefinedViewQGetStringsFromTempCacheServiceNPDS(resultStringsForUniqueIdByUser);
     }
-    final getStringWhereIsEmptyParameterUniqueId = resultUser
-        .parameter
-        ?.getStringWhereIsEmptyParameterUniqueId ?? "";
-    if(getStringWhereIsEmptyParameterUniqueId.isNotEmpty) {
-      return _firstBranchOneQInitForDefinedViewQGetStringWhereIsEmptyParameterUniqueId(getStringWhereIsEmptyParameterUniqueId);
-    }
-    await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser
-        .updateStringsToTempCacheServiceParameterStringDS(resultUser.parameter?.uniqueId ?? "");
-    await _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser
-        .updateDatesTimesToTempCacheServiceParameterDateTimeDS(resultUser.parameter?.creationTime ?? DateTime.now());
     _dataForDefinedViewQThereIsStreamStateViewModel
         .getDataForDefinedView
         ?.isLoading = false;
     _dataForDefinedViewQThereIsStreamStateViewModel
         .getDataForDefinedView
-        ?.uniqueIdByUser = resultUser.parameter?.uniqueId ?? "";
+        ?.uniqueIdByUser = resultStringsForUniqueIdByUser.parameter?.uniqueId ?? "";
     _dataForDefinedViewQThereIsStreamStateViewModel
         .getDataForDefinedView
         ?.isPreSuccess = true;
@@ -85,22 +68,14 @@ final class DefinedViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForDefinedView();
   }
 
-  Future<String> _firstBranchOneQInitForDefinedViewQGetUserFromSharedPreferencesServiceNPDS(Result<User> resultUser)
+  Future<String> _firstBranchOneQInitForDefinedViewQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForUniqueIdByUser)
   async {
     _dataForDefinedViewQThereIsStreamStateViewModel
         .getDataForDefinedView
         ?.isLoading = false;
     _dataForDefinedViewQThereIsStreamStateViewModel
         .getDataForDefinedView
-        ?.exceptionController = resultUser.exceptionController;
-    return resultUser.exceptionController.getKeyParameterException;
-  }
-
-  Future<String> _firstBranchOneQInitForDefinedViewQGetStringWhereIsEmptyParameterUniqueId(String getStringWhereIsEmptyParameterUniqueId)
-  async {
-    _dataForDefinedViewQThereIsStreamStateViewModel
-        .getDataForDefinedView
-        ?.isLoading = false;
-    return getStringWhereIsEmptyParameterUniqueId;
+        ?.exceptionController = resultStringsForUniqueIdByUser.exceptionController;
+    return resultStringsForUniqueIdByUser.exceptionController.getKeyParameterException;
   }
 }

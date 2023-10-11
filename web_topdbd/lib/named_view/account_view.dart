@@ -3,7 +3,6 @@ import 'package:web_topdbd/named_view/about_me_user_view.dart';
 import 'package:web_topdbd/named_view/desktop_auth_id_user_view.dart';
 import 'package:web_topdbd/named_view/list_matches_user_view.dart';
 import 'package:web_topdbd/named_view/list_season_stats_user_view.dart';
-import 'package:web_topdbd/named_view/mode_about_me_user_view.dart';
 import 'package:web_topdbd/named_view/stats_user_view.dart';
 
 final class AccountView extends StatefulWidget {
@@ -58,10 +57,9 @@ final class _AccountViewState extends State<AccountView> {
                 ),
               ),
             ),
-            DesktopAuthIdUserView(),
             Wrap(
               children: [
-                ModeAboutMeUserView(),
+                DesktopAuthIdUserView(),
                 AboutMeUserView()
               ],
             ),

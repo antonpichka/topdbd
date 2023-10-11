@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:web_topdbd/data_for_named/data_for_defined_view/enum_data_for_defined_view.dart';
+import 'package:web_topdbd/named_utility/enum_navigation_utility.dart';
 import 'package:web_topdbd/named_view/login_view.dart';
 import 'package:web_topdbd/named_view/pre_verified_user_system_view.dart';
 import 'package:web_topdbd/named_view/verified_user_system_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/defined_view_list_view_model.dart';
 
 final class DefinedView extends StatefulWidget {
+  final EnumNavigationUtility enumNavigationUtility;
+
+  const DefinedView(this.enumNavigationUtility);
+
   @override
   State<DefinedView> createState() => _DefinedViewState();
 }
@@ -37,9 +42,9 @@ final class _DefinedViewState extends State<DefinedView> {
       case EnumDataForDefinedView.loginView:
         return LoginView();
       case EnumDataForDefinedView.preSuccess:
-        return PreVerifiedUserSystemView();
+        return PreVerifiedUserSystemView(widget.enumNavigationUtility);
       case EnumDataForDefinedView.success:
-        return VerifiedUserSystemView();
+        return VerifiedUserSystemView(widget.enumNavigationUtility);
       default:
         return Container();
     }

@@ -16,56 +16,56 @@ final class _ButtonsAccountViewState extends State<ButtonsAccountView> {
           width: 240,
           child: Tooltip(
             message: username,
-            child: Container(
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white)
-              ),
-              child: ListTile(
-                onTap: () {
-                },
-                leading: Image.asset(
-                    'assets/icon/flags/france.png',
-                    width: 32,
-                    height: 32,
-                    fit: BoxFit.cover),
-                title: Text(username.length >  9 ? "${username.substring(0,9)}..." : username,
-                  style: Theme.of(context).textTheme.bodyMedium,),
-                trailing: const Icon(
-                  Icons.check,
-                  size: 30,
-                  color: Colors.white,),
-              ),
+            child: ListTile(
+              onTap: () {
+              },
+              leading: Image.asset(
+                  'assets/icon/flags/france.png',
+                  width: 32,
+                  height: 32,
+                  fit: BoxFit.cover),
+              title: Text(username.length >  9 ? "${username.substring(0,9)}..." : username,
+                style: Theme.of(context).textTheme.bodyMedium,),
             ),
           ),
         ),
-        IconButton(
-          icon: const Icon(
-            Icons.logout,
+        Padding(
+          padding: const EdgeInsets.only(top: 4.0),
+          child: Ink(
+            decoration: ShapeDecoration(
+                color: Theme.of(context).colorScheme.primary,
+                shape: const CircleBorder()
+            ),
+            child: IconButton(
+              icon: const Icon(
+                Icons.logout,
+              ),
+              iconSize: 25,
+              color: Colors.white,
+              onPressed: () {
+                showDialog(context: context, builder: (BuildContext context){
+                  return CupertinoAlertDialog(
+                    content: Text("Are you sure you want to log out of your account ?",
+                        style: Theme.of(context).textTheme.bodyMedium),
+                    actions: [
+                      CupertinoDialogAction(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text("Yes",
+                              style: Theme.of(context).textTheme.bodyMedium)),
+                      CupertinoDialogAction(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text("No",
+                            style: Theme.of(context).textTheme.bodyMedium,)),
+                    ],
+                  );
+                });
+              },
+            ),
           ),
-          iconSize: 30,
-          color: Colors.white,
-          onPressed: () {
-            showDialog(context: context, builder: (BuildContext context){
-              return CupertinoAlertDialog(
-                content: Text("Are you sure you want to log out of your account ?",
-                    style: Theme.of(context).textTheme.bodyMedium),
-                actions: [
-                  CupertinoDialogAction(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Text("Yes",
-                          style: Theme.of(context).textTheme.bodyMedium)),
-                  CupertinoDialogAction(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Text("No",
-                        style: Theme.of(context).textTheme.bodyMedium,)),
-                ],
-              );
-            });
-          },
         ),
       ],);
   }

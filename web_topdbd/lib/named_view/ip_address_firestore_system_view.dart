@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/data_for_named/data_for_ip_address_firestore_system_view/enum_data_for_ip_address_firestore_system_view.dart';
+import 'package:web_topdbd/named_utility/enum_navigation_utility.dart';
 import 'package:web_topdbd/named_view/main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/ip_address_firestore_system_view_list_view_model.dart';
 
 final class IPAddressFirestoreSystemView extends StatefulWidget {
+  final EnumNavigationUtility enumNavigationUtility;
+
+  const IPAddressFirestoreSystemView(this.enumNavigationUtility);
+
   @override
   State<IPAddressFirestoreSystemView> createState() => _IPAddressFirestoreSystemViewState();
 }
@@ -44,7 +49,7 @@ final class _IPAddressFirestoreSystemViewState extends State<IPAddressFirestoreS
       case EnumDataForIPAddressFirestoreSystemView.isHack:
         return rvWidgetIsHack!;
       case EnumDataForIPAddressFirestoreSystemView.success:
-        return MainView();
+        return MainView(widget.enumNavigationUtility);
       default:
         return Container();
     }

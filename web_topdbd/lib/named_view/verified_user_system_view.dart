@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/data_for_named/data_for_verified_user_system_view/enum_data_for_verified_user_system_view.dart';
+import 'package:web_topdbd/named_utility/enum_navigation_utility.dart';
 import 'package:web_topdbd/named_view/ip_address_firestore_system_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/verified_user_system_view_list_view_model.dart';
 
 final class VerifiedUserSystemView extends StatefulWidget {
+  final EnumNavigationUtility enumNavigationUtility;
+
+  const VerifiedUserSystemView(this.enumNavigationUtility);
+
   @override
   State<VerifiedUserSystemView> createState() => _VerifiedUserSystemViewState();
 }
@@ -44,7 +49,7 @@ final class _VerifiedUserSystemViewState extends State<VerifiedUserSystemView> {
       case EnumDataForVerifiedUserSystemView.isNotVerifiedUserByVerifiedUser:
         return rvWidgetNotVerifiedUser!;
       case EnumDataForVerifiedUserSystemView.success:
-        return IPAddressFirestoreSystemView();
+        return IPAddressFirestoreSystemView(widget.enumNavigationUtility);
       default:
         return Container();
     }

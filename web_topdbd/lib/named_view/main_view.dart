@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:footer/footer.dart';
 import 'package:footer/footer_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:web_topdbd/named_utility/enum_navigation_utility.dart';
 import 'package:web_topdbd/named_view/drawer_to_main_view.dart';
 import 'package:web_topdbd/named_view/list_season_view.dart';
 import 'package:web_topdbd/named_view/navigation_view.dart';
@@ -12,6 +13,10 @@ import 'package:web_topdbd/named_view/title_to_app_bar_to_main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/main_view_list_view_model.dart';
 
 final class MainView extends StatefulWidget {
+  final EnumNavigationUtility enumNavigationUtility;
+
+  const MainView(this.enumNavigationUtility);
+
   @override
   State<MainView> createState() => _MainViewState();
 }
@@ -132,7 +137,7 @@ final class _MainViewState extends State<MainView> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: SelectedNavigationItemView(),
+                child: SelectedNavigationItemView(widget.enumNavigationUtility),
               )
             ],
           ),
@@ -140,8 +145,8 @@ final class _MainViewState extends State<MainView> {
     );
   }
 
-  Future<void> _init()
-  async {
-
+  void _init() {
+    final result = _mainViewListViewModel.initForMainView();
+    debugPrint("MainView: $result");
   }
 }

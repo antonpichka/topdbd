@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:web_topdbd/data_for_named/data_for_initialize_service_system_view/enum_data_for_initialize_service_system_view.dart';
+import 'package:web_topdbd/named_utility/enum_navigation_utility.dart';
 import 'package:web_topdbd/named_view/those_works_system_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/initialize_service_system_view_list_view_model.dart';
 
 final class InitializeServiceSystemView extends StatefulWidget {
+  final EnumNavigationUtility enumNavigationUtility;
+
+  const InitializeServiceSystemView(this.enumNavigationUtility);
+
   @override
   State<InitializeServiceSystemView> createState() => _InitializeServiceSystemViewState();
 }
@@ -33,7 +38,7 @@ final class _InitializeServiceSystemViewState extends State<InitializeServiceSys
       case EnumDataForInitializeServiceSystemView.exception:
         return Scaffold(body: Center(child: Text("Exception: ${dataForInitializeServiceSystemView?.exceptionController.getKeyParameterException}")));
       case EnumDataForInitializeServiceSystemView.success:
-        return ThoseWorksSystemView();
+        return ThoseWorksSystemView(widget.enumNavigationUtility);
       default:
         return Container();
     }

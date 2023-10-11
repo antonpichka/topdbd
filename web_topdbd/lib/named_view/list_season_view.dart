@@ -29,7 +29,7 @@ final class _ListSeasonViewState extends State<ListSeasonView> {
           Condition.equals(name: MOBILE, value: 1.0),
           Condition.equals(name: TABLET, value: 1.0),
           Condition.equals(name: DESKTOP,value: 2.1),
-        ]).value;
+        ]).value ?? 2.1;
     return SizedBox(
       width: MediaQuery.of(context).size.width / rvDoubleWidthSizedBox!,
       child: Card(

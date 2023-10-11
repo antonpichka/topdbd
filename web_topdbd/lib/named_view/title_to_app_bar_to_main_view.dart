@@ -28,7 +28,7 @@ final class _TitleToAppBarToMainViewState extends State<TitleToAppBarToMainView>
           Condition.smallerThan(name: TABLET, value: _buildTabletAndMobile())
         ]
     ).value;
-    return rvWidgetTabletAndMobileOrDesktop!;
+    return rvWidgetTabletAndMobileOrDesktop ?? Container();
   }
 
   Widget _buildTabletAndMobile() {

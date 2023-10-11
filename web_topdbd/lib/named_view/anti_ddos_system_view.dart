@@ -4,10 +4,15 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/data_for_anti_ddos_system_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/enum_data_for_anti_ddos_system_view.dart';
+import 'package:web_topdbd/named_utility/enum_navigation_utility.dart';
 import 'package:web_topdbd/named_view/initialize_service_system_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/anti_ddos_system_view_list_view_model.dart';
 
 final class AntiDDosSystemView extends StatefulWidget {
+  final EnumNavigationUtility enumNavigationUtility;
+
+  const AntiDDosSystemView(this.enumNavigationUtility);
+
   @override
   State<AntiDDosSystemView> createState() => _AntiDDosSystemViewState();
 }
@@ -47,7 +52,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
       case EnumDataForAntiDDosSystemView.form:
         return rvWidgetForm!;
       case EnumDataForAntiDDosSystemView.success:
-        return InitializeServiceSystemView();
+        return InitializeServiceSystemView(widget.enumNavigationUtility);
       default:
         return Container();
     }

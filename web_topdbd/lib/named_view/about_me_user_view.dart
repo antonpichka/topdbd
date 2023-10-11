@@ -46,6 +46,44 @@ final class _AboutMeUserViewState extends State<AboutMeUserView> {
                       bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
               ),
             ),
+            SizedBox(
+              width: double.infinity,
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Wrap(
+                  alignment: WrapAlignment.center,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(top: 8.0),
+                      child: Tooltip(
+                          message: "Access is only available to: 'YOU'",
+                          child: Icon(Icons.lock, color: Colors.white,)),
+                    ),
+                    const SizedBox(width: 2,),
+                    Ink(
+                      decoration: ShapeDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                          shape: const CircleBorder()
+                      ),
+                      child: IconButton(
+                          onPressed: () {
+                          },
+                          icon: const Icon(
+                            Icons.edit,
+                            size: 20,
+                            color: Colors.white,)
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
+              ),
+            ),
             const SizedBox(height: 5,),
             SizedBox(
                 width: double.infinity,

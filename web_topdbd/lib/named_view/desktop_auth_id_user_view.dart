@@ -15,7 +15,7 @@ final class _DesktopAuthIdUserViewState extends State<DesktopAuthIdUserView> {
         conditionalValues: [
           Condition.equals(name: MOBILE, value: 1.0),
           Condition.equals(name: TABLET, value: 1.0),
-          Condition.equals(name: DESKTOP,value: 1.05),
+          Condition.equals(name: DESKTOP,value: 2.1),
         ]).value;
     return SizedBox(
       width: MediaQuery.of(context).size.width / rvDoubleWidthSizedBox!,
@@ -30,59 +30,14 @@ final class _DesktopAuthIdUserViewState extends State<DesktopAuthIdUserView> {
                 child: Wrap(
                   alignment: WrapAlignment.center,
                   children: [
+                    Tooltip(
+                        message: "Access is only available to: 'YOU'",
+                        child: Icon(Icons.lock, color: Colors.white,)),
                     Icon(Icons.login, color: Colors.white,),
                     SizedBox(width: 2,),
                     Padding(
                       padding: EdgeInsets.only(top: 3.0),
                       child: Text("Desktop Auth Id"),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
-              ),
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Wrap(
-                  alignment: WrapAlignment.center,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(top: 2.0),
-                      child: Icon(Icons.lock, color: Colors.white,),
-                    ),
-                    const SizedBox(width: 2,),
-                    Wrap(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 5.0),
-                          child: Text("Access is only available to: "),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5.0),
-                          child: ElevatedButton(
-                              onPressed: () {
-
-                              },
-                              style: ButtonStyle(
-                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(18.0),
-                                          side: BorderSide(color: Theme.of(context).colorScheme.primary)
-                                      )
-                                  )
-                              ),
-                              child: Text("You",
-                                  style: Theme.of(context).textTheme.bodyMedium)
-                          ),
-                        ),
-                      ],
                     ),
                   ],
                 ),

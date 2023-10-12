@@ -15,7 +15,7 @@ final class DataForDefinedView extends BaseDataForNamed {
       return EnumDataForDefinedView.exception;
     }
     if(uniqueIdByUser.isEmpty) {
-      return EnumDataForDefinedView.loginView;
+      return EnumDataForDefinedView.login;
     }
     if(isPreSuccess) {
       return EnumDataForDefinedView.preSuccess;

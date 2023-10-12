@@ -7,20 +7,20 @@ import 'package:web_topdbd/data_for_named/data_for_ip_address_firestore_system_v
 import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/data_for_ip_address_firestore_system_view_q_there_is_stream_state_view_model/data_for_ip_address_firestore_system_view_q_there_is_stream_state_view_model.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/ip_address_firestore_q_firebase_firestore_service_view_model/ip_address_firestore_q_firebase_firestore_service_view_model_using_custom_start_listening_and_cancel_listening.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_shared_preference_service_view_model/user_q_shared_preferences_service_view_model/user_q_shared_preferences_service_view_model_using_delete_np.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_custom_start_listening_and_cancel_listening_for_unique_id_by_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_get_np_for_ip_by_ip_address.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_get_np_for_unique_id_by_user.dart';
 
 @immutable
 final class IPAddressFirestoreSystemViewListViewModel extends BaseNamedViewListViewModel {
   // ModelQNamedServiceViewModel
-  final _stringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser =
-  StringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser();
   final _stringsQTempCacheServiceViewModelUsingGetNPForIpByIPAddress =
   StringsQTempCacheServiceViewModelUsingGetNPForIpByIPAddress();
   final _iPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening =
   IPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening();
   final _userQSharedPreferencesServiceViewModelUsingDeleteNP =
   UserQSharedPreferencesServiceViewModelUsingDeleteNP();
+  final _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser =
+  StringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser();
 
   // DataForNamedQThereIsStreamStateViewModel
   final _dataForIPAddressFirestoreSystemViewQThereIsStreamStateViewModel =
@@ -35,17 +35,17 @@ final class IPAddressFirestoreSystemViewListViewModel extends BaseNamedViewListV
   Stream<DataForIPAddressFirestoreSystemView?> get getStreamDataForIPAddressFirestoreSystemView => _dataForIPAddressFirestoreSystemViewQThereIsStreamStateViewModel.getStreamDataForIPAddressFirestoreSystemView;
   DataForIPAddressFirestoreSystemView? get getDataForIPAddressFirestoreSystemView => _dataForIPAddressFirestoreSystemViewQThereIsStreamStateViewModel.getDataForIPAddressFirestoreSystemView;
 
-  Future<void> listeningStreamsFirebaseFirestoreServiceForIPAddressFirestoreSystemView()
-  async {
-    final resultStringsForUniqueIdByUser = await _stringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser
-        .getStringsFromTempCacheServiceNPDS();
-    if(resultStringsForUniqueIdByUser
-        .exceptionController
-        .isNotEqualsNullParameterException())
+  void listeningStreamsTempCacheServiceAndFirebaseFirestoreServiceForIPAddressFirestoreSystemView() {
+    _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser
+        .startListening((Result<Strings> resultStringsForUniqueIdByUser) async
     {
-      _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForIPAddressFirestoreSystemViewQGetStringsFromTempCacheServiceNPDS(resultStringsForUniqueIdByUser);
-      return;
-    }
+      _iPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening.cancelListening();
+      await _listeningStreamsFirebaseFirestoreServiceForIPAddressFirestoreSystemView(resultStringsForUniqueIdByUser);
+    });
+  }
+
+  Future<void> _listeningStreamsFirebaseFirestoreServiceForIPAddressFirestoreSystemView(Result<Strings> resultStringsForUniqueIdByUser)
+  async {
     await _iPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening
         .startListening(resultStringsForUniqueIdByUser.parameter?.field ?? "",(Result<IPAddressFirestore> resultIPAddressFirestore) async {
           if(resultIPAddressFirestore
@@ -84,17 +84,6 @@ final class IPAddressFirestoreSystemViewListViewModel extends BaseNamedViewListV
   }
 
   void notifyStreamDataForIPAddressFirestoreSystemView() {
-    _dataForIPAddressFirestoreSystemViewQThereIsStreamStateViewModel
-        .notifyStreamDataForIPAddressFirestoreSystemView();
-  }
-
-  void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForIPAddressFirestoreSystemViewQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForUniqueIdByUser) {
-    _dataForIPAddressFirestoreSystemViewQThereIsStreamStateViewModel
-        .getDataForIPAddressFirestoreSystemView
-        ?.isLoading = false;
-    _dataForIPAddressFirestoreSystemViewQThereIsStreamStateViewModel
-        .getDataForIPAddressFirestoreSystemView
-        ?.exceptionController = resultStringsForUniqueIdByUser.exceptionController;
     _dataForIPAddressFirestoreSystemViewQThereIsStreamStateViewModel
         .notifyStreamDataForIPAddressFirestoreSystemView();
   }

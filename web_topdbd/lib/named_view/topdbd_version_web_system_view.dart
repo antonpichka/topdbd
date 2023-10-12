@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/data_for_named/data_for_topdbd_version_web_system_view/data_for_topdbd_version_web_system_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_topdbd_version_web_system_view/enum_data_for_topdbd_version_web_system_view.dart';
-import 'package:web_topdbd/named_utility/enum_navigation_utility.dart';
+import 'package:web_topdbd/named_utility/navigation_utility.dart';
 import 'package:web_topdbd/named_view/defined_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/topdbd_version_web_system_view_list_view_model.dart';
 
 final class TOPDBDVersionWebSystemView extends StatefulWidget {
-  final EnumNavigationUtility enumNavigationUtility;
+  final NavigationUtility navigationUtility;
 
-  const TOPDBDVersionWebSystemView(this.enumNavigationUtility);
+  const TOPDBDVersionWebSystemView(this.navigationUtility);
 
   @override
   State<TOPDBDVersionWebSystemView> createState() => _TOPDBDVersionWebSystemViewState();
@@ -50,7 +50,7 @@ final class _TOPDBDVersionWebSystemViewState extends State<TOPDBDVersionWebSyste
       case EnumDataForTOPDBDVersionWebSystemView.isNotValidVersionTOPDBDVersionWeb:
         return rvWidgetIsNotValidVersionTOPDBDVersionWeb!;
       case EnumDataForTOPDBDVersionWebSystemView.success:
-        return DefinedView(widget.enumNavigationUtility);
+        return DefinedView(widget.navigationUtility);
       default:
         return Container();
     }

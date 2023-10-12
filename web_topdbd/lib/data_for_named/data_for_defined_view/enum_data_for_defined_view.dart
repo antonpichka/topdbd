@@ -1,7 +1,7 @@
 enum EnumDataForDefinedView {
   isLoading,
   exception,
-  loginView,
+  login,
   preSuccess,
   success
 }

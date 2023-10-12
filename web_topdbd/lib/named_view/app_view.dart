@@ -5,6 +5,7 @@ import 'package:web_topdbd/data_for_named/data_for_app_view/enum_data_for_app_vi
 import 'package:web_topdbd/l10n/l10n.dart';
 import 'package:web_topdbd/named_utility/enum_navigation_utility.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
+import 'package:web_topdbd/named_utility/navigation_utility.dart';
 import 'package:web_topdbd/named_view/initialize_service_system_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/app_view_list_view_model.dart';
 
@@ -73,8 +74,6 @@ final class _AppViewState extends State<AppView> {
                   return "/exception";
                 case EnumDataForAppView.login:
                   return "/login";
-                case EnumDataForAppView.preSuccess:
-                  return "/preSuccess";
                 case EnumDataForAppView.success:
                   return "/topPlayers";
                 default:
@@ -85,9 +84,10 @@ final class _AppViewState extends State<AppView> {
           GoRoute(
             path: '/topPlayers',
             pageBuilder:(BuildContext context, GoRouterState state) {
-              return const MaterialPage(
-                  key: ValueKey('main'),
-                  child: InitializeServiceSystemView(EnumNavigationUtility.topPlayers));
+              final dataForAppView = _appViewListViewModel.getDataForAppView;
+              return MaterialPage(
+                  key: const ValueKey('main'),
+                  child: InitializeServiceSystemView(NavigationUtility(EnumNavigationUtility.topPlayers,dataForAppView?.uniqueIdByUser ?? "",dataForAppView?.isPreSuccess ?? false)));
               },
               redirect: (BuildContext context, GoRouterState state) {
                 final dataForAppView = _appViewListViewModel.getDataForAppView;
@@ -98,8 +98,6 @@ final class _AppViewState extends State<AppView> {
                     return "/exception";
                   case EnumDataForAppView.login:
                     return "/login";
-                  case EnumDataForAppView.preSuccess:
-                    return "/preSuccess";
                   case EnumDataForAppView.success:
                     return "/topPlayers";
                   default:
@@ -110,9 +108,10 @@ final class _AppViewState extends State<AppView> {
           GoRoute(
             path: '/balance',
             pageBuilder:(BuildContext context, GoRouterState state) {
-              return const MaterialPage(
-                  key: ValueKey('main'),
-                  child: InitializeServiceSystemView(EnumNavigationUtility.balance));
+              final dataForAppView = _appViewListViewModel.getDataForAppView;
+              return MaterialPage(
+                  key: const ValueKey('main'),
+                  child: InitializeServiceSystemView(NavigationUtility(EnumNavigationUtility.balance,dataForAppView?.uniqueIdByUser ?? "",dataForAppView?.isPreSuccess ?? false)));
               },
               redirect: (BuildContext context, GoRouterState state) {
                 final dataForAppView = _appViewListViewModel.getDataForAppView;
@@ -123,8 +122,6 @@ final class _AppViewState extends State<AppView> {
                     return "/exception";
                   case EnumDataForAppView.login:
                     return "/login";
-                  case EnumDataForAppView.preSuccess:
-                    return "/preSuccess";
                   case EnumDataForAppView.success:
                     return "/balance";
                   default:
@@ -135,10 +132,11 @@ final class _AppViewState extends State<AppView> {
           GoRoute(
             path: '/tournaments',
             pageBuilder:(BuildContext context, GoRouterState state) {
-              return const MaterialPage(
-                  key: ValueKey('main'),
-                  child: InitializeServiceSystemView(EnumNavigationUtility.tournaments));
-              },
+              final dataForAppView = _appViewListViewModel.getDataForAppView;
+              return MaterialPage(
+                  key: const ValueKey('main'),
+                  child: InitializeServiceSystemView(NavigationUtility(EnumNavigationUtility.tournaments,dataForAppView?.uniqueIdByUser ?? "",dataForAppView?.isPreSuccess ?? false)));
+            },
               redirect: (BuildContext context, GoRouterState state) {
                 final dataForAppView = _appViewListViewModel.getDataForAppView;
                 switch(dataForAppView?.getEnumDataForAppView) {
@@ -148,8 +146,6 @@ final class _AppViewState extends State<AppView> {
                     return "/exception";
                   case EnumDataForAppView.login:
                     return "/login";
-                  case EnumDataForAppView.preSuccess:
-                    return "/preSuccess";
                   case EnumDataForAppView.success:
                     return "/tournaments";
                   default:
@@ -160,9 +156,10 @@ final class _AppViewState extends State<AppView> {
           GoRoute(
             path: '/login',
             pageBuilder:(BuildContext context, GoRouterState state) {
-              return const MaterialPage(
-                  key: ValueKey('main'),
-                  child: InitializeServiceSystemView(EnumNavigationUtility.topPlayers));
+              final dataForAppView = _appViewListViewModel.getDataForAppView;
+              return MaterialPage(
+                  key: const ValueKey('main'),
+                  child: InitializeServiceSystemView(NavigationUtility(EnumNavigationUtility.topPlayers,dataForAppView?.uniqueIdByUser ?? "",dataForAppView?.isPreSuccess ?? false)));
               },
               redirect: (BuildContext context, GoRouterState state) {
                 final dataForAppView = _appViewListViewModel.getDataForAppView;
@@ -173,8 +170,6 @@ final class _AppViewState extends State<AppView> {
                     return "/exception";
                   case EnumDataForAppView.login:
                     return "/login";
-                  case EnumDataForAppView.preSuccess:
-                    return "/preSuccess";
                   case EnumDataForAppView.success:
                     return "/topPlayers";
                   default:
@@ -197,8 +192,6 @@ final class _AppViewState extends State<AppView> {
                     return "/exception";
                   case EnumDataForAppView.login:
                     return "/login";
-                  case EnumDataForAppView.preSuccess:
-                    return "/preSuccess";
                   case EnumDataForAppView.success:
                     return "/topPlayers";
                   default:
@@ -222,8 +215,6 @@ final class _AppViewState extends State<AppView> {
                     return "/exception";
                   case EnumDataForAppView.login:
                     return "/login";
-                  case EnumDataForAppView.preSuccess:
-                    return "/preSuccess";
                   case EnumDataForAppView.success:
                     return "/topPlayers";
                   default:
@@ -241,6 +232,7 @@ final class _AppViewState extends State<AppView> {
         .listen((event) {
           setState(() {});
         });
+    _appViewListViewModel.listeningStreamsTempCacheServiceForAppView();
     final result = await _appViewListViewModel.initForAppView();
     debugPrint("AppView: $result");
     if(!mounted) {

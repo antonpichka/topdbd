@@ -52,6 +52,17 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
   Stream<DataForAppView?> get getStreamDataForAppView => _dataForAppViewQThereIsStreamStateViewModel.getStreamDataForAppView;
   DataForAppView? get getDataForAppView => _dataForAppViewQThereIsStreamStateViewModel.getDataForAppView;
 
+  void listeningStreamsTempCacheServiceForAppView() {
+    _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser
+        .startListening((Result<Strings> resultStringsForUniqueIdByUser) {
+          _dataForAppViewQThereIsStreamStateViewModel
+              .getDataForAppView
+              ?.uniqueIdByUser = resultStringsForUniqueIdByUser.parameter?.field ?? "";
+          _dataForAppViewQThereIsStreamStateViewModel
+              .notifyStreamDataForAppView();
+    });
+  }
+
   Future<String> initForAppView()
   async {
     final resultBoolForVersionByTOPDBDVersionWeb =  await _stringsQTempCacheServiceViewModelUsingUpdateNPForVersionByTOPDBDVersionWeb
@@ -110,17 +121,22 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
     {
       return _firstBranchOneQInitForAppViewQGetUserFromSharedPreferencesServiceNPDS(resultUser);
     }
+    final getStringWhereIsEmptyParameterUniqueId = resultUser
+        .parameter
+        ?.getStringWhereIsEmptyParameterUniqueId ?? "";
+    if(getStringWhereIsEmptyParameterUniqueId.isNotEmpty) {
+      return _firstBranchOneQInitForAppViewQGetStringWhereIsEmptyParameterUniqueId(getStringWhereIsEmptyParameterUniqueId);
+    }
     await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser
         .updateStringsToTempCacheServiceParameterStringDS(resultUser.parameter?.uniqueId ?? "");
     await _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForCreationTimeByUser
         .updateDatesTimesToTempCacheServiceParameterDateTimeDS(resultUser.parameter?.creationTime ?? DateTime.now());
-    resultUser.parameter.getStringWhereIsEmptyParameterUniqueId;
     _dataForAppViewQThereIsStreamStateViewModel
         .getDataForAppView
         ?.isLoading = false;
     _dataForAppViewQThereIsStreamStateViewModel
         .getDataForAppView
-        ?.user = resultUser.parameter!.getCloneModel;
+        ?.uniqueIdByUser = resultUser.parameter?.uniqueId ?? "";
     _dataForAppViewQThereIsStreamStateViewModel
         .getDataForAppView
         ?.isPreSuccess = true;
@@ -207,5 +223,13 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
         .getDataForAppView
         ?.exceptionController = resultUser.exceptionController;
     return resultUser.exceptionController.getKeyParameterException;
+  }
+
+  Future<String> _firstBranchOneQInitForAppViewQGetStringWhereIsEmptyParameterUniqueId(String getStringWhereIsEmptyParameterUniqueId)
+  async {
+    _dataForAppViewQThereIsStreamStateViewModel
+        .getDataForAppView
+        ?.isLoading = false;
+    return getStringWhereIsEmptyParameterUniqueId;
   }
 }

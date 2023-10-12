@@ -114,7 +114,7 @@ final class _VerifiedUserSystemViewState extends State<VerifiedUserSystemView> {
         .listen((event) {
           setState(() {});
         });
-    await _verifiedUserSystemViewListViewModel.listeningStreamsFirebaseFirestoreServiceForVerifiedUserSystemView();
+    _verifiedUserSystemViewListViewModel.listeningStreamsTempCacheServiceAndFirebaseFirestoreServiceForVerifiedUserSystemView();
     final result = _verifiedUserSystemViewListViewModel.initForVerifiedUserSystemView();
     debugPrint("VerifiedUserSystemView: $result");
     if(!mounted) {

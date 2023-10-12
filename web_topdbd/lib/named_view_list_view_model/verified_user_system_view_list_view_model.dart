@@ -7,17 +7,17 @@ import 'package:web_topdbd/data_for_named/data_for_verified_user_system_view/ini
 import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/data_for_verified_user_system_view_q_there_is_stream_state_view_model/data_for_verified_user_system_view_q_there_is_stream_state_view_model.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/verified_user_q_firebase_firestore_service_view_model/verified_user_q_firebase_firestore_service_view_model_using_custom_start_listening_and_cancel_listening.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_update_parameter_bool_for_is_verified_user_by_verified_user.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_get_np_for_unique_id_by_user.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_custom_start_listening_and_cancel_listening_for_unique_id_by_user.dart';
 
 @immutable
 final class VerifiedUserSystemViewListViewModel extends BaseNamedViewListViewModel {
   // ModelQNamedServiceViewModel
   final _verifiedUserQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening =
   VerifiedUserQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening();
-  final _stringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser =
-  StringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser();
   final _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUser =
   BoolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUser();
+  final _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser =
+  StringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser();
 
   // DataForNamedQThereIsStreamStateViewModel
   final _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel =
@@ -32,19 +32,20 @@ final class VerifiedUserSystemViewListViewModel extends BaseNamedViewListViewMod
   Stream<DataForVerifiedUserSystemView?> get getStreamDataForVerifiedUserSystemView => _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel.getStreamDataForVerifiedUserSystemView;
   DataForVerifiedUserSystemView? get getDataForVerifiedUserSystemView => _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel.getDataForVerifiedUserSystemView;
 
-  Future<void> listeningStreamsFirebaseFirestoreServiceForVerifiedUserSystemView()
-  async {
-    final resultStringsForUniqueIdByUser = await _stringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser
-        .getStringsFromTempCacheServiceNPDS();
-    if(resultStringsForUniqueIdByUser
-        .exceptionController
-        .isNotEqualsNullParameterException())
+  void listeningStreamsTempCacheServiceAndFirebaseFirestoreServiceForVerifiedUserSystemView() {
+    _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser
+        .startListening((Result<Strings> resultStringsForUniqueIdByUser) async
     {
-      _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForVerifiedUserSystemViewQGetStringsFromTempCacheServiceNPDS(resultStringsForUniqueIdByUser);
-      return;
-    }
+      _verifiedUserQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening.cancelListening();
+      await _listeningStreamsFirebaseFirestoreServiceForVerifiedUserSystemView(resultStringsForUniqueIdByUser);
+    });
+  }
+
+  Future<void> _listeningStreamsFirebaseFirestoreServiceForVerifiedUserSystemView(Result<Strings> resultStringsForUniqueIdByUser)
+  async {
     await _verifiedUserQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening
-        .startListening(resultStringsForUniqueIdByUser.parameter?.field ?? "", (Result<VerifiedUser> resultVerifiedUser) async {
+        .startListening(resultStringsForUniqueIdByUser.parameter?.field ?? "", (Result<VerifiedUser> resultVerifiedUser)
+    async {
           if(resultVerifiedUser
               .exceptionController
               .isNotEqualsNullParameterException())
@@ -70,17 +71,6 @@ final class VerifiedUserSystemViewListViewModel extends BaseNamedViewListViewMod
   }
 
   void notifyStreamDataForVerifiedUserSystemView() {
-    _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .notifyStreamDataForVerifiedUserSystemView();
-  }
-
-  void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForVerifiedUserSystemViewQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForUniqueIdByUser) {
-    _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForVerifiedUserSystemView
-        ?.isLoading = false;
-    _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForVerifiedUserSystemView
-        ?.exceptionController = resultStringsForUniqueIdByUser.exceptionController;
     _dataForVerifiedUserSystemViewQThereIsStreamStateViewModel
         .notifyStreamDataForVerifiedUserSystemView();
   }

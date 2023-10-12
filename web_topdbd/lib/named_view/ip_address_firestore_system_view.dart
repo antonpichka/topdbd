@@ -94,7 +94,7 @@ final class _IPAddressFirestoreSystemViewState extends State<IPAddressFirestoreS
         .listen((event) {
           setState(() {});
         });
-    await _iPAddressFirestoreSystemViewListViewModel.listeningStreamsFirebaseFirestoreServiceForIPAddressFirestoreSystemView();
+    _iPAddressFirestoreSystemViewListViewModel.listeningStreamsTempCacheServiceAndFirebaseFirestoreServiceForIPAddressFirestoreSystemView();
     final result = _iPAddressFirestoreSystemViewListViewModel.initForIPAddressFirestoreSystemView();
     debugPrint("IPAddressFirestoreSystemView: $result");
     if(!mounted) {

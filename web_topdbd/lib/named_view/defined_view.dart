@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:web_topdbd/data_for_named/data_for_defined_view/enum_data_for_defined_view.dart';
-import 'package:web_topdbd/named_utility/enum_navigation_utility.dart';
+import 'package:web_topdbd/named_utility/navigation_utility.dart';
 import 'package:web_topdbd/named_view/login_view.dart';
 import 'package:web_topdbd/named_view/pre_verified_user_system_view.dart';
 import 'package:web_topdbd/named_view/verified_user_system_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/defined_view_list_view_model.dart';
 
 final class DefinedView extends StatefulWidget {
-  final EnumNavigationUtility enumNavigationUtility;
+  final NavigationUtility navigationUtility;
 
-  const DefinedView(this.enumNavigationUtility);
+  const DefinedView(this.navigationUtility);
 
   @override
   State<DefinedView> createState() => _DefinedViewState();
@@ -20,7 +20,7 @@ final class _DefinedViewState extends State<DefinedView> {
 
   @override
   void initState() {
-    _definedViewListViewModel = DefinedViewListViewModel();
+    _definedViewListViewModel = DefinedViewListViewModel(widget.navigationUtility);
     super.initState();
     _init();
   }
@@ -39,12 +39,12 @@ final class _DefinedViewState extends State<DefinedView> {
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
       case EnumDataForDefinedView.exception:
         return Scaffold(body: Center(child: Text("Exception: ${dataForDefinedView?.exceptionController.getKeyParameterException}")));
-      case EnumDataForDefinedView.loginView:
+      case EnumDataForDefinedView.login:
         return LoginView();
       case EnumDataForDefinedView.preSuccess:
-        return PreVerifiedUserSystemView(widget.enumNavigationUtility);
+        return PreVerifiedUserSystemView(widget.navigationUtility.enumNavigationUtility);
       case EnumDataForDefinedView.success:
-        return VerifiedUserSystemView(widget.enumNavigationUtility);
+        return VerifiedUserSystemView(widget.navigationUtility.enumNavigationUtility);
       default:
         return Container();
     }
@@ -57,7 +57,6 @@ final class _DefinedViewState extends State<DefinedView> {
         .listen((event) {
           setState(() {});
         });
-    _definedViewListViewModel.listeningStreamsTempCacheServiceForDefinedView();
     final result = await _definedViewListViewModel.initForDefinedView();
     debugPrint("DefinedView: $result");
     if(!mounted) {

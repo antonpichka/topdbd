@@ -1,4 +1,4 @@
-enum EnumDataForPreVerifiedUserSystemView {
+enum EnumDataForPreMainView {
   isLoading,
   exception,
   otherException,

@@ -9,9 +9,9 @@ base class BoolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelList
   @protected
   StreamSubscription<dynamic>? streamSubscription;
 
-  void startListening(Function(Result<T> resultBools) callback) {
+  void startListening(String keyNameStream,Function(Result<T> resultBools) callback) {
     streamSubscription = tempCacheService
-        .getStreamObjectFromTempCache(KeysTempCacheServiceUtility.boolsQIsVerifiedUserByVerifiedUser)
+        .getStreamObjectFromTempCache(keyNameStream,KeysTempCacheServiceUtility.boolsQIsVerifiedUserByVerifiedUser)
         .listen((event) {
           final isVerifiedUserByVerifiedUser = event as bool;
           callback(Result.success(Bools(isVerifiedUserByVerifiedUser) as T));

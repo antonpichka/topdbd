@@ -1,6 +1,9 @@
 enum EnumDataForAppView {
   isLoading,
   exception,
-  login,
-  success
+  thoseWorks,
+  isNotValidVersionTOPDBDVersionWeb,
+  loginView,
+  preMainView,
+  mainView
 }

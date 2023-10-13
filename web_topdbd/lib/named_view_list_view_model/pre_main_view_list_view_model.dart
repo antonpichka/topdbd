@@ -12,9 +12,9 @@ import 'package:common_topdbd/named_utility/get_unique_id_by_user_and_season_num
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
-import 'package:web_topdbd/data_for_named/data_for_pre_verified_user_system_view/data_for_pre_verified_user_system_view.dart';
-import 'package:web_topdbd/data_for_named/data_for_pre_verified_user_system_view/initialized_named_stream_state_q_data_for_pre_verified_user_system_view/initialized_default_stream_state_q_data_for_pre_verified_user_system_view.dart';
-import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/data_for_pre_verified_user_system_view_q_there_is_stream_state_view_model/data_for_pre_verified_user_system_view_q_there_is_stream_state_view_model.dart';
+import 'package:web_topdbd/data_for_named/data_for_pre_main_view/data_for_pre_main_view.dart';
+import 'package:web_topdbd/data_for_named/data_for_pre_main_view/initialized_default_stream_state_q_data_for_pre_main_view/initialized_default_stream_state_q_data_for_pre_main_view.dart';
+import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/data_for_pre_main_view_q_there_is_stream_state_view_model.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/about_me_q_firebase_firestore_service_view_model/about_me_q_firebase_firestore_service_view_model_using_get_parameter_string_for_unique_id_by_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/country_q_firebase_firestore_service_view_model/country_q_firebase_firestore_service_view_model_using_get_parameter_string_for_unique_id_by_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/discord_user_firestore_q_firebase_firestore_service_view_model/discord_user_firestore_q_firebase_firestore_service_view_model_using_get_parameter_string_for_unique_id_by_user.dart';
@@ -46,7 +46,7 @@ import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_s
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_username_by_discord_user.dart';
 
 @immutable
-final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListViewModel {
+final class PreMainViewListViewModel extends BaseNamedViewListViewModel {
   // ModelQNamedServiceViewModel
   final _stringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser =
   StringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser();
@@ -108,18 +108,18 @@ final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListView
   SeasonQTempCacheServiceViewModelUsingUpdateListParameterListSeason();
 
   // DataForNamedQThereIsStreamStateViewModel
-  final _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel =
-  DataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel(InitializedDefaultStreamStateQDataForPreVerifiedUserSystemView());
+  final _dataForPreMainViewQThereIsStreamStateViewModel =
+  DataForPreMainViewQThereIsStreamStateViewModel(InitializedDefaultStreamStateQDataForPreMainView());
 
   @override
   void dispose() {
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel.dispose();
+    _dataForPreMainViewQThereIsStreamStateViewModel.dispose();
   }
 
-  Stream<DataForPreVerifiedUserSystemView?> get getStreamDataForPreVerifiedUserSystemView => _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel.getStreamDataForPreVerifiedUserSystemView;
-  DataForPreVerifiedUserSystemView? get getDataForPreVerifiedUserSystemView => _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel.getDataForPreVerifiedUserSystemView;
+  Stream<DataForPreMainView?> get getStreamDataForPreMainView => _dataForPreMainViewQThereIsStreamStateViewModel.getStreamDataForPreMainView;
+  DataForPreMainView? get getDataForPreMainView => _dataForPreMainViewQThereIsStreamStateViewModel.getDataForPreMainView;
 
-  Future<String> initForPreVerifiedUserSystemView()
+  Future<String> initForPreMainView()
   async {
     final resultStringsForUniqueIdByUser = await _stringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser
         .getStringsFromTempCacheServiceNPDS();
@@ -127,7 +127,7 @@ final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListView
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      return _firstBranchOneQInitForPreVerifiedUserSystemViewQGetStringsFromTempCacheServiceNPDS(resultStringsForUniqueIdByUser);
+      return _firstBranchOneQInitForPreMainViewQGetStringsFromTempCacheServiceNPDS(resultStringsForUniqueIdByUser);
     }
     final resultDiscordUserFirestoreForUniqueIdByUser = await _discordUserFirestoreQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUser
         .getDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultStringsForUniqueIdByUser.parameter?.field ?? "");
@@ -135,7 +135,7 @@ final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListView
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      return _firstBranchOneQInitForPreVerifiedUserSystemViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultDiscordUserFirestoreForUniqueIdByUser);
+      return _firstBranchOneQInitForPreMainViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultDiscordUserFirestoreForUniqueIdByUser);
     }
     final resultIPAddressForJsonipAPI = await _iPAddressQHttpClientServiceViewModelUsingGetNPForJsonipAPI
         .getIPAddressFromHttpClientServiceNPDS();
@@ -143,7 +143,7 @@ final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListView
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      return _firstBranchOneQInitForPreVerifiedUserSystemViewQGetIPAddressFromHttpClientServiceNPDS(resultIPAddressForJsonipAPI);
+      return _firstBranchOneQInitForPreMainViewQGetIPAddressFromHttpClientServiceNPDS(resultIPAddressForJsonipAPI);
     }
     final resultIPAddressFirestoreForUniqueIdByUser = await _iPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUser
         .getIPAddressFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultStringsForUniqueIdByUser.parameter?.field ?? "");
@@ -151,13 +151,13 @@ final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListView
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      return _firstBranchOneQInitForPreVerifiedUserSystemViewQGetIPAddressFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultIPAddressFirestoreForUniqueIdByUser);
+      return _firstBranchOneQInitForPreMainViewQGetIPAddressFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultIPAddressFirestoreForUniqueIdByUser);
     }
     final getStringWhereNotEqualsFromIpParameterIp = resultIPAddressForJsonipAPI
         .parameter
         ?.getStringWhereNotEqualsFromIpParameterIp(resultIPAddressFirestoreForUniqueIdByUser.parameter?.ip ?? "") ?? "";
     if(getStringWhereNotEqualsFromIpParameterIp.isNotEmpty) {
-      return _firstBranchOneQInitForPreVerifiedUserSystemViewQGetStringWhereNotEqualsFromIpParameterIp(getStringWhereNotEqualsFromIpParameterIp);
+      return _firstBranchOneQInitForPreMainViewQGetStringWhereNotEqualsFromIpParameterIp(getStringWhereNotEqualsFromIpParameterIp);
     }
     final resultCountryForUniqueIdByUser = await _countryQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUser
         .getCountryFromFirebaseFirestoreServiceParameterStringDS(resultStringsForUniqueIdByUser.parameter?.field ?? "");
@@ -165,13 +165,13 @@ final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListView
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      return _firstBranchOneQInitForPreVerifiedUserSystemViewQGetCountryFromFirebaseFirestoreServiceParameterStringDS(resultCountryForUniqueIdByUser);
+      return _firstBranchOneQInitForPreMainViewQGetCountryFromFirebaseFirestoreServiceParameterStringDS(resultCountryForUniqueIdByUser);
     }
     final getStringFromNameCountryWhereNotEqualsParameterNameCountry = resultIPAddressForJsonipAPI
         .parameter
         ?.getStringFromNameCountryWhereNotEqualsParameterNameCountry(resultCountryForUniqueIdByUser.parameter?.nameCountry ?? "") ?? "";
     if(getStringFromNameCountryWhereNotEqualsParameterNameCountry.isNotEmpty) {
-      return _firstBranchOneQInitForPreVerifiedUserSystemViewQGetStringFromNameCountryWhereNotEqualsParameterNameCountry(getStringFromNameCountryWhereNotEqualsParameterNameCountry);
+      return _firstBranchOneQInitForPreMainViewQGetStringFromNameCountryWhereNotEqualsParameterNameCountry(getStringFromNameCountryWhereNotEqualsParameterNameCountry);
     }
     final resultRoleUserForUniqueIdByUser = await _roleUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUser
         .getRoleUserFromFirebaseFirestoreServiceParameterStringDS(resultStringsForUniqueIdByUser.parameter?.field ?? "");
@@ -179,7 +179,7 @@ final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListView
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      return _firstBranchOneQInitForPreVerifiedUserSystemViewQGetRoleUserFromFirebaseFirestoreServiceParameterStringDS(resultRoleUserForUniqueIdByUser);
+      return _firstBranchOneQInitForPreMainViewQGetRoleUserFromFirebaseFirestoreServiceParameterStringDS(resultRoleUserForUniqueIdByUser);
     }
     final resultAboutMeForUniqueIdByUser = await _aboutMeQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUser
         .getAboutMeFromFirebaseFirestoreServiceParameterStringDS(resultStringsForUniqueIdByUser.parameter?.field ?? "");
@@ -187,7 +187,7 @@ final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListView
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      return _firstBranchOneQInitForPreVerifiedUserSystemViewQGetAboutMeFromFirebaseFirestoreServiceParameterStringDS(resultAboutMeForUniqueIdByUser);
+      return _firstBranchOneQInitForPreMainViewQGetAboutMeFromFirebaseFirestoreServiceParameterStringDS(resultAboutMeForUniqueIdByUser);
     }
     final resultSeasonForLastSeasonWhereSortParameterSeasonNumber = await _seasonQFirebaseFirestoreServiceViewModelUsingGetNPForLastSeasonWhereSortParameterSeasonNumber
         .getSeasonFromFirebaseFirestoreServiceNPDS();
@@ -195,7 +195,7 @@ final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListView
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      return _firstBranchOneQInitForPreVerifiedUserSystemViewQGetSeasonFromFirebaseFirestoreServiceNPDS(resultSeasonForLastSeasonWhereSortParameterSeasonNumber);
+      return _firstBranchOneQInitForPreMainViewQGetSeasonFromFirebaseFirestoreServiceNPDS(resultSeasonForLastSeasonWhereSortParameterSeasonNumber);
     }
     final resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber = await _seasonQFirebaseFirestoreServiceViewModelUsingGetListParameterIntForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber
         .getListSeasonFromFirebaseFirestoreServiceParameterIntDS(resultSeasonForLastSeasonWhereSortParameterSeasonNumber.parameter?.seasonNumber ?? 0);
@@ -203,7 +203,7 @@ final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListView
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      return _firstBranchOneQInitForPreVerifiedUserSystemViewQGetListSeasonFromFirebaseFirestoreServiceParameterIntDS(resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber);
+      return _firstBranchOneQInitForPreMainViewQGetListSeasonFromFirebaseFirestoreServiceParameterIntDS(resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber);
     }
     final resultStats = await _statsQFirebaseFirestoreServiceViewModelUsingGetParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility
         .getStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(GetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility(resultStringsForUniqueIdByUser.parameter?.field ?? "",resultSeasonForLastSeasonWhereSortParameterSeasonNumber.parameter?.seasonNumber ?? 0));
@@ -211,7 +211,7 @@ final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListView
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      return _firstBranchOneQInitForPreVerifiedUserSystemViewQGetStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(resultStats);
+      return _firstBranchOneQInitForPreMainViewQGetStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(resultStats);
     }
     final resultLastLoginTimeUserForUniqueIdByUser = await _lastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingUpdateParameterStringForUniqueIdByUser
         .updateLastLoginTimeUserToFirebaseFirestoreServiceParameterStringDS(resultStringsForUniqueIdByUser.parameter?.field ?? "");
@@ -219,7 +219,7 @@ final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListView
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      return _firstBranchOneQInitForPreVerifiedUserSystemViewQUpdateLastLoginTimeUserToFirebaseFirestoreServiceParameterStringDS(resultLastLoginTimeUserForUniqueIdByUser);
+      return _firstBranchOneQInitForPreMainViewQUpdateLastLoginTimeUserToFirebaseFirestoreServiceParameterStringDS(resultLastLoginTimeUserForUniqueIdByUser);
     }
     await _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForLastLoginTimeByLastLoginTimeUser
         .updateDatesTimesToTempCacheServiceParameterDateTimeDS(resultLastLoginTimeUserForUniqueIdByUser.parameter?.lastLoginTime ?? DateTime.now());
@@ -251,139 +251,139 @@ final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListView
         .updateDatesTimesToTempCacheServiceParameterDateTimeDS(resultSeasonForLastSeasonWhereSortParameterSeasonNumber.parameter?.endOfSeasonTime ?? DateTime.now());
     await _seasonQTempCacheServiceViewModelUsingUpdateListParameterListSeason
         .updateListSeasonToTempCacheServiceParameterListSeasonDS(resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber.parameter?.getCloneListModel ?? ListSeason(List.empty(growable: true)));
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.isLoading = false;
     return KeysSuccessUtility.sUCCESS;
   }
 
   void notifyStreamDataForPreVerifiedUserSystemView() {
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .notifyStreamDataForPreVerifiedUserSystemView();
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .notifyStreamDataForPreMainView();
   }
 
-  Future<String> _firstBranchOneQInitForPreVerifiedUserSystemViewQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForUniqueIdByUser)
+  Future<String> _firstBranchOneQInitForPreMainViewQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForUniqueIdByUser)
   async {
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.isLoading = false;
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.exceptionController = resultStringsForUniqueIdByUser.exceptionController;
     return resultStringsForUniqueIdByUser.exceptionController.getKeyParameterException;
   }
 
-  Future<String> _firstBranchOneQInitForPreVerifiedUserSystemViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<DiscordUserFirestore> resultDiscordUserFirestoreForUniqueIdByUser)
+  Future<String> _firstBranchOneQInitForPreMainViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<DiscordUserFirestore> resultDiscordUserFirestoreForUniqueIdByUser)
   async {
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.isLoading = false;
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.exceptionController = resultDiscordUserFirestoreForUniqueIdByUser.exceptionController;
     return resultDiscordUserFirestoreForUniqueIdByUser.exceptionController.getKeyParameterException;
   }
 
-  Future<String> _firstBranchOneQInitForPreVerifiedUserSystemViewQGetIPAddressFromHttpClientServiceNPDS(Result<IPAddress> resultIPAddressForJsonipAPI)
+  Future<String> _firstBranchOneQInitForPreMainViewQGetIPAddressFromHttpClientServiceNPDS(Result<IPAddress> resultIPAddressForJsonipAPI)
   async {
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.isLoading = false;
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.exceptionController = resultIPAddressForJsonipAPI.exceptionController;
     return resultIPAddressForJsonipAPI.exceptionController.getKeyParameterException;
   }
 
-  Future<String> _firstBranchOneQInitForPreVerifiedUserSystemViewQGetCountryFromFirebaseFirestoreServiceParameterStringDS(Result<Country> resultCountryForUniqueIdByUser)
+  Future<String> _firstBranchOneQInitForPreMainViewQGetCountryFromFirebaseFirestoreServiceParameterStringDS(Result<Country> resultCountryForUniqueIdByUser)
   async {
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.isLoading = false;
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.exceptionController = resultCountryForUniqueIdByUser.exceptionController;
     return resultCountryForUniqueIdByUser.exceptionController.getKeyParameterException;
   }
 
-  Future<String> _firstBranchOneQInitForPreVerifiedUserSystemViewQGetStringFromNameCountryWhereNotEqualsParameterNameCountry(String getStringFromNameCountryWhereNotEqualsParameterNameCountry)
+  Future<String> _firstBranchOneQInitForPreMainViewQGetStringFromNameCountryWhereNotEqualsParameterNameCountry(String getStringFromNameCountryWhereNotEqualsParameterNameCountry)
   async {
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.isLoading = false;
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.otherException = getStringFromNameCountryWhereNotEqualsParameterNameCountry;
     return getStringFromNameCountryWhereNotEqualsParameterNameCountry;
   }
 
-  Future<String> _firstBranchOneQInitForPreVerifiedUserSystemViewQGetRoleUserFromFirebaseFirestoreServiceParameterStringDS(Result<RoleUser> resultRoleUserForUniqueIdByUser)
+  Future<String> _firstBranchOneQInitForPreMainViewQGetRoleUserFromFirebaseFirestoreServiceParameterStringDS(Result<RoleUser> resultRoleUserForUniqueIdByUser)
   async {
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.isLoading = false;
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.exceptionController = resultRoleUserForUniqueIdByUser.exceptionController;
     return resultRoleUserForUniqueIdByUser.exceptionController.getKeyParameterException;
   }
 
-  Future<String> _firstBranchOneQInitForPreVerifiedUserSystemViewQGetAboutMeFromFirebaseFirestoreServiceParameterStringDS(Result<AboutMe> resultAboutMeForUniqueIdByUser)
+  Future<String> _firstBranchOneQInitForPreMainViewQGetAboutMeFromFirebaseFirestoreServiceParameterStringDS(Result<AboutMe> resultAboutMeForUniqueIdByUser)
   async {
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.isLoading = false;
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.exceptionController = resultAboutMeForUniqueIdByUser.exceptionController;
     return resultAboutMeForUniqueIdByUser.exceptionController.getKeyParameterException;
   }
 
-  Future<String> _firstBranchOneQInitForPreVerifiedUserSystemViewQGetSeasonFromFirebaseFirestoreServiceNPDS(Result<Season> resultSeasonForLastSeasonWhereSortParameterSeasonNumber)
+  Future<String> _firstBranchOneQInitForPreMainViewQGetSeasonFromFirebaseFirestoreServiceNPDS(Result<Season> resultSeasonForLastSeasonWhereSortParameterSeasonNumber)
   async {
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.isLoading = false;
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.exceptionController = resultSeasonForLastSeasonWhereSortParameterSeasonNumber.exceptionController;
     return resultSeasonForLastSeasonWhereSortParameterSeasonNumber.exceptionController.getKeyParameterException;
   }
 
-  Future<String> _firstBranchOneQInitForPreVerifiedUserSystemViewQGetStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(Result<Stats> resultStats)
+  Future<String> _firstBranchOneQInitForPreMainViewQGetStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(Result<Stats> resultStats)
   async {
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.isLoading = false;
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.exceptionController = resultStats.exceptionController;
     return resultStats.exceptionController.getKeyParameterException;
   }
 
-  Future<String> _firstBranchOneQInitForPreVerifiedUserSystemViewQUpdateLastLoginTimeUserToFirebaseFirestoreServiceParameterStringDS(Result<LastLoginTimeUser> resultLastLoginTimeUserForUniqueIdByUser)
+  Future<String> _firstBranchOneQInitForPreMainViewQUpdateLastLoginTimeUserToFirebaseFirestoreServiceParameterStringDS(Result<LastLoginTimeUser> resultLastLoginTimeUserForUniqueIdByUser)
   async {
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.isLoading = false;
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.exceptionController = resultLastLoginTimeUserForUniqueIdByUser.exceptionController;
     return resultLastLoginTimeUserForUniqueIdByUser.exceptionController.getKeyParameterException;
   }
 
-  Future<String> _firstBranchOneQInitForPreVerifiedUserSystemViewQGetIPAddressFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<IPAddressFirestore> resultIPAddressFirestoreForUniqueIdByUser)
+  Future<String> _firstBranchOneQInitForPreMainViewQGetIPAddressFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<IPAddressFirestore> resultIPAddressFirestoreForUniqueIdByUser)
   async {
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.isLoading = false;
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.exceptionController = resultIPAddressFirestoreForUniqueIdByUser.exceptionController;
     return resultIPAddressFirestoreForUniqueIdByUser.exceptionController.getKeyParameterException;
   }
 
-  Future<String> _firstBranchOneQInitForPreVerifiedUserSystemViewQGetStringWhereNotEqualsFromIpParameterIp(String getStringWhereNotEqualsFromIpParameterIp)
+  Future<String> _firstBranchOneQInitForPreMainViewQGetStringWhereNotEqualsFromIpParameterIp(String getStringWhereNotEqualsFromIpParameterIp)
   async {
     await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser
         .updateStringsToTempCacheServiceParameterStringDS("");
@@ -391,22 +391,22 @@ final class PreVerifiedUserSystemViewListViewModel extends BaseNamedViewListView
         .updateDatesTimesToTempCacheServiceParameterDateTimeDS(DateTime.now());
     await _userQSharedPreferencesServiceViewModelUsingDeleteNP
         .deleteUserToSharedPreferencesServiceNPDS();
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.isLoading = false;
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.otherException = getStringWhereNotEqualsFromIpParameterIp;
     return getStringWhereNotEqualsFromIpParameterIp;
   }
 
-  Future<String> _firstBranchOneQInitForPreVerifiedUserSystemViewQGetListSeasonFromFirebaseFirestoreServiceParameterIntDS(Result<ListSeason<Season>> resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber)
+  Future<String> _firstBranchOneQInitForPreMainViewQGetListSeasonFromFirebaseFirestoreServiceParameterIntDS(Result<ListSeason<Season>> resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber)
   async {
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.isLoading = false;
-    _dataForPreVerifiedUserSystemViewQThereIsStreamStateViewModel
-        .getDataForPreVerifiedUserSystemView
+    _dataForPreMainViewQThereIsStreamStateViewModel
+        .getDataForPreMainView
         ?.exceptionController = resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber.exceptionController;
     return resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber.exceptionController.getKeyParameterException;
   }

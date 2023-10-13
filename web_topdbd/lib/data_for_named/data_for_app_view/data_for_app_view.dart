@@ -3,9 +3,12 @@ import 'package:web_topdbd/data_for_named/data_for_app_view/enum_data_for_app_vi
 
 final class DataForAppView extends BaseDataForNamed {
   String uniqueIdByUser;
-  bool isPreSuccess;
+  bool isThoseWorks;
+  bool isPreMainView;
+  bool isNotValidVersionTOPDBDVersionWeb;
+  String versionByTOPDBDVersionWeb;
 
-  DataForAppView(super.isLoading,this.uniqueIdByUser,this.isPreSuccess);
+  DataForAppView(super.isLoading,this.uniqueIdByUser,this.isThoseWorks,this.isPreMainView,this.isNotValidVersionTOPDBDVersionWeb,this.versionByTOPDBDVersionWeb);
 
   EnumDataForAppView get getEnumDataForAppView {
     if(isLoading) {
@@ -14,9 +17,18 @@ final class DataForAppView extends BaseDataForNamed {
     if(exceptionController.isNotEqualsNullParameterException()) {
       return EnumDataForAppView.exception;
     }
-    if(uniqueIdByUser.isEmpty) {
-      return EnumDataForAppView.login;
+    if(isThoseWorks) {
+      return EnumDataForAppView.thoseWorks;
     }
-    return EnumDataForAppView.success;
+    if(isNotValidVersionTOPDBDVersionWeb) {
+      return EnumDataForAppView.isNotValidVersionTOPDBDVersionWeb;
+    }
+    if(uniqueIdByUser.isEmpty) {
+      return EnumDataForAppView.loginView;
+    }
+    if(isPreMainView) {
+      return EnumDataForAppView.preMainView;
+    }
+    return EnumDataForAppView.mainView;
   }
 }

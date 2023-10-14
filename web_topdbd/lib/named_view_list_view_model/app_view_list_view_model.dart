@@ -16,11 +16,14 @@ import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_s
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/maniac_perk_q_temp_cache_service_view_model/maniac_perk_q_temp_cache_service_view_model_using_update_list_np.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/maniac_q_temp_cache_service_view_model/maniac_q_temp_cache_service_view_model_using_update_list_np.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/maps_q_temp_cache_service_view_model/maps_q_temp_cache_service_view_model_using_update_list_np.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_custom_start_listening_and_cancel_listening_for_name_location_by_navigation.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_custom_start_listening_and_cancel_listening_for_unique_id_by_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_get_np_for_version_by_topdbd_version_web.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_np_for_version_by_topdbd_version_web.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_name_location_by_navigation.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_unique_id_by_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/survivor_perk_q_temp_cache_service_view_model/survivor_perk_q_temp_cache_service_view_model_using_update_list_np.dart';
+import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 
 @immutable
 final class AppViewListViewModel extends BaseNamedViewListViewModel {
@@ -51,6 +54,10 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
   ThoseWorksQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening();
   final _tOPDBDVersionWebQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening =
   TOPDBDVersionWebQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening();
+  final _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForNameLocationByNavigation =
+  StringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForNameLocationByNavigation();
+  final _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForNameLocationByNavigation =
+  StringsQTempCacheServiceViewModelUsingUpdateParameterStringForNameLocationByNavigation();
 
   // DataForNamedQThereIsStreamStateViewModel
   final _dataForAppViewQThereIsStreamStateViewModel =
@@ -62,12 +69,23 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
     _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser.cancelListening();
     _thoseWorksQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening.cancelListening();
     _tOPDBDVersionWebQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening.cancelListening();
+    _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForNameLocationByNavigation.cancelListening();
   }
 
   Stream<DataForAppView?> get getStreamDataForAppView => _dataForAppViewQThereIsStreamStateViewModel.getStreamDataForAppView;
   DataForAppView? get getDataForAppView => _dataForAppViewQThereIsStreamStateViewModel.getDataForAppView;
 
-  void listeningStreamsTempCacheServiceForAppView() {
+  Future<void> listeningStreamsTempCacheServiceForAppView()
+  async {
+    final resultBoolForNameLocationByNavigation =  await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForNameLocationByNavigation
+        .updateStringsToTempCacheServiceParameterStringDS(KeysNavigationUtility.selectedNavigationItemViewQTopPlayers);
+    if(resultBoolForNameLocationByNavigation
+        .exceptionController
+        .isNotEqualsNullParameterException())
+    {
+      _firstBranchOneQInitForAppViewQUpdateStringsToTempCacheServiceParameterStringDS(resultBoolForNameLocationByNavigation);
+      return;
+    }
     _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser
         .startListening(KeysNameStreamToTempCacheServiceUtility.appViewListViewModelQUniqueIdByUser,(Result<Strings> resultStringsForUniqueIdByUser) {
           if(resultStringsForUniqueIdByUser.parameter?.field.isEmpty ?? false) {
@@ -84,6 +102,14 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
           _dataForAppViewQThereIsStreamStateViewModel
               .getDataForAppView
               ?.uniqueIdByUser = resultStringsForUniqueIdByUser.parameter?.field ?? "";
+          _dataForAppViewQThereIsStreamStateViewModel
+              .notifyStreamDataForAppView();
+        });
+    _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForNameLocationByNavigation
+        .startListening(KeysNameStreamToTempCacheServiceUtility.appViewListViewModelQNameLocationByNavigation, (Result<Strings> resultStringsForNameLocationByNavigation) {
+          _dataForAppViewQThereIsStreamStateViewModel
+              .getDataForAppView
+              ?.nameLocationByNavigation = resultStringsForNameLocationByNavigation.parameter?.field ?? "";
           _dataForAppViewQThereIsStreamStateViewModel
               .notifyStreamDataForAppView();
         });
@@ -301,6 +327,14 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
         .getDataForAppView
         ?.isLoading = false;
     return getStringWhereIsEmptyParameterUniqueId;
+  }
+
+  void _firstBranchOneQInitForAppViewQUpdateStringsToTempCacheServiceParameterStringDS(Result<bool> resultBoolForNameLocationByNavigation) {
+    _dataForAppViewQThereIsStreamStateViewModel
+        .getDataForAppView
+        ?.exceptionController = resultBoolForNameLocationByNavigation.exceptionController;
+    _dataForAppViewQThereIsStreamStateViewModel
+        .notifyStreamDataForAppView();
   }
 
   void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForAppViewQUpdateStringsToTempCacheServiceNPDS(Result<bool> resultBoolForVersionByTOPDBDVersionWeb) {

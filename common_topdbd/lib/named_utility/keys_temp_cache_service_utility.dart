@@ -12,6 +12,7 @@ final class KeysTempCacheServiceUtility {
   static const String stringsQNameCountryByCountry = "stringsQNameCountryByCountry";
   static const String stringsQCodeDBDByAboutMe = "stringsQCodeDBDByAboutMe";
   static const String stringsQVersionByTOPDBDVersionWeb = "stringsQVersionByTOPDBDVersionWeb";
+  static const String stringsQNameLocationByNavigation = "stringsQNameLocationByNavigation";
   /* Ints */
   static const String intsQSeasonNumberBySeason = "intsQSeasonNumberBySeason";
   static const String intsQMatchesWonByStats = "intsQMatchesWonByStats";

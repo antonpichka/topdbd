@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:web_topdbd/data_for_named/data_for_app_view/data_for_app_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_app_view/enum_data_for_app_view.dart';
 import 'package:web_topdbd/l10n/l10n.dart';
-import 'package:web_topdbd/named_utility/enum_navigation_utility.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
+import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 import 'package:web_topdbd/named_view/login_view.dart';
 import 'package:web_topdbd/named_view/main_view.dart';
 import 'package:web_topdbd/named_view/pre_main_view.dart';
@@ -51,100 +52,120 @@ final class _AppViewState extends State<AppView> {
             const Breakpoint(start: 801, end: double.infinity, name: DESKTOP),
           ],
         ),
-        routerConfig: routerConfig
+        routerConfig: _routerConfig
     );
   }
 
-  RouterConfig<Object> get routerConfig {
+  RouterConfig<Object> get _routerConfig {
+    final dataForAppView = _appViewListViewModel.getDataForAppView;
     return GoRouter(
         routes: [
+          /// In this class (launch)
+          GoRoute(
+              path: '/loading',
+              pageBuilder:(BuildContext context, GoRouterState state) {
+                return _getChoicedMaterialPage(context,state,dataForAppView!,false,"");
+              },
+              redirect: (BuildContext context, GoRouterState state) {
+                return _getChoicedUrl(context,state,dataForAppView!,false,"");
+              }
+          ),
+          GoRoute(
+              path: '/exception',
+              pageBuilder:(BuildContext context, GoRouterState state) {
+                return _getChoicedMaterialPage(context,state,dataForAppView!,false,"");
+              },
+              redirect: (BuildContext context, GoRouterState state) {
+                return _getChoicedUrl(context,state,dataForAppView!,false,"");
+              }
+          ),
+          GoRoute(
+              path: '/thoseWorks',
+              pageBuilder:(BuildContext context, GoRouterState state) {
+                return _getChoicedMaterialPage(context,state,dataForAppView!,false,"");
+              },
+              redirect: (BuildContext context, GoRouterState state) {
+                return _getChoicedUrl(context,state,dataForAppView!,false,"");
+              }
+          ),
+          GoRoute(
+              path: '/newVersion',
+              pageBuilder:(BuildContext context, GoRouterState state) {
+                return _getChoicedMaterialPage(context,state,dataForAppView!,false,"");
+              },
+              redirect: (BuildContext context, GoRouterState state) {
+                return _getChoicedUrl(context,state,dataForAppView!,false,"");
+              }
+          ),
+          GoRoute(
+              path: '/login',
+              pageBuilder:(BuildContext context, GoRouterState state) {
+                return _getChoicedMaterialPage(context,state,dataForAppView!,false,"");
+              },
+              redirect: (BuildContext context, GoRouterState state) {
+                return _getChoicedUrl(context,state,dataForAppView!,false,"");
+              }
+          ),
+          /// In other class (launch)
           GoRoute(
             path: '/',
             builder: (BuildContext context, GoRouterState state) {
               return Container(color: FlutterThemeUtility.darkBackgroundColor);
             },
             redirect: (BuildContext context, GoRouterState state) {
-              return getChoicedUrl(context,state,EnumNavigationUtility.topPlayers);
+              return _getChoicedUrl(context,state,dataForAppView!,false,"");
             }
           ),
           GoRoute(
-              path: '/topPlayers',
+              path: '/${KeysNavigationUtility.selectedNavigationItemViewQTopPlayers}',
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return getChoicedMaterialPage(context,state,EnumNavigationUtility.topPlayers);
+                return _getChoicedMaterialPage(context,state,dataForAppView!,true,KeysNavigationUtility.selectedNavigationItemViewQTopPlayers);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return getChoicedUrl(context,state,EnumNavigationUtility.topPlayers);
+                return _getChoicedUrl(context,state,dataForAppView!,true,KeysNavigationUtility.selectedNavigationItemViewQTopPlayers);
               }
           ),
           GoRoute(
-            path: '/balance',
+            path: '/${KeysNavigationUtility.selectedNavigationItemViewQBalance}',
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return getChoicedMaterialPage(context,state,EnumNavigationUtility.balance);
+                return _getChoicedMaterialPage(context,state,dataForAppView!,true,KeysNavigationUtility.selectedNavigationItemViewQBalance);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return getChoicedUrl(context,state,EnumNavigationUtility.balance);
+                return _getChoicedUrl(context,state,dataForAppView!,true,KeysNavigationUtility.selectedNavigationItemViewQBalance);
               }
           ),
           GoRoute(
-            path: '/tournaments',
+            path: '/${KeysNavigationUtility.selectedNavigationItemViewQTournaments}',
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return getChoicedMaterialPage(context,state,EnumNavigationUtility.tournaments);
+                return _getChoicedMaterialPage(context,state,dataForAppView!,true,KeysNavigationUtility.selectedNavigationItemViewQTournaments);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return getChoicedUrl(context,state,EnumNavigationUtility.tournaments);
+                return _getChoicedUrl(context,state,dataForAppView!,true,KeysNavigationUtility.selectedNavigationItemViewQTournaments);
               }
           ),
           GoRoute(
-            path: '/login',
+              path: '/${KeysNavigationUtility.mainViewQNotVerified}',
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return getChoicedMaterialPage(context,state,EnumNavigationUtility.topPlayers);
+                return _getChoicedMaterialPage(context,state,dataForAppView!,false,"");
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return getChoicedUrl(context,state,EnumNavigationUtility.topPlayers);
+                return _getChoicedUrl(context,state,dataForAppView!,false,"");
               }
           ),
           GoRoute(
-            path: '/loading',
+              path: '/${KeysNavigationUtility.mainViewQHack}',
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return getChoicedMaterialPage(context,state,EnumNavigationUtility.topPlayers);
+                return _getChoicedMaterialPage(context,state,dataForAppView!,false,"");
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return getChoicedUrl(context,state,EnumNavigationUtility.topPlayers);
-              }
-          ),
-          GoRoute(
-            path: '/exception',
-              pageBuilder:(BuildContext context, GoRouterState state) {
-                return getChoicedMaterialPage(context,state,EnumNavigationUtility.topPlayers);
-              },
-              redirect: (BuildContext context, GoRouterState state) {
-                return getChoicedUrl(context,state,EnumNavigationUtility.topPlayers);
-              }
-          ),
-          GoRoute(
-              path: '/thoseWorks',
-              pageBuilder:(BuildContext context, GoRouterState state) {
-                return getChoicedMaterialPage(context,state,EnumNavigationUtility.topPlayers);
-              },
-              redirect: (BuildContext context, GoRouterState state) {
-                return getChoicedUrl(context,state,EnumNavigationUtility.topPlayers);
-              }
-          ),
-          GoRoute(
-              path: '/newVersion',
-              pageBuilder:(BuildContext context, GoRouterState state) {
-                return getChoicedMaterialPage(context,state,EnumNavigationUtility.topPlayers);
-              },
-              redirect: (BuildContext context, GoRouterState state) {
-                return getChoicedUrl(context,state,EnumNavigationUtility.topPlayers);
+                return _getChoicedUrl(context,state,dataForAppView!,false,"");
               }
           ),
         ]);
   }
 
-  String getChoicedUrl(BuildContext context,GoRouterState state,EnumNavigationUtility enumNavigationUtility) {
-    final dataForAppView = _appViewListViewModel.getDataForAppView;
-    switch(dataForAppView?.getEnumDataForAppView) {
+  String _getChoicedUrl(BuildContext context,GoRouterState state,DataForAppView dataForAppView) {
+    switch(dataForAppView.getEnumDataForAppView) {
       case EnumDataForAppView.isLoading:
         return "/loading";
       case EnumDataForAppView.exception:
@@ -156,16 +177,15 @@ final class _AppViewState extends State<AppView> {
       case EnumDataForAppView.loginView:
         return "/login";
       case EnumDataForAppView.preMainView:
-        return "/${enumNavigationUtility.name}";
+        return isSelectedNavigationItemView ? "/$selectedNavigationItemView" : "/${dataForAppView.nameLocationByNavigation}";
       case EnumDataForAppView.mainView:
-        return "/${enumNavigationUtility.name}";
+        return isSelectedNavigationItemView ? "/$selectedNavigationItemView" : "/${dataForAppView.nameLocationByNavigation}";
       default:
         return "";
     }
   }
 
-  MaterialPage getChoicedMaterialPage(BuildContext context,GoRouterState state,EnumNavigationUtility enumNavigationUtility) {
-    final dataForAppView = _appViewListViewModel.getDataForAppView;
+  MaterialPage _getChoicedMaterialPage(BuildContext context,GoRouterState state,DataForAppView dataForAppView) {
     final rvWidgetThoseWorks = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
@@ -173,37 +193,37 @@ final class _AppViewState extends State<AppView> {
           Condition.largerThan(name: TABLET, value: _buildThoseWorks(context,400,30)),
           Condition.smallerThan(name: TABLET, value: _buildThoseWorks(context,250,18))
         ]
-    ).value;
+    ).value ?? Container();
     final rvWidgetIsNotValidVersionTOPDBDVersionWeb = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
-          Condition.equals(name: TABLET, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForAppView?.versionByTOPDBDVersionWeb ?? "",300,24)),
-          Condition.largerThan(name: TABLET, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForAppView?.versionByTOPDBDVersionWeb ?? "",400,30)),
-          Condition.smallerThan(name: TABLET, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForAppView?.versionByTOPDBDVersionWeb ?? "",250,18))
+          Condition.equals(name: TABLET, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForAppView.versionByTOPDBDVersionWeb,300,24)),
+          Condition.largerThan(name: TABLET, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForAppView.versionByTOPDBDVersionWeb,400,30)),
+          Condition.smallerThan(name: TABLET, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForAppView.versionByTOPDBDVersionWeb,250,18))
         ]
-    ).value;
-    switch(dataForAppView?.getEnumDataForAppView) {
+    ).value ?? Container();
+    switch(dataForAppView.getEnumDataForAppView) {
       case EnumDataForAppView.isLoading:
         return const MaterialPage(
             child: Scaffold(body: Center(child: CircularProgressIndicator())));
       case EnumDataForAppView.exception:
         return MaterialPage(
-            child: Scaffold(body: Center(child: Text("Exception: ${dataForAppView?.exceptionController.getKeyParameterException}"))));
+            child: Scaffold(body: Center(child: Text("Exception: ${dataForAppView.exceptionController.getKeyParameterException}"))));
       case EnumDataForAppView.thoseWorks:
         return MaterialPage(
-            child: rvWidgetThoseWorks!);
+            child: rvWidgetThoseWorks);
       case EnumDataForAppView.isNotValidVersionTOPDBDVersionWeb:
         return MaterialPage(
-            child: rvWidgetIsNotValidVersionTOPDBDVersionWeb!);
+            child: rvWidgetIsNotValidVersionTOPDBDVersionWeb);
       case EnumDataForAppView.loginView:
         return MaterialPage(
             child: LoginView());
       case EnumDataForAppView.preMainView:
         return MaterialPage(
-            child: PreMainView(enumNavigationUtility));
+            child: PreMainView(isSelectedNavigationItemView ? selectedNavigationItemView : dataForAppView.nameLocationByNavigation));
       case EnumDataForAppView.mainView:
         return MaterialPage(
-            child: MainView(enumNavigationUtility));
+            child: MainView(isSelectedNavigationItemView ? selectedNavigationItemView : dataForAppView.nameLocationByNavigation));
       default:
         return MaterialPage(
             child: Container());
@@ -217,7 +237,7 @@ final class _AppViewState extends State<AppView> {
         .listen((event) {
           setState(() {});
         });
-    _appViewListViewModel.listeningStreamsTempCacheServiceForAppView();
+    await _appViewListViewModel.listeningStreamsTempCacheServiceForAppView();
     await _appViewListViewModel.listeningStreamsFirebaseFirestoreServiceForAppView();
     final result = await _appViewListViewModel.initForAppView();
     debugPrint("AppView: $result");

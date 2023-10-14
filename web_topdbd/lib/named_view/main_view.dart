@@ -4,7 +4,6 @@ import 'package:footer/footer.dart';
 import 'package:footer/footer_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/data_for_named/data_for_main_view/enum_data_for_main_view.dart';
-import 'package:web_topdbd/named_utility/enum_navigation_utility.dart';
 import 'package:web_topdbd/named_view/drawer_to_main_view.dart';
 import 'package:web_topdbd/named_view/list_season_view.dart';
 import 'package:web_topdbd/named_view/navigation_view.dart';
@@ -14,9 +13,9 @@ import 'package:web_topdbd/named_view/title_to_app_bar_to_main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/main_view_list_view_model.dart';
 
 final class MainView extends StatefulWidget {
-  final EnumNavigationUtility enumNavigationUtility;
+  final String nameLocationByNavigation;
 
-  const MainView(this.enumNavigationUtility);
+  const MainView(this.nameLocationByNavigation);
 
   @override
   State<MainView> createState() => _MainViewState();
@@ -165,7 +164,7 @@ final class _MainViewState extends State<MainView> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: SelectedNavigationItemView(widget.enumNavigationUtility),
+                    child: SelectedNavigationItemView(widget.nameLocationByNavigation),
                   )
                 ],
               ),

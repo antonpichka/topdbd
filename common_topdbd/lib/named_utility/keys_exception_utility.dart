@@ -68,6 +68,8 @@ final class KeysExceptionUtility {
   static const String userQGetStringWhereIsEmptyParameterUniqueId = "userQGetStringWhereIsEmptyParameterUniqueId";
   /* TOPDBDVersionWeb */
   static const String tOPDBDVersionWebQGetStringWhereNotEqualsFromVersionParameterVersion = "tOPDBDVersionWebQGetStringWhereNotEqualsFromVersionParameterVersion";
+  /* VerifiedUser */
+  static const String verifiedUserQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser = "verifiedUserQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser";
 
   const KeysExceptionUtility._();
 }

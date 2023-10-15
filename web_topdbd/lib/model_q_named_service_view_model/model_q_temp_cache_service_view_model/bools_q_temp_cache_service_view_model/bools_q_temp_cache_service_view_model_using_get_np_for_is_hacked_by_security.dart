@@ -4,11 +4,11 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 
 @immutable
-base class StringsQTempCacheServiceViewModelUsingGetNPForNameLocationByNavigation<T extends Strings,Y extends ListStrings<T>> extends BaseGetModelFromNamedServiceNPDataSource<T> {
+base class BoolsQTempCacheServiceViewModelUsingGetNPForIsHackedBySecurity<T extends Bools,Y extends ListBools<T>> extends BaseGetModelFromNamedServiceNPDataSource<T> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Future<Result<T>> getStringsFromTempCacheServiceNPDS() {
+  Future<Result<T>> getBoolsFromTempCacheServiceNPDS() {
     return getModelFromNamedServiceNPDS();
   }
 
@@ -17,8 +17,8 @@ base class StringsQTempCacheServiceViewModelUsingGetNPForNameLocationByNavigatio
   Future<Result<T>> getModelFromNamedServiceNPDS()
   async {
     try {
-      final nameLocationByNavigation = tempCacheService.getObjectFromTempCache(KeysTempCacheServiceUtility.stringsQNameLocationByNavigation) as String;
-      return Result<T>.success(Strings(nameLocationByNavigation) as T);
+      final isHackedBySecurity = tempCacheService.getObjectFromTempCache(KeysTempCacheServiceUtility.boolsQIsHackedBySecurity) as bool;
+      return Result<T>.success(Bools(isHackedBySecurity) as T);
     } on LocalException catch(e) {
       return Result<T>.exception(e);
     } catch(e) {

@@ -4,20 +4,20 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 
 @immutable
-base class StringsQTempCacheServiceViewModelUsingUpdateParameterStringForNameLocationByNavigation<T extends Strings,Y extends ListStrings<T>> extends BaseUpdateModelToNamedServiceParameterNamedDataSource<bool,String> {
+base class BoolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsHackedBySecurity<T extends Bools,Y extends ListBools<T>> extends BaseUpdateModelToNamedServiceParameterNamedDataSource<bool,bool> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Future<Result<bool>> updateStringsToTempCacheServiceParameterStringDS(String parameter) {
+  Future<Result<bool>> updateBoolsToTempCacheServiceParameterBoolDS(bool parameter) {
     return updateModelToNamedServiceParameterNamedDS(parameter);
   }
 
   @protected
   @override
-  Future<Result<bool>> updateModelToNamedServiceParameterNamedDS(String parameter)
+  Future<Result<bool>> updateModelToNamedServiceParameterNamedDS(bool parameter)
   async {
     try {
-      tempCacheService.insertOrUpdateObjectToTempCache(KeysTempCacheServiceUtility.stringsQNameLocationByNavigation,parameter);
+      tempCacheService.insertOrUpdateObjectToTempCache(KeysTempCacheServiceUtility.boolsQIsHackedBySecurity,parameter);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));

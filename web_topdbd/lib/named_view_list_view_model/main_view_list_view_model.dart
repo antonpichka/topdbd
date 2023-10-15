@@ -9,12 +9,10 @@ import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/dat
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/ip_address_firestore_q_firebase_firestore_service_view_model/ip_address_firestore_q_firebase_firestore_service_view_model_using_custom_start_listening_and_cancel_listening.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/verified_user_q_firebase_firestore_service_view_model/verified_user_q_firebase_firestore_service_view_model_using_custom_start_listening_and_cancel_listening.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_shared_preference_service_view_model/user_q_shared_preferences_service_view_model/user_q_shared_preferences_service_view_model_using_delete_np.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_update_parameter_bool_for_is_hacked_by_security.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_update_parameter_bool_for_is_verified_user_by_verified_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_get_np_for_ip_by_ip_address.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_get_np_for_name_location_by_navigation.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_get_np_for_unique_id_by_user.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_name_location_by_navigation.dart';
-import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 
 @immutable
 final class MainViewListViewModel extends BaseNamedViewListViewModel {
@@ -31,10 +29,8 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
   StringsQTempCacheServiceViewModelUsingGetNPForIpByIPAddress();
   final _userQSharedPreferencesServiceViewModelUsingDeleteNP =
   UserQSharedPreferencesServiceViewModelUsingDeleteNP();
-  final _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForNameLocationByNavigation =
-  StringsQTempCacheServiceViewModelUsingUpdateParameterStringForNameLocationByNavigation();
-  final _stringsQTempCacheServiceViewModelUsingGetNPForNameLocationByNavigation =
-  StringsQTempCacheServiceViewModelUsingGetNPForNameLocationByNavigation();
+  final _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsHackedBySecurity =
+  BoolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsHackedBySecurity();
 
   // DataForNamedQThereIsStreamStateViewModel
   final _dataForMainViewQThereIsStreamStateViewModel =
@@ -71,36 +67,13 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQStartListening(resultVerifiedUser);
         return;
       }
-      await _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUser
-          .updateBoolsToTempCacheServiceParameterBoolDS(resultVerifiedUser.parameter?.isVerifiedUser ?? false);
       final getStringWhereIsNotVerifiedUserParameterIsVerifiedUser = resultVerifiedUser
           .parameter
           ?.getStringWhereIsNotVerifiedUserParameterIsVerifiedUser ?? "";
       if(getStringWhereIsNotVerifiedUserParameterIsVerifiedUser.isNotEmpty) {
-        _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(getStringWhereIsNotVerifiedUserParameterIsVerifiedUser,resultVerifiedUser.parameter ?? const VerifiedUser("",false));
+        _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(getStringWhereIsNotVerifiedUserParameterIsVerifiedUser);
         return;
       }
-      final resultStringsForNameLocationByNavigation = await _stringsQTempCacheServiceViewModelUsingGetNPForNameLocationByNavigation
-          .getStringsFromTempCacheServiceNPDS();
-      if(resultStringsForNameLocationByNavigation
-          .exceptionController
-          .isNotEqualsNullParameterException())
-      {
-        _secondBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringsFromTempCacheServiceNPDS(resultStringsForNameLocationByNavigation);
-        return;
-      }
-      final isNotEqualsParameterNameLocationByNavigation = resultStringsForNameLocationByNavigation
-          .parameter
-          ?.field != KeysNavigationUtility.selectedNavigationItemViewQTopPlayers;
-      if(isNotEqualsParameterNameLocationByNavigation) {
-        _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQIsNotEqualsParameterNameLocationByNavigation(isNotEqualsParameterNameLocationByNavigation,resultVerifiedUser.parameter ?? const VerifiedUser("",false));
-        return;
-      }
-      _dataForMainViewQThereIsStreamStateViewModel
-          .getDataForMainView
-          ?.isNotVerifiedUserByVerifiedUser =  resultVerifiedUser.parameter?.isNotVerifiedUserParameterIsVerifiedUser() ?? false;
-      _dataForMainViewQThereIsStreamStateViewModel
-          .notifyStreamDataForMainView();
     });
     await _iPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening
         .startListening(resultStringsForUniqueIdByUser.parameter?.field ?? "",(Result<IPAddressFirestore> resultIPAddressFirestore)
@@ -118,7 +91,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
           .exceptionController
           .isNotEqualsNullParameterException())
       {
-        _firstBranchTwoQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringsFromTempCacheServiceNPDS(resultStringsForIpByIPAddress);
+        _secondBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringsFromTempCacheServiceNPDS(resultStringsForIpByIPAddress);
         return;
       }
       final getStringWhereNotEqualsFromIpParameterIp = resultIPAddressFirestore
@@ -128,8 +101,6 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringWhereNotEqualsFromIpParameterIp(getStringWhereNotEqualsFromIpParameterIp);
         return;
       }
-      _dataForMainViewQThereIsStreamStateViewModel
-          .notifyStreamDataForMainView();
     });
   }
 
@@ -169,7 +140,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForMainView();
   }
 
-  void _firstBranchTwoQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForIpByIPAddress) {
+  void _secondBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForIpByIPAddress) {
     _dataForMainViewQThereIsStreamStateViewModel
         .getDataForMainView
         ?.exceptionController = resultStringsForIpByIPAddress.exceptionController;
@@ -181,75 +152,13 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
   async {
     await _userQSharedPreferencesServiceViewModelUsingDeleteNP
         .deleteUserToSharedPreferencesServiceNPDS();
-    await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForNameLocationByNavigation
-        .updateStringsToTempCacheServiceParameterStringDS(KeysNavigationUtility.mainViewQHack);
-    _dataForMainViewQThereIsStreamStateViewModel
-        .getDataForMainView
-        ?.isHack = true;
-    _dataForMainViewQThereIsStreamStateViewModel
-        .notifyStreamDataForMainView();
+    await _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsHackedBySecurity
+        .updateBoolsToTempCacheServiceParameterBoolDS(true);
   }
 
-  void _secondBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForNameLocationByNavigation) {
-    _dataForMainViewQThereIsStreamStateViewModel
-        .getDataForMainView
-        ?.exceptionController = resultStringsForNameLocationByNavigation.exceptionController;
-    _dataForMainViewQThereIsStreamStateViewModel
-        .notifyStreamDataForMainView();
-  }
-
-  Future<void> _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(String getStringWhereIsNotVerifiedUserParameterIsVerifiedUser, VerifiedUser verifiedUser)
+  Future<void> _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(String getStringWhereIsNotVerifiedUserParameterIsVerifiedUser)
   async {
-    final resultStringsForNameLocationByNavigation = await _stringsQTempCacheServiceViewModelUsingGetNPForNameLocationByNavigation
-        .getStringsFromTempCacheServiceNPDS();
-    if(resultStringsForNameLocationByNavigation
-        .exceptionController
-        .isNotEqualsNullParameterException())
-    {
-      _firstBranchTwoQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(resultStringsForNameLocationByNavigation);
-      return;
-    }
-    final isNotEqualsParameterNameLocationByNavigation = resultStringsForNameLocationByNavigation
-        .parameter
-        ?.field != KeysNavigationUtility.mainViewQNotVerified;
-    if(isNotEqualsParameterNameLocationByNavigation) {
-      _firstBranchThreeQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(isNotEqualsParameterNameLocationByNavigation,verifiedUser);
-      return;
-    }
-    _dataForMainViewQThereIsStreamStateViewModel
-        .getDataForMainView
-        ?.isNotVerifiedUserByVerifiedUser = verifiedUser.isNotVerifiedUserParameterIsVerifiedUser();
-    _dataForMainViewQThereIsStreamStateViewModel
-        .notifyStreamDataForMainView();
-  }
-
-  Future<void> _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQIsNotEqualsParameterNameLocationByNavigation(bool isNotEqualsParameterNameLocationByNavigation, VerifiedUser verifiedUser)
-  async {
-    await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForNameLocationByNavigation
-        .updateStringsToTempCacheServiceParameterStringDS(KeysNavigationUtility.selectedNavigationItemViewQTopPlayers);
-    _dataForMainViewQThereIsStreamStateViewModel
-        .getDataForMainView
-        ?.isNotVerifiedUserByVerifiedUser =  verifiedUser.isNotVerifiedUserParameterIsVerifiedUser();
-    _dataForMainViewQThereIsStreamStateViewModel
-        .notifyStreamDataForMainView();
-  }
-
-  void _firstBranchTwoQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(Result<Strings> resultStringsForNameLocationByNavigation) {
-    _dataForMainViewQThereIsStreamStateViewModel
-        .getDataForMainView
-        ?.exceptionController = resultStringsForNameLocationByNavigation.exceptionController;
-    _dataForMainViewQThereIsStreamStateViewModel
-        .notifyStreamDataForMainView();
-  }
-
-  Future<void> _firstBranchThreeQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(bool isNotEqualsParameterNameLocationByNavigation, VerifiedUser verifiedUser)
-  async {
-    await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForNameLocationByNavigation
-        .updateStringsToTempCacheServiceParameterStringDS(KeysNavigationUtility.mainViewQNotVerified);
-    _dataForMainViewQThereIsStreamStateViewModel
-        .getDataForMainView
-        ?.isNotVerifiedUserByVerifiedUser =  verifiedUser.isNotVerifiedUserParameterIsVerifiedUser();
-    _dataForMainViewQThereIsStreamStateViewModel
-        .notifyStreamDataForMainView();
+    await _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUser
+        .updateBoolsToTempCacheServiceParameterBoolDS(false);
   }
 }

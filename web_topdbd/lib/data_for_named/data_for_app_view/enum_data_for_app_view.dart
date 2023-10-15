@@ -4,6 +4,8 @@ enum EnumDataForAppView {
   thoseWorks,
   isNotValidVersionTOPDBDVersionWeb,
   loginView,
+  isNotVerifiedUser,
+  isHacked,
   preMainView,
   mainView
 }

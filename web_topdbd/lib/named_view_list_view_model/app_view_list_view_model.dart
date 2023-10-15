@@ -11,19 +11,18 @@ import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/dat
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/those_works_q_firebase_firestore_service_view_model/those_works_q_firebase_firestore_service_view_model_using_custom_start_listening_and_cancel_listening.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/topdbd_version_web_q_firebase_firestore_service_view_model/topdbd_version_web_q_firebase_firestore_service_view_model_using_custom_start_listening_and_cancel_listening.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_shared_preference_service_view_model/user_q_shared_preferences_service_view_model/user_q_shared_preferences_service_view_model_using_get_np.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_custom_start_listening_and_cancel_listening_for_is_hacked_by_security.dart';
+import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_custom_start_listening_and_cancel_listening_for_is_verified_user_by_verified_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/country_tc_q_temp_cache_service_view_model/country_tc_q_temp_cache_service_view_model_using_update_list_np.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model/dates_times_q_temp_cache_service_view_model_using_update_parameter_date_time_for_creation_time_by_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/maniac_perk_q_temp_cache_service_view_model/maniac_perk_q_temp_cache_service_view_model_using_update_list_np.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/maniac_q_temp_cache_service_view_model/maniac_q_temp_cache_service_view_model_using_update_list_np.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/maps_q_temp_cache_service_view_model/maps_q_temp_cache_service_view_model_using_update_list_np.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_custom_start_listening_and_cancel_listening_for_name_location_by_navigation.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_custom_start_listening_and_cancel_listening_for_unique_id_by_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_get_np_for_version_by_topdbd_version_web.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_np_for_version_by_topdbd_version_web.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_name_location_by_navigation.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_update_parameter_string_for_unique_id_by_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/survivor_perk_q_temp_cache_service_view_model/survivor_perk_q_temp_cache_service_view_model_using_update_list_np.dart';
-import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 
 @immutable
 final class AppViewListViewModel extends BaseNamedViewListViewModel {
@@ -54,10 +53,10 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
   ThoseWorksQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening();
   final _tOPDBDVersionWebQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening =
   TOPDBDVersionWebQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening();
-  final _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForNameLocationByNavigation =
-  StringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForNameLocationByNavigation();
-  final _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForNameLocationByNavigation =
-  StringsQTempCacheServiceViewModelUsingUpdateParameterStringForNameLocationByNavigation();
+  final _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsVerifiedUserByVerifiedUser =
+  BoolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsVerifiedUserByVerifiedUser();
+  final _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsHackedBySecurity =
+  BoolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsHackedBySecurity();
 
   // DataForNamedQThereIsStreamStateViewModel
   final _dataForAppViewQThereIsStreamStateViewModel =
@@ -69,34 +68,22 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
     _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser.cancelListening();
     _thoseWorksQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening.cancelListening();
     _tOPDBDVersionWebQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening.cancelListening();
-    _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForNameLocationByNavigation.cancelListening();
+    _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsVerifiedUserByVerifiedUser.cancelListening();
+    _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsHackedBySecurity.cancelListening();
   }
 
   Stream<DataForAppView?> get getStreamDataForAppView => _dataForAppViewQThereIsStreamStateViewModel.getStreamDataForAppView;
   DataForAppView? get getDataForAppView => _dataForAppViewQThereIsStreamStateViewModel.getDataForAppView;
 
-  Future<void> listeningStreamsTempCacheServiceForAppView()
-  async {
-    final resultBoolForNameLocationByNavigation =  await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForNameLocationByNavigation
-        .updateStringsToTempCacheServiceParameterStringDS(KeysNavigationUtility.selectedNavigationItemViewQTopPlayers);
-    if(resultBoolForNameLocationByNavigation
-        .exceptionController
-        .isNotEqualsNullParameterException())
-    {
-      _firstBranchOneQInitForAppViewQUpdateStringsToTempCacheServiceParameterStringDS(resultBoolForNameLocationByNavigation);
-      return;
-    }
+  void listeningStreamsTempCacheServiceForAppView() {
     _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser
         .startListening(KeysNameStreamToTempCacheServiceUtility.appViewListViewModelQUniqueIdByUser,(Result<Strings> resultStringsForUniqueIdByUser) {
-          if(resultStringsForUniqueIdByUser.parameter?.field.isEmpty ?? false) {
-            _dataForAppViewQThereIsStreamStateViewModel
-                .getDataForAppView
-                ?.uniqueIdByUser = "";
-            _dataForAppViewQThereIsStreamStateViewModel
-                .getDataForAppView
-                ?.isPreMainView = false;
-            _dataForAppViewQThereIsStreamStateViewModel
-                .notifyStreamDataForAppView();
+          final isEmptyByField = resultStringsForUniqueIdByUser
+              .parameter
+              ?.field
+              .isEmpty ?? false;
+          if(isEmptyByField) {
+            _firstBranchOneQListeningStreamsTempCacheServiceForAppViewQStartListening(isEmptyByField);
             return;
           }
           _dataForAppViewQThereIsStreamStateViewModel
@@ -105,11 +92,19 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
           _dataForAppViewQThereIsStreamStateViewModel
               .notifyStreamDataForAppView();
         });
-    _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForNameLocationByNavigation
-        .startListening(KeysNameStreamToTempCacheServiceUtility.appViewListViewModelQNameLocationByNavigation, (Result<Strings> resultStringsForNameLocationByNavigation) {
+    _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsVerifiedUserByVerifiedUser
+        .startListening(KeysNameStreamToTempCacheServiceUtility.appViewListViewModelQIsVerifiedUserByVerifiedUser, (Result<Bools> resultBoolsForIsVerifiedUserByVerifiedUser) {
           _dataForAppViewQThereIsStreamStateViewModel
               .getDataForAppView
-              ?.nameLocationByNavigation = resultStringsForNameLocationByNavigation.parameter?.field ?? "";
+              ?.isNotVerifiedUserByVerifiedUser = !(resultBoolsForIsVerifiedUserByVerifiedUser.parameter?.isField ?? false);
+          _dataForAppViewQThereIsStreamStateViewModel
+              .notifyStreamDataForAppView();
+        });
+    _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsHackedBySecurity
+        .startListening(KeysNameStreamToTempCacheServiceUtility.appViewListViewModelQIsHackedBySecurity,(Result<Bools> resultBoolsForIsHackedBySecurity) {
+          _dataForAppViewQThereIsStreamStateViewModel
+              .getDataForAppView
+              ?.isHackedBySecurity = resultBoolsForIsHackedBySecurity.parameter?.isField ?? false;
           _dataForAppViewQThereIsStreamStateViewModel
               .notifyStreamDataForAppView();
         });
@@ -164,7 +159,7 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
           .parameter
           ?.getStringWhereNotEqualsFromVersionParameterVersion(resultStringsForVersionByTOPDBDVersionWeb.parameter?.field ?? "") ?? "";
       if(getStringWhereNotEqualsFromVersionParameterVersion.isNotEmpty) {
-        _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForAppViewQGetStringWhereNotEqualsFromVersionParameterVersion(getStringWhereNotEqualsFromVersionParameterVersion,resultTOPDBDVersionWeb);
+        _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForAppViewQGetStringWhereNotEqualsFromVersionParameterVersion(getStringWhereNotEqualsFromVersionParameterVersion,resultTOPDBDVersionWeb.parameter ?? const TOPDBDVersionWeb(""));
         return;
       }
       _dataForAppViewQThereIsStreamStateViewModel
@@ -329,14 +324,6 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
     return getStringWhereIsEmptyParameterUniqueId;
   }
 
-  void _firstBranchOneQInitForAppViewQUpdateStringsToTempCacheServiceParameterStringDS(Result<bool> resultBoolForNameLocationByNavigation) {
-    _dataForAppViewQThereIsStreamStateViewModel
-        .getDataForAppView
-        ?.exceptionController = resultBoolForNameLocationByNavigation.exceptionController;
-    _dataForAppViewQThereIsStreamStateViewModel
-        .notifyStreamDataForAppView();
-  }
-
   void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForAppViewQUpdateStringsToTempCacheServiceNPDS(Result<bool> resultBoolForVersionByTOPDBDVersionWeb) {
     _dataForAppViewQThereIsStreamStateViewModel
         .getDataForAppView
@@ -369,13 +356,24 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForAppView();
   }
 
-  void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForAppViewQGetStringWhereNotEqualsFromVersionParameterVersion(String getStringWhereNotEqualsFromVersionParameterVersion, Result<TOPDBDVersionWeb> resultTOPDBDVersionWeb) {
+  void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForAppViewQGetStringWhereNotEqualsFromVersionParameterVersion(String getStringWhereNotEqualsFromVersionParameterVersion, TOPDBDVersionWeb tOPDBDVersionWeb) {
     _dataForAppViewQThereIsStreamStateViewModel
         .getDataForAppView
         ?.isNotValidVersionTOPDBDVersionWeb = true;
     _dataForAppViewQThereIsStreamStateViewModel
         .getDataForAppView
-        ?.versionByTOPDBDVersionWeb = resultTOPDBDVersionWeb.parameter?.version ?? "";
+        ?.versionByTOPDBDVersionWeb = tOPDBDVersionWeb.version;
+    _dataForAppViewQThereIsStreamStateViewModel
+        .notifyStreamDataForAppView();
+  }
+
+  void _firstBranchOneQListeningStreamsTempCacheServiceForAppViewQStartListening(bool isEmptyByField) {
+    _dataForAppViewQThereIsStreamStateViewModel
+        .getDataForAppView
+        ?.uniqueIdByUser = "";
+    _dataForAppViewQThereIsStreamStateViewModel
+        .getDataForAppView
+        ?.isPreMainView = false;
     _dataForAppViewQThereIsStreamStateViewModel
         .notifyStreamDataForAppView();
   }

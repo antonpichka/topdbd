@@ -12,7 +12,6 @@ final class KeysTempCacheServiceUtility {
   static const String stringsQNameCountryByCountry = "stringsQNameCountryByCountry";
   static const String stringsQCodeDBDByAboutMe = "stringsQCodeDBDByAboutMe";
   static const String stringsQVersionByTOPDBDVersionWeb = "stringsQVersionByTOPDBDVersionWeb";
-  static const String stringsQNameLocationByNavigation = "stringsQNameLocationByNavigation";
   /* Ints */
   static const String intsQSeasonNumberBySeason = "intsQSeasonNumberBySeason";
   static const String intsQMatchesWonByStats = "intsQMatchesWonByStats";
@@ -22,6 +21,7 @@ final class KeysTempCacheServiceUtility {
   static const String boolsQIsVerifiedUserByVerifiedUser = "boolsQIsVerifiedUserByVerifiedUser";
   static const String boolsQIsAdminByRoleUser = "boolsQIsAdminByRoleUser";
   static const String boolsQIsTestByRoleUser = "boolsQIsTestByRoleUser";
+  static const String boolsQIsHackedBySecurity = "boolsQIsHackedBySecurity";
   /* DatesTimes */
   static const String datesTimesQCreationTimeByUser = "datesTimesQCreationTimeByUser";
   static const String datesTimesQLastLoginTimeByLastLoginTimeUser = "datesTimesQLastLoginTimeByLastLoginTimeUser";

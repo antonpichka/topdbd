@@ -4,9 +4,10 @@ import 'package:web_topdbd/named_view/main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/pre_main_view_list_view_model.dart';
 
 final class PreMainView extends StatefulWidget {
-  final String nameLocationByNavigation;
+  final String nameRoute;
+  final String id;
 
-  const PreMainView(this.nameLocationByNavigation);
+  const PreMainView(this.nameRoute,this.id);
 
   @override
   State<PreMainView> createState() => _PreMainViewState();
@@ -39,7 +40,7 @@ final class _PreMainViewState extends State<PreMainView> {
       case EnumDataForPreMainView.otherException:
         return Scaffold(body: Center(child: Text("${dataForPreMainView?.otherException}")));
       case EnumDataForPreMainView.success:
-        return MainView(widget.nameLocationByNavigation);
+        return MainView(widget.nameRoute,widget.id);
       default:
         return Container();
     }

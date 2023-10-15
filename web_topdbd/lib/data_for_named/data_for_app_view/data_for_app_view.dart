@@ -1,6 +1,5 @@
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:web_topdbd/data_for_named/data_for_app_view/enum_data_for_app_view.dart';
-import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 
 final class DataForAppView extends BaseDataForNamed {
   String uniqueIdByUser;
@@ -8,8 +7,10 @@ final class DataForAppView extends BaseDataForNamed {
   bool isPreMainView;
   bool isNotValidVersionTOPDBDVersionWeb;
   String versionByTOPDBDVersionWeb;
+  bool isNotVerifiedUserByVerifiedUser;
+  bool isHackedBySecurity;
 
-  DataForAppView(super.isLoading,this.uniqueIdByUser,this.isThoseWorks,this.isPreMainView,this.isNotValidVersionTOPDBDVersionWeb,this.versionByTOPDBDVersionWeb);
+  DataForAppView(super.isLoading,this.uniqueIdByUser,this.isThoseWorks,this.isPreMainView,this.isNotValidVersionTOPDBDVersionWeb,this.versionByTOPDBDVersionWeb,this.isNotVerifiedUserByVerifiedUser,this.isHackedBySecurity);
 
   EnumDataForAppView get getEnumDataForAppView {
     if(isLoading) {
@@ -26,6 +27,12 @@ final class DataForAppView extends BaseDataForNamed {
     }
     if(uniqueIdByUser.isEmpty) {
       return EnumDataForAppView.loginView;
+    }
+    if(isNotVerifiedUserByVerifiedUser) {
+      return EnumDataForAppView.isNotVerifiedUser;
+    }
+    if(isHackedBySecurity) {
+      return EnumDataForAppView.isHacked;
     }
     if(isPreMainView) {
       return EnumDataForAppView.preMainView;

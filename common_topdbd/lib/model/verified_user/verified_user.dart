@@ -18,8 +18,4 @@ base class VerifiedUser extends BaseModel {
     }
     return "";
   }
-
-  bool isNotVerifiedUserParameterIsVerifiedUser() {
-    return !isVerifiedUser;
-  }
 }

@@ -4,7 +4,8 @@ import 'package:meta/meta.dart';
 final class KeysNameStreamToTempCacheServiceUtility {
   /* AppViewListViewModel */
   static const String appViewListViewModelQUniqueIdByUser = "appViewListViewModelQUniqueIdByUser";
-  static const String appViewListViewModelQNameLocationByNavigation = "appViewListViewModelQNameLocationByNavigation";
+  static const String appViewListViewModelQIsVerifiedUserByVerifiedUser = "appViewListViewModelQIsVerifiedUserByVerifiedUser";
+  static const String appViewListViewModelQIsHackedBySecurity = "appViewListViewModelQIsHackedBySecurity";
 
   const KeysNameStreamToTempCacheServiceUtility._();
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 
 final class NavigationView extends StatefulWidget {
   @override
@@ -85,7 +87,7 @@ final class _NavigationViewState extends State<NavigationView> {
                               child: ListTile(
                                 titleAlignment: ListTileTitleAlignment.titleHeight,
                                 onTap: () {
-                                  /// context.go('/topPlayers');
+                                  context.go(KeysNavigationUtility.selectedNavigationItemViewQTopPlayers);
                                 },
                                 leading: const Icon(Icons.stacked_bar_chart,color: Colors.white,),
                                 title: Text("TOP Players",
@@ -97,7 +99,7 @@ final class _NavigationViewState extends State<NavigationView> {
                               child: ListTile(
                                 titleAlignment: ListTileTitleAlignment.titleHeight,
                                 onTap: () {
-                                 /// context.go('/balance');
+                                  context.go(KeysNavigationUtility.selectedNavigationItemViewQBalance);
                                 },
                                 leading: const Icon(Icons.balance,color: Colors.white,),
                                 title: Text("Balance",
@@ -110,7 +112,7 @@ final class _NavigationViewState extends State<NavigationView> {
                               child: ListTile(
                                 titleAlignment: ListTileTitleAlignment.titleHeight,
                                 onTap: () {
-                                 /// context.go('/tournaments');
+                                  context.go(KeysNavigationUtility.selectedNavigationItemViewQTournaments);
                                 },
                                 leading: const Icon(Icons.tour,color: Colors.white,),
                                 title: Text("Tournaments",

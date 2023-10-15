@@ -13,9 +13,10 @@ import 'package:web_topdbd/named_view/title_to_app_bar_to_main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/main_view_list_view_model.dart';
 
 final class MainView extends StatefulWidget {
-  final String nameLocationByNavigation;
+  final String nameRoute;
+  final String id;
 
-  const MainView(this.nameLocationByNavigation);
+  const MainView(this.nameRoute,this.id);
 
   @override
   State<MainView> createState() => _MainViewState();
@@ -48,32 +49,12 @@ final class _MainViewState extends State<MainView> {
           Condition.smallerThan(name: TABLET, value: Drawer(child: DrawerToMainView()))
         ]
     ).value;
-    final rvWidgetNotVerifiedUser = ResponsiveValue<Widget>(
-        context,
-        conditionalValues: [
-          Condition.equals(name: TABLET, value: _buildNotVerifiedUser(context,300,24,24)),
-          Condition.largerThan(name: TABLET, value: _buildNotVerifiedUser(context,400,30,30)),
-          Condition.smallerThan(name: TABLET, value: _buildNotVerifiedUser(context,250,18,18))
-        ]
-    ).value ?? Container();
-    final rvWidgetIsHack = ResponsiveValue<Widget>(
-        context,
-        conditionalValues: [
-          Condition.equals(name: TABLET, value: _buildIsHack(context,300,24)),
-          Condition.largerThan(name: TABLET, value: _buildIsHack(context,400,30)),
-          Condition.smallerThan(name: TABLET, value: _buildIsHack(context,250,18))
-        ]
-    ).value ?? Container();
     final dataForMainView = _mainViewListViewModel.getDataForMainView;
     switch(dataForMainView?.getEnumDataForMainView) {
       case EnumDataForMainView.isLoading:
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
       case EnumDataForMainView.exception:
         return Scaffold(body: Center(child: Text("Exception: ${dataForMainView?.exceptionController.getKeyParameterException}")));
-      case EnumDataForMainView.isNotVerifiedUserByVerifiedUser:
-        return rvWidgetNotVerifiedUser;
-      case EnumDataForMainView.isHack:
-        return rvWidgetIsHack;
       case EnumDataForMainView.success:
         return SelectionArea(
             child: Scaffold(
@@ -164,7 +145,7 @@ final class _MainViewState extends State<MainView> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: SelectedNavigationItemView(widget.nameLocationByNavigation),
+                    child: SelectedNavigationItemView(widget.nameRoute),
                   )
                 ],
               ),
@@ -173,91 +154,6 @@ final class _MainViewState extends State<MainView> {
       default:
         return Container();
     }
-  }
-
-  Widget _buildNotVerifiedUser(BuildContext context,double sizedBoxWidth,double textSize,double textButtonSize) {
-    return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-            child: Column(
-                children: [
-                  SizedBox(
-                    width: sizedBoxWidth,
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.all(16.0),
-                        child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                "You are not a verified user",
-                                style: TextStyle(
-                                  fontSize: textSize,
-                                  fontWeight: FontWeight.w400,
-                                  letterSpacing: 1.8,
-                                ),
-                              ),
-                              const SizedBox(height: 5,),
-                              ElevatedButton(
-                                  onPressed: () {
-
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Theme.of(context).colorScheme.secondary,
-                                    foregroundColor: Theme.of(context).textTheme.bodyMedium?.color,
-                                  ),
-                                  child: Text(
-                                    "Logout",
-                                    style: TextStyle(
-                                      color: Theme.of(context).textTheme.bodyMedium?.color,
-                                      fontSize: textButtonSize,
-                                      fontWeight: FontWeight.w400,
-                                      letterSpacing: 1.8,
-                                    ),
-                                  )
-                              ),
-                            ]
-                        ),
-                      ),
-                    ),
-                  ),
-                ])
-        ),
-      ),
-    );
-  }
-
-  Widget _buildIsHack(BuildContext context,double sizedBoxWidth,double textSize) {
-    return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-            child: Column(
-                children: [
-                  SizedBox(
-                    width: sizedBoxWidth,
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.all(16.0),
-                        child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                "Someone logged into your account OR your ip address has changed (IP addresses do not match)",
-                                style: TextStyle(
-                                  fontSize: textSize,
-                                  fontWeight: FontWeight.w400,
-                                  letterSpacing: 1.8,
-                                ),
-                              ),
-                            ]
-                        ),
-                      ),
-                    ),
-                  ),
-                ])
-        ),
-      ),
-    );
   }
 
   Future<void> _init()

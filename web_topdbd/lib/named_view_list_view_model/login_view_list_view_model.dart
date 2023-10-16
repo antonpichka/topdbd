@@ -169,7 +169,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
   Stream<DataForLoginView?> get getStreamDataForLoginView => _dataForLoginViewQThereIsStreamStateViewModel.getStreamDataForLoginView;
   DataForLoginView? get getDataForLoginView => _dataForLoginViewQThereIsStreamStateViewModel.getDataForLoginView;
 
-  Future<String> initForLoginView()
+  Future<String> init()
   async {
     final resultStringsForTermsOfUse = await _stringsQAssetBundleServiceViewModelUsingGetNPForTermsOfUse
         .getStringsFromAssetBundleServiceNPDS();
@@ -190,7 +190,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForLoginView();
   }
 
-  void checkForLoginView(bool? isCheck) {
+  void check(bool? isCheck) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isCheckAgreeTermsOfUse = isCheck ?? false;
@@ -198,7 +198,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForLoginView();
   }
 
-  Future<void> signInWithDiscordForLoginView(Function() callbackSuccess,Function(String messageException) callbackException)
+  Future<void> signInWithDiscord(Function() callbackSuccess,Function(String messageException) callbackException)
   async {
     if(_dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
@@ -217,7 +217,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchOneQSignInWithDiscordForLoginViewQGetDiscordUserFromHttpClientServiceNPDS(resultDiscordUserForDiscordAuth,callbackSuccess,callbackException);
+      _firstBranchOneQSignInWithDiscordQGetDiscordUserFromHttpClientServiceNPDS(resultDiscordUserForDiscordAuth,callbackSuccess,callbackException);
       return;
     }
     final resultDiscordUserFirestoreForUniqueId = await _discordUserFirestoreQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueId
@@ -226,14 +226,14 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchOneQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultDiscordUserFirestoreForUniqueId,callbackSuccess,callbackException,resultDiscordUserForDiscordAuth.parameter!.getCloneModel);
+      _firstBranchOneQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultDiscordUserFirestoreForUniqueId,callbackSuccess,callbackException,resultDiscordUserForDiscordAuth.parameter!.getCloneModel);
       return;
     }
     final getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName = resultDiscordUserForDiscordAuth
         .parameter
         ?.getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultDiscordUserFirestoreForUniqueId.parameter?.username ?? "",resultDiscordUserFirestoreForUniqueId.parameter?.globalName ?? "") ?? "";
     if(getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName.isNotEmpty) {
-      _firstBranchOneQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName,callbackSuccess,callbackException,resultDiscordUserFirestoreForUniqueId.parameter!.getCloneModel);
+      _firstBranchOneQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName,callbackSuccess,callbackException,resultDiscordUserFirestoreForUniqueId.parameter!.getCloneModel);
       return;
     }
     final resultUserForUniqueId = await _userQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueId
@@ -242,7 +242,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchOneQSignInWithDiscordForLoginViewQGetUserFromFirebaseFirestoreServiceParameterStringDS(resultUserForUniqueId,callbackSuccess,callbackException);
+      _firstBranchOneQSignInWithDiscordQGetUserFromFirebaseFirestoreServiceParameterStringDS(resultUserForUniqueId,callbackSuccess,callbackException);
       return;
     }
     final resultIPAddressForJsonipAPI = await _iPAddressQHttpClientServiceViewModelUsingGetNPForJsonipAPI
@@ -251,7 +251,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchOneQSignInWithDiscordForLoginViewQGetIPAddressFromHttpClientServiceNPDS(resultIPAddressForJsonipAPI,callbackSuccess,callbackException);
+      _firstBranchOneQSignInWithDiscordQGetIPAddressFromHttpClientServiceNPDS(resultIPAddressForJsonipAPI,callbackSuccess,callbackException);
       return;
     }
     final resultCountryForUniqueIdByUser = await _countryQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUser
@@ -260,14 +260,14 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchOneQSignInWithDiscordForLoginViewQGetCountryFromFirebaseFirestoreServiceParameterStringDS(resultCountryForUniqueIdByUser,callbackSuccess,callbackException);
+      _firstBranchOneQSignInWithDiscordQGetCountryFromFirebaseFirestoreServiceParameterStringDS(resultCountryForUniqueIdByUser,callbackSuccess,callbackException);
       return;
     }
     final getStringFromNameCountryWhereNotEqualsParameterNameCountry = resultIPAddressForJsonipAPI
         .parameter
         ?.getStringFromNameCountryWhereNotEqualsParameterNameCountry(resultCountryForUniqueIdByUser.parameter?.nameCountry ?? "") ?? "";
     if(getStringFromNameCountryWhereNotEqualsParameterNameCountry.isNotEmpty) {
-      _firstBranchOneQSignInWithDiscordForLoginViewQGetStringFromNameCountryWhereNotEqualsParameterNameCountry(getStringFromNameCountryWhereNotEqualsParameterNameCountry,callbackSuccess,callbackException);
+      _firstBranchOneQSignInWithDiscordQGetStringFromNameCountryWhereNotEqualsParameterNameCountry(getStringFromNameCountryWhereNotEqualsParameterNameCountry,callbackSuccess,callbackException);
       return;
     }
     final resultRoleUserForUniqueIdByUser = await _roleUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUser
@@ -276,7 +276,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchOneQSignInWithDiscordForLoginViewQGetRoleUserFromFirebaseFirestoreServiceParameterStringDS(resultRoleUserForUniqueIdByUser,callbackSuccess,callbackException);
+      _firstBranchOneQSignInWithDiscordQGetRoleUserFromFirebaseFirestoreServiceParameterStringDS(resultRoleUserForUniqueIdByUser,callbackSuccess,callbackException);
       return;
     }
     final resultIPAddressFirestore = await _iPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingUpdateParameterIPToIPAddressFirestoreUtility
@@ -285,7 +285,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchOneQSignInWithDiscordForLoginViewQUpdateIPAddressFirestoreToFirebaseFirestoreServiceParameterIPToIPAddressFirestoreUtilityDS(resultIPAddressFirestore,callbackSuccess,callbackException);
+      _firstBranchOneQSignInWithDiscordQUpdateIPAddressFirestoreToFirebaseFirestoreServiceParameterIPToIPAddressFirestoreUtilityDS(resultIPAddressFirestore,callbackSuccess,callbackException);
       return;
     }
     final resultAboutMeForUniqueIdByUser = await _aboutMeQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUser
@@ -294,7 +294,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchOneQSignInWithDiscordForLoginViewQGetAboutMeFromFirebaseFirestoreServiceParameterStringDS(resultAboutMeForUniqueIdByUser,callbackSuccess,callbackException);
+      _firstBranchOneQSignInWithDiscordQGetAboutMeFromFirebaseFirestoreServiceParameterStringDS(resultAboutMeForUniqueIdByUser,callbackSuccess,callbackException);
       return;
     }
     final resultSeasonForLastSeasonWhereSortParameterSeasonNumber = await _seasonQFirebaseFirestoreServiceViewModelUsingGetNPForLastSeasonWhereSortParameterSeasonNumber
@@ -303,7 +303,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchOneQSignInWithDiscordForLoginViewQGetSeasonFromFirebaseFirestoreServiceNPDS(resultSeasonForLastSeasonWhereSortParameterSeasonNumber,callbackSuccess,callbackException);
+      _firstBranchOneQSignInWithDiscordQGetSeasonFromFirebaseFirestoreServiceNPDS(resultSeasonForLastSeasonWhereSortParameterSeasonNumber,callbackSuccess,callbackException);
       return;
     }
     final resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber = await _seasonQFirebaseFirestoreServiceViewModelUsingGetListParameterIntForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber
@@ -312,7 +312,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchOneQSignInWithDiscordForLoginViewQGetListSeasonFromFirebaseFirestoreServiceParameterIntDS(resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber,callbackSuccess,callbackException);
+      _firstBranchOneQSignInWithDiscordQGetListSeasonFromFirebaseFirestoreServiceParameterIntDS(resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber,callbackSuccess,callbackException);
       return;
     }
     final resultStats = await _statsQFirebaseFirestoreServiceViewModelUsingGetParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility
@@ -321,7 +321,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchOneQSignInWithDiscordForLoginViewQGetStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(resultStats,callbackSuccess,callbackException);
+      _firstBranchOneQSignInWithDiscordQGetStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(resultStats,callbackSuccess,callbackException);
       return;
     }
     final resultLastLoginTimeUserForUniqueIdByUser = await _lastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingUpdateParameterStringForUniqueIdByUser
@@ -330,7 +330,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchOneQSignInWithDiscordForLoginViewQUpdateLastLoginTimeUserToFirebaseFirestoreServiceParameterStringDS(resultLastLoginTimeUserForUniqueIdByUser,callbackSuccess,callbackException);
+      _firstBranchOneQSignInWithDiscordQUpdateLastLoginTimeUserToFirebaseFirestoreServiceParameterStringDS(resultLastLoginTimeUserForUniqueIdByUser,callbackSuccess,callbackException);
       return;
     }
     await _userQSharedPreferencesServiceViewModelUsingUpdateParameterUser
@@ -377,7 +377,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackSuccess();
   }
 
-  void _firstBranchOneQSignInWithDiscordForLoginViewQGetDiscordUserFromHttpClientServiceNPDS(Result<DiscordUser> resultDiscordUserForDiscordAuth,Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchOneQSignInWithDiscordQGetDiscordUserFromHttpClientServiceNPDS(Result<DiscordUser> resultDiscordUserForDiscordAuth,Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -386,7 +386,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultDiscordUserForDiscordAuth.exceptionController.getKeyParameterException);
   }
 
-  Future<void> _firstBranchOneQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<DiscordUserFirestore> resultDiscordUserFirestoreForUniqueId,Function() callbackSuccess,Function(String messageException) callbackException, DiscordUser discordUser)
+  Future<void> _firstBranchOneQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<DiscordUserFirestore> resultDiscordUserFirestoreForUniqueId,Function() callbackSuccess,Function(String messageException) callbackException, DiscordUser discordUser)
   async {
     if(resultDiscordUserFirestoreForUniqueId
         .exceptionController
@@ -406,7 +406,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchTwoQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultUserForUniqueId,callbackSuccess,callbackException);
+      _firstBranchTwoQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultUserForUniqueId,callbackSuccess,callbackException);
       return;
     }
     final resultDiscordUserFirestore = await _discordUserFirestoreQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationDiscordUserFirestoreUtility
@@ -415,7 +415,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchThreeQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultDiscordUserFirestore,callbackSuccess,callbackException);
+      _firstBranchThreeQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultDiscordUserFirestore,callbackSuccess,callbackException);
       return;
     }
     final resultVerifiedUser =  await _verifiedUserQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationVerifiedUserUtility
@@ -424,7 +424,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchFourQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultVerifiedUser,callbackSuccess,callbackException);
+      _firstBranchFourQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultVerifiedUser,callbackSuccess,callbackException);
       return;
     }
     final resultLastLoginTimeUserForUniqueIdByUser = await _lastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdByUser
@@ -433,7 +433,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchFiveQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultLastLoginTimeUserForUniqueIdByUser,callbackSuccess,callbackException);
+      _firstBranchFiveQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultLastLoginTimeUserForUniqueIdByUser,callbackSuccess,callbackException);
       return;
     }
     final resultIPAddressForJsonipAPI = await _iPAddressQHttpClientServiceViewModelUsingGetNPForJsonipAPI
@@ -442,7 +442,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchSixQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultIPAddressForJsonipAPI,callbackSuccess,callbackException);
+      _firstBranchSixQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultIPAddressForJsonipAPI,callbackSuccess,callbackException);
       return;
     }
     final resultIPAddressFirestore = await _iPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationIPAddressFirestoreUtility
@@ -451,7 +451,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchSevenQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultIPAddressFirestore,callbackSuccess,callbackException);
+      _firstBranchSevenQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultIPAddressFirestore,callbackSuccess,callbackException);
       return;
     }
     final resultCountry = await _countryQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationCountryUtility
@@ -460,7 +460,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchEightQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultCountry,callbackSuccess,callbackException);
+      _firstBranchEightQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultCountry,callbackSuccess,callbackException);
       return;
     }
     final resultSeasonForLastSeasonWhereSortParameterSeasonNumber = await _seasonQFirebaseFirestoreServiceViewModelUsingGetNPForLastSeasonWhereSortParameterSeasonNumber
@@ -469,7 +469,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchNineQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultSeasonForLastSeasonWhereSortParameterSeasonNumber,callbackSuccess,callbackException);
+      _firstBranchNineQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultSeasonForLastSeasonWhereSortParameterSeasonNumber,callbackSuccess,callbackException);
       return;
     }
     final resultAboutMeForUniqueIdByUser = await _aboutMeQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdByUser
@@ -478,7 +478,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchTenQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultAboutMeForUniqueIdByUser,callbackSuccess,callbackException);
+      _firstBranchTenQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultAboutMeForUniqueIdByUser,callbackSuccess,callbackException);
       return;
     }
     final resultStats = await _statsQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationStatsUtility
@@ -487,7 +487,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchElevenQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultStats,callbackSuccess,callbackException);
+      _firstBranchElevenQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultStats,callbackSuccess,callbackException);
       return;
     }
     final resultRoleUserForUniqueIdByUser = await _roleUserQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdByUser
@@ -496,7 +496,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchTwelveQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultRoleUserForUniqueIdByUser,callbackSuccess,callbackException);
+      _firstBranchTwelveQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultRoleUserForUniqueIdByUser,callbackSuccess,callbackException);
       return;
     }
     final resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber = await _seasonQFirebaseFirestoreServiceViewModelUsingGetListParameterIntForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber
@@ -505,7 +505,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchThirteenQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber,callbackSuccess,callbackException);
+      _firstBranchThirteenQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber,callbackSuccess,callbackException);
       return;
     }
     await _userQSharedPreferencesServiceViewModelUsingUpdateParameterUser
@@ -552,7 +552,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackSuccess();
   }
 
-  void _firstBranchTwoQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<User> resultUserForUniqueId,Function() callbackSuccess,Function(String messageException) callbackException) {
+  void _firstBranchTwoQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<User> resultUserForUniqueId,Function() callbackSuccess,Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -561,7 +561,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultUserForUniqueId.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchThreeQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<DiscordUserFirestore> resultDiscordUserFirestore,Function() callbackSuccess,Function(String messageException) callbackException) {
+  void _firstBranchThreeQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<DiscordUserFirestore> resultDiscordUserFirestore,Function() callbackSuccess,Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -570,7 +570,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultDiscordUserFirestore.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchFourQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<VerifiedUser> resultVerifiedUser,Function() callbackSuccess,Function(String messageException) callbackException) {
+  void _firstBranchFourQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<VerifiedUser> resultVerifiedUser,Function() callbackSuccess,Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -579,7 +579,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultVerifiedUser.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchFiveQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<LastLoginTimeUser> resultLastLoginTimeUserForUniqueIdByUser,Function() callbackSuccess,Function(String messageException) callbackException) {
+  void _firstBranchFiveQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<LastLoginTimeUser> resultLastLoginTimeUserForUniqueIdByUser,Function() callbackSuccess,Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -588,7 +588,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultLastLoginTimeUserForUniqueIdByUser.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchSixQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<IPAddress> resultIPAddressForJsonipAPI,Function() callbackSuccess,Function(String messageException) callbackException) {
+  void _firstBranchSixQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<IPAddress> resultIPAddressForJsonipAPI,Function() callbackSuccess,Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -597,7 +597,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultIPAddressForJsonipAPI.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchSevenQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<IPAddressFirestore> resultIPAddressFirestore,Function() callbackSuccess,Function(String messageException) callbackException) {
+  void _firstBranchSevenQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<IPAddressFirestore> resultIPAddressFirestore,Function() callbackSuccess,Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -606,7 +606,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultIPAddressFirestore.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchEightQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<Country> resultCountry,Function() callbackSuccess,Function(String messageException) callbackException) {
+  void _firstBranchEightQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<Country> resultCountry,Function() callbackSuccess,Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -615,7 +615,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultCountry.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchNineQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<Season> resultSeasonForLastSeasonWhereSortParameterSeasonNumber, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchNineQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<Season> resultSeasonForLastSeasonWhereSortParameterSeasonNumber, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -624,7 +624,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultSeasonForLastSeasonWhereSortParameterSeasonNumber.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchTenQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<AboutMe> resultAboutMeForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchTenQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<AboutMe> resultAboutMeForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -633,7 +633,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultAboutMeForUniqueIdByUser.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchElevenQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<Stats> resultStats, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchElevenQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<Stats> resultStats, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -642,7 +642,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultStats.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchTwelveQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<RoleUser> resultRoleUserForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchTwelveQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<RoleUser> resultRoleUserForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -651,7 +651,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultRoleUserForUniqueIdByUser.exceptionController.getKeyParameterException);
   }
 
-  Future<void> _firstBranchOneQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(String getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName, Function() callbackSuccess, Function(String messageException) callbackException, DiscordUserFirestore discordUserFirestore)
+  Future<void> _firstBranchOneQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(String getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName, Function() callbackSuccess, Function(String messageException) callbackException, DiscordUserFirestore discordUserFirestore)
   async {
     final resultDiscordUserFirestore = await _discordUserFirestoreQFirebaseFirestoreServiceViewModelUsingUpdateParameterUpdateUsernameAndGlobalNameToDiscordUserFirestoreUtility
         .updateDiscordUserFirestoreToFirebaseFirestoreServiceParameterUpdateUsernameAndGlobalNameToDiscordUserFirestoreUtilityDS(UpdateUsernameAndGlobalNameToDiscordUserFirestoreUtility(discordUserFirestore.uniqueId, discordUserFirestore.uniqueIdByUser, discordUserFirestore.username, discordUserFirestore.globalName));
@@ -659,7 +659,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchTwoQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultDiscordUserFirestore,callbackSuccess,callbackException);
+      _firstBranchTwoQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultDiscordUserFirestore,callbackSuccess,callbackException);
       return;
     }
     final resultUserForUniqueId = await _userQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueId
@@ -668,7 +668,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchThreeQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultUserForUniqueId,callbackSuccess,callbackException);
+      _firstBranchThreeQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultUserForUniqueId,callbackSuccess,callbackException);
       return;
     }
     final resultIPAddressForJsonipAPI = await _iPAddressQHttpClientServiceViewModelUsingGetNPForJsonipAPI
@@ -677,7 +677,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchFourQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultIPAddressForJsonipAPI,callbackSuccess,callbackException);
+      _firstBranchFourQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultIPAddressForJsonipAPI,callbackSuccess,callbackException);
       return;
     }
     final resultCountryForUniqueIdByUser = await _countryQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUser
@@ -686,14 +686,14 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchFiveQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultCountryForUniqueIdByUser,callbackSuccess,callbackException);
+      _firstBranchFiveQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultCountryForUniqueIdByUser,callbackSuccess,callbackException);
       return;
     }
     final getStringFromNameCountryWhereNotEqualsParameterNameCountry = resultIPAddressForJsonipAPI
         .parameter
         ?.getStringFromNameCountryWhereNotEqualsParameterNameCountry(resultCountryForUniqueIdByUser.parameter?.nameCountry ?? "") ?? "";
     if(getStringFromNameCountryWhereNotEqualsParameterNameCountry.isNotEmpty) {
-      _firstBranchSixQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(getStringFromNameCountryWhereNotEqualsParameterNameCountry,callbackSuccess,callbackException);
+      _firstBranchSixQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(getStringFromNameCountryWhereNotEqualsParameterNameCountry,callbackSuccess,callbackException);
       return;
     }
     final resultRoleUserForUniqueIdByUser = await _roleUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUser
@@ -702,7 +702,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchSevenQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultRoleUserForUniqueIdByUser,callbackSuccess,callbackException);
+      _firstBranchSevenQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultRoleUserForUniqueIdByUser,callbackSuccess,callbackException);
       return;
     }
     final resultIPAddressFirestore = await _iPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingUpdateParameterIPToIPAddressFirestoreUtility
@@ -711,7 +711,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchEightQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultIPAddressFirestore,callbackSuccess,callbackException);
+      _firstBranchEightQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultIPAddressFirestore,callbackSuccess,callbackException);
       return;
     }
     final resultAboutMeForUniqueIdByUser = await _aboutMeQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUser
@@ -720,7 +720,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchNineQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultAboutMeForUniqueIdByUser,callbackSuccess,callbackException);
+      _firstBranchNineQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultAboutMeForUniqueIdByUser,callbackSuccess,callbackException);
       return;
     }
     final resultSeasonForLastSeasonWhereSortParameterSeasonNumber = await _seasonQFirebaseFirestoreServiceViewModelUsingGetNPForLastSeasonWhereSortParameterSeasonNumber
@@ -729,7 +729,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchTenQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultSeasonForLastSeasonWhereSortParameterSeasonNumber,callbackSuccess,callbackException);
+      _firstBranchTenQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultSeasonForLastSeasonWhereSortParameterSeasonNumber,callbackSuccess,callbackException);
       return;
     }
     final resultStats = await _statsQFirebaseFirestoreServiceViewModelUsingGetParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility
@@ -738,7 +738,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchElevenQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultStats,callbackSuccess,callbackException);
+      _firstBranchElevenQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultStats,callbackSuccess,callbackException);
       return;
     }
     final resultLastLoginTimeUserForUniqueIdByUser = await _lastLoginTimeUserQFirebaseFirestoreServiceViewModelUsingUpdateParameterStringForUniqueIdByUser
@@ -747,7 +747,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchTwelveQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultLastLoginTimeUserForUniqueIdByUser,callbackSuccess,callbackException);
+      _firstBranchTwelveQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultLastLoginTimeUserForUniqueIdByUser,callbackSuccess,callbackException);
       return;
     }
     final resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber = await _seasonQFirebaseFirestoreServiceViewModelUsingGetListParameterIntForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber
@@ -756,7 +756,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchThirteenQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber,callbackSuccess,callbackException);
+      _firstBranchThirteenQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber,callbackSuccess,callbackException);
       return;
     }
     await _userQSharedPreferencesServiceViewModelUsingUpdateParameterUser
@@ -803,7 +803,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackSuccess();
   }
 
-  void _firstBranchTwoQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<DiscordUserFirestore> resultDiscordUserFirestore, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchTwoQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<DiscordUserFirestore> resultDiscordUserFirestore, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -812,7 +812,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultDiscordUserFirestore.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchThreeQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<User> resultUserForUniqueId, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchThreeQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<User> resultUserForUniqueId, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -821,7 +821,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultUserForUniqueId.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchFourQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<IPAddress> resultIPAddressForJsonipAPI, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchFourQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<IPAddress> resultIPAddressForJsonipAPI, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -830,7 +830,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultIPAddressForJsonipAPI.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchFiveQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<Country> resultCountryForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchFiveQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<Country> resultCountryForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -839,7 +839,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultCountryForUniqueIdByUser.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchSixQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(String getStringFromNameCountryWhereNotEqualsParameterNameCountry, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchSixQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(String getStringFromNameCountryWhereNotEqualsParameterNameCountry, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -848,7 +848,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(getStringFromNameCountryWhereNotEqualsParameterNameCountry);
   }
 
-  void _firstBranchSevenQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<RoleUser> resultRoleUserForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchSevenQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<RoleUser> resultRoleUserForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -857,7 +857,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultRoleUserForUniqueIdByUser.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchEightQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<IPAddressFirestore> resultIPAddressFirestore, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchEightQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<IPAddressFirestore> resultIPAddressFirestore, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -866,7 +866,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultIPAddressFirestore.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchNineQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<AboutMe> resultAboutMeForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchNineQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<AboutMe> resultAboutMeForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -875,7 +875,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultAboutMeForUniqueIdByUser.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchTenQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<Season> resultSeasonForLastSeasonWhereSortParameterSeasonNumber, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchTenQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<Season> resultSeasonForLastSeasonWhereSortParameterSeasonNumber, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -884,7 +884,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultSeasonForLastSeasonWhereSortParameterSeasonNumber.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchElevenQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<Stats> resultStats, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchElevenQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<Stats> resultStats, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -893,7 +893,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultStats.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchTwelveQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<LastLoginTimeUser> resultLastLoginTimeUserForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchTwelveQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<LastLoginTimeUser> resultLastLoginTimeUserForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -902,7 +902,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultLastLoginTimeUserForUniqueIdByUser.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchOneQSignInWithDiscordForLoginViewQGetUserFromFirebaseFirestoreServiceParameterStringDS(Result<User> resultUserForUniqueId, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchOneQSignInWithDiscordQGetUserFromFirebaseFirestoreServiceParameterStringDS(Result<User> resultUserForUniqueId, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -911,7 +911,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultUserForUniqueId.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchOneQSignInWithDiscordForLoginViewQGetIPAddressFromHttpClientServiceNPDS(Result<IPAddress> resultIPAddressForJsonipAPI, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchOneQSignInWithDiscordQGetIPAddressFromHttpClientServiceNPDS(Result<IPAddress> resultIPAddressForJsonipAPI, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -920,7 +920,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultIPAddressForJsonipAPI.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchOneQSignInWithDiscordForLoginViewQGetCountryFromFirebaseFirestoreServiceParameterStringDS(Result<Country> resultCountryForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchOneQSignInWithDiscordQGetCountryFromFirebaseFirestoreServiceParameterStringDS(Result<Country> resultCountryForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -929,7 +929,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultCountryForUniqueIdByUser.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchOneQSignInWithDiscordForLoginViewQGetStringFromNameCountryWhereNotEqualsParameterNameCountry(String getStringFromNameCountryWhereNotEqualsParameterNameCountry, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchOneQSignInWithDiscordQGetStringFromNameCountryWhereNotEqualsParameterNameCountry(String getStringFromNameCountryWhereNotEqualsParameterNameCountry, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -938,7 +938,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(getStringFromNameCountryWhereNotEqualsParameterNameCountry);
   }
 
-  void _firstBranchOneQSignInWithDiscordForLoginViewQGetRoleUserFromFirebaseFirestoreServiceParameterStringDS(Result<RoleUser> resultRoleUserForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchOneQSignInWithDiscordQGetRoleUserFromFirebaseFirestoreServiceParameterStringDS(Result<RoleUser> resultRoleUserForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -947,7 +947,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultRoleUserForUniqueIdByUser.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchOneQSignInWithDiscordForLoginViewQUpdateIPAddressFirestoreToFirebaseFirestoreServiceParameterIPToIPAddressFirestoreUtilityDS(Result<IPAddressFirestore> resultIPAddressFirestore, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchOneQSignInWithDiscordQUpdateIPAddressFirestoreToFirebaseFirestoreServiceParameterIPToIPAddressFirestoreUtilityDS(Result<IPAddressFirestore> resultIPAddressFirestore, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -956,7 +956,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultIPAddressFirestore.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchOneQSignInWithDiscordForLoginViewQGetAboutMeFromFirebaseFirestoreServiceParameterStringDS(Result<AboutMe> resultAboutMeForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchOneQSignInWithDiscordQGetAboutMeFromFirebaseFirestoreServiceParameterStringDS(Result<AboutMe> resultAboutMeForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -965,7 +965,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultAboutMeForUniqueIdByUser.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchOneQSignInWithDiscordForLoginViewQGetSeasonFromFirebaseFirestoreServiceNPDS(Result<Season> resultSeasonForLastSeasonWhereSortParameterSeasonNumber, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchOneQSignInWithDiscordQGetSeasonFromFirebaseFirestoreServiceNPDS(Result<Season> resultSeasonForLastSeasonWhereSortParameterSeasonNumber, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -974,7 +974,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultSeasonForLastSeasonWhereSortParameterSeasonNumber.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchOneQSignInWithDiscordForLoginViewQGetStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(Result<Stats> resultStats, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchOneQSignInWithDiscordQGetStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(Result<Stats> resultStats, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -983,7 +983,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultStats.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchOneQSignInWithDiscordForLoginViewQUpdateLastLoginTimeUserToFirebaseFirestoreServiceParameterStringDS(Result<LastLoginTimeUser> resultLastLoginTimeUserForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchOneQSignInWithDiscordQUpdateLastLoginTimeUserToFirebaseFirestoreServiceParameterStringDS(Result<LastLoginTimeUser> resultLastLoginTimeUserForUniqueIdByUser, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -992,7 +992,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultLastLoginTimeUserForUniqueIdByUser.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchOneQSignInWithDiscordForLoginViewQGetListSeasonFromFirebaseFirestoreServiceParameterIntDS(Result<ListSeason<Season>> resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchOneQSignInWithDiscordQGetListSeasonFromFirebaseFirestoreServiceParameterIntDS(Result<ListSeason<Season>> resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -1001,7 +1001,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchThirteenQSignInWithDiscordForLoginViewQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<ListSeason<Season>> resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchThirteenQSignInWithDiscordQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<ListSeason<Season>> resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;
@@ -1010,7 +1010,7 @@ final class LoginViewListViewModel extends BaseNamedViewListViewModel {
     callbackException(resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber.exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchThirteenQSignInWithDiscordForLoginViewQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<ListSeason<Season>> resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber, Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstBranchThirteenQSignInWithDiscordQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(Result<ListSeason<Season>> resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber, Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForLoginViewQThereIsStreamStateViewModel
         .getDataForLoginView
         ?.isLoading = false;

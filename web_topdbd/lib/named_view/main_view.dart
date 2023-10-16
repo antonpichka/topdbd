@@ -163,8 +163,8 @@ final class _MainViewState extends State<MainView> {
         .listen((event) {
           setState(() {});
         });
-    await _mainViewListViewModel.listeningStreamsFirebaseFirestoreServiceForMainView();
-    final result = _mainViewListViewModel.initForMainView();
+    await _mainViewListViewModel.listeningStreamsFirebaseFirestoreService();
+    final result = _mainViewListViewModel.init();
     debugPrint("MainView: $result");
     if(!mounted) {
       return;

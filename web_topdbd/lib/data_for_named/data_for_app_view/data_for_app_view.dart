@@ -2,22 +2,23 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:web_topdbd/data_for_named/data_for_app_view/enum_data_for_app_view.dart';
 
 final class DataForAppView extends BaseDataForNamed {
+  int iterationInitStreams;
+  String otherException;
   String uniqueIdByUser;
   bool isThoseWorks;
-  bool isPreMainView;
   bool isNotValidVersionTOPDBDVersionWeb;
   String versionByTOPDBDVersionWeb;
   bool isNotVerifiedUserByVerifiedUser;
   bool isHackedBySecurity;
 
-  DataForAppView(super.isLoading,this.uniqueIdByUser,this.isThoseWorks,this.isPreMainView,this.isNotValidVersionTOPDBDVersionWeb,this.versionByTOPDBDVersionWeb,this.isNotVerifiedUserByVerifiedUser,this.isHackedBySecurity);
+  DataForAppView(super.isLoading,this.iterationInitStreams,this.otherException,this.uniqueIdByUser,this.isThoseWorks,this.isNotValidVersionTOPDBDVersionWeb,this.versionByTOPDBDVersionWeb,this.isNotVerifiedUserByVerifiedUser,this.isHackedBySecurity);
 
   EnumDataForAppView get getEnumDataForAppView {
-    if(isLoading) {
-      return EnumDataForAppView.isLoading;
-    }
     if(exceptionController.isNotEqualsNullParameterException()) {
       return EnumDataForAppView.exception;
+    }
+    if(otherException.isNotEmpty) {
+      return EnumDataForAppView.otherException;
     }
     if(isThoseWorks) {
       return EnumDataForAppView.thoseWorks;
@@ -34,9 +35,7 @@ final class DataForAppView extends BaseDataForNamed {
     if(isHackedBySecurity) {
       return EnumDataForAppView.isHacked;
     }
-    if(isPreMainView) {
-      return EnumDataForAppView.preMainView;
-    }
+    /// WAITING INIT STREAMS
     return EnumDataForAppView.mainView;
   }
 }

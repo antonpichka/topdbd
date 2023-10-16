@@ -33,18 +33,18 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
     final rvWidgetForm = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
+          Condition.equals(name: MOBILE, value: _buildForm(context,dataForAntiDDosSystemView,200,18,18,60)),
           Condition.equals(name: TABLET, value: _buildForm(context,dataForAntiDDosSystemView,300,24,24,70)),
-          Condition.largerThan(name: TABLET, value: _buildForm(context,dataForAntiDDosSystemView,400,40,40,200)),
-          Condition.smallerThan(name: TABLET, value: _buildForm(context,dataForAntiDDosSystemView,200,18,18,60))
+          Condition.equals(name: DESKTOP, value: _buildForm(context,dataForAntiDDosSystemView,400,40,40,200)),
         ]
-    ).value;
+    ).value ?? Container();
     switch(dataForAntiDDosSystemView?.getEnumDataForAntiDDosSystemView) {
       case EnumDataForAntiDDosSystemView.isLoading:
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
       case EnumDataForAntiDDosSystemView.exception:
         return Scaffold(body: Center(child: Text("Exception: ${dataForAntiDDosSystemView?.exceptionController.getKeyParameterException}")));
       case EnumDataForAntiDDosSystemView.form:
-        return rvWidgetForm!;
+        return rvWidgetForm;
       case EnumDataForAntiDDosSystemView.success:
         return Container();
       default:
@@ -93,14 +93,14 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                           style: Theme.of(context).textTheme.bodyLarge,
                           onChanged: (String text) {
                             _antiDDosSystemViewListViewModel
-                                .setInputCodeForAntiDDosSystemView(text);
+                                .setInputCode(text);
                             },
                         ),
                       ),
                       const SizedBox(height: 5,),
                       ElevatedButton(
                         onPressed: () {
-                          _antiDDosSystemViewListViewModel.clickButtonDoneForAntiDDosSystemView(() {
+                          _antiDDosSystemViewListViewModel.clickButtonDone(() {
 
                           },(messageException) {
                             showTopSnackBar(
@@ -140,7 +140,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
         .listen((event) {
           setState(() {});
         });
-    final result = _antiDDosSystemViewListViewModel.initForAntiDDosSystemView();
+    final result = _antiDDosSystemViewListViewModel.init();
     debugPrint("AntiDDosSystemView: $result");
     if(!mounted) {
       return;

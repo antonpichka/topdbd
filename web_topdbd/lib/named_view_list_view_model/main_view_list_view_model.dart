@@ -46,7 +46,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
   Stream<DataForMainView?> get getStreamDataForMainView => _dataForMainViewQThereIsStreamStateViewModel.getStreamDataForMainView;
   DataForMainView? get getDataForMainView => _dataForMainViewQThereIsStreamStateViewModel.getDataForMainView;
 
-  Future<void> listeningStreamsFirebaseFirestoreServiceForMainView()
+  Future<void> listeningStreamsFirebaseFirestoreService()
   async {
     final resultStringsForUniqueIdByUser = await _stringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser
         .getStringsFromTempCacheServiceNPDS();
@@ -54,7 +54,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringsFromTempCacheServiceNPDS(resultStringsForUniqueIdByUser);
+      _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(resultStringsForUniqueIdByUser);
       return;
     }
     await _verifiedUserQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening
@@ -64,14 +64,14 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
           .exceptionController
           .isNotEqualsNullParameterException())
       {
-        _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQStartListening(resultVerifiedUser);
+        _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQStartListening(resultVerifiedUser);
         return;
       }
       final getStringWhereIsNotVerifiedUserParameterIsVerifiedUser = resultVerifiedUser
           .parameter
           ?.getStringWhereIsNotVerifiedUserParameterIsVerifiedUser ?? "";
       if(getStringWhereIsNotVerifiedUserParameterIsVerifiedUser.isNotEmpty) {
-        _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(getStringWhereIsNotVerifiedUserParameterIsVerifiedUser);
+        _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(getStringWhereIsNotVerifiedUserParameterIsVerifiedUser);
         return;
       }
     });
@@ -82,7 +82,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
           .exceptionController
           .isNotEqualsNullParameterException())
       {
-        _secondBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQStartListening(resultIPAddressFirestore);
+        _secondBranchOneQListeningStreamsFirebaseFirestoreServiceQStartListening(resultIPAddressFirestore);
         return;
       }
       final resultStringsForIpByIPAddress = await _stringsQTempCacheServiceViewModelUsingGetNPForIpByIPAddress
@@ -91,20 +91,20 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
           .exceptionController
           .isNotEqualsNullParameterException())
       {
-        _secondBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringsFromTempCacheServiceNPDS(resultStringsForIpByIPAddress);
+        _secondBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(resultStringsForIpByIPAddress);
         return;
       }
       final getStringWhereNotEqualsFromIpParameterIp = resultIPAddressFirestore
           .parameter
           ?.getStringWhereNotEqualsFromIpParameterIp(resultStringsForIpByIPAddress.parameter?.field ?? "") ?? "";
       if(getStringWhereNotEqualsFromIpParameterIp.isNotEmpty) {
-        _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringWhereNotEqualsFromIpParameterIp(getStringWhereNotEqualsFromIpParameterIp);
+        _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringWhereNotEqualsFromIpParameterIp(getStringWhereNotEqualsFromIpParameterIp);
         return;
       }
     });
   }
 
-  String initForMainView() {
+  String init() {
     _dataForMainViewQThereIsStreamStateViewModel
         .getDataForMainView
         ?.isLoading = false;
@@ -116,7 +116,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForMainView();
   }
 
-  void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForUniqueIdByUser) {
+  void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForUniqueIdByUser) {
     _dataForMainViewQThereIsStreamStateViewModel
         .getDataForMainView
         ?.exceptionController = resultStringsForUniqueIdByUser.exceptionController;
@@ -124,7 +124,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForMainView();
   }
 
-  void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQStartListening(Result<VerifiedUser> resultVerifiedUser) {
+  void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQStartListening(Result<VerifiedUser> resultVerifiedUser) {
     _dataForMainViewQThereIsStreamStateViewModel
         .getDataForMainView
         ?.exceptionController = resultVerifiedUser.exceptionController;
@@ -132,7 +132,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForMainView();
   }
 
-  void _secondBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQStartListening(Result<IPAddressFirestore> resultIPAddressFirestore) {
+  void _secondBranchOneQListeningStreamsFirebaseFirestoreServiceQStartListening(Result<IPAddressFirestore> resultIPAddressFirestore) {
     _dataForMainViewQThereIsStreamStateViewModel
         .getDataForMainView
         ?.exceptionController = resultIPAddressFirestore.exceptionController;
@@ -140,7 +140,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForMainView();
   }
 
-  void _secondBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForIpByIPAddress) {
+  void _secondBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForIpByIPAddress) {
     _dataForMainViewQThereIsStreamStateViewModel
         .getDataForMainView
         ?.exceptionController = resultStringsForIpByIPAddress.exceptionController;
@@ -148,7 +148,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForMainView();
   }
 
-  Future<void> _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringWhereNotEqualsFromIpParameterIp(String getStringWhereNotEqualsFromIpParameterIp)
+  Future<void> _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringWhereNotEqualsFromIpParameterIp(String getStringWhereNotEqualsFromIpParameterIp)
   async {
     await _userQSharedPreferencesServiceViewModelUsingDeleteNP
         .deleteUserToSharedPreferencesServiceNPDS();
@@ -156,7 +156,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .updateBoolsToTempCacheServiceParameterBoolDS(true);
   }
 
-  Future<void> _firstBranchOneQListeningStreamsFirebaseFirestoreServiceForMainViewQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(String getStringWhereIsNotVerifiedUserParameterIsVerifiedUser)
+  Future<void> _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(String getStringWhereIsNotVerifiedUserParameterIsVerifiedUser)
   async {
     await _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUser
         .updateBoolsToTempCacheServiceParameterBoolDS(false);

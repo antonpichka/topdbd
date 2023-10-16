@@ -35,18 +35,18 @@ final class _LoginViewState extends State<LoginView> {
     final login = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
+          Condition.equals(name: MOBILE, value: _buildLogin(context,dataForLoginView,250,230,150)),
           Condition.equals(name: TABLET, value: _buildLogin(context,dataForLoginView,300,280,170)),
-          Condition.largerThan(name: TABLET, value: _buildLogin(context,dataForLoginView,400,380,200)),
-          Condition.smallerThan(name: TABLET, value: _buildLogin(context,dataForLoginView,250,230,150))
+          Condition.equals(name: DESKTOP, value: _buildLogin(context,dataForLoginView,400,380,200)),
         ]
-    ).value;
+    ).value ?? Container();
     switch(dataForLoginView?.getEnumDataForLoginView) {
       case EnumDataForLoginView.isLoading:
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
       case EnumDataForLoginView.exception:
         return Scaffold(body: Center(child: Text("Exception: ${dataForLoginView?.exceptionController.getKeyParameterException}")));
       case EnumDataForLoginView.login:
-        return login!;
+        return login;
       default:
         return Container();
     }
@@ -98,7 +98,7 @@ final class _LoginViewState extends State<LoginView> {
                                   activeColor: Theme.of(context).colorScheme.primary,
                                   value: dataForLoginView?.isCheckAgreeTermsOfUse,
                                   onChanged: (value) {
-                                    _loginViewListViewModel.checkForLoginView(value);
+                                    _loginViewListViewModel.check(value);
                                   }),
                             ),
                             const Flexible(child: Text("I agree to the terms of use of 'TOPDBD'",)),
@@ -111,7 +111,7 @@ final class _LoginViewState extends State<LoginView> {
                         button: Button.Discord,
                         text: 'Sign in with Discord',
                         onPressed: () {
-                          _loginViewListViewModel.signInWithDiscordForLoginView((){},(messageException){});
+                          _loginViewListViewModel.signInWithDiscord((){},(messageException){});
                         },
                       ) : Container(),
                       const SizedBox(height: 5,),
@@ -127,7 +127,7 @@ final class _LoginViewState extends State<LoginView> {
           setState(() {});
         });
     final result = await _loginViewListViewModel
-        .initForLoginView();
+        .init();
     debugPrint("LoginView: $result");
     if(!mounted) {
       return;

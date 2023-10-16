@@ -8,7 +8,6 @@ import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 import 'package:web_topdbd/named_utility/keys_parameters_to_navigation_utility.dart';
 import 'package:web_topdbd/named_view/login_view.dart';
 import 'package:web_topdbd/named_view/main_view.dart';
-import 'package:web_topdbd/named_view/pre_main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/app_view_list_view_model.dart';
 
 final class AppView extends StatefulWidget {
@@ -61,15 +60,16 @@ final class _AppViewState extends State<AppView> {
     _appViewListViewModel
         .getStreamDataForAppView
         .listen((event) {
-      setState(() {});
-    });
-    _appViewListViewModel.listeningStreamsTempCacheServiceForAppView();
-    await _appViewListViewModel.listeningStreamsFirebaseFirestoreServiceForAppView();
-    final result = await _appViewListViewModel.initForAppView();
+          setState(() {});
+        });
+    _appViewListViewModel.listeningStreamsTempCacheService();
+    await _appViewListViewModel.listeningStreamsFirebaseFirestoreService();
+    final result = await _appViewListViewModel.init();
     debugPrint("AppView: $result");
     if(!mounted) {
       return;
     }
+    await Future.delayed(const Duration(seconds: 1));
     _appViewListViewModel.notifyStreamDataForAppView();
   }
 
@@ -97,6 +97,15 @@ final class _AppViewState extends State<AppView> {
           ),
           GoRoute(
               path: '/exception',
+              pageBuilder:(BuildContext context, GoRouterState state) {
+                return _getChoicedMaterialPage(context,state);
+              },
+              redirect: (BuildContext context, GoRouterState state) {
+                return _getChoicedUrl(context,state);
+              }
+          ),
+          GoRoute(
+              path: '/otherException',
               pageBuilder:(BuildContext context, GoRouterState state) {
                 return _getChoicedMaterialPage(context,state);
               },
@@ -160,7 +169,7 @@ final class _AppViewState extends State<AppView> {
               }
           ),
           GoRoute(
-            path: KeysNavigationUtility.selectedNavigationItemViewQBalance,
+              path: KeysNavigationUtility.selectedNavigationItemViewQBalance,
               pageBuilder:(BuildContext context, GoRouterState state) {
                 return _getChoicedMaterialPage(context,state,KeysNavigationUtility.selectedNavigationItemViewQBalance);
               },
@@ -169,7 +178,7 @@ final class _AppViewState extends State<AppView> {
               }
           ),
           GoRoute(
-            path: KeysNavigationUtility.selectedNavigationItemViewQTournaments,
+              path: KeysNavigationUtility.selectedNavigationItemViewQTournaments,
               pageBuilder:(BuildContext context, GoRouterState state) {
                 return _getChoicedMaterialPage(context,state,KeysNavigationUtility.selectedNavigationItemViewQTournaments);
               },
@@ -215,12 +224,12 @@ final class _AppViewState extends State<AppView> {
         ]
     ).value ?? Container();
     switch(dataForAppView?.getEnumDataForAppView) {
-      case EnumDataForAppView.isLoading:
-        return const MaterialPage(
-            child: Scaffold(body: Center(child: CircularProgressIndicator())));
       case EnumDataForAppView.exception:
         return MaterialPage(
             child: Scaffold(body: Center(child: Text("Exception: ${dataForAppView?.exceptionController.getKeyParameterException}"))));
+      case EnumDataForAppView.otherException:
+        return MaterialPage(
+            child: Scaffold(body: Center(child: Text("${dataForAppView?.otherException}"))));
       case EnumDataForAppView.thoseWorks:
         return MaterialPage(
             child: rvWidgetThoseWorks);
@@ -236,9 +245,9 @@ final class _AppViewState extends State<AppView> {
       case EnumDataForAppView.isHacked:
         return MaterialPage(
             child: rvWidgetIsHacked);
-      case EnumDataForAppView.preMainView:
-        return MaterialPage(
-            child: PreMainView(nameRoute,state.pathParameters[id] ?? ""));
+      case EnumDataForAppView.waitingInitStreams:
+        return const MaterialPage(
+            child: Scaffold(body: Center(child: CircularProgressIndicator())));
       case EnumDataForAppView.mainView:
         return MaterialPage(
             child: MainView(nameRoute,state.pathParameters[id] ?? ""));
@@ -251,10 +260,10 @@ final class _AppViewState extends State<AppView> {
   String _getChoicedUrl(BuildContext context,GoRouterState state,[String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQTopPlayers]) {
     final dataForAppView = _appViewListViewModel.getDataForAppView;
     switch(dataForAppView?.getEnumDataForAppView) {
-      case EnumDataForAppView.isLoading:
-        return "/loading";
       case EnumDataForAppView.exception:
         return "/exception";
+      case EnumDataForAppView.otherException:
+        return "/otherException";
       case EnumDataForAppView.thoseWorks:
         return "/thoseWorks";
       case EnumDataForAppView.isNotValidVersionTOPDBDVersionWeb:
@@ -265,7 +274,7 @@ final class _AppViewState extends State<AppView> {
         return "/notVerifiedUser";
       case EnumDataForAppView.isHacked:
         return "/hacked";
-      case EnumDataForAppView.preMainView:
+      case EnumDataForAppView.waitingInitStreams:
         return nameRoute;
       case EnumDataForAppView.mainView:
         return nameRoute;

@@ -6,5 +6,5 @@ import 'package:web_topdbd/data_for_named/data_for_app_view/data_for_app_view.da
 final class InitializedDefaultStreamStateQDataForAppView extends BaseInitializedNamedStreamStateQDataForNamed<DataForAppView> {
   @override
   BaseNamedStreamStateQDataForNamed<DataForAppView> get getNamedStreamStateQDataForNamed =>
-      DefaultStreamStateQDataForNamed<DataForAppView>(DataForAppView(true,"",false,false,false,"",false,false));
+      DefaultStreamStateQDataForNamed<DataForAppView>(DataForAppView(true,false,"","",false,false,"",false,false));
 }

@@ -12,6 +12,7 @@ import 'package:common_topdbd/model/those_works/those_works.dart';
 import 'package:common_topdbd/model/topdbd_version_web/topdbd_version_web.dart';
 import 'package:common_topdbd/model/user/user.dart';
 import 'package:common_topdbd/named_utility/get_unique_id_by_user_and_season_number_by_season_to_stats_utility.dart';
+import 'package:common_topdbd/named_utility/keys_name_stream_to_init_stream_utility.dart';
 import 'package:common_topdbd/named_utility/keys_name_stream_to_temp_cache_service_utility.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
@@ -164,17 +165,23 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
   Stream<DataForAppView?> get getStreamDataForAppView => _dataForAppViewQThereIsStreamStateViewModel.getStreamDataForAppView;
   DataForAppView? get getDataForAppView => _dataForAppViewQThereIsStreamStateViewModel.getDataForAppView;
 
+  /// 3 WAITED INIT STREAMS
   void listeningStreamsTempCacheService() {
     _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser
         .startListening(KeysNameStreamToTempCacheServiceUtility.appViewListViewModelQUniqueIdByUser,(Result<Strings> resultStringsForUniqueIdByUser) {
           _dataForAppViewQThereIsStreamStateViewModel
               .getDataForAppView
               ?.uniqueIdByUser = resultStringsForUniqueIdByUser.parameter?.field ?? "";
-          final isInitCompleted = _dataForAppViewQThereIsStreamStateViewModel
+          _dataForAppViewQThereIsStreamStateViewModel
               .getDataForAppView
-              ?.isInitCompleted ?? false;
-          if(isInitCompleted) {
-            _firstBranchOneQListeningStreamsTempCacheServiceQIsInitCompleted(isInitCompleted);
+              ?.listInitStream
+              .updateToListInitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQOne,true);
+          final isInitStreamParameterListModel = _dataForAppViewQThereIsStreamStateViewModel
+              .getDataForAppView
+              ?.listInitStream
+              .isInitStreamParameterListModel() ?? false;
+          if(isInitStreamParameterListModel) {
+            _firstBranchOneQListeningStreamsTempCacheServiceQIsInitStreamParameterListModel(isInitStreamParameterListModel);
             return;
           }
         });
@@ -183,11 +190,12 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
           _dataForAppViewQThereIsStreamStateViewModel
               .getDataForAppView
               ?.isNotVerifiedUserByVerifiedUser = !(resultBoolsForIsVerifiedUserByVerifiedUser.parameter?.isField ?? false);
-          final isInitCompleted = _dataForAppViewQThereIsStreamStateViewModel
+          final isInitStreamParameterListModel = _dataForAppViewQThereIsStreamStateViewModel
               .getDataForAppView
-              ?.isInitCompleted ?? false;
-          if(isInitCompleted) {
-            _secondBranchOneQListeningStreamsTempCacheServiceQIsInitCompleted(isInitCompleted);
+              ?.listInitStream
+              .isInitStreamParameterListModel() ?? false;
+          if(isInitStreamParameterListModel) {
+            _secondBranchOneQListeningStreamsTempCacheServiceQIsInitStreamParameterListModel(isInitStreamParameterListModel);
             return;
           }
         });
@@ -196,11 +204,12 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
           _dataForAppViewQThereIsStreamStateViewModel
               .getDataForAppView
               ?.isHackedBySecurity = resultBoolsForIsHackedBySecurity.parameter?.isField ?? false;
-          final isInitCompleted = _dataForAppViewQThereIsStreamStateViewModel
+          final isInitStreamParameterListModel = _dataForAppViewQThereIsStreamStateViewModel
               .getDataForAppView
-              ?.isInitCompleted ?? false;
-          if(isInitCompleted) {
-            _thirdBranchOneQListeningStreamsTempCacheServiceQIsInitCompleted(isInitCompleted);
+              ?.listInitStream
+              .isInitStreamParameterListModel() ?? false;
+          if(isInitStreamParameterListModel) {
+            _thirdBranchOneQListeningStreamsTempCacheServiceQIsInitStreamParameterListModel(isInitStreamParameterListModel);
             return;
           }
         });
@@ -238,11 +247,12 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
       _dataForAppViewQThereIsStreamStateViewModel
           .getDataForAppView
           ?.isThoseWorks = resultThoseWorks.parameter?.isThoseWorks ?? false;
-      final isInitCompleted = _dataForAppViewQThereIsStreamStateViewModel
+      final isInitStreamParameterListModel = _dataForAppViewQThereIsStreamStateViewModel
           .getDataForAppView
-          ?.isInitCompleted ?? false;
-      if(isInitCompleted) {
-        _fourthBranchOneQListeningStreamsTempCacheServiceQIsInitCompleted(isInitCompleted);
+          ?.listInitStream
+          .isInitStreamParameterListModel() ?? false;
+      if(isInitStreamParameterListModel) {
+        _fourthBranchOneQListeningStreamsTempCacheServiceQIsInitStreamParameterListModel(isInitStreamParameterListModel);
         return;
       }
     });
@@ -269,11 +279,12 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
       _dataForAppViewQThereIsStreamStateViewModel
           .getDataForAppView
           ?.versionByTOPDBDVersionWeb = resultTOPDBDVersionWeb.parameter?.version ?? "";
-      final isInitCompleted = _dataForAppViewQThereIsStreamStateViewModel
+      final isInitStreamParameterListModel = _dataForAppViewQThereIsStreamStateViewModel
           .getDataForAppView
-          ?.isInitCompleted ?? false;
-      if(isInitCompleted) {
-        _fifthBranchOneQListeningStreamsTempCacheServiceQIsInitCompleted(isInitCompleted);
+          ?.listInitStream
+          .isInitStreamParameterListModel() ?? false;
+      if(isInitStreamParameterListModel) {
+        _fifthBranchOneQListeningStreamsTempCacheServiceQIsInitStreamParameterListModel(isInitStreamParameterListModel);
         return;
       }
     });
@@ -519,6 +530,8 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
 
   Future<String> _firstBranchOneQInitQGetStringWhereIsEmptyParameterUniqueId(String getStringWhereIsEmptyParameterUniqueId)
   async {
+    await _stringsQTempCacheServiceViewModelUsingUpdateParameterStringForUniqueIdByUser
+        .updateStringsToTempCacheServiceParameterStringDS("");
     return getStringWhereIsEmptyParameterUniqueId;
   }
 
@@ -664,27 +677,27 @@ final class AppViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForAppView();
   }
 
-  void _firstBranchOneQListeningStreamsTempCacheServiceQIsInitCompleted(bool isInitCompleted) {
+  void _firstBranchOneQListeningStreamsTempCacheServiceQIsInitStreamParameterListModel(bool isInitStreamParameterListModel) {
     _dataForAppViewQThereIsStreamStateViewModel
         .notifyStreamDataForAppView();
   }
 
-  void _secondBranchOneQListeningStreamsTempCacheServiceQIsInitCompleted(bool isInitCompleted) {
+  void _secondBranchOneQListeningStreamsTempCacheServiceQIsInitStreamParameterListModel(bool isInitStreamParameterListModel) {
     _dataForAppViewQThereIsStreamStateViewModel
         .notifyStreamDataForAppView();
   }
 
-  void _thirdBranchOneQListeningStreamsTempCacheServiceQIsInitCompleted(bool isInitCompleted) {
+  void _thirdBranchOneQListeningStreamsTempCacheServiceQIsInitStreamParameterListModel(bool isInitStreamParameterListModel) {
     _dataForAppViewQThereIsStreamStateViewModel
         .notifyStreamDataForAppView();
   }
 
-  void _fourthBranchOneQListeningStreamsTempCacheServiceQIsInitCompleted(bool isInitCompleted) {
+  void _fourthBranchOneQListeningStreamsTempCacheServiceQIsInitStreamParameterListModel(bool isInitStreamParameterListModel) {
     _dataForAppViewQThereIsStreamStateViewModel
         .notifyStreamDataForAppView();
   }
 
-  void _fifthBranchOneQListeningStreamsTempCacheServiceQIsInitCompleted(bool isInitCompleted) {
+  void _fifthBranchOneQListeningStreamsTempCacheServiceQIsInitStreamParameterListModel(bool isInitStreamParameterListModel) {
     _dataForAppViewQThereIsStreamStateViewModel
         .notifyStreamDataForAppView();
   }

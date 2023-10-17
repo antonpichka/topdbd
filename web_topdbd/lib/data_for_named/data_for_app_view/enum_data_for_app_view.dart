@@ -1,4 +1,5 @@
 enum EnumDataForAppView {
+  waitingInitStreams,
   exception,
   otherException,
   thoseWorks,
@@ -6,6 +7,5 @@ enum EnumDataForAppView {
   loginView,
   isNotVerifiedUser,
   isHacked,
-  waitingInitStreams,
   mainView
 }

@@ -1,5 +1,7 @@
 import 'package:common_topdbd/model/country_tc/country_tc.dart';
 import 'package:common_topdbd/model/country_tc/list_country_tc.dart';
+import 'package:common_topdbd/model/init_stream/init_stream.dart';
+import 'package:common_topdbd/model/init_stream/list_init_stream.dart';
 import 'package:common_topdbd/model/maniac/list_maniac.dart';
 import 'package:common_topdbd/model/maniac/maniac.dart';
 import 'package:common_topdbd/model/maniac_perk/list_maniac_perk.dart';
@@ -8,6 +10,7 @@ import 'package:common_topdbd/model/maps/list_maps.dart';
 import 'package:common_topdbd/model/maps/maps.dart';
 import 'package:common_topdbd/model/survivor_perk/list_survivor_perk.dart';
 import 'package:common_topdbd/model/survivor_perk/survivor_perk.dart';
+import 'package:common_topdbd/named_utility/keys_name_stream_to_init_stream_utility.dart';
 import 'package:meta/meta.dart';
 
 @immutable
@@ -272,5 +275,15 @@ final class ReadyDataUtility {
     listCountryTC.add(const CountryTC("TZ","Tanzania","assets/icon/flags/tanzania.png"));
     listCountryTC.add(const CountryTC("UZ","Uzbekistan","assets/icon/flags/uzbekistan.png"));
     return ListCountryTC(listCountryTC);
+  }
+
+  static ListInitStream<InitStream> get getListInitStream {
+    final listInitStream = List<InitStream>.empty(growable: true);
+    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQOne,false));
+    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQTwo,false));
+    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQThree,false));
+    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQFour,false));
+    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQFive,false));
+    return ListInitStream<InitStream>(List.empty(growable: true));
   }
 }

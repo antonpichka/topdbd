@@ -224,6 +224,9 @@ final class _AppViewState extends State<AppView> {
         ]
     ).value ?? Container();
     switch(dataForAppView?.getEnumDataForAppView) {
+      case EnumDataForAppView.waitingInitStreams:
+        return const MaterialPage(
+            child: Scaffold(body: Center(child: CircularProgressIndicator())));
       case EnumDataForAppView.exception:
         return MaterialPage(
             child: Scaffold(body: Center(child: Text("Exception: ${dataForAppView?.exceptionController.getKeyParameterException}"))));
@@ -245,9 +248,6 @@ final class _AppViewState extends State<AppView> {
       case EnumDataForAppView.isHacked:
         return MaterialPage(
             child: rvWidgetIsHacked);
-      case EnumDataForAppView.waitingInitStreams:
-        return const MaterialPage(
-            child: Scaffold(body: Center(child: CircularProgressIndicator())));
       case EnumDataForAppView.mainView:
         return MaterialPage(
             child: MainView(nameRoute,state.pathParameters[id] ?? ""));
@@ -260,6 +260,8 @@ final class _AppViewState extends State<AppView> {
   String _getChoicedUrl(BuildContext context,GoRouterState state,[String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQTopPlayers]) {
     final dataForAppView = _appViewListViewModel.getDataForAppView;
     switch(dataForAppView?.getEnumDataForAppView) {
+      case EnumDataForAppView.waitingInitStreams:
+        return nameRoute;
       case EnumDataForAppView.exception:
         return "/exception";
       case EnumDataForAppView.otherException:
@@ -274,8 +276,6 @@ final class _AppViewState extends State<AppView> {
         return "/notVerifiedUser";
       case EnumDataForAppView.isHacked:
         return "/hacked";
-      case EnumDataForAppView.waitingInitStreams:
-        return nameRoute;
       case EnumDataForAppView.mainView:
         return nameRoute;
       default:

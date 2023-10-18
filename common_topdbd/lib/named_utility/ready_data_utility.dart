@@ -282,8 +282,6 @@ final class ReadyDataUtility {
     listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQOne,false));
     listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQTwo,false));
     listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQThree,false));
-    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQFour,false));
-    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQFive,false));
-    return ListInitStream<InitStream>(List.empty(growable: true));
+    return ListInitStream<InitStream>(listInitStream);
   }
 }

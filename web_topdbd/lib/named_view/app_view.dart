@@ -6,6 +6,7 @@ import 'package:web_topdbd/l10n/l10n.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 import 'package:web_topdbd/named_utility/keys_parameters_to_navigation_utility.dart';
+import 'package:web_topdbd/named_view/exception_to_app_view.dart';
 import 'package:web_topdbd/named_view/login_view.dart';
 import 'package:web_topdbd/named_view/main_view.dart';
 import 'package:web_topdbd/named_view_list_view_model/app_view_list_view_model.dart';
@@ -69,7 +70,6 @@ final class _AppViewState extends State<AppView> {
     if(!mounted) {
       return;
     }
-    await Future.delayed(const Duration(seconds: 1));
     _appViewListViewModel.notifyStreamDataForAppView();
   }
 
@@ -224,22 +224,22 @@ final class _AppViewState extends State<AppView> {
         ]
     ).value ?? Container();
     switch(dataForAppView?.getEnumDataForAppView) {
+      case EnumDataForAppView.exception:
+        return MaterialPage(
+            child: ExceptionToAppView(dataForAppView?.exceptionController.getKeyParameterException ?? ""));
+      case EnumDataForAppView.otherException:
+        return MaterialPage(
+            child: ExceptionToAppView(dataForAppView?.otherException ?? ""));
       case EnumDataForAppView.waitingInitStreams:
         return const MaterialPage(
             child: Scaffold(body: Center(child: CircularProgressIndicator())));
-      case EnumDataForAppView.exception:
-        return MaterialPage(
-            child: Scaffold(body: Center(child: Text("Exception: ${dataForAppView?.exceptionController.getKeyParameterException}"))));
-      case EnumDataForAppView.otherException:
-        return MaterialPage(
-            child: Scaffold(body: Center(child: Text("${dataForAppView?.otherException}"))));
       case EnumDataForAppView.thoseWorks:
         return MaterialPage(
             child: rvWidgetThoseWorks);
       case EnumDataForAppView.isNotValidVersionTOPDBDVersionWeb:
         return MaterialPage(
             child: rvWidgetIsNotValidVersionTOPDBDVersionWeb);
-      case EnumDataForAppView.loginView:
+      case EnumDataForAppView.login:
         return MaterialPage(
             child: LoginView());
       case EnumDataForAppView.isNotVerifiedUser:
@@ -248,7 +248,7 @@ final class _AppViewState extends State<AppView> {
       case EnumDataForAppView.isHacked:
         return MaterialPage(
             child: rvWidgetIsHacked);
-      case EnumDataForAppView.mainView:
+      case EnumDataForAppView.main:
         return MaterialPage(
             child: MainView(nameRoute,state.pathParameters[id] ?? ""));
       default:
@@ -260,23 +260,23 @@ final class _AppViewState extends State<AppView> {
   String _getChoicedUrl(BuildContext context,GoRouterState state,[String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQTopPlayers]) {
     final dataForAppView = _appViewListViewModel.getDataForAppView;
     switch(dataForAppView?.getEnumDataForAppView) {
-      case EnumDataForAppView.waitingInitStreams:
-        return nameRoute;
       case EnumDataForAppView.exception:
         return "/exception";
       case EnumDataForAppView.otherException:
         return "/otherException";
+      case EnumDataForAppView.waitingInitStreams:
+        return nameRoute;
       case EnumDataForAppView.thoseWorks:
         return "/thoseWorks";
       case EnumDataForAppView.isNotValidVersionTOPDBDVersionWeb:
         return "/newVersion";
-      case EnumDataForAppView.loginView:
+      case EnumDataForAppView.login:
         return "/login";
       case EnumDataForAppView.isNotVerifiedUser:
         return "/notVerifiedUser";
       case EnumDataForAppView.isHacked:
         return "/hacked";
-      case EnumDataForAppView.mainView:
+      case EnumDataForAppView.main:
         return nameRoute;
       default:
         return "";

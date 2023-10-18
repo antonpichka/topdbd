@@ -63,7 +63,7 @@ final class AntiDDosSystemViewListViewModel extends BaseNamedViewListViewModel {
         .getDataForAntiDDosSystemView
         ?.getStringWhereNotEqualsParametersCodeAndInputCode ?? "";
     if(getStringWhereNotEqualsParametersCodeAndInputCode.isNotEmpty) {
-      _firstBranchOneQClickButtonDoneQGetStringWhereNotEqualsParametersCodeAndInputCode(getStringWhereNotEqualsParametersCodeAndInputCode,callbackSuccess,callbackException);
+      _firstQClickButtonDoneQGetStringWhereNotEqualsParametersCodeAndInputCode(getStringWhereNotEqualsParametersCodeAndInputCode,callbackSuccess,callbackException);
       return;
     }
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
@@ -77,7 +77,7 @@ final class AntiDDosSystemViewListViewModel extends BaseNamedViewListViewModel {
     callbackSuccess();
   }
 
-  void _firstBranchOneQClickButtonDoneQGetStringWhereNotEqualsParametersCodeAndInputCode(String getStringWhereNotEqualsParametersCodeAndInputCode,Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstQClickButtonDoneQGetStringWhereNotEqualsParametersCodeAndInputCode(String getStringWhereNotEqualsParametersCodeAndInputCode,Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
         .getDataForAntiDDosSystemView
         ?.isLoading = false;

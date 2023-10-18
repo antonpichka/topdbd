@@ -54,7 +54,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .exceptionController
         .isNotEqualsNullParameterException())
     {
-      _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(resultStringsForUniqueIdByUser);
+      _firstQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(resultStringsForUniqueIdByUser);
       return;
     }
     await _verifiedUserQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening
@@ -64,14 +64,14 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
           .exceptionController
           .isNotEqualsNullParameterException())
       {
-        _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQStartListening(resultVerifiedUser);
+        _firstQListeningStreamsFirebaseFirestoreServiceQStartListening(resultVerifiedUser);
         return;
       }
       final getStringWhereIsNotVerifiedUserParameterIsVerifiedUser = resultVerifiedUser
           .parameter
           ?.getStringWhereIsNotVerifiedUserParameterIsVerifiedUser ?? "";
       if(getStringWhereIsNotVerifiedUserParameterIsVerifiedUser.isNotEmpty) {
-        _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(getStringWhereIsNotVerifiedUserParameterIsVerifiedUser);
+        _firstQListeningStreamsFirebaseFirestoreServiceQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(getStringWhereIsNotVerifiedUserParameterIsVerifiedUser);
         return;
       }
     });
@@ -82,7 +82,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
           .exceptionController
           .isNotEqualsNullParameterException())
       {
-        _secondBranchOneQListeningStreamsFirebaseFirestoreServiceQStartListening(resultIPAddressFirestore);
+        _secondQListeningStreamsFirebaseFirestoreServiceQStartListening(resultIPAddressFirestore);
         return;
       }
       final resultStringsForIpByIPAddress = await _stringsQTempCacheServiceViewModelUsingGetNPForIpByIPAddress
@@ -91,14 +91,14 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
           .exceptionController
           .isNotEqualsNullParameterException())
       {
-        _secondBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(resultStringsForIpByIPAddress);
+        _secondQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(resultStringsForIpByIPAddress);
         return;
       }
       final getStringWhereNotEqualsFromIpParameterIp = resultIPAddressFirestore
           .parameter
           ?.getStringWhereNotEqualsFromIpParameterIp(resultStringsForIpByIPAddress.parameter?.field ?? "") ?? "";
       if(getStringWhereNotEqualsFromIpParameterIp.isNotEmpty) {
-        _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringWhereNotEqualsFromIpParameterIp(getStringWhereNotEqualsFromIpParameterIp);
+        _firstQListeningStreamsFirebaseFirestoreServiceQGetStringWhereNotEqualsFromIpParameterIp(getStringWhereNotEqualsFromIpParameterIp);
         return;
       }
     });
@@ -116,7 +116,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForMainView();
   }
 
-  void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForUniqueIdByUser) {
+  void _firstQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForUniqueIdByUser) {
     _dataForMainViewQThereIsStreamStateViewModel
         .getDataForMainView
         ?.exceptionController = resultStringsForUniqueIdByUser.exceptionController;
@@ -124,7 +124,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForMainView();
   }
 
-  void _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQStartListening(Result<VerifiedUser> resultVerifiedUser) {
+  void _firstQListeningStreamsFirebaseFirestoreServiceQStartListening(Result<VerifiedUser> resultVerifiedUser) {
     _dataForMainViewQThereIsStreamStateViewModel
         .getDataForMainView
         ?.exceptionController = resultVerifiedUser.exceptionController;
@@ -132,7 +132,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForMainView();
   }
 
-  void _secondBranchOneQListeningStreamsFirebaseFirestoreServiceQStartListening(Result<IPAddressFirestore> resultIPAddressFirestore) {
+  void _secondQListeningStreamsFirebaseFirestoreServiceQStartListening(Result<IPAddressFirestore> resultIPAddressFirestore) {
     _dataForMainViewQThereIsStreamStateViewModel
         .getDataForMainView
         ?.exceptionController = resultIPAddressFirestore.exceptionController;
@@ -140,7 +140,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForMainView();
   }
 
-  void _secondBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForIpByIPAddress) {
+  void _secondQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForIpByIPAddress) {
     _dataForMainViewQThereIsStreamStateViewModel
         .getDataForMainView
         ?.exceptionController = resultStringsForIpByIPAddress.exceptionController;
@@ -148,7 +148,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .notifyStreamDataForMainView();
   }
 
-  Future<void> _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringWhereNotEqualsFromIpParameterIp(String getStringWhereNotEqualsFromIpParameterIp)
+  Future<void> _firstQListeningStreamsFirebaseFirestoreServiceQGetStringWhereNotEqualsFromIpParameterIp(String getStringWhereNotEqualsFromIpParameterIp)
   async {
     await _userQSharedPreferencesServiceViewModelUsingDeleteNP
         .deleteUserToSharedPreferencesServiceNPDS();
@@ -156,7 +156,7 @@ final class MainViewListViewModel extends BaseNamedViewListViewModel {
         .updateBoolsToTempCacheServiceParameterBoolDS(true);
   }
 
-  Future<void> _firstBranchOneQListeningStreamsFirebaseFirestoreServiceQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(String getStringWhereIsNotVerifiedUserParameterIsVerifiedUser)
+  Future<void> _firstQListeningStreamsFirebaseFirestoreServiceQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(String getStringWhereIsNotVerifiedUserParameterIsVerifiedUser)
   async {
     await _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsVerifiedUserByVerifiedUser
         .updateBoolsToTempCacheServiceParameterBoolDS(false);

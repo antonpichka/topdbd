@@ -1,9 +1,11 @@
 import 'package:common_topdbd/model/init_stream/list_init_stream.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:web_topdbd/data_for_named/data_for_app_view/enum_data_for_app_view.dart';
+import 'package:web_topdbd/data_for_named/data_for_app_view/enum_status_notify_list_init_stream.dart';
 
 final class DataForAppView extends BaseDataForNamed {
   final ListInitStream listInitStream;
+  EnumStatusNotifyListInitStream enumStatusNotifyListInitStream;
   String otherException;
   bool isThoseWorks;
   bool isNotValidVersionTOPDBDVersionWeb;
@@ -12,17 +14,17 @@ final class DataForAppView extends BaseDataForNamed {
   bool isNotVerifiedUserByVerifiedUser;
   bool isHackedBySecurity;
 
-  DataForAppView(this.listInitStream,this.otherException,this.isThoseWorks,this.isNotValidVersionTOPDBDVersionWeb,this.versionByTOPDBDVersionWeb,this.uniqueIdByUser,this.isNotVerifiedUserByVerifiedUser,this.isHackedBySecurity) : super(false);
+  DataForAppView(this.listInitStream,this.enumStatusNotifyListInitStream,this.otherException,this.isThoseWorks,this.isNotValidVersionTOPDBDVersionWeb,this.versionByTOPDBDVersionWeb,this.uniqueIdByUser,this.isNotVerifiedUserByVerifiedUser,this.isHackedBySecurity) : super(false);
 
   EnumDataForAppView get getEnumDataForAppView {
-    if(listInitStream.isNotInitStreamParameterListModel()) {
-      return EnumDataForAppView.waitingInitStreams;
-    }
     if(exceptionController.isNotEqualsNullParameterException()) {
       return EnumDataForAppView.exception;
     }
     if(otherException.isNotEmpty) {
       return EnumDataForAppView.otherException;
+    }
+    if(listInitStream.isNotInitStreamParameterListModel()) {
+      return EnumDataForAppView.waitingInitStreams;
     }
     if(isThoseWorks) {
       return EnumDataForAppView.thoseWorks;
@@ -31,7 +33,7 @@ final class DataForAppView extends BaseDataForNamed {
       return EnumDataForAppView.isNotValidVersionTOPDBDVersionWeb;
     }
     if(uniqueIdByUser.isEmpty) {
-      return EnumDataForAppView.loginView;
+      return EnumDataForAppView.login;
     }
     if(isNotVerifiedUserByVerifiedUser) {
       return EnumDataForAppView.isNotVerifiedUser;
@@ -39,6 +41,15 @@ final class DataForAppView extends BaseDataForNamed {
     if(isHackedBySecurity) {
       return EnumDataForAppView.isHacked;
     }
-    return EnumDataForAppView.mainView;
+    return EnumDataForAppView.main;
+  }
+
+  bool isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream() {
+    return listInitStream.isInitStreamParameterListModel()
+        && enumStatusNotifyListInitStream != EnumStatusNotifyListInitStream.oneNotify;
+  }
+
+  bool isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream() {
+    return enumStatusNotifyListInitStream == EnumStatusNotifyListInitStream.infinityNotify;
   }
 }

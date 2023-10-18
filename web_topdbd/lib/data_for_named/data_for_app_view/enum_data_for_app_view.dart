@@ -1,11 +1,11 @@
 enum EnumDataForAppView {
-  waitingInitStreams,
   exception,
   otherException,
+  waitingInitStreams,
   thoseWorks,
   isNotValidVersionTOPDBDVersionWeb,
-  loginView,
+  login,
   isNotVerifiedUser,
   isHacked,
-  mainView
+  main
 }

@@ -5,16 +5,4 @@ import 'package:web_topdbd/data_for_named/data_for_app_view/data_for_app_view.da
 @immutable
 final class DataForAppViewQThereIsStreamStateViewModel extends BaseDataForNamedQThereIsStreamStateViewModel<DataForAppView> {
   DataForAppViewQThereIsStreamStateViewModel(super.baseInitializedNamedStreamStateQDataForNamed);
-
-  Stream<DataForAppView?> get getStreamDataForAppView {
-    return getStreamDataForNamed;
-  }
-
-  DataForAppView? get getDataForAppView {
-    return getDataForNamed;
-  }
-
-  void notifyStreamDataForAppView() {
-    notifyStreamDataForNamed();
-  }
 }

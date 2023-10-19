@@ -20,6 +20,7 @@ final class ExceptionToAppViewListViewModel extends BaseNamedViewListViewModel {
   void dispose() {
   }
 
+  @override
   Future<String> init()
   async {
     final resultBoolsForIsInitByInit = await _boolsQTempCacheServiceViewModelUsingGetNPForIsInitByInit

@@ -5,16 +5,4 @@ import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/data_fo
 @immutable
 final class DataForAntiDDosSystemViewQThereIsStreamStateViewModel extends BaseDataForNamedQThereIsStreamStateViewModel<DataForAntiDDosSystemView> {
   DataForAntiDDosSystemViewQThereIsStreamStateViewModel(super.baseInitializedNamedStreamStateQDataForNamed);
-
-  Stream<DataForAntiDDosSystemView?> get getStreamDataForAntiDDosSystemView {
-    return getStreamDataForNamed;
-  }
-
-  DataForAntiDDosSystemView? get getDataForAntiDDosSystemView {
-    return getDataForNamed;
-  }
-
-  void notifyStreamDataForAntiDDosSystemView() {
-    notifyStreamDataForNamed();
-  }
 }

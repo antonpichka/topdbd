@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:windows_topdbd/named_view_list_view_model/main_view_list_view_model.dart';
 
 final class MainView extends StatefulWidget {
   @override
@@ -7,18 +6,18 @@ final class MainView extends StatefulWidget {
 }
 
 final class _MainViewState extends State<MainView> {
-  late final MainViewListViewModel _mainViewListViewModel;
+  // late final MainViewQViewModel _mainViewQViewModel;
 
   @override
   void initState() {
-    _mainViewListViewModel = MainViewListViewModel();
+    // _mainViewQViewModel = MainViewQViewModel();
     super.initState();
-    _init();
+    // _init();
   }
 
   @override
   void dispose() {
-    _mainViewListViewModel.dispose();
+    // _mainViewQViewModel.dispose();
     super.dispose();
   }
 
@@ -30,7 +29,17 @@ final class _MainViewState extends State<MainView> {
     );
   }
 
-  void _init() {
-
-  }
+/* Future<void> _init() async {
+    _mainViewQViewModel
+        .getStreamDataForNamed
+        .listen((event) {
+          setState(() {});
+        });
+    final result = await _mainViewQViewModel.init();
+    debugPrint("MainView: $result");
+    if(!mounted) {
+      return;
+    }
+    _mainViewQViewModel.notifyStreamDataForNamed();
+  }*/
 }

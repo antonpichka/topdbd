@@ -7,7 +7,7 @@ import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/initial
 import 'package:web_topdbd/data_for_named_q_there_is_stream_state_view_model/data_for_anti_ddos_system_view_q_there_is_stream_state_view_model.dart';
 
 @immutable
-final class AntiDDosSystemViewListViewModel extends BaseNamedViewListViewModel {
+final class AntiDDosSystemViewListViewModel extends BaseNamedViewListViewModel<DataForAntiDDosSystemView> {
   // ModelQNamedServiceViewModel
 
   // DataForNamedQThereIsStreamStateViewModel
@@ -21,68 +21,72 @@ final class AntiDDosSystemViewListViewModel extends BaseNamedViewListViewModel {
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel.dispose();
   }
 
-  Stream<DataForAntiDDosSystemView?> get getStreamDataForAntiDDosSystemView => _dataForAntiDDosSystemViewQThereIsStreamStateViewModel.getStreamDataForAntiDDosSystemView;
-  DataForAntiDDosSystemView? get getDataForAntiDDosSystemView => _dataForAntiDDosSystemViewQThereIsStreamStateViewModel.getDataForAntiDDosSystemView;
+  @override
+  Stream<DataForAntiDDosSystemView> get getStreamDataForNamed => _dataForAntiDDosSystemViewQThereIsStreamStateViewModel.getStreamDataForNamed;
+  @override
+  DataForAntiDDosSystemView get getDataForNamed => _dataForAntiDDosSystemViewQThereIsStreamStateViewModel.getDataForNamed;
 
-  String init() {
+  @override
+  Future<String> init() async {
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
-        .getDataForAntiDDosSystemView
-        ?.isLoading = false;
+        .getDataForNamed
+        .isLoading = false;
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
-        .getDataForAntiDDosSystemView
-        ?.code = AlgorithmsUtility.getRandomNumbersFromNumberOfScrollsParameterString(8);
+        .getDataForNamed
+        .code = AlgorithmsUtility.getRandomNumbersFromNumberOfScrollsParameterString(8);
     return KeysSuccessUtility.sUCCESS;
   }
 
-  void notifyStreamDataForAntiDDosSystemView() {
+  @override
+  void notifyStreamDataForNamed() {
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
-        .notifyStreamDataForAntiDDosSystemView();
+        .notifyStreamDataForNamed();
   }
 
   void setInputCode(String inputCode) {
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
-        .getDataForAntiDDosSystemView
-        ?.inputCode = inputCode;
+        .getDataForNamed
+        .inputCode = inputCode;
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
-        .notifyStreamDataForAntiDDosSystemView();
+        .notifyStreamDataForNamed();
   }
 
   void clickButtonDone(Function() callbackSuccess,Function(String messageException) callbackException) {
     if(_dataForAntiDDosSystemViewQThereIsStreamStateViewModel
-        .getDataForAntiDDosSystemView
-        ?.isLoading ?? false)
+        .getDataForNamed
+        .isLoading)
     {
       return;
     }
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
-        .getDataForAntiDDosSystemView
-        ?.isLoading = true;
+        .getDataForNamed
+        .isLoading = true;
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
-        .notifyStreamDataForAntiDDosSystemView();
+        .notifyStreamDataForNamed();
     final getStringWhereNotEqualsParametersCodeAndInputCode = _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
-        .getDataForAntiDDosSystemView
-        ?.getStringWhereNotEqualsParametersCodeAndInputCode ?? "";
+        .getDataForNamed
+        .getStringWhereNotEqualsParametersCodeAndInputCode;
     if(getStringWhereNotEqualsParametersCodeAndInputCode.isNotEmpty) {
       _firstQClickButtonDoneQGetStringWhereNotEqualsParametersCodeAndInputCode(getStringWhereNotEqualsParametersCodeAndInputCode,callbackSuccess,callbackException);
       return;
     }
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
-        .getDataForAntiDDosSystemView
-        ?.isLoading = false;
+        .getDataForNamed
+        .isLoading = false;
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
-        .getDataForAntiDDosSystemView
-        ?.isSuccessCode = true;
+        .getDataForNamed
+        .isSuccessCode = true;
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
-        .notifyStreamDataForAntiDDosSystemView();
+        .notifyStreamDataForNamed();
     callbackSuccess();
   }
 
   void _firstQClickButtonDoneQGetStringWhereNotEqualsParametersCodeAndInputCode(String getStringWhereNotEqualsParametersCodeAndInputCode,Function() callbackSuccess, Function(String messageException) callbackException) {
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
-        .getDataForAntiDDosSystemView
-        ?.isLoading = false;
+        .getDataForNamed
+        .isLoading = false;
     _dataForAntiDDosSystemViewQThereIsStreamStateViewModel
-        .notifyStreamDataForAntiDDosSystemView();
+        .notifyStreamDataForNamed();
     callbackException(getStringWhereNotEqualsParametersCodeAndInputCode);
   }
 }

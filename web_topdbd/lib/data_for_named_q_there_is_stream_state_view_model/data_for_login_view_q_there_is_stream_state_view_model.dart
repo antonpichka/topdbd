@@ -5,16 +5,4 @@ import 'package:web_topdbd/data_for_named/data_for_login_view/data_for_login_vie
 @immutable
 final class DataForLoginViewQThereIsStreamStateViewModel extends BaseDataForNamedQThereIsStreamStateViewModel<DataForLoginView> {
   DataForLoginViewQThereIsStreamStateViewModel(super.baseInitializedNamedStreamStateQDataForNamed);
-
-  Stream<DataForLoginView?> get getStreamDataForLoginView {
-    return getStreamDataForNamed;
-  }
-
-  DataForLoginView? get getDataForLoginView {
-    return getDataForNamed;
-  }
-
-  void notifyStreamDataForLoginView() {
-    notifyStreamDataForNamed();
-  }
 }

@@ -29,20 +29,20 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
 
   @override
   Widget build(BuildContext context) {
-    final dataForAntiDDosSystemView = _antiDDosSystemViewListViewModel.getDataForAntiDDosSystemView;
+    final dataForNamed = _antiDDosSystemViewListViewModel.getDataForNamed;
     final rvWidgetForm = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
-          Condition.equals(name: MOBILE, value: _buildForm(context,dataForAntiDDosSystemView,200,18,18,60)),
-          Condition.equals(name: TABLET, value: _buildForm(context,dataForAntiDDosSystemView,300,24,24,70)),
-          Condition.equals(name: DESKTOP, value: _buildForm(context,dataForAntiDDosSystemView,400,40,40,200)),
+          Condition.equals(name: MOBILE, value: _buildForm(context,dataForNamed,200,18,18,60)),
+          Condition.equals(name: TABLET, value: _buildForm(context,dataForNamed,300,24,24,70)),
+          Condition.equals(name: DESKTOP, value: _buildForm(context,dataForNamed,400,40,40,200)),
         ]
     ).value ?? Container();
-    switch(dataForAntiDDosSystemView?.getEnumDataForAntiDDosSystemView) {
+    switch(dataForNamed.getEnumDataForAntiDDosSystemView) {
       case EnumDataForAntiDDosSystemView.isLoading:
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
       case EnumDataForAntiDDosSystemView.exception:
-        return Scaffold(body: Center(child: Text("Exception: ${dataForAntiDDosSystemView?.exceptionController.getKeyParameterException}")));
+        return Scaffold(body: Center(child: Text("Exception: ${dataForNamed.exceptionController.getKeyParameterException}")));
       case EnumDataForAntiDDosSystemView.form:
         return rvWidgetForm;
       case EnumDataForAntiDDosSystemView.success:
@@ -52,7 +52,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
     }
   }
 
-  Widget _buildForm(BuildContext context,DataForAntiDDosSystemView? dataForAntiDDosSystemView,double sizedBoxWidth,double textSize,double textButtonSize,double inputDecorationMaxHeight) {
+  Widget _buildForm(BuildContext context,DataForAntiDDosSystemView dataForAntiDDosSystemView,double sizedBoxWidth,double textSize,double textButtonSize,double inputDecorationMaxHeight) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -65,7 +65,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        dataForAntiDDosSystemView?.code ?? "",
+                        dataForAntiDDosSystemView.code,
                         style: TextStyle(
                           fontSize: textSize,
                           fontWeight: FontWeight.w400,
@@ -75,7 +75,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: TextFormField(
-                          initialValue: dataForAntiDDosSystemView?.inputCode ?? "",
+                          initialValue: dataForAntiDDosSystemView.inputCode,
                           maxLength: 8,
                           decoration: InputDecoration(
                             constraints: BoxConstraints(maxHeight: inputDecorationMaxHeight),
@@ -134,18 +134,18 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
     );
   }
 
-  void _init() {
+  Future<void> _init() async {
     _antiDDosSystemViewListViewModel
-        .getStreamDataForAntiDDosSystemView
+        .getStreamDataForNamed
         .listen((event) {
           setState(() {});
         });
-    final result = _antiDDosSystemViewListViewModel.init();
+    final result = await _antiDDosSystemViewListViewModel.init();
     debugPrint("AntiDDosSystemView: $result");
     if(!mounted) {
       return;
     }
-    _antiDDosSystemViewListViewModel.notifyStreamDataForAntiDDosSystemView();
+    _antiDDosSystemViewListViewModel.notifyStreamDataForNamed();
   }
 
 }

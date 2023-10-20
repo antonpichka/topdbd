@@ -9,7 +9,7 @@ import 'package:web_topdbd/named_utility/keys_parameters_to_navigation_utility.d
 import 'package:web_topdbd/named_view/exception_to_app_view.dart';
 import 'package:web_topdbd/named_view/login_view.dart';
 import 'package:web_topdbd/named_view/main_view.dart';
-import 'package:web_topdbd/named_view_list_view_model/app_view_list_view_model.dart';
+import 'package:web_topdbd/named_view_q_view_model/app_view_q_view_model.dart';
 
 final class AppView extends StatefulWidget {
   @override
@@ -17,18 +17,18 @@ final class AppView extends StatefulWidget {
 }
 
 final class _AppViewState extends State<AppView> {
-  late final AppViewListViewModel _appViewListViewModel;
+  late final AppViewQViewModel _appViewQViewModel;
 
   @override
   void initState() {
-    _appViewListViewModel = AppViewListViewModel();
+    _appViewQViewModel = AppViewQViewModel();
     super.initState();
     _init();
   }
 
   @override
   void dispose() {
-    _appViewListViewModel.dispose();
+    _appViewQViewModel.dispose();
     super.dispose();
   }
 
@@ -58,19 +58,19 @@ final class _AppViewState extends State<AppView> {
 
   Future<void> _init()
   async {
-    _appViewListViewModel
-        .getStreamDataForAppView
+    _appViewQViewModel
+        .getStreamDataForNamed
         .listen((event) {
           setState(() {});
         });
-    _appViewListViewModel.listeningStreamsTempCacheService();
-    await _appViewListViewModel.listeningStreamsFirebaseFirestoreService();
-    final result = await _appViewListViewModel.init();
+    _appViewQViewModel.listeningStreamsTempCacheService();
+    await _appViewQViewModel.listeningStreamsFirebaseFirestoreService();
+    final result = await _appViewQViewModel.init();
     debugPrint("AppView: $result");
     if(!mounted) {
       return;
     }
-    _appViewListViewModel.notifyStreamDataForAppView();
+    _appViewQViewModel.notifyStreamDataForAppView();
   }
 
   RouterConfig<Object> get _routerConfig {
@@ -190,7 +190,7 @@ final class _AppViewState extends State<AppView> {
   }
 
   MaterialPage _getChoicedMaterialPage(BuildContext context,GoRouterState state, [String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQTopPlayers, String id = KeysParametersToNavigationUtility.appViewQId]) {
-    final dataForAppView = _appViewListViewModel.getDataForAppView;
+    final dataForNamed = _appViewQViewModel.getDataForNamed;
     final rvWidgetThoseWorks = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
@@ -202,9 +202,9 @@ final class _AppViewState extends State<AppView> {
     final rvWidgetIsNotValidVersionTOPDBDVersionWeb = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
-          Condition.equals(name: MOBILE, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForAppView?.versionByTOPDBDVersionWeb ?? "",250,18)),
-          Condition.equals(name: TABLET, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForAppView?.versionByTOPDBDVersionWeb ?? "",300,24)),
-          Condition.equals(name: DESKTOP, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForAppView?.versionByTOPDBDVersionWeb ?? "",400,30)),
+          Condition.equals(name: MOBILE, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForNamed.versionByTOPDBDVersionWeb,250,18)),
+          Condition.equals(name: TABLET, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForNamed.versionByTOPDBDVersionWeb,300,24)),
+          Condition.equals(name: DESKTOP, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForNamed.versionByTOPDBDVersionWeb,400,30)),
         ]
     ).value ?? Container();
     final rvWidgetNotVerifiedUser = ResponsiveValue<Widget>(
@@ -223,13 +223,13 @@ final class _AppViewState extends State<AppView> {
           Condition.equals(name: DESKTOP, value: _buildIsHacked(context,400,30)),
         ]
     ).value ?? Container();
-    switch(dataForAppView?.getEnumDataForAppView) {
+    switch(dataForNamed.getEnumDataForNamed) {
       case EnumDataForAppView.exception:
         return MaterialPage(
-            child: ExceptionToAppView(dataForAppView?.exceptionController.getKeyParameterException ?? ""));
+            child: ExceptionToAppView(dataForNamed.exceptionController.getKeyParameterException));
       case EnumDataForAppView.otherException:
         return MaterialPage(
-            child: ExceptionToAppView(dataForAppView?.otherException ?? ""));
+            child: ExceptionToAppView(dataForNamed.otherException));
       case EnumDataForAppView.waitingInitStreams:
         return const MaterialPage(
             child: Scaffold(body: Center(child: CircularProgressIndicator())));
@@ -258,8 +258,8 @@ final class _AppViewState extends State<AppView> {
   }
 
   String _getChoicedUrl(BuildContext context,GoRouterState state,[String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQTopPlayers]) {
-    final dataForAppView = _appViewListViewModel.getDataForAppView;
-    switch(dataForAppView?.getEnumDataForAppView) {
+    final dataForNamed = _appViewQViewModel.getDataForNamed;
+    switch(dataForNamed.getEnumDataForNamed) {
       case EnumDataForAppView.exception:
         return "/exception";
       case EnumDataForAppView.otherException:

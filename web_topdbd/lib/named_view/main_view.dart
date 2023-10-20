@@ -10,7 +10,7 @@ import 'package:web_topdbd/named_view/navigation_view.dart';
 import 'package:web_topdbd/named_view/season_view.dart';
 import 'package:web_topdbd/named_view/selected_navigation_item_view.dart';
 import 'package:web_topdbd/named_view/title_to_app_bar_to_main_view.dart';
-import 'package:web_topdbd/named_view_list_view_model/main_view_list_view_model.dart';
+import 'package:web_topdbd/named_view_q_view_model/main_view_q_view_model.dart';
 
 final class MainView extends StatefulWidget {
   final String nameRoute;
@@ -23,19 +23,19 @@ final class MainView extends StatefulWidget {
 }
 
 final class _MainViewState extends State<MainView> {
-  late final MainViewListViewModel _mainViewListViewModel;
+  late final MainViewQViewModel _mainViewQViewModel;
   Color _color = Colors.white;
 
   @override
   void initState() {
-    _mainViewListViewModel = MainViewListViewModel();
+    _mainViewQViewModel = MainViewQViewModel();
     super.initState();
     _init();
   }
 
   @override
   void dispose() {
-    _mainViewListViewModel.dispose();
+    _mainViewQViewModel.dispose();
     super.dispose();
   }
 
@@ -49,12 +49,12 @@ final class _MainViewState extends State<MainView> {
           Condition.smallerThan(name: TABLET, value: Drawer(child: DrawerToMainView()))
         ]
     ).value;
-    final dataForMainView = _mainViewListViewModel.getDataForMainView;
-    switch(dataForMainView?.getEnumDataForMainView) {
+    final dataForNamed = _mainViewQViewModel.getDataForNamed;
+    switch(dataForNamed.getEnumDataForNamed) {
       case EnumDataForMainView.isLoading:
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
       case EnumDataForMainView.exception:
-        return Scaffold(body: Center(child: Text("Exception: ${dataForMainView?.exceptionController.getKeyParameterException}")));
+        return Scaffold(body: Center(child: Text("Exception: ${dataForNamed.exceptionController.getKeyParameterException}")));
       case EnumDataForMainView.success:
         return SelectionArea(
             child: Scaffold(
@@ -158,17 +158,17 @@ final class _MainViewState extends State<MainView> {
 
   Future<void> _init()
   async {
-    _mainViewListViewModel
-        .getStreamDataForMainView
+    _mainViewQViewModel
+        .getStreamDataForNamed
         .listen((event) {
           setState(() {});
         });
-    await _mainViewListViewModel.listeningStreamsFirebaseFirestoreService();
-    final result = _mainViewListViewModel.init();
+    await _mainViewQViewModel.listeningStreamsFirebaseFirestoreService();
+    final result = _mainViewQViewModel.init();
     debugPrint("MainView: $result");
     if(!mounted) {
       return;
     }
-    _mainViewListViewModel.notifyStreamDataForMainView();
+    _mainViewQViewModel.notifyStreamDataForNamed();
   }
 }

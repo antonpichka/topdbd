@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_topdbd/named_view_list_view_model/exception_to_app_view_list_view_moel.dart';
+import 'package:web_topdbd/named_view_q_view_model/exception_to_app_view_q_view_moel.dart';
 
 final class ExceptionToAppView extends StatefulWidget {
   final String msgException;
@@ -11,11 +11,11 @@ final class ExceptionToAppView extends StatefulWidget {
 }
 
 final class _ExceptionToAppViewState extends State<ExceptionToAppView> {
-  late final ExceptionToAppViewListViewModel _exceptionToAppViewListViewModel;
+  late final ExceptionToAppViewQViewModel _exceptionToAppViewListViewModel;
 
   @override
   void initState() {
-    _exceptionToAppViewListViewModel = ExceptionToAppViewListViewModel();
+    _exceptionToAppViewListViewModel = ExceptionToAppViewQViewModel();
     super.initState();
     _init();
   }

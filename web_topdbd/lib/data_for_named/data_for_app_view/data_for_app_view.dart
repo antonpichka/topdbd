@@ -3,7 +3,7 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:web_topdbd/data_for_named/data_for_app_view/enum_data_for_app_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_app_view/enum_status_notify_list_init_stream.dart';
 
-final class DataForAppView extends BaseDataForNamed {
+final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
   final ListInitStream listInitStream;
   EnumStatusNotifyListInitStream enumStatusNotifyListInitStream;
   String otherException;
@@ -16,7 +16,8 @@ final class DataForAppView extends BaseDataForNamed {
 
   DataForAppView(this.listInitStream,this.enumStatusNotifyListInitStream,this.otherException,this.isThoseWorks,this.isNotValidVersionTOPDBDVersionWeb,this.versionByTOPDBDVersionWeb,this.uniqueIdByUser,this.isNotVerifiedUserByVerifiedUser,this.isHackedBySecurity) : super(false);
 
-  EnumDataForAppView get getEnumDataForAppView {
+  @override
+  EnumDataForAppView get getEnumDataForNamed {
     if(exceptionController.isNotEqualsNullParameterException()) {
       return EnumDataForAppView.exception;
     }

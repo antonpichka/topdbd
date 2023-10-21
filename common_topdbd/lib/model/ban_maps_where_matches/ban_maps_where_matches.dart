@@ -9,7 +9,7 @@ base class BanMapsWhereMatches extends BaseModel {
   const BanMapsWhereMatches(this.name,this.uniqueIdByUser) : super(name);
 
   @override
-  BanMapsWhereMatches get getCloneModel => BanMapsWhereMatches(name,uniqueIdByUser);
+  BanMapsWhereMatches get getClone => BanMapsWhereMatches(name,uniqueIdByUser);
 
   @override
   String toString() {

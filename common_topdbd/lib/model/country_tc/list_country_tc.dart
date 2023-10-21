@@ -7,10 +7,10 @@ base class ListCountryTC<T extends CountryTC> extends BaseListModel<T> {
   const ListCountryTC(super.listModel) : super();
 
   @override
-  ListCountryTC<T> get getCloneListModel {
+  ListCountryTC<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListCountryTC<T>(newListModel);
   }

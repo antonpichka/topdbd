@@ -7,15 +7,15 @@ base class ListManiacWhereMatchBalance<T extends ManiacWhereMatchBalance> extend
   const ListManiacWhereMatchBalance(super.listModel);
 
   @override
-  ListManiacWhereMatchBalance<T> get getCloneListModel {
+  ListManiacWhereMatchBalance<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListManiacWhereMatchBalance<T>(newListModel);
   }
 
-  void deleteToListManiacWhereMatchBalance(String uniqueIdByModel) {
-    super.deleteToListModel(uniqueIdByModel);
+  void deleteFromUniqueIdByManiacWhereMatchBalanceParameterListModel(String uniqueIdByManiacWhereMatchBalance) {
+    super.deleteFromUniqueIdByModelParameterListModel(uniqueIdByManiacWhereMatchBalance);
   }
 }

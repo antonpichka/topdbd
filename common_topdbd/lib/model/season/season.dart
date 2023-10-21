@@ -12,5 +12,5 @@ base class Season extends BaseModel {
   const Season(this.seasonNumber,this.strNumberOfMatchesPlayedPerSeason,this.strNumberOfUniquePlayersWhoPlayedInASeason,this.startOfSeasonTime,this.endOfSeasonTime) : super("$seasonNumber");
 
   @override
-  Season get getCloneModel => Season(seasonNumber, strNumberOfMatchesPlayedPerSeason, strNumberOfUniquePlayersWhoPlayedInASeason,startOfSeasonTime, endOfSeasonTime);
+  Season get getClone => Season(seasonNumber, strNumberOfMatchesPlayedPerSeason, strNumberOfUniquePlayersWhoPlayedInASeason,startOfSeasonTime, endOfSeasonTime);
 }

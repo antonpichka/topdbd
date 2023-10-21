@@ -7,10 +7,10 @@ base class ListAboutMe<T extends AboutMe> extends BaseListModel<T> {
   const ListAboutMe(super.listModel) : super();
 
   @override
-  ListAboutMe<T> get getCloneListModel {
+  ListAboutMe<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListAboutMe<T>(newListModel);
   }

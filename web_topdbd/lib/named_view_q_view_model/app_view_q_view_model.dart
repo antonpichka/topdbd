@@ -20,11 +20,6 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/data_for_named/data_for_app_view/data_for_app_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_app_view/enum_status_notify_list_init_stream.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/about_me_q_firebase_firestore_service_view_model/about_me_q_firebase_firestore_service_view_model_using_get_parameter_string_for_unique_id_by_user.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/country_q_firebase_firestore_service_view_model/country_q_firebase_firestore_service_view_model_using_get_parameter_string_for_unique_id_by_user.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/discord_user_firestore_q_firebase_firestore_service_view_model/discord_user_firestore_q_firebase_firestore_service_view_model_using_get_parameter_string_for_unique_id_by_user.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/ip_address_firestore_q_firebase_firestore_service_view_model/ip_address_firestore_q_firebase_firestore_service_view_model_using_get_parameter_string_for_unique_id_by_user.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/last_login_time_user_q_firebase_firestore_service_view_model/last_login_time_user_q_firebase_firestore_service_view_model_using_update_parameter_string_for_unique_id_by_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/role_user_q_firebase_firestore_service_view_model/role_user_q_firebase_firestore_service_view_model_using_get_parameter_string_for_unique_id_by_user.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/season_q_firebase_firestore_service_view_model/season_q_firebase_firestore_service_view_model_using_get_list_parameter_int_for_season_number_where_not_equals_and_sort_parameter_season_number.dart';
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_firebase_firestore_service_view_model/season_q_firebase_firestore_service_view_model/season_q_firebase_firestore_service_view_model_using_get_np_for_last_season_where_sort_parameter_season_number.dart';
@@ -64,8 +59,8 @@ import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_s
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/survivor_perk_q_temp_cache_service_view_model/survivor_perk_q_temp_cache_service_view_model_using_update_list_np.dart';
 
 @immutable
-final class AppViewQViewModel extends BaseNamedViewQViewModel<DataForAppView,DefaultStreamAndStateQDataForNamed<DataForAppView>> {
-  // OperationQQModelQNamedServiceQNP||ParameterNamed(QQForNamedQQWhereNamed)
+final class AppViewQViewModel extends BaseNamedViewModel<DataForAppView,DefaultStreamWState<DataForAppView>> {
+  // OperationResultModel(InNamedWhereNamed)[FromNamed]ParameterNamedService
   // NamedUtility
 
   final _stringsQTempCacheServiceViewModelUsingUpdateNPForVersionByTOPDBDVersionWeb =
@@ -153,7 +148,7 @@ final class AppViewQViewModel extends BaseNamedViewQViewModel<DataForAppView,Def
   final _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsInitByInit =
   BoolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsInitByInit();
 
-  AppViewQViewModel() : super(DefaultStreamAndStateQDataForNamed(DataForAppView(ReadyDataUtility.getListInitStream,EnumStatusNotifyListInitStream.noNotify,"",false,false,"","",false,false)));
+  AppViewQViewModel() : super(DefaultStreamWState(DataForAppView(ReadyDataUtility.getListInitStream,EnumStatusNotifyListInitStream.noNotify,"",false,false,"","",false,false)));
 
   @override
   void dispose() {
@@ -263,7 +258,7 @@ final class AppViewQViewModel extends BaseNamedViewQViewModel<DataForAppView,Def
     }
     final getStringFromNameCountryWhereNotEqualsParameterNameCountry = resultIPAddressForJsonipAPI
         .parameter
-        ?.getStringFromNameCountryWhereNotEqualsParameterNameCountry(resultCountryForUniqueIdByUser.parameter?.nameCountry ?? "") ?? "";
+        ?.getStringWhereNotEqualsFromNameCountryParameterNameCountry(resultCountryForUniqueIdByUser.parameter?.nameCountry ?? "") ?? "";
     if(getStringFromNameCountryWhereNotEqualsParameterNameCountry.isNotEmpty) {
       return _firstQInitQGetStringFromNameCountryWhereNotEqualsParameterNameCountry(getStringFromNameCountryWhereNotEqualsParameterNameCountry);
     }
@@ -348,12 +343,12 @@ final class AppViewQViewModel extends BaseNamedViewQViewModel<DataForAppView,Def
     await _datesTimesQTempCacheServiceViewModelUsingUpdateParameterDateTimeForEndOfSeasonTimeBySeason
         .updateDatesTimesToTempCacheServiceParameterDateTimeDS(resultSeasonForLastSeasonWhereSortParameterSeasonNumber.parameter?.endOfSeasonTime ?? DateTime.now());
     await _seasonQTempCacheServiceViewModelUsingUpdateListParameterListSeason
-        .updateListSeasonToTempCacheServiceParameterListSeasonDS(resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber.parameter?.getCloneListModel ?? ListSeason(List.empty(growable: true)));
+        .updateListSeasonToTempCacheServiceParameterListSeasonDS(resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber.parameter?.getClone ?? ListSeason(List.empty(growable: true)));
     return KeysSuccessUtility.sUCCESS;
   }
 
   void notifyStreamDataForAppView() {
-    final isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream = getDataForNamed
+    final isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
         .isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream();
     if(isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream) {
       _fourthQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream);
@@ -364,8 +359,9 @@ final class AppViewQViewModel extends BaseNamedViewQViewModel<DataForAppView,Def
   void listeningStreamsTempCacheService() {
     _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser
         .startListening(KeysNameStreamToTempCacheServiceUtility.appViewListViewModelQUniqueIdByUser,(Result<Strings> resultStringsForUniqueIdByUser) {
-          getDataForNamed.uniqueIdByUser = resultStringsForUniqueIdByUser.parameter?.field ?? "";
-          final isInitStream = getDataForNamed
+          getDataForNamedParameterNamedStreamWState
+              .uniqueIdByUser = resultStringsForUniqueIdByUser.parameter?.field ?? "";
+          final isInitStream = getDataForNamedParameterNamedStreamWState
               .listInitStream
               .getInitStreamFromNameStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewListViewModelQOne)
               .isInitStream;
@@ -373,10 +369,10 @@ final class AppViewQViewModel extends BaseNamedViewQViewModel<DataForAppView,Def
             _firstQListeningStreamsTempCacheServiceQIsInitStream(isInitStream);
             return;
           }
-          getDataForNamed
+          getDataForNamedParameterNamedStreamWState
               .listInitStream
-              .updateToListInitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQOne,true);
-          final isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream = getDataForNamed
+              .updateFromNameStreamAndIsInitStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewListViewModelQOne,true);
+          final isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
               .isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream();
           if(isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream) {
             _firstQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream);
@@ -385,17 +381,20 @@ final class AppViewQViewModel extends BaseNamedViewQViewModel<DataForAppView,Def
         });
     _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsVerifiedUserByVerifiedUser
         .startListening(KeysNameStreamToTempCacheServiceUtility.appViewListViewModelQIsVerifiedUserByVerifiedUser, (Result<Bools> resultBoolsForIsVerifiedUserByVerifiedUser) {
-          getDataForNamed.isNotVerifiedUserByVerifiedUser = !(resultBoolsForIsVerifiedUserByVerifiedUser.parameter?.isField ?? false);
-          notifyStreamDataForNamed();
+          getDataForNamedParameterNamedStreamWState
+              .isNotVerifiedUserByVerifiedUser = !(resultBoolsForIsVerifiedUserByVerifiedUser.parameter?.isField ?? false);
+          notifyStreamDataForNamedParameterNamedStreamWState();
         });
     _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsHackedBySecurity
         .startListening(KeysNameStreamToTempCacheServiceUtility.appViewListViewModelQIsHackedBySecurity,(Result<Bools> resultBoolsForIsHackedBySecurity) {
-          getDataForNamed.isHackedBySecurity = resultBoolsForIsHackedBySecurity.parameter?.isField ?? false;
-          notifyStreamDataForNamed();
+          getDataForNamedParameterNamedStreamWState
+              .isHackedBySecurity = resultBoolsForIsHackedBySecurity.parameter?.isField ?? false;
+          notifyStreamDataForNamedParameterNamedStreamWState();
         });
     _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsInitByInit
         .startListening(KeysNameStreamToTempCacheServiceUtility.appViewListViewModelQIsInitByInit,(Result<Bools> resultBoolsForIsInitByInit) {
-          getDataForNamed.enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.infinityNotify;
+          getDataForNamedParameterNamedStreamWState
+              .enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.infinityNotify;
         });
   }
 
@@ -428,8 +427,9 @@ final class AppViewQViewModel extends BaseNamedViewQViewModel<DataForAppView,Def
         _firstQListeningStreamsFirebaseFirestoreServiceQStartListening(resultThoseWorks);
         return;
       }
-      getDataForNamed.isThoseWorks = resultThoseWorks.parameter?.isThoseWorks ?? false;
-      final isInitStream = getDataForNamed
+      getDataForNamedParameterNamedStreamWState
+          .isThoseWorks = resultThoseWorks.parameter?.isThoseWorks ?? false;
+      final isInitStream = getDataForNamedParameterNamedStreamWState
           .listInitStream
           .getInitStreamFromNameStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewListViewModelQTwo)
           .isInitStream;
@@ -437,10 +437,10 @@ final class AppViewQViewModel extends BaseNamedViewQViewModel<DataForAppView,Def
         _secondQListeningStreamsTempCacheServiceQIsInitStream(isInitStream);
         return;
       }
-      getDataForNamed
+      getDataForNamedParameterNamedStreamWState
           .listInitStream
-          .updateToListInitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQTwo,true);
-      final isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream = getDataForNamed
+          .updateFromNameStreamAndIsInitStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewListViewModelQTwo,true);
+      final isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
           .isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream();
       if(isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream) {
         _secondQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream);
@@ -464,9 +464,9 @@ final class AppViewQViewModel extends BaseNamedViewQViewModel<DataForAppView,Def
         _firstQListeningStreamsFirebaseFirestoreServiceQGetStringWhereNotEqualsFromVersionParameterVersion(getStringWhereNotEqualsFromVersionParameterVersion,resultTOPDBDVersionWeb.parameter ?? const TOPDBDVersionWeb(""));
         return;
       }
-      getDataForNamed.isNotValidVersionTOPDBDVersionWeb = false;
-      getDataForNamed.versionByTOPDBDVersionWeb = resultTOPDBDVersionWeb.parameter?.version ?? "";
-      final isInitStream = getDataForNamed
+      getDataForNamedParameterNamedStreamWState.isNotValidVersionTOPDBDVersionWeb = false;
+      getDataForNamedParameterNamedStreamWState.versionByTOPDBDVersionWeb = resultTOPDBDVersionWeb.parameter?.version ?? "";
+      final isInitStream = getDataForNamedParameterNamedStreamWState
           .listInitStream
           .getInitStreamFromNameStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewListViewModelQThree)
           .isInitStream;
@@ -474,10 +474,10 @@ final class AppViewQViewModel extends BaseNamedViewQViewModel<DataForAppView,Def
         _thirdQListeningStreamsTempCacheServiceQIsInitStream(isInitStream);
         return;
       }
-      getDataForNamed
+      getDataForNamedParameterNamedStreamWState
           .listInitStream
-          .updateToListInitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQThree,true);
-      final isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream = getDataForNamed
+          .updateFromNameStreamAndIsInitStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewListViewModelQThree,true);
+      final isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
           .isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream();
       if(isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream) {
         _thirdQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream);
@@ -488,37 +488,43 @@ final class AppViewQViewModel extends BaseNamedViewQViewModel<DataForAppView,Def
 
   Future<String> _firstQInitQUpdateListSurvivorPerkToTempCacheServiceNPDS(Result<bool> resultBool)
   async {
-    getDataForNamed.exceptionController = resultBool.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultBool.exceptionController;
     return resultBool.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQInitQUpdateListMapsToTempCacheServiceNPDS(Result<bool> resultBoolTwo)
   async {
-    getDataForNamed.exceptionController = resultBoolTwo.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultBoolTwo.exceptionController;
     return resultBoolTwo.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQInitQUpdateListManiacToTempCacheServiceNPDS(Result<bool> resultBoolThree)
   async {
-    getDataForNamed.exceptionController = resultBoolThree.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultBoolThree.exceptionController;
     return resultBoolThree.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQInitQUpdateListManiacPerkToTempCacheServiceNPDS(Result<bool> resultBoolFour)
   async {
-    getDataForNamed.exceptionController = resultBoolFour.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultBoolFour.exceptionController;
     return resultBoolFour.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQInitQUpdateListCountryTCToTempCacheServiceNPDS(Result<bool> resultBoolFive)
   async {
-    getDataForNamed.exceptionController = resultBoolFive.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultBoolFive.exceptionController;
     return resultBoolFive.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQInitQGetUserFromSharedPreferencesServiceNPDS(Result<User> resultUser)
   async {
-    getDataForNamed.exceptionController = resultUser.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultUser.exceptionController;
     return resultUser.exceptionController.getKeyParameterException;
   }
 
@@ -531,61 +537,71 @@ final class AppViewQViewModel extends BaseNamedViewQViewModel<DataForAppView,Def
 
   Future<String> _firstQInitQGetDiscordUserFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<DiscordUserFirestore> resultDiscordUserFirestoreForUniqueIdByUser)
   async {
-    getDataForNamed.exceptionController = resultDiscordUserFirestoreForUniqueIdByUser.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultDiscordUserFirestoreForUniqueIdByUser.exceptionController;
     return resultDiscordUserFirestoreForUniqueIdByUser.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQInitQGetIPAddressFromHttpClientServiceNPDS(Result<IPAddress> resultIPAddressForJsonipAPI)
   async {
-    getDataForNamed.exceptionController = resultIPAddressForJsonipAPI.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultIPAddressForJsonipAPI.exceptionController;
     return resultIPAddressForJsonipAPI.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQInitQGetCountryFromFirebaseFirestoreServiceParameterStringDS(Result<Country> resultCountryForUniqueIdByUser)
   async {
-    getDataForNamed.exceptionController = resultCountryForUniqueIdByUser.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultCountryForUniqueIdByUser.exceptionController;
     return resultCountryForUniqueIdByUser.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQInitQGetStringFromNameCountryWhereNotEqualsParameterNameCountry(String getStringFromNameCountryWhereNotEqualsParameterNameCountry)
   async {
-    getDataForNamed.otherException = getStringFromNameCountryWhereNotEqualsParameterNameCountry;
+    getDataForNamedParameterNamedStreamWState
+        .otherException = getStringFromNameCountryWhereNotEqualsParameterNameCountry;
     return getStringFromNameCountryWhereNotEqualsParameterNameCountry;
   }
 
   Future<String> _firstQInitQGetRoleUserFromFirebaseFirestoreServiceParameterStringDS(Result<RoleUser> resultRoleUserForUniqueIdByUser)
   async {
-    getDataForNamed.exceptionController = resultRoleUserForUniqueIdByUser.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultRoleUserForUniqueIdByUser.exceptionController;
     return resultRoleUserForUniqueIdByUser.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQInitQGetAboutMeFromFirebaseFirestoreServiceParameterStringDS(Result<AboutMe> resultAboutMeForUniqueIdByUser)
   async {
-    getDataForNamed.exceptionController = resultAboutMeForUniqueIdByUser.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultAboutMeForUniqueIdByUser.exceptionController;
     return resultAboutMeForUniqueIdByUser.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQInitQGetSeasonFromFirebaseFirestoreServiceNPDS(Result<Season> resultSeasonForLastSeasonWhereSortParameterSeasonNumber)
   async {
-    getDataForNamed.exceptionController = resultSeasonForLastSeasonWhereSortParameterSeasonNumber.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultSeasonForLastSeasonWhereSortParameterSeasonNumber.exceptionController;
     return resultSeasonForLastSeasonWhereSortParameterSeasonNumber.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQInitQGetStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(Result<Stats> resultStats)
   async {
-    getDataForNamed.exceptionController = resultStats.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultStats.exceptionController;
     return resultStats.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQInitQUpdateLastLoginTimeUserToFirebaseFirestoreServiceParameterStringDS(Result<LastLoginTimeUser> resultLastLoginTimeUserForUniqueIdByUser)
   async {
-    getDataForNamed.exceptionController = resultLastLoginTimeUserForUniqueIdByUser.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultLastLoginTimeUserForUniqueIdByUser.exceptionController;
     return resultLastLoginTimeUserForUniqueIdByUser.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQInitQGetIPAddressFirestoreFromFirebaseFirestoreServiceParameterStringDS(Result<IPAddressFirestore> resultIPAddressFirestoreForUniqueIdByUser)
   async {
-    getDataForNamed.exceptionController = resultIPAddressFirestoreForUniqueIdByUser.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultIPAddressFirestoreForUniqueIdByUser.exceptionController;
     return resultIPAddressFirestoreForUniqueIdByUser.exceptionController.getKeyParameterException;
   }
 
@@ -602,22 +618,26 @@ final class AppViewQViewModel extends BaseNamedViewQViewModel<DataForAppView,Def
 
   Future<String> _firstQInitQGetListSeasonFromFirebaseFirestoreServiceParameterIntDS(Result<ListSeason<Season>> resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber)
   async {
-    getDataForNamed.exceptionController = resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber.exceptionController;
     return resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber.exceptionController.getKeyParameterException;
   }
 
   void _firstQListeningStreamsFirebaseFirestoreServiceQUpdateStringsToTempCacheServiceNPDS(Result<bool> resultBoolForVersionByTOPDBDVersionWeb) {
-    getDataForNamed.exceptionController = resultBoolForVersionByTOPDBDVersionWeb.exceptionController;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultBoolForVersionByTOPDBDVersionWeb.exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _firstQListeningStreamsFirebaseFirestoreServiceQStartListening(Result<ThoseWorks> resultThoseWorks) {
-    getDataForNamed.exceptionController = resultThoseWorks.exceptionController;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultThoseWorks.exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _secondQListeningStreamsFirebaseFirestoreServiceQStartListening(Result<TOPDBDVersionWeb> resultTOPDBDVersionWeb) {
-    getDataForNamed.exceptionController = resultTOPDBDVersionWeb.exceptionController;
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultTOPDBDVersionWeb.exceptionController;
     notifyStreamDataForNamed();
   }
 

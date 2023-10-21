@@ -10,5 +10,5 @@ base class RoleUser extends BaseModel {
   const RoleUser(this.uniqueIdByUser,this.isAdmin,this.isTest) : super(uniqueIdByUser);
 
   @override
-  RoleUser get getCloneModel => RoleUser(uniqueIdByUser,isAdmin,isTest);
+  RoleUser get getClone => RoleUser(uniqueIdByUser,isAdmin,isTest);
 }

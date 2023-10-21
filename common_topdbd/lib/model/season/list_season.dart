@@ -7,10 +7,10 @@ base class ListSeason<T extends Season> extends BaseListModel<T> {
   const ListSeason(super.listModel) : super();
 
   @override
-  ListSeason<T> get getCloneListModel {
+  ListSeason<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListSeason<T>(newListModel);
   }

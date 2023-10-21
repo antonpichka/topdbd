@@ -7,10 +7,10 @@ base class ListInit<T extends Init> extends BaseListModel<T> {
   const ListInit(super.listModel) : super();
 
   @override
-  ListInit<T> get getCloneListModel {
+  ListInit<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListInit<T>(newListModel);
   }

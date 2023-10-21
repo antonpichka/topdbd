@@ -7,10 +7,10 @@ base class ListVerifiedUser<T extends VerifiedUser> extends BaseListModel<T> {
   const ListVerifiedUser(super.listModel) : super();
 
   @override
-  ListVerifiedUser<T> get getCloneListModel {
+  ListVerifiedUser<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListVerifiedUser<T>(newListModel);
   }

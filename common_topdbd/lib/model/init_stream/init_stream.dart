@@ -9,5 +9,5 @@ base class InitStream extends BaseModel {
   const InitStream(this.nameStream,this.isInitStream) : super(nameStream);
 
   @override
-  InitStream get getCloneModel => InitStream(nameStream,isInitStream);
+  InitStream get getClone => InitStream(nameStream,isInitStream);
 }

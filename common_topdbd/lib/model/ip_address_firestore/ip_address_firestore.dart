@@ -10,7 +10,7 @@ base class IPAddressFirestore extends BaseModel {
   const IPAddressFirestore(this.uniqueIdByUser,this.ip) : super(uniqueIdByUser);
 
   @override
-  IPAddressFirestore get getCloneModel => IPAddressFirestore(uniqueIdByUser,ip);
+  IPAddressFirestore get getClone => IPAddressFirestore(uniqueIdByUser,ip);
 
   String getStringWhereNotEqualsFromIpParameterIp(String ip) {
     if(this.ip != ip) {

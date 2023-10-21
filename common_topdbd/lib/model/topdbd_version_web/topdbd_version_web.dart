@@ -9,7 +9,7 @@ base class TOPDBDVersionWeb extends BaseModel {
   const TOPDBDVersionWeb(this.version) : super(version);
 
   @override
-  TOPDBDVersionWeb get getCloneModel => TOPDBDVersionWeb(version);
+  TOPDBDVersionWeb get getClone => TOPDBDVersionWeb(version);
 
   String getStringWhereNotEqualsFromVersionParameterVersion(String version) {
     if(this.version != version) {

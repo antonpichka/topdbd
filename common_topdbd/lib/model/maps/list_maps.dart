@@ -7,15 +7,15 @@ base class ListMaps<T extends Maps> extends BaseListModel<T> {
   const ListMaps(super.listModel) : super();
 
   @override
-  ListMaps<T> get getCloneListModel {
+  ListMaps<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListMaps<T>(newListModel);
   }
 
-  void deleteToListMaps(String uniqueIdByModel) {
-    super.deleteToListModel(uniqueIdByModel);
+  void deleteFromUniqueIdByMapsParameterListModel(String uniqueIdByMaps) {
+    super.deleteFromUniqueIdByModelParameterListModel(uniqueIdByMaps);
   }
 }

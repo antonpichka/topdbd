@@ -9,7 +9,7 @@ base class ManiacPerk extends BaseModel {
   ManiacPerk(this.perk) : super(perk.uniqueId);
 
   @override
-  ManiacPerk get getCloneModel => ManiacPerk(perk.getCloneModel);
+  ManiacPerk get getClone => ManiacPerk(perk.getClone);
 
   @override
   String toString() {

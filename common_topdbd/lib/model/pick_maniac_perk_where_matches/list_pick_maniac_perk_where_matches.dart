@@ -7,10 +7,10 @@ base class ListPickManiacPerkWhereMatches<T extends PickManiacPerkWhereMatches> 
   const ListPickManiacPerkWhereMatches(super.listModel) : super();
 
   @override
-  ListPickManiacPerkWhereMatches<T> get getCloneListModel {
+  ListPickManiacPerkWhereMatches<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListPickManiacPerkWhereMatches<T>(newListModel);
   }
@@ -21,12 +21,12 @@ base class ListPickManiacPerkWhereMatches<T extends PickManiacPerkWhereMatches> 
       if(pickManiacPerkWhereMatches.uniqueIdByUser != uniqueIdByUser) {
         continue;
       }
-      listPickManiacPerkWhereMatches.add(pickManiacPerkWhereMatches.getCloneModel as T);
+      listPickManiacPerkWhereMatches.add(pickManiacPerkWhereMatches.getClone as T);
     }
     return listPickManiacPerkWhereMatches;
   }
 
-  void insertToListPickManiacPerkWhereMatches(T model) {
-    super.insertToListModel(model);
+  void insertFromPickManiacPerkWhereMatchesParameterListModel(T model) {
+    super.insertFromModelParameterListModel(model);
   }
 }

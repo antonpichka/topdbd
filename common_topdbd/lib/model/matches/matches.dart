@@ -78,7 +78,7 @@ base class Matches extends BaseModel {
   }
 
   @override
-  Matches get getCloneModel => Matches(uniqueId, creationTime, isCompleted, enumBanOrPickNamed.name,textLogAction,matchBalance.getCloneModel, uniqueIdByUserWhereFirst, uniqueIdByUserWhereSecond, isStageBanOrPickForUniqueIdByUserWhereFirst,listBanManiacWhereMatches.getCloneListModel, listPickManiacWhereMatches.getCloneListModel,listRoundWhereMatches.getCloneListModel,resultRatingPointsForUniqueIdByUserWhereFirst, resultRatingPointsForUniqueIdByUserWhereSecond);
+  Matches get getClone => Matches(uniqueId, creationTime, isCompleted, enumBanOrPickNamed.name,textLogAction,matchBalance.getClone,uniqueIdByUserWhereFirst, uniqueIdByUserWhereSecond, isStageBanOrPickForUniqueIdByUserWhereFirst,listBanManiacWhereMatches.getClone,listPickManiacWhereMatches.getClone,listRoundWhereMatches.getClone,resultRatingPointsForUniqueIdByUserWhereFirst, resultRatingPointsForUniqueIdByUserWhereSecond);
 
   List<int> get getListTwoItemIterationWinRoundForUniqueIdByUserParameterListRoundWhereMatches {
     final listFinishedRoundWhereMatches = getListFinishedRoundWhereMatchesParameterListRoundWhereMatches;
@@ -152,7 +152,7 @@ base class Matches extends BaseModel {
       if(pickManiacWhereMatches.uniqueIdByUser != uniqueIdByUserWhereFirst
           && pickManiacWhereMatches.uniqueIdByUser != uniqueIdByUserWhereSecond)
       {
-        listPickManiacWhereMatchesNotUniqueIdByUserWhereFirstAndUniqueIdByUserWhereSecond.insertToListPickManiacWhereMatches(pickManiacWhereMatches.getCloneModel);
+        listPickManiacWhereMatchesNotUniqueIdByUserWhereFirstAndUniqueIdByUserWhereSecond.insertFromPickManiacWhereMatchesParameterListModel(pickManiacWhereMatches.getClone);
         continue;
       }
     }
@@ -168,17 +168,17 @@ base class Matches extends BaseModel {
   }
 
   ListManiacWhereMatchBalance<ManiacWhereMatchBalance> get getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance {
-    final listManiacWhereMatchBalance = matchBalance.listManiacWhereMatchBalance.getCloneListModel;
+    final listManiacWhereMatchBalance = matchBalance.listManiacWhereMatchBalance.getClone;
     for(ManiacWhereMatchBalance maniacWhereMatchBalance in matchBalance.listManiacWhereMatchBalance.listModel) {
       for(BanManiacWhereMatches banManiacWhereMatches in listBanManiacWhereMatches.listModel) {
         if(banManiacWhereMatches.name == maniacWhereMatchBalance.maniac.name) {
-          listManiacWhereMatchBalance.deleteToListManiacWhereMatchBalance(maniacWhereMatchBalance.uniqueId);
+          listManiacWhereMatchBalance.deleteFromUniqueIdByManiacWhereMatchBalanceParameterListModel(maniacWhereMatchBalance.uniqueId);
           break;
         }
       }
       for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatches.listModel) {
         if(pickManiacWhereMatches.name == maniacWhereMatchBalance.maniac.name) {
-          listManiacWhereMatchBalance.deleteToListManiacWhereMatchBalance(maniacWhereMatchBalance.uniqueId);
+          listManiacWhereMatchBalance.deleteFromUniqueIdByManiacWhereMatchBalanceParameterListModel(maniacWhereMatchBalance.uniqueId);
           break;
         }
       }
@@ -187,7 +187,7 @@ base class Matches extends BaseModel {
   }
 
   PickManiacWhereMatches get getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches {
-    return listPickManiacWhereMatches.getCloneListModel.listModel.last;
+    return listPickManiacWhereMatches.listModel.last.getClone;
   }
 
   ManiacWhereMatchBalance get getManiacWhereMatchBalanceForLastItemPickManiacWhereMatchesParameterMatchBalance {
@@ -195,7 +195,7 @@ base class Matches extends BaseModel {
     ManiacWhereMatchBalance? newManiacWhereMatchBalance;
     for(ManiacWhereMatchBalance maniacWhereMatchBalance in matchBalance.listManiacWhereMatchBalance.listModel) {
       if(maniacWhereMatchBalance.maniac.name == lastItemPickManiacWhereMatches.name) {
-        newManiacWhereMatchBalance = maniacWhereMatchBalance.getCloneModel;
+        newManiacWhereMatchBalance = maniacWhereMatchBalance.getClone;
         break;
       }
     }
@@ -205,13 +205,13 @@ base class Matches extends BaseModel {
   ListMaps<Maps> get getNotBannedListMapsByLastItemPickManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance {
     final lastItemPickManiacWhereMatches = getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches;
     final maniacWhereMatchBalanceForLastItemPickManiacWhereMatches = getManiacWhereMatchBalanceForLastItemPickManiacWhereMatchesParameterMatchBalance;
-    ManiacWhereMatchBalance maniacWhereMatchBalanceForLastItemPickManiacWhereMatchesForDelete = maniacWhereMatchBalanceForLastItemPickManiacWhereMatches.getCloneModel;
+    ManiacWhereMatchBalance maniacWhereMatchBalanceForLastItemPickManiacWhereMatchesForDelete = maniacWhereMatchBalanceForLastItemPickManiacWhereMatches.getClone;
     for(BanMapsWhereMatches banMapsWhereMatches in lastItemPickManiacWhereMatches.listBanMapsWhereMatches.listModel) {
       for(Maps maps in maniacWhereMatchBalanceForLastItemPickManiacWhereMatches.listMaps.listModel) {
         if(maps.name == banMapsWhereMatches.name) {
           maniacWhereMatchBalanceForLastItemPickManiacWhereMatchesForDelete
               .listMaps
-              .deleteToListMaps(maps.uniqueId);
+              .deleteFromUniqueIdByMapsParameterListModel(maps.uniqueId);
           break;
         }
       }
@@ -230,10 +230,10 @@ base class Matches extends BaseModel {
         lastItemPickManiacWhereMatches.name,
         lastItemPickManiacWhereMatches.uniqueIdByUser,
         lastItemPickManiacWhereMatches.creationTime,
-        lastItemPickManiacWhereMatches.listBanMapsWhereMatches.getCloneListModel,
+        lastItemPickManiacWhereMatches.listBanMapsWhereMatches.getClone,
         PickMapsWhereMatches(lastItemMapsFromNotBannedListMapsByLastItemPickManiacWhereMatches.name),
-        lastItemPickManiacWhereMatches.listPickManiacPerkWhereMatches.getCloneListModel,
-        lastItemPickManiacWhereMatches.listPickSurvivorPerkWhereMatches.getCloneListModel);
+        lastItemPickManiacWhereMatches.listPickManiacPerkWhereMatches.getClone,
+        lastItemPickManiacWhereMatches.listPickSurvivorPerkWhereMatches.getClone);
   }
 
   ListManiacPerk<ManiacPerk> get getListManiacPerkForLastItemPickManiacWhereMatchesParameterMatchBalance {
@@ -269,7 +269,7 @@ base class Matches extends BaseModel {
       if(roundWhereMatches.enumTurnOfManiacsAndEndOfTheRound == enumTurnOfManiacsAndEndOfTheRoundWhereEndOfTheRound) {
         continue;
       }
-      newListRoundWhereMatches.insertToListRoundWhereMatches(roundWhereMatches.getCloneModel);
+      newListRoundWhereMatches.insertFromRoundWhereMatchesParameterListModel(roundWhereMatches.getClone);
     }
     return newListRoundWhereMatches;
   }
@@ -299,7 +299,7 @@ base class Matches extends BaseModel {
       if(roundWhereMatches.enumTurnOfManiacsAndEndOfTheRound != enumTurnOfManiacsAndEndOfTheRoundWhereEndOfTheRound) {
         continue;
       }
-      newListRoundWhereMatches.insertToListRoundWhereMatches(roundWhereMatches.getCloneModel);
+      newListRoundWhereMatches.insertFromRoundWhereMatchesParameterListModel(roundWhereMatches.getClone);
     }
     return newListRoundWhereMatches;
   }
@@ -327,7 +327,7 @@ base class Matches extends BaseModel {
     final listPickManiacWhereMatchesForUniqueIdByUser = ListPickManiacWhereMatches<PickManiacWhereMatches>(List.empty(growable: true));
     for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatches.listModel) {
       if(pickManiacWhereMatches.uniqueIdByUser == uniqueIdByUser) {
-        listPickManiacWhereMatchesForUniqueIdByUser.insertToListPickManiacWhereMatches(pickManiacWhereMatches.getCloneModel);
+        listPickManiacWhereMatchesForUniqueIdByUser.insertFromPickManiacWhereMatchesParameterListModel(pickManiacWhereMatches.getClone);
         continue;
       }
     }
@@ -339,7 +339,7 @@ base class Matches extends BaseModel {
     final listBanManiacWhereMatchesForUniqueIdByUser = ListBanManiacWhereMatches<BanManiacWhereMatches>(List.empty(growable: true));
     for(BanManiacWhereMatches banManiacWhereMatches in listBanManiacWhereMatches.listModel) {
       if(banManiacWhereMatches.uniqueIdByUser == uniqueIdByUser) {
-        listBanManiacWhereMatchesForUniqueIdByUser.insertToListBanManiacWhereMatches(banManiacWhereMatches.getCloneModel);
+        listBanManiacWhereMatchesForUniqueIdByUser.insertFromBanManiacWhereMatchesParameterListModel(banManiacWhereMatches.getClone);
         continue;
       }
     }
@@ -350,9 +350,9 @@ base class Matches extends BaseModel {
   ListManiacPerk<ManiacPerk> getNotPickedListManiacPerkForUniqueIdByUserParameterListPickManiacWhereMatchesAndMatchBalance(String uniqueIdByUser) {
     final maniacWhereMatchBalanceForLastItemPickManiacWhereMatches = getManiacWhereMatchBalanceForLastItemPickManiacWhereMatchesParameterMatchBalance;
     final lastItemPickManiacWhereMatches = getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches;
-    final listManiacPerkForDelete = maniacWhereMatchBalanceForLastItemPickManiacWhereMatches.listManiacPerk.getCloneListModel;
+    final listManiacPerkForDelete = maniacWhereMatchBalanceForLastItemPickManiacWhereMatches.listManiacPerk.getClone;
     for(PickManiacPerkWhereMatches pickManiacPerkWhereMatches in lastItemPickManiacWhereMatches.listPickManiacPerkWhereMatches.getListPickManiacPerkWhereMatchesFromUniqueIdByUserParameterListModel(uniqueIdByUser)) {
-      listManiacPerkForDelete.deleteToListManiacPerk(pickManiacPerkWhereMatches.uniqueId);
+      listManiacPerkForDelete.deleteFromUniqueIdByManiacPerkParameterListModel(pickManiacPerkWhereMatches.uniqueId);
     }
     return listManiacPerkForDelete;
   }
@@ -361,9 +361,9 @@ base class Matches extends BaseModel {
   ListSurvivorPerk<SurvivorPerk> getNotPickedListSurvivorPerkForUniqueIdByUserParameterListPickManiacWhereMatchesAndMatchBalance(String uniqueIdByUser) {
     final maniacWhereMatchBalanceForLastItemPickManiacWhereMatches = getManiacWhereMatchBalanceForLastItemPickManiacWhereMatchesParameterMatchBalance;
     final lastItemPickManiacWhereMatches = getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches;
-    final listSurvivorPerkForDelete = maniacWhereMatchBalanceForLastItemPickManiacWhereMatches.listSurvivorPerk.getCloneListModel;
+    final listSurvivorPerkForDelete = maniacWhereMatchBalanceForLastItemPickManiacWhereMatches.listSurvivorPerk.getClone;
     for(PickSurvivorPerkWhereMatches pickSurvivorPerkWhereMatches in lastItemPickManiacWhereMatches.listPickSurvivorPerkWhereMatches.getListPickSurvivorPerkWhereMatchesFromUniqueIdByUserParameterListModel(uniqueIdByUser)) {
-      listSurvivorPerkForDelete.deleteToListSurvivorPerk(pickSurvivorPerkWhereMatches.uniqueId);
+      listSurvivorPerkForDelete.deleteFromUniqueIdBySurvivorPerkParameterListModel(pickSurvivorPerkWhereMatches.uniqueId);
     }
     return listSurvivorPerkForDelete;
   }
@@ -372,9 +372,9 @@ base class Matches extends BaseModel {
     final firstItemUnfinishedRoundWhereMatches = getFirstItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches;
     for(RoundWhereMatches roundWhereMatches in listRoundWhereMatches.listModel) {
       if(roundWhereMatches.round == firstItemUnfinishedRoundWhereMatches.round) {
-        listRoundWhereMatches.updateToListRoundWhereMatches(RoundWhereMatches(
+        listRoundWhereMatches.updateFromRoundWhereMatchesParameterListModel(RoundWhereMatches(
             roundWhereMatches.round,
-            roundWhereMatches.pickManiacWhereMatches.getCloneModel,
+            roundWhereMatches.pickManiacWhereMatches.getClone,
             roundWhereMatches.enumTurnOfManiacsAndEndOfTheRound.name,
             roundWhereMatches.isRoleManiacForUniqueIdByUserWhereFirst,
             true,
@@ -390,9 +390,9 @@ base class Matches extends BaseModel {
     final firstItemUnfinishedRoundWhereMatches = getFirstItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches;
     for(RoundWhereMatches roundWhereMatches in listRoundWhereMatches.listModel) {
       if(roundWhereMatches.round == firstItemUnfinishedRoundWhereMatches.round) {
-        listRoundWhereMatches.updateToListRoundWhereMatches(RoundWhereMatches(
+        listRoundWhereMatches.updateFromRoundWhereMatchesParameterListModel(RoundWhereMatches(
             roundWhereMatches.round,
-            roundWhereMatches.pickManiacWhereMatches.getCloneModel,
+            roundWhereMatches.pickManiacWhereMatches.getClone,
             roundWhereMatches.enumTurnOfManiacsAndEndOfTheRound.name,
             roundWhereMatches.isRoleManiacForUniqueIdByUserWhereFirst,
             roundWhereMatches.isStartTimerForUniqueIdByUserWhereFirst,
@@ -408,9 +408,9 @@ base class Matches extends BaseModel {
     final firstItemUnfinishedRoundWhereMatches = getFirstItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches;
     for(RoundWhereMatches roundWhereMatches in listRoundWhereMatches.listModel) {
       if(roundWhereMatches.round == firstItemUnfinishedRoundWhereMatches.round) {
-        listRoundWhereMatches.updateToListRoundWhereMatches(RoundWhereMatches(
+        listRoundWhereMatches.updateFromRoundWhereMatchesParameterListModel(RoundWhereMatches(
             roundWhereMatches.round,
-            roundWhereMatches.pickManiacWhereMatches.getCloneModel,
+            roundWhereMatches.pickManiacWhereMatches.getClone,
             roundWhereMatches.getNextOrEndParameterEnumTurnOfManiacsAndEndOfTheRound.name,
             roundWhereMatches.isSwapParameterIsRoleManiacForUniqueIdByUserWhereFirst(),
             false,
@@ -426,9 +426,9 @@ base class Matches extends BaseModel {
     final firstItemUnfinishedRoundWhereMatches = getFirstItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches;
     for(RoundWhereMatches roundWhereMatches in listRoundWhereMatches.listModel) {
       if(roundWhereMatches.round == firstItemUnfinishedRoundWhereMatches.round) {
-        listRoundWhereMatches.updateToListRoundWhereMatches(RoundWhereMatches(
+        listRoundWhereMatches.updateFromRoundWhereMatchesParameterListModel(RoundWhereMatches(
             roundWhereMatches.round,
-            roundWhereMatches.pickManiacWhereMatches.getCloneModel,
+            roundWhereMatches.pickManiacWhereMatches.getClone,
             roundWhereMatches.getNextOrEndParameterEnumTurnOfManiacsAndEndOfTheRound.name,
             roundWhereMatches.isSwapParameterIsRoleManiacForUniqueIdByUserWhereFirst(),
             false,
@@ -444,9 +444,9 @@ base class Matches extends BaseModel {
     final firstItemUnfinishedRoundWhereMatches = getFirstItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches;
     for(RoundWhereMatches roundWhereMatches in listRoundWhereMatches.listModel) {
       if(roundWhereMatches.round == firstItemUnfinishedRoundWhereMatches.round) {
-        listRoundWhereMatches.updateToListRoundWhereMatches(RoundWhereMatches(
+        listRoundWhereMatches.updateFromRoundWhereMatchesParameterListModel(RoundWhereMatches(
             roundWhereMatches.round,
-            roundWhereMatches.pickManiacWhereMatches.getCloneModel,
+            roundWhereMatches.pickManiacWhereMatches.getClone,
             EnumTurnOfManiacsAndEndOfTheRound.endOfTheRound.name,
             roundWhereMatches.isRoleManiacForUniqueIdByUserWhereFirst,
             roundWhereMatches.isStartTimerForUniqueIdByUserWhereFirst,
@@ -459,16 +459,16 @@ base class Matches extends BaseModel {
   }
 
   void insertListRoundWhereMatchesParameterListRoundWhereMatches() {
-    listPickManiacWhereMatches.pickManiacWhereMatchesQWhereOrderByAscParameterCreationTimeIterator();
+    listPickManiacWhereMatches.pickManiacWhereMatchesWhereOrderByAscParameterCreationTimeIteratorParameterListModel();
     int round = 1;
     for(PickManiacWhereMatches pickManiacWhereMatches in listPickManiacWhereMatches.listModel) {
       final isRoleManiacUniqueIdByUserWhereFirst =
       pickManiacWhereMatches.uniqueIdByUser == uniqueIdByUserWhereFirst
           ? true
           : false;
-      listRoundWhereMatches.insertToListRoundWhereMatches(RoundWhereMatches(
+      listRoundWhereMatches.insertFromRoundWhereMatchesParameterListModel(RoundWhereMatches(
           round,
-          pickManiacWhereMatches.getCloneModel,
+          pickManiacWhereMatches.getClone,
           EnumTurnOfManiacsAndEndOfTheRound.firstManiac.name,
           isRoleManiacUniqueIdByUserWhereFirst,
           false,
@@ -487,10 +487,10 @@ base class Matches extends BaseModel {
         for(ManiacPerk maniacPerk in maniacWhereMatchBalanceForLastItemPickManiacWhereMatches.listManiacPerk.listModel) {
           pickManiacWhereMatches
               .listPickManiacPerkWhereMatches
-              .insertToListPickManiacPerkWhereMatches(PickManiacPerkWhereMatches(maniacPerk.perk.name,uniqueIdByUserWhereFirst));
+              .insertFromPickManiacPerkWhereMatchesParameterListModel(PickManiacPerkWhereMatches(maniacPerk.perk.name,uniqueIdByUserWhereFirst));
           pickManiacWhereMatches
               .listPickManiacPerkWhereMatches
-              .insertToListPickManiacPerkWhereMatches(PickManiacPerkWhereMatches(maniacPerk.perk.name,uniqueIdByUserWhereSecond));
+              .insertFromPickManiacPerkWhereMatchesParameterListModel(PickManiacPerkWhereMatches(maniacPerk.perk.name,uniqueIdByUserWhereSecond));
         }
         break;
       }
@@ -505,10 +505,10 @@ base class Matches extends BaseModel {
         for(SurvivorPerk survivorPerk in maniacWhereMatchBalanceForLastItemPickManiacWhereMatches.listSurvivorPerk.listModel) {
           pickManiacWhereMatches
               .listPickSurvivorPerkWhereMatches
-              .insertToListPickSurvivorPerkWhereMatches(PickSurvivorPerkWhereMatches(survivorPerk.perk.name,uniqueIdByUserWhereFirst));
+              .insertFromPickSurvivorPerkWhereMatchesParameterListModel(PickSurvivorPerkWhereMatches(survivorPerk.perk.name,uniqueIdByUserWhereFirst));
           pickManiacWhereMatches
               .listPickSurvivorPerkWhereMatches
-              .insertToListPickSurvivorPerkWhereMatches(PickSurvivorPerkWhereMatches(survivorPerk.perk.name,uniqueIdByUserWhereSecond));
+              .insertFromPickSurvivorPerkWhereMatchesParameterListModel(PickSurvivorPerkWhereMatches(survivorPerk.perk.name,uniqueIdByUserWhereSecond));
         }
         break;
       }
@@ -517,34 +517,34 @@ base class Matches extends BaseModel {
 
   void updatePickMapsWhereMatchesParameterListPickManiacWhereMatches() {
     listPickManiacWhereMatches
-        .updateToListPickManiacWhereMatches(getUpdatedLastItemPickMapsWhereMatchesToListPickManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance);
+        .updateFromPickManiacWhereMatchesParameterListModel(getUpdatedLastItemPickMapsWhereMatchesToListPickManiacWhereMatchesParametersListPickManiacWhereMatchesAndMatchBalance);
   }
 
   void insertBanManiacWhereMatchesForUniqueIdByUserWhereFirstFromNameManiacParameterListBanManiacWhereMatches(String nameManiac) {
     listBanManiacWhereMatches
-        .insertToListBanManiacWhereMatches(BanManiacWhereMatches(nameManiac,uniqueIdByUserWhereFirst));
+        .insertFromBanManiacWhereMatchesParameterListModel(BanManiacWhereMatches(nameManiac,uniqueIdByUserWhereFirst));
   }
 
   void insertBanManiacWhereMatchesForUniqueIdByUserWhereSecondFromNameManiacParameterListBanManiacWhereMatches(String nameManiac) {
     listBanManiacWhereMatches
-        .insertToListBanManiacWhereMatches(BanManiacWhereMatches(nameManiac,uniqueIdByUserWhereSecond));
+        .insertFromBanManiacWhereMatchesParameterListModel(BanManiacWhereMatches(nameManiac,uniqueIdByUserWhereSecond));
   }
 
   void insertPickManiacWhereMatchesForUniqueIdByUserWhereFirstFromNameManiacParameterListPickManiacWhereMatches(String nameManiac) {
     listPickManiacWhereMatches
-        .insertToListPickManiacWhereMatches(PickManiacWhereMatches(nameManiac,uniqueIdByUserWhereFirst,DateTime.now(),ListBanMapsWhereMatches(List.empty(growable: true)),PickMapsWhereMatches(""),ListPickManiacPerkWhereMatches(List.empty(growable: true)),ListPickSurvivorPerkWhereMatches(List.empty(growable: true))));
+        .insertFromPickManiacWhereMatchesParameterListModel(PickManiacWhereMatches(nameManiac,uniqueIdByUserWhereFirst,DateTime.now(),ListBanMapsWhereMatches(List.empty(growable: true)),PickMapsWhereMatches(""),ListPickManiacPerkWhereMatches(List.empty(growable: true)),ListPickSurvivorPerkWhereMatches(List.empty(growable: true))));
   }
 
   void insertPickManiacWhereMatchesForUniqueIdByUserWhereSecondFromNameManiacParameterListPickManiacWhereMatches(String nameManiac) {
     listPickManiacWhereMatches
-        .insertToListPickManiacWhereMatches(PickManiacWhereMatches(nameManiac,uniqueIdByUserWhereSecond,DateTime.now(),ListBanMapsWhereMatches(List.empty(growable: true)),PickMapsWhereMatches(""),ListPickManiacPerkWhereMatches(List.empty(growable: true)),ListPickSurvivorPerkWhereMatches(List.empty(growable: true))));
+        .insertFromPickManiacWhereMatchesParameterListModel(PickManiacWhereMatches(nameManiac,uniqueIdByUserWhereSecond,DateTime.now(),ListBanMapsWhereMatches(List.empty(growable: true)),PickMapsWhereMatches(""),ListPickManiacPerkWhereMatches(List.empty(growable: true)),ListPickSurvivorPerkWhereMatches(List.empty(growable: true))));
   }
 
   void insertLastPickManiacWhereMatchesParameterListPickManiacWhereMatches() {
     final notBannedAndPickedListManiacWhereMatchBalance = getNotBannedAndPickedListManiacWhereMatchBalanceParametersListBanManiacWhereMatchesAndListPickManiacWhereMatchesAndMatchBalance;
     final lastManiacWhereMatchBalance = notBannedAndPickedListManiacWhereMatchBalance.listModel.last;
     listPickManiacWhereMatches
-        .insertToListPickManiacWhereMatches(PickManiacWhereMatches(lastManiacWhereMatchBalance.maniac.name,"",DateTime.now(),ListBanMapsWhereMatches(List.empty(growable: true)),PickMapsWhereMatches(""),ListPickManiacPerkWhereMatches(List.empty(growable: true)),ListPickSurvivorPerkWhereMatches(List.empty(growable: true))));
+        .insertFromPickManiacWhereMatchesParameterListModel(PickManiacWhereMatches(lastManiacWhereMatchBalance.maniac.name,"",DateTime.now(),ListBanMapsWhereMatches(List.empty(growable: true)),PickMapsWhereMatches(""),ListPickManiacPerkWhereMatches(List.empty(growable: true)),ListPickSurvivorPerkWhereMatches(List.empty(growable: true))));
   }
 
   void insertBanMapsWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereFirstFromMapsParameterListPickManiacWhereMatches(Maps maps) {
@@ -584,7 +584,7 @@ base class Matches extends BaseModel {
     listPickManiacWhereMatches
         .listModel[iterationForListPickManiacWhereMatches]
         .listBanMapsWhereMatches
-        .insertToListBanMapsWhereMatches(BanMapsWhereMatches(maps.name,uniqueIdByUser));
+        .insertFromBanMapsWhereMatchesParameterListModel(BanMapsWhereMatches(maps.name,uniqueIdByUser));
   }
 
   @protected
@@ -600,7 +600,7 @@ base class Matches extends BaseModel {
     listPickManiacWhereMatches
         .listModel[iterationForListPickManiacWhereMatches]
         .listPickManiacPerkWhereMatches
-        .insertToListPickManiacPerkWhereMatches(PickManiacPerkWhereMatches(maniacPerk.perk.name,uniqueIdByUser));
+        .insertFromPickManiacPerkWhereMatchesParameterListModel(PickManiacPerkWhereMatches(maniacPerk.perk.name,uniqueIdByUser));
   }
 
   @protected
@@ -616,7 +616,7 @@ base class Matches extends BaseModel {
     listPickManiacWhereMatches
         .listModel[iterationForListPickManiacWhereMatches]
         .listPickSurvivorPerkWhereMatches
-        .insertToListPickSurvivorPerkWhereMatches(PickSurvivorPerkWhereMatches(survivorPerk.perk.name,uniqueIdByUser));
+        .insertFromPickSurvivorPerkWhereMatchesParameterListModel(PickSurvivorPerkWhereMatches(survivorPerk.perk.name,uniqueIdByUser));
   }
 
   bool isTrueAndSystemPickManiacParametersIsStageBanOrPickForUniqueIdByUserWhereFirstAndEnumBanOrPickNamed() {

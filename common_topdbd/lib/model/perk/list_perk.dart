@@ -7,10 +7,10 @@ base class ListPerk<T extends Perk> extends BaseListModel<T> {
   const ListPerk(super.listModel) : super();
 
   @override
-  ListPerk<T> get getCloneListModel {
+  ListPerk<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListPerk<T>(newListModel);
   }

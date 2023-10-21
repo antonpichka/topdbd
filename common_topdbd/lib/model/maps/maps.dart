@@ -9,7 +9,7 @@ base class Maps extends BaseModel {
   const Maps(this.name,this.imagePath) : super(name);
 
   @override
-  Maps get getCloneModel => Maps(name,imagePath);
+  Maps get getClone => Maps(name,imagePath);
 
   @override
   String toString() {

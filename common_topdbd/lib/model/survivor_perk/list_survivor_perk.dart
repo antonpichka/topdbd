@@ -7,23 +7,23 @@ base class ListSurvivorPerk<T extends SurvivorPerk> extends BaseListModel<T> {
   const ListSurvivorPerk(super.listModel) : super();
 
   @override
-  ListSurvivorPerk<T> get getCloneListModel {
+  ListSurvivorPerk<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListSurvivorPerk<T>(newListModel);
   }
 
-  void insertToListSurvivorPerk(T model) {
-    super.insertToListModel(model);
+  void insertFromSurvivorPerkParameterListModel(T survivorPerk) {
+    super.insertFromModelParameterListModel(survivorPerk);
   }
 
-  void insertListToListSurvivorPerk(List<T> list) {
-    super.insertListToListModel(list);
+  void insertFromListSurvivorPerkParameterListModel(List<T> listSurvivorPerk) {
+    super.insertFromNewListModelParameterListModel(listSurvivorPerk);
   }
 
-  void deleteToListSurvivorPerk(String uniqueIdByModel) {
-    super.deleteToListModel(uniqueIdByModel);
+  void deleteFromUniqueIdBySurvivorPerkParameterListModel(String uniqueIdBySurvivorPerk) {
+    super.deleteFromUniqueIdByModelParameterListModel(uniqueIdBySurvivorPerk);
   }
 }

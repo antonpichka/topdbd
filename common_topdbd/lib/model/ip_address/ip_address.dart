@@ -10,11 +10,11 @@ base class IPAddress extends BaseModel {
   const IPAddress(this.ip,this.nameCountry) : super(ip);
 
   @override
-  IPAddress get getCloneModel => IPAddress(ip,nameCountry);
+  IPAddress get getClone => IPAddress(ip,nameCountry);
 
-  String getStringFromNameCountryWhereNotEqualsParameterNameCountry(String nameCountry) {
+  String getStringWhereNotEqualsFromNameCountryParameterNameCountry(String nameCountry) {
     if(this.nameCountry != nameCountry) {
-      return KeysExceptionUtility.iPAddressQGetStringFromNameCountryWhereNotEqualsParameterNameCountry;
+      return KeysExceptionUtility.iPAddressQGetStringWhereNotEqualsFromNameCountryParameterNameCountry;
     }
     return "";
   }

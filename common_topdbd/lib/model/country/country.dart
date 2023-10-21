@@ -9,5 +9,5 @@ base class Country extends BaseModel {
   const Country(this.uniqueIdByUser,this.nameCountry) : super(uniqueIdByUser);
 
   @override
-  Country get getCloneModel => Country(uniqueIdByUser,nameCountry);
+  Country get getClone => Country(uniqueIdByUser,nameCountry);
 }

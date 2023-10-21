@@ -8,5 +8,5 @@ base class Security extends BaseModel {
   const Security(this.isHacked) : super("$isHacked");
 
   @override
-  Security get getCloneModel => Security(isHacked);
+  Security get getClone => Security(isHacked);
 }

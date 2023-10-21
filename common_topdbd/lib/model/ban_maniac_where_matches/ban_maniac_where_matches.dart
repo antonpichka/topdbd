@@ -9,7 +9,7 @@ base class BanManiacWhereMatches extends BaseModel {
   const BanManiacWhereMatches(this.name,this.uniqueIdByUser) : super(name);
 
   @override
-  BanManiacWhereMatches get getCloneModel => BanManiacWhereMatches(name,uniqueIdByUser);
+  BanManiacWhereMatches get getClone => BanManiacWhereMatches(name,uniqueIdByUser);
 
   @override
   String toString() {

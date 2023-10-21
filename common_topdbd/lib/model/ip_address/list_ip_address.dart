@@ -7,10 +7,10 @@ base class ListIPAddress<T extends IPAddress> extends BaseListModel<T> {
   const ListIPAddress(super.listModel) : super();
 
   @override
-  ListIPAddress<T> get getCloneListModel {
+  ListIPAddress<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListIPAddress<T>(newListModel);
   }

@@ -7,15 +7,15 @@ base class ListBanMapsWhereMatches<T extends BanMapsWhereMatches> extends BaseLi
   const ListBanMapsWhereMatches(super.listModel) : super();
 
   @override
-  ListBanMapsWhereMatches<T> get getCloneListModel {
+  ListBanMapsWhereMatches<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListBanMapsWhereMatches<T>(newListModel);
   }
 
-  void insertToListBanMapsWhereMatches(T model) {
-    super.insertToListModel(model);
+  void insertFromBanMapsWhereMatchesParameterListModel(T model) {
+    super.insertFromModelParameterListModel(model);
   }
 }

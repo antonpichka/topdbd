@@ -7,10 +7,10 @@ base class ListTOPDBDVersionWeb<T extends TOPDBDVersionWeb> extends BaseListMode
   const ListTOPDBDVersionWeb(super.listModel) : super();
 
   @override
-  ListTOPDBDVersionWeb<T> get getCloneListModel {
+  ListTOPDBDVersionWeb<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListTOPDBDVersionWeb<T>(newListModel);
   }

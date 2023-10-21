@@ -8,5 +8,5 @@ base class ThoseWorks extends BaseModel {
   const ThoseWorks(this.isThoseWorks) : super("$isThoseWorks");
 
   @override
-  ThoseWorks get getCloneModel => ThoseWorks(isThoseWorks);
+  ThoseWorks get getClone => ThoseWorks(isThoseWorks);
 }

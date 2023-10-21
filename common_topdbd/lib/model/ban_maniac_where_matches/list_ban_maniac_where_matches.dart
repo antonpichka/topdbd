@@ -7,19 +7,19 @@ base class ListBanManiacWhereMatches<T extends BanManiacWhereMatches> extends Ba
   const ListBanManiacWhereMatches(super.listModel) : super();
 
   @override
-  ListBanManiacWhereMatches<T> get getCloneListModel {
+  ListBanManiacWhereMatches<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListBanManiacWhereMatches<T>(newListModel);
   }
 
-  void insertToListBanManiacWhereMatches(T banManiacWhereMatches) {
-    insertToListModel(banManiacWhereMatches);
+  void insertFromBanManiacWhereMatchesParameterListModel(T banManiacWhereMatches) {
+    super.insertFromModelParameterListModel(banManiacWhereMatches);
   }
 
-  void insertListToListBanManiacWhereMatches(List<T> listBanManiacWhereMatches) {
-    insertListToListModel(listBanManiacWhereMatches);
+  void insertFromListBanManiacWhereMatchesParameterListModel(List<T> listBanManiacWhereMatches) {
+    super.insertFromNewListModelParameterListModel(listBanManiacWhereMatches);
   }
 }

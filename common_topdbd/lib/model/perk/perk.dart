@@ -9,5 +9,5 @@ base class Perk extends BaseModel {
   const Perk(this.name,this.imagePath) : super(name);
 
   @override
-  Perk get getCloneModel => Perk(name,imagePath);
+  Perk get getClone => Perk(name,imagePath);
 }

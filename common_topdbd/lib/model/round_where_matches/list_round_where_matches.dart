@@ -7,19 +7,19 @@ base class ListRoundWhereMatches<T extends RoundWhereMatches> extends BaseListMo
   const ListRoundWhereMatches(super.listModel);
 
   @override
-  ListRoundWhereMatches<T> get getCloneListModel {
+  ListRoundWhereMatches<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListRoundWhereMatches<T>(newListModel);
   }
 
-  void insertToListRoundWhereMatches(T model) {
-    super.insertToListModel(model);
+  void insertFromRoundWhereMatchesParameterListModel(T roundWhereMatches) {
+    super.insertFromModelParameterListModel(roundWhereMatches);
   }
 
-  void updateToListRoundWhereMatches(T model) {
-    super.updateToListModel(model);
+  void updateFromRoundWhereMatchesParameterListModel(T roundWhereMatches) {
+    super.updateFromModelParameterListModel(roundWhereMatches);
   }
 }

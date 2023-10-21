@@ -9,5 +9,5 @@ base class LastLoginTimeUser extends BaseModel {
   const LastLoginTimeUser(this.uniqueIdByUser,this.lastLoginTime) : super(uniqueIdByUser);
 
   @override
-  LastLoginTimeUser get getCloneModel => LastLoginTimeUser(uniqueIdByUser,lastLoginTime);
+  LastLoginTimeUser get getClone => LastLoginTimeUser(uniqueIdByUser,lastLoginTime);
 }

@@ -7,10 +7,10 @@ base class ListRoleUser<T extends RoleUser> extends BaseListModel<T> {
   const ListRoleUser(super.listModel) : super();
 
   @override
-  ListRoleUser<T> get getCloneListModel {
+  ListRoleUser<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListRoleUser<T>(newListModel);
   }

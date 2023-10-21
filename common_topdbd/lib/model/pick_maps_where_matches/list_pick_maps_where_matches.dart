@@ -7,10 +7,10 @@ base class ListPickMapsWhereMatches<T extends PickMapsWhereMatches> extends Base
   const ListPickMapsWhereMatches(super.listModel) : super();
 
   @override
-  ListPickMapsWhereMatches<T> get getCloneListModel {
+  ListPickMapsWhereMatches<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListPickMapsWhereMatches<T>(newListModel);
   }

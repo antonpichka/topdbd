@@ -7,23 +7,23 @@ base class ListManiacPerk<T extends ManiacPerk> extends BaseListModel<T> {
   const ListManiacPerk(super.listModel) : super();
 
   @override
-  ListManiacPerk<T> get getCloneListModel {
+  ListManiacPerk<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListManiacPerk<T>(newListModel);
   }
 
-  void insertToListManiacPerk(T model) {
-    super.insertToListModel(model);
+  void insertFromManiacPerkParameterListModel(T maniacPerk) {
+    super.insertFromModelParameterListModel(maniacPerk);
   }
 
-  void insertListToListManiacPerk(List<T> list) {
-    super.insertListToListModel(list);
+  void insertFromListManiacPerkParameterListModel(List<T> listManiacPerk) {
+    super.insertFromNewListModelParameterListModel(listManiacPerk);
   }
 
-  void deleteToListManiacPerk(String uniqueIdByModel) {
-    super.deleteToListModel(uniqueIdByModel);
+  void deleteFromUniqueIdByManiacPerkParameterListModel(String uniqueIdByManiacPerk) {
+    super.deleteFromUniqueIdByModelParameterListModel(uniqueIdByManiacPerk);
   }
 }

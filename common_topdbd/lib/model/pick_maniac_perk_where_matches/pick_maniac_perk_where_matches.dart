@@ -9,7 +9,7 @@ base class PickManiacPerkWhereMatches extends BaseModel {
   const PickManiacPerkWhereMatches(this.name,this.uniqueIdByUser) : super(name);
 
   @override
-  PickManiacPerkWhereMatches get getCloneModel => PickManiacPerkWhereMatches(name,uniqueIdByUser);
+  PickManiacPerkWhereMatches get getClone => PickManiacPerkWhereMatches(name,uniqueIdByUser);
 
   @override
   String toString() {

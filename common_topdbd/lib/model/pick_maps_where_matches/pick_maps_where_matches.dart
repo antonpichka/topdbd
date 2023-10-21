@@ -8,7 +8,7 @@ base class PickMapsWhereMatches extends BaseModel {
   const PickMapsWhereMatches(this.name) : super(name);
 
   @override
-  PickMapsWhereMatches get getCloneModel => PickMapsWhereMatches(name);
+  PickMapsWhereMatches get getClone => PickMapsWhereMatches(name);
 
   @override
   String toString() {

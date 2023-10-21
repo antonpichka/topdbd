@@ -1,5 +1,5 @@
 import 'package:common_topdbd/model/pick_maniac_where_matches/pick_maniac_where_matches.dart';
-import 'package:common_topdbd/model/pick_maniac_where_matches/pick_maniac_where_matches_q_named_iterator/pick_maniac_where_matches_q_where_order_by_asc_parameter_creation_time_iterator.dart';
+import 'package:common_topdbd/model/pick_maniac_where_matches/pick_maniac_where_matches_named_iterator/pick_maniac_where_matches_where_order_by_asc_parameter_creation_time_iterator.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -8,27 +8,27 @@ base class ListPickManiacWhereMatches<T extends PickManiacWhereMatches> extends 
   const ListPickManiacWhereMatches(super.listModel) : super();
 
   @override
-  ListPickManiacWhereMatches<T> get getCloneListModel {
+  ListPickManiacWhereMatches<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListPickManiacWhereMatches<T>(newListModel);
   }
 
-  void pickManiacWhereMatchesQWhereOrderByAscParameterCreationTimeIterator() {
-    modelQNamedIterator(PickManiacWhereMatchesQWhereOrderByAscParameterCreationTimeIterator());
+  void pickManiacWhereMatchesWhereOrderByAscParameterCreationTimeIteratorParameterListModel() {
+    sortingFromModelWhereNamedParameterNamedIteratorParameterListModel(PickManiacWhereMatchesWhereOrderByAscParameterCreationTimeIterator());
   }
 
-  void insertToListPickManiacWhereMatches(T pickManiacWhereMatches) {
-    insertToListModel(pickManiacWhereMatches);
+  void insertFromPickManiacWhereMatchesParameterListModel(T pickManiacWhereMatches) {
+    insertFromModelParameterListModel(pickManiacWhereMatches);
   }
 
-  void updateToListPickManiacWhereMatches(T pickManiacWhereMatches) {
-    updateToListModel(pickManiacWhereMatches);
+  void updateFromPickManiacWhereMatchesParameterListModel(T pickManiacWhereMatches) {
+    updateFromModelParameterListModel(pickManiacWhereMatches);
   }
 
-  void insertListToListPickManiacWhereMatches(List<T> listPickManiacWhereMatches) {
-    insertListToListModel(listPickManiacWhereMatches);
+  void insertFromListPickManiacWhereMatchesParameterListModel(List<T> listPickManiacWhereMatches) {
+    insertFromNewListModelParameterListModel(listPickManiacWhereMatches);
   }
 }

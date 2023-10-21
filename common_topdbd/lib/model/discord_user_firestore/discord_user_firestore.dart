@@ -10,5 +10,5 @@ base class DiscordUserFirestore extends BaseModel {
   const DiscordUserFirestore(super.uniqueId,this.uniqueIdByUser,this.username,this.globalName) : super();
 
   @override
-  DiscordUserFirestore get getCloneModel => DiscordUserFirestore(uniqueId,uniqueIdByUser,username,globalName);
+  DiscordUserFirestore get getClone => DiscordUserFirestore(uniqueId,uniqueIdByUser,username,globalName);
 }

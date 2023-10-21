@@ -12,5 +12,5 @@ base class Stats extends BaseModel {
   const Stats(this.uniqueIdByUser,this.seasonNumberBySeason,this.matchesWon,this.matchesLost,this.ratingPoints) : super(uniqueIdByUser);
 
   @override
-  Stats get getCloneModel => Stats(uniqueIdByUser, seasonNumberBySeason, matchesWon, matchesLost, ratingPoints);
+  Stats get getClone => Stats(uniqueIdByUser, seasonNumberBySeason, matchesWon, matchesLost, ratingPoints);
 }

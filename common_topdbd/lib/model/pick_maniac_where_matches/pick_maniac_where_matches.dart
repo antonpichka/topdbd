@@ -18,7 +18,7 @@ base class PickManiacWhereMatches extends BaseModel {
   const PickManiacWhereMatches(this.name,this.uniqueIdByUser,this.creationTime,this.listBanMapsWhereMatches, this.pickMapsWhereMatches,this.listPickManiacPerkWhereMatches,this.listPickSurvivorPerkWhereMatches) : super(name);
 
   @override
-  PickManiacWhereMatches get getCloneModel => PickManiacWhereMatches(name,uniqueIdByUser,creationTime,listBanMapsWhereMatches.getCloneListModel,pickMapsWhereMatches.getCloneModel,listPickManiacPerkWhereMatches.getCloneListModel,listPickSurvivorPerkWhereMatches.getCloneListModel);
+  PickManiacWhereMatches get getClone => PickManiacWhereMatches(name,uniqueIdByUser,creationTime,listBanMapsWhereMatches.getClone,pickMapsWhereMatches.getClone,listPickManiacPerkWhereMatches.getClone,listPickSurvivorPerkWhereMatches.getClone);
 
   @override
   String toString() {

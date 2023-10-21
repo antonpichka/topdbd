@@ -7,10 +7,10 @@ base class ListAddonsManiac<T extends AddonsManiac> extends BaseListModel<T> {
   const ListAddonsManiac(super.listModel) : super();
 
   @override
-  ListAddonsManiac<T> get getCloneListModel {
+  ListAddonsManiac<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListAddonsManiac<T>(newListModel);
   }

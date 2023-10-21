@@ -10,7 +10,7 @@ base class VerifiedUser extends BaseModel {
   const VerifiedUser(this.uniqueIdByUser,this.isVerifiedUser) : super(uniqueIdByUser);
 
   @override
-  VerifiedUser get getCloneModel => VerifiedUser(uniqueIdByUser,isVerifiedUser);
+  VerifiedUser get getClone => VerifiedUser(uniqueIdByUser,isVerifiedUser);
 
   String get getStringWhereIsNotVerifiedUserParameterIsVerifiedUser {
     if(!isVerifiedUser) {

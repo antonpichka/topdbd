@@ -7,10 +7,10 @@ base class ListIPAddressFirestore<T extends IPAddressFirestore> extends BaseList
   const ListIPAddressFirestore(super.listModel) : super();
 
   @override
-  ListIPAddressFirestore<T> get getCloneListModel {
+  ListIPAddressFirestore<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListIPAddressFirestore<T>(newListModel);
   }

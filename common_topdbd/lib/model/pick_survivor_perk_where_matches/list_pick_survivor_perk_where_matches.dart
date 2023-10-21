@@ -7,10 +7,10 @@ base class ListPickSurvivorPerkWhereMatches<T extends PickSurvivorPerkWhereMatch
   const ListPickSurvivorPerkWhereMatches(super.listModel) : super();
 
   @override
-  ListPickSurvivorPerkWhereMatches<T> get getCloneListModel {
+  ListPickSurvivorPerkWhereMatches<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListPickSurvivorPerkWhereMatches<T>(newListModel);
   }
@@ -21,12 +21,12 @@ base class ListPickSurvivorPerkWhereMatches<T extends PickSurvivorPerkWhereMatch
       if(pickSurvivorPerkWhereMatches.uniqueIdByUser != uniqueIdByUser) {
         continue;
       }
-      listPickSurvivorPerkWhereMatches.add(pickSurvivorPerkWhereMatches.getCloneModel as T);
+      listPickSurvivorPerkWhereMatches.add(pickSurvivorPerkWhereMatches.getClone as T);
     }
     return listPickSurvivorPerkWhereMatches;
   }
 
-  void insertToListPickSurvivorPerkWhereMatches(T model) {
-    super.insertToListModel(model);
+  void insertFromPickSurvivorPerkWhereMatchesParameterListModel(T pickSurvivorPerkWhereMatches) {
+    super.insertFromModelParameterListModel(pickSurvivorPerkWhereMatches);
   }
 }

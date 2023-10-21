@@ -7,10 +7,10 @@ base class ListDiscordUserFirestore<T extends DiscordUserFirestore> extends Base
   const ListDiscordUserFirestore(super.listModel) : super();
 
   @override
-  ListDiscordUserFirestore<T> get getCloneListModel {
+  ListDiscordUserFirestore<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListDiscordUserFirestore<T>(newListModel);
   }

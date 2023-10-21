@@ -9,23 +9,23 @@ base class ListManiac<T extends Maniac> extends BaseListModel<T> {
   const ListManiac(super.listModel) : super();
 
   @override
-  ListManiac<T> get getCloneListModel {
+  ListManiac<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListManiac<T>(newListModel);
   }
 
-  void insertListFromListManiacWhereMatchBalanceToListManiac(ListManiacWhereMatchBalance listManiacWhereMatchBalance) {
+  void insertFromListManiacWhereMatchBalanceParameterListModel(ListManiacWhereMatchBalance listManiacWhereMatchBalance) {
     final listManiac = List<T>.empty(growable: true);
     for(ManiacWhereMatchBalance maniacWhereMatchBalance in listManiacWhereMatchBalance.listModel) {
       listManiac.add(maniacWhereMatchBalance.maniac as T);
     }
-    insertListToListModel(listManiac);
+    super.insertFromNewListModelParameterListModel(listManiac);
   }
 
-  void deleteToListManiac(String uniqueIdByManiac) {
-    deleteToListModel(uniqueIdByManiac);
+  void deleteFromUniqueIdByManiacParameterListModel(String uniqueIdByManiac) {
+    super.deleteFromUniqueIdByModelParameterListModel(uniqueIdByManiac);
   }
 }

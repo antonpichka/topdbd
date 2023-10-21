@@ -12,7 +12,7 @@ base class MatchBalance extends BaseModel {
   const MatchBalance(this.seasonNumberBySeason,this.numberOfRounds,this.listManiacWhereMatchBalance) : super("$seasonNumberBySeason");
 
   @override
-  MatchBalance get getCloneModel => MatchBalance(seasonNumberBySeason, numberOfRounds, listManiacWhereMatchBalance.getCloneListModel);
+  MatchBalance get getClone => MatchBalance(seasonNumberBySeason, numberOfRounds, listManiacWhereMatchBalance.getClone);
 
   int get getNeedsResultNumberOfBannedManiacsInTheFirstStageParametersListManiacWhereMatchBalanceAndNumberOfRounds  {
     return AlgorithmsUtility.getEvenUsingInterestFormulaFromParameterInt(getNeedsResultNumberOfBannedManiacsParametersListManiacWhereMatchBalanceAndNumberOfRounds, 50);

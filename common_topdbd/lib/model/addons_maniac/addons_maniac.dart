@@ -10,5 +10,5 @@ base class AddonsManiac extends BaseModel {
   const AddonsManiac(this.name,this.nameByManiac,this.imagePath) : super(name);
 
   @override
-  AddonsManiac get getCloneModel => AddonsManiac(name,nameByManiac,imagePath);
+  AddonsManiac get getClone => AddonsManiac(name,nameByManiac,imagePath);
 }

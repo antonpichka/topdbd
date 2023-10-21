@@ -9,7 +9,7 @@ base class SurvivorPerk extends BaseModel {
   SurvivorPerk(this.perk) : super(perk.uniqueId);
 
   @override
-  SurvivorPerk get getCloneModel => SurvivorPerk(perk.getCloneModel);
+  SurvivorPerk get getClone => SurvivorPerk(perk.getClone);
 
   @override
   String toString() {

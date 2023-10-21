@@ -7,10 +7,10 @@ base class ListInitStream<T extends InitStream> extends BaseListModel<T> {
   const ListInitStream(super.listModel) : super();
 
   @override
-  ListInitStream<T> get getCloneListModel {
+  ListInitStream<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListInitStream<T>(newListModel);
   }
@@ -21,15 +21,14 @@ base class ListInitStream<T extends InitStream> extends BaseListModel<T> {
       if(initStream.nameStream != nameStream) {
         continue;
       }
-      currentInitStream = initStream.getCloneModel;
+      currentInitStream = initStream.getClone;
       break;
     }
     return currentInitStream ?? InitStream("",false);
   }
 
-
-  void updateToListInitStream(String nameStream,bool isInitStream) {
-    updateToListModel(InitStream(nameStream,isInitStream) as T);
+  void updateFromNameStreamAndIsInitStreamParameterListModel(String nameStream,bool isInitStream) {
+    super.updateFromModelParameterListModel(InitStream(nameStream,isInitStream) as T);
   }
 
   bool isNotInitStreamParameterListModel() {

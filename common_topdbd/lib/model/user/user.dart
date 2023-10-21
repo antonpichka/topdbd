@@ -9,7 +9,7 @@ base class User extends BaseModel {
   const User(super.uniqueId,this.creationTime) : super();
 
   @override
-  User get getCloneModel => User(uniqueId,creationTime);
+  User get getClone => User(uniqueId,creationTime);
 
   String get getStringWhereIsEmptyParameterUniqueId {
     if(uniqueId.isEmpty) {

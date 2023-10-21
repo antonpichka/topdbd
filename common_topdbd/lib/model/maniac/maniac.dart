@@ -9,7 +9,7 @@ base class Maniac extends BaseModel {
   const Maniac(this.name,this.imagePath) : super(name);
 
   @override
-  Maniac get getCloneModel => Maniac(name,imagePath);
+  Maniac get getClone => Maniac(name,imagePath);
 
   @override
   String toString() {

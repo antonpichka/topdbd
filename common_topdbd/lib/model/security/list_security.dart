@@ -7,10 +7,10 @@ base class ListSecurity<T extends Security> extends BaseListModel<T> {
   const ListSecurity(super.listModel) : super();
 
   @override
-  ListSecurity<T> get getCloneListModel {
+  ListSecurity<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListSecurity<T>(newListModel);
   }

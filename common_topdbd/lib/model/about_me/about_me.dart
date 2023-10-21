@@ -9,5 +9,5 @@ base class AboutMe extends BaseModel {
   const AboutMe(this.uniqueIdByUser,this.codeDBD) : super(uniqueIdByUser);
 
   @override
-  AboutMe get getCloneModel => AboutMe(uniqueIdByUser,codeDBD);
+  AboutMe get getClone => AboutMe(uniqueIdByUser,codeDBD);
 }

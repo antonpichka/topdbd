@@ -11,14 +11,14 @@ base class DiscordUser extends BaseModel {
   const DiscordUser(this.id,this.username,this.globalName) : super(id);
 
   @override
-  DiscordUser get getCloneModel => DiscordUser(id, username, globalName);
+  DiscordUser get getClone => DiscordUser(id, username, globalName);
 
-  String getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName(String username, String globalName) {
+  String getStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(String username, String globalName) {
     if(this.username != username) {
-      return KeysExceptionUtility.discordUserQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName;
+      return KeysExceptionUtility.discordUserQGetStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName;
     }
     if(this.globalName != globalName) {
-      return KeysExceptionUtility.discordUserQGetStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalNameTWO;
+      return KeysExceptionUtility.discordUserQGetStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalNameTWO;
     }
     return "";
   }

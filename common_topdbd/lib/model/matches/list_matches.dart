@@ -7,10 +7,10 @@ base class ListMatches<T extends Matches> extends BaseListModel<T> {
   const ListMatches(super.listModel);
 
   @override
-  ListMatches<T> get getCloneListModel {
+  ListMatches<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListMatches<T>(newListModel);
   }

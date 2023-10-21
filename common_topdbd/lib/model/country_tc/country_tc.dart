@@ -10,5 +10,5 @@ base class CountryTC extends BaseModel {
   const CountryTC(this.countryAbbreviation,this.nameCountry,this.pathToTheIcon) : super(countryAbbreviation);
 
   @override
-  CountryTC get getCloneModel => CountryTC(countryAbbreviation, nameCountry, pathToTheIcon);
+  CountryTC get getClone => CountryTC(countryAbbreviation, nameCountry, pathToTheIcon);
 }

@@ -8,5 +8,5 @@ base class Init extends BaseModel {
   const Init(this.isInit) : super("$isInit");
 
   @override
-  Init get getCloneModel => Init(isInit);
+  Init get getClone => Init(isInit);
 }

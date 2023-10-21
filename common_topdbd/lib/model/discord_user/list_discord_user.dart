@@ -7,10 +7,10 @@ base class ListDiscordUser<T extends DiscordUser> extends BaseListModel<T> {
   const ListDiscordUser(super.listModel) : super();
 
   @override
-  ListDiscordUser<T> get getCloneListModel {
+  ListDiscordUser<T> get getClone {
     List<T> newListModel = List.empty(growable: true);
     for (T model in listModel) {
-      newListModel.add(model.getCloneModel as T);
+      newListModel.add(model.getClone as T);
     }
     return ListDiscordUser<T>(newListModel);
   }

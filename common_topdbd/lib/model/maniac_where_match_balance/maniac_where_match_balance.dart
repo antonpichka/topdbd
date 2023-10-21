@@ -17,7 +17,7 @@ base class ManiacWhereMatchBalance extends BaseModel {
   ManiacWhereMatchBalance(this.maniac, this.lengthPickManiacPerk, this.lengthPickSurvivorPerk, this.listMaps, this.listManiacPerk, this.listSurvivorPerk) : super(maniac.uniqueId);
 
   @override
-  ManiacWhereMatchBalance get getCloneModel => ManiacWhereMatchBalance(maniac.getCloneModel, lengthPickManiacPerk, lengthPickSurvivorPerk, listMaps.getCloneListModel, listManiacPerk.getCloneListModel, listSurvivorPerk.getCloneListModel);
+  ManiacWhereMatchBalance get getClone => ManiacWhereMatchBalance(maniac.getClone,lengthPickManiacPerk, lengthPickSurvivorPerk, listMaps.getClone, listManiacPerk.getClone,listSurvivorPerk.getClone);
 
   bool isLengthPickMPNotEqualsLengthListMPParametersLengthPickManiacPerkAndListManiacPerk() {
     return lengthPickManiacPerk != listManiacPerk.listModel.length;

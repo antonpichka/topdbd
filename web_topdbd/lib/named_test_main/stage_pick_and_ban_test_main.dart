@@ -1030,7 +1030,7 @@ void _buildWidgetDataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond() {
 /// INIT LIST ROUND WHERE MY UNIQUE ID BY USER WHERE FIRST
 Future<void> _listViewModelInitListRoundWhereMyUniqueIdByUserWhereFirst()
 async {
-  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst = DataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(false, false, _dataSourceGetUser, _dataForStagePickAndBanTestMain!.matches.getCloneModel,false,0);
+  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst = DataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst(false, false, _dataSourceGetUser, _dataForStagePickAndBanTestMain!.matches.getClone,false,0);
   final matches = _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.matches;
   matches
       ?.insertListRoundWhereMatchesParameterListRoundWhereMatches();
@@ -1233,7 +1233,7 @@ void _secondBranchOneQListViewModelMySurvivorAndNextRoundWhereMyUniqueIdByUserWh
 /// INIT LIST ROUND WHERE MY UNIQUE ID BY USER WHERE SECOND
 Future<void> _listViewModelInitListRoundWhereMyUniqueIdByUserWhereSecond()
 async {
-  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond = DataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(false, false, _dataSourceGetUser, _dataForStagePickAndBanTestMain!.matches.getCloneModel,false,0);
+  _dataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond = DataForListRoundTestMainWhereMyUniqueIdByUserWhereSecond(false, false, _dataSourceGetUser, _dataForStagePickAndBanTestMain!.matches.getClone,false,0);
   return;
 }
 
@@ -1637,7 +1637,7 @@ void _listViewModelFirstBanMapsToManiac(Maps maps) {
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.insertBanMapsWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereFirstFromMapsParameterListPickManiacWhereMatches(maps.getCloneModel);
+      ?.insertBanMapsWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereFirstFromMapsParameterListPickManiacWhereMatches(maps.getClone);
   final textLogAction = "${matches?.textLogAction}\nPlayer: '${matches?.uniqueIdByUserWhereFirst}' banned maps '${maps.name}' to maniac '${matches?.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches.name}'";
   if(matches?.isBanMapsEqualsLengthTakeOneMapsByMatchBalanceParametersListPickManiacWhereMatchesAndMatchBalance() ?? false) {
     _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,false,EnumBanOrPickNamed.systemPickMapsToManiac);
@@ -1658,7 +1658,7 @@ void _listViewModelSecondBanMapsToManiac(Maps maps) {
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.insertBanMapsWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereSecondFromMapsParameterListPickManiacWhereMatches(maps.getCloneModel);
+      ?.insertBanMapsWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereSecondFromMapsParameterListPickManiacWhereMatches(maps.getClone);
   final textLogAction = "${matches?.textLogAction}\nPlayer: '${matches?.uniqueIdByUserWhereSecond}' banned maps '${maps.name}' to maniac '${matches?.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches.name}'";
   if(matches?.isBanMapsEqualsLengthTakeOneMapsByMatchBalanceParametersListPickManiacWhereMatchesAndMatchBalance() ?? false) {
     _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,true,EnumBanOrPickNamed.systemPickMapsToManiac);
@@ -1679,7 +1679,7 @@ void _listViewModelFirstPickManiacPerkToManiac(ManiacPerk maniacPerk) {
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.insertManiacPerkWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereFirstFromManiacPerkParameterListPickManiacWhereMatches(maniacPerk.getCloneModel);
+      ?.insertManiacPerkWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereFirstFromManiacPerkParameterListPickManiacWhereMatches(maniacPerk.getClone);
   final textLogAction = "${matches?.textLogAction}\nPlayer: '${matches?.uniqueIdByUserWhereFirst}' picked maniac perk '${maniacPerk.perk.name}' to maniac '${matches?.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches.name}'";
   if(matches?.isPickManiacPerkForUniqueIdByUserWhereFirstEqualsLengthPickManiacPerkByMatchBalanceParametersListPickManiacWhereMatchesAndMatchBalance() ?? false) {
     _firstBranchOneQListViewModelFirstPickManiacPerkToManiac(matches!,textLogAction);
@@ -1734,7 +1734,7 @@ void _listViewModelSecondPickManiacPerkToManiac(ManiacPerk maniacPerk) {
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.insertManiacPerkWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereSecondFromManiacPerkParameterListPickManiacWhereMatches(maniacPerk.getCloneModel);
+      ?.insertManiacPerkWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereSecondFromManiacPerkParameterListPickManiacWhereMatches(maniacPerk.getClone);
   final textLogAction = "${matches?.textLogAction}\nPlayer: '${matches?.uniqueIdByUserWhereSecond}' picked maniac perk '${maniacPerk.perk.name}' to maniac '${matches?.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches.name}'";
   if(matches?.isPickManiacPerkForUniqueIdByUserWhereSecondEqualsLengthPickManiacPerkByMatchBalanceParametersListPickManiacWhereMatchesAndMatchBalance() ?? false) {
     _firstBranchOneQListViewModelSecondPickManiacPerkToManiac(matches!,textLogAction);
@@ -1789,7 +1789,7 @@ void _listViewModelFirstPickSurvivorPerkToManiac(SurvivorPerk survivorPerk) {
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.insertSurvivorPerkWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereFirstFromSurvivorPerkParameterListPickManiacWhereMatches(survivorPerk.getCloneModel);
+      ?.insertSurvivorPerkWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereFirstFromSurvivorPerkParameterListPickManiacWhereMatches(survivorPerk.getClone);
   final textLogAction = "${matches?.textLogAction}\nPlayer: '${matches?.uniqueIdByUserWhereFirst}' picked survivor perk '${survivorPerk.perk.name}' to maniac '${matches?.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches.name}'";
   if(matches?.isPickSurvivorPerkForUniqueIdByUserWhereFirstEqualsLengthPickSurvivorPerkByMatchBalanceParametersListPickManiacWhereMatchesAndMatchBalance() ?? false) {
     _firstBranchOneQListViewModelFirstPickSurvivorPerkToManiac(matches!,textLogAction);
@@ -1831,7 +1831,7 @@ void _listViewModelSecondPickSurvivorPerkToManiac(SurvivorPerk survivorPerk) {
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.insertSurvivorPerkWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereSecondFromSurvivorPerkParameterListPickManiacWhereMatches(survivorPerk.getCloneModel);
+      ?.insertSurvivorPerkWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereSecondFromSurvivorPerkParameterListPickManiacWhereMatches(survivorPerk.getClone);
   final textLogAction = "${matches?.textLogAction}\nPlayer: '${matches?.uniqueIdByUserWhereSecond}' picked survivor perk '${survivorPerk.perk.name}' to maniac '${matches?.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches.name}'";
   if(matches?.isPickSurvivorPerkForUniqueIdByUserWhereSecondEqualsLengthPickSurvivorPerkByMatchBalanceParametersListPickManiacWhereMatchesAndMatchBalance() ?? false) {
     _firstBranchOneQListViewModelSecondPickSurvivorPerkToManiac(matches!,textLogAction);
@@ -1923,13 +1923,13 @@ Matches _dataSourceDataForStagePickAndBanTestMain(Matches matches,String textLog
       matches.isCompleted,
       enumBanOrPickNamed.name,
       textLogAction,
-      matches.matchBalance.getCloneModel,
+      matches.matchBalance.getClone,
       matches.uniqueIdByUserWhereFirst,
       matches.uniqueIdByUserWhereSecond,
       isStageBanOrPickForUniqueIdByUserWhereFirst,
-      matches.listBanManiacWhereMatches.getCloneListModel,
-      matches.listPickManiacWhereMatches.getCloneListModel,
-      matches.listRoundWhereMatches.getCloneListModel,
+      matches.listBanManiacWhereMatches.getClone,
+      matches.listPickManiacWhereMatches.getClone,
+      matches.listRoundWhereMatches.getClone,
       matches.resultRatingPointsForUniqueIdByUserWhereFirst,
       matches.resultRatingPointsForUniqueIdByUserWhereSecond);
 }
@@ -1941,13 +1941,13 @@ Matches _dataSourceDataForListRoundTestMain(Matches matches,String textLogAction
       matches.isCompleted,
       matches.enumBanOrPickNamed.name,
       textLogAction,
-      matches.matchBalance.getCloneModel,
+      matches.matchBalance.getClone,
       matches.uniqueIdByUserWhereFirst,
       matches.uniqueIdByUserWhereSecond,
       matches.isStageBanOrPickForUniqueIdByUserWhereFirst,
-      matches.listBanManiacWhereMatches.getCloneListModel,
-      matches.listPickManiacWhereMatches.getCloneListModel,
-      matches.listRoundWhereMatches.getCloneListModel,
+      matches.listBanManiacWhereMatches.getClone,
+      matches.listPickManiacWhereMatches.getClone,
+      matches.listRoundWhereMatches.getClone,
       matches.resultRatingPointsForUniqueIdByUserWhereFirst,
       matches.resultRatingPointsForUniqueIdByUserWhereSecond);
 }
@@ -1959,13 +1959,13 @@ Matches _dataSourceDataForListRoundTestMainEND(Matches matches,String textLogAct
       true,
       matches.enumBanOrPickNamed.name,
       textLogAction,
-      matches.matchBalance.getCloneModel,
+      matches.matchBalance.getClone,
       matches.uniqueIdByUserWhereFirst,
       matches.uniqueIdByUserWhereSecond,
       matches.isStageBanOrPickForUniqueIdByUserWhereFirst,
-      matches.listBanManiacWhereMatches.getCloneListModel,
-      matches.listPickManiacWhereMatches.getCloneListModel,
-      matches.listRoundWhereMatches.getCloneListModel,
+      matches.listBanManiacWhereMatches.getClone,
+      matches.listPickManiacWhereMatches.getClone,
+      matches.listRoundWhereMatches.getClone,
       matches.getResultRatingPointsForUniqueIdByUserWhereFirstFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(statsForUniqueIdByUserWhereFirst.ratingPoints,statsForUniqueIdByUserWhereSecond.ratingPoints),
       matches.getResultRatingPointsForUniqueIdByUserWhereSecondFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(statsForUniqueIdByUserWhereFirst.ratingPoints,statsForUniqueIdByUserWhereSecond.ratingPoints));
 }

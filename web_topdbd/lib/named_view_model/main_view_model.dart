@@ -13,8 +13,8 @@ import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_s
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model/strings_q_temp_cache_service_view_model_using_get_np_for_unique_id_by_user.dart';
 
 @immutable
-final class MainViewQViewModel extends BaseNamedViewQViewModel<DataForMainView,DefaultStreamAndStateQDataForNamed<DataForMainView>> {
-  // OperationQQModelQNamedServiceQNP||ParameterNamed(QQForNamedQQWhereNamed)
+final class MainViewModel extends BaseNamedViewModel<DataForMainView,DefaultStreamWState<DataForMainView>> {
+  // OperationResultModel(InNamedWhereNamed)[FromNamed]ParameterNamedService
   // NamedUtility
 
   final _stringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser =
@@ -32,7 +32,7 @@ final class MainViewQViewModel extends BaseNamedViewQViewModel<DataForMainView,D
   final _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsHackedBySecurity =
   BoolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsHackedBySecurity();
 
-  MainViewQViewModel() : super(DefaultStreamAndStateQDataForNamed(DataForMainView(true)));
+  MainViewModel() : super(DefaultStreamWState(DataForMainView(true)));
 
   @override
   void dispose() {
@@ -41,7 +41,7 @@ final class MainViewQViewModel extends BaseNamedViewQViewModel<DataForMainView,D
     _iPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening.cancelListening();
   }
 
-  Future<void> listeningStreamsFirebaseFirestoreService()
+  Future<void> listeningStreamsFirebaseFirestoreServiceParametersFour()
   async {
     final resultStringsForUniqueIdByUser = await _stringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser
         .getStringsFromTempCacheServiceNPDS();
@@ -102,28 +102,28 @@ final class MainViewQViewModel extends BaseNamedViewQViewModel<DataForMainView,D
   @override
   Future<String> init()
   async {
-    getDataForNamed.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.isLoading = false;
     return KeysSuccessUtility.sUCCESS;
   }
 
   void _firstQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForUniqueIdByUser) {
-    getDataForNamed.exceptionController = resultStringsForUniqueIdByUser.exceptionController;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState.exceptionController = resultStringsForUniqueIdByUser.exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _firstQListeningStreamsFirebaseFirestoreServiceQStartListening(Result<VerifiedUser> resultVerifiedUser) {
-    getDataForNamed.exceptionController = resultVerifiedUser.exceptionController;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState.exceptionController = resultVerifiedUser.exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _secondQListeningStreamsFirebaseFirestoreServiceQStartListening(Result<IPAddressFirestore> resultIPAddressFirestore) {
-    getDataForNamed.exceptionController = resultIPAddressFirestore.exceptionController;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState.exceptionController = resultIPAddressFirestore.exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _secondQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForIpByIPAddress) {
-    getDataForNamed.exceptionController = resultStringsForIpByIPAddress.exceptionController;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState.exceptionController = resultStringsForIpByIPAddress.exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   Future<void> _firstQListeningStreamsFirebaseFirestoreServiceQGetStringWhereNotEqualsFromIpParameterIp(String getStringWhereNotEqualsFromIpParameterIp)

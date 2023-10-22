@@ -8,23 +8,23 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class InsertQQCountryQFirebaseFirestoreServiceQParameterRegistrationCountryUtility<T extends Country,Y extends ListCountry<T>> {
+base class InsertEECountryEEFromRegistrationCountryUtilityEEParameterFirebaseFirestoreService<T extends Country,Y extends ListCountry<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> insertCountryFirebaseFirestoreServiceParameterRegistrationCountryUtility(RegistrationCountryUtility parameter)
+  Future<Result<T>> insertCountryFromRegistrationCountryUtilityParameterFirebaseFirestoreService(RegistrationCountryUtility registrationCountryUtility)
   async {
     try {
       final documentByCountryWhereAdding = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.country)
           .add({
-        KeysFirebaseFirestoreServiceUtility.countryQUniqueIdByUser : parameter.uniqueIdByUser,
-        KeysFirebaseFirestoreServiceUtility.countryQNameCountry : parameter.nameCountry
-          });
+        KeysFirebaseFirestoreServiceUtility.countryQUniqueIdByUser : registrationCountryUtility.uniqueIdByUser,
+        KeysFirebaseFirestoreServiceUtility.countryQNameCountry : registrationCountryUtility.nameCountry
+      });
       final documentByCountry = await documentByCountryWhereAdding?.get();
       if(!(documentByCountry?.exists ?? false)) {
-        return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertQQCountryQFirebaseFirestoreServiceQParameterRegistrationCountryUtility));
+        return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEECountryEEFromRegistrationCountryUtilityEEParameterFirebaseFirestoreService));
       }
       return Result.success(Country(
           documentByCountry?.data()?[KeysFirebaseFirestoreServiceUtility.countryQUniqueIdByUser],

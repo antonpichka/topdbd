@@ -7,21 +7,21 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class GetQQDiscordUserFirestoreQFirebaseFirestoreServiceQParameterStringQQForUniqueIdByUser<T extends DiscordUserFirestore,Y extends ListDiscordUserFirestore<T>> {
+base class GetEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreService<T extends DiscordUserFirestore,Y extends ListDiscordUserFirestore<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> getDiscordUserFirestoreFirebaseFirestoreServiceParameterStringForUniqueIdByUser(String parameter)
+  Future<Result<T>> getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(String uniqueId)
   async {
     try {
       final documentByDiscordUser = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.discordUser)
-          .where(KeysFirebaseFirestoreServiceUtility.discordUserQUniqueIdByUser,isEqualTo: parameter)
+          .where(KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId,isEqualTo: uniqueId)
           .limit(1)
           .get();
       if((documentByDiscordUser?.size ?? 0) <= 0) {
-        return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getQQDiscordUserFirestoreQFirebaseFirestoreServiceQParameterStringQQForUniqueIdByUser));
+        return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreService));
       }
       return Result.success(DiscordUserFirestore(
           documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId],

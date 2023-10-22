@@ -8,25 +8,25 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class InsertQQDiscordUserFirestoreQFirebaseFirestoreServiceQParameterRegistrationDiscordUserFirestoreUtility<T extends DiscordUserFirestore,Y extends ListDiscordUserFirestore<T>> {
+base class InsertEEDiscordUserFirestoreEEFromRegistrationDiscordUserFirestoreUtilityEEParameterFirebaseFirestoreService<T extends DiscordUserFirestore,Y extends ListDiscordUserFirestore<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> insertDiscordUserFirestoreFirebaseFirestoreServiceParameterRegistrationDiscordUserFirestoreUtility(RegistrationDiscordUserFirestoreUtility parameter)
+  Future<Result<T>> insertDiscordUserFirestoreFromRegistrationDiscordUserFirestoreUtilityParameterFirebaseFirestoreService(RegistrationDiscordUserFirestoreUtility registrationDiscordUserFirestoreUtility)
   async {
     try {
       final documentByDiscordUserWhereAdding = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.discordUser)
           .add({
-        KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId : parameter.uniqueId,
-        KeysFirebaseFirestoreServiceUtility.discordUserQUniqueIdByUser : parameter.uniqueIdByUser,
-        KeysFirebaseFirestoreServiceUtility.discordUserQUsername : parameter.username,
-        KeysFirebaseFirestoreServiceUtility.discordUserQGlobalName : parameter.globalName
+        KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId : registrationDiscordUserFirestoreUtility.uniqueId,
+        KeysFirebaseFirestoreServiceUtility.discordUserQUniqueIdByUser : registrationDiscordUserFirestoreUtility.uniqueIdByUser,
+        KeysFirebaseFirestoreServiceUtility.discordUserQUsername : registrationDiscordUserFirestoreUtility.username,
+        KeysFirebaseFirestoreServiceUtility.discordUserQGlobalName : registrationDiscordUserFirestoreUtility.globalName
           });
       final documentByDiscordUser = await documentByDiscordUserWhereAdding?.get();
       if(!(documentByDiscordUser?.exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertQQDiscordUserFirestoreQFirebaseFirestoreServiceQParameterRegistrationDiscordUserFirestoreUtility));
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEDiscordUserFirestoreEEFromRegistrationDiscordUserFirestoreUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(DiscordUserFirestore(
           documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId],

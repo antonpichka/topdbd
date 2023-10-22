@@ -7,21 +7,21 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class GetQQAboutMeQFirebaseFirestoreServiceQParameterStringQQForUniqueIdByUser<T extends AboutMe,Y extends ListAboutMe<T>> {
+base class GetEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService<T extends AboutMe,Y extends ListAboutMe<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> getAboutMeFirebaseFirestoreServiceParameterStringForUniqueIdByUser(String parameter)
+  Future<Result<T>> getAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService(String uniqueIdByUser)
   async {
     try {
       final documentByAboutMe = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.aboutMe)
-          .where(KeysFirebaseFirestoreServiceUtility.aboutMeQUniqueIdByUser,isEqualTo: parameter)
+          .where(KeysFirebaseFirestoreServiceUtility.aboutMeQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
           .get();
       if((documentByAboutMe?.size ?? 0) <= 0) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getQQAboutMeQFirebaseFirestoreServiceQParameterStringQQForUniqueIdByUser));
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(AboutMe(
           documentByAboutMe?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.aboutMeQUniqueIdByUser],

@@ -7,11 +7,11 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class GetQQCountryQFirebaseFirestoreServiceQParameterStringQQForUniqueIdByUser<T extends Country,Y extends ListCountry<T>> {
+base class GetEECountryEEFromUniqueIdByUserEEParameterFirebaseFirestoreService<T extends Country,Y extends ListCountry<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> getCountryFirebaseFirestoreServiceParameterStringForUniqueIdByUser(String parameter)
+  Future<Result<T>> getCountryFromUniqueIdByUserParameterFirebaseFirestoreService(String parameter)
   async {
     try {
       final documentByCountry = await firebaseFirestoreService
@@ -21,7 +21,7 @@ base class GetQQCountryQFirebaseFirestoreServiceQParameterStringQQForUniqueIdByU
           .limit(1)
           .get();
       if((documentByCountry?.size ?? 0) <= 0) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getQQCountryQFirebaseFirestoreServiceQParameterStringQQForUniqueIdByUser));
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEECountryEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(Country(
           documentByCountry?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.countryQUniqueIdByUser],

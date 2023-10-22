@@ -6,8 +6,8 @@ import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_s
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_update_parameter_bool_for_is_init_by_init.dart';
 
 @immutable
-final class ExceptionToAppViewQViewModel extends BaseNamedViewQViewModel<DataForExceptionToAppView,DefaultStreamAndStateQDataForNamed<DataForExceptionToAppView>> {
-  // OperationQQModelQNamedServiceQNP||ParameterNamed(QQForNamedQQWhereNamed)
+final class ExceptionToAppViewModel extends BaseNamedViewModel<DataForExceptionToAppView,DefaultStreamWState<DataForExceptionToAppView>> {
+  // OperationResultModel(InNamedWhereNamed)[FromNamed]ParameterNamedService
   // NamedUtility
 
   final _boolsQTempCacheServiceViewModelUsingGetNPForIsInitByInit =
@@ -15,7 +15,7 @@ final class ExceptionToAppViewQViewModel extends BaseNamedViewQViewModel<DataFor
   final _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsInitByInit =
   BoolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsInitByInit();
 
-  ExceptionToAppViewQViewModel() : super(DefaultStreamAndStateQDataForNamed(DataForExceptionToAppView(false)));
+  ExceptionToAppViewModel() : super(DefaultStreamWState(DataForExceptionToAppView(false)));
 
   @override
   Future<String> init()

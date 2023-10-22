@@ -10,7 +10,7 @@ import 'package:web_topdbd/named_view/navigation_view.dart';
 import 'package:web_topdbd/named_view/season_view.dart';
 import 'package:web_topdbd/named_view/selected_navigation_item_view.dart';
 import 'package:web_topdbd/named_view/title_to_app_bar_to_main_view.dart';
-import 'package:web_topdbd/named_view_q_view_model/main_view_q_view_model.dart';
+import 'package:web_topdbd/named_view_model/main_view_model.dart';
 
 final class MainView extends StatefulWidget {
   final String nameRoute;
@@ -23,19 +23,19 @@ final class MainView extends StatefulWidget {
 }
 
 final class _MainViewState extends State<MainView> {
-  late final MainViewQViewModel _mainViewQViewModel;
+  late final MainViewModel _mainViewModel;
   Color _color = Colors.white;
 
   @override
   void initState() {
-    _mainViewQViewModel = MainViewQViewModel();
+    _mainViewModel = MainViewModel();
     super.initState();
     _init();
   }
 
   @override
   void dispose() {
-    _mainViewQViewModel.dispose();
+    _mainViewModel.dispose();
     super.dispose();
   }
 
@@ -49,7 +49,7 @@ final class _MainViewState extends State<MainView> {
           Condition.smallerThan(name: TABLET, value: Drawer(child: DrawerToMainView()))
         ]
     ).value;
-    final dataForNamed = _mainViewQViewModel.getDataForNamed;
+    final dataForNamed = _mainViewModel.getDataForNamedParameterNamedStreamWState;
     switch(dataForNamed.getEnumDataForNamed) {
       case EnumDataForMainView.isLoading:
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
@@ -158,17 +158,17 @@ final class _MainViewState extends State<MainView> {
 
   Future<void> _init()
   async {
-    _mainViewQViewModel
-        .getStreamDataForNamed
+    _mainViewModel
+        .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {
           setState(() {});
         });
-    await _mainViewQViewModel.listeningStreamsFirebaseFirestoreService();
-    final result = _mainViewQViewModel.init();
+    await _mainViewModel.listeningStreamsFirebaseFirestoreServiceParametersFour();
+    final result = _mainViewModel.init();
     debugPrint("MainView: $result");
     if(!mounted) {
       return;
     }
-    _mainViewQViewModel.notifyStreamDataForNamed();
+    _mainViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

@@ -4,7 +4,7 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/data_for_anti_ddos_system_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/enum_data_for_anti_ddos_system_view.dart';
-import 'package:web_topdbd/named_view_q_view_model/anti_ddos_system_view_q_view_model.dart';
+import 'package:web_topdbd/named_view_model/anti_ddos_system_view_model.dart';
 
 final class AntiDDosSystemView extends StatefulWidget {
   @override
@@ -12,24 +12,24 @@ final class AntiDDosSystemView extends StatefulWidget {
 }
 
 final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
-  late final AntiDDosSystemViewQViewModel _antiDDosSystemViewQViewModel;
+  late final AntiDDosSystemViewModel _antiDDosSystemViewModel;
 
   @override
   void initState() {
-    _antiDDosSystemViewQViewModel = AntiDDosSystemViewQViewModel();
+    _antiDDosSystemViewModel = AntiDDosSystemViewModel();
     super.initState();
     _init();
   }
 
   @override
   void dispose() {
-    _antiDDosSystemViewQViewModel.dispose();
+    _antiDDosSystemViewModel.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final dataForNamed = _antiDDosSystemViewQViewModel.getDataForNamed;
+    final dataForNamed = _antiDDosSystemViewModel.getDataForNamedParameterNamedStreamWState;
     final rvWidgetForm = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
@@ -52,7 +52,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
     }
   }
 
-  Widget _buildForm(BuildContext context,DataForAntiDDosSystemView dataForAntiDDosSystemView,double sizedBoxWidth,double textSize,double textButtonSize,double inputDecorationMaxHeight) {
+  Widget _buildForm(BuildContext context,DataForAntiDDosSystemView dataForNamed,double sizedBoxWidth,double textSize,double textButtonSize,double inputDecorationMaxHeight) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -65,7 +65,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        dataForAntiDDosSystemView.code,
+                        dataForNamed.code,
                         style: TextStyle(
                           fontSize: textSize,
                           fontWeight: FontWeight.w400,
@@ -75,7 +75,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: TextFormField(
-                          initialValue: dataForAntiDDosSystemView.inputCode,
+                          initialValue: dataForNamed.inputCode,
                           maxLength: 8,
                           decoration: InputDecoration(
                             constraints: BoxConstraints(maxHeight: inputDecorationMaxHeight),
@@ -92,7 +92,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                           cursorColor: Theme.of(context).colorScheme.secondary,
                           style: Theme.of(context).textTheme.bodyLarge,
                           onChanged: (String text) {
-                            _antiDDosSystemViewQViewModel
+                            _antiDDosSystemViewModel
                                 .setInputCode(text);
                             },
                         ),
@@ -100,7 +100,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                       const SizedBox(height: 5,),
                       ElevatedButton(
                         onPressed: () {
-                          _antiDDosSystemViewQViewModel.clickButtonDone(() {
+                          _antiDDosSystemViewModel.clickButtonDone(() {
 
                           },(messageException) {
                             showTopSnackBar(
@@ -135,17 +135,17 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
   }
 
   Future<void> _init() async {
-    _antiDDosSystemViewQViewModel
-        .getStreamDataForNamed
+    _antiDDosSystemViewModel
+        .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {
           setState(() {});
         });
-    final result = await _antiDDosSystemViewQViewModel.init();
+    final result = await _antiDDosSystemViewModel.init();
     debugPrint("AntiDDosSystemView: $result");
     if(!mounted) {
       return;
     }
-    _antiDDosSystemViewQViewModel.notifyStreamDataForNamed();
+    _antiDDosSystemViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
 }

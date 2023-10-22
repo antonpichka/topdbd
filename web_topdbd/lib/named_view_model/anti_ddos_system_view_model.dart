@@ -5,45 +5,45 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/data_for_anti_ddos_system_view.dart';
 
 @immutable
-final class AntiDDosSystemViewQViewModel extends BaseNamedViewQViewModel<DataForAntiDDosSystemView,DefaultStreamAndStateQDataForNamed<DataForAntiDDosSystemView>> {
-  // OperationQQModelQNamedServiceQNP||ParameterNamed(QQForNamedQQWhereNamed)
+final class AntiDDosSystemViewModel extends BaseNamedViewModel<DataForAntiDDosSystemView,DefaultStreamWState<DataForAntiDDosSystemView>> {
+  // OperationResultModel(InNamedWhereNamed)[FromNamed]ParameterNamedService
   // NamedUtility
 
-  AntiDDosSystemViewQViewModel() : super(DefaultStreamAndStateQDataForNamed(DataForAntiDDosSystemView(true,"",false,"")));
+  AntiDDosSystemViewModel() : super(DefaultStreamWState(DataForAntiDDosSystemView(true,"",false,"")));
 
   @override
   Future<String> init() async {
-    getDataForNamed.isLoading = false;
-    getDataForNamed.code = AlgorithmsUtility.getRandomNumbersFromNumberOfScrollsParameterString(8);
+    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.code = AlgorithmsUtility.getRandomNumbersFromNumberOfScrollsParameterString(8);
     return KeysSuccessUtility.sUCCESS;
   }
 
   void setInputCode(String inputCode) {
-    getDataForNamed.inputCode = inputCode;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState.inputCode = inputCode;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void clickButtonDone(Function() callbackSuccess,Function(String messageException) callbackException) {
-    if(getDataForNamed.isLoading) {
+    if(getDataForNamedParameterNamedStreamWState.isLoading) {
       return;
     }
-    getDataForNamed.isLoading = true;
-    notifyStreamDataForNamed();
-    final getStringWhereNotEqualsParametersCodeAndInputCode = getDataForNamed
+    getDataForNamedParameterNamedStreamWState.isLoading = true;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+    final getStringWhereNotEqualsParametersCodeAndInputCode = getDataForNamedParameterNamedStreamWState
         .getStringWhereNotEqualsParametersCodeAndInputCode;
     if(getStringWhereNotEqualsParametersCodeAndInputCode.isNotEmpty) {
       _firstQClickButtonDoneQGetStringWhereNotEqualsParametersCodeAndInputCode(getStringWhereNotEqualsParametersCodeAndInputCode,callbackSuccess,callbackException);
       return;
     }
-    getDataForNamed.isLoading = false;
-    getDataForNamed.isSuccessCode = true;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.isSuccessCode = true;
+    notifyStreamDataForNamedParameterNamedStreamWState();
     callbackSuccess();
   }
 
   void _firstQClickButtonDoneQGetStringWhereNotEqualsParametersCodeAndInputCode(String getStringWhereNotEqualsParametersCodeAndInputCode,Function() callbackSuccess, Function(String messageException) callbackException) {
-    getDataForNamed.isLoading = false;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    notifyStreamDataForNamedParameterNamedStreamWState();
     callbackException(getStringWhereNotEqualsParametersCodeAndInputCode);
   }
 }

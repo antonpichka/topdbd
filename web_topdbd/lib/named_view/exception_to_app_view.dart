@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_topdbd/named_view_q_view_model/exception_to_app_view_q_view_moel.dart';
+import 'package:web_topdbd/named_view_model/exception_to_app_view_moel.dart';
 
 final class ExceptionToAppView extends StatefulWidget {
   final String msgException;
@@ -11,18 +11,18 @@ final class ExceptionToAppView extends StatefulWidget {
 }
 
 final class _ExceptionToAppViewState extends State<ExceptionToAppView> {
-  late final ExceptionToAppViewQViewModel _exceptionToAppViewListViewModel;
+  late final ExceptionToAppViewModel _exceptionToAppViewModel;
 
   @override
   void initState() {
-    _exceptionToAppViewListViewModel = ExceptionToAppViewQViewModel();
+    _exceptionToAppViewModel = ExceptionToAppViewModel();
     super.initState();
     _init();
   }
 
   @override
   void dispose() {
-    _exceptionToAppViewListViewModel.dispose();
+    _exceptionToAppViewModel.dispose();
     super.dispose();
   }
 
@@ -35,7 +35,7 @@ final class _ExceptionToAppViewState extends State<ExceptionToAppView> {
 
   Future<void> _init()
   async {
-    final result = await _exceptionToAppViewListViewModel.init();
+    final result = await _exceptionToAppViewModel.init();
     debugPrint("ExceptionToAppView: $result");
     if(!mounted) {
       return;

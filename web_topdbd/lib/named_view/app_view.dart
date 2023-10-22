@@ -9,7 +9,7 @@ import 'package:web_topdbd/named_utility/keys_parameters_to_navigation_utility.d
 import 'package:web_topdbd/named_view/exception_to_app_view.dart';
 import 'package:web_topdbd/named_view/login_view.dart';
 import 'package:web_topdbd/named_view/main_view.dart';
-import 'package:web_topdbd/named_view_q_view_model/app_view_q_view_model.dart';
+import 'package:web_topdbd/named_view_model/app_view_model.dart';
 
 final class AppView extends StatefulWidget {
   @override
@@ -17,18 +17,18 @@ final class AppView extends StatefulWidget {
 }
 
 final class _AppViewState extends State<AppView> {
-  late final AppViewQViewModel _appViewQViewModel;
+  late final AppViewModel _appViewModel;
 
   @override
   void initState() {
-    _appViewQViewModel = AppViewQViewModel();
+    _appViewModel = AppViewModel();
     super.initState();
     _init();
   }
 
   @override
   void dispose() {
-    _appViewQViewModel.dispose();
+    _appViewModel.dispose();
     super.dispose();
   }
 
@@ -58,19 +58,19 @@ final class _AppViewState extends State<AppView> {
 
   Future<void> _init()
   async {
-    _appViewQViewModel
-        .getStreamDataForNamed
+    _appViewModel
+        .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {
           setState(() {});
         });
-    _appViewQViewModel.listeningStreamsTempCacheService();
-    await _appViewQViewModel.listeningStreamsFirebaseFirestoreService();
-    final result = await _appViewQViewModel.init();
+    _appViewModel.listeningStreamsTempCacheServiceParametersFour();
+    await _appViewModel.listeningStreamsFirebaseFirestoreServiceParametersFour();
+    final result = await _appViewModel.init();
     debugPrint("AppView: $result");
     if(!mounted) {
       return;
     }
-    _appViewQViewModel.notifyStreamDataForAppView();
+    _appViewModel.notifyStreamDataForAppViewParametersZero();
   }
 
   RouterConfig<Object> get _routerConfig {
@@ -190,7 +190,7 @@ final class _AppViewState extends State<AppView> {
   }
 
   MaterialPage _getChoicedMaterialPage(BuildContext context,GoRouterState state, [String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQTopPlayers, String id = KeysParametersToNavigationUtility.appViewQId]) {
-    final dataForNamed = _appViewQViewModel.getDataForNamed;
+    final dataForNamed = _appViewModel.getDataForNamedParameterNamedStreamWState;
     final rvWidgetThoseWorks = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
@@ -258,7 +258,7 @@ final class _AppViewState extends State<AppView> {
   }
 
   String _getChoicedUrl(BuildContext context,GoRouterState state,[String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQTopPlayers]) {
-    final dataForNamed = _appViewQViewModel.getDataForNamed;
+    final dataForNamed = _appViewModel.getDataForNamedParameterNamedStreamWState;
     switch(dataForNamed.getEnumDataForNamed) {
       case EnumDataForAppView.exception:
         return "/exception";

@@ -59,7 +59,7 @@ import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_s
 import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/survivor_perk_q_temp_cache_service_view_model/survivor_perk_q_temp_cache_service_view_model_using_update_list_np.dart';
 
 @immutable
-final class AppViewQViewModel extends BaseNamedViewModel<DataForAppView,DefaultStreamWState<DataForAppView>> {
+final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStreamWState<DataForAppView>> {
   // OperationResultModel(InNamedWhereNamed)[FromNamed]ParameterNamedService
   // NamedUtility
 
@@ -148,7 +148,7 @@ final class AppViewQViewModel extends BaseNamedViewModel<DataForAppView,DefaultS
   final _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsInitByInit =
   BoolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsInitByInit();
 
-  AppViewQViewModel() : super(DefaultStreamWState(DataForAppView(ReadyDataUtility.getListInitStream,EnumStatusNotifyListInitStream.noNotify,"",false,false,"","",false,false)));
+  AppViewModel() : super(DefaultStreamWState(DataForAppView(ReadyDataUtility.getListInitStream,EnumStatusNotifyListInitStream.noNotify,"",false,false,"","",false,false)));
 
   @override
   void dispose() {
@@ -347,7 +347,7 @@ final class AppViewQViewModel extends BaseNamedViewModel<DataForAppView,DefaultS
     return KeysSuccessUtility.sUCCESS;
   }
 
-  void notifyStreamDataForAppView() {
+  void notifyStreamDataForAppViewParametersZero() {
     final isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
         .isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream();
     if(isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream) {
@@ -356,7 +356,7 @@ final class AppViewQViewModel extends BaseNamedViewModel<DataForAppView,DefaultS
     }
   }
 
-  void listeningStreamsTempCacheService() {
+  void listeningStreamsTempCacheServiceParametersFour() {
     _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser
         .startListening(KeysNameStreamToTempCacheServiceUtility.appViewListViewModelQUniqueIdByUser,(Result<Strings> resultStringsForUniqueIdByUser) {
           getDataForNamedParameterNamedStreamWState
@@ -398,7 +398,7 @@ final class AppViewQViewModel extends BaseNamedViewModel<DataForAppView,DefaultS
         });
   }
 
-  Future<void> listeningStreamsFirebaseFirestoreService()
+  Future<void> listeningStreamsFirebaseFirestoreServiceParametersFour()
   async {
     final resultBoolForVersionByTOPDBDVersionWeb = await _stringsQTempCacheServiceViewModelUsingUpdateNPForVersionByTOPDBDVersionWeb
         .updateStringsToTempCacheServiceNPDS();
@@ -638,55 +638,61 @@ final class AppViewQViewModel extends BaseNamedViewModel<DataForAppView,DefaultS
   void _secondQListeningStreamsFirebaseFirestoreServiceQStartListening(Result<TOPDBDVersionWeb> resultTOPDBDVersionWeb) {
     getDataForNamedParameterNamedStreamWState
         .exceptionController = resultTOPDBDVersionWeb.exceptionController;
-    notifyStreamDataForNamed();
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _firstQListeningStreamsFirebaseFirestoreServiceQGetStringsFromTempCacheServiceNPDS(Result<Strings> resultStringsForVersionByTOPDBDVersionWeb) {
-    getDataForNamed.exceptionController = resultStringsForVersionByTOPDBDVersionWeb.exceptionController;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState
+        .exceptionController = resultStringsForVersionByTOPDBDVersionWeb.exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _firstQListeningStreamsFirebaseFirestoreServiceQGetStringWhereNotEqualsFromVersionParameterVersion(String getStringWhereNotEqualsFromVersionParameterVersion, TOPDBDVersionWeb tOPDBDVersionWeb) {
-    getDataForNamed.isNotValidVersionTOPDBDVersionWeb = true;
-    getDataForNamed.versionByTOPDBDVersionWeb = tOPDBDVersionWeb.version;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState
+        .isNotValidVersionTOPDBDVersionWeb = true;
+    getDataForNamedParameterNamedStreamWState
+        .versionByTOPDBDVersionWeb = tOPDBDVersionWeb.version;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _firstQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(bool isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream) {
-    final isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream = getDataForNamed
+    final isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
         .isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream();
     if(isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream) {
       _firstBranchOneQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream );
       return;
     }
-    getDataForNamed.enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.oneNotify;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState
+        .enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.oneNotify;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _secondQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(bool isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream) {
-    final isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream = getDataForNamed
+    final isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
         .isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream();
     if(isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream) {
       _secondBranchOneQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream );
       return;
     }
-    getDataForNamed.enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.oneNotify;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState
+        .enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.oneNotify;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _thirdQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(bool isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream) {
-    final isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream = getDataForNamed
+    final isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
         .isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream();
     if(isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream) {
       _thirdBranchOneQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream );
       return;
     }
-    getDataForNamed.enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.oneNotify;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState
+        .enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.oneNotify;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _firstQListeningStreamsTempCacheServiceQIsInitStream(bool isInitStream) {
-    final isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream = getDataForNamed
+    final isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
         .isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream();
     if(isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream) {
       _firstBranchOneQListeningStreamsTempCacheServiceQIsInitStream(isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream);
@@ -695,18 +701,19 @@ final class AppViewQViewModel extends BaseNamedViewModel<DataForAppView,DefaultS
   }
 
   void _firstBranchOneQListeningStreamsTempCacheServiceQIsInitStream(bool isTrueAndFalseParametersListInitStreamAndIsNotifyListInitStream) {
-    final isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream = getDataForNamed
+    final isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
         .isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream();
     if(isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream) {
       _firstBranchOneBranchOneQListeningStreamsTempCacheServiceQIsInitStream(isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream );
       return;
     }
-    getDataForNamed.enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.oneNotify;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState
+        .enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.oneNotify;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _secondQListeningStreamsTempCacheServiceQIsInitStream(bool isInitStream) {
-    final isTrueAndFalseParametersListInitStreamAndIsNotifyListInitStream = getDataForNamed
+    final isTrueAndFalseParametersListInitStreamAndIsNotifyListInitStream = getDataForNamedParameterNamedStreamWState
         .isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream();
     if(isTrueAndFalseParametersListInitStreamAndIsNotifyListInitStream) {
       _secondBranchOneQListeningStreamsTempCacheServiceQIsInitStream(isTrueAndFalseParametersListInitStreamAndIsNotifyListInitStream);
@@ -715,18 +722,19 @@ final class AppViewQViewModel extends BaseNamedViewModel<DataForAppView,DefaultS
   }
 
   void _secondBranchOneQListeningStreamsTempCacheServiceQIsInitStream(bool isTrueAndFalseParametersListInitStreamAndIsNotifyListInitStream) {
-    final isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream = getDataForNamed
+    final isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
         .isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream();
     if(isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream) {
       _secondBranchOneBranchOneQListeningStreamsTempCacheServiceQIsInitStream(isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream );
       return;
     }
-    getDataForNamed.enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.oneNotify;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState
+        .enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.oneNotify;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _thirdQListeningStreamsTempCacheServiceQIsInitStream(bool isInitStream) {
-    final isTrueAndFalseParametersListInitStreamAndIsNotifyListInitStream = getDataForNamed
+    final isTrueAndFalseParametersListInitStreamAndIsNotifyListInitStream = getDataForNamedParameterNamedStreamWState
         .isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream();
     if(isTrueAndFalseParametersListInitStreamAndIsNotifyListInitStream) {
       _thirdBranchOneQListeningStreamsTempCacheServiceQIsInitStream(isTrueAndFalseParametersListInitStreamAndIsNotifyListInitStream);
@@ -735,52 +743,54 @@ final class AppViewQViewModel extends BaseNamedViewModel<DataForAppView,DefaultS
   }
 
   void _thirdBranchOneQListeningStreamsTempCacheServiceQIsInitStream(bool isTrueAndFalseParametersListInitStreamAndIsNotifyListInitStream) {
-    final isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream = getDataForNamed
+    final isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
         .isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream();
     if(isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream) {
       _thirdBranchOneBranchOneQListeningStreamsTempCacheServiceQIsInitStream(isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream );
       return;
     }
-    getDataForNamed.enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.oneNotify;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState
+        .enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.oneNotify;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _fourthQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(bool isTrueAndFalseParametersListInitStreamAndIsNotifyListInitStream) {
-    final isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream = getDataForNamed
+    final isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
         .isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream();
     if(isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream) {
       _fourthBranchOneQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream );
       return;
     }
-    getDataForNamed.enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.oneNotify;
-    notifyStreamDataForNamed();
+    getDataForNamedParameterNamedStreamWState
+        .enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.oneNotify;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _firstBranchOneBranchOneQListeningStreamsTempCacheServiceQIsInitStream(bool isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream) {
-    notifyStreamDataForNamed();
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _secondBranchOneBranchOneQListeningStreamsTempCacheServiceQIsInitStream(bool isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream) {
-    notifyStreamDataForNamed();
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _thirdBranchOneBranchOneQListeningStreamsTempCacheServiceQIsInitStream(bool isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream) {
-    notifyStreamDataForNamed();
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _fourthBranchOneQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(bool isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream) {
-    notifyStreamDataForNamed();
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _firstBranchOneQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(bool isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream) {
-    notifyStreamDataForNamed();
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _secondBranchOneQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(bool isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream) {
-    notifyStreamDataForNamed();
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _thirdBranchOneQListeningStreamsTempCacheServiceQIsTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream(bool isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream) {
-    notifyStreamDataForNamed();
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

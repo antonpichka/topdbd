@@ -4,11 +4,11 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/asset_bundle_service.dart';
 
 @immutable
-base class GetQQStringsQAssetBundleServiceQNPQQForTermsOfUse<T extends Strings,Y extends ListStrings<T>> {
+base class GetEEStringsEEWhereTermsOfUseEEParameterAssetBundleService<T extends Strings,Y extends ListStrings<T>> {
   @protected
   final assetBundleService = AssetBundleService.instance;
 
-  Future<Result<T>> getStringsAssetBundleServiceNPForTermsOfUse()
+  Future<Result<T>> getStringsWhereTermsOfUseParameterAssetBundleService()
   async {
     try {
       final result = await assetBundleService

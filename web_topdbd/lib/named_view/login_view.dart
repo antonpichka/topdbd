@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/data_for_named/data_for_login_view/data_for_login_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_login_view/enum_data_for_login_view.dart';
-import 'package:web_topdbd/named_view_q_view_model/login_view_q_view_model.dart';
+import 'package:web_topdbd/named_view_model/login_view_model.dart';
 
 final class LoginView extends StatefulWidget {
   @override
@@ -11,12 +11,12 @@ final class LoginView extends StatefulWidget {
 }
 
 final class _LoginViewState extends State<LoginView> {
-  late final LoginViewQViewModel _loginViewQViewModel;
+  late final LoginViewModel _loginViewModel;
   late final ScrollController _scrollController;
 
   @override
   void initState() {
-    _loginViewQViewModel = LoginViewQViewModel();
+    _loginViewModel = LoginViewModel();
     _scrollController = ScrollController();
     super.initState();
     _init();
@@ -24,14 +24,14 @@ final class _LoginViewState extends State<LoginView> {
 
   @override
   void dispose() {
-    _loginViewQViewModel.dispose();
+    _loginViewModel.dispose();
     _scrollController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final dataForNamed = _loginViewQViewModel.getDataForNamed;
+    final dataForNamed = _loginViewModel.getDataForNamedParameterNamedStreamWState;
     final login = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
@@ -98,7 +98,7 @@ final class _LoginViewState extends State<LoginView> {
                                   activeColor: Theme.of(context).colorScheme.primary,
                                   value: dataForNamed.isCheckAgreeTermsOfUse,
                                   onChanged: (value) {
-                                    _loginViewQViewModel.check(value);
+                                    _loginViewModel.checkParametersZero(value);
                                   }),
                             ),
                             const Flexible(child: Text("I agree to the terms of use of 'TOPDBD'",)),
@@ -111,7 +111,7 @@ final class _LoginViewState extends State<LoginView> {
                         button: Button.Discord,
                         text: 'Sign in with Discord',
                         onPressed: () {
-                          _loginViewQViewModel.signInWithDiscord((){},(messageException){});
+                          _loginViewModel.signInWithDiscordParametersTwelve((){},(messageException){});
                         },
                       ) : Container(),
                       const SizedBox(height: 5,),
@@ -121,17 +121,17 @@ final class _LoginViewState extends State<LoginView> {
 
   Future<void> _init()
   async {
-    _loginViewQViewModel
-        .getStreamDataForNamed
+    _loginViewModel
+        .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {
           setState(() {});
         });
-    final result = await _loginViewQViewModel
+    final result = await _loginViewModel
         .init();
     debugPrint("LoginView: $result");
     if(!mounted) {
       return;
     }
-    _loginViewQViewModel.notifyStreamDataForNamed();
+    _loginViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

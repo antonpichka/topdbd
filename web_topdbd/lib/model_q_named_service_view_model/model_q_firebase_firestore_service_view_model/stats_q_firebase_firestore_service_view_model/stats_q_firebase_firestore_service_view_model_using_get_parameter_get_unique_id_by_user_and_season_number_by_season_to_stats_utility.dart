@@ -1,6 +1,6 @@
 import 'package:common_topdbd/model/stats/list_stats.dart';
 import 'package:common_topdbd/model/stats/stats.dart';
-import 'package:common_topdbd/named_utility/get_unique_id_by_user_and_season_number_by_season_to_stats_utility.dart';
+import 'package:common_topdbd/named_utility/unique_id_by_user_w_season_number_by_season_to_stats_utility.dart';
 import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
 import 'package:common_topdbd/named_utility/keys_firebase_firestore_service_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
@@ -8,17 +8,17 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class StatsQFirebaseFirestoreServiceViewModelUsingGetParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility<T extends Stats,Y extends ListStats<T>> extends BaseGetModelFromNamedServiceParameterNamedDataSource<T,GetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility> {
+base class StatsQFirebaseFirestoreServiceViewModelUsingGetParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility<T extends Stats,Y extends ListStats<T>> extends BaseGetModelFromNamedServiceParameterNamedDataSource<T,UniqueIdByUserWSeasonNumberBySeasonToStatsUtility> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> getStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(GetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility parameter) {
+  Future<Result<T>> getStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(UniqueIdByUserWSeasonNumberBySeasonToStatsUtility parameter) {
     return getModelFromNamedServiceParameterNamedDS(parameter);
   }
 
   @protected
   @override
-  Future<Result<T>> getModelFromNamedServiceParameterNamedDS(GetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility parameter)
+  Future<Result<T>> getModelFromNamedServiceParameterNamedDS(UniqueIdByUserWSeasonNumberBySeasonToStatsUtility parameter)
   async {
     try {
       final documentByStats = await firebaseFirestoreService

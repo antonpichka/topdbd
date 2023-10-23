@@ -8,21 +8,21 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class UpdateQQIPAddressFirestoreQFirebaseFirestoreServiceQParameterIPToIPAddressFirestoreUtility<T extends IPAddressFirestore,Y extends ListIPAddressFirestore<T>> {
+base class UpdateEEIPAddressFirestoreEEFromIPToIPAddressFirestoreUtilityEEParameterFirebaseFirestoreService<T extends IPAddressFirestore,Y extends ListIPAddressFirestore<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> updateIPAddressFirestoreFirebaseFirestoreServiceParameterIPToIPAddressFirestoreUtility(IPToIPAddressFirestoreUtility parameter)
+  Future<Result<T>> updateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService(IPToIPAddressFirestoreUtility iPToIPAddressFirestoreUtility)
   async {
     try {
       final listDocumentByIPAddress = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
-          .where(KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser, isEqualTo: parameter.uniqueIdByUser)
+          .where(KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser, isEqualTo: iPToIPAddressFirestoreUtility.uniqueIdByUser)
           .limit(1)
           .get();
       if(!(listDocumentByIPAddress?.docs[0].exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.updateQQIPAddressFirestoreQFirebaseFirestoreServiceQParameterIPToIPAddressFirestoreUtility));
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.updateEEIPAddressFirestoreEEFromIPToIPAddressFirestoreUtilityEEParameterFirebaseFirestoreService));
       }
       final firstItemDocumentByIPAddress = listDocumentByIPAddress?.docs[0];
       await firebaseFirestoreService
@@ -31,11 +31,11 @@ base class UpdateQQIPAddressFirestoreQFirebaseFirestoreServiceQParameterIPToIPAd
           .doc(firstItemDocumentByIPAddress?.id)
           .update({
         KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser : firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser],
-        KeysFirebaseFirestoreServiceUtility.ipAddressQIp : parameter.ip,
+        KeysFirebaseFirestoreServiceUtility.ipAddressQIp : iPToIPAddressFirestoreUtility.ip,
       });
       return Result<T>.success(IPAddressFirestore(
           firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser],
-          parameter.ip) as T);
+          iPToIPAddressFirestoreUtility.ip) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

@@ -7,21 +7,21 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class GetQQIPAddressFirestoreQFirebaseFirestoreServiceQParameterStringQQForUniqueIdByUser<T extends IPAddressFirestore,Y extends ListIPAddressFirestore<T>> {
+base class GetEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService<T extends IPAddressFirestore,Y extends ListIPAddressFirestore<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> getIPAddressFirestoreFirebaseFirestoreServiceParameterStringForUniqueIdByUser(String parameter)
+  Future<Result<T>> getIPAddressFirestoreFromUniqueIdByUserParameterFirebaseFirestoreService(String uniqueIdByUser)
   async {
     try {
       final documentByDiscordUser = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
-          .where(KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser,isEqualTo: parameter)
+          .where(KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
           .get();
       if((documentByDiscordUser?.size ?? 0) <= 0) {
-        return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getQQIPAddressFirestoreQFirebaseFirestoreServiceQParameterStringQQForUniqueIdByUser));
+        return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result.success(IPAddressFirestore(
           documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser],

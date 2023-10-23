@@ -7,43 +7,42 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
-base class StartListeningAndCancelListeningQQIPAddressFirestoreQFirebaseFirestoreServiceQParameterStringAndFunctionQQForUniqueIdByUserAndCallbackToReturn<T extends IPAddressFirestore,Y extends ListIPAddressFirestore<T>> {
+base class StartListeningAndCancelListeningEEIPAddressFirestoreEEFromUniqueIdByUserAndCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription<T extends IPAddressFirestore,Y extends ListIPAddressFirestore<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
   @protected
   StreamSubscription<dynamic>? streamSubscription;
 
-  Future<void> startListeningIPAddressFirestoreFirebaseFirestoreServiceParameterStringAndFunctionForUniqueIdByUserAndCallbackToReturn(String parameter,Function(Result<T> resultIPAddressFirestoreForUniqueIdByUser) callback)
+  Future<void> startListeningIPAddressFirestoreFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(String uniqueIdByUser,Function(Result<T> resultIPAddressFirestore) callback)
   async {
     try {
       final listDocumentByIPAddress = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
-          .where(KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser,isEqualTo: parameter)
+          .where(KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
           .get();
       if((listDocumentByIPAddress?.size ?? 0) <= 0) {
-        callback(Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.startListeningAndCancelListeningQQIPAddressFirestoreQFirebaseFirestoreServiceQParameterStringAndFunctionQQForUniqueIdByUserAndCallbackToReturn)));
+        callback(Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.startListeningAndCancelListeningEEIPAddressFirestoreEEFromUniqueIdByUserAndCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription)));
         return;
       }
-      final itemOneDocumentByIPAddress = listDocumentByIPAddress?.docs[0];
+      final firstItemDocumentByIPAddress = listDocumentByIPAddress?.docs[0];
       streamSubscription = firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
-          .doc(itemOneDocumentByIPAddress!.id)
+          .doc(firstItemDocumentByIPAddress?.id)
           .snapshots()
           .listen((event) {
-        final documentByIPAddress = event;
-        callback(Result<T>.success(IPAddressFirestore(
-            documentByIPAddress.data()![KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser],
-            documentByIPAddress.data()![KeysFirebaseFirestoreServiceUtility.ipAddressQIp]) as T));
-      });
+            callback(Result<T>.success(IPAddressFirestore(
+                event.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser],
+                event.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQIp]) as T));
+          });
     } catch(e) {
       callback(Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())));
     }
   }
 
-  void cancelListeningIPAddressFirestoreFirebaseFirestoreService() {
+  void cancelListeningIPAddressFirestoreParameterStreamSubscription() {
     streamSubscription?.cancel();
   }
 }

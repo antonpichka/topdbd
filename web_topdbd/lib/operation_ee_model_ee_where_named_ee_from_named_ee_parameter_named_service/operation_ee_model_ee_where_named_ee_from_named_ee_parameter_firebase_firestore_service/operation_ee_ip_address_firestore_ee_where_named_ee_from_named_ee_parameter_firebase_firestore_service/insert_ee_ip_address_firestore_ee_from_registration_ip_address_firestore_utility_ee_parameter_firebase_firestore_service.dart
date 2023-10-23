@@ -8,23 +8,23 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class InsertQQIPAddressFirestoreQFirebaseFirestoreServiceQParameterRegistrationIPAddressFirestoreUtility<T extends IPAddressFirestore,Y extends ListIPAddressFirestore<T>> {
+base class InsertEEIPAddressFirestoreEEFromRegistrationIPAddressFirestoreUtilityEEParameterFirebaseFirestoreService<T extends IPAddressFirestore,Y extends ListIPAddressFirestore<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> insertIPAddressFirestoreFirebaseFirestoreServiceParameterRegistrationIPAddressFirestoreUtility(RegistrationIPAddressFirestoreUtility parameter)
+  Future<Result<T>> insertIPAddressFirestoreFromRegistrationIPAddressFirestoreUtilityParameterFirebaseFirestoreService(RegistrationIPAddressFirestoreUtility registrationIPAddressFirestoreUtility)
   async {
     try {
       final documentByIPAddressWhereAdding = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
           .add({
-        KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser : parameter.uniqueIdByUser,
-        KeysFirebaseFirestoreServiceUtility.ipAddressQIp : parameter.ip
+        KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser : registrationIPAddressFirestoreUtility.uniqueIdByUser,
+        KeysFirebaseFirestoreServiceUtility.ipAddressQIp : registrationIPAddressFirestoreUtility.ip
           });
       final documentByIPAddress = await documentByIPAddressWhereAdding?.get();
       if(!(documentByIPAddress?.exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertQQIPAddressFirestoreQFirebaseFirestoreServiceQParameterRegistrationIPAddressFirestoreUtility));
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEIPAddressFirestoreEEFromRegistrationIPAddressFirestoreUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(IPAddressFirestore(
           documentByIPAddress?.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser],

@@ -11,7 +11,7 @@ import 'package:common_topdbd/model/stats/stats.dart';
 import 'package:common_topdbd/model/those_works/those_works.dart';
 import 'package:common_topdbd/model/topdbd_version_web/topdbd_version_web.dart';
 import 'package:common_topdbd/model/user/user.dart';
-import 'package:common_topdbd/named_utility/get_unique_id_by_user_and_season_number_by_season_to_stats_utility.dart';
+import 'package:common_topdbd/named_utility/unique_id_by_user_w_season_number_by_season_to_stats_utility.dart';
 import 'package:common_topdbd/named_utility/keys_name_stream_to_init_stream_utility.dart';
 import 'package:common_topdbd/named_utility/keys_name_stream_to_temp_cache_service_utility.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
@@ -295,7 +295,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
       return _firstQInitQGetListSeasonFromFirebaseFirestoreServiceParameterIntDS(resultListSeasonForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber);
     }
     final resultStats = await _statsQFirebaseFirestoreServiceViewModelUsingGetParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility
-        .getStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(GetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility(resultUser.parameter?.uniqueId ?? "",resultSeasonForLastSeasonWhereSortParameterSeasonNumber.parameter?.seasonNumber ?? 0));
+        .getStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(UniqueIdByUserWSeasonNumberBySeasonToStatsUtility(resultUser.parameter?.uniqueId ?? "",resultSeasonForLastSeasonWhereSortParameterSeasonNumber.parameter?.seasonNumber ?? 0));
     if(resultStats
         .exceptionController
         .isNotEqualsNullParameterException())

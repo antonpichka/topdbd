@@ -11,7 +11,7 @@ import 'package:common_topdbd/model/season/season.dart';
 import 'package:common_topdbd/model/stats/stats.dart';
 import 'package:common_topdbd/model/user/user.dart';
 import 'package:common_topdbd/model/verified_user/verified_user.dart';
-import 'package:common_topdbd/named_utility/get_unique_id_by_user_and_season_number_by_season_to_stats_utility.dart';
+import 'package:common_topdbd/named_utility/unique_id_by_user_w_season_number_by_season_to_stats_utility.dart';
 import 'package:common_topdbd/named_utility/ip_to_ip_address_firestore_utility.dart';
 import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
@@ -20,7 +20,7 @@ import 'package:common_topdbd/named_utility/registration_discord_user_firestore_
 import 'package:common_topdbd/named_utility/registration_ip_address_firestore_utility.dart';
 import 'package:common_topdbd/named_utility/registration_stats_utility.dart';
 import 'package:common_topdbd/named_utility/registration_verified_user_utility.dart';
-import 'package:common_topdbd/named_utility/update_username_and_global_name_to_discord_user_firestore_utility.dart';
+import 'package:common_topdbd/named_utility/username_w_global_name_to_discord_user_firestore_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/data_for_named/data_for_login_view/data_for_login_view.dart';
@@ -288,7 +288,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
       return;
     }
     final resultStats = await _statsQFirebaseFirestoreServiceViewModelUsingGetParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility
-        .getStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(GetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility(resultUserForUniqueId.parameter?.uniqueId ?? "",resultSeasonForLastSeasonWhereSortParameterSeasonNumber.parameter?.seasonNumber ?? 0));
+        .getStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(UniqueIdByUserWSeasonNumberBySeasonToStatsUtility(resultUserForUniqueId.parameter?.uniqueId ?? "",resultSeasonForLastSeasonWhereSortParameterSeasonNumber.parameter?.seasonNumber ?? 0));
     if(resultStats
         .exceptionController
         .isNotEqualsNullParameterException())
@@ -581,7 +581,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
   Future<void> _firstQSignInWithDiscordQGetStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(String getStringFromUsernameAndGlobalNameWhereNotEqualsParametersUsernameAndGlobalName, Function() callbackSuccess, Function(String messageException) callbackException, DiscordUserFirestore discordUserFirestore)
   async {
     final resultDiscordUserFirestore = await _discordUserFirestoreQFirebaseFirestoreServiceViewModelUsingUpdateParameterUpdateUsernameAndGlobalNameToDiscordUserFirestoreUtility
-        .updateDiscordUserFirestoreToFirebaseFirestoreServiceParameterUpdateUsernameAndGlobalNameToDiscordUserFirestoreUtilityDS(UpdateUsernameAndGlobalNameToDiscordUserFirestoreUtility(discordUserFirestore.uniqueId, discordUserFirestore.uniqueIdByUser, discordUserFirestore.username, discordUserFirestore.globalName));
+        .updateDiscordUserFirestoreToFirebaseFirestoreServiceParameterUpdateUsernameAndGlobalNameToDiscordUserFirestoreUtilityDS(UsernameWGlobalNameToDiscordUserFirestoreUtility(discordUserFirestore.uniqueId, discordUserFirestore.uniqueIdByUser, discordUserFirestore.username, discordUserFirestore.globalName));
     if(resultDiscordUserFirestore
         .exceptionController
         .isNotEqualsNullParameterException())
@@ -660,7 +660,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
       return;
     }
     final resultStats = await _statsQFirebaseFirestoreServiceViewModelUsingGetParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility
-        .getStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(GetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility(resultUserForUniqueId.parameter?.uniqueId ?? "",resultSeasonForLastSeasonWhereSortParameterSeasonNumber.parameter?.seasonNumber ?? 0));
+        .getStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(UniqueIdByUserWSeasonNumberBySeasonToStatsUtility(resultUserForUniqueId.parameter?.uniqueId ?? "",resultSeasonForLastSeasonWhereSortParameterSeasonNumber.parameter?.seasonNumber ?? 0));
     if(resultStats
         .exceptionController
         .isNotEqualsNullParameterException())

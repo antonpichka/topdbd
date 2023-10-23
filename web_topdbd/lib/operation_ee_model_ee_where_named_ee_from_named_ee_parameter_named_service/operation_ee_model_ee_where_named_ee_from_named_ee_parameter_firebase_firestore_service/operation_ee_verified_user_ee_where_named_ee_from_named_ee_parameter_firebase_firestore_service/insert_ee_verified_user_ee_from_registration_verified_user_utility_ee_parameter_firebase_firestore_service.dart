@@ -8,29 +8,23 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class VerifiedUserQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationVerifiedUserUtility<T extends VerifiedUser,Y extends ListVerifiedUser<T>> extends BaseInsertModelToNamedServiceParameterNamedDataSource<T,RegistrationVerifiedUserUtility> {
+base class InsertEEVerifiedUserEEFromRegistrationVerifiedUserUtilityEEParameterFirebaseFirestoreService<T extends VerifiedUser,Y extends ListVerifiedUser<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> insertVerifiedUserToFirebaseFirestoreServiceParameterRegistrationVerifiedUserUtilityDS(RegistrationVerifiedUserUtility parameter) {
-    return insertModelToNamedServiceParameterNamedDS(parameter);
-  }
-
-  @protected
-  @override
-  Future<Result<T>> insertModelToNamedServiceParameterNamedDS(RegistrationVerifiedUserUtility parameter)
+  Future<Result<T>> insertVerifiedUserFromRegistrationVerifiedUserUtilityParameterFirebaseFirestoreService(RegistrationVerifiedUserUtility registrationVerifiedUserUtility)
   async {
     try {
       final documentByVerifiedUserWhereAdding = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.verifiedUser)
           .add({
-        KeysFirebaseFirestoreServiceUtility.verifiedUserQUniqueIdByUser : parameter.uniqueIdByUser,
-        KeysFirebaseFirestoreServiceUtility.verifiedUserQIsVerifiedUser : parameter.isVerifiedUser,
-          });
+        KeysFirebaseFirestoreServiceUtility.verifiedUserQUniqueIdByUser : registrationVerifiedUserUtility.uniqueIdByUser,
+        KeysFirebaseFirestoreServiceUtility.verifiedUserQIsVerifiedUser : registrationVerifiedUserUtility.isVerifiedUser,
+      });
       final documentByVerifiedUser = await documentByVerifiedUserWhereAdding?.get();
       if(!(documentByVerifiedUser?.exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.verifiedUserQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationVerifiedUserUtilityQWhereLocalExceptionGuiltyUserNoExists));
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEVerifiedUserEEFromRegistrationVerifiedUserUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(VerifiedUser(
           documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQUniqueIdByUser],

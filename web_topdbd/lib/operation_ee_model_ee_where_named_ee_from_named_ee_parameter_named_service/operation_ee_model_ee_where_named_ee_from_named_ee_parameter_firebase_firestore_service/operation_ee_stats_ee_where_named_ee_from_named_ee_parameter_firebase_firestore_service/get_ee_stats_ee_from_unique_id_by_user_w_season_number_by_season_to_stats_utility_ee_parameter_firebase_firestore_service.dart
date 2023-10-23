@@ -8,28 +8,22 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class StatsQFirebaseFirestoreServiceViewModelUsingGetParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtility<T extends Stats,Y extends ListStats<T>> extends BaseGetModelFromNamedServiceParameterNamedDataSource<T,UniqueIdByUserWSeasonNumberBySeasonToStatsUtility> {
+base class GetEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEParameterFirebaseFirestoreService<T extends Stats,Y extends ListStats<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> getStatsFromFirebaseFirestoreServiceParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityDS(UniqueIdByUserWSeasonNumberBySeasonToStatsUtility parameter) {
-    return getModelFromNamedServiceParameterNamedDS(parameter);
-  }
-
-  @protected
-  @override
-  Future<Result<T>> getModelFromNamedServiceParameterNamedDS(UniqueIdByUserWSeasonNumberBySeasonToStatsUtility parameter)
+  Future<Result<T>> getStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService(UniqueIdByUserWSeasonNumberBySeasonToStatsUtility uniqueIdByUserWSeasonNumberBySeasonToStatsUtility)
   async {
     try {
       final documentByStats = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.stats)
-          .where(KeysFirebaseFirestoreServiceUtility.statsQUniqueIdByUser,isEqualTo: parameter.uniqueIdByUser)
-          .where(KeysFirebaseFirestoreServiceUtility.statsQSeasonNumberBySeason,isEqualTo: parameter.seasonNumberBySeason)
+          .where(KeysFirebaseFirestoreServiceUtility.statsQUniqueIdByUser,isEqualTo: uniqueIdByUserWSeasonNumberBySeasonToStatsUtility.uniqueIdByUser)
+          .where(KeysFirebaseFirestoreServiceUtility.statsQSeasonNumberBySeason,isEqualTo: uniqueIdByUserWSeasonNumberBySeasonToStatsUtility.seasonNumberBySeason)
           .limit(1)
           .get();
       if((documentByStats?.size ?? 0) <= 0) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.statsQFirebaseFirestoreServiceViewModelUsingGetParameterGetUniqueIdByUserAndSeasonNumberBySeasonToStatsUtilityQWhereLocalExceptionGuiltyUserNoExists));
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(Stats(
           documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQUniqueIdByUser],
@@ -41,5 +35,4 @@ base class StatsQFirebaseFirestoreServiceViewModelUsingGetParameterGetUniqueIdBy
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
-
 }

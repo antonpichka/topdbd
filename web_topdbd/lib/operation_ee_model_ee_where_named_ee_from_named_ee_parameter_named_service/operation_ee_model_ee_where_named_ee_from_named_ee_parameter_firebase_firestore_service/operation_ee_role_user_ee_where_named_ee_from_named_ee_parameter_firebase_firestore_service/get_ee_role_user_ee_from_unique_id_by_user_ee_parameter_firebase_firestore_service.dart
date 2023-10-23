@@ -7,27 +7,21 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class RoleUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUser<T extends RoleUser,Y extends ListRoleUser<T>> extends BaseGetModelFromNamedServiceParameterNamedDataSource<T,String> {
+base class GetEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService<T extends RoleUser,Y extends ListRoleUser<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> getRoleUserFromFirebaseFirestoreServiceParameterStringDS(String parameter) {
-    return getModelFromNamedServiceParameterNamedDS(parameter);
-  }
-
-  @protected
-  @override
-  Future<Result<T>> getModelFromNamedServiceParameterNamedDS(String parameter)
+  Future<Result<T>> getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService(String uniqueIdByUser)
   async {
     try {
       final documentByRoleUser = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.roleUser)
-          .where(KeysFirebaseFirestoreServiceUtility.roleUserQUniqueIdByUser,isEqualTo: parameter)
+          .where(KeysFirebaseFirestoreServiceUtility.roleUserQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
           .get();
       if((documentByRoleUser?.size ?? 0) <= 0) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.roleUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUserQWhereLocalExceptionGuiltyUserNoExists));
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(RoleUser(
           documentByRoleUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.roleUserQUniqueIdByUser],
@@ -37,5 +31,4 @@ base class RoleUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForU
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
-
 }

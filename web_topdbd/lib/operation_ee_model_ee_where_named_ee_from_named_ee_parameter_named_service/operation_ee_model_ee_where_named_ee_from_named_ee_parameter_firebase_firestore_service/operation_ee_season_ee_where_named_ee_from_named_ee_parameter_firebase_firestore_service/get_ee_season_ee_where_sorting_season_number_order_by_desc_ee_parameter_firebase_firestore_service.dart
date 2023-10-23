@@ -7,17 +7,11 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class SeasonQFirebaseFirestoreServiceViewModelUsingGetNPForLastSeasonWhereSortParameterSeasonNumber<T extends Season,Y extends ListSeason<T>> extends BaseGetModelFromNamedServiceNPDataSource<T> {
+base class GetEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService<T extends Season,Y extends ListSeason<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> getSeasonFromFirebaseFirestoreServiceNPDS() {
-    return getModelFromNamedServiceNPDS();
-  }
-
-  @protected
-  @override
-  Future<Result<T>> getModelFromNamedServiceNPDS()
+  Future<Result<T>> getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService()
   async {
     try {
       final documentBySeason = await firebaseFirestoreService
@@ -27,7 +21,7 @@ base class SeasonQFirebaseFirestoreServiceViewModelUsingGetNPForLastSeasonWhereS
           .limit(1)
           .get();
       if((documentBySeason?.size ?? 0) <= 0) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.seasonQFirebaseFirestoreServiceViewModelUsingGetNPForLastSeasonWhereSortParameterSeasonNumberQWhereLocalExceptionGuiltyUserNoExists));
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(Season(
           documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQSeasonNumber],

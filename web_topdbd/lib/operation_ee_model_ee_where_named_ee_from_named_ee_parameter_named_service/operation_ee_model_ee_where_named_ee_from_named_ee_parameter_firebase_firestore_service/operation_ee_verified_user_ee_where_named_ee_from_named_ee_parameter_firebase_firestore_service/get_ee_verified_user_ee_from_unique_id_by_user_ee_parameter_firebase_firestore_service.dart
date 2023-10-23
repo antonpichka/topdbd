@@ -7,27 +7,21 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class VerifiedUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUser<T extends VerifiedUser,Y extends ListVerifiedUser<T>> extends BaseGetModelFromNamedServiceParameterNamedDataSource<T,String> {
+base class GetEEVerifiedUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService<T extends VerifiedUser,Y extends ListVerifiedUser<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> getVerifiedUserFromFirebaseFirestoreServiceParameterStringDS(String parameter) {
-    return getModelFromNamedServiceParameterNamedDS(parameter);
-  }
-
-  @protected
-  @override
-  Future<Result<T>> getModelFromNamedServiceParameterNamedDS(String parameter)
+  Future<Result<T>> getVerifiedUserFromUniqueIdByUserParameterFirebaseFirestoreService(String uniqueIdByUser)
   async {
     try {
       final documentByVerifiedUser = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.verifiedUser)
-          .where(KeysFirebaseFirestoreServiceUtility.verifiedUserQUniqueIdByUser,isEqualTo: parameter)
+          .where(KeysFirebaseFirestoreServiceUtility.verifiedUserQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
           .get();
       if((documentByVerifiedUser?.size ?? 0) <= 0) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.verifiedUserQFirebaseFirestoreServiceViewModelUsingGetParameterStringForUniqueIdByUserQWhereLocalExceptionGuiltyUserNoExists));
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEVerifiedUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(VerifiedUser(
           documentByVerifiedUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.verifiedUserQUniqueIdByUser],
@@ -36,5 +30,4 @@ base class VerifiedUserQFirebaseFirestoreServiceViewModelUsingGetParameterString
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
-
 }

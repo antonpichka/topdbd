@@ -8,32 +8,26 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class StatsQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationStatsUtility<T extends Stats,Y extends ListStats<T>> extends BaseInsertModelToNamedServiceParameterNamedDataSource<T,RegistrationStatsUtility> {
+base class InsertEEStatsEEFromRegistrationStatsUtilityEEParameterFirebaseFirestoreService<T extends Stats,Y extends ListStats<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> insertStatsToFirebaseFirestoreServiceParameterRegistrationStatsUtilityDS(RegistrationStatsUtility parameter) {
-    return insertModelToNamedServiceParameterNamedDS(parameter);
-  }
-
-  @protected
-  @override
-  Future<Result<T>> insertModelToNamedServiceParameterNamedDS(RegistrationStatsUtility parameter)
+  Future<Result<T>> insertStatsFromRegistrationStatsUtilityParameterFirebaseFirestoreService(RegistrationStatsUtility registrationStatsUtility)
   async {
     try {
       final documentByStatsWhereAdding = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.stats)
           .add({
-        KeysFirebaseFirestoreServiceUtility.statsQUniqueIdByUser : parameter.uniqueIdByUser,
-        KeysFirebaseFirestoreServiceUtility.statsQSeasonNumberBySeason : parameter.seasonNumberBySeason,
+        KeysFirebaseFirestoreServiceUtility.statsQUniqueIdByUser : registrationStatsUtility.uniqueIdByUser,
+        KeysFirebaseFirestoreServiceUtility.statsQSeasonNumberBySeason : registrationStatsUtility.seasonNumberBySeason,
         KeysFirebaseFirestoreServiceUtility.statsQMatchesWon : 0,
         KeysFirebaseFirestoreServiceUtility.statsQMatchesLost : 0,
-        KeysFirebaseFirestoreServiceUtility.statsQRatingPoints : parameter.ratingPoints,
+        KeysFirebaseFirestoreServiceUtility.statsQRatingPoints : registrationStatsUtility.ratingPoints,
       });
       final documentByStats = await documentByStatsWhereAdding?.get();
       if(!(documentByStats?.exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.statsQFirebaseFirestoreServiceViewModelUsingInsertParameterRegistrationStatsUtilityQWhereLocalExceptionGuiltyUserNoExists));
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEStatsEEFromRegistrationStatsUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(Stats(
           documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQUniqueIdByUser],

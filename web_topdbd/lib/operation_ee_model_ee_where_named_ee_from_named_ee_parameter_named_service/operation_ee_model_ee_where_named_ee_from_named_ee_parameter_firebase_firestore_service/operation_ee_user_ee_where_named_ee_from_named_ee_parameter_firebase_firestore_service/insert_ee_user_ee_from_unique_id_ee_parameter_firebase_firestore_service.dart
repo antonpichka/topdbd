@@ -8,29 +8,23 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class UserQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueId<T extends User,Y extends ListUser<T>> extends BaseInsertModelToNamedServiceParameterNamedDataSource<T,String> {
+base class InsertEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService<T extends User,Y extends ListUser<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> insertUserToFirebaseFirestoreServiceParameterStringDS(String parameter) {
-    return insertModelToNamedServiceParameterNamedDS(parameter);
-  }
-
-  @protected
-  @override
-  Future<Result<T>> insertModelToNamedServiceParameterNamedDS(String parameter)
+  Future<Result<T>> getUserFromUniqueIdParameterFirebaseFirestoreService(String uniqueId)
   async {
     try {
       final documentByUserWhereAdding = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.user)
           .add({
-        KeysFirebaseFirestoreServiceUtility.userQUniqueId : parameter,
+        KeysFirebaseFirestoreServiceUtility.userQUniqueId : uniqueId,
         KeysFirebaseFirestoreServiceUtility.userQCreationTime : FieldValue.serverTimestamp()
           });
       final documentByUser = await documentByUserWhereAdding?.get();
       if(!(documentByUser?.exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.userQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdQWhereLocalExceptionGuiltyUserNoExists));
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(User(
           documentByUser?.data()?[KeysFirebaseFirestoreServiceUtility.userQUniqueId],

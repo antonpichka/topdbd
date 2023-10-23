@@ -7,30 +7,24 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class RoleUserQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdByUser<T extends RoleUser,Y extends ListRoleUser<T>> extends BaseInsertModelToNamedServiceParameterNamedDataSource<T,String> {
+base class InsertEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService<T extends RoleUser,Y extends ListRoleUser<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> insertRoleUserToFirebaseFirestoreServiceParameterStringDS(String parameter) {
-    return insertModelToNamedServiceParameterNamedDS(parameter);
-  }
-
-  @protected
-  @override
-  Future<Result<T>> insertModelToNamedServiceParameterNamedDS(String parameter)
+  Future<Result<T>> insertRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService(String uniqueIdByUser)
   async {
     try {
       final documentByRoleUserWhereAdding = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.roleUser)
           .add({
-        KeysFirebaseFirestoreServiceUtility.roleUserQUniqueIdByUser : parameter,
+        KeysFirebaseFirestoreServiceUtility.roleUserQUniqueIdByUser : uniqueIdByUser,
         KeysFirebaseFirestoreServiceUtility.roleUserQIsAdmin : false,
         KeysFirebaseFirestoreServiceUtility.roleUserQIsTest : false,
-          });
+      });
       final documentByRoleUser = await documentByRoleUserWhereAdding?.get();
       if(!(documentByRoleUser?.exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.roleUserQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueIdByUserQWhereLocalExceptionGuiltyUserNoExists));
+        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(RoleUser(
           documentByRoleUser?.data()?[KeysFirebaseFirestoreServiceUtility.roleUserQUniqueIdByUser],

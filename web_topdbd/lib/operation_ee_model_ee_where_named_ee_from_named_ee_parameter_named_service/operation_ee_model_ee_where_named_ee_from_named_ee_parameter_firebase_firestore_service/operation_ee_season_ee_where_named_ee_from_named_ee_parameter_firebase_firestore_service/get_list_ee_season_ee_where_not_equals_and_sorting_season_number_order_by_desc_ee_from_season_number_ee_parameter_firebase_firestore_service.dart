@@ -8,23 +8,17 @@ import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_service/firebase_firestore_service.dart';
 
 @immutable
-base class SeasonQFirebaseFirestoreServiceViewModelUsingGetListParameterIntForSeasonNumberWhereNotEqualsAndSortParameterSeasonNumber<T extends Season,Y extends ListSeason<T>> extends BaseGetListModelFromNamedServiceParameterNamedDataSource<Y,int> {
+base class GetListEESeasonEEWhereNotEqualsAndSortingSeasonNumberOrderByDescEEFromSeasonNumberEEParameterFirebaseFirestoreService<T extends Season,Y extends ListSeason<T>> {
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<Y>> getListSeasonFromFirebaseFirestoreServiceParameterIntDS(int parameter) {
-    return getListModelFromNamedServiceParameterNamedDS(parameter);
-  }
-
-  @protected
-  @override
-  Future<Result<Y>> getListModelFromNamedServiceParameterNamedDS(int parameter)
+  Future<Result<Y>> getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService(int seasonNumber)
   async {
     try {
       final listDocumentBySeason = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.season)
-          .where(KeysFirebaseFirestoreServiceUtility.seasonQSeasonNumber,isNotEqualTo: parameter)
+          .where(KeysFirebaseFirestoreServiceUtility.seasonQSeasonNumber,isNotEqualTo: seasonNumber)
           .orderBy(KeysFirebaseFirestoreServiceUtility.seasonQSeasonNumber,descending: true)
           .get();
       List<T> listSeason = List.empty(growable: true);

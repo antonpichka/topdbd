@@ -38,7 +38,7 @@ final class MainViewModel extends BaseNamedViewModel<DataForMainView,DefaultStre
   void dispose() {
     super.dispose();
     _verifiedUserQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening.cancelListening();
-    _iPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening.cancelListening();
+    _iPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening.cancelListeningThoseWorksParameterStreamSubscription();
   }
 
   Future<void> listeningStreamsFirebaseFirestoreServiceParametersFour()
@@ -71,7 +71,7 @@ final class MainViewModel extends BaseNamedViewModel<DataForMainView,DefaultStre
       }
     });
     await _iPAddressFirestoreQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening
-        .startListening(resultStringsForUniqueIdByUser.parameter?.field ?? "",(Result<IPAddressFirestore> resultIPAddressFirestore)
+        .startListeningThoseWorksFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(resultStringsForUniqueIdByUser.parameter?.field ?? "",(Result<IPAddressFirestore> resultIPAddressFirestore)
     async {
       if(resultIPAddressFirestore
           .exceptionController

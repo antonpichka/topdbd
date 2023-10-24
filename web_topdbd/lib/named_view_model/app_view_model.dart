@@ -154,8 +154,8 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
   void dispose() {
     super.dispose();
     _stringsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForUniqueIdByUser.cancelListening();
-    _thoseWorksQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening.cancelListening();
-    _tOPDBDVersionWebQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening.cancelListening();
+    _thoseWorksQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening.cancelListeningBoolsWhereIsInitByInitParameterStreamSubscription();
+    _tOPDBDVersionWebQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening.cancelListeningBoolsWhereIsInitByInitParameterStreamSubscription();
     _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsVerifiedUserByVerifiedUser.cancelListening();
     _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsHackedBySecurity.cancelListening();
     _boolsQTempCacheServiceViewModelUsingCustomStartListeningAndCancelListeningForIsInitByInit.cancelListening();
@@ -419,7 +419,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
       return;
     }
     _thoseWorksQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening
-        .startListening((Result<ThoseWorks> resultThoseWorks) {
+        .startListeningBoolsWhereIsInitByInitFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription((Result<ThoseWorks> resultThoseWorks) {
       if(resultThoseWorks
           .exceptionController
           .isNotEqualsNullParameterException())
@@ -448,7 +448,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
       }
     });
     _tOPDBDVersionWebQFirebaseFirestoreServiceViewModelUsingCustomStartListeningAndCancelListening
-        .startListening((Result<TOPDBDVersionWeb> resultTOPDBDVersionWeb)
+        .startListeningBoolsWhereIsInitByInitFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription((Result<TOPDBDVersionWeb> resultTOPDBDVersionWeb)
     async {
       if(resultTOPDBDVersionWeb
           .exceptionController

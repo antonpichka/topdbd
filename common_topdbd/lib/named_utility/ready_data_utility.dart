@@ -11,6 +11,7 @@ import 'package:common_topdbd/model/maps/maps.dart';
 import 'package:common_topdbd/model/survivor_perk/list_survivor_perk.dart';
 import 'package:common_topdbd/model/survivor_perk/survivor_perk.dart';
 import 'package:common_topdbd/named_utility/keys_name_stream_to_init_stream_utility.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
 @immutable
@@ -53,8 +54,8 @@ final class ReadyDataUtility {
     return ListSurvivorPerk(listSurvivorPerk);
   }
 
-  static String get getVersionByTOPDBDVersionWeb {
-    return "v0.0.1_beta";
+  static Strings get getVersionByTOPDBDVersionWeb {
+    return const Strings("v0.0.1_beta");
   }
 
   static ListCountryTC<CountryTC> get getListCountryTC {

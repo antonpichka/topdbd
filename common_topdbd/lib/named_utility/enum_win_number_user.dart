@@ -1,0 +1,4 @@
+enum EnumWinNumberUser {
+  winFirstUser,
+  winSecondUser
+}

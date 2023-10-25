@@ -7,7 +7,7 @@ import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_s
 
 @immutable
 final class ExceptionToAppViewModel extends BaseNamedViewModel<DataForExceptionToAppView,DefaultStreamWState<DataForExceptionToAppView>> {
-  // OperationResultModel(InNamedWhereNamed)[FromNamed]ParameterNamedService
+  // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   // NamedUtility
 
   final _boolsQTempCacheServiceViewModelUsingGetNPForIsInitByInit =

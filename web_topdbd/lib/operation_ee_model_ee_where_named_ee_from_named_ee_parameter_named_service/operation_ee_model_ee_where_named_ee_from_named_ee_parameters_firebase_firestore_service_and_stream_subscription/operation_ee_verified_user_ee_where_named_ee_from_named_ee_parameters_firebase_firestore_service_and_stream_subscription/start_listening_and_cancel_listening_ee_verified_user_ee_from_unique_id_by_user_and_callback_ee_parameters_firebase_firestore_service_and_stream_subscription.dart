@@ -13,13 +13,13 @@ base class StartListeningAndCancelListeningEEVerifiedUserEEFromUniqueIdByUserAnd
   @protected
   StreamSubscription<dynamic>? streamSubscription;
 
-  Future<void> startListeningVerifiedUserFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(String uniqueIdByUser,Function(Result<T> resultVerifiedUser) callback)
+  Future<void> startListeningVerifiedUserFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(String uniqueIdByUser,Function(Result<T>) callback)
   async {
     try {
       final listDocumentByVerifiedUser = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.verifiedUser)
-          .where(KeysFirebaseFirestoreServiceUtility.verifiedUserQUniqueIdByUser,isEqualTo: uniqueIdByUser)
+          .where(KeysFirebaseFirestoreServiceUtility.verifiedUserQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
           .get();
       if((listDocumentByVerifiedUser?.size ?? 0) <= 0) {
@@ -35,8 +35,8 @@ base class StartListeningAndCancelListeningEEVerifiedUserEEFromUniqueIdByUserAnd
           .listen((event) {
         final documentByVerifiedUser = event;
         callback(Result<T>.success(VerifiedUser(
-            documentByVerifiedUser.data()![KeysFirebaseFirestoreServiceUtility.verifiedUserQUniqueIdByUser],
-            documentByVerifiedUser.data()![KeysFirebaseFirestoreServiceUtility.verifiedUserQIsVerifiedUser]) as T));
+            documentByVerifiedUser.data()![KeysFirebaseFirestoreServiceUtility.verifiedUserQQUniqueIdByUser],
+            documentByVerifiedUser.data()![KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser]) as T));
       });
     } catch(e) {
       callback(Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())));

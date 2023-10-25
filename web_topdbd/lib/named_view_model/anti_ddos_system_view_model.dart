@@ -6,7 +6,7 @@ import 'package:web_topdbd/data_for_named/data_for_anti_ddos_system_view/data_fo
 
 @immutable
 final class AntiDDosSystemViewModel extends BaseNamedViewModel<DataForAntiDDosSystemView,DefaultStreamWState<DataForAntiDDosSystemView>> {
-  // OperationResultModel(InNamedWhereNamed)[FromNamed]ParameterNamedService
+  // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   // NamedUtility
 
   AntiDDosSystemViewModel() : super(DefaultStreamWState(DataForAntiDDosSystemView(true,"",false,"")));
@@ -23,16 +23,16 @@ final class AntiDDosSystemViewModel extends BaseNamedViewModel<DataForAntiDDosSy
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
-  void clickButtonDone(Function() callbackSuccess,Function(String messageException) callbackException) {
+  void clickButtonDone(Function() callbackSuccess,Function(String) callbackException) {
     if(getDataForNamedParameterNamedStreamWState.isLoading) {
       return;
     }
     getDataForNamedParameterNamedStreamWState.isLoading = true;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    final getStringWhereNotEqualsParametersCodeAndInputCode = getDataForNamedParameterNamedStreamWState
-        .getStringWhereNotEqualsParametersCodeAndInputCode;
-    if(getStringWhereNotEqualsParametersCodeAndInputCode.isNotEmpty) {
-      _firstQClickButtonDoneQGetStringWhereNotEqualsParametersCodeAndInputCode(getStringWhereNotEqualsParametersCodeAndInputCode,callbackSuccess,callbackException);
+    final getExceptionInStringWhereNotEqualsParametersCodeAndInputCode = getDataForNamedParameterNamedStreamWState
+        .getExceptionInStringWhereNotEqualsParametersCodeAndInputCode;
+    if(getExceptionInStringWhereNotEqualsParametersCodeAndInputCode.isNotEmpty) {
+      _firstQQClickButtonDoneQQGetExceptionInStringWhereNotEqualsParametersCodeAndInputCode(getExceptionInStringWhereNotEqualsParametersCodeAndInputCode,callbackException);
       return;
     }
     getDataForNamedParameterNamedStreamWState.isLoading = false;
@@ -41,9 +41,9 @@ final class AntiDDosSystemViewModel extends BaseNamedViewModel<DataForAntiDDosSy
     callbackSuccess();
   }
 
-  void _firstQClickButtonDoneQGetStringWhereNotEqualsParametersCodeAndInputCode(String getStringWhereNotEqualsParametersCodeAndInputCode,Function() callbackSuccess, Function(String messageException) callbackException) {
+  void _firstQQClickButtonDoneQQGetExceptionInStringWhereNotEqualsParametersCodeAndInputCode(String getExceptionInStringWhereNotEqualsParametersCodeAndInputCode,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getStringWhereNotEqualsParametersCodeAndInputCode);
+    callbackException(getExceptionInStringWhereNotEqualsParametersCodeAndInputCode);
   }
 }

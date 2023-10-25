@@ -10,7 +10,7 @@ base class GetEEStringsEEWhereIpByIPAddressEEParameterTempCacheService<T extends
 
   Result<T> getStringsWhereIpByIPAddressParameterTempCacheService() {
     try {
-      final strings = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.stringsQIpByIPAddress) as T;
+      final strings = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.stringsQQIpByIPAddress) as T;
       return Result<T>.success(strings);
     } on LocalException catch(e) {
       return Result<T>.exception(e);

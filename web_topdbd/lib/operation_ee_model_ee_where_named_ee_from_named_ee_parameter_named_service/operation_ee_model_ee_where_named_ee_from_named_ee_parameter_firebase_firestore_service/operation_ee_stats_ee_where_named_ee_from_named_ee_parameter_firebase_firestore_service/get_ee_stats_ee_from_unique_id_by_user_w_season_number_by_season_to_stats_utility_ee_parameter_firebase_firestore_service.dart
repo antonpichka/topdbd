@@ -18,19 +18,19 @@ base class GetEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEPa
       final documentByStats = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.stats)
-          .where(KeysFirebaseFirestoreServiceUtility.statsQUniqueIdByUser,isEqualTo: uniqueIdByUserWSeasonNumberBySeasonToStatsUtility.uniqueIdByUser)
-          .where(KeysFirebaseFirestoreServiceUtility.statsQSeasonNumberBySeason,isEqualTo: uniqueIdByUserWSeasonNumberBySeasonToStatsUtility.seasonNumberBySeason)
+          .where(KeysFirebaseFirestoreServiceUtility.statsQQUniqueIdByUser,isEqualTo: uniqueIdByUserWSeasonNumberBySeasonToStatsUtility.uniqueIdByUser)
+          .where(KeysFirebaseFirestoreServiceUtility.statsQQSeasonNumberBySeason,isEqualTo: uniqueIdByUserWSeasonNumberBySeasonToStatsUtility.seasonNumberBySeason)
           .limit(1)
           .get();
       if((documentByStats?.size ?? 0) <= 0) {
         return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(Stats(
-          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQUniqueIdByUser],
-          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQSeasonNumberBySeason],
-          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQMatchesWon],
-          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQMatchesLost],
-          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQRatingPoints]) as T);
+          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQUniqueIdByUser],
+          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQSeasonNumberBySeason],
+          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQMatchesWon],
+          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQMatchesLost],
+          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQRatingPoints]) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

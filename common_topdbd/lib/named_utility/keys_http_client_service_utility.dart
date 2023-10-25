@@ -3,12 +3,12 @@ import 'package:meta/meta.dart';
 @immutable
 final class KeysHttpClientServiceUtility {
   /* DiscordUser */
-  static const String discordUserQId = "id";
-  static const String discordUserQUsername = "username";
-  static const String discordUserQGlobalName = "global_name";
+  static const String discordUserQQId = "id";
+  static const String discordUserQQUsername = "username";
+  static const String discordUserQQGlobalName = "global_name";
   /* IPAddress */
-  static const String iPAddressQIp = "ip";
-  static const String iPAddressQNameCountry = "country";
+  static const String iPAddressQQIp = "ip";
+  static const String iPAddressQQNameCountry = "country";
 
   const KeysHttpClientServiceUtility._();
 }

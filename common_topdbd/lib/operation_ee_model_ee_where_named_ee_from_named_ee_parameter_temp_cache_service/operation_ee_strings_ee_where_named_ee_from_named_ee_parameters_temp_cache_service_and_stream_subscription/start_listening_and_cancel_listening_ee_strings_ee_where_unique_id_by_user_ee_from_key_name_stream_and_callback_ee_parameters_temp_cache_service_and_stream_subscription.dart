@@ -9,9 +9,9 @@ base class StartListeningAndCancelListeningEEStringsEEWhereUniqueIdByUserEEFromK
   @protected
   StreamSubscription<dynamic>? streamSubscription;
 
-  void startListeningStringsWhereUniqueIdByUserFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(String keyNameStream,Function(Result<T> resultStringsWhereUniqueIdByUser) callback) {
+  void startListeningStringsWhereUniqueIdByUserFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(String keyNameStream,Function(Result<T>) callback) {
     streamSubscription = tempCacheService
-        .getStreamObjectFromKeyNameStreamAndKeyTempCacheAndMillisecondsParametersTempCacheAndNameStreamWTempCacheWIsHaveYouReceivedTheLatestData(keyNameStream,KeysTempCacheServiceUtility.stringsQUniqueIdByUser)
+        .getStreamObjectFromKeyNameStreamAndKeyTempCacheAndMillisecondsParametersTempCacheAndNameStreamWTempCacheWIsHaveYouReceivedTheLatestData(keyNameStream,KeysTempCacheServiceUtility.stringsQQUniqueIdByUser)
         .listen((event) {
           callback(Result.success(event as T));
         });

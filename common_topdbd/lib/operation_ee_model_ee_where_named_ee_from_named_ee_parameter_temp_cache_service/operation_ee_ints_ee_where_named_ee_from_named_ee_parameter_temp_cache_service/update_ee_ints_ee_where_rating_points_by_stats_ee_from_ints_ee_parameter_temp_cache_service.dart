@@ -10,7 +10,7 @@ base class UpdateEEIntsEEWhereRatingPointsByStatsEEFromIntsEEParameterTempCacheS
 
   Result<bool> updateIntsWhereRatingPointsByStatsFromIntsParameterTempCacheService(T ints) {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.intsQRatingPointsByStats,ints);
+      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.intsQQRatingPointsByStats,ints);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));

@@ -18,7 +18,7 @@ base class UpdateEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFires
       final listDocumentByLastLoginTimeUser = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUser)
-          .where(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser,isEqualTo: uniqueIdByUser)
+          .where(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
           .get();
       if((listDocumentByLastLoginTimeUser?.size ?? 0) <= 0) {
@@ -30,21 +30,21 @@ base class UpdateEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFires
           ?.collection(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUser)
           .doc(firstItemDocumentByLastLoginTimeUser?.id)
           .update({
-        KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser : firstItemDocumentByLastLoginTimeUser?.data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser],
-        KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime : FieldValue.serverTimestamp(),
+        KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQUniqueIdByUser : firstItemDocumentByLastLoginTimeUser?.data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQUniqueIdByUser],
+        KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQLastLoginTime : FieldValue.serverTimestamp(),
       });
       final listDocumentByLastLoginTimeUserTWO = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUser)
-          .where(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser,isEqualTo: firstItemDocumentByLastLoginTimeUser?.data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser])
+          .where(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQUniqueIdByUser,isEqualTo: firstItemDocumentByLastLoginTimeUser?.data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQUniqueIdByUser])
           .limit(1)
           .get();
       if((listDocumentByLastLoginTimeUserTWO?.size ?? 0) <= 0) {
         return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.updateEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(LastLoginTimeUser(
-          listDocumentByLastLoginTimeUserTWO?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser],
-          (listDocumentByLastLoginTimeUserTWO?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime]).toDate()) as T);
+          listDocumentByLastLoginTimeUserTWO?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQUniqueIdByUser],
+          (listDocumentByLastLoginTimeUserTWO?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQLastLoginTime]).toDate()) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

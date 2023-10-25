@@ -10,7 +10,7 @@ base class GetEEStringsEEWhereUniqueIdByUserEEParameterTempCacheService<T extend
 
   Result<T> getStringsWhereUniqueIdByUserParameterTempCacheService() {
     try {
-      final strings = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.stringsQUniqueIdByUser) as T;
+      final strings = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.stringsQQUniqueIdByUser) as T;
       return Result<T>.success(strings);
     } on LocalException catch(e) {
       return Result<T>.exception(e);

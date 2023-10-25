@@ -31,7 +31,7 @@ base class ListInitStream<T extends InitStream> extends BaseListModel<T> {
     super.updateFromModelParameterListModel(InitStream(nameStream,isInitStream) as T);
   }
 
-  bool isNotInitStreamParameterListModel() {
+  bool isWhereNotInitStreamParameterListModel() {
     bool isNotInitStreamParameterListModel = false;
     for (T initStream in listModel) {
       if(!initStream.isInitStream) {
@@ -42,7 +42,7 @@ base class ListInitStream<T extends InitStream> extends BaseListModel<T> {
     return isNotInitStreamParameterListModel;
   }
 
-  bool isInitStreamParameterListModel() {
+  bool isWhereInitStreamParameterListModel() {
     bool isInitStreamParameterListModel = true;
     for (T initStream in listModel) {
       if(!initStream.isInitStream) {

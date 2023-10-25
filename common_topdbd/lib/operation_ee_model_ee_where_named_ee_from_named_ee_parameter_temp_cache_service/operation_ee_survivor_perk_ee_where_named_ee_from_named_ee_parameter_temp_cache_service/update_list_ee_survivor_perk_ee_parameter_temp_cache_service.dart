@@ -13,7 +13,7 @@ base class UpdateListEESurvivorPerkEEParameterTempCacheService<T extends Survivo
 
   Result<bool> updateListSurvivorPerkParameterTempCacheService() {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.survivorPerkQListSurvivorPerk,ReadyDataUtility.getListSurvivorPerk);
+      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.survivorPerkQQListSurvivorPerk,ReadyDataUtility.getListSurvivorPerk);
       return Result<bool>.success(true);
     } on LocalException catch(e) {
       return Result<bool>.exception(e);

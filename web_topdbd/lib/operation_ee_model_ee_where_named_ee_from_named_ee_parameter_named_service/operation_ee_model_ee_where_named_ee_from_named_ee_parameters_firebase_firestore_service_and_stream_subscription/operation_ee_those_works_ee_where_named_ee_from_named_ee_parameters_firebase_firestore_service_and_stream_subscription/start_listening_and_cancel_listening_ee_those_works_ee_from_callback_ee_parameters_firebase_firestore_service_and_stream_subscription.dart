@@ -13,7 +13,7 @@ base class StartListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParameter
   @protected
   StreamSubscription<dynamic>? streamSubscription;
 
-  void startListeningThoseWorksFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(Function(Result<T> resultThoseWorks) callback) {
+  void startListeningThoseWorksFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(Function(Result<T>) callback) {
     try {
       streamSubscription = firebaseFirestoreService
           .getFirebaseFirestore
@@ -22,7 +22,7 @@ base class StartListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParameter
           .snapshots()
           .listen((event) {
             final documentByThoseWorks = event.docs[0];
-            callback(Result<T>.success(ThoseWorks(documentByThoseWorks.data()[KeysFirebaseFirestoreServiceUtility.thoseWorksQIsThoseWorks]) as T));
+            callback(Result<T>.success(ThoseWorks(documentByThoseWorks.data()[KeysFirebaseFirestoreServiceUtility.thoseWorksQQIsThoseWorks]) as T));
           });
     } catch(e) {
       callback(Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())));

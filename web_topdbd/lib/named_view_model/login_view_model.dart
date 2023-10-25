@@ -69,7 +69,7 @@ import 'package:web_topdbd/named_utility/algorithms_utility.dart';
 
 @immutable
 final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultStreamWState<DataForLoginView>> {
-  // OperationResultModel(InNamedWhereNamed)[FromNamed]ParameterNamedService
+  // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   // NamedUtility
 
   final _stringsQAssetBundleServiceViewModelUsingGetNPForTermsOfUse =
@@ -203,7 +203,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     }
     final getStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName = resultDiscordUserForDiscordAuth
         .parameter
-        ?.getStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(resultDiscordUserFirestoreForUniqueId.parameter?.username ?? "",resultDiscordUserFirestoreForUniqueId.parameter?.globalName ?? "") ?? "";
+        ?.getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(resultDiscordUserFirestoreForUniqueId.parameter?.username ?? "",resultDiscordUserFirestoreForUniqueId.parameter?.globalName ?? "") ?? "";
     if(getStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName.isNotEmpty) {
       _firstQSignInWithDiscordQGetStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName,callbackSuccess,callbackException,resultDiscordUserFirestoreForUniqueId.parameter!.getCloneModel);
       return;
@@ -237,7 +237,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     }
     final getStringWhereNotEqualsFromNameCountryParameterNameCountry = resultIPAddressForJsonipAPI
         .parameter
-        ?.getStringWhereNotEqualsFromNameCountryParameterNameCountry(resultCountryForUniqueIdByUser.parameter?.nameCountry ?? "") ?? "";
+        ?.getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry(resultCountryForUniqueIdByUser.parameter?.nameCountry ?? "") ?? "";
     if(getStringWhereNotEqualsFromNameCountryParameterNameCountry.isNotEmpty) {
       _firstQSignInWithDiscordQGetStringWhereNotEqualsFromNameCountryParameterNameCountry(getStringWhereNotEqualsFromNameCountryParameterNameCountry,callbackSuccess,callbackException);
       return;
@@ -618,7 +618,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     }
     final getStringWhereNotEqualsFromNameCountryParameterNameCountry = resultIPAddressForJsonipAPI
         .parameter
-        ?.getStringWhereNotEqualsFromNameCountryParameterNameCountry(resultCountryForUniqueIdByUser.parameter?.nameCountry ?? "") ?? "";
+        ?.getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry(resultCountryForUniqueIdByUser.parameter?.nameCountry ?? "") ?? "";
     if(getStringWhereNotEqualsFromNameCountryParameterNameCountry.isNotEmpty) {
       _firstBranchFiveQSignInWithDiscordQGetStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getStringWhereNotEqualsFromNameCountryParameterNameCountry,callbackSuccess,callbackException);
       return;

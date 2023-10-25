@@ -13,7 +13,7 @@ base class UpdateListEEManiacEEParameterTempCacheService<T extends Maniac,Y exte
 
   Result<bool> updateListManiacParameterTempCacheService() {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.maniacQListManiac,ReadyDataUtility.getListManiac);
+      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.maniacQQListManiac,ReadyDataUtility.getListManiac);
       return Result<bool>.success(true);
     } on LocalException catch(e) {
       return Result<bool>.exception(e);

@@ -9,9 +9,9 @@ base class StartListeningAndCancelListeningEEBoolsEEWhereIsInitByInitEEFromKeyNa
   @protected
   StreamSubscription<dynamic>? streamSubscription;
 
-  void startListeningBoolsWhereIsInitByInitFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(String keyNameStream,Function(Result<T> resultBoolsWhereIsInitByInit) callback) {
+  void startListeningBoolsWhereIsInitByInitFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(String keyNameStream,Function(Result<T>) callback) {
     streamSubscription = tempCacheService
-        .getStreamObjectFromKeyNameStreamAndKeyTempCacheAndMillisecondsParametersTempCacheAndNameStreamWTempCacheWIsHaveYouReceivedTheLatestData(keyNameStream,KeysTempCacheServiceUtility.boolsQIsInitByInit)
+        .getStreamObjectFromKeyNameStreamAndKeyTempCacheAndMillisecondsParametersTempCacheAndNameStreamWTempCacheWIsHaveYouReceivedTheLatestData(keyNameStream,KeysTempCacheServiceUtility.boolsQQIsInitByInit)
         .listen((event) {
           callback(Result.success(event as T));
         });

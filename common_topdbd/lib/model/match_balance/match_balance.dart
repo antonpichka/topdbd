@@ -15,7 +15,7 @@ base class MatchBalance extends BaseModel {
   MatchBalance get getClone => MatchBalance(seasonNumberBySeason, numberOfRounds, listManiacWhereMatchBalance.getClone);
 
   int get getNeedsResultNumberOfBannedManiacsInTheFirstStageParametersListManiacWhereMatchBalanceAndNumberOfRounds  {
-    return AlgorithmsUtility.getEvenUsingInterestFormulaFromParameterInt(getNeedsResultNumberOfBannedManiacsParametersListManiacWhereMatchBalanceAndNumberOfRounds, 50);
+    return AlgorithmsUtility.getEvenWhereInterestFormulaFromNumberAndFindPercent(getNeedsResultNumberOfBannedManiacsParametersListManiacWhereMatchBalanceAndNumberOfRounds, 50);
   }
 
   int get getNeedsResultNumberOfBannedManiacsParametersListManiacWhereMatchBalanceAndNumberOfRounds  {

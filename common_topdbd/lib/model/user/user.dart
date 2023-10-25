@@ -11,9 +11,9 @@ base class User extends BaseModel {
   @override
   User get getClone => User(uniqueId,creationTime);
 
-  String get getStringWhereIsEmptyParameterUniqueId {
+  String get getExceptionInStringWhereIsEmptyParameterUniqueId {
     if(uniqueId.isEmpty) {
-      return KeysExceptionUtility.userQGetStringWhereIsEmptyParameterUniqueId;
+      return KeysExceptionUtility.userQQGetExceptionInStringWhereIsEmptyParameterUniqueId;
     }
     return "";
   }

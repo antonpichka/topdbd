@@ -17,18 +17,18 @@ base class GetEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFi
       final documentBySeason = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.season)
-          .orderBy(KeysFirebaseFirestoreServiceUtility.seasonQSeasonNumber,descending: true)
+          .orderBy(KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber,descending: true)
           .limit(1)
           .get();
       if((documentBySeason?.size ?? 0) <= 0) {
         return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(Season(
-          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQSeasonNumber],
-          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQStrNumberOfMatchesPlayedPerSeason],
-          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQStrNumberOfUniquePlayersWhoPlayedInASeason],
-          (documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQStartOfSeasonTime]).toDate(),
-          (documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQEndOfSeasonTime]).toDate()) as T);
+          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber],
+          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfMatchesPlayedPerSeason],
+          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfUniquePlayersWhoPlayedInASeason],
+          (documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQStartOfSeasonTime]).toDate(),
+          (documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQEndOfSeasonTime]).toDate()) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

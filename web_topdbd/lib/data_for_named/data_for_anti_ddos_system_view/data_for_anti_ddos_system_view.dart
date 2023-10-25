@@ -17,20 +17,20 @@ final class DataForAntiDDosSystemView extends BaseDataForNamed<EnumDataForAntiDD
     if(exceptionController.isNotEqualsNullParameterException()) {
       return EnumDataForAntiDDosSystemView.exception;
     }
-    if(isNotSuccessCodeParameterIsSuccessCode()) {
+    if(isWhereNotSuccessCodeParameterIsSuccessCode()) {
       return EnumDataForAntiDDosSystemView.form;
     }
     return EnumDataForAntiDDosSystemView.success;
   }
 
-  String get getStringWhereNotEqualsParametersCodeAndInputCode {
+  String get getExceptionInStringWhereNotEqualsParametersCodeAndInputCode {
     if(code != inputCode) {
-      return KeysExceptionUtility.dataForAntiDDosSystemViewQGetStringWhereNotEqualsParametersCodeAndInputCode;
+      return KeysExceptionUtility.dataForAntiDDosSystemViewQQGetExceptionInStringWhereNotEqualsParametersCodeAndInputCode;
     }
     return "";
   }
 
-  bool isNotSuccessCodeParameterIsSuccessCode() {
+  bool isWhereNotSuccessCodeParameterIsSuccessCode() {
     return !isSuccessCode;
   }
 }

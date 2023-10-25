@@ -12,9 +12,9 @@ base class IPAddressFirestore extends BaseModel {
   @override
   IPAddressFirestore get getClone => IPAddressFirestore(uniqueIdByUser,ip);
 
-  String getStringWhereNotEqualsFromIpParameterIp(String ip) {
+  String getExceptionInStringWhereNotEqualsFromIpParameterIp(String ip) {
     if(this.ip != ip) {
-      return KeysExceptionUtility.iPAddressFirestoreQGetStringWhereNotEqualsFromIpParameterIp;
+      return KeysExceptionUtility.iPAddressFirestoreQQGetExceptionInStringWhereNotEqualsFromIpParameterIp;
     }
     return "";
   }

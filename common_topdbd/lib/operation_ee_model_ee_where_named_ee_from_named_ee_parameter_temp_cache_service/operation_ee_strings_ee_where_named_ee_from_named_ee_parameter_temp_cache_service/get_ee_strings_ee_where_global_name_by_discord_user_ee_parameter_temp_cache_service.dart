@@ -10,7 +10,7 @@ base class GetEEStringsEEWhereGlobalNameByDiscordUserEEParameterTempCacheService
 
   Result<T> getStringsWhereGlobalNameByDiscordUserParameterTempCacheService() {
     try {
-      final strings = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.stringsQGlobalNameByDiscordUser) as T;
+      final strings = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.stringsQQGlobalNameByDiscordUser) as T;
       return Result<T>.success(strings);
     } on LocalException catch(e) {
       return Result<T>.exception(e);

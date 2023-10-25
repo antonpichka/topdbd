@@ -20,8 +20,8 @@ final class FirebaseAuthService {
       _firebaseAuth = FirebaseAuth.instanceFor(
           app: firebaseApp!);
       await _firebaseAuth?.signInWithEmailAndPassword(
-          email: KeysAPIUtility.firebaseAuthQEmail,
-          password: KeysAPIUtility.firebaseAuthQPassword);
+          email: KeysAPIUtility.firebaseAuthQQEmail,
+          password: KeysAPIUtility.firebaseAuthQQPassword);
     } catch(e) {
       LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString());
       _isExceptionInitialize = true;

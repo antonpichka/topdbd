@@ -10,7 +10,7 @@ base class UpdateEEStringsEEWhereIpByIPAddressEEFromStringsEEParameterTempCacheS
 
   Result<bool> updateStringsWhereIpByIPAddressFromStringsParameterTempCacheService(T strings) {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.stringsQIpByIPAddress,strings);
+      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.stringsQQIpByIPAddress,strings);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));

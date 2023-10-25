@@ -63,14 +63,14 @@ final class _AppViewState extends State<AppView> {
         .listen((event) {
           setState(() {});
         });
-    _appViewModel.listeningStreamsTempCacheServiceParametersFour();
-    await _appViewModel.listeningStreamsFirebaseFirestoreServiceParametersFour();
+    _appViewModel.listeningStreamsTempCacheService();
+    _appViewModel.listeningStreamsFirebaseFirestoreService();
     final result = await _appViewModel.init();
     debugPrint("AppView: $result");
     if(!mounted) {
       return;
     }
-    _appViewModel.notifyStreamDataForAppViewParametersZero();
+    _appViewModel.notifyStreamDataForAppView();
   }
 
   RouterConfig<Object> get _routerConfig {

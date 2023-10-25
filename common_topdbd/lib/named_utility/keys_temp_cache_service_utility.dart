@@ -5,41 +5,41 @@ import 'package:meta/meta.dart';
 @immutable
 final class KeysTempCacheServiceUtility {
   /* Strings */
-  static const String stringsQUniqueIdByUser = "stringsQUniqueIdByUser";
-  static const String stringsQUsernameByDiscordUser = "stringsQUsernameByDiscordUser";
-  static const String stringsQGlobalNameByDiscordUser = "stringsQGlobalNameByDiscordUser";
-  static const String stringsQIpByIPAddress = "stringsQIpByIPAddress";
-  static const String stringsQNameCountryByCountry = "stringsQNameCountryByCountry";
-  static const String stringsQCodeDBDByAboutMe = "stringsQCodeDBDByAboutMe";
-  static const String stringsQVersionByTOPDBDVersionWeb = "stringsQVersionByTOPDBDVersionWeb";
+  static const String stringsQQUniqueIdByUser = "stringsQQUniqueIdByUser";
+  static const String stringsQQUsernameByDiscordUser = "stringsQQUsernameByDiscordUser";
+  static const String stringsQQGlobalNameByDiscordUser = "stringsQQGlobalNameByDiscordUser";
+  static const String stringsQQIpByIPAddress = "stringsQQIpByIPAddress";
+  static const String stringsQQNameCountryByCountry = "stringsQQNameCountryByCountry";
+  static const String stringsQQCodeDBDByAboutMe = "stringsQQCodeDBDByAboutMe";
+  static const String stringsQQVersionByTOPDBDVersionWeb = "stringsQQVersionByTOPDBDVersionWeb";
   /* Ints */
-  static const String intsQSeasonNumberBySeason = "intsQSeasonNumberBySeason";
-  static const String intsQMatchesWonByStats = "intsQMatchesWonByStats";
-  static const String intsQMatchesLostByStats = "intsQMatchesLostByStats";
-  static const String intsQRatingPointsByStats = "intsQRatingPointsByStats";
+  static const String intsQQSeasonNumberBySeason = "intsQQSeasonNumberBySeason";
+  static const String intsQQMatchesWonByStats = "intsQQMatchesWonByStats";
+  static const String intsQQMatchesLostByStats = "intsQQMatchesLostByStats";
+  static const String intsQQRatingPointsByStats = "intsQQRatingPointsByStats";
   /* Bools */
-  static const String boolsQIsVerifiedUserByVerifiedUser = "boolsQIsVerifiedUserByVerifiedUser";
-  static const String boolsQIsAdminByRoleUser = "boolsQIsAdminByRoleUser";
-  static const String boolsQIsTestByRoleUser = "boolsQIsTestByRoleUser";
-  static const String boolsQIsHackedBySecurity = "boolsQIsHackedBySecurity";
-  static const String boolsQIsInitByInit = "boolsQIsInitByInit";
+  static const String boolsQQIsVerifiedUserByVerifiedUser = "boolsQQIsVerifiedUserByVerifiedUser";
+  static const String boolsQQIsAdminByRoleUser = "boolsQQIsAdminByRoleUser";
+  static const String boolsQQIsTestByRoleUser = "boolsQQIsTestByRoleUser";
+  static const String boolsQQIsHackedBySecurity = "boolsQQIsHackedBySecurity";
+  static const String boolsQQIsInitByInit = "boolsQQIsInitByInit";
   /* DatesTimes */
-  static const String datesTimesQCreationTimeByUser = "datesTimesQCreationTimeByUser";
-  static const String datesTimesQLastLoginTimeByLastLoginTimeUser = "datesTimesQLastLoginTimeByLastLoginTimeUser";
-  static const String datesTimesQStartOfSeasonTimeBySeason = "datesTimesQStartOfSeasonTimeBySeason";
-  static const String datesTimesQEndOfSeasonTimeBySeason = "datesTimesQEndOfSeasonTimeBySeason";
+  static const String datesTimesQQCreationTimeByUser = "datesTimesQQCreationTimeByUser";
+  static const String datesTimesQQLastLoginTimeByLastLoginTimeUser = "datesTimesQQLastLoginTimeByLastLoginTimeUser";
+  static const String datesTimesQQStartOfSeasonTimeBySeason = "datesTimesQQStartOfSeasonTimeBySeason";
+  static const String datesTimesQQEndOfSeasonTimeBySeason = "datesTimesQQEndOfSeasonTimeBySeason";
   /* Maniac */
-  static const String maniacQListManiac = "maniacQListManiac";
+  static const String maniacQQListManiac = "maniacQQListManiac";
   /* Maps */
-  static const String mapsQListMaps = "mapsQListMaps";
+  static const String mapsQQListMaps = "mapsQQListMaps";
   /* ManiacPerk */
-  static const String maniacPerkQListManiacPerk = "maniacPerkQListManiacPerk";
+  static const String maniacPerkQQListManiacPerk = "maniacPerkQQListManiacPerk";
   /* SurvivorPerk */
-  static const String survivorPerkQListSurvivorPerk = "survivorPerkQListSurvivorPerk";
+  static const String survivorPerkQQListSurvivorPerk = "survivorPerkQQListSurvivorPerk";
   /* CountryTC */
-  static const String countryTCQListCountryTC = "countryTCQListCountryTC";
+  static const String countryTCQQListCountryTC = "countryTCQQListCountryTC";
   /* Season */
-  static const String seasonQListSeason = "seasonQListSeason";
+  static const String seasonQQListSeason = "seasonQQListSeason";
 
   const KeysTempCacheServiceUtility._();
 }

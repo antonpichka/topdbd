@@ -10,7 +10,7 @@ base class GetEEBoolsEEWhereIsInitByInitEEParameterTempCacheService<T extends Bo
 
   Result<T> getBoolsWhereIsInitByInitParameterTempCacheService() {
     try {
-      final bools = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.boolsQIsInitByInit) as T;
+      final bools = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.boolsQQIsInitByInit) as T;
       return Result<T>.success(bools);
     } on LocalException catch(e) {
       return Result<T>.exception(e);

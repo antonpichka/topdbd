@@ -12,7 +12,7 @@ base class GetListEESurvivorPerkEEParameterTempCacheService<T extends SurvivorPe
 
   Result<Y> getListSurvivorPerkParameterTempCacheService() {
     try {
-      final listSurvivorPerk = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.survivorPerkQListSurvivorPerk) as Y;
+      final listSurvivorPerk = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.survivorPerkQQListSurvivorPerk) as Y;
       return Result<Y>.success(listSurvivorPerk);
     } on LocalException catch(e) {
       return Result<Y>.exception(e);

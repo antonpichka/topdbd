@@ -17,16 +17,16 @@ base class GetEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService<
       final documentByRoleUser = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.roleUser)
-          .where(KeysFirebaseFirestoreServiceUtility.roleUserQUniqueIdByUser,isEqualTo: uniqueIdByUser)
+          .where(KeysFirebaseFirestoreServiceUtility.roleUserQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
           .get();
       if((documentByRoleUser?.size ?? 0) <= 0) {
         return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(RoleUser(
-          documentByRoleUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.roleUserQUniqueIdByUser],
-          documentByRoleUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.roleUserQIsAdmin],
-          documentByRoleUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.roleUserQIsTest]) as T);
+          documentByRoleUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.roleUserQQUniqueIdByUser],
+          documentByRoleUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.roleUserQQIsAdmin],
+          documentByRoleUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.roleUserQQIsTest]) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

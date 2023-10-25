@@ -43,8 +43,8 @@ final class _AppViewState
       final responseAuthenticateDiscord = await FlutterWebAuth2.authenticate(
           url: Uri.https('discord.com', '/api/oauth2/authorize', {
             'response_type': 'code',
-            'client_id': KeysAPIUtility.discordOAUTHQClientId,
-            'redirect_uri': KeysAPIUtility.discordOAUTHQRedirectUri,
+            'client_id': KeysAPIUtility.discordOAUTHQQClientId,
+            'redirect_uri': KeysAPIUtility.discordOAUTHQQRedirectUri,
             'scope': 'identify'
           }).toString(),
           callbackUrlScheme: "valid-callback-scheme");
@@ -55,9 +55,9 @@ final class _AppViewState
             'Content-Type': 'application/x-www-form-urlencoded'
           },
           body: {
-            'client_id': KeysAPIUtility.discordOAUTHQClientId,
-            'client_secret': KeysAPIUtility.discordOAUTHQClientSecret,
-            'redirect_uri': KeysAPIUtility.discordOAUTHQRedirectUri,
+            'client_id': KeysAPIUtility.discordOAUTHQQClientId,
+            'client_secret': KeysAPIUtility.discordOAUTHQQClientSecret,
+            'redirect_uri': KeysAPIUtility.discordOAUTHQQRedirectUri,
             'grant_type': 'authorization_code',
             'code': Uri
                 .parse(responseAuthenticateDiscord)

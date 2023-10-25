@@ -3,9 +3,9 @@ import 'package:meta/meta.dart';
 @immutable
 final class KeysNameStreamToInitStreamUtility {
   /* AppViewListViewModel */
-  static const String appViewListViewModelQOne = "appViewListViewModelQOne";
-  static const String appViewListViewModelQTwo = "appViewListViewModelQTwo";
-  static const String appViewListViewModelQThree = "appViewListViewModelQThree";
+  static const String appViewListViewModelQQStringsUniqueIdByUser = "appViewListViewModelQQStringsUniqueIdByUser";
+  static const String appViewListViewModelQQThoseWorks = "appViewListViewModelQQThoseWorks";
+  static const String appViewListViewModelQQTOPDBDVersionWeb = "appViewListViewModelQQTOPDBDVersionWeb";
 
   const KeysNameStreamToInitStreamUtility._();
 }

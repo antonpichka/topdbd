@@ -12,7 +12,7 @@ base class GetListEECountryTCEEParameterTempCacheService<T extends CountryTC,Y e
 
   Result<Y> getListCountryTCParameterTempCacheService() {
     try {
-      final listCountryTC = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.countryTCQListCountryTC) as Y;
+      final listCountryTC = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.countryTCQQListCountryTC) as Y;
       return Result<Y>.success(listCountryTC);
     } on LocalException catch(e) {
       return Result<Y>.exception(e);

@@ -15,8 +15,8 @@ base class DeleteEEUserEEParameterSharedPreferencesService<T extends User,Y exte
   async {
     try {
       final sharedPreferences = await sharedPreferencesService.getSharedPreferences;
-      await sharedPreferences?.remove(KeysSharedPreferencesServiceUtility.userQUniqueId);
-      await sharedPreferences?.remove(KeysSharedPreferencesServiceUtility.userQCreationTime);
+      await sharedPreferences?.remove(KeysSharedPreferencesServiceUtility.userQQUniqueId);
+      await sharedPreferences?.remove(KeysSharedPreferencesServiceUtility.userQQCreationTime);
       return Result<bool>.success(true);
     } catch (e) {
       return Result<bool>.exception(LocalException(this, EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));

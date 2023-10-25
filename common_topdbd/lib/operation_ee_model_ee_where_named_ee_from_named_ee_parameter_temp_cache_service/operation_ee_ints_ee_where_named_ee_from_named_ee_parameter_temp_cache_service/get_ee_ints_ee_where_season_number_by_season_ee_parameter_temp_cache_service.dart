@@ -10,7 +10,7 @@ base class GetEEIntsEEWhereSeasonNumberBySeasonEEParameterTempCacheService<T ext
 
   Result<T> getIntsWhereSeasonNumberBySeasonParameterTempCacheService() {
     try {
-      final ints = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.intsQSeasonNumberBySeason) as T;
+      final ints = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.intsQQSeasonNumberBySeason) as T;
       return Result<T>.success(ints);
     } on LocalException catch(e) {
       return Result<T>.exception(e);

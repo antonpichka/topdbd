@@ -9,9 +9,9 @@ base class StartListeningAndCancelListeningEEBoolsEEWhereIsVerifiedUserByVerifie
   @protected
   StreamSubscription<dynamic>? streamSubscription;
 
-  void startListeningBoolsWhereIsVerifiedUserByVerifiedUserFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(String keyNameStream,Function(Result<T> resultBoolsWhereIsVerifiedUserByVerifiedUser) callback) {
+  void startListeningBoolsWhereIsVerifiedUserByVerifiedUserFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(String keyNameStream,Function(Result<T>) callback) {
     streamSubscription = tempCacheService
-        .getStreamObjectFromKeyNameStreamAndKeyTempCacheAndMillisecondsParametersTempCacheAndNameStreamWTempCacheWIsHaveYouReceivedTheLatestData(keyNameStream,KeysTempCacheServiceUtility.boolsQIsVerifiedUserByVerifiedUser)
+        .getStreamObjectFromKeyNameStreamAndKeyTempCacheAndMillisecondsParametersTempCacheAndNameStreamWTempCacheWIsHaveYouReceivedTheLatestData(keyNameStream,KeysTempCacheServiceUtility.boolsQQIsVerifiedUserByVerifiedUser)
         .listen((event) {
           callback(Result.success(event as T));
         });

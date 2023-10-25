@@ -5,7 +5,7 @@ final class KeysExceptionUtility {
   /* UNKNOWN */
   static const String uNKNOWN = "uNKNOWN";
   /* DataForAntiDDosSystemView */
-  static const String dataForAntiDDosSystemViewQGetStringWhereNotEqualsParametersCodeAndInputCode = "dataForAntiDDosSystemViewQGetStringWhereNotEqualsParametersCodeAndInputCode";
+  static const String dataForAntiDDosSystemViewQQGetExceptionInStringWhereNotEqualsParametersCodeAndInputCode = "dataForAntiDDosSystemViewQQGetExceptionInStringWhereNotEqualsParametersCodeAndInputCode";
   /* GetEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreService */
   static const String getEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreService = "getEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreService";
   /* GetEEDiscordUserFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService */
@@ -51,8 +51,8 @@ final class KeysExceptionUtility {
   /* InsertEECountryEEFromRegistrationCountryUtilityEEParameterFirebaseFirestoreService */
   static const String insertEECountryEEFromRegistrationCountryUtilityEEParameterFirebaseFirestoreService = "insertEECountryEEFromRegistrationCountryUtilityEEParameterFirebaseFirestoreService";
   /* DiscordUser */
-  static const String discordUserQGetStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName = "discordUserQGetStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName";
-  static const String discordUserQGetStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalNameTWO = "discordUserQGetStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalNameTWO";
+  static const String discordUserQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName = "discordUserQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName";
+  static const String discordUserQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalNameTWO = "discordUserQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalNameTWO";
   /* InsertEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService */
   static const String insertEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService = "insertEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService";
   /* InsertEEStatsEEFromRegistrationStatsUtilityEEParameterFirebaseFirestoreService */
@@ -60,16 +60,16 @@ final class KeysExceptionUtility {
   /* GetEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService */
   static const String getEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService = "getEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService";
   /* IPAddress */
-  static const String iPAddressQGetStringWhereNotEqualsFromNameCountryParameterNameCountry = "iPAddressQGetStringWhereNotEqualsFromNameCountryParameterNameCountry";
-  static const String iPAddressQGetStringWhereNotEqualsFromIpParameterIp = "iPAddressQGetStringWhereNotEqualsFromIpParameterIp";
+  static const String iPAddressQQGetExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry = "iPAddressQQGetExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry";
+  static const String iPAddressQQGetExceptionInStringWhereNotEqualsFromIpParameterIp = "iPAddressQQGetExceptionInStringWhereNotEqualsFromIpParameterIp";
   /* IPAddressFirestore */
-  static const String iPAddressFirestoreQGetStringWhereNotEqualsFromIpParameterIp = "iPAddressFirestoreQGetStringWhereNotEqualsFromIpParameterIp";
+  static const String iPAddressFirestoreQQGetExceptionInStringWhereNotEqualsFromIpParameterIp = "iPAddressFirestoreQQGetExceptionInStringWhereNotEqualsFromIpParameterIp";
   /* User */
-  static const String userQGetStringWhereIsEmptyParameterUniqueId = "userQGetStringWhereIsEmptyParameterUniqueId";
+  static const String userQQGetExceptionInStringWhereIsEmptyParameterUniqueId = "userQQGetExceptionInStringWhereIsEmptyParameterUniqueId";
   /* TOPDBDVersionWeb */
-  static const String tOPDBDVersionWebQGetStringWhereNotEqualsFromVersionParameterVersion = "tOPDBDVersionWebQGetStringWhereNotEqualsFromVersionParameterVersion";
+  static const String tOPDBDVersionWebQQGetExceptionInStringWhereNotEqualsFromVersionParameterVersion = "tOPDBDVersionWebQQGetExceptionInStringWhereNotEqualsFromVersionParameterVersion";
   /* VerifiedUser */
-  static const String verifiedUserQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser = "verifiedUserQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser";
+  static const String verifiedUserQQGetExceptionInStringWhereFalseParameterIsVerifiedUser = "verifiedUserQQGetExceptionInStringWhereFalseParameterIsVerifiedUser";
 
   const KeysExceptionUtility._();
 }

@@ -14,7 +14,7 @@ import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_s
 
 @immutable
 final class MainViewModel extends BaseNamedViewModel<DataForMainView,DefaultStreamWState<DataForMainView>> {
-  // OperationResultModel(InNamedWhereNamed)[FromNamed]ParameterNamedService
+  // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   // NamedUtility
 
   final _stringsQTempCacheServiceViewModelUsingGetNPForUniqueIdByUser =
@@ -64,7 +64,7 @@ final class MainViewModel extends BaseNamedViewModel<DataForMainView,DefaultStre
       }
       final getStringWhereIsNotVerifiedUserParameterIsVerifiedUser = resultVerifiedUser
           .parameter
-          ?.getStringWhereIsNotVerifiedUserParameterIsVerifiedUser ?? "";
+          ?.getExceptionInStringWhereFalseParameterIsVerifiedUser ?? "";
       if(getStringWhereIsNotVerifiedUserParameterIsVerifiedUser.isNotEmpty) {
         _firstQListeningStreamsFirebaseFirestoreServiceQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(getStringWhereIsNotVerifiedUserParameterIsVerifiedUser);
         return;
@@ -91,7 +91,7 @@ final class MainViewModel extends BaseNamedViewModel<DataForMainView,DefaultStre
       }
       final getStringWhereNotEqualsFromIpParameterIp = resultIPAddressFirestore
           .parameter
-          ?.getStringWhereNotEqualsFromIpParameterIp(resultStringsForIpByIPAddress.parameter?.field ?? "") ?? "";
+          ?.getExceptionInStringWhereNotEqualsFromIpParameterIp(resultStringsForIpByIPAddress.parameter?.field ?? "") ?? "";
       if(getStringWhereNotEqualsFromIpParameterIp.isNotEmpty) {
         _firstQListeningStreamsFirebaseFirestoreServiceQGetStringWhereNotEqualsFromIpParameterIp(getStringWhereNotEqualsFromIpParameterIp);
         return;

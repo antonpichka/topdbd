@@ -17,15 +17,15 @@ base class GetEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFiresto
       final documentByDiscordUser = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
-          .where(KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser,isEqualTo: uniqueIdByUser)
+          .where(KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
           .get();
       if((documentByDiscordUser?.size ?? 0) <= 0) {
         return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result.success(IPAddressFirestore(
-          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser],
-          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressQIp]) as T);
+          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser],
+          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQIp]) as T);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

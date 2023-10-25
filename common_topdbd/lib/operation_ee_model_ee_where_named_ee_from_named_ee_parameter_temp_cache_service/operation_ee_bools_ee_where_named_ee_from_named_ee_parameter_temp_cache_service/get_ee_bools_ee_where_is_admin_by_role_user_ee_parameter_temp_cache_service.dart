@@ -10,7 +10,7 @@ base class GetEEBoolsEEWhereIsAdminByRoleUserEEParameterTempCacheService<T exten
 
   Result<T> getBoolsWhereIsAdminByRoleUserParameterTempCacheService() {
     try {
-      final bools = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.boolsQIsAdminByRoleUser) as T;
+      final bools = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.boolsQQIsAdminByRoleUser) as T;
       return Result<T>.success(bools);
     } on LocalException catch(e) {
       return Result<T>.exception(e);

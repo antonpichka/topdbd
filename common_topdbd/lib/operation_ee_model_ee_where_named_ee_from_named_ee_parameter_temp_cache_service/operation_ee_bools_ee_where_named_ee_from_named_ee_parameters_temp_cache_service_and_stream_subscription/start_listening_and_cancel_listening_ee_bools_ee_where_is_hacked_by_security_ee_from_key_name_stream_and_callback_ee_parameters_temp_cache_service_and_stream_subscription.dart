@@ -9,9 +9,9 @@ base class StartListeningAndCancelListeningEEBoolsEEWhereIsHackedBySecurityEEFro
   @protected
   StreamSubscription<dynamic>? streamSubscription;
 
-  void startListeningBoolsWhereIsHackedBySecurityFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(String keyNameStream,Function(Result<T> resultBoolsWhereIsHackedBySecurity) callback) {
+  void startListeningBoolsWhereIsHackedBySecurityFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(String keyNameStream,Function(Result<T>) callback) {
     streamSubscription = tempCacheService
-        .getStreamObjectFromKeyNameStreamAndKeyTempCacheAndMillisecondsParametersTempCacheAndNameStreamWTempCacheWIsHaveYouReceivedTheLatestData(keyNameStream,KeysTempCacheServiceUtility.boolsQIsHackedBySecurity)
+        .getStreamObjectFromKeyNameStreamAndKeyTempCacheAndMillisecondsParametersTempCacheAndNameStreamWTempCacheWIsHaveYouReceivedTheLatestData(keyNameStream,KeysTempCacheServiceUtility.boolsQQIsHackedBySecurity)
         .listen((event) {
           callback(Result.success(event as T));
         });

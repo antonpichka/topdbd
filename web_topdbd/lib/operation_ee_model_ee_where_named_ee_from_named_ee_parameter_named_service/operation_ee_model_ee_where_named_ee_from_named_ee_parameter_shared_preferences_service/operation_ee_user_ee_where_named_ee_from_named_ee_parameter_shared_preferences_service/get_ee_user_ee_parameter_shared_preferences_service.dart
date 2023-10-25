@@ -15,8 +15,8 @@ base class GetEEUserEEParameterSharedPreferencesService<T extends User,Y extends
   async {
     try {
       final sharedPreferences = await sharedPreferencesService.getSharedPreferences;
-      final uniqueId = sharedPreferences?.getString(KeysSharedPreferencesServiceUtility.userQUniqueId) ?? "";
-      final creationTime = DateTime.fromMillisecondsSinceEpoch(sharedPreferences?.getInt(KeysSharedPreferencesServiceUtility.userQCreationTime) ?? 0);
+      final uniqueId = sharedPreferences?.getString(KeysSharedPreferencesServiceUtility.userQQUniqueId) ?? "";
+      final creationTime = DateTime.fromMillisecondsSinceEpoch(sharedPreferences?.getInt(KeysSharedPreferencesServiceUtility.userQQCreationTime) ?? 0);
       return Result<T>.success(User(uniqueId,creationTime) as T);
     } catch (e) {
       return Result<T>.exception(LocalException(this, EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));

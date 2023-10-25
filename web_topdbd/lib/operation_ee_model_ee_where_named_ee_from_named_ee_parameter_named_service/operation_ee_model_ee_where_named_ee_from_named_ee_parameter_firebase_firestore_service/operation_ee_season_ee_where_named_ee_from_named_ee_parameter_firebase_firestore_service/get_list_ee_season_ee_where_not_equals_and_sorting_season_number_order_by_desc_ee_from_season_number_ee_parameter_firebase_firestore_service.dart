@@ -18,17 +18,17 @@ base class GetListEESeasonEEWhereNotEqualsAndSortingSeasonNumberOrderByDescEEFro
       final listDocumentBySeason = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.season)
-          .where(KeysFirebaseFirestoreServiceUtility.seasonQSeasonNumber,isNotEqualTo: seasonNumber)
-          .orderBy(KeysFirebaseFirestoreServiceUtility.seasonQSeasonNumber,descending: true)
+          .where(KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber,isNotEqualTo: seasonNumber)
+          .orderBy(KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber,descending: true)
           .get();
       List<T> listSeason = List.empty(growable: true);
       for(QueryDocumentSnapshot<Map<String,dynamic>> documentBySeason in listDocumentBySeason?.docs ?? List.empty(growable: true)) {
         listSeason.add(Season(
-            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQSeasonNumber],
-            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQStrNumberOfMatchesPlayedPerSeason],
-            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQStrNumberOfUniquePlayersWhoPlayedInASeason],
-            (documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQStartOfSeasonTime]).toDate(),
-            (documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQEndOfSeasonTime]).toDate()) as T);
+            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber],
+            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfMatchesPlayedPerSeason],
+            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfUniquePlayersWhoPlayedInASeason],
+            (documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQStartOfSeasonTime]).toDate(),
+            (documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQEndOfSeasonTime]).toDate()) as T);
       }
       return Result<Y>.success(ListSeason(listSeason) as Y);
     } catch(e) {

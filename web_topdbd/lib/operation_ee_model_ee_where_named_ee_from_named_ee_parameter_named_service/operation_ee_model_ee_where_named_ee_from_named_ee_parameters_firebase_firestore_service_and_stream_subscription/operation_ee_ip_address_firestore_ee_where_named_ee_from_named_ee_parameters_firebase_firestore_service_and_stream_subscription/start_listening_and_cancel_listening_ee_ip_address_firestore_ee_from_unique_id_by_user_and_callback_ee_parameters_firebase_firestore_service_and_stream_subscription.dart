@@ -13,13 +13,13 @@ base class StartListeningAndCancelListeningEEIPAddressFirestoreEEFromUniqueIdByU
   @protected
   StreamSubscription<dynamic>? streamSubscription;
 
-  Future<void> startListeningIPAddressFirestoreFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(String uniqueIdByUser,Function(Result<T> resultIPAddressFirestore) callback)
+  Future<void> startListeningIPAddressFirestoreFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(String uniqueIdByUser,Function(Result<T>) callback)
   async {
     try {
       final listDocumentByIPAddress = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
-          .where(KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser,isEqualTo: uniqueIdByUser)
+          .where(KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
           .get();
       if((listDocumentByIPAddress?.size ?? 0) <= 0) {
@@ -34,8 +34,8 @@ base class StartListeningAndCancelListeningEEIPAddressFirestoreEEFromUniqueIdByU
           .snapshots()
           .listen((event) {
             callback(Result<T>.success(IPAddressFirestore(
-                event.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser],
-                event.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQIp]) as T));
+                event.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser],
+                event.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQIp]) as T));
           });
     } catch(e) {
       callback(Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())));

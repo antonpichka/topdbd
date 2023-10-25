@@ -10,7 +10,7 @@ base class UpdateEEBoolsEEWhereIsInitByInitEEFromBoolsEEParameterTempCacheServic
 
   Result<bool> updateBoolsWhereIsInitByInitFromBoolsParameterTempCacheService(T bools) {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.boolsQIsInitByInit,bools);
+      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.boolsQQIsInitByInit,bools);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));

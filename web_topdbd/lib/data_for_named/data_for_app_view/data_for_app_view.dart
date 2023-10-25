@@ -5,8 +5,8 @@ import 'package:web_topdbd/data_for_named/data_for_app_view/enum_status_notify_l
 
 final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
   final ListInitStream listInitStream;
-  EnumStatusNotifyListInitStream enumStatusNotifyListInitStream;
   String otherException;
+  EnumStatusNotifyListInitStream enumStatusNotifyListInitStream;
   bool isThoseWorks;
   bool isNotValidVersionTOPDBDVersionWeb;
   String versionByTOPDBDVersionWeb;
@@ -14,7 +14,7 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
   bool isNotVerifiedUserByVerifiedUser;
   bool isHackedBySecurity;
 
-  DataForAppView(this.listInitStream,this.enumStatusNotifyListInitStream,this.otherException,this.isThoseWorks,this.isNotValidVersionTOPDBDVersionWeb,this.versionByTOPDBDVersionWeb,this.uniqueIdByUser,this.isNotVerifiedUserByVerifiedUser,this.isHackedBySecurity) : super(false);
+  DataForAppView(this.listInitStream,this.otherException,this.enumStatusNotifyListInitStream,this.isThoseWorks,this.isNotValidVersionTOPDBDVersionWeb,this.versionByTOPDBDVersionWeb,this.uniqueIdByUser,this.isNotVerifiedUserByVerifiedUser,this.isHackedBySecurity) : super(false);
 
   @override
   EnumDataForAppView get getEnumDataForNamed {
@@ -24,7 +24,7 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
     if(otherException.isNotEmpty) {
       return EnumDataForAppView.otherException;
     }
-    if(listInitStream.isNotInitStreamParameterListModel()) {
+    if(listInitStream.isWhereNotInitStreamParameterListModel()) {
       return EnumDataForAppView.waitingInitStreams;
     }
     if(isThoseWorks) {
@@ -45,12 +45,12 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
     return EnumDataForAppView.main;
   }
 
-  bool isTrueAndEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream() {
-    return listInitStream.isInitStreamParameterListModel()
+  bool isWhereTrueAndNotEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream() {
+    return listInitStream.isWhereInitStreamParameterListModel()
         && enumStatusNotifyListInitStream != EnumStatusNotifyListInitStream.oneNotify;
   }
 
-  bool isEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream() {
+  bool isWhereEqualsInfinityNotifyParameterEnumStatusNotifyListInitStream() {
     return enumStatusNotifyListInitStream == EnumStatusNotifyListInitStream.infinityNotify;
   }
 }

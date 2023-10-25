@@ -2,11 +2,12 @@ import 'package:meta/meta.dart';
 
 @immutable
 final class KeysNameStreamToTempCacheServiceUtility {
-  /* AppViewListViewModel */
-  static const String appViewListViewModelQUniqueIdByUser = "appViewListViewModelQUniqueIdByUser";
-  static const String appViewListViewModelQIsVerifiedUserByVerifiedUser = "appViewListViewModelQIsVerifiedUserByVerifiedUser";
-  static const String appViewListViewModelQIsHackedBySecurity = "appViewListViewModelQIsHackedBySecurity";
-  static const String appViewListViewModelQIsInitByInit = "appViewListViewModelQIsInitByInit";
+  /* Strings */
+  static const String stringsQQUniqueIdByUser = "stringsQQUniqueIdByUser";
+  /* Bools */
+  static const String boolsQQIsVerifiedUserByVerifiedUser = "boolsQQIsVerifiedUserByVerifiedUser";
+  static const String boolsQQIsHackedBySecurity = "boolsQQIsHackedBySecurity";
+  static const String boolsQQIsInitByInit = "boolsQQIsInitByInit";
 
   const KeysNameStreamToTempCacheServiceUtility._();
 }

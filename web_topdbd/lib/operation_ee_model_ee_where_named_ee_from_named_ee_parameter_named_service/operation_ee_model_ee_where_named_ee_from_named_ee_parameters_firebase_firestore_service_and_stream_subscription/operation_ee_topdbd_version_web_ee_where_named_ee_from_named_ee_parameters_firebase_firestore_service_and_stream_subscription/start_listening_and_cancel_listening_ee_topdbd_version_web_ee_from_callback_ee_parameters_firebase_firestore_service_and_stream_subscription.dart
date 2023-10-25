@@ -13,7 +13,7 @@ base class StartListeningAndCancelListeningEETOPDBDVersionWebEEFromCallbackEEPar
   @protected
   StreamSubscription<dynamic>? streamSubscription;
 
-  void startListeningTOPDBDVersionWebFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(Function(Result<T> resultTOPDBDVersionWeb) callback) {
+  void startListeningTOPDBDVersionWebFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(Function(Result<T>) callback) {
     try {
       streamSubscription = firebaseFirestoreService
           .getFirebaseFirestore
@@ -22,7 +22,7 @@ base class StartListeningAndCancelListeningEETOPDBDVersionWebEEFromCallbackEEPar
           .snapshots()
           .listen((event) {
             final documentByTOPDBDVersionWeb = event.docs[0];
-            callback(Result<T>.success(TOPDBDVersionWeb(documentByTOPDBDVersionWeb.data()[KeysFirebaseFirestoreServiceUtility.TOPDBDVersionWebQVersion]) as T));
+            callback(Result<T>.success(TOPDBDVersionWeb(documentByTOPDBDVersionWeb.data()[KeysFirebaseFirestoreServiceUtility.TOPDBDVersionWebQQVersion]) as T));
           });
     } catch(e) {
       callback(Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())));

@@ -17,15 +17,15 @@ base class GetEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService<T
       final documentByAboutMe = await firebaseFirestoreService
           .getFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.aboutMe)
-          .where(KeysFirebaseFirestoreServiceUtility.aboutMeQUniqueIdByUser,isEqualTo: uniqueIdByUser)
+          .where(KeysFirebaseFirestoreServiceUtility.aboutMeQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
           .get();
       if((documentByAboutMe?.size ?? 0) <= 0) {
         return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(AboutMe(
-          documentByAboutMe?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.aboutMeQUniqueIdByUser],
-          documentByAboutMe?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.aboutMeQCodeDBD]) as T);
+          documentByAboutMe?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.aboutMeQQUniqueIdByUser],
+          documentByAboutMe?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.aboutMeQQCodeDBD]) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

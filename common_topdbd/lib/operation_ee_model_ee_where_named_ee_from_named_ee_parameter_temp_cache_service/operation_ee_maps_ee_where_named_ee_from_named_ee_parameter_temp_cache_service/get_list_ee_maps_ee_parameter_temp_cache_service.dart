@@ -12,7 +12,7 @@ base class GetListEEMapsEEParameterTempCacheService<T extends Maps,Y extends Lis
 
   Result<Y> getListMapsParameterTempCacheService() {
     try {
-      final listMaps = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.mapsQListMaps) as Y;
+      final listMaps = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.mapsQQListMaps) as Y;
       return Result<Y>.success(listMaps);
     } on LocalException catch(e) {
       return Result<Y>.exception(e);

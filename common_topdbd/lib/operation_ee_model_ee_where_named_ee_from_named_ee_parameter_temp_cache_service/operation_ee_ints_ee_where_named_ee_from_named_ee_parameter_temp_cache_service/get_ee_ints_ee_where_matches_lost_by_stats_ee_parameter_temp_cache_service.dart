@@ -10,7 +10,7 @@ base class GetEEIntsEEWhereMatchesLostByStatsEEParameterTempCacheService<T exten
 
   Result<T> getIntsWhereMatchesLostByStatsParameterTempCacheService() {
     try {
-      final ints = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.intsQMatchesLostByStats) as T;
+      final ints = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.intsQQMatchesLostByStats) as T;
       return Result<T>.success(ints);
     } on LocalException catch(e) {
       return Result<T>.exception(e);

@@ -102,10 +102,10 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                         onPressed: () {
                           _antiDDosSystemViewModel.clickButtonDone(() {
 
-                          },(messageException) {
+                          },(String msg) {
                             showTopSnackBar(
                               Overlay.of(context),
-                              CustomSnackBar.error(message: messageException,),
+                              CustomSnackBar.error(message: msg,),
                             );
                           });
                         },

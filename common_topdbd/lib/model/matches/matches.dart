@@ -23,7 +23,7 @@ import 'package:common_topdbd/model/round_where_matches/round_where_matches.dart
 import 'package:common_topdbd/model/survivor_perk/list_survivor_perk.dart';
 import 'package:common_topdbd/model/survivor_perk/survivor_perk.dart';
 import 'package:common_topdbd/named_utility/algorithms_utility.dart';
-import 'package:common_topdbd/named_utility/enum_elo_score.dart';
+import 'package:common_topdbd/named_utility/enum_win_number_user.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -105,9 +105,9 @@ base class Matches extends BaseModel {
     final iterationWinRoundForUniqueIdByUserWhereFirst = listTwoItemIterationWinRoundForUniqueIdByUser[0];
     final iterationWinRoundForUniqueIdByUserWhereSecond = listTwoItemIterationWinRoundForUniqueIdByUser[1];
     if(iterationWinRoundForUniqueIdByUserWhereFirst > iterationWinRoundForUniqueIdByUserWhereSecond) {
-      return AlgorithmsUtility.eloForUserWhereFirst(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumEloScore.winForUserWhereFirst);
+      return AlgorithmsUtility.getEloWhereCalculationFirstUserFromNAndKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumWinNumberUser.winFirstUser);
     }
-    return AlgorithmsUtility.eloForUserWhereFirst(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumEloScore.winForUserWhereSecond);
+    return AlgorithmsUtility.getEloWhereCalculationFirstUserFromNAndKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumWinNumberUser.winSecondUser);
   }
 
   int getResultRatingPointsForUniqueIdByUserWhereFirstFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(int ratingPointsForUniqueIdByUserWhereFirst,int ratingPointsForUniqueIdByUserWhereSecond) {
@@ -122,9 +122,9 @@ base class Matches extends BaseModel {
     final iterationWinRoundForUniqueIdByUserWhereFirst = listTwoItemIterationWinRoundForUniqueIdByUser[0];
     final iterationWinRoundForUniqueIdByUserWhereSecond = listTwoItemIterationWinRoundForUniqueIdByUser[1];
     if(iterationWinRoundForUniqueIdByUserWhereFirst < iterationWinRoundForUniqueIdByUserWhereSecond) {
-      return AlgorithmsUtility.eloForUserWhereSecond(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumEloScore.winForUserWhereSecond);
+      return AlgorithmsUtility.getEloWhereCalculationSecondUserFromNAndKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumWinNumberUser.winSecondUser);
     }
-    return AlgorithmsUtility.eloForUserWhereSecond(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumEloScore.winForUserWhereFirst);
+    return AlgorithmsUtility.getEloWhereCalculationSecondUserFromNAndKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(n, 50, ratingPointsForUniqueIdByUserWhereFirst, ratingPointsForUniqueIdByUserWhereSecond,EnumWinNumberUser.winFirstUser);
   }
 
   int getResultRatingPointsForUniqueIdByUserWhereSecondFromRatingPointsForUniqueIdByUserWhereFirstAndRatingPointsForUniqueIdByUserWhereSecondParameterListRoundWhereMatches(int ratingPointsForUniqueIdByUserWhereFirst,int ratingPointsForUniqueIdByUserWhereSecond) {

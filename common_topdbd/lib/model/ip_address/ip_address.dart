@@ -12,16 +12,16 @@ base class IPAddress extends BaseModel {
   @override
   IPAddress get getClone => IPAddress(ip,nameCountry);
 
-  String getStringWhereNotEqualsFromNameCountryParameterNameCountry(String nameCountry) {
+  String getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry(String nameCountry) {
     if(this.nameCountry != nameCountry) {
-      return KeysExceptionUtility.iPAddressQGetStringWhereNotEqualsFromNameCountryParameterNameCountry;
+      return KeysExceptionUtility.iPAddressQQGetExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry;
     }
     return "";
   }
 
-  String getStringWhereNotEqualsFromIpParameterIp(String ip) {
+  String getExceptionInStringWhereNotEqualsFromIpParameterIp(String ip) {
     if(this.ip != ip) {
-      return KeysExceptionUtility.iPAddressQGetStringWhereNotEqualsFromIpParameterIp;
+      return KeysExceptionUtility.iPAddressQQGetExceptionInStringWhereNotEqualsFromIpParameterIp;
     }
     return "";
   }

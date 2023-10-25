@@ -13,12 +13,12 @@ base class DiscordUser extends BaseModel {
   @override
   DiscordUser get getClone => DiscordUser(id, username, globalName);
 
-  String getStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(String username, String globalName) {
+  String getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(String username, String globalName) {
     if(this.username != username) {
-      return KeysExceptionUtility.discordUserQGetStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName;
+      return KeysExceptionUtility.discordUserQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName;
     }
     if(this.globalName != globalName) {
-      return KeysExceptionUtility.discordUserQGetStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalNameTWO;
+      return KeysExceptionUtility.discordUserQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalNameTWO;
     }
     return "";
   }

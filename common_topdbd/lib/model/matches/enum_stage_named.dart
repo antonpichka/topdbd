@@ -1,4 +1,4 @@
-enum EnumBanOrPickNamed {
+enum EnumStageNamed {
   systemPickManiac,
   systemPickMapsToManiac,
   systemPickManiacPerkToManiac,

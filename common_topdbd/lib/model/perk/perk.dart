@@ -10,4 +10,9 @@ base class Perk extends BaseModel {
 
   @override
   Perk get getClone => Perk(name,imagePath);
+
+  @override
+  String toString() {
+    return "Perk(name: $name, imagePath: $imagePath)";
+  }
 }

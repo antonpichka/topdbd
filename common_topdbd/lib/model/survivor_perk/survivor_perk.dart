@@ -13,6 +13,6 @@ base class SurvivorPerk extends BaseModel {
 
   @override
   String toString() {
-    return perk.name;
+    return "SurvivorPerk(perk: $perk)";
   }
 }

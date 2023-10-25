@@ -13,6 +13,6 @@ base class ManiacPerk extends BaseModel {
 
   @override
   String toString() {
-    return perk.name;
+    return "ManiacPerk(perk: $perk)";
   }
 }

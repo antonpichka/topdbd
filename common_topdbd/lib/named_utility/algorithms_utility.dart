@@ -27,7 +27,7 @@ final class AlgorithmsUtility {
     return interestFormula;
   }
 
-  static int getEloWhereCalculationFirstUserFromNAndKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(int n,int kFactor,int ratingFirstUser,int ratingSecondUser,EnumWinNumberUser enumWinNumberUser) {
+  static int getEloWhereCalculationWFirstUserFromNAndKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(int n,int kFactor,int ratingFirstUser,int ratingSecondUser,EnumWinNumberUser enumWinNumberUser) {
     final score = enumWinNumberUser == EnumWinNumberUser.winFirstUser ? 1.0 : 0.0;
     final diff = ratingFirstUser - ratingSecondUser;
     final exponent = -(diff / n);
@@ -36,7 +36,7 @@ final class AlgorithmsUtility {
     return resultRatingPlayerOne.toInt();
   }
 
-  static int getEloWhereCalculationSecondUserFromNAndKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(int n,int kFactor,int ratingPlayerOne,int ratingPlayerTwo,EnumWinNumberUser enumWinNumberUser) {
+  static int getEloWhereCalculationWSecondUserFromNAndKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(int n,int kFactor,int ratingPlayerOne,int ratingPlayerTwo,EnumWinNumberUser enumWinNumberUser) {
     final score = enumWinNumberUser == EnumWinNumberUser.winSecondUser ? 0.0 : 1.0;
     final diff = ratingPlayerOne - ratingPlayerTwo;
     final exponent = -(diff / n);

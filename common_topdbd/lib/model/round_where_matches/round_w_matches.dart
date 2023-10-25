@@ -1,12 +1,12 @@
-import 'package:common_topdbd/model/pick_maniac_where_matches/pick_maniac_where_matches.dart';
+import 'package:common_topdbd/model/pick_maniac_w_matches/pick_maniac_w_matches.dart';
 import 'package:common_topdbd/model/round_where_matches/enum_turn_of_maniacs_and_end_of_the_round.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
 @immutable
-base class RoundWhereMatches extends BaseModel {
+base class RoundWMatches extends BaseModel {
   final int round;
-  final PickManiacWhereMatches pickManiacWhereMatches;
+  final PickManiacWMatches pickManiacWMatches;
   final EnumTurnOfManiacsAndEndOfTheRound enumTurnOfManiacsAndEndOfTheRound;
   final bool isRoleManiacForUniqueIdByUserWhereFirst;
   final bool isStartTimerForUniqueIdByUserWhereFirst;
@@ -14,7 +14,7 @@ base class RoundWhereMatches extends BaseModel {
   final int numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst;
   final int numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond;
 
-  RoundWhereMatches(this.round,this.pickManiacWhereMatches,String strTurnOfManiacsAndEndOfTheRound,this.isRoleManiacForUniqueIdByUserWhereFirst,this.isStartTimerForUniqueIdByUserWhereFirst,this.isStartTimerForUniqueIdByUserWhereSecond,this.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst,this.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond)
+  RoundWMatches(this.round,this.pickManiacWMatches,String strTurnOfManiacsAndEndOfTheRound,this.isRoleManiacForUniqueIdByUserWhereFirst,this.isStartTimerForUniqueIdByUserWhereFirst,this.isStartTimerForUniqueIdByUserWhereSecond,this.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst,this.numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond)
       : enumTurnOfManiacsAndEndOfTheRound = _getFromStrTurnOfManiacsAndEndOfTheRoundParameterEnumTurnOfManiacsAndEndOfTheRound(strTurnOfManiacsAndEndOfTheRound),
         super("$round");
 
@@ -32,11 +32,11 @@ base class RoundWhereMatches extends BaseModel {
   }
 
   @override
-  RoundWhereMatches get getClone => RoundWhereMatches(round, pickManiacWhereMatches.getClone, enumTurnOfManiacsAndEndOfTheRound.name, isRoleManiacForUniqueIdByUserWhereFirst, isStartTimerForUniqueIdByUserWhereFirst, isStartTimerForUniqueIdByUserWhereSecond, numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst, numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond);
+  RoundWMatches get getClone => RoundWMatches(round, pickManiacWMatches.getClone, enumTurnOfManiacsAndEndOfTheRound.name, isRoleManiacForUniqueIdByUserWhereFirst, isStartTimerForUniqueIdByUserWhereFirst, isStartTimerForUniqueIdByUserWhereSecond, numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereFirst, numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond);
 
   @override
   String toString() {
-    return "$round (PickManiacWhereMatches: $pickManiacWhereMatches) "
+    return "$round (PickManiacWhereMatches: $pickManiacWMatches) "
         "(EnumTurnOfManiacsAndEndOfTheRound: ${enumTurnOfManiacsAndEndOfTheRound.name}) "
         "(isRoleManiacForUniqueIdByUserWhereFirst: $isRoleManiacForUniqueIdByUserWhereFirst) "
         "(isStartTimerForUniqueIdByUserWhereFirst: $isStartTimerForUniqueIdByUserWhereFirst) "

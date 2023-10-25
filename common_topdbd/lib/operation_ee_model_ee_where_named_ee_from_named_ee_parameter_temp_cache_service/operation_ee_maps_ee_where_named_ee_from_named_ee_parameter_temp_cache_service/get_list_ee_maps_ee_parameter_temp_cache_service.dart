@@ -6,20 +6,13 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 
 @immutable
-base class MapsQTempCacheServiceViewModelUsingGetListNP<T extends Maps,Y extends ListMaps<T>> extends BaseGetListModelFromNamedServiceNPDataSource<Y> {
+base class GetListEEMapsEEParameterTempCacheService<T extends Maps,Y extends ListMaps<T>> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Future<Result<Y>> getListMapsFromTempCacheServiceNPDS() {
-    return getListModelFromNamedServiceNPDS();
-  }
-
-  @protected
-  @override
-  Future<Result<Y>> getListModelFromNamedServiceNPDS()
-  async {
+  Result<Y> getListMapsParameterTempCacheService() {
     try {
-      final listMaps = tempCacheService.getObjectFromTempCache(KeysTempCacheServiceUtility.mapsQListMaps) as Y;
+      final listMaps = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.mapsQListMaps) as Y;
       return Result<Y>.success(listMaps);
     } on LocalException catch(e) {
       return Result<Y>.exception(e);

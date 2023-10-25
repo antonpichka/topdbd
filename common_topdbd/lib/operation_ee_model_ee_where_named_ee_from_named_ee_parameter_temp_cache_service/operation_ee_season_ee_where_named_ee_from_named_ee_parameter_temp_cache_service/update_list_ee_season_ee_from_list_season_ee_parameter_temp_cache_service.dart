@@ -6,20 +6,13 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 
 @immutable
-base class SeasonQTempCacheServiceViewModelUsingUpdateListParameterListSeason<T extends Season,Y extends ListSeason<T>> extends BaseUpdateListModelToNamedServiceParameterNamedDataSource<bool,Y> {
+base class UpdateListEESeasonEEFromListSeasonEEParameterTempCacheService<T extends Season,Y extends ListSeason<T>> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Future<Result<bool>> updateListSeasonToTempCacheServiceParameterListSeasonDS(Y parameter) {
-    return updateListModelToNamedServiceParameterNamedDS(parameter);
-  }
-
-  @protected
-  @override
-  Future<Result<bool>> updateListModelToNamedServiceParameterNamedDS(Y parameter)
-  async {
+  Result<bool> updateListSeasonFromListSeasonParameterTempCacheService(Y listSeason) {
     try {
-      tempCacheService.insertOrUpdateObjectToTempCache(KeysTempCacheServiceUtility.seasonQListSeason,parameter);
+      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.seasonQListSeason,listSeason);
       return Result<bool>.success(true);
     } on LocalException catch(e) {
       return Result<bool>.exception(e);

@@ -6,20 +6,13 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 
 @immutable
-base class ManiacQTempCacheServiceViewModelUsingGetListNP<T extends Maniac,Y extends ListManiac<T>> extends BaseGetListModelFromNamedServiceNPDataSource<Y> {
+base class GetListEEManiacEEParameterTempCacheService<T extends Maniac,Y extends ListManiac<T>> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Future<Result<Y>> getListManiacFromTempCacheServiceNPDS() {
-    return getListModelFromNamedServiceNPDS();
-  }
-
-  @protected
-  @override
-  Future<Result<Y>> getListModelFromNamedServiceNPDS()
-  async {
+  Result<Y> getListManiacParameterTempCacheService() {
     try {
-      final listManiac = tempCacheService.getObjectFromTempCache(KeysTempCacheServiceUtility.maniacQListManiac) as Y;
+      final listManiac = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.maniacQListManiac) as Y;
       return Result<Y>.success(listManiac);
     } on LocalException catch(e) {
       return Result<Y>.exception(e);

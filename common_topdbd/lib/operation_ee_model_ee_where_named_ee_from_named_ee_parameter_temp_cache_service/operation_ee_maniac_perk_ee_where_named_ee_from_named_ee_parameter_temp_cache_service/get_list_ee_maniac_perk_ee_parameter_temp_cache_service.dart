@@ -6,20 +6,13 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 
 @immutable
-base class ManiacPerkQTempCacheServiceViewModelUsingGetListNP<T extends ManiacPerk,Y extends ListManiacPerk<T>> extends BaseGetListModelFromNamedServiceNPDataSource<Y> {
+base class GetListEEManiacPerkEEParameterTempCacheService<T extends ManiacPerk,Y extends ListManiacPerk<T>> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Future<Result<Y>> getListManiacPerkFromTempCacheServiceNPDS() {
-    return getListModelFromNamedServiceNPDS();
-  }
-
-  @protected
-  @override
-  Future<Result<Y>> getListModelFromNamedServiceNPDS()
-  async {
+  Result<Y> getListManiacPerkParameterTempCacheService() {
     try {
-      final listManiacPerk = tempCacheService.getObjectFromTempCache(KeysTempCacheServiceUtility.maniacPerkQListManiacPerk) as Y;
+      final listManiacPerk = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.maniacPerkQListManiacPerk) as Y;
       return Result<Y>.success(listManiacPerk);
     } on LocalException catch(e) {
       return Result<Y>.exception(e);

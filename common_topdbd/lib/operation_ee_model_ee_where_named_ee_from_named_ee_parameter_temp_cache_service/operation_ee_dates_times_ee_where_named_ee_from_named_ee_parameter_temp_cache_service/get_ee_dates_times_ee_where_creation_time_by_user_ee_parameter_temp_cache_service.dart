@@ -4,21 +4,14 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 
 @immutable
-base class DatesTimesQTempCacheServiceViewModelUsingGetNPForCreationTimeByUser<T extends DatesTimes,Y extends ListDatesTimes<T>> extends BaseGetModelFromNamedServiceNPDataSource<T> {
+base class GetEEDatesTimesEEWhereCreationTimeByUserEEParameterTempCacheService<T extends DatesTimes,Y extends ListDatesTimes<T>> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Future<Result<T>> getDatesTimesFromTempCacheServiceNPDS() {
-    return getModelFromNamedServiceNPDS();
-  }
-
-  @protected
-  @override
-  Future<Result<T>> getModelFromNamedServiceNPDS()
-  async {
+  Result<T> getDatesTimesWhereCreationTimeByUserParameterTempCacheService() {
     try {
-      final creationTimeByUser = tempCacheService.getObjectFromTempCache(KeysTempCacheServiceUtility.datesTimesQCreationTimeByUser) as DateTime;
-      return Result<T>.success(DatesTimes(creationTimeByUser) as T);
+      final datesTimes = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.datesTimesQCreationTimeByUser) as T;
+      return Result<T>.success(datesTimes);
     } on LocalException catch(e) {
       return Result<T>.exception(e);
     } catch(e) {

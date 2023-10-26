@@ -1,4 +1,4 @@
-enum EnumTurnOfManiacsAndEndOfTheRound {
+enum EnumRoundStatus {
   firstManiac,
   secondManiac,
   nextRound,

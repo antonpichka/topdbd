@@ -15,6 +15,17 @@ base class ListBanManiacWMatches<T extends BanManiacWMatches> extends BaseListMo
     return ListBanManiacWMatches<T>(newListModel);
   }
 
+  List<T> getListBanManiacWMatchesWhereEqualsFromUniqueIdByUserParameterListModel(String uniqueIdByUser) {
+    final listBanManiacWMatches = ListBanManiacWMatches<T>(List.empty(growable: true));
+    for(T itemModel in listModel) {
+      if(itemModel.uniqueIdByUser == uniqueIdByUser) {
+        listBanManiacWMatches.insertFromBanManiacWMatchesParameterListModel(itemModel.getClone as T);
+        continue;
+      }
+    }
+    return listBanManiacWMatches.listModel;
+  }
+
   void insertFromBanManiacWMatchesParameterListModel(T banManiacWMatches) {
     super.insertFromModelParameterListModel(banManiacWMatches);
   }

@@ -27,21 +27,27 @@ final class AlgorithmsUtility {
     return interestFormula;
   }
 
-  static int getEloWhereCalculationWFirstUserFromNAndKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(int n,int kFactor,int ratingFirstUser,int ratingSecondUser,EnumWinNumberUser enumWinNumberUser) {
+  static int getEloWhereCalculationWFirstUserFromKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(int kFactor,int ratingFirstUser,int ratingSecondUser,EnumWinNumberUser enumWinNumberUser) {
+    final n = ratingFirstUser >= ratingSecondUser
+        ? ratingSecondUser
+        : ratingFirstUser;
     final score = enumWinNumberUser == EnumWinNumberUser.winFirstUser ? 1.0 : 0.0;
     final diff = ratingFirstUser - ratingSecondUser;
     final exponent = -(diff / n);
-    final expected1 = 1.0 / (1.0 + math.pow(10.0, exponent));
-    final resultRatingPlayerOne = ratingFirstUser + kFactor * (score - expected1);
-    return resultRatingPlayerOne.toInt();
+    final expectedOne = 1.0 / (1.0 + math.pow(10.0, exponent));
+    final resultRatingFirstUser = ratingFirstUser + kFactor * (score - expectedOne);
+    return resultRatingFirstUser.toInt();
   }
 
-  static int getEloWhereCalculationWSecondUserFromNAndKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(int n,int kFactor,int ratingPlayerOne,int ratingPlayerTwo,EnumWinNumberUser enumWinNumberUser) {
+  static int getEloWhereCalculationWSecondUserFromKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(int kFactor,int ratingFirstUser,int ratingSecondUser,EnumWinNumberUser enumWinNumberUser) {
+    final n = ratingFirstUser >= ratingSecondUser
+        ? ratingSecondUser
+        : ratingFirstUser;
     final score = enumWinNumberUser == EnumWinNumberUser.winSecondUser ? 0.0 : 1.0;
-    final diff = ratingPlayerOne - ratingPlayerTwo;
+    final diff = ratingFirstUser - ratingSecondUser;
     final exponent = -(diff / n);
-    final expected2 = 1.0 / (1.0 + math.pow(10.0, -exponent));
-    final resultRatingPlayerTwo = ratingPlayerTwo + kFactor * ((1.0 - score) - expected2);
-    return resultRatingPlayerTwo.toInt();
+    final expectedTwo = 1.0 / (1.0 + math.pow(10.0, -exponent));
+    final resultRatingSecondUser = ratingSecondUser + kFactor * ((1.0 - score) - expectedTwo);
+    return resultRatingSecondUser.toInt();
   }
 }

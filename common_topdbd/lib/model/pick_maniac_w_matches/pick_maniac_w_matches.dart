@@ -7,7 +7,7 @@ import 'package:meta/meta.dart';
 
 @immutable
 base class PickManiacWMatches extends BaseModel {
-  final String nameManiac;
+  final String namePickedManiac;
   final String uniqueIdByUser;
   final DateTime creationTime;
   final ListBanMapsWMatches listBanMapsWMatches;
@@ -15,14 +15,14 @@ base class PickManiacWMatches extends BaseModel {
   final ListPickManiacPerkWMatches listPickManiacPerkWMatches;
   final ListPickSurvivorPerkWMatches listPickSurvivorPerkWMatches;
 
-  const PickManiacWMatches(this.nameManiac,this.uniqueIdByUser,this.creationTime,this.listBanMapsWMatches, this.pickMapsWMatches,this.listPickManiacPerkWMatches,this.listPickSurvivorPerkWMatches) : super(nameManiac);
+  const PickManiacWMatches(this.namePickedManiac,this.uniqueIdByUser,this.creationTime,this.listBanMapsWMatches, this.pickMapsWMatches,this.listPickManiacPerkWMatches,this.listPickSurvivorPerkWMatches) : super(namePickedManiac);
 
   @override
-  PickManiacWMatches get getClone => PickManiacWMatches(nameManiac,uniqueIdByUser,creationTime,listBanMapsWMatches.getClone,pickMapsWMatches.getClone,listPickManiacPerkWMatches.getClone,listPickSurvivorPerkWMatches.getClone);
+  PickManiacWMatches get getClone => PickManiacWMatches(namePickedManiac,uniqueIdByUser,creationTime,listBanMapsWMatches.getClone,pickMapsWMatches.getClone,listPickManiacPerkWMatches.getClone,listPickSurvivorPerkWMatches.getClone);
 
   @override
   String toString() {
-    return "PickManiacWMatches(nameManiac: $nameManiac, "
+    return "PickManiacWMatches(namePickedManiac: $namePickedManiac, "
         "uniqueIdByUser: $uniqueIdByUser, "
         "creationTime: $creationTime, "
         "listBanMapsWMatches: ${listBanMapsWMatches.listModel}, "

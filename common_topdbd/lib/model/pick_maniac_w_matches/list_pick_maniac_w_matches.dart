@@ -16,6 +16,34 @@ base class ListPickManiacWMatches<T extends PickManiacWMatches> extends BaseList
     return ListPickManiacWMatches<T>(newListModel);
   }
 
+  List<T> getListPickManiacWMatchesWhereEqualsFromUniqueIdByUserParameterListModel(String uniqueIdByUser) {
+    final listPickManiacWMatches = ListPickManiacWMatches<T>(List.empty(growable: true));
+    for(T itemModel in listModel) {
+      if(itemModel.uniqueIdByUser == uniqueIdByUser) {
+        listPickManiacWMatches.insertFromPickManiacWMatchesParameterListModel(itemModel.getClone as T);
+        continue;
+      }
+    }
+    return listPickManiacWMatches.listModel;
+  }
+
+  List<T> getListPickManiacWMatchesWhereNotEqualsFromFirstUniqueIdByUserAndSecondUniqueIdByUser(String firstUniqueIdByUser,String secondUniqueIdByUser) {
+    final listPickManiacWMatches = ListPickManiacWMatches<T>(List.empty(growable: true));
+    for(T itemModel in listModel) {
+      if(itemModel.uniqueIdByUser != firstUniqueIdByUser &&
+          itemModel.uniqueIdByUser != secondUniqueIdByUser)
+      {
+        listPickManiacWMatches.insertFromPickManiacWMatchesParameterListModel(itemModel.getClone as T);
+        continue;
+      }
+    }
+    return listPickManiacWMatches.listModel;
+  }
+
+  T get getLastItemPickManiacWMatchesParameterListModel {
+    return listModel.last.getClone as T;
+  }
+
   void pickManiacWMatchesWhereOrderByAscParameterCreationTimeIterator() {
     sortingFromModelWhereNamedParameterNamedIteratorParameterListModel(PickManiacWMatchesWhereOrderByAscParameterCreationTimeIterator());
   }

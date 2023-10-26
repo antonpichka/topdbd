@@ -18,7 +18,7 @@ base class DiscordUser extends BaseModel {
       return KeysExceptionUtility.discordUserQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName;
     }
     if(this.globalName != globalName) {
-      return KeysExceptionUtility.discordUserQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalNameTWO;
+      return KeysExceptionUtility.discordUserQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalNameFIRST;
     }
     return "";
   }

@@ -14,18 +14,18 @@ base class MatchBalance extends BaseModel {
   @override
   MatchBalance get getClone => MatchBalance(seasonNumberBySeason, numberOfRounds, listManiacWMatchBalance.getClone);
 
+  @override
+  String toString() {
+    return "MatchBalance(seasonNumberBySeason: $seasonNumberBySeason, "
+        "numberOfRounds: $numberOfRounds, "
+        "ListManiacWMatchBalance: ${listManiacWMatchBalance.listModel})";
+  }
+
   int get getNumberOfBannedManiacsParametersListManiacWMatchBalanceAndNumberOfRounds  {
     return listManiacWMatchBalance.listModel.length - numberOfRounds;
   }
 
   int get getNumberOfBannedManiacsInTheFirstStageWhereEvenAndInterestFormula  {
     return AlgorithmsUtility.getEvenWhereInterestFormulaFromNumberAndFindPercent(getNumberOfBannedManiacsParametersListManiacWMatchBalanceAndNumberOfRounds, 50);
-  }
-
-  @override
-  String toString() {
-    return "MatchBalance(seasonNumberBySeason: $seasonNumberBySeason, "
-        "numberOfRounds: $numberOfRounds, "
-        "ListManiacWMatchBalance: ${listManiacWMatchBalance.listModel})";
   }
 }

@@ -17,7 +17,7 @@ base class ListManiacWMatchBalance<T extends ManiacWMatchBalance> extends BaseLi
     return ListManiacWMatchBalance<T>(newListModel);
   }
 
-  List<T> getListNotBannedWPickedManiacWMatchBalanceFromTwoParameterListModel(List<BanManiacWMatches> listBanManiacWMatches, List<PickManiacWMatches> listPickManiacWMatches) {
+  List<T> getListManiacWMatchBalanceWhereNotBannedWPickedFromTwoParameterListModel(List<BanManiacWMatches> listBanManiacWMatches, List<PickManiacWMatches> listPickManiacWMatches) {
     final clone = getClone;
     for(T itemModel in listModel) {
       for(BanManiacWMatches banManiacWMatches in listBanManiacWMatches) {

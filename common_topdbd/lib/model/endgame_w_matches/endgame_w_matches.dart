@@ -11,4 +11,11 @@ base class EndgameWMatches extends BaseModel {
 
   @override
   EndgameWMatches get getClone => EndgameWMatches(isCompleted,resultRatingPointsWFirstUniqueIdByUser,resultRatingPointsWSecondUniqueIdByUser);
+
+  @override
+  String toString() {
+    return "EndgameWMatches(isCompleted: $isCompleted, "
+        "resultRatingPointsWFirstUniqueIdByUser: $resultRatingPointsWFirstUniqueIdByUser, "
+        "resultRatingPointsWSecondUniqueIdByUser: $resultRatingPointsWSecondUniqueIdByUser)";
+  }
 }

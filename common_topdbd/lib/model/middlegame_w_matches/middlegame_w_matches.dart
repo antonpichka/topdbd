@@ -10,4 +10,9 @@ base class MiddlegameWMatches extends BaseModel {
 
   @override
   MiddlegameWMatches get getClone => MiddlegameWMatches(listRoundWMatches.getClone);
+
+  @override
+  String toString() {
+    return "MiddlegameWMatches(listRoundWMatches: ${listRoundWMatches.listModel})";
+  }
 }

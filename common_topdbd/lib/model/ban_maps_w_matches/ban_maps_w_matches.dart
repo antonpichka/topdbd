@@ -3,16 +3,16 @@ import 'package:meta/meta.dart';
 
 @immutable
 base class BanMapsWMatches extends BaseModel {
-  final String nameBanMaps;
+  final String nameBannedMaps;
   final String uniqueIdByUser;
 
-  const BanMapsWMatches(this.nameBanMaps,this.uniqueIdByUser) : super(nameBanMaps);
+  const BanMapsWMatches(this.nameBannedMaps,this.uniqueIdByUser) : super(nameBannedMaps);
 
   @override
-  BanMapsWMatches get getClone => BanMapsWMatches(nameBanMaps,uniqueIdByUser);
+  BanMapsWMatches get getClone => BanMapsWMatches(nameBannedMaps,uniqueIdByUser);
 
   @override
   String toString() {
-    return "BanMapsWMatches(nameBanMaps: $nameBanMaps, uniqueIdByUser: $uniqueIdByUser)";
+    return "BanMapsWMatches(nameBannedMaps: $nameBannedMaps, uniqueIdByUser: $uniqueIdByUser)";
   }
 }

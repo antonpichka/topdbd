@@ -27,7 +27,7 @@ base class ListPickManiacWMatches<T extends PickManiacWMatches> extends BaseList
     return listPickManiacWMatches.listModel;
   }
 
-  List<T> getListPickManiacWMatchesWhereNotEqualsFromFirstUniqueIdByUserAndSecondUniqueIdByUser(String firstUniqueIdByUser,String secondUniqueIdByUser) {
+  List<T> getListPickManiacWMatchesWhereNotEqualsFromTwoParameterListModel(String firstUniqueIdByUser,String secondUniqueIdByUser) {
     final listPickManiacWMatches = ListPickManiacWMatches<T>(List.empty(growable: true));
     for(T itemModel in listModel) {
       if(itemModel.uniqueIdByUser != firstUniqueIdByUser &&
@@ -38,10 +38,6 @@ base class ListPickManiacWMatches<T extends PickManiacWMatches> extends BaseList
       }
     }
     return listPickManiacWMatches.listModel;
-  }
-
-  T get getLastItemPickManiacWMatchesParameterListModel {
-    return listModel.last.getClone as T;
   }
 
   void pickManiacWMatchesWhereOrderByAscParameterCreationTimeIterator() {

@@ -56,14 +56,6 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
     return [iterationWinRoundWFirstUniqueIdByUser,iterationWinRoundWSecondUniqueIdByUser];
   }
 
-  T get getLastItemWhereFinishedListRoundWMatches {
-    return getFinishedListRoundWMatchesParameterListModel.last;
-  }
-
-  T get getFirstItemWhereUnfinishedListRoundWMatches {
-    return getUnfinishedListRoundWMatchesParameterListModel.first;
-  }
-
   int getNewStatsWFirstUniqueIdByUserWhereThereIsEloFromTwo(int ratingPointsByStatsWFirstUniqueIdByUser,int ratingPointsByStatsWSecondUniqueIdByUser) {
     if(isWhereWinMatchWFirstUniqueIdByUser()) {
       return AlgorithmsUtility.getEloWhereCalculationWFirstUserFromKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(
@@ -115,6 +107,96 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
 
   void updateFromRoundWMatchesParameterListModel(T roundWMatches) {
     super.updateFromModelParameterListModel(roundWMatches);
+  }
+
+  void updateWhereIsStartTimerWFirstUniqueIdByUserSettingTrueParameterListModel() {
+    final first = getUnfinishedListRoundWMatchesParameterListModel.first;
+    for(T itemModel in listModel) {
+      if(itemModel.round == first.round) {
+        updateFromRoundWMatchesParameterListModel(RoundWMatches(
+            itemModel.round,
+            itemModel.pickManiacWMatches.getClone,
+            itemModel.enumRoundStatus.name,
+            itemModel.isRoleManiacWFirstUniqueIdByUser,
+            true,
+            itemModel.isStartTimerWSecondUniqueIdByUser,
+            itemModel.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser,
+            itemModel.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser) as T);
+        break;
+      }
+    }
+  }
+
+  void updateWhereIsStartTimerWSecondUniqueIdByUserSettingTrueParameterListModel() {
+    final first = getUnfinishedListRoundWMatchesParameterListModel.first;
+    for(T itemModel in listModel) {
+      if(itemModel.round == first.round) {
+        updateFromRoundWMatchesParameterListModel(RoundWMatches(
+            itemModel.round,
+            itemModel.pickManiacWMatches.getClone,
+            itemModel.enumRoundStatus.name,
+            itemModel.isRoleManiacWFirstUniqueIdByUser,
+            itemModel.isStartTimerWFirstUniqueIdByUser,
+            true,
+            itemModel.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser,
+            itemModel.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser) as T);
+        break;
+      }
+    }
+  }
+
+  void updateWhereSwapRoleManiacWFalseStartTimerWFirstUniqueIdByUserFromOneParameterListModel(int numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser) {
+    final first = getUnfinishedListRoundWMatchesParameterListModel.first;
+    for(T itemModel in listModel) {
+      if(itemModel.round == first.round) {
+        updateFromRoundWMatchesParameterListModel(RoundWMatches(
+            itemModel.round,
+            itemModel.pickManiacWMatches.getClone,
+            itemModel.getChangedParameterEnumRoundStatus.name,
+            itemModel.isWhereSwapParameterIsRoleManiacWFirstUniqueIdByUser(),
+            false,
+            false,
+            numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser,
+            itemModel.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser) as T);
+        break;
+      }
+    }
+  }
+
+  void updateWhereSwapRoleManiacWFalseStartTimerWSecondUniqueIdByUserFromOneParameterListModel(int numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser) {
+    final first = getUnfinishedListRoundWMatchesParameterListModel.first;
+    for(T itemModel in listModel) {
+      if(itemModel.round == first.round) {
+        updateFromRoundWMatchesParameterListModel(RoundWMatches(
+            itemModel.round,
+            itemModel.pickManiacWMatches.getClone,
+            itemModel.getChangedParameterEnumRoundStatus.name,
+            itemModel.isWhereSwapParameterIsRoleManiacWFirstUniqueIdByUser(),
+            false,
+            false,
+            itemModel.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser,
+            numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser) as T);
+        break;
+      }
+    }
+  }
+
+  void updateWhereEnumRoundStatusSettingEndOfTheRoundParameterListModel() {
+    final first = getUnfinishedListRoundWMatchesParameterListModel.first;
+    for(T itemModel in listModel) {
+      if(itemModel.round == first.round) {
+        updateFromRoundWMatchesParameterListModel(RoundWMatches(
+            itemModel.round,
+            itemModel.pickManiacWMatches.getClone,
+            EnumRoundStatus.endOfTheRound.name,
+            itemModel.isRoleManiacWFirstUniqueIdByUser,
+            itemModel.isStartTimerWFirstUniqueIdByUser,
+            itemModel.isStartTimerWSecondUniqueIdByUser,
+            itemModel.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser,
+            itemModel.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser) as T);
+        break;
+      }
+    }
   }
 
   bool isWhereWinMatchWFirstUniqueIdByUser() {

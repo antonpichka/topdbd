@@ -46,7 +46,7 @@ base class RoundWMatches extends BaseModel {
         "numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: $numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser)";
   }
 
-  EnumRoundStatus get getChangedEnumRoundStatusParameterEnumRoundStatus {
+  EnumRoundStatus get getChangedParameterEnumRoundStatus {
     if(enumRoundStatus == EnumRoundStatus.firstManiac) {
       return EnumRoundStatus.secondManiac;
     }

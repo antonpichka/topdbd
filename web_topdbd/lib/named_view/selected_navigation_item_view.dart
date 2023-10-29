@@ -15,11 +15,11 @@ final class _SelectedNavigationItemViewState extends State<SelectedNavigationIte
   @override
   Widget build(BuildContext context) {
     switch(widget.nameRoute) {
-      case KeysNavigationUtility.selectedNavigationItemViewQTopPlayers:
+      case KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers:
         return TopPlayersView();
-      case KeysNavigationUtility.selectedNavigationItemViewQBalance:
+      case KeysNavigationUtility.selectedNavigationItemViewQQBalance:
         return Container();
-      case KeysNavigationUtility.selectedNavigationItemViewQTournaments:
+      case KeysNavigationUtility.selectedNavigationItemViewQQTournaments:
         return Container();
       default:
         return Container();

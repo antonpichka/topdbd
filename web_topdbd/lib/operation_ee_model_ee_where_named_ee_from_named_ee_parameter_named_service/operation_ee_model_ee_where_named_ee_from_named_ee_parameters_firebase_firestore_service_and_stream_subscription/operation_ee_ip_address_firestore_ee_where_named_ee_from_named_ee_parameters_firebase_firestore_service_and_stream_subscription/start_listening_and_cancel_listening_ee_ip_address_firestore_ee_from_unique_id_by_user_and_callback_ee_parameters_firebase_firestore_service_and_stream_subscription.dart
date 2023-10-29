@@ -17,7 +17,7 @@ base class StartListeningAndCancelListeningEEIPAddressFirestoreEEFromUniqueIdByU
   async {
     try {
       final listDocumentByIPAddress = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
           .where(KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
@@ -28,7 +28,7 @@ base class StartListeningAndCancelListeningEEIPAddressFirestoreEEFromUniqueIdByU
       }
       final firstItemDocumentByIPAddress = listDocumentByIPAddress?.docs[0];
       streamSubscription = firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
           .doc(firstItemDocumentByIPAddress?.id)
           .snapshots()

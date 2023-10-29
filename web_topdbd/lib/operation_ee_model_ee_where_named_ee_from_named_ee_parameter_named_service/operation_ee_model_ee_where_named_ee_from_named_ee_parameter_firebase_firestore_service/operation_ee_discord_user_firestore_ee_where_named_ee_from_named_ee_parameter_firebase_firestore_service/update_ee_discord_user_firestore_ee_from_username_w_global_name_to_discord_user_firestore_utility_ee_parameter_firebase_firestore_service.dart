@@ -16,10 +16,10 @@ base class UpdateEEDiscordUserFirestoreEEFromUsernameWGlobalNameToDiscordUserFir
   async {
     try {
       final listDocumentByDiscordUser = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.discordUser)
-          .where(KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId, isEqualTo: usernameWGlobalNameToDiscordUserFirestoreUtility.uniqueId)
-          .where(KeysFirebaseFirestoreServiceUtility.discordUserQUniqueIdByUser, isEqualTo: usernameWGlobalNameToDiscordUserFirestoreUtility.uniqueIdByUser)
+          .where(KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId, isEqualTo: usernameWGlobalNameToDiscordUserFirestoreUtility.uniqueId)
+          .where(KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser, isEqualTo: usernameWGlobalNameToDiscordUserFirestoreUtility.uniqueIdByUser)
           .limit(1)
           .get();
       if(!(listDocumentByDiscordUser?.docs[0].exists ?? false)) {
@@ -27,18 +27,18 @@ base class UpdateEEDiscordUserFirestoreEEFromUsernameWGlobalNameToDiscordUserFir
       }
       final firstItemDocumentByDiscordUser = listDocumentByDiscordUser?.docs[0];
       await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.discordUser)
           .doc(firstItemDocumentByDiscordUser?.id)
           .update({
-        KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId : firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId],
-        KeysFirebaseFirestoreServiceUtility.discordUserQUniqueIdByUser : firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQUniqueIdByUser],
-        KeysFirebaseFirestoreServiceUtility.discordUserQUsername : usernameWGlobalNameToDiscordUserFirestoreUtility.newUsername,
-        KeysFirebaseFirestoreServiceUtility.discordUserQGlobalName : usernameWGlobalNameToDiscordUserFirestoreUtility.newGlobalName
+        KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId : firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId],
+        KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser : firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser],
+        KeysFirebaseFirestoreServiceUtility.discordUserQQUsername : usernameWGlobalNameToDiscordUserFirestoreUtility.newUsername,
+        KeysFirebaseFirestoreServiceUtility.discordUserQQGlobalName : usernameWGlobalNameToDiscordUserFirestoreUtility.newGlobalName
           });
       return Result<T>.success(DiscordUserFirestore(
-          firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId],
-          firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQUniqueIdByUser],
+          firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId],
+          firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser],
           usernameWGlobalNameToDiscordUserFirestoreUtility.newUsername,
           usernameWGlobalNameToDiscordUserFirestoreUtility.newGlobalName) as T);
     } catch(e) {

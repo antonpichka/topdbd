@@ -17,7 +17,7 @@ base class StartListeningAndCancelListeningEEVerifiedUserEEFromUniqueIdByUserAnd
   async {
     try {
       final listDocumentByVerifiedUser = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.verifiedUser)
           .where(KeysFirebaseFirestoreServiceUtility.verifiedUserQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
@@ -28,7 +28,7 @@ base class StartListeningAndCancelListeningEEVerifiedUserEEFromUniqueIdByUserAnd
       }
       final itemOneDocumentByVerifiedUser = listDocumentByVerifiedUser?.docs[0];
       streamSubscription = firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.verifiedUser)
           .doc(itemOneDocumentByVerifiedUser!.id)
           .snapshots()

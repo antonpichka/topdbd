@@ -366,7 +366,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
           .uniqueIdByUser = strings.parameter?.field ?? "";
       final isInitStream = getDataForNamedParameterNamedStreamWState
           .listInitStream
-          .getInitStreamFromNameStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewListViewModelQQStringsUniqueIdByUser)
+          .getInitStreamFromNameStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewModelQQStringsUniqueIdByUser)
           .isInitStream;
       if(isInitStream) {
         _firstQQListeningStreamsTempCacheServiceQQIsInitStream();
@@ -374,7 +374,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
       }
       getDataForNamedParameterNamedStreamWState
           .listInitStream
-          .updateFromNameStreamAndIsInitStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewListViewModelQQStringsUniqueIdByUser,true);
+          .updateFromNameStreamAndIsInitStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewModelQQStringsUniqueIdByUser,true);
       final isWhereTrueAndNotEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
           .isWhereTrueAndNotEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream();
       if(isWhereTrueAndNotEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream) {
@@ -437,7 +437,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
           .isThoseWorks = thoseWorks.parameter?.isThoseWorks ?? false;
       final isInitStream = getDataForNamedParameterNamedStreamWState
           .listInitStream
-          .getInitStreamFromNameStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewListViewModelQQThoseWorks)
+          .getInitStreamFromNameStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewModelQQThoseWorks)
           .isInitStream;
       if(isInitStream) {
         _firstQQListeningStreamsFirebaseFirestoreServiceQQIsInitStream();
@@ -445,7 +445,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
       }
       getDataForNamedParameterNamedStreamWState
           .listInitStream
-          .updateFromNameStreamAndIsInitStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewListViewModelQQThoseWorks,true);
+          .updateFromNameStreamAndIsInitStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewModelQQThoseWorks,true);
       final isWhereTrueAndNotEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream = getDataForNamedParameterNamedStreamWState
           .isWhereTrueAndNotEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream();
       if(isWhereTrueAndNotEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream) {
@@ -474,7 +474,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
       getDataForNamedParameterNamedStreamWState.versionByTOPDBDVersionWeb = tOPDBDVersionWeb.parameter?.version ?? "";
       final isInitStream = getDataForNamedParameterNamedStreamWState
           .listInitStream
-          .getInitStreamFromNameStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewListViewModelQQTOPDBDVersionWeb)
+          .getInitStreamFromNameStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewModelQQTOPDBDVersionWeb)
           .isInitStream;
       if(isInitStream) {
         _secondQQListeningStreamsFirebaseFirestoreServiceQQIsInitStream();
@@ -482,7 +482,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
       }
       getDataForNamedParameterNamedStreamWState
           .listInitStream
-          .updateFromNameStreamAndIsInitStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewListViewModelQQTOPDBDVersionWeb,true);
+          .updateFromNameStreamAndIsInitStreamParameterListModel(KeysNameStreamToInitStreamUtility.appViewModelQQTOPDBDVersionWeb,true);
       final isWhereTrueAndNotEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream4 = getDataForNamedParameterNamedStreamWState
           .isWhereTrueAndNotEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream();
       if(isWhereTrueAndNotEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream4) {

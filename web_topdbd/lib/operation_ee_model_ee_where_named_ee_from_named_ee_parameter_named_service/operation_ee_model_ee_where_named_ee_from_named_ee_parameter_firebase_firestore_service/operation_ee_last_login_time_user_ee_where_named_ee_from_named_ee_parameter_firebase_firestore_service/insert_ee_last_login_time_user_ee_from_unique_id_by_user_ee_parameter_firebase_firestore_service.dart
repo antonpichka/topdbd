@@ -16,19 +16,19 @@ base class InsertEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFires
   async {
     try {
       final documentByLastLoginTimeUserWhereAdding = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUser)
           .add({
-        KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser : uniqueIdByUser,
-        KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime : FieldValue.serverTimestamp()
+        KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQUniqueIdByUser : uniqueIdByUser,
+        KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQLastLoginTime : FieldValue.serverTimestamp()
           });
       final documentByLastLoginTimeUser = await documentByLastLoginTimeUserWhereAdding?.get();
       if(!(documentByLastLoginTimeUser?.exists ?? false)) {
         return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(LastLoginTimeUser(
-          documentByLastLoginTimeUser?.data()?[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQUniqueIdByUser],
-          (documentByLastLoginTimeUser?.data()?[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQLastLoginTime]).toDate()) as T);
+          documentByLastLoginTimeUser?.data()?[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQUniqueIdByUser],
+          (documentByLastLoginTimeUser?.data()?[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQLastLoginTime]).toDate()) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

@@ -15,17 +15,17 @@ base class GetEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService<T extends 
   async {
     try {
       final listDocumentByUser = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.user)
-          .where(KeysFirebaseFirestoreServiceUtility.userQUniqueId,isEqualTo: uniqueId)
+          .where(KeysFirebaseFirestoreServiceUtility.userQQUniqueId,isEqualTo: uniqueId)
           .limit(1)
           .get();
       if((listDocumentByUser?.size ?? 0) <= 0) {
         return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(User(
-          listDocumentByUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.userQUniqueId],
-          (listDocumentByUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.userQCreationTime]).toDate()) as T);
+          listDocumentByUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.userQQUniqueId],
+          (listDocumentByUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.userQQCreationTime]).toDate()) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

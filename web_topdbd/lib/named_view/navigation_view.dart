@@ -87,7 +87,7 @@ final class _NavigationViewState extends State<NavigationView> {
                               child: ListTile(
                                 titleAlignment: ListTileTitleAlignment.titleHeight,
                                 onTap: () {
-                                  context.go(KeysNavigationUtility.selectedNavigationItemViewQTopPlayers);
+                                  context.go(KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers);
                                 },
                                 leading: const Icon(Icons.stacked_bar_chart,color: Colors.white,),
                                 title: Text("TOP Players",
@@ -99,7 +99,7 @@ final class _NavigationViewState extends State<NavigationView> {
                               child: ListTile(
                                 titleAlignment: ListTileTitleAlignment.titleHeight,
                                 onTap: () {
-                                  context.go(KeysNavigationUtility.selectedNavigationItemViewQBalance);
+                                  context.go(KeysNavigationUtility.selectedNavigationItemViewQQBalance);
                                 },
                                 leading: const Icon(Icons.balance,color: Colors.white,),
                                 title: Text("Balance",
@@ -112,7 +112,7 @@ final class _NavigationViewState extends State<NavigationView> {
                               child: ListTile(
                                 titleAlignment: ListTileTitleAlignment.titleHeight,
                                 onTap: () {
-                                  context.go(KeysNavigationUtility.selectedNavigationItemViewQTournaments);
+                                  context.go(KeysNavigationUtility.selectedNavigationItemViewQQTournaments);
                                 },
                                 leading: const Icon(Icons.tour,color: Colors.white,),
                                 title: Text("Tournaments",

@@ -160,36 +160,36 @@ final class _AppViewState extends State<AppView> {
           ),
           /// In other class (launch)
           GoRoute(
-              path: KeysNavigationUtility.selectedNavigationItemViewQTopPlayers,
+              path: KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers,
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPage(context,state,KeysNavigationUtility.selectedNavigationItemViewQTopPlayers);
+                return _getChoicedMaterialPage(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state,KeysNavigationUtility.selectedNavigationItemViewQTopPlayers);
+                return _getChoicedUrl(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers);
               }
           ),
           GoRoute(
-              path: KeysNavigationUtility.selectedNavigationItemViewQBalance,
+              path: KeysNavigationUtility.selectedNavigationItemViewQQBalance,
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPage(context,state,KeysNavigationUtility.selectedNavigationItemViewQBalance);
+                return _getChoicedMaterialPage(context,state,KeysNavigationUtility.selectedNavigationItemViewQQBalance);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state,KeysNavigationUtility.selectedNavigationItemViewQBalance);
+                return _getChoicedUrl(context,state,KeysNavigationUtility.selectedNavigationItemViewQQBalance);
               }
           ),
           GoRoute(
-              path: KeysNavigationUtility.selectedNavigationItemViewQTournaments,
+              path: KeysNavigationUtility.selectedNavigationItemViewQQTournaments,
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPage(context,state,KeysNavigationUtility.selectedNavigationItemViewQTournaments);
+                return _getChoicedMaterialPage(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTournaments);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state,KeysNavigationUtility.selectedNavigationItemViewQTournaments);
+                return _getChoicedUrl(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTournaments);
               }
           ),
         ]);
   }
 
-  MaterialPage _getChoicedMaterialPage(BuildContext context,GoRouterState state, [String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQTopPlayers, String id = KeysParametersToNavigationUtility.appViewQId]) {
+  MaterialPage _getChoicedMaterialPage(BuildContext context,GoRouterState state, [String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers, String id = KeysParametersToNavigationUtility.appViewQId]) {
     final dataForNamed = _appViewModel.getDataForNamedParameterNamedStreamWState;
     final rvWidgetThoseWorks = ResponsiveValue<Widget>(
         context,
@@ -218,9 +218,9 @@ final class _AppViewState extends State<AppView> {
     final rvWidgetIsHacked = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
-          Condition.equals(name: MOBILE, value: _buildIsHacked(context,250,18)),
-          Condition.equals(name: TABLET, value: _buildIsHacked(context,300,24)),
-          Condition.equals(name: DESKTOP, value: _buildIsHacked(context,400,30)),
+          Condition.equals(name: MOBILE, value: _getWidgetWhereIsHackedFromContextAndSizedBoxWidthAndTextSize(context,250,18)),
+          Condition.equals(name: TABLET, value: _getWidgetWhereIsHackedFromContextAndSizedBoxWidthAndTextSize(context,300,24)),
+          Condition.equals(name: DESKTOP, value: _getWidgetWhereIsHackedFromContextAndSizedBoxWidthAndTextSize(context,400,30)),
         ]
     ).value ?? Container();
     switch(dataForNamed.getEnumDataForNamed) {
@@ -257,7 +257,7 @@ final class _AppViewState extends State<AppView> {
     }
   }
 
-  String _getChoicedUrl(BuildContext context,GoRouterState state,[String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQTopPlayers]) {
+  String _getChoicedUrl(BuildContext context,GoRouterState state,[String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers]) {
     final dataForNamed = _appViewModel.getDataForNamedParameterNamedStreamWState;
     switch(dataForNamed.getEnumDataForNamed) {
       case EnumDataForAppView.exception:
@@ -401,7 +401,7 @@ final class _AppViewState extends State<AppView> {
     );
   }
 
-  Widget _buildIsHacked(BuildContext context,double sizedBoxWidth,double textSize) {
+  Widget _getWidgetWhereIsHackedFromContextAndSizedBoxWidthAndTextSize(BuildContext context,double sizedBoxWidth,double textSize) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(

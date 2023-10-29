@@ -16,19 +16,19 @@ base class InsertEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService<T exten
   async {
     try {
       final documentByUserWhereAdding = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.user)
           .add({
-        KeysFirebaseFirestoreServiceUtility.userQUniqueId : uniqueId,
-        KeysFirebaseFirestoreServiceUtility.userQCreationTime : FieldValue.serverTimestamp()
+        KeysFirebaseFirestoreServiceUtility.userQQUniqueId : uniqueId,
+        KeysFirebaseFirestoreServiceUtility.userQQCreationTime : FieldValue.serverTimestamp()
           });
       final documentByUser = await documentByUserWhereAdding?.get();
       if(!(documentByUser?.exists ?? false)) {
         return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(User(
-          documentByUser?.data()?[KeysFirebaseFirestoreServiceUtility.userQUniqueId],
-          (documentByUser?.data()?[KeysFirebaseFirestoreServiceUtility.userQCreationTime]).toDate()) as T);
+          documentByUser?.data()?[KeysFirebaseFirestoreServiceUtility.userQQUniqueId],
+          (documentByUser?.data()?[KeysFirebaseFirestoreServiceUtility.userQQCreationTime]).toDate()) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

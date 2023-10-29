@@ -14,9 +14,9 @@ base class UpdateEEUserEEFromUserEEParameterSharedPreferencesService<T extends U
   Future<Result<bool>> updateUserFromUserParameterSharedPreferencesService(T user)
   async {
     try {
-      final sharedPreferences = await sharedPreferencesService.getSharedPreferences;
-      await sharedPreferences?.setString(KeysSharedPreferencesServiceUtility.userQUniqueId,user.uniqueId);
-      await sharedPreferences?.setInt(KeysSharedPreferencesServiceUtility.userQCreationTime,user.creationTime.millisecondsSinceEpoch);
+      final sharedPreferences = await sharedPreferencesService.getParameterSharedPreferences;
+      await sharedPreferences?.setString(KeysSharedPreferencesServiceUtility.userQQUniqueId,user.uniqueId);
+      await sharedPreferences?.setInt(KeysSharedPreferencesServiceUtility.userQQCreationTime,user.creationTime.millisecondsSinceEpoch);
       return Result<bool>.success(true);
     } catch (e) {
       return Result<bool>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));

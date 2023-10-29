@@ -15,19 +15,19 @@ base class GetEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreSe
   async {
     try {
       final documentByDiscordUser = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.discordUser)
-          .where(KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId,isEqualTo: uniqueId)
+          .where(KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId,isEqualTo: uniqueId)
           .limit(1)
           .get();
       if((documentByDiscordUser?.size ?? 0) <= 0) {
         return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreService));
       }
       return Result.success(DiscordUserFirestore(
-          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId],
-          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQUniqueIdByUser],
-          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQUsername],
-          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQGlobalName]) as T);
+          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId],
+          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser],
+          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUsername],
+          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQQGlobalName]) as T);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

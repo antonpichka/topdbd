@@ -280,9 +280,9 @@ final class ReadyDataUtility {
 
   static ListInitStream<InitStream> get getListInitStream {
     final listInitStream = List<InitStream>.empty(growable: true);
-    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQQStringsUniqueIdByUser,false));
-    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQQThoseWorks,false));
-    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewListViewModelQQTOPDBDVersionWeb,false));
+    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewModelQQStringsUniqueIdByUser,false));
+    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewModelQQThoseWorks,false));
+    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewModelQQTOPDBDVersionWeb,false));
     return ListInitStream<InitStream>(listInitStream);
   }
 }

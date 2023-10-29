@@ -12,7 +12,7 @@ base class GetEEStringsEEWhereTermsOfUseEEParameterAssetBundleService<T extends 
   async {
     try {
       final result = await assetBundleService
-          .getAssetBundle
+          .getParameterAssetBundle
           ?.loadString('assets/txt/terms_of_use_topdbd.txt');
       return Result.success(Strings(result ?? "") as T);
     } catch(e) {

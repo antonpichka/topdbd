@@ -16,23 +16,23 @@ base class InsertEEDiscordUserFirestoreEEFromRegistrationDiscordUserFirestoreUti
   async {
     try {
       final documentByDiscordUserWhereAdding = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.discordUser)
           .add({
-        KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId : registrationDiscordUserFirestoreUtility.uniqueId,
-        KeysFirebaseFirestoreServiceUtility.discordUserQUniqueIdByUser : registrationDiscordUserFirestoreUtility.uniqueIdByUser,
-        KeysFirebaseFirestoreServiceUtility.discordUserQUsername : registrationDiscordUserFirestoreUtility.username,
-        KeysFirebaseFirestoreServiceUtility.discordUserQGlobalName : registrationDiscordUserFirestoreUtility.globalName
+        KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId : registrationDiscordUserFirestoreUtility.uniqueId,
+        KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser : registrationDiscordUserFirestoreUtility.uniqueIdByUser,
+        KeysFirebaseFirestoreServiceUtility.discordUserQQUsername : registrationDiscordUserFirestoreUtility.username,
+        KeysFirebaseFirestoreServiceUtility.discordUserQQGlobalName : registrationDiscordUserFirestoreUtility.globalName
           });
       final documentByDiscordUser = await documentByDiscordUserWhereAdding?.get();
       if(!(documentByDiscordUser?.exists ?? false)) {
         return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEDiscordUserFirestoreEEFromRegistrationDiscordUserFirestoreUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(DiscordUserFirestore(
-          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQUniqueId],
-          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQUniqueIdByUser],
-          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQUsername],
-          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQGlobalName]) as T);
+          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId],
+          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser],
+          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQUsername],
+          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQGlobalName]) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

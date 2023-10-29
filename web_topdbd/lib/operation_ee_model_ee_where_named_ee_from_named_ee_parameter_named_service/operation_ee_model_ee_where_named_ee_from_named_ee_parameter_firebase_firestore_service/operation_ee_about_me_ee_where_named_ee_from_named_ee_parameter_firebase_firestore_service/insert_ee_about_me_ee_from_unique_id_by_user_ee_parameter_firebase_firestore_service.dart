@@ -15,19 +15,19 @@ base class InsertEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreServic
   async {
     try {
       final documentByAboutMeWhereAdding = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.aboutMe)
           .add({
-        KeysFirebaseFirestoreServiceUtility.aboutMeQUniqueIdByUser : uniqueIdByUser,
-        KeysFirebaseFirestoreServiceUtility.aboutMeQCodeDBD : "",
+        KeysFirebaseFirestoreServiceUtility.aboutMeQQUniqueIdByUser : uniqueIdByUser,
+        KeysFirebaseFirestoreServiceUtility.aboutMeQQCodeDBD : "",
       });
       final documentByAboutMe = await documentByAboutMeWhereAdding?.get();
       if(!(documentByAboutMe?.exists ?? false)) {
         return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result.success(AboutMe(
-          documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQUniqueIdByUser],
-          documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQCodeDBD]) as T);
+          documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQQUniqueIdByUser],
+          documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQQCodeDBD]) as T);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

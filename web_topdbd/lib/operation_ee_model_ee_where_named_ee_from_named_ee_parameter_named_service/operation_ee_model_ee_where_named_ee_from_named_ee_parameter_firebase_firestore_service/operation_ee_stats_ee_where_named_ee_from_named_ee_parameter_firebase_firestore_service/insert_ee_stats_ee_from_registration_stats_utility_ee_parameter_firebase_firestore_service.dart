@@ -16,25 +16,25 @@ base class InsertEEStatsEEFromRegistrationStatsUtilityEEParameterFirebaseFiresto
   async {
     try {
       final documentByStatsWhereAdding = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.stats)
           .add({
-        KeysFirebaseFirestoreServiceUtility.statsQUniqueIdByUser : registrationStatsUtility.uniqueIdByUser,
-        KeysFirebaseFirestoreServiceUtility.statsQSeasonNumberBySeason : registrationStatsUtility.seasonNumberBySeason,
-        KeysFirebaseFirestoreServiceUtility.statsQMatchesWon : 0,
-        KeysFirebaseFirestoreServiceUtility.statsQMatchesLost : 0,
-        KeysFirebaseFirestoreServiceUtility.statsQRatingPoints : registrationStatsUtility.ratingPoints,
+        KeysFirebaseFirestoreServiceUtility.statsQQUniqueIdByUser : registrationStatsUtility.uniqueIdByUser,
+        KeysFirebaseFirestoreServiceUtility.statsQQSeasonNumberBySeason : registrationStatsUtility.seasonNumberBySeason,
+        KeysFirebaseFirestoreServiceUtility.statsQQMatchesWon : 0,
+        KeysFirebaseFirestoreServiceUtility.statsQQMatchesLost : 0,
+        KeysFirebaseFirestoreServiceUtility.statsQQRatingPoints : registrationStatsUtility.ratingPoints,
       });
       final documentByStats = await documentByStatsWhereAdding?.get();
       if(!(documentByStats?.exists ?? false)) {
         return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEStatsEEFromRegistrationStatsUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(Stats(
-          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQUniqueIdByUser],
-          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQSeasonNumberBySeason],
-          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQMatchesWon],
-          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQMatchesLost],
-          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQRatingPoints]) as T);
+          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQUniqueIdByUser],
+          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQSeasonNumberBySeason],
+          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQMatchesWon],
+          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQMatchesLost],
+          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQRatingPoints]) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

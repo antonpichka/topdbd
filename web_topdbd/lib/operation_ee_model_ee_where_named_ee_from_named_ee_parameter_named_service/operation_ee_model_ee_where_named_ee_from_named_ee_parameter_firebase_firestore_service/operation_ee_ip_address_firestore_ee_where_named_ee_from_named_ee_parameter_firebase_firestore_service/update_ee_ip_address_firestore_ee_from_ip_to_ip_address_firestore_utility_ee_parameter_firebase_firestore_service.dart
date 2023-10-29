@@ -16,9 +16,9 @@ base class UpdateEEIPAddressFirestoreEEFromIPToIPAddressFirestoreUtilityEEParame
   async {
     try {
       final listDocumentByIPAddress = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
-          .where(KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser, isEqualTo: iPToIPAddressFirestoreUtility.uniqueIdByUser)
+          .where(KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser, isEqualTo: iPToIPAddressFirestoreUtility.uniqueIdByUser)
           .limit(1)
           .get();
       if(!(listDocumentByIPAddress?.docs[0].exists ?? false)) {
@@ -26,15 +26,15 @@ base class UpdateEEIPAddressFirestoreEEFromIPToIPAddressFirestoreUtilityEEParame
       }
       final firstItemDocumentByIPAddress = listDocumentByIPAddress?.docs[0];
       await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
           .doc(firstItemDocumentByIPAddress?.id)
           .update({
-        KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser : firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser],
-        KeysFirebaseFirestoreServiceUtility.ipAddressQIp : iPToIPAddressFirestoreUtility.ip,
+        KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser : firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser],
+        KeysFirebaseFirestoreServiceUtility.ipAddressQQIp : iPToIPAddressFirestoreUtility.ip,
       });
       return Result<T>.success(IPAddressFirestore(
-          firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressQUniqueIdByUser],
+          firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser],
           iPToIPAddressFirestoreUtility.ip) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));

@@ -16,19 +16,19 @@ base class InsertEECountryEEFromRegistrationCountryUtilityEEParameterFirebaseFir
   async {
     try {
       final documentByCountryWhereAdding = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.country)
           .add({
-        KeysFirebaseFirestoreServiceUtility.countryQUniqueIdByUser : registrationCountryUtility.uniqueIdByUser,
-        KeysFirebaseFirestoreServiceUtility.countryQNameCountry : registrationCountryUtility.nameCountry
+        KeysFirebaseFirestoreServiceUtility.countryQQUniqueIdByUser : registrationCountryUtility.uniqueIdByUser,
+        KeysFirebaseFirestoreServiceUtility.countryQQNameCountry : registrationCountryUtility.nameCountry
       });
       final documentByCountry = await documentByCountryWhereAdding?.get();
       if(!(documentByCountry?.exists ?? false)) {
         return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEECountryEEFromRegistrationCountryUtilityEEParameterFirebaseFirestoreService));
       }
       return Result.success(Country(
-          documentByCountry?.data()?[KeysFirebaseFirestoreServiceUtility.countryQUniqueIdByUser],
-          documentByCountry?.data()?[KeysFirebaseFirestoreServiceUtility.countryQNameCountry]) as T);
+          documentByCountry?.data()?[KeysFirebaseFirestoreServiceUtility.countryQQUniqueIdByUser],
+          documentByCountry?.data()?[KeysFirebaseFirestoreServiceUtility.countryQQNameCountry]) as T);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

@@ -20,21 +20,21 @@ base class GetEEDiscordUserEEWhereDiscordAuthAPIEEParameterHttpClientService<T e
       final responseAuthenticateDiscord = await FlutterWebAuth2.authenticate(
           url: Uri.https('discord.com', '/api/oauth2/authorize', {
             'response_type': 'code',
-            'client_id': KeysAPIUtility.discordOAUTHQClientId,
-            'redirect_uri': KeysAPIUtility.discordOAUTHQRedirectUri,
+            'client_id': KeysAPIUtility.discordOAUTHQQClientId,
+            'redirect_uri': KeysAPIUtility.discordOAUTHQQRedirectUri,
             'scope': 'identify'
           }).toString(),
           callbackUrlScheme: "valid-callback-scheme");
       final responseDiscordOauth2Token = await httpClientService
-          .getHttpClient
+          .getParameterHttpClient
           ?.post(Uri.parse('https://discord.com/api/oauth2/token'),
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           },
           body: {
-            'client_id': KeysAPIUtility.discordOAUTHQClientId,
-            'client_secret': KeysAPIUtility.discordOAUTHQClientSecret,
-            'redirect_uri': KeysAPIUtility.discordOAUTHQRedirectUri,
+            'client_id': KeysAPIUtility.discordOAUTHQQClientId,
+            'client_secret': KeysAPIUtility.discordOAUTHQQClientSecret,
+            'redirect_uri': KeysAPIUtility.discordOAUTHQQRedirectUri,
             'grant_type': 'authorization_code',
             'code': Uri
                 .parse(responseAuthenticateDiscord)
@@ -45,7 +45,7 @@ base class GetEEDiscordUserEEWhereDiscordAuthAPIEEParameterHttpClientService<T e
       }
       final jsonFromResponseDiscordOauth2Token = jsonDecode(responseDiscordOauth2Token!.body);
       final responseDiscordUser = await httpClientService
-          .getHttpClient
+          .getParameterHttpClient
           ?.get(Uri.parse('https://discord.com/api/users/@me'),
           headers: {
             'authorization': '${jsonFromResponseDiscordOauth2Token["token_type"]} ${jsonFromResponseDiscordOauth2Token["access_token"]}',
@@ -55,9 +55,9 @@ base class GetEEDiscordUserEEWhereDiscordAuthAPIEEParameterHttpClientService<T e
       }
       final Map<String,dynamic> data = jsonDecode(responseDiscordUser!.body);
       return Result<T>.success(DiscordUser(
-          data[KeysHttpClientServiceUtility.discordUserQId],
-          data[KeysHttpClientServiceUtility.discordUserQUsername],
-          data[KeysHttpClientServiceUtility.discordUserQGlobalName]) as T);
+          data[KeysHttpClientServiceUtility.discordUserQQId],
+          data[KeysHttpClientServiceUtility.discordUserQQUsername],
+          data[KeysHttpClientServiceUtility.discordUserQQGlobalName]) as T);
     } on NetworkException catch(e) {
       return Result<T>.exception(e);
     } catch(e) {

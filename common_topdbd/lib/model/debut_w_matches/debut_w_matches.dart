@@ -192,15 +192,15 @@ base class DebutWMatches extends BaseModel {
 
   void insertSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(SurvivorPerk survivorPerk,String uniqueIdByUser) {
     final last = listPickManiacWMatches.listModel.last;
-    int iterationForListPickManiacWhereMatches = 0;
+    int iteration = 0;
     for(PickManiacWMatches itemModel in listPickManiacWMatches.listModel) {
       if(itemModel.namePickedManiac == last.namePickedManiac) {
         break;
       }
-      iterationForListPickManiacWhereMatches++;
+      iteration++;
     }
     listPickManiacWMatches
-        .listModel[iterationForListPickManiacWhereMatches]
+        .listModel[iteration]
         .listPickSurvivorPerkWMatches
         .insertFromPickSurvivorPerkWMatchesParameterListModel(PickSurvivorPerkWMatches(survivorPerk.perk.name,uniqueIdByUser));
   }
@@ -367,7 +367,54 @@ base class DebutWMatches extends BaseModel {
         .listMaps
         .listModel
         .length;
-    return length
-        == (lengthFIRST-1);
+    return length == (lengthFIRST-1);
+  }
+
+  bool isWhereLengthPickManiacPerkEqualsNecessaryLengthPickManiacPerkFromUniqueIdByUserParameterOne(String uniqueIdByUser) {
+    final last = listPickManiacWMatches.listModel.last;
+    final maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo = getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo;
+    final length = last
+        .listPickManiacPerkWMatches
+        .getListPickManiacPerkWMatchesFromUniqueIdByUserParameterListModel(uniqueIdByUser)
+        .length;
+    final lengthPickManiacPerk = maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
+        .lengthPickManiacPerk;
+    return length == lengthPickManiacPerk;
+  }
+
+  bool isWhereLengthPickManiacPerkNotEqualsNecessaryLengthPickManiacPerkFromUniqueIdByUserParameterOne(String uniqueIdByUser) {
+    final last = listPickManiacWMatches.listModel.last;
+    final maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo = getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo;
+    final length = last
+        .listPickManiacPerkWMatches
+        .getListPickManiacPerkWMatchesFromUniqueIdByUserParameterListModel(uniqueIdByUser)
+        .length;
+    final lengthPickManiacPerk = maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
+        .lengthPickManiacPerk;
+    return length != lengthPickManiacPerk;
+  }
+
+  bool isWhereLengthPickSurvivorPerkEqualsNecessaryLengthPickSurvivorPerkFromUniqueIdByUserParameterOne(String uniqueIdByUser) {
+    final last = listPickManiacWMatches.listModel.last;
+    final maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo = getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo;
+    final length = last
+        .listPickSurvivorPerkWMatches
+        .getListPickSurvivorPerkWMatchesFromUniqueIdByUserParameterListModel(uniqueIdByUser)
+        .length;
+    final lengthPickSurvivorPerk = maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
+        .lengthPickSurvivorPerk;
+    return length == lengthPickSurvivorPerk;
+  }
+
+  bool isWhereLengthPickSurvivorPerkNotEqualsNecessaryLengthPickSurvivorPerkFromUniqueIdByUserParameterOne(String uniqueIdByUser) {
+    final last = listPickManiacWMatches.listModel.last;
+    final maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo = getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo;
+    final length = last
+        .listPickSurvivorPerkWMatches
+        .getListPickSurvivorPerkWMatchesFromUniqueIdByUserParameterListModel(uniqueIdByUser)
+        .length;
+    final lengthPickSurvivorPerk = maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
+        .lengthPickSurvivorPerk;
+    return length != lengthPickSurvivorPerk;
   }
 }

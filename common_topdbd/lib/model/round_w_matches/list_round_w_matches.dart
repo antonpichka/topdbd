@@ -203,4 +203,30 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
     final listIntWithTwoItemWhereCountingWhoWonTheMatch = getListWithTwoItemWhereCountingWhoWonTheMatch;
     return listIntWithTwoItemWhereCountingWhoWonTheMatch[0] > listIntWithTwoItemWhereCountingWhoWonTheMatch[1];
   }
+
+  bool isWhereFinishedListRoundWMatchesMoreThanUnfinishedListRoundWMatches() {
+    final finishedListRoundWMatchesParameterListModel = getFinishedListRoundWMatchesParameterListModel;
+    final unfinishedListRoundWMatchesParameterListModel = getUnfinishedListRoundWMatchesParameterListModel;
+    return finishedListRoundWMatchesParameterListModel.length > unfinishedListRoundWMatchesParameterListModel.length;
+  }
+
+  bool isWhereFinishedListRoundWMatchesAndWereWonByOneUser() {
+    final finishedListRoundWMatchesParameterListModel = getFinishedListRoundWMatchesParameterListModel;
+    int iterationWinRoundWFirstUniqueIdByUser = 0;
+    int iterationWinRoundWSecondUniqueIdByUser = 0;
+    for(RoundWMatches finishedItemRoundWMatchesParameterListModel in finishedListRoundWMatchesParameterListModel)  {
+      if(finishedItemRoundWMatchesParameterListModel.isWhereWinRoundWFirstUniqueIdByUserParametersTwo()) {
+        iterationWinRoundWFirstUniqueIdByUser++;
+        continue;
+      }
+      iterationWinRoundWSecondUniqueIdByUser++;
+    }
+    if(iterationWinRoundWFirstUniqueIdByUser == finishedListRoundWMatchesParameterListModel.length) {
+      return true;
+    }
+    if(iterationWinRoundWSecondUniqueIdByUser == finishedListRoundWMatchesParameterListModel.length) {
+      return true;
+    }
+    return false;
+  }
 }

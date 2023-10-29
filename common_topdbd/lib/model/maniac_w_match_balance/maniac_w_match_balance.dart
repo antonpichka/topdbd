@@ -19,6 +19,16 @@ base class ManiacWMatchBalance extends BaseModel {
   @override
   ManiacWMatchBalance get getClone => ManiacWMatchBalance(maniac.getClone,lengthPickManiacPerk, lengthPickSurvivorPerk, listMaps.getClone, listManiacPerk.getClone,listSurvivorPerk.getClone);
 
+  @override
+  String toString() {
+    return "ManiacWMatchBalance(maniac: $maniac, "
+        "lengthPickManiacPerk: $lengthPickManiacPerk, "
+        "lengthPickSurvivorPerk: $lengthPickSurvivorPerk, "
+        "ListMaps: ${listMaps.listModel}, "
+        "ListManiacPerk: ${listManiacPerk.listModel}, "
+        "ListSurvivorPerk: ${listSurvivorPerk.listModel})";
+  }
+
   bool isWhereNotEqualsParametersLengthPickManiacPerkAndListManiacPerk() {
     return lengthPickManiacPerk != listManiacPerk.listModel.length;
   }
@@ -32,15 +42,5 @@ base class ManiacWMatchBalance extends BaseModel {
       return false;
     }
     return lengthPickSurvivorPerk == listSurvivorPerk.listModel.length;
-  }
-
-  @override
-  String toString() {
-    return "ManiacWMatchBalance(Maniac: $maniac, "
-        "lengthPickManiacPerk: $lengthPickManiacPerk, "
-        "lengthPickSurvivorPerk: $lengthPickSurvivorPerk, "
-        "ListMaps: ${listMaps.listModel}, "
-        "ListManiacPerk: ${listManiacPerk.listModel}, "
-        "ListSurvivorPerk: ${listSurvivorPerk.listModel})";
   }
 }

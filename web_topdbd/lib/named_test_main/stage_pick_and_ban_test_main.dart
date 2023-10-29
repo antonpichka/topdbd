@@ -1121,7 +1121,7 @@ void _firstBranchOneQListViewModelMyManiacAndNextRoundWhereMyUniqueIdByUserWhere
 }
 
 void _secondBranchOneQListViewModelMyManiacAndNextRoundWhereMyUniqueIdByUserWhereFirst(Matches matches,String textLogAction) {
-  if(matches.isListFinishedRoundWhereMatchesWereWonByOneUserParameterListRoundWhereMatches()) {
+  if(matches.isWhereFinishedListRoundWMatchesAndWereWonByOneUser()) {
     final newTextLogAction = "$textLogAction\nSystem: completed match. Won Match '${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.isWinMatchesForUniqueIdByUserWhereFirstParameterListRoundWhereMatches() ? _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.firstUniqueIdByUser : _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.secondUniqueIdByUser}'";
     _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.matches = _dataSourceDataForListRoundTestMainEND(matches,newTextLogAction,_dataSourceGetStatsForUserWhereFirst,_dataSourceGetStatsForUserWhereSecond);
     _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.isLoadingForButton = false;
@@ -1217,7 +1217,7 @@ void _firstBranchOneQListViewModelMySurvivorAndNextRoundWhereMyUniqueIdByUserWhe
 }
 
 void _secondBranchOneQListViewModelMySurvivorAndNextRoundWhereMyUniqueIdByUserWhereFirst(Matches matches,String textLogAction) {
-  if(matches.isListFinishedRoundWhereMatchesWereWonByOneUserParameterListRoundWhereMatches()) {
+  if(matches.isWhereFinishedListRoundWMatchesAndWereWonByOneUser()) {
     final newTextLogAction = "$textLogAction\nSystem: completed match. Won Match '${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.isWinMatchesForUniqueIdByUserWhereFirstParameterListRoundWhereMatches() ? _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.firstUniqueIdByUser : _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.secondUniqueIdByUser}'";
     _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.matches = _dataSourceDataForListRoundTestMainEND(matches,newTextLogAction,_dataSourceGetStatsForUserWhereFirst,_dataSourceGetStatsForUserWhereSecond);
     _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.isLoadingForButton = false;
@@ -1681,7 +1681,7 @@ void _listViewModelFirstPickManiacPerkToManiac(ManiacPerk maniacPerk) {
   matches
       ?.insertManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromManiacPerkParametersTwo(maniacPerk.getClone);
   final textLogAction = "${matches?.textLogAction}\nPlayer: '${matches?.firstUniqueIdByUser}' picked maniac perk '${maniacPerk.perk.name}' to maniac '${matches?.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches.nameSurvivorPerk}'";
-  if(matches?.isPickManiacPerkForUniqueIdByUserWhereFirstEqualsLengthPickManiacPerkByMatchBalanceParametersListPickManiacWhereMatchesAndMatchBalance() ?? false) {
+  if(matches?.isWhereLengthPickManiacPerkEqualsNecessaryLengthPickManiacPerkParametersTwo() ?? false) {
     _firstBranchOneQListViewModelFirstPickManiacPerkToManiac(matches!,textLogAction);
     return;
   }
@@ -1736,7 +1736,7 @@ void _listViewModelSecondPickManiacPerkToManiac(ManiacPerk maniacPerk) {
   matches
       ?.insertManiacPerkWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereSecondFromManiacPerkParameterListPickManiacWhereMatches(maniacPerk.getClone);
   final textLogAction = "${matches?.textLogAction}\nPlayer: '${matches?.secondUniqueIdByUser}' picked maniac perk '${maniacPerk.perk.name}' to maniac '${matches?.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches.nameSurvivorPerk}'";
-  if(matches?.isPickManiacPerkForUniqueIdByUserWhereSecondEqualsLengthPickManiacPerkByMatchBalanceParametersListPickManiacWhereMatchesAndMatchBalance() ?? false) {
+  if(matches?.isWhereLengthPickManiacPerkEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST() ?? false) {
     _firstBranchOneQListViewModelSecondPickManiacPerkToManiac(matches!,textLogAction);
     return;
   }

@@ -6,7 +6,7 @@ final class AssetBundleService {
 
   AssetBundleService._();
 
-  AssetBundle? get getAssetBundle {
+  AssetBundle? get getParameterAssetBundle {
     if(_assetBundle != null) {
       return _assetBundle;
     }

@@ -49,7 +49,7 @@ final class _AppViewState
           }).toString(),
           callbackUrlScheme: "valid-callback-scheme");
       final responseDiscordOauth2Token = await httpClientService
-          .getHttpClient
+          .getParameterHttpClient
           ?.post(Uri.parse('https://discord.com/api/oauth2/token'),
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -68,7 +68,7 @@ final class _AppViewState
       }
       final jsonFromResponseDiscordOauth2Token = jsonDecode(responseDiscordOauth2Token!.body);
       final responseDiscordUser = await httpClientService
-          .getHttpClient
+          .getParameterHttpClient
           ?.get(Uri.parse('https://discord.com/api/users/@me'),
           headers: {
             'authorization': '${jsonFromResponseDiscordOauth2Token["token_type"]} ${jsonFromResponseDiscordOauth2Token["access_token"]}',

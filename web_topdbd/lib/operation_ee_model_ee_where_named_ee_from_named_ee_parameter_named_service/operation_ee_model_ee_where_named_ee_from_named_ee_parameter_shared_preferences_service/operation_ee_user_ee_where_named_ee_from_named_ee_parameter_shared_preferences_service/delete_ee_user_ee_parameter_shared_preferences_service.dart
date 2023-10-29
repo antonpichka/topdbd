@@ -14,7 +14,7 @@ base class DeleteEEUserEEParameterSharedPreferencesService<T extends User,Y exte
   Future<Result<bool>> deleteUserParameterSharedPreferencesService()
   async {
     try {
-      final sharedPreferences = await sharedPreferencesService.getSharedPreferences;
+      final sharedPreferences = await sharedPreferencesService.getParameterSharedPreferences;
       await sharedPreferences?.remove(KeysSharedPreferencesServiceUtility.userQQUniqueId);
       await sharedPreferences?.remove(KeysSharedPreferencesServiceUtility.userQQCreationTime);
       return Result<bool>.success(true);

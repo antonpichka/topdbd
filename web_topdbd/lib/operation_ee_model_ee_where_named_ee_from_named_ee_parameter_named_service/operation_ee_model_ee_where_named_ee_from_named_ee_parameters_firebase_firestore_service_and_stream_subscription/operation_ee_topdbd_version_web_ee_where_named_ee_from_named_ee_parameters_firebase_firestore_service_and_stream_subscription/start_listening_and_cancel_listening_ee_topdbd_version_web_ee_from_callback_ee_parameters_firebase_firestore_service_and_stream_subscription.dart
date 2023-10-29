@@ -16,7 +16,7 @@ base class StartListeningAndCancelListeningEETOPDBDVersionWebEEFromCallbackEEPar
   void startListeningTOPDBDVersionWebFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(Function(Result<T>) callback) {
     try {
       streamSubscription = firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.TOPDBDVersionWeb)
           .limit(1)
           .snapshots()

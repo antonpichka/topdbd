@@ -16,7 +16,7 @@ base class GetEEIPAddressEEWhereJsonipAPIEEParameterHttpClientService<T extends 
   async {
     try {
       final response = await httpClientService
-          .getHttpClient
+          .getParameterHttpClient
           ?.get(Uri.parse("https://jsonip.com/"));
       if(response?.statusCode != 200) {
         throw NetworkException.fromKeyAndStatusCode(this,response?.statusCode.toString() ?? "",response?.statusCode ?? 0);

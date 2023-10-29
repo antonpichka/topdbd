@@ -15,7 +15,7 @@ base class GetEECountryEEFromUniqueIdByUserEEParameterFirebaseFirestoreService<T
   async {
     try {
       final documentByCountry = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.country)
           .where(KeysFirebaseFirestoreServiceUtility.countryQQUniqueIdByUser,isEqualTo: parameter)
           .limit(1)

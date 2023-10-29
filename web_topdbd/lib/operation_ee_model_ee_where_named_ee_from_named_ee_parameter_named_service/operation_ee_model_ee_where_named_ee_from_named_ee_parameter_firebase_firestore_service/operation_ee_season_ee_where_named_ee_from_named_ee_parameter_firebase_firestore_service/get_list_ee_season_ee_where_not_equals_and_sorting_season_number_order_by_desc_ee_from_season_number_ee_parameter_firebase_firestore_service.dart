@@ -16,7 +16,7 @@ base class GetListEESeasonEEWhereNotEqualsAndSortingSeasonNumberOrderByDescEEFro
   async {
     try {
       final listDocumentBySeason = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.season)
           .where(KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber,isNotEqualTo: seasonNumber)
           .orderBy(KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber,descending: true)

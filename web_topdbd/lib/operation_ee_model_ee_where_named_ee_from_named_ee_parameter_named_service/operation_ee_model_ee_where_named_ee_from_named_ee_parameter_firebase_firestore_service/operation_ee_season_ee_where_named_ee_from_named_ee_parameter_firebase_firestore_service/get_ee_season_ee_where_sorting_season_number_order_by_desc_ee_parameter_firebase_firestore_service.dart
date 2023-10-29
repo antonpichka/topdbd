@@ -15,7 +15,7 @@ base class GetEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFi
   async {
     try {
       final documentBySeason = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.season)
           .orderBy(KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber,descending: true)
           .limit(1)

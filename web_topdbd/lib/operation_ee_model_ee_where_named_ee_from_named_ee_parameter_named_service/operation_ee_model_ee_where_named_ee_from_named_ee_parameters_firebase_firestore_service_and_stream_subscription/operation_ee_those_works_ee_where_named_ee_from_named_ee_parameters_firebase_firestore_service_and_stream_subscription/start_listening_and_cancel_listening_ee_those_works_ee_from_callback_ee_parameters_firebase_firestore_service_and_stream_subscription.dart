@@ -16,7 +16,7 @@ base class StartListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParameter
   void startListeningThoseWorksFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(Function(Result<T>) callback) {
     try {
       streamSubscription = firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.thoseWorks)
           .limit(1)
           .snapshots()

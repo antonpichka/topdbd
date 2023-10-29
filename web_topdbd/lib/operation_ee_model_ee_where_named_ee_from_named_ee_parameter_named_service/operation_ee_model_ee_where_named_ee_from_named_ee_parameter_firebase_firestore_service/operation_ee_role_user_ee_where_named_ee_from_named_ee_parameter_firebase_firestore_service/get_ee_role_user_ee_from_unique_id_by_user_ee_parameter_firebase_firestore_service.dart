@@ -15,7 +15,7 @@ base class GetEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService<
   async {
     try {
       final documentByRoleUser = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.roleUser)
           .where(KeysFirebaseFirestoreServiceUtility.roleUserQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)

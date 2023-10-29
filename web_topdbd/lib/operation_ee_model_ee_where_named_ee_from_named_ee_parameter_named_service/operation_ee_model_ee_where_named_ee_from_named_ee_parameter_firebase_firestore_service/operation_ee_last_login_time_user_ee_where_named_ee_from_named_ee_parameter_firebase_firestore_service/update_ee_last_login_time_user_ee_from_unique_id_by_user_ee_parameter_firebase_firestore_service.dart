@@ -16,7 +16,7 @@ base class UpdateEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFires
   async {
     try {
       final listDocumentByLastLoginTimeUser = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUser)
           .where(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
@@ -26,7 +26,7 @@ base class UpdateEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFires
       }
       final firstItemDocumentByLastLoginTimeUser = listDocumentByLastLoginTimeUser?.docs[0];
       await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUser)
           .doc(firstItemDocumentByLastLoginTimeUser?.id)
           .update({
@@ -34,7 +34,7 @@ base class UpdateEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFires
         KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQLastLoginTime : FieldValue.serverTimestamp(),
       });
       final listDocumentByLastLoginTimeUserTWO = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUser)
           .where(KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQUniqueIdByUser,isEqualTo: firstItemDocumentByLastLoginTimeUser?.data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQUniqueIdByUser])
           .limit(1)

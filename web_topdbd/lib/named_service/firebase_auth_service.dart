@@ -7,37 +7,30 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 final class FirebaseAuthService {
   static final FirebaseAuthService instance = FirebaseAuthService._();
   FirebaseAuth? _firebaseAuth;
-  bool _isExceptionInitialize = false;
 
   FirebaseAuthService._();
 
-  Future<void> initialize(FirebaseApp? firebaseApp)
+  Future<void> initializeFromFirebaseAppParameterFirebaseAuth(FirebaseApp firebaseApp)
   async {
     if(_firebaseAuth != null) {
       return;
     }
     try {
       _firebaseAuth = FirebaseAuth.instanceFor(
-          app: firebaseApp!);
+          app: firebaseApp);
       await _firebaseAuth?.signInWithEmailAndPassword(
           email: KeysAPIUtility.firebaseAuthQQEmail,
           password: KeysAPIUtility.firebaseAuthQQPassword);
     } catch(e) {
-      LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString());
-      _isExceptionInitialize = true;
+      throw LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString());
     }
-    return;
   }
 
-  FirebaseAuth? get getFirebaseAuth {
+  FirebaseAuth? get getParameterFirebaseAuth {
     if (_firebaseAuth != null) {
       return _firebaseAuth;
     }
     _firebaseAuth = FirebaseAuth.instance;
     return _firebaseAuth;
-  }
-
-  bool get getIsExceptionInitialize {
-    return _isExceptionInitialize;
   }
 }

@@ -15,7 +15,7 @@ base class GetEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFiresto
   async {
     try {
       final documentByDiscordUser = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
           .where(KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)

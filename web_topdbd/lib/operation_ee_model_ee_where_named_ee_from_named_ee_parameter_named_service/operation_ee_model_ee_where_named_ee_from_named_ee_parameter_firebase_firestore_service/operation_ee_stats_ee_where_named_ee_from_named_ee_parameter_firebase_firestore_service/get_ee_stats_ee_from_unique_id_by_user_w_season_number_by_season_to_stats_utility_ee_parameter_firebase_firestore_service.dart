@@ -16,7 +16,7 @@ base class GetEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEPa
   async {
     try {
       final documentByStats = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.stats)
           .where(KeysFirebaseFirestoreServiceUtility.statsQQUniqueIdByUser,isEqualTo: uniqueIdByUserWSeasonNumberBySeasonToStatsUtility.uniqueIdByUser)
           .where(KeysFirebaseFirestoreServiceUtility.statsQQSeasonNumberBySeason,isEqualTo: uniqueIdByUserWSeasonNumberBySeasonToStatsUtility.seasonNumberBySeason)

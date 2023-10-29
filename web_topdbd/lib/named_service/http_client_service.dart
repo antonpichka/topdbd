@@ -6,7 +6,7 @@ final class HttpClientService {
 
   HttpClientService._();
 
-  http.Client? get getHttpClient {
+  http.Client? get getParameterHttpClient {
     if (_httpClient != null) {
       return _httpClient;
     }

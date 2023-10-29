@@ -15,7 +15,7 @@ base class GetEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService<T
   async {
     try {
       final documentByAboutMe = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.aboutMe)
           .where(KeysFirebaseFirestoreServiceUtility.aboutMeQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)

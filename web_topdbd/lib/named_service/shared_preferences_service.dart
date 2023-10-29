@@ -6,7 +6,7 @@ final class SharedPreferencesService {
 
   SharedPreferencesService._();
 
-  Future<SharedPreferences?> get getSharedPreferences
+  Future<SharedPreferences?> get getParameterSharedPreferences
   async {
     if (_sharedPreferences != null) {
       return _sharedPreferences;

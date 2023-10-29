@@ -15,7 +15,7 @@ final class JsonipAPI {
   async {
     try {
       final response = await httpClientService
-          .getHttpClient
+          .getParameterHttpClient
           ?.get(Uri.parse("https://jsonip.com/"));
       if(response?.statusCode != 200) {
         throw LAMM.NetworkException.fromKeyAndStatusCode(this, response!.statusCode.toString(), response.statusCode);

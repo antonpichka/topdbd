@@ -6,33 +6,26 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 final class FirebaseFirestoreService {
   static final FirebaseFirestoreService instance = FirebaseFirestoreService._();
   FirebaseFirestore? _firebaseFirestore;
-  bool _isExceptionInitialize = false;
 
   FirebaseFirestoreService._();
 
-  Future<void> initialize(FirebaseApp? firebaseApp)
+  Future<void> initializeFromFirebaseAppParameterFirebaseFirestore(FirebaseApp firebaseApp)
   async {
     if (_firebaseFirestore != null) {
       return;
     }
     try {
-      _firebaseFirestore = FirebaseFirestore.instanceFor(app: firebaseApp!);
+      _firebaseFirestore = FirebaseFirestore.instanceFor(app: firebaseApp);
     } catch(e) {
-      LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString());
-      _isExceptionInitialize = true;
+      throw LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString());
     }
-    return;
   }
 
-  FirebaseFirestore? get getFirebaseFirestore {
+  FirebaseFirestore? get getParameterFirebaseFirestore {
     if (_firebaseFirestore != null) {
       return _firebaseFirestore;
     }
     _firebaseFirestore = FirebaseFirestore.instance;
     return _firebaseFirestore;
-  }
-
-  bool get getIsExceptionInitialize {
-    return _isExceptionInitialize;
   }
 }

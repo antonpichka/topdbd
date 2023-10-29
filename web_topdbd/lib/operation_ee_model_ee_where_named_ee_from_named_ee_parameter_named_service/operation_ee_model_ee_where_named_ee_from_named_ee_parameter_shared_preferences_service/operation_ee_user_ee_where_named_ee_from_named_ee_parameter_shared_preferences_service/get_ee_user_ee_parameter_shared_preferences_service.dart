@@ -14,7 +14,7 @@ base class GetEEUserEEParameterSharedPreferencesService<T extends User,Y extends
   Future<Result<T>> getUserParameterSharedPreferencesService()
   async {
     try {
-      final sharedPreferences = await sharedPreferencesService.getSharedPreferences;
+      final sharedPreferences = await sharedPreferencesService.getParameterSharedPreferences;
       final uniqueId = sharedPreferences?.getString(KeysSharedPreferencesServiceUtility.userQQUniqueId) ?? "";
       final creationTime = DateTime.fromMillisecondsSinceEpoch(sharedPreferences?.getInt(KeysSharedPreferencesServiceUtility.userQQCreationTime) ?? 0);
       return Result<T>.success(User(uniqueId,creationTime) as T);

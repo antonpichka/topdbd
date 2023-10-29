@@ -6,11 +6,10 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 final class FirebaseAppService {
   static final FirebaseAppService instance = FirebaseAppService._();
   FirebaseApp? _firebaseApp;
-  bool _isExceptionInitialize = false;
 
   FirebaseAppService._();
 
-  Future<void> initialize()
+  Future<void> initializeParameterFirebaseApp()
   async {
     if (_firebaseApp != null) {
       return;
@@ -23,21 +22,15 @@ final class FirebaseAppService {
     try {
       _firebaseApp = await Firebase.initializeApp(options: option);
     } catch(e) {
-      LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString());
-      _isExceptionInitialize = true;
+      throw LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString());
     }
-    return;
   }
 
-  FirebaseApp? get getFirebaseApp {
+  FirebaseApp? get getParameterFirebaseApp {
     if (_firebaseApp != null) {
       return _firebaseApp;
     }
     _firebaseApp = Firebase.app(KeysAPIUtility.firebaseQQProjectName);
     return _firebaseApp;
-  }
-
-  bool get getIsExceptionInitialize {
-    return _isExceptionInitialize;
   }
 }

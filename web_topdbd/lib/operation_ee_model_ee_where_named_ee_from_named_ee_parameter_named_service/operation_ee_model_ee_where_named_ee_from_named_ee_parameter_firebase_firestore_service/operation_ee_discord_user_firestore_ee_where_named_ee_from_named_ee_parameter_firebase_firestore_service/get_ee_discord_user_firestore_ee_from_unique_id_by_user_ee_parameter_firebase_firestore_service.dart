@@ -15,7 +15,7 @@ base class GetEEDiscordUserFirestoreEEFromUniqueIdByUserEEParameterFirebaseFires
   async {
     try {
       final documentByDiscordUser = await firebaseFirestoreService
-          .getFirebaseFirestore
+          .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.discordUser)
           .where(KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)

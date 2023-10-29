@@ -10,10 +10,10 @@ final class InitializeServiceUtility {
 
   static Future<String> init()
   async {
-    await FirebaseAppService.instance.initialize();
-    final firebaseApp = FirebaseAppService.instance.getFirebaseApp;
-    await FirebaseAuthService.instance.initialize(firebaseApp);
-    await FirebaseFirestoreService.instance.initialize(firebaseApp);
+    await FirebaseAppService.instance.initializeParameterFirebaseApp();
+    final firebaseApp = FirebaseAppService.instance.getParameterFirebaseApp!;
+    await FirebaseAuthService.instance.initializeFromFirebaseAppParameterFirebaseAuth(firebaseApp);
+    await FirebaseFirestoreService.instance.initializeFromFirebaseAppParameterFirebaseFirestore(firebaseApp);
     return KeysSuccessUtility.sUCCESS;
   }
 }

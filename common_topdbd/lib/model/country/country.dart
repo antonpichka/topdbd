@@ -10,4 +10,10 @@ base class Country extends BaseModel {
 
   @override
   Country get getClone => Country(uniqueIdByUser,nameCountry);
+
+  @override
+  String toString() {
+    return "Country(uniqueIdByUser: $uniqueIdByUser, "
+        "nameCountry: $nameCountry)";
+  }
 }

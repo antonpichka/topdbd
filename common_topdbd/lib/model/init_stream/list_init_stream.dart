@@ -15,16 +15,16 @@ base class ListInitStream<T extends InitStream> extends BaseListModel<T> {
     return ListInitStream<T>(newListModel);
   }
 
-  InitStream getInitStreamFromNameStreamParameterListModel(String nameStream) {
-    InitStream? currentInitStream;
-    for(InitStream initStream in listModel) {
+  T getInitStreamFromNameStreamParameterListModel(String nameStream) {
+    T? currentInitStream;
+    for(T initStream in listModel) {
       if(initStream.nameStream != nameStream) {
         continue;
       }
-      currentInitStream = initStream.getClone;
+      currentInitStream = initStream.getClone as T;
       break;
     }
-    return currentInitStream ?? InitStream("",false);
+    return currentInitStream!;
   }
 
   void updateFromNameStreamAndIsInitStreamParameterListModel(String nameStream,bool isInitStream) {

@@ -30,7 +30,7 @@ final class _MainViewState extends State<MainView> {
   void initState() {
     _mainViewModel = MainViewModel();
     super.initState();
-    _init();
+    _initParameterMainViewModel();
   }
 
   @override
@@ -41,7 +41,7 @@ final class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    final rvDrawerToMainView = ResponsiveValue<Drawer?>(
+    final value = ResponsiveValue<Drawer?>(
         context,
         conditionalValues: [
           Condition.equals(name: TABLET, value: Drawer(child: DrawerToMainView())),
@@ -76,7 +76,7 @@ final class _MainViewState extends State<MainView> {
                   ),
                 ),
               ),
-              drawer: rvDrawerToMainView,
+              drawer: value,
               body: FooterView(
                 footer: Footer(
                   backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
@@ -156,7 +156,7 @@ final class _MainViewState extends State<MainView> {
     }
   }
 
-  Future<void> _init()
+  Future<void> _initParameterMainViewModel()
   async {
     _mainViewModel
         .getStreamDataForNamedParameterNamedStreamWState

@@ -11,4 +11,11 @@ base class CountryTC extends BaseModel {
 
   @override
   CountryTC get getClone => CountryTC(countryAbbreviation, nameCountry, pathToTheIcon);
+
+  @override
+  String toString() {
+    return "CountryTC(countryAbbreviation: $countryAbbreviation, "
+        "nameCountry: $nameCountry, "
+        "pathToTheIcon: $pathToTheIcon)";
+  }
 }

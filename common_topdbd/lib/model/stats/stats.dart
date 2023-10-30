@@ -13,4 +13,13 @@ base class Stats extends BaseModel {
 
   @override
   Stats get getClone => Stats(uniqueIdByUser, seasonNumberBySeason, matchesWon, matchesLost, ratingPoints);
+
+  @override
+  String toString() {
+    return "Stats(uniqueIdByUser: $uniqueIdByUser, "
+        "seasonNumberBySeason: $seasonNumberBySeason, "
+        "matchesWon: $matchesWon, "
+        "matchesLost: $matchesLost, "
+        "ratingPoints: $ratingPoints)";
+  }
 }

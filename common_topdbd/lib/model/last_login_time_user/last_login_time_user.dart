@@ -10,4 +10,10 @@ base class LastLoginTimeUser extends BaseModel {
 
   @override
   LastLoginTimeUser get getClone => LastLoginTimeUser(uniqueIdByUser,lastLoginTime);
+
+  @override
+  String toString() {
+    return "LastLoginTimeUser(uniqueIdByUser: $uniqueIdByUser, "
+        "lastLoginTime: $lastLoginTime)";
+  }
 }

@@ -11,4 +11,11 @@ base class RoleUser extends BaseModel {
 
   @override
   RoleUser get getClone => RoleUser(uniqueIdByUser,isAdmin,isTest);
+
+  @override
+  String toString() {
+    return "RoleUser(uniqueIdByUser: $uniqueIdByUser, "
+        "isAdmin: $isAdmin, "
+        "isTest: $isTest)";
+  }
 }

@@ -5,7 +5,7 @@ import 'package:uuid/uuid.dart';
 final class AlgorithmsUtility {
   const AlgorithmsUtility._();
 
-  static String get getV1ByUuidParameterString {
+  static String get getStringWhereV1ByUuid {
     return const Uuid().v1();
   }
 }

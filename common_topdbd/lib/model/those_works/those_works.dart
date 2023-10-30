@@ -9,4 +9,9 @@ base class ThoseWorks extends BaseModel {
 
   @override
   ThoseWorks get getClone => ThoseWorks(isThoseWorks);
+
+  @override
+  String toString() {
+    return "ThoseWorks(isThoseWorks: $isThoseWorks)";
+  }
 }

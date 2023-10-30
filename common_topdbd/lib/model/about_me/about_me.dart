@@ -10,4 +10,10 @@ base class AboutMe extends BaseModel {
 
   @override
   AboutMe get getClone => AboutMe(uniqueIdByUser,codeDBD);
+
+  @override
+  String toString() {
+    return "AboutMe(uniqueIdByUser: $uniqueIdByUser, "
+        "codeDBD: $codeDBD)";
+  }
 }

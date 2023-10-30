@@ -18,7 +18,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
   void initState() {
     _antiDDosSystemViewModel = AntiDDosSystemViewModel();
     super.initState();
-    _init();
+    _initParameterAntiDDosSystemViewModel();
   }
 
   @override
@@ -29,22 +29,22 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
 
   @override
   Widget build(BuildContext context) {
-    final dataForNamed = _antiDDosSystemViewModel.getDataForNamedParameterNamedStreamWState;
-    final rvWidgetForm = ResponsiveValue<Widget>(
+    final dataForNamedParameterNamedStreamWState = _antiDDosSystemViewModel.getDataForNamedParameterNamedStreamWState;
+    final value = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
-          Condition.equals(name: MOBILE, value: _buildForm(context,dataForNamed,200,18,18,60)),
-          Condition.equals(name: TABLET, value: _buildForm(context,dataForNamed,300,24,24,70)),
-          Condition.equals(name: DESKTOP, value: _buildForm(context,dataForNamed,400,40,40,200)),
+          Condition.equals(name: MOBILE, value: _getWidgetWhereFormFromSixParameterAntiDDosSystemViewModel(context,dataForNamedParameterNamedStreamWState,200,18,18,60)),
+          Condition.equals(name: TABLET, value: _getWidgetWhereFormFromSixParameterAntiDDosSystemViewModel(context,dataForNamedParameterNamedStreamWState,300,24,24,70)),
+          Condition.equals(name: DESKTOP, value: _getWidgetWhereFormFromSixParameterAntiDDosSystemViewModel(context,dataForNamedParameterNamedStreamWState,400,40,40,200)),
         ]
     ).value ?? Container();
-    switch(dataForNamed.getEnumDataForNamed) {
+    switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
       case EnumDataForAntiDDosSystemView.isLoading:
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
       case EnumDataForAntiDDosSystemView.exception:
-        return Scaffold(body: Center(child: Text("Exception: ${dataForNamed.exceptionController.getKeyParameterException}")));
+        return Scaffold(body: Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}")));
       case EnumDataForAntiDDosSystemView.form:
-        return rvWidgetForm;
+        return value;
       case EnumDataForAntiDDosSystemView.success:
         return Container();
       default:
@@ -52,7 +52,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
     }
   }
 
-  Widget _buildForm(BuildContext context,DataForAntiDDosSystemView dataForNamed,double sizedBoxWidth,double textSize,double textButtonSize,double inputDecorationMaxHeight) {
+  Widget _getWidgetWhereFormFromSixParameterAntiDDosSystemViewModel(BuildContext context,DataForAntiDDosSystemView dataForNamedParameterNamedStreamWState,double sizedBoxWidth,double textSize,double textButtonSize,double inputDecorationMaxHeight) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -65,7 +65,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        dataForNamed.code,
+                        dataForNamedParameterNamedStreamWState.code,
                         style: TextStyle(
                           fontSize: textSize,
                           fontWeight: FontWeight.w400,
@@ -75,7 +75,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: TextFormField(
-                          initialValue: dataForNamed.inputCode,
+                          initialValue: dataForNamedParameterNamedStreamWState.inputCode,
                           maxLength: 8,
                           decoration: InputDecoration(
                             constraints: BoxConstraints(maxHeight: inputDecorationMaxHeight),
@@ -134,7 +134,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
     );
   }
 
-  Future<void> _init() async {
+  Future<void> _initParameterAntiDDosSystemViewModel() async {
     _antiDDosSystemViewModel
         .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {

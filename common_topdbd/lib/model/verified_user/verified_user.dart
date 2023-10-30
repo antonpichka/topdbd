@@ -12,9 +12,15 @@ base class VerifiedUser extends BaseModel {
   @override
   VerifiedUser get getClone => VerifiedUser(uniqueIdByUser,isVerifiedUser);
 
-  String get getExceptionInStringWhereFalseParameterIsVerifiedUser {
+  @override
+  String toString() {
+    return "VerifiedUser(uniqueIdByUser: $uniqueIdByUser, "
+        "isVerifiedUser: $isVerifiedUser)";
+  }
+
+  String get getExceptionInStringWhereUsingIsWNotVerifiedUserWIsVerifiedUser {
     if(isWhereNotVerifiedUserParameterIsVerifiedUser()) {
-      return KeysExceptionUtility.verifiedUserQQGetExceptionInStringWhereFalseParameterIsVerifiedUser;
+      return KeysExceptionUtility.verifiedUserQQGetExceptionInStringWhereUsingIsWNotVerifiedUserWIsVerifiedUser;
     }
     return "";
   }

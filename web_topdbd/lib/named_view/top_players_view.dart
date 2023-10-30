@@ -99,9 +99,9 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
                       return buildButtonMoreDataToListView();
                     }*/
                     if(index == 0) {
-                      return _buildHeaderToListView(index,"Vicar32");
+                      return _getHeaderToListViewWhereItemToListViewFromIndexAndUsername(index,"Vicar32");
                     }
-                    return _buildItemToListView(index,"Vicar32");
+                    return _getItemToListViewFromIndexAndUsername(index,"Vicar32");
                   },
                   separatorBuilder: (context,index) {
                     return Container(
@@ -118,7 +118,7 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
     );
   }
 
-  Widget _buildHeaderToListView(int index,String username) {
+  Widget _getHeaderToListViewWhereItemToListViewFromIndexAndUsername(int index,String username) {
     return Column(
       children: [
         Row(
@@ -159,12 +159,12 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
           ],
         ),
         const Divider(height: 2.0,thickness: 2.0,),
-        _buildItemToListView(index,username),
+        _getItemToListViewFromIndexAndUsername(index,username),
       ],
     );
   }
 
-  Widget _buildItemToListView(int index,String username) {
+  Widget _getItemToListViewFromIndexAndUsername(int index,String username) {
     return Row(
       children: [
         Expanded(

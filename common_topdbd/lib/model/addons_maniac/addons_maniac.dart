@@ -11,4 +11,11 @@ base class AddonsManiac extends BaseModel {
 
   @override
   AddonsManiac get getClone => AddonsManiac(name,nameByManiac,imagePath);
+
+  @override
+  String toString() {
+    return "AddonsManiac(name: $name, "
+        "nameByManiac: $nameByManiac, "
+        "imagePath: $imagePath)";
+  }
 }

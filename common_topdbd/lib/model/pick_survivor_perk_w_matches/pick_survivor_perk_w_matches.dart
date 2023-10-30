@@ -13,6 +13,7 @@ base class PickSurvivorPerkWMatches extends BaseModel {
 
   @override
   String toString() {
-    return "PickSurvivorPerkWMatches(nameSurvivorPerk: $nameSurvivorPerk, uniqueIdByUser: $uniqueIdByUser)";
+    return "PickSurvivorPerkWMatches(nameSurvivorPerk: $nameSurvivorPerk, "
+        "uniqueIdByUser: $uniqueIdByUser)";
   }
 }

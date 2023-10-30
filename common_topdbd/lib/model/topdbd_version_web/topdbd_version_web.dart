@@ -11,6 +11,11 @@ base class TOPDBDVersionWeb extends BaseModel {
   @override
   TOPDBDVersionWeb get getClone => TOPDBDVersionWeb(version);
 
+  @override
+  String toString() {
+    return "TOPDBDVersionWeb(version: $version)";
+  }
+
   String getExceptionInStringWhereNotEqualsFromVersionParameterVersion(String version) {
     if(this.version != version) {
       return KeysExceptionUtility.tOPDBDVersionWebQQGetExceptionInStringWhereNotEqualsFromVersionParameterVersion;

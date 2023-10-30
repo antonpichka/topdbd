@@ -10,4 +10,10 @@ base class InitStream extends BaseModel {
 
   @override
   InitStream get getClone => InitStream(nameStream,isInitStream);
+
+  @override
+  String toString() {
+    return "InitStream(nameStream: $nameStream, "
+        "isInitStream: $isInitStream)";
+  }
 }

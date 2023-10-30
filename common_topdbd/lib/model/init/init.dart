@@ -9,4 +9,9 @@ base class Init extends BaseModel {
 
   @override
   Init get getClone => Init(isInit);
+
+  @override
+  String toString() {
+    return "Init(isInit: $isInit)";
+  }
 }

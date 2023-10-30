@@ -6,7 +6,7 @@ import 'package:meta/meta.dart';
 final class AlgorithmsUtility {
   const AlgorithmsUtility._();
 
-  static String getRandomNumbersFromNumberOfScrollsParameterString(int numberOfScrolls) {
+  static String getStringWhereRandomNumbersFromNumberOfScrolls(int numberOfScrolls) {
     String result = "";
     final rng = math.Random();
     for (var i = 0; i < numberOfScrolls; i++) {

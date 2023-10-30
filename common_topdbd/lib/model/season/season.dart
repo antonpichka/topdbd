@@ -13,4 +13,13 @@ base class Season extends BaseModel {
 
   @override
   Season get getClone => Season(seasonNumber, strNumberOfMatchesPlayedPerSeason, strNumberOfUniquePlayersWhoPlayedInASeason,startOfSeasonTime, endOfSeasonTime);
+
+  @override
+  String toString() {
+    return "Season(seasonNumber: $seasonNumber, "
+        "strNumberOfMatchesPlayedPerSeason: $strNumberOfMatchesPlayedPerSeason, "
+        "strNumberOfUniquePlayersWhoPlayedInASeason: $strNumberOfUniquePlayersWhoPlayedInASeason, "
+        "startOfSeasonTime: $startOfSeasonTime, "
+        "endOfSeasonTime: $endOfSeasonTime)";
+  }
 }

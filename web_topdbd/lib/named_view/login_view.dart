@@ -19,7 +19,7 @@ final class _LoginViewState extends State<LoginView> {
     _loginViewModel = LoginViewModel();
     _scrollController = ScrollController();
     super.initState();
-    _init();
+    _initParameterLoginViewModel();
   }
 
   @override
@@ -31,28 +31,28 @@ final class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    final dataForNamed = _loginViewModel.getDataForNamedParameterNamedStreamWState;
-    final login = ResponsiveValue<Widget>(
+    final dataForNamedParameterNamedStreamWState = _loginViewModel.getDataForNamedParameterNamedStreamWState;
+    final value = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
-          Condition.equals(name: MOBILE, value: _buildLogin(context,dataForNamed,250,230,150)),
-          Condition.equals(name: TABLET, value: _buildLogin(context,dataForNamed,300,280,170)),
-          Condition.equals(name: DESKTOP, value: _buildLogin(context,dataForNamed,400,380,200)),
+          Condition.equals(name: MOBILE, value: _getLoginFromFiveParametersTwo(context,dataForNamedParameterNamedStreamWState,250,230,150)),
+          Condition.equals(name: TABLET, value: _getLoginFromFiveParametersTwo(context,dataForNamedParameterNamedStreamWState,300,280,170)),
+          Condition.equals(name: DESKTOP, value: _getLoginFromFiveParametersTwo(context,dataForNamedParameterNamedStreamWState,400,380,200)),
         ]
     ).value ?? Container();
-    switch(dataForNamed.getEnumDataForNamed) {
+    switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
       case EnumDataForLoginView.isLoading:
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
       case EnumDataForLoginView.exception:
-        return Scaffold(body: Center(child: Text("Exception: ${dataForNamed.exceptionController.getKeyParameterException}")));
+        return Scaffold(body: Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}")));
       case EnumDataForLoginView.login:
-        return login;
+        return value;
       default:
         return Container();
     }
   }
 
-  Widget _buildLogin(BuildContext context,DataForLoginView dataForNamed,double sizedBoxWidthLogin,double discordButtonWidth,double sizedBoxHeightTermsOfUse) {
+  Widget _getLoginFromFiveParametersTwo(BuildContext context,DataForLoginView dataForNamedParameterNamedStreamWState,double sizedBoxWidthLogin,double discordButtonWidth,double sizedBoxHeightTermsOfUse) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -78,7 +78,7 @@ final class _LoginViewState extends State<LoginView> {
                               color: Colors.black,
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(dataForNamed.termsOfUse),
+                                child: Text(dataForNamedParameterNamedStreamWState.termsOfUse),
                               ),
                             ),
                           ),
@@ -96,7 +96,7 @@ final class _LoginViewState extends State<LoginView> {
                               child: Checkbox(
                                   checkColor: Theme.of(context).colorScheme.secondary,
                                   activeColor: Theme.of(context).colorScheme.primary,
-                                  value: dataForNamed.isCheckAgreeTermsOfUse,
+                                  value: dataForNamedParameterNamedStreamWState.isCheckAgreeTermsOfUse,
                                   onChanged: (value) {
                                     _loginViewModel.checkParametersZero(value);
                                   }),
@@ -106,7 +106,7 @@ final class _LoginViewState extends State<LoginView> {
                         ),
                       ),
                       const SizedBox(height: 5,),
-                      dataForNamed.isCheckAgreeTermsOfUse ? SignInButton(
+                      dataForNamedParameterNamedStreamWState.isCheckAgreeTermsOfUse ? SignInButton(
                         width: discordButtonWidth,
                         button: Button.Discord,
                         text: 'Sign in with Discord',
@@ -119,7 +119,7 @@ final class _LoginViewState extends State<LoginView> {
             ],),),),);
   }
 
-  Future<void> _init()
+  Future<void> _initParameterLoginViewModel()
   async {
     _loginViewModel
         .getStreamDataForNamedParameterNamedStreamWState

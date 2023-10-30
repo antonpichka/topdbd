@@ -14,7 +14,7 @@ final class AntiDDosSystemViewModel extends BaseNamedViewModel<DataForAntiDDosSy
   @override
   Future<String> init() async {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
-    getDataForNamedParameterNamedStreamWState.code = AlgorithmsUtility.getRandomNumbersFromNumberOfScrollsParameterString(8);
+    getDataForNamedParameterNamedStreamWState.code = AlgorithmsUtility.getStringWhereRandomNumbersFromNumberOfScrolls(8);
     return KeysSuccessUtility.sUCCESS;
   }
 

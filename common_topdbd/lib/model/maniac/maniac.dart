@@ -13,6 +13,7 @@ base class Maniac extends BaseModel {
 
   @override
   String toString() {
-    return "Maniac(name: $name, imagePath: $imagePath)";
+    return "Maniac(name: $name, "
+        "imagePath: $imagePath)";
   }
 }

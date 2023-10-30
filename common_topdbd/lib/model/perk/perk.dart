@@ -13,6 +13,7 @@ base class Perk extends BaseModel {
 
   @override
   String toString() {
-    return "Perk(name: $name, imagePath: $imagePath)";
+    return "Perk(name: $name, "
+        "imagePath: $imagePath)";
   }
 }

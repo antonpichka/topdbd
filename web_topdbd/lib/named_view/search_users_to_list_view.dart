@@ -56,9 +56,9 @@ final class _SearchUsersToListViewState extends State<SearchUsersToListView> {
                   itemCount: 100,
                   itemBuilder: (context,index) {
                     if(index == 0) {
-                      return _buildHeaderToListView(index,"Vicar32");
+                      return _getHeaderToListViewWhereItemToListViewFromIndexAndUsername(index,"Vicar32");
                     }
-                    return _buildItemToListView(index,"Vicar32");
+                    return _getItemToListViewWhereItemRoleToListViewFromIndexAndUsername(index,"Vicar32");
                   },
                   separatorBuilder: (context,index) {
                     return Container(
@@ -75,7 +75,7 @@ final class _SearchUsersToListViewState extends State<SearchUsersToListView> {
     );
   }
 
-  Widget _buildHeaderToListView(int index,String username) {
+  Widget _getHeaderToListViewWhereItemToListViewFromIndexAndUsername(int index,String username) {
     return Column(
       children: [
         Row(
@@ -96,12 +96,12 @@ final class _SearchUsersToListViewState extends State<SearchUsersToListView> {
           ],
         ),
         const Divider(height: 2.0,thickness: 2.0,),
-        _buildItemToListView(index,username),
+        _getItemToListViewWhereItemRoleToListViewFromIndexAndUsername(index,username),
       ],
     );
   }
 
-  Widget _buildItemToListView(int index,String username) {
+  Widget _getItemToListViewWhereItemRoleToListViewFromIndexAndUsername(int index,String username) {
     return Row(
       children: [
         Expanded(
@@ -134,7 +134,7 @@ final class _SearchUsersToListViewState extends State<SearchUsersToListView> {
         Expanded(
             child: Wrap(
               children: List<Widget>.generate(3, (int index) {
-                return _buildItemRoleToListView(index, "Admin");
+                return _getItemRoleToListViewFromIndexAndRole(index, "Admin");
               }),
             )
         ),
@@ -142,7 +142,7 @@ final class _SearchUsersToListViewState extends State<SearchUsersToListView> {
     );
   }
 
-  Widget _buildItemRoleToListView(int index,String role) {
+  Widget _getItemRoleToListViewFromIndexAndRole(int index,String role) {
     return Padding(
       padding: const EdgeInsets.only(right: 5.0),
       child: ElevatedButton(

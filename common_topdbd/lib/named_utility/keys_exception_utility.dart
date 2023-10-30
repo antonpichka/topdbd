@@ -69,7 +69,7 @@ final class KeysExceptionUtility {
   /* TOPDBDVersionWeb */
   static const String tOPDBDVersionWebQQGetExceptionInStringWhereNotEqualsFromVersionParameterVersion = "tOPDBDVersionWebQQGetExceptionInStringWhereNotEqualsFromVersionParameterVersion";
   /* VerifiedUser */
-  static const String verifiedUserQQGetExceptionInStringWhereFalseParameterIsVerifiedUser = "verifiedUserQQGetExceptionInStringWhereFalseParameterIsVerifiedUser";
+  static const String verifiedUserQQGetExceptionInStringWhereUsingIsWNotVerifiedUserWIsVerifiedUser = "verifiedUserQQGetExceptionInStringWhereUsingIsWNotVerifiedUserWIsVerifiedUser";
 
   const KeysExceptionUtility._();
 }

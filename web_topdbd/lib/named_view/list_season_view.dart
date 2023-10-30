@@ -23,15 +23,15 @@ final class _ListSeasonViewState extends State<ListSeasonView> {
 
   @override
   Widget build(BuildContext context) {
-    final rvDoubleWidthSizedBox = ResponsiveValue<double>(
+    final value = ResponsiveValue<double>(
         context,
         conditionalValues: [
           Condition.equals(name: MOBILE, value: 1.0),
           Condition.equals(name: TABLET, value: 1.0),
           Condition.equals(name: DESKTOP,value: 2.1),
-        ]).value ?? 2.1;
+        ]).value ?? 0.0;
     return SizedBox(
-      width: MediaQuery.of(context).size.width / rvDoubleWidthSizedBox,
+      width: MediaQuery.of(context).size.width / value,
       child: Card(
         color: Theme.of(context).colorScheme.surface,
         child: Column(
@@ -76,7 +76,7 @@ final class _ListSeasonViewState extends State<ListSeasonView> {
                       scrollDirection: Axis.vertical,
                       itemCount: 10,
                       itemBuilder: (context,index) {
-                        return _buildItemToListView("1","Sep 1, 2023","Sep 30, 2023","120","10");
+                        return _getItemToListViewFromFive("1","Sep 1, 2023","Sep 30, 2023","120","10");
                       },
                       separatorBuilder: (context,index) {
                         return  Container(
@@ -95,7 +95,7 @@ final class _ListSeasonViewState extends State<ListSeasonView> {
     );
   }
 
-  Widget _buildItemToListView(String name,String startOfSeasonTime,String endOfSeasonTime,String strNumberOfMatchesPlayedPerSeason,String strNumberOfUniquePlayersWhoPlayedInASeason) {
+  Widget _getItemToListViewFromFive(String name,String startOfSeasonTime,String endOfSeasonTime,String strNumberOfMatchesPlayedPerSeason,String strNumberOfUniquePlayersWhoPlayedInASeason) {
     return ListTile(
       onTap: () {
 

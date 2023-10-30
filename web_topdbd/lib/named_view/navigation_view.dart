@@ -25,15 +25,15 @@ final class _NavigationViewState extends State<NavigationView> {
 
   @override
   Widget build(BuildContext context) {
-    final rvDoubleWidthSizedBox = ResponsiveValue<double>(
+    final value = ResponsiveValue<double>(
         context,
         conditionalValues: [
           Condition.equals(name: MOBILE, value: 1.0),
           Condition.equals(name: TABLET, value: 1.0),
           Condition.equals(name: DESKTOP,value: 1.05),
-        ]).value ?? 1.05;
+        ]).value ?? 0.0;
     return SizedBox(
-      width: MediaQuery.of(context).size.width / rvDoubleWidthSizedBox,
+      width: MediaQuery.of(context).size.width / value,
       child: Card(
         color: Theme.of(context).colorScheme.surface,
         child: Column(

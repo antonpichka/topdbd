@@ -13,6 +13,7 @@ base class Maps extends BaseModel {
 
   @override
   String toString() {
-    return "Maps(name: $name, imagePath: $imagePath)";
+    return "Maps(name: $name, "
+        "imagePath: $imagePath)";
   }
 }

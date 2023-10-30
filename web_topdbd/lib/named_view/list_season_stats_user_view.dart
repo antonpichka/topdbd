@@ -23,15 +23,15 @@ final class _ListSeasonStatsUserViewState extends State<ListSeasonStatsUserView>
 
   @override
   Widget build(BuildContext context) {
-    final rvDoubleWidthSizedBox = ResponsiveValue<double>(
+    final value = ResponsiveValue<double>(
         context,
         conditionalValues: [
           Condition.equals(name: MOBILE, value: 1.0),
           Condition.equals(name: TABLET, value: 1.0),
           Condition.equals(name: DESKTOP,value: 2.1),
-        ]).value;
+        ]).value ?? 0.0;
     return SizedBox(
-      width: MediaQuery.of(context).size.width / rvDoubleWidthSizedBox!,
+      width: MediaQuery.of(context).size.width / value,
       child: Card(
         color: Theme.of(context).colorScheme.surface,
         child: Column(
@@ -80,7 +80,7 @@ final class _ListSeasonStatsUserViewState extends State<ListSeasonStatsUserView>
                         scrollDirection: Axis.vertical,
                         itemCount: 9,
                         itemBuilder: (context,index) {
-                          return _buildItemToListView("1","10","0","300");
+                          return _getItemToListViewFromNameAndMatchesWonAndMatchesLostAndRatingPoints("1","10","0","300");
                         },
                         separatorBuilder: (context,index) {
                           return  Container(
@@ -98,7 +98,7 @@ final class _ListSeasonStatsUserViewState extends State<ListSeasonStatsUserView>
     );
   }
 
-  Widget _buildItemToListView(String name,String matchesWon,String matchesLost,String ratingPoints) {
+  Widget _getItemToListViewFromNameAndMatchesWonAndMatchesLostAndRatingPoints(String name,String matchesWon,String matchesLost,String ratingPoints) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(

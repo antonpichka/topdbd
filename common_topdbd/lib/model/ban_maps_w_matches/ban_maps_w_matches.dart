@@ -13,6 +13,7 @@ base class BanMapsWMatches extends BaseModel {
 
   @override
   String toString() {
-    return "BanMapsWMatches(nameBannedMaps: $nameBannedMaps, uniqueIdByUser: $uniqueIdByUser)";
+    return "BanMapsWMatches(nameBannedMaps: $nameBannedMaps, "
+        "uniqueIdByUser: $uniqueIdByUser)";
   }
 }

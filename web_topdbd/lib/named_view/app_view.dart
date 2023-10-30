@@ -23,7 +23,7 @@ final class _AppViewState extends State<AppView> {
   void initState() {
     _appViewModel = AppViewModel();
     super.initState();
-    _init();
+    _initParameterAppViewModel();
   }
 
   @override
@@ -56,7 +56,7 @@ final class _AppViewState extends State<AppView> {
     );
   }
 
-  Future<void> _init()
+  Future<void> _initParameterAppViewModel()
   async {
     _appViewModel
         .getStreamDataForNamedParameterNamedStreamWState
@@ -83,139 +83,139 @@ final class _AppViewState extends State<AppView> {
                 return Container(color: FlutterThemeUtility.darkBackgroundColor);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state);
+                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
               }
           ),
           GoRoute(
               path: '/loading',
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPage(context,state);
+                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state);
+                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
               }
           ),
           GoRoute(
               path: '/exception',
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPage(context,state);
+                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state);
+                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
               }
           ),
           GoRoute(
               path: '/otherException',
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPage(context,state);
+                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state);
+                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
               }
           ),
           GoRoute(
               path: '/thoseWorks',
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPage(context,state);
+                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state);
+                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
               }
           ),
           GoRoute(
               path: '/newVersion',
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPage(context,state);
+                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state);
+                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
               }
           ),
           GoRoute(
               path: '/login',
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPage(context,state);
+                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state);
+                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
               }
           ),
           GoRoute(
               path: '/notVerifiedUser',
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPage(context,state);
+                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state);
+                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
               }
           ),
           GoRoute(
               path: '/hacked',
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPage(context,state);
+                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state);
+                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
               }
           ),
           /// In other class (launch)
           GoRoute(
               path: KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers,
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPage(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers);
+                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers);
+                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers);
               }
           ),
           GoRoute(
               path: KeysNavigationUtility.selectedNavigationItemViewQQBalance,
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPage(context,state,KeysNavigationUtility.selectedNavigationItemViewQQBalance);
+                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQBalance);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state,KeysNavigationUtility.selectedNavigationItemViewQQBalance);
+                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQBalance);
               }
           ),
           GoRoute(
               path: KeysNavigationUtility.selectedNavigationItemViewQQTournaments,
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPage(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTournaments);
+                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTournaments);
               },
               redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrl(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTournaments);
+                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTournaments);
               }
           ),
         ]);
   }
 
-  MaterialPage _getChoicedMaterialPage(BuildContext context,GoRouterState state, [String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers, String id = KeysParametersToNavigationUtility.appViewQId]) {
+  MaterialPage _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(BuildContext context,GoRouterState state, [String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers, String id = KeysParametersToNavigationUtility.appViewQId]) {
     final dataForNamed = _appViewModel.getDataForNamedParameterNamedStreamWState;
-    final rvWidgetThoseWorks = ResponsiveValue<Widget>(
+    final value = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
-          Condition.equals(name: MOBILE, value: _buildThoseWorks(context,250,18)),
-          Condition.equals(name: TABLET, value: _buildThoseWorks(context,300,24)),
-          Condition.equals(name: DESKTOP, value: _buildThoseWorks(context,400,30)),
+          Condition.equals(name: MOBILE, value: _getWidgetWhereThoseWorksFromContextAndSizedBoxWidthAndTextSize(context,250,18)),
+          Condition.equals(name: TABLET, value: _getWidgetWhereThoseWorksFromContextAndSizedBoxWidthAndTextSize(context,300,24)),
+          Condition.equals(name: DESKTOP, value: _getWidgetWhereThoseWorksFromContextAndSizedBoxWidthAndTextSize(context,400,30)),
         ]
     ).value ?? Container();
-    final rvWidgetIsNotValidVersionTOPDBDVersionWeb = ResponsiveValue<Widget>(
+    final valueFIRST = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
-          Condition.equals(name: MOBILE, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForNamed.versionByTOPDBDVersionWeb,250,18)),
-          Condition.equals(name: TABLET, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForNamed.versionByTOPDBDVersionWeb,300,24)),
-          Condition.equals(name: DESKTOP, value: _buildIsNotValidVersionTOPDBDVersionWeb(context,dataForNamed.versionByTOPDBDVersionWeb,400,30)),
+          Condition.equals(name: MOBILE, value: _getWidgetWhereNotValidTOPDBDVersionWebFromContextAndVersionByTOPDBDVersionWebAndSizedBoxWidthAndTextSize(context,dataForNamed.versionByTOPDBDVersionWeb,250,18)),
+          Condition.equals(name: TABLET, value: _getWidgetWhereNotValidTOPDBDVersionWebFromContextAndVersionByTOPDBDVersionWebAndSizedBoxWidthAndTextSize(context,dataForNamed.versionByTOPDBDVersionWeb,300,24)),
+          Condition.equals(name: DESKTOP, value: _getWidgetWhereNotValidTOPDBDVersionWebFromContextAndVersionByTOPDBDVersionWebAndSizedBoxWidthAndTextSize(context,dataForNamed.versionByTOPDBDVersionWeb,400,30)),
         ]
     ).value ?? Container();
-    final rvWidgetNotVerifiedUser = ResponsiveValue<Widget>(
+    final valueSECOND = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
-          Condition.equals(name: MOBILE, value: _buildNotVerifiedUser(context,250,18,18)),
-          Condition.equals(name: TABLET, value: _buildNotVerifiedUser(context,300,24,24)),
-          Condition.equals(name: DESKTOP, value: _buildNotVerifiedUser(context,400,30,30)),
+          Condition.equals(name: MOBILE, value: _getWidgetWhereNotVerifiedUserFromContextAndSizedBoxWidthAndTextSizeAndTextButtonSize(context,250,18,18)),
+          Condition.equals(name: TABLET, value: _getWidgetWhereNotVerifiedUserFromContextAndSizedBoxWidthAndTextSizeAndTextButtonSize(context,300,24,24)),
+          Condition.equals(name: DESKTOP, value: _getWidgetWhereNotVerifiedUserFromContextAndSizedBoxWidthAndTextSizeAndTextButtonSize(context,400,30,30)),
         ]
     ).value ?? Container();
-    final rvWidgetIsHacked = ResponsiveValue<Widget>(
+    final valueTHIRD = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
           Condition.equals(name: MOBILE, value: _getWidgetWhereIsHackedFromContextAndSizedBoxWidthAndTextSize(context,250,18)),
@@ -235,19 +235,19 @@ final class _AppViewState extends State<AppView> {
             child: Scaffold(body: Center(child: CircularProgressIndicator())));
       case EnumDataForAppView.thoseWorks:
         return MaterialPage(
-            child: rvWidgetThoseWorks);
+            child: value);
       case EnumDataForAppView.isNotValidVersionTOPDBDVersionWeb:
         return MaterialPage(
-            child: rvWidgetIsNotValidVersionTOPDBDVersionWeb);
+            child: valueFIRST);
       case EnumDataForAppView.login:
         return MaterialPage(
             child: LoginView());
       case EnumDataForAppView.isNotVerifiedUser:
         return MaterialPage(
-            child: rvWidgetNotVerifiedUser);
+            child: valueSECOND);
       case EnumDataForAppView.isHacked:
         return MaterialPage(
-            child: rvWidgetIsHacked);
+            child: valueTHIRD);
       case EnumDataForAppView.main:
         return MaterialPage(
             child: MainView(nameRoute,state.pathParameters[id] ?? ""));
@@ -257,7 +257,7 @@ final class _AppViewState extends State<AppView> {
     }
   }
 
-  String _getChoicedUrl(BuildContext context,GoRouterState state,[String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers]) {
+  String _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(BuildContext context,GoRouterState state,[String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers]) {
     final dataForNamed = _appViewModel.getDataForNamedParameterNamedStreamWState;
     switch(dataForNamed.getEnumDataForNamed) {
       case EnumDataForAppView.exception:
@@ -283,7 +283,7 @@ final class _AppViewState extends State<AppView> {
     }
   }
 
-  Widget _buildThoseWorks(BuildContext context,double sizedBoxWidth,double textSize) {
+  Widget _getWidgetWhereThoseWorksFromContextAndSizedBoxWidthAndTextSize(BuildContext context,double sizedBoxWidth,double textSize) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -316,7 +316,7 @@ final class _AppViewState extends State<AppView> {
     );
   }
 
-  Widget _buildIsNotValidVersionTOPDBDVersionWeb(BuildContext context,String versionByTOPDBDVersionWeb,double sizedBoxWidth,double textSize) {
+  Widget _getWidgetWhereNotValidTOPDBDVersionWebFromContextAndVersionByTOPDBDVersionWebAndSizedBoxWidthAndTextSize(BuildContext context,String versionByTOPDBDVersionWeb,double sizedBoxWidth,double textSize) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -349,7 +349,7 @@ final class _AppViewState extends State<AppView> {
     );
   }
 
-  Widget _buildNotVerifiedUser(BuildContext context,double sizedBoxWidth,double textSize,double textButtonSize) {
+  Widget _getWidgetWhereNotVerifiedUserFromContextAndSizedBoxWidthAndTextSizeAndTextButtonSize(BuildContext context,double sizedBoxWidth,double textSize,double textButtonSize) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(

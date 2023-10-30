@@ -22,4 +22,11 @@ base class DiscordUser extends BaseModel {
     }
     return "";
   }
+
+  @override
+  String toString() {
+    return "DiscordUser(id: $id, "
+        "username: $username, "
+        "globalName: $globalName)";
+  }
 }

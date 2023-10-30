@@ -20,18 +20,18 @@ final class _TitleToAppBarToMainViewState extends State<TitleToAppBarToMainView>
 
   @override
   Widget build(BuildContext context) {
-    final rvWidgetTabletAndMobileOrDesktop = ResponsiveValue<Widget>(
+    final value = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
-          Condition.equals(name: TABLET, value: _buildTabletAndMobile()),
-          Condition.largerThan(name: TABLET, value: _buildDesktop()),
-          Condition.smallerThan(name: TABLET, value: _buildTabletAndMobile())
+          Condition.equals(name: TABLET, value: _getWidgetWhereTabletAndMobile()),
+          Condition.largerThan(name: TABLET, value: _getWidgetWhereDesktop()),
+          Condition.smallerThan(name: TABLET, value: _getWidgetWhereTabletAndMobile())
         ]
-    ).value;
-    return rvWidgetTabletAndMobileOrDesktop ?? Container();
+    ).value ?? Container();
+    return value;
   }
 
-  Widget _buildTabletAndMobile() {
+  Widget _getWidgetWhereTabletAndMobile() {
     return Image.asset(
         'assets/icon/app_icon.png',
         width: 75,
@@ -39,7 +39,7 @@ final class _TitleToAppBarToMainViewState extends State<TitleToAppBarToMainView>
         fit: BoxFit.cover);
   }
 
-  Widget _buildDesktop() {
+  Widget _getWidgetWhereDesktop() {
     return Row(
       children: [
         Expanded(child: Container()),

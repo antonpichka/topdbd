@@ -64,7 +64,7 @@ final class MainViewModel extends BaseNamedViewModel<DataForMainView,DefaultStre
       }
       final getStringWhereIsNotVerifiedUserParameterIsVerifiedUser = resultVerifiedUser
           .parameter
-          ?.getExceptionInStringWhereFalseParameterIsVerifiedUser ?? "";
+          ?.getExceptionInStringWhereUsingIsWNotVerifiedUserWIsVerifiedUser ?? "";
       if(getStringWhereIsNotVerifiedUserParameterIsVerifiedUser.isNotEmpty) {
         _firstQListeningStreamsFirebaseFirestoreServiceQGetStringWhereIsNotVerifiedUserParameterIsVerifiedUser(getStringWhereIsNotVerifiedUserParameterIsVerifiedUser);
         return;

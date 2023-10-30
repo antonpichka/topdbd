@@ -13,6 +13,7 @@ base class BanManiacWMatches extends BaseModel {
 
   @override
   String toString() {
-    return "BanManiacWMatches(nameBannedManiac: $nameBannedManiac, uniqueIdByUser: $uniqueIdByUser)";
+    return "BanManiacWMatches(nameBannedManiac: $nameBannedManiac, "
+        "uniqueIdByUser: $uniqueIdByUser)";
   }
 }

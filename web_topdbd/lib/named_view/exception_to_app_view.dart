@@ -17,7 +17,7 @@ final class _ExceptionToAppViewState extends State<ExceptionToAppView> {
   void initState() {
     _exceptionToAppViewModel = ExceptionToAppViewModel();
     super.initState();
-    _init();
+    _initParameterExceptionToAppViewModel();
   }
 
   @override
@@ -33,7 +33,7 @@ final class _ExceptionToAppViewState extends State<ExceptionToAppView> {
             child: Text("Exception: ${widget.msgException}")));
   }
 
-  Future<void> _init()
+  Future<void> _initParameterExceptionToAppViewModel()
   async {
     final result = await _exceptionToAppViewModel.init();
     debugPrint("ExceptionToAppView: $result");

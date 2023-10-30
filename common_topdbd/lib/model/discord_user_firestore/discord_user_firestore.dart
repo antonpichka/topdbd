@@ -11,4 +11,12 @@ base class DiscordUserFirestore extends BaseModel {
 
   @override
   DiscordUserFirestore get getClone => DiscordUserFirestore(uniqueId,uniqueIdByUser,username,globalName);
+
+  @override
+  String toString() {
+    return "DiscordUserFirestore(uniqueId: $uniqueId, "
+        "uniqueIdByUser: $uniqueIdByUser, "
+        "username: $username, "
+        "globalName: $globalName)";
+  }
 }

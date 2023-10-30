@@ -364,7 +364,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
       return;
     }
     final resultUserForUniqueId =  await _userQFirebaseFirestoreServiceViewModelUsingInsertParameterStringForUniqueId
-        .insertUserToFirebaseFirestoreServiceParameterStringDS(AlgorithmsUtility.getV1ByUuidParameterString);
+        .insertUserToFirebaseFirestoreServiceParameterStringDS(AlgorithmsUtility.getStringWhereV1ByUuid);
     if(resultUserForUniqueId
         .exceptionController
         .isNotEqualsNullParameterException())

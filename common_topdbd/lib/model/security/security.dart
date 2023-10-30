@@ -9,4 +9,9 @@ base class Security extends BaseModel {
 
   @override
   Security get getClone => Security(isHacked);
+
+  @override
+  String toString() {
+    return "Security(isHacked: $isHacked)";
+  }
 }

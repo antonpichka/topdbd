@@ -24,13 +24,13 @@ base class InsertEEVerifiedUserEEFromRegistrationVerifiedUserUtilityEEParameterF
       });
       final documentByVerifiedUser = await documentByVerifiedUserWhereAdding?.get();
       if(!(documentByVerifiedUser?.exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEVerifiedUserEEFromRegistrationVerifiedUserUtilityEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEEVerifiedUserEEFromRegistrationVerifiedUserUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(VerifiedUser(
           documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQQUniqueIdByUser],
           documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser]) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

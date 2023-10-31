@@ -19,7 +19,7 @@ base class GetEEUserEEParameterSharedPreferencesService<T extends User,Y extends
       final creationTime = DateTime.fromMillisecondsSinceEpoch(sharedPreferences?.getInt(KeysSharedPreferencesServiceUtility.userQQCreationTime) ?? 0);
       return Result<T>.success(User(uniqueId,creationTime) as T);
     } catch (e) {
-      return Result<T>.exception(LocalException(this, EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this, EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

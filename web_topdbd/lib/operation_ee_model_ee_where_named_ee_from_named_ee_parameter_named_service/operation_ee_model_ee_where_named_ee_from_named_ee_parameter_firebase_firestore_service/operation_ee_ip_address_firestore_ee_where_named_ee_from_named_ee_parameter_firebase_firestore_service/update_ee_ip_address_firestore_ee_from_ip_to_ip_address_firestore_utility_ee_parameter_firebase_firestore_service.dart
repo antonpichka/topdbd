@@ -22,7 +22,7 @@ base class UpdateEEIPAddressFirestoreEEFromIPToIPAddressFirestoreUtilityEEParame
           .limit(1)
           .get();
       if(!(listDocumentByIPAddress?.docs[0].exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.updateEEIPAddressFirestoreEEFromIPToIPAddressFirestoreUtilityEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.updateEEIPAddressFirestoreEEFromIPToIPAddressFirestoreUtilityEEParameterFirebaseFirestoreService));
       }
       final firstItemDocumentByIPAddress = listDocumentByIPAddress?.docs[0];
       await firebaseFirestoreService
@@ -37,7 +37,7 @@ base class UpdateEEIPAddressFirestoreEEFromIPToIPAddressFirestoreUtilityEEParame
           firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser],
           iPToIPAddressFirestoreUtility.ip) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

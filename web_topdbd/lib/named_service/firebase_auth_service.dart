@@ -22,7 +22,7 @@ final class FirebaseAuthService {
           email: KeysAPIUtility.firebaseAuthQQEmail,
           password: KeysAPIUtility.firebaseAuthQQPassword);
     } catch(e) {
-      throw LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString());
+      throw LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString());
     }
   }
 

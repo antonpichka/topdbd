@@ -23,7 +23,7 @@ base class UpdateEEDiscordUserFirestoreEEFromUsernameWGlobalNameToDiscordUserFir
           .limit(1)
           .get();
       if(!(listDocumentByDiscordUser?.docs[0].exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.updateEEDiscordUserFirestoreEEFromUsernameWGlobalNameToDiscordUserFirestoreUtilityEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.updateEEDiscordUserFirestoreEEFromUsernameWGlobalNameToDiscordUserFirestoreUtilityEEParameterFirebaseFirestoreService));
       }
       final firstItemDocumentByDiscordUser = listDocumentByDiscordUser?.docs[0];
       await firebaseFirestoreService
@@ -42,7 +42,7 @@ base class UpdateEEDiscordUserFirestoreEEFromUsernameWGlobalNameToDiscordUserFir
           usernameWGlobalNameToDiscordUserFirestoreUtility.newUsername,
           usernameWGlobalNameToDiscordUserFirestoreUtility.newGlobalName) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

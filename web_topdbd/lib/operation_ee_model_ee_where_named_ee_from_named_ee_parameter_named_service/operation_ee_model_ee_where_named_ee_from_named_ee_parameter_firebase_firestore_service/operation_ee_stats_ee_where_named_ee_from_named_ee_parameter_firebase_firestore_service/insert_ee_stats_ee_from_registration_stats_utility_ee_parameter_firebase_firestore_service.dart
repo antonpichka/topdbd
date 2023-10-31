@@ -27,7 +27,7 @@ base class InsertEEStatsEEFromRegistrationStatsUtilityEEParameterFirebaseFiresto
       });
       final documentByStats = await documentByStatsWhereAdding?.get();
       if(!(documentByStats?.exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEStatsEEFromRegistrationStatsUtilityEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEEStatsEEFromRegistrationStatsUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(Stats(
           documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQUniqueIdByUser],
@@ -36,7 +36,7 @@ base class InsertEEStatsEEFromRegistrationStatsUtilityEEParameterFirebaseFiresto
           documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQMatchesLost],
           documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQRatingPoints]) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

@@ -23,7 +23,7 @@ base class GetEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEPa
           .limit(1)
           .get();
       if((documentByStats?.size ?? 0) <= 0) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.getEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(Stats(
           documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQUniqueIdByUser],
@@ -32,7 +32,7 @@ base class GetEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEPa
           documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQMatchesLost],
           documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQRatingPoints]) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

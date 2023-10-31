@@ -1,5 +1,5 @@
 import 'package:common_topdbd/model/pick_maniac_w_matches/pick_maniac_w_matches.dart';
-import 'package:common_topdbd/model/pick_maniac_w_matches/pick_maniac_w_matches_where_named_parameter_named_iterator/pick_maniac_w_matches_where_order_by_asc_parameter_creation_time_iterator.dart';
+import 'package:common_topdbd/model/pick_maniac_w_matches/pick_maniac_w_matches_w_named_w_named_iterator/pick_maniac_w_matches_w_order_by_asc_w_creation_time_iterator.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -40,16 +40,16 @@ base class ListPickManiacWMatches<T extends PickManiacWMatches> extends BaseList
     return listPickManiacWMatches.listModel;
   }
 
-  void pickManiacWMatchesWhereOrderByAscParameterCreationTimeIterator() {
-    sortingFromModelWhereNamedParameterNamedIteratorParameterListModel(PickManiacWMatchesWhereOrderByAscParameterCreationTimeIterator());
+  void sortingWherePickManiacWMatchesWOrderByAscWCreationTimeIterator() {
+    sortingFromModelWNamedWNamedIteratorParameterListModel(PickManiacWMatchesWOrderByAscWCreationTimeIterator());
   }
 
   void insertFromPickManiacWMatchesParameterListModel(T pickManiacWMatches) {
-    insertFromModelParameterListModel(pickManiacWMatches);
+    insertFromNewModelParameterListModel(pickManiacWMatches);
   }
 
   void updateFromPickManiacWMatchesParameterListModel(T pickManiacWMatches) {
-    updateFromModelParameterListModel(pickManiacWMatches);
+    updateFromNewModelParameterListModel(pickManiacWMatches);
   }
 
   void insertFromListPickManiacWMatchesParameterListModel(List<T> listPickManiacWMatches) {

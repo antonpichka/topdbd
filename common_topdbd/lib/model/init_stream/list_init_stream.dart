@@ -28,7 +28,7 @@ base class ListInitStream<T extends InitStream> extends BaseListModel<T> {
   }
 
   void updateFromNameStreamAndIsInitStreamParameterListModel(String nameStream,bool isInitStream) {
-    super.updateFromModelParameterListModel(InitStream(nameStream,isInitStream) as T);
+    super.updateFromNewModelParameterListModel(InitStream(nameStream,isInitStream) as T);
   }
 
   bool isWhereNotInitStreamParameterListModel() {

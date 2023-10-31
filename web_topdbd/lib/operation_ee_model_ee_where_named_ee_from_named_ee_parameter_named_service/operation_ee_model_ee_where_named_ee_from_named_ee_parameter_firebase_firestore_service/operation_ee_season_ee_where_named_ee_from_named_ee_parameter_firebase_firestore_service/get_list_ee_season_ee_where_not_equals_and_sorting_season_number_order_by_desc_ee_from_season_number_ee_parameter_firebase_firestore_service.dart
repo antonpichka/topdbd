@@ -32,7 +32,7 @@ base class GetListEESeasonEEWhereNotEqualsAndSortingSeasonNumberOrderByDescEEFro
       }
       return Result<Y>.success(ListSeason(listSeason) as Y);
     } catch(e) {
-      return Result<Y>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<Y>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

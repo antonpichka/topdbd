@@ -13,7 +13,7 @@ base class UpdateEEIntsEEWhereMatchesLostByStatsEEFromIntsEEParameterTempCacheSe
       tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.intsQQMatchesLostByStats,ints);
       return Result.success(true);
     } catch(e) {
-      return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

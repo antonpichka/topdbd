@@ -23,7 +23,7 @@ base class StartListeningAndCancelListeningEEVerifiedUserEEFromUniqueIdByUserAnd
           .limit(1)
           .get();
       if((listDocumentByVerifiedUser?.size ?? 0) <= 0) {
-        callback(Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.startListeningAndCancelListeningEEVerifiedUserEEFromUniqueIdByUserAndCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription)));
+        callback(Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.startListeningAndCancelListeningEEVerifiedUserEEFromUniqueIdByUserAndCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription)));
         return;
       }
       final itemOneDocumentByVerifiedUser = listDocumentByVerifiedUser?.docs[0];
@@ -39,7 +39,7 @@ base class StartListeningAndCancelListeningEEVerifiedUserEEFromUniqueIdByUserAnd
             documentByVerifiedUser.data()![KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser]) as T));
       });
     } catch(e) {
-      callback(Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())));
+      callback(Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString())));
     }
   }
 

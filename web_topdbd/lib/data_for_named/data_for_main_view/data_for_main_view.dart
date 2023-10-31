@@ -9,7 +9,7 @@ final class DataForMainView extends BaseDataForNamed<EnumDataForMainView> {
     if(isLoading) {
       return EnumDataForMainView.isLoading;
     }
-    if(exceptionController.isNotEqualsNullParameterException()) {
+    if(exceptionController.isWhereNotEqualsNullParameterException()) {
       return EnumDataForMainView.exception;
     }
     return EnumDataForMainView.success;

@@ -24,13 +24,13 @@ base class InsertEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService<T exten
           });
       final documentByUser = await documentByUserWhereAdding?.get();
       if(!(documentByUser?.exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(User(
           documentByUser?.data()?[KeysFirebaseFirestoreServiceUtility.userQQUniqueId],
           (documentByUser?.data()?[KeysFirebaseFirestoreServiceUtility.userQQCreationTime]).toDate()) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

@@ -22,7 +22,7 @@ final class FirebaseAppService {
     try {
       _firebaseApp = await Firebase.initializeApp(options: option);
     } catch(e) {
-      throw LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString());
+      throw LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString());
     }
   }
 

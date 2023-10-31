@@ -102,11 +102,11 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
   }
 
   void insertFromRoundWMatchesParameterListModel(T roundWMatches) {
-    super.insertFromModelParameterListModel(roundWMatches);
+    super.insertFromNewModelParameterListModel(roundWMatches);
   }
 
   void updateFromRoundWMatchesParameterListModel(T roundWMatches) {
-    super.updateFromModelParameterListModel(roundWMatches);
+    super.updateFromNewModelParameterListModel(roundWMatches);
   }
 
   void updateWhereIsStartTimerWFirstUniqueIdByUserSettingTrueParameterListModel() {

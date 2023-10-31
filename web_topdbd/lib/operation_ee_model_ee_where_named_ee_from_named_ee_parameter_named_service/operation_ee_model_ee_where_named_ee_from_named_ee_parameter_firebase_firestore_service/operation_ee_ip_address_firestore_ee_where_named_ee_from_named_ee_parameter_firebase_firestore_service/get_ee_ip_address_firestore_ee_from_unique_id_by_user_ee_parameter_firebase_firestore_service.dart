@@ -21,13 +21,13 @@ base class GetEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFiresto
           .limit(1)
           .get();
       if((documentByDiscordUser?.size ?? 0) <= 0) {
-        return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
+        return Result.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.getEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result.success(IPAddressFirestore(
           documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser],
           documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQIp]) as T);
     } catch(e) {
-      return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

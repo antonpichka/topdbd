@@ -24,13 +24,13 @@ base class InsertEEIPAddressFirestoreEEFromRegistrationIPAddressFirestoreUtility
           });
       final documentByIPAddress = await documentByIPAddressWhereAdding?.get();
       if(!(documentByIPAddress?.exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEIPAddressFirestoreEEFromRegistrationIPAddressFirestoreUtilityEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEEIPAddressFirestoreEEFromRegistrationIPAddressFirestoreUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(IPAddressFirestore(
           documentByIPAddress?.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser],
           documentByIPAddress?.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQIp]) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

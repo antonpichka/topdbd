@@ -16,7 +16,7 @@ base class ListSurvivorPerk<T extends SurvivorPerk> extends BaseListModel<T> {
   }
 
   void insertFromSurvivorPerkParameterListModel(T survivorPerk) {
-    super.insertFromModelParameterListModel(survivorPerk);
+    super.insertFromNewModelParameterListModel(survivorPerk);
   }
 
   void insertFromListSurvivorPerkParameterListModel(List<T> listSurvivorPerk) {

@@ -24,13 +24,13 @@ base class InsertEECountryEEFromRegistrationCountryUtilityEEParameterFirebaseFir
       });
       final documentByCountry = await documentByCountryWhereAdding?.get();
       if(!(documentByCountry?.exists ?? false)) {
-        return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEECountryEEFromRegistrationCountryUtilityEEParameterFirebaseFirestoreService));
+        return Result.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEECountryEEFromRegistrationCountryUtilityEEParameterFirebaseFirestoreService));
       }
       return Result.success(Country(
           documentByCountry?.data()?[KeysFirebaseFirestoreServiceUtility.countryQQUniqueIdByUser],
           documentByCountry?.data()?[KeysFirebaseFirestoreServiceUtility.countryQQNameCountry]) as T);
     } catch(e) {
-      return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

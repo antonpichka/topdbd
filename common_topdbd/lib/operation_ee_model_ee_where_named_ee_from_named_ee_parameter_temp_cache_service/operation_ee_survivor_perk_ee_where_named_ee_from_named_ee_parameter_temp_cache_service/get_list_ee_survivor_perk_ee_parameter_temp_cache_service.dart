@@ -17,7 +17,7 @@ base class GetListEESurvivorPerkEEParameterTempCacheService<T extends SurvivorPe
     } on LocalException catch(e) {
       return Result<Y>.exception(e);
     } catch(e) {
-      return Result<Y>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<Y>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

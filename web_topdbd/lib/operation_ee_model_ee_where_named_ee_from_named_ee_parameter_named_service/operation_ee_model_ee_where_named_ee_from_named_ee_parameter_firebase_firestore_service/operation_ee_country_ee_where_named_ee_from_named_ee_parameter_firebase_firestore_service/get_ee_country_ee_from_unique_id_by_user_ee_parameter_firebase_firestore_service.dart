@@ -21,13 +21,13 @@ base class GetEECountryEEFromUniqueIdByUserEEParameterFirebaseFirestoreService<T
           .limit(1)
           .get();
       if((documentByCountry?.size ?? 0) <= 0) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEECountryEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.getEECountryEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(Country(
           documentByCountry?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.countryQQUniqueIdByUser],
           documentByCountry?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.countryQQNameCountry]) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

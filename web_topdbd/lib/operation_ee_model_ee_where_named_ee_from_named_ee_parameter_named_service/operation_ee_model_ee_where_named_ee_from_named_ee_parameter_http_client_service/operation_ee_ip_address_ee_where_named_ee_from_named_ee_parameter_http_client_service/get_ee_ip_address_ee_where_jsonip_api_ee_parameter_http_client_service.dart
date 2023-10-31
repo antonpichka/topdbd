@@ -28,7 +28,7 @@ base class GetEEIPAddressEEWhereJsonipAPIEEParameterHttpClientService<T extends 
     } on NetworkException catch(e) {
       return Result<T>.exception(e);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN));
     }
   }
 }

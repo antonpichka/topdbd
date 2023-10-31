@@ -9,7 +9,7 @@ final class DataForExceptionToAppView extends BaseDataForNamed<EnumDataForExcept
     if(isLoading) {
       return EnumDataForExceptionToAppView.isLoading;
     }
-    if(exceptionController.isNotEqualsNullParameterException()) {
+    if(exceptionController.isWhereNotEqualsNullParameterException()) {
       return EnumDataForExceptionToAppView.exception;
     }
     return EnumDataForExceptionToAppView.success;

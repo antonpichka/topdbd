@@ -23,13 +23,13 @@ base class InsertEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreServic
       });
       final documentByAboutMe = await documentByAboutMeWhereAdding?.get();
       if(!(documentByAboutMe?.exists ?? false)) {
-        return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
+        return Result.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result.success(AboutMe(
           documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQQUniqueIdByUser],
           documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQQCodeDBD]) as T);
     } catch(e) {
-      return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

@@ -18,7 +18,7 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
 
   @override
   EnumDataForAppView get getEnumDataForNamed {
-    if(exceptionController.isNotEqualsNullParameterException()) {
+    if(exceptionController.isWhereNotEqualsNullParameterException()) {
       return EnumDataForAppView.exception;
     }
     if(otherException.isNotEmpty) {

@@ -19,7 +19,7 @@ base class UpdateEEUserEEFromUserEEParameterSharedPreferencesService<T extends U
       await sharedPreferences?.setInt(KeysSharedPreferencesServiceUtility.userQQCreationTime,user.creationTime.millisecondsSinceEpoch);
       return Result<bool>.success(true);
     } catch (e) {
-      return Result<bool>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<bool>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

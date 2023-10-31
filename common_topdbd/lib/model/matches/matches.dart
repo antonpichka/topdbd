@@ -119,7 +119,7 @@ base class Matches extends BaseModel {
   void insertListRoundWMatchesWhereBeforeCallIteratorParametersThree() {
     debutWMatches
         .listPickManiacWMatches
-        .pickManiacWMatchesWhereOrderByAscParameterCreationTimeIterator();
+        .sortingWherePickManiacWMatchesWOrderByAscWCreationTimeIterator();
     int round = 1;
     for(PickManiacWMatches itemModel in debutWMatches
         .listPickManiacWMatches

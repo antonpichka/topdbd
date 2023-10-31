@@ -21,13 +21,13 @@ base class GetEEVerifiedUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreServ
           .limit(1)
           .get();
       if((documentByVerifiedUser?.size ?? 0) <= 0) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEVerifiedUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.getEEVerifiedUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(VerifiedUser(
           documentByVerifiedUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.verifiedUserQQUniqueIdByUser],
           documentByVerifiedUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser]) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

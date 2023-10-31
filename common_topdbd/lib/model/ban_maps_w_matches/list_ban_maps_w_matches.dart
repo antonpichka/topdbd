@@ -16,6 +16,6 @@ base class ListBanMapsWMatches<T extends BanMapsWMatches> extends BaseListModel<
   }
 
   void insertFromBanMapsWMatchesParameterListModel(T banMapsWMatches) {
-    super.insertFromModelParameterListModel(banMapsWMatches);
+    super.insertFromNewModelParameterListModel(banMapsWMatches);
   }
 }

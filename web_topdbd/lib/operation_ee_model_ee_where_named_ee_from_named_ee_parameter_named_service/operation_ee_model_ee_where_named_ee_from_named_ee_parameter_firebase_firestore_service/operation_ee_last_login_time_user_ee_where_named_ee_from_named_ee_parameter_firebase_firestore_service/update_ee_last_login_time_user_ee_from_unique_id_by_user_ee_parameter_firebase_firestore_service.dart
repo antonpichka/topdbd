@@ -22,7 +22,7 @@ base class UpdateEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFires
           .limit(1)
           .get();
       if((listDocumentByLastLoginTimeUser?.size ?? 0) <= 0) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.updateEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.updateEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       final firstItemDocumentByLastLoginTimeUser = listDocumentByLastLoginTimeUser?.docs[0];
       await firebaseFirestoreService
@@ -40,13 +40,13 @@ base class UpdateEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFires
           .limit(1)
           .get();
       if((listDocumentByLastLoginTimeUserTWO?.size ?? 0) <= 0) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.updateEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.updateEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(LastLoginTimeUser(
           listDocumentByLastLoginTimeUserTWO?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQUniqueIdByUser],
           (listDocumentByLastLoginTimeUserTWO?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQLastLoginTime]).toDate()) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

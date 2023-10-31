@@ -21,7 +21,7 @@ base class GetEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreSe
           .limit(1)
           .get();
       if((documentByDiscordUser?.size ?? 0) <= 0) {
-        return Result.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreService));
+        return Result.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.getEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreService));
       }
       return Result.success(DiscordUserFirestore(
           documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId],
@@ -29,7 +29,7 @@ base class GetEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreSe
           documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUsername],
           documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.discordUserQQGlobalName]) as T);
     } catch(e) {
-      return Result.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

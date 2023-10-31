@@ -23,7 +23,7 @@ base class StartListeningAndCancelListeningEEIPAddressFirestoreEEFromUniqueIdByU
           .limit(1)
           .get();
       if((listDocumentByIPAddress?.size ?? 0) <= 0) {
-        callback(Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.startListeningAndCancelListeningEEIPAddressFirestoreEEFromUniqueIdByUserAndCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription)));
+        callback(Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.startListeningAndCancelListeningEEIPAddressFirestoreEEFromUniqueIdByUserAndCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription)));
         return;
       }
       final firstItemDocumentByIPAddress = listDocumentByIPAddress?.docs[0];
@@ -38,7 +38,7 @@ base class StartListeningAndCancelListeningEEIPAddressFirestoreEEFromUniqueIdByU
                 event.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQIp]) as T));
           });
     } catch(e) {
-      callback(Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())));
+      callback(Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString())));
     }
   }
 

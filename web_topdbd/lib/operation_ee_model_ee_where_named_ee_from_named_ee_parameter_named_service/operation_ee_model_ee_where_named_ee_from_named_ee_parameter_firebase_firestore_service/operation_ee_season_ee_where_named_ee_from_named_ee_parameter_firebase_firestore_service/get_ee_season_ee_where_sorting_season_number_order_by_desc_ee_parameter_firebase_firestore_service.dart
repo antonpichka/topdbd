@@ -21,7 +21,7 @@ base class GetEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFi
           .limit(1)
           .get();
       if((documentBySeason?.size ?? 0) <= 0) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.getEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(Season(
           documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber],
@@ -30,7 +30,7 @@ base class GetEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFi
           (documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQStartOfSeasonTime]).toDate(),
           (documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQEndOfSeasonTime]).toDate()) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

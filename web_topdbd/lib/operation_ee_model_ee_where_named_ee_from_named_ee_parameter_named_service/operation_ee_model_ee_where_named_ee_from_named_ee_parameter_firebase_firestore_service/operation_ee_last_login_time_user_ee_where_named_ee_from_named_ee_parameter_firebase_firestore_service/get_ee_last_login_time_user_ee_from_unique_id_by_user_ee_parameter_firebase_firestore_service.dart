@@ -21,13 +21,13 @@ base class GetEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFirestor
           .limit(1)
           .get();
       if((documentByLastLoginTimeUser?.size ?? 0) <= 0) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.getEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(LastLoginTimeUser(
           documentByLastLoginTimeUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQUniqueIdByUser],
           (documentByLastLoginTimeUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQLastLoginTime]).toDate()) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

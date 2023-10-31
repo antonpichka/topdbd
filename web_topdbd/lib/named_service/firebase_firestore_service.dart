@@ -17,7 +17,7 @@ final class FirebaseFirestoreService {
     try {
       _firebaseFirestore = FirebaseFirestore.instanceFor(app: firebaseApp);
     } catch(e) {
-      throw LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString());
+      throw LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString());
     }
   }
 

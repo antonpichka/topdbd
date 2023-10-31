@@ -21,13 +21,13 @@ base class GetEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService<T extends 
           .limit(1)
           .get();
       if((listDocumentByUser?.size ?? 0) <= 0) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.getEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.getEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(User(
           listDocumentByUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.userQQUniqueId],
           (listDocumentByUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.userQQCreationTime]).toDate()) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

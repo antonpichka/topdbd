@@ -16,7 +16,7 @@ base class GetEEStringsEEWhereTermsOfUseEEParameterAssetBundleService<T extends 
           ?.loadString('assets/txt/terms_of_use_topdbd.txt');
       return Result.success(Strings(result ?? "") as T);
     } catch(e) {
-      return Result.exception(LocalException(this, EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result.exception(LocalException(this, EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

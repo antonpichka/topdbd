@@ -24,14 +24,14 @@ base class InsertEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreServi
       });
       final documentByRoleUser = await documentByRoleUserWhereAdding?.get();
       if(!(documentByRoleUser?.exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(RoleUser(
           documentByRoleUser?.data()?[KeysFirebaseFirestoreServiceUtility.roleUserQQUniqueIdByUser],
           documentByRoleUser?.data()?[KeysFirebaseFirestoreServiceUtility.roleUserQQIsAdmin],
           documentByRoleUser?.data()?[KeysFirebaseFirestoreServiceUtility.roleUserQQIsTest]) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

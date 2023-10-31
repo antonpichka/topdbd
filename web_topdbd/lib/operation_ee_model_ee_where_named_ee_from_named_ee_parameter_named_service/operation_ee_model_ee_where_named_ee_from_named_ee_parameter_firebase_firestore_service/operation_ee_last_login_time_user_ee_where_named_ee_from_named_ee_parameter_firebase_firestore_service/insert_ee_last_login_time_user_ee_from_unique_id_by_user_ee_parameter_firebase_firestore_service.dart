@@ -24,13 +24,13 @@ base class InsertEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFires
           });
       final documentByLastLoginTimeUser = await documentByLastLoginTimeUserWhereAdding?.get();
       if(!(documentByLastLoginTimeUser?.exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(LastLoginTimeUser(
           documentByLastLoginTimeUser?.data()?[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQUniqueIdByUser],
           (documentByLastLoginTimeUser?.data()?[KeysFirebaseFirestoreServiceUtility.lastLoginTimeUserQQLastLoginTime]).toDate()) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

@@ -25,7 +25,7 @@ base class StartListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParameter
             callback(Result<T>.success(ThoseWorks(documentByThoseWorks.data()[KeysFirebaseFirestoreServiceUtility.thoseWorksQQIsThoseWorks]) as T));
           });
     } catch(e) {
-      callback(Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())));
+      callback(Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString())));
     }
   }
 

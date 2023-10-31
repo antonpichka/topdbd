@@ -12,7 +12,7 @@ final class DataForLoginView extends BaseDataForNamed<EnumDataForLoginView> {
     if(isLoading) {
       return EnumDataForLoginView.isLoading;
     }
-    if(exceptionController.isNotEqualsNullParameterException()) {
+    if(exceptionController.isWhereNotEqualsNullParameterException()) {
       return EnumDataForLoginView.exception;
     }
     return EnumDataForLoginView.login;

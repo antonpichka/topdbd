@@ -14,7 +14,7 @@ final class DataForAntiDDosSystemView extends BaseDataForNamed<EnumDataForAntiDD
     if(isLoading) {
       return EnumDataForAntiDDosSystemView.isLoading;
     }
-    if(exceptionController.isNotEqualsNullParameterException()) {
+    if(exceptionController.isWhereNotEqualsNullParameterException()) {
       return EnumDataForAntiDDosSystemView.exception;
     }
     if(isWhereNotSuccessCodeParameterIsSuccessCode()) {

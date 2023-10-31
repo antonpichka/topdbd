@@ -26,7 +26,7 @@ base class InsertEEDiscordUserFirestoreEEFromRegistrationDiscordUserFirestoreUti
           });
       final documentByDiscordUser = await documentByDiscordUserWhereAdding?.get();
       if(!(documentByDiscordUser?.exists ?? false)) {
-        return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.user,KeysExceptionUtility.insertEEDiscordUserFirestoreEEFromRegistrationDiscordUserFirestoreUtilityEEParameterFirebaseFirestoreService));
+        return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEEDiscordUserFirestoreEEFromRegistrationDiscordUserFirestoreUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(DiscordUserFirestore(
           documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId],
@@ -34,7 +34,7 @@ base class InsertEEDiscordUserFirestoreEEFromRegistrationDiscordUserFirestoreUti
           documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQUsername],
           documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQGlobalName]) as T);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

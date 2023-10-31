@@ -25,7 +25,7 @@ base class StartListeningAndCancelListeningEETOPDBDVersionWebEEFromCallbackEEPar
             callback(Result<T>.success(TOPDBDVersionWeb(documentByTOPDBDVersionWeb.data()[KeysFirebaseFirestoreServiceUtility.TOPDBDVersionWebQQVersion]) as T));
           });
     } catch(e) {
-      callback(Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString())));
+      callback(Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString())));
     }
   }
 

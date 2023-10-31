@@ -18,7 +18,7 @@ base class UpdateListEESurvivorPerkEEParameterTempCacheService<T extends Survivo
     } on LocalException catch(e) {
       return Result<bool>.exception(e);
     } catch(e) {
-      return Result<bool>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<bool>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

@@ -15,7 +15,7 @@ base class GetEEDatesTimesEEWhereCreationTimeByUserEEParameterTempCacheService<T
     } on LocalException catch(e) {
       return Result<T>.exception(e);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuiltyForLocalException.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

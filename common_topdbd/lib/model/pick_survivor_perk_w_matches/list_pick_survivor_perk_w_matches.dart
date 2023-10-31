@@ -27,6 +27,6 @@ base class ListPickSurvivorPerkWMatches<T extends PickSurvivorPerkWMatches> exte
   }
 
   void insertFromPickSurvivorPerkWMatchesParameterListModel(T pickSurvivorPerkWMatches) {
-    super.insertFromModelParameterListModel(pickSurvivorPerkWMatches);
+    super.insertFromNewModelParameterListModel(pickSurvivorPerkWMatches);
   }
 }

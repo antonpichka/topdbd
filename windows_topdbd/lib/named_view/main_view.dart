@@ -29,7 +29,7 @@ final class _MainViewState extends State<MainView> {
     );
   }
 
-/* Future<void> _init() async {
+/* Future<void> _initParameterMainViewModel() async {
     _mainViewModel
         .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {

@@ -12,7 +12,7 @@ base class InsertEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService<T exten
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<T>> getUserFromUniqueIdParameterFirebaseFirestoreService(String uniqueId)
+  Future<Result<T>> insertUserFromUniqueIdParameterFirebaseFirestoreService(String uniqueId)
   async {
     try {
       final documentByUserWhereAdding = await firebaseFirestoreService

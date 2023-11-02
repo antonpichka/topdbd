@@ -55,9 +55,9 @@ base class GetEEDiscordUserEEWhereDiscordAuthAPIEEParameterHttpClientService<T e
       }
       final Map<String,dynamic> data = jsonDecode(responseDiscordUser!.body);
       return Result<T>.success(DiscordUser(
-          data[KeysHttpClientServiceUtility.discordUserQQId],
-          data[KeysHttpClientServiceUtility.discordUserQQUsername],
-          data[KeysHttpClientServiceUtility.discordUserQQGlobalName]) as T);
+          data[KeysHttpClientServiceUtility.discordUserQQId] ?? "",
+          data[KeysHttpClientServiceUtility.discordUserQQUsername] ?? "",
+          data[KeysHttpClientServiceUtility.discordUserQQGlobalName] ?? "") as T);
     } on NetworkException catch(e) {
       return Result<T>.exception(e);
     } catch(e) {

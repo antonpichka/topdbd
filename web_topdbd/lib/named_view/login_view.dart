@@ -98,7 +98,7 @@ final class _LoginViewState extends State<LoginView> {
                                   activeColor: Theme.of(context).colorScheme.primary,
                                   value: dataForNamedParameterNamedStreamWState.isCheckAgreeTermsOfUse,
                                   onChanged: (value) {
-                                    _loginViewModel.checkParametersZero(value);
+                                    _loginViewModel.setCheckAgreeTermsOfUse(value);
                                   }),
                             ),
                             const Flexible(child: Text("I agree to the terms of use of 'TOPDBD'",)),
@@ -111,7 +111,7 @@ final class _LoginViewState extends State<LoginView> {
                         button: Button.Discord,
                         text: 'Sign in with Discord',
                         onPressed: () {
-                          _loginViewModel.signInWithDiscordParametersTwelve((){},(messageException){});
+                          _loginViewModel.signInWithDiscord((){},(msg){});
                         },
                       ) : Container(),
                       const SizedBox(height: 5,),

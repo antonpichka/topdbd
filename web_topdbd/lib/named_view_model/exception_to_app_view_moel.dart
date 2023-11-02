@@ -1,40 +1,40 @@
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
+import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_bools_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/get_ee_bools_ee_where_is_init_by_init_ee_parameter_temp_cache_service.dart';
+import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_bools_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_bools_ee_where_is_init_by_init_ee_from_bools_ee_parameter_temp_cache_service.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/data_for_named/data_for_exception_to_app_view/data_for_exception_to_app_view.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_get_np_for_is_init_by_init.dart';
-import 'package:web_topdbd/model_q_named_service_view_model/model_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model/bools_q_temp_cache_service_view_model_using_update_parameter_bool_for_is_init_by_init.dart';
 
 @immutable
 final class ExceptionToAppViewModel extends BaseNamedViewModel<DataForExceptionToAppView,DefaultStreamWState<DataForExceptionToAppView>> {
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
-  // NamedUtility
+  final _getEEBoolsEEWhereIsInitByInitEEParameterTempCacheService =
+  GetEEBoolsEEWhereIsInitByInitEEParameterTempCacheService();
+  final _updateEEBoolsEEWhereIsInitByInitEEFromBoolsEEParameterTempCacheService =
+  UpdateEEBoolsEEWhereIsInitByInitEEFromBoolsEEParameterTempCacheService();
 
-  final _boolsQTempCacheServiceViewModelUsingGetNPForIsInitByInit =
-  BoolsQTempCacheServiceViewModelUsingGetNPForIsInitByInit();
-  final _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsInitByInit =
-  BoolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsInitByInit();
+  // NamedUtility
 
   ExceptionToAppViewModel() : super(DefaultStreamWState(DataForExceptionToAppView(false)));
 
   @override
   Future<String> init()
   async {
-    final resultBoolsForIsInitByInit = await _boolsQTempCacheServiceViewModelUsingGetNPForIsInitByInit
-        .getBoolsFromTempCacheServiceNPDS();
-    if(resultBoolsForIsInitByInit
+    final getBoolsWhereIsInitByInitParameterTempCacheService = _getEEBoolsEEWhereIsInitByInitEEParameterTempCacheService
+        .getBoolsWhereIsInitByInitParameterTempCacheService();
+    if(getBoolsWhereIsInitByInitParameterTempCacheService
         .exceptionController
-        .isNotEqualsNullParameterException())
+        .isWhereNotEqualsNullParameterException())
     {
-      return _firstQInitQGetBoolsFromTempCacheServiceNPDS(resultBoolsForIsInitByInit);
+      return _firstQQInitQQGetBoolsWhereIsInitByInitParameterTempCacheService(getBoolsWhereIsInitByInitParameterTempCacheService);
     }
     return KeysSuccessUtility.sUCCESS;
   }
 
-  Future<String> _firstQInitQGetBoolsFromTempCacheServiceNPDS(Result<Bools> resultBoolsForIsInitByInit)
+  Future<String> _firstQQInitQQGetBoolsWhereIsInitByInitParameterTempCacheService(Result<Bools> getBoolsWhereIsInitByInitParameterTempCacheService)
   async {
-    await _boolsQTempCacheServiceViewModelUsingUpdateParameterBoolForIsInitByInit
-        .updateBoolsToTempCacheServiceParameterBoolDS(true);
-    return resultBoolsForIsInitByInit.exceptionController.getKeyParameterException;
+    _updateEEBoolsEEWhereIsInitByInitEEFromBoolsEEParameterTempCacheService
+        .updateBoolsWhereIsInitByInitFromBoolsParameterTempCacheService(const Bools(true));
+    return getBoolsWhereIsInitByInitParameterTempCacheService.exceptionController.getKeyParameterException;
   }
 }

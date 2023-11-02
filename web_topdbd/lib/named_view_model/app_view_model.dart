@@ -323,8 +323,6 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
     {
       return _firstQQInitQQUpdateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService(updateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService);
     }
-    _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
-        .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(Strings(getUserParameterSharedPreferencesService.parameter?.uniqueId ?? ""));
     _updateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService
         .updateDatesTimesWhereCreationTimeByUserFromDatesTimesParameterTempCacheService(DatesTimes(getUserParameterSharedPreferencesService.parameter?.creationTime ?? DateTime.now()));
     _updateEEDatesTimesEEWhereLastLoginTimeByLastLoginTimeUserEEFromDatesTimesEEParameterTempCacheService
@@ -357,6 +355,8 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
         .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.endOfSeasonTime ?? DateTime.now()));
     _updateListEESeasonEEFromListSeasonEEParameterTempCacheService
         .updateListSeasonFromListSeasonParameterTempCacheService(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.parameter?.getClone ?? ListSeason(List.empty(growable: true)));
+    _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
+        .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(Strings(getUserParameterSharedPreferencesService.parameter?.uniqueId ?? ""));
     return KeysSuccessUtility.sUCCESS;
   }
 

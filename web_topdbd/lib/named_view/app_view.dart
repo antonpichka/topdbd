@@ -52,7 +52,7 @@ final class _AppViewState extends State<AppView> {
             const Breakpoint(start: 801, end: double.infinity, name: DESKTOP),
           ],
         ),
-        routerConfig: _routerConfig
+        routerConfig: _getRouterConfig
     );
   }
 
@@ -73,7 +73,7 @@ final class _AppViewState extends State<AppView> {
     _appViewModel.notifyStreamDataForAppView();
   }
 
-  RouterConfig<Object> get _routerConfig {
+  RouterConfig<Object> get _getRouterConfig {
     return GoRouter(
         routes: [
           /// In this class (launch)

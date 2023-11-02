@@ -111,7 +111,7 @@ final class _LoginViewState extends State<LoginView> {
                         button: Button.Discord,
                         text: 'Sign in with Discord',
                         onPressed: () {
-                          _loginViewModel.signInWithDiscord((){},(msg){});
+                          _loginViewModel.signInWithDiscord((msg){});
                         },
                       ) : Container(),
                       const SizedBox(height: 5,),

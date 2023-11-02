@@ -30,14 +30,14 @@ base class StartListeningAndCancelListeningEEVerifiedUserEEFromUniqueIdByUserAnd
       streamSubscription = firebaseFirestoreService
           .getParameterFirebaseFirestore
           ?.collection(KeysFirebaseFirestoreServiceUtility.verifiedUser)
-          .doc(itemOneDocumentByVerifiedUser!.id)
+          .doc(itemOneDocumentByVerifiedUser?.id)
           .snapshots()
           .listen((event) {
-        final documentByVerifiedUser = event;
-        callback(Result<T>.success(VerifiedUser(
-            documentByVerifiedUser.data()![KeysFirebaseFirestoreServiceUtility.verifiedUserQQUniqueIdByUser],
-            documentByVerifiedUser.data()![KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser]) as T));
-      });
+            final documentByVerifiedUser = event;
+            callback(Result<T>.success(VerifiedUser(
+                documentByVerifiedUser.data()![KeysFirebaseFirestoreServiceUtility.verifiedUserQQUniqueIdByUser],
+                documentByVerifiedUser.data()![KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser]) as T));
+          });
     } catch(e) {
       callback(Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString())));
     }

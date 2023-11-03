@@ -20,14 +20,16 @@ import 'package:meta/meta.dart';
 
 @immutable
 base class DebutWMatches extends BaseModel {
+  final bool isCompleted;
   final EnumStageNamed enumStageNamed;
   final MatchBalance matchBalance;
   final bool isStageNamedWFirstUniqueIdByUser;
   final ListBanManiacWMatches listBanManiacWMatches;
   final ListPickManiacWMatches listPickManiacWMatches;
 
-  DebutWMatches(super.strStageNamed, this.matchBalance, this.isStageNamedWFirstUniqueIdByUser, this.listBanManiacWMatches, this.listPickManiacWMatches)
-      : enumStageNamed = _getEnumStageNamedFromStrStageNamed(strStageNamed);
+  DebutWMatches(this.isCompleted,String strStageNamed, this.matchBalance, this.isStageNamedWFirstUniqueIdByUser, this.listBanManiacWMatches, this.listPickManiacWMatches)
+      : enumStageNamed = _getEnumStageNamedFromStrStageNamed(strStageNamed),
+        super("$isCompleted");
 
   static EnumStageNamed _getEnumStageNamedFromStrStageNamed(String strStageNamed) {
     if(strStageNamed == EnumStageNamed.systemPickManiac.name) {
@@ -61,11 +63,12 @@ base class DebutWMatches extends BaseModel {
   }
 
   @override
-  DebutWMatches get getClone => DebutWMatches(enumStageNamed.name,matchBalance.getClone,isStageNamedWFirstUniqueIdByUser,listBanManiacWMatches.getClone,listPickManiacWMatches.getClone);
+  DebutWMatches get getClone => DebutWMatches(isCompleted,enumStageNamed.name,matchBalance.getClone,isStageNamedWFirstUniqueIdByUser,listBanManiacWMatches.getClone,listPickManiacWMatches.getClone);
 
   @override
   String toString() {
-    return "DebutWMatches(enumStageNamed: $enumStageNamed, "
+    return "DebutWMatches(isCompleted: $isCompleted, "
+        "enumStageNamed: ${enumStageNamed.name}, "
         "matchBalance: $matchBalance, "
         "isStageNamedWFirstUniqueIdByUser: $isStageNamedWFirstUniqueIdByUser, "
         "ListBanManiacWMatches: ${listBanManiacWMatches.listModel}, "

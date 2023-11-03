@@ -28,18 +28,18 @@ final class KeysTempCacheServiceUtility {
   static const String datesTimesQQLastLoginTimeByLastLoginTimeUser = "datesTimesQQLastLoginTimeByLastLoginTimeUser";
   static const String datesTimesQQStartOfSeasonTimeBySeason = "datesTimesQQStartOfSeasonTimeBySeason";
   static const String datesTimesQQEndOfSeasonTimeBySeason = "datesTimesQQEndOfSeasonTimeBySeason";
-  /* Maniac */
-  static const String maniacQQListManiac = "maniacQQListManiac";
-  /* Maps */
-  static const String mapsQQListMaps = "mapsQQListMaps";
-  /* ManiacPerk */
-  static const String maniacPerkQQListManiacPerk = "maniacPerkQQListManiacPerk";
-  /* SurvivorPerk */
-  static const String survivorPerkQQListSurvivorPerk = "survivorPerkQQListSurvivorPerk";
-  /* CountryTC */
-  static const String countryTCQQListCountryTC = "countryTCQQListCountryTC";
-  /* Season */
-  static const String seasonQQListSeason = "seasonQQListSeason";
+  /* ListManiac */
+  static const String listManiac = "listManiac";
+  /* ListMaps */
+  static const String listMaps = "listMaps";
+  /* ListManiacPerk */
+  static const String listManiacPerk = "listManiacPerk";
+  /* ListSurvivorPerk */
+  static const String listSurvivorPerk = "listSurvivorPerk";
+  /* ListCountryTC */
+  static const String listCountryTC = "listCountryTC";
+  /* ListSeason */
+  static const String listSeason = "listSeason";
 
   const KeysTempCacheServiceUtility._();
 }

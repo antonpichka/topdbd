@@ -234,4 +234,34 @@ base class Matches extends BaseModel {
     return debutWMatches
         .isWhereLengthPickSurvivorPerkNotEqualsNecessaryLengthPickSurvivorPerkFromUniqueIdByUserParameterOne(secondUniqueIdByUser);
   }
+
+  bool isWhereFalseAndEqualsFromOneParametersDebutWMatchesAndFirstUniqueIdByUser(String uniqueIdByUser) {
+    return !debutWMatches.isCompleted &&
+        firstUniqueIdByUser == uniqueIdByUser;
+  }
+
+  bool isWhereFalseAndEqualsFromOneParametersMiddlegameWMatchesAndFirstUniqueIdByUser(String uniqueIdByUser) {
+    return !middlegameWMatches.isCompleted &&
+        firstUniqueIdByUser == uniqueIdByUser;
+  }
+
+  bool isWhereFalseAndEqualsFromOneParametersEndgameWMatchesAndFirstUniqueIdByUser(String uniqueIdByUser) {
+    return !endgameWMatches.isCompleted &&
+        firstUniqueIdByUser == uniqueIdByUser;
+  }
+
+  bool isWhereFalseAndEqualsFromOneParametersDebutWMatchesAndSecondUniqueIdByUser(String uniqueIdByUser) {
+    return !debutWMatches.isCompleted &&
+        secondUniqueIdByUser == uniqueIdByUser;
+  }
+
+  bool isWhereFalseAndEqualsFromOneParametersMiddlegameWMatchesAndSecondUniqueIdByUser(String uniqueIdByUser) {
+    return !middlegameWMatches.isCompleted &&
+        secondUniqueIdByUser == uniqueIdByUser;
+  }
+
+  bool isWhereFalseAndEqualsFromOneParametersEndgameWMatchesAndSecondUniqueIdByUser(String uniqueIdByUser) {
+    return !endgameWMatches.isCompleted &&
+        secondUniqueIdByUser == uniqueIdByUser;
+  }
 }

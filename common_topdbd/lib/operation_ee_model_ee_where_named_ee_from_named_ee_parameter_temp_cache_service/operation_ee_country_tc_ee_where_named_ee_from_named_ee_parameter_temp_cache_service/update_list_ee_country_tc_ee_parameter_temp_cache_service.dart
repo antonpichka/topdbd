@@ -13,7 +13,7 @@ base class UpdateListEECountryTCEEParameterTempCacheService<T extends CountryTC,
 
   Result<bool> updateListCountryTCParameterTempCacheService() {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.countryTCQQListCountryTC,ReadyDataUtility.getListCountryTC);
+      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.listCountryTC,ReadyDataUtility.getListCountryTC);
       return Result<bool>.success(true);
     } on LocalException catch(e) {
       return Result<bool>.exception(e);

@@ -13,7 +13,7 @@ base class UpdateListEEMapsEEParameterTempCacheService<T extends Maps,Y extends 
 
   Result<bool> updateListMapsParameterTempCacheService() {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.mapsQQListMaps,ReadyDataUtility.getListMaps);
+      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.listMaps,ReadyDataUtility.getListMaps);
       return Result<bool>.success(true);
     } on LocalException catch(e) {
       return Result<bool>.exception(e);

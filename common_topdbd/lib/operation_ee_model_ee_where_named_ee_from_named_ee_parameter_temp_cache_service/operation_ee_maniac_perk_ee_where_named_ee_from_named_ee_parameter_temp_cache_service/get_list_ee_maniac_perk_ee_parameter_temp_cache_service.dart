@@ -12,7 +12,7 @@ base class GetListEEManiacPerkEEParameterTempCacheService<T extends ManiacPerk,Y
 
   Result<Y> getListManiacPerkParameterTempCacheService() {
     try {
-      final listManiacPerk = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.maniacPerkQQListManiacPerk) as Y;
+      final listManiacPerk = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.listManiacPerk) as Y;
       return Result<Y>.success(listManiacPerk);
     } on LocalException catch(e) {
       return Result<Y>.exception(e);

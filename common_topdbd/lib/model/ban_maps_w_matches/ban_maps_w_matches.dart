@@ -1,20 +1,19 @@
-import 'package:common_topdbd/model/maps/maps.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
 @immutable
 base class BanMapsWMatches extends BaseModel {
-  final Maps maps;
+  final String name;
   final String uniqueIdByUser;
 
-  BanMapsWMatches(this.maps,this.uniqueIdByUser) : super(maps.uniqueId);
+  const BanMapsWMatches(this.name,this.uniqueIdByUser) : super(name);
 
   @override
-  BanMapsWMatches get getClone => BanMapsWMatches(maps.getClone,uniqueIdByUser);
+  BanMapsWMatches get getClone => BanMapsWMatches(name,uniqueIdByUser);
 
   @override
   String toString() {
-    return "BanMapsWMatches(maps: $maps, "
+    return "BanMapsWMatches(name: $name, "
         "uniqueIdByUser: $uniqueIdByUser)";
   }
 }

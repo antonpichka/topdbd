@@ -4,14 +4,10 @@ import 'package:common_topdbd/model/ban_maniac_w_matches/ban_maniac_w_matches.da
 import 'package:common_topdbd/model/debut_w_matches/debut_w_matches.dart';
 import 'package:common_topdbd/model/debut_w_matches/enum_stage_named.dart';
 import 'package:common_topdbd/model/endgame_w_matches/endgame_w_matches.dart';
-import 'package:common_topdbd/model/maniac/maniac.dart';
-import 'package:common_topdbd/model/maniac_perk/maniac_perk.dart';
-import 'package:common_topdbd/model/maps/maps.dart';
 import 'package:common_topdbd/model/middlegame_w_matches/middlegame_w_matches.dart';
 import 'package:common_topdbd/model/pick_maniac_w_matches/pick_maniac_w_matches.dart';
 import 'package:common_topdbd/model/round_w_matches/enum_round_status.dart';
 import 'package:common_topdbd/model/round_w_matches/round_w_matches.dart';
-import 'package:common_topdbd/model/survivor_perk/survivor_perk.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -164,34 +160,34 @@ base class Matches extends BaseModel {
     }
   }
 
-  void insertBanManiacWMatchesFromManiacParametersDebutWMatchesAndFirstUniqueIdByUser(Maniac maniac) {
+  void insertBanManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(String name) {
     debutWMatches
-        .insertBanManiacWMatchesFromManiacAndUniqueIdByUserParameterListBanManiacWMatches(maniac,firstUniqueIdByUser);
+        .insertBanManiacWMatchesFromNameAndUniqueIdByUserParameterListBanManiacWMatches(name,firstUniqueIdByUser);
   }
 
-  void insertBanManiacWMatchesFromManiacParametersDebutWMatchesAndSecondUniqueIdByUser(Maniac maniac) {
+  void insertBanManiacWMatchesFromNameParametersDebutWMatchesAndSecondUniqueIdByUser(String name) {
     debutWMatches
-        .insertBanManiacWMatchesFromManiacAndUniqueIdByUserParameterListBanManiacWMatches(maniac,secondUniqueIdByUser);
+        .insertBanManiacWMatchesFromNameAndUniqueIdByUserParameterListBanManiacWMatches(name,secondUniqueIdByUser);
   }
 
-  void insertPickManiacWMatchesFromManiacParametersDebutWMatchesAndFirstUniqueIdByUser(Maniac maniac) {
+  void insertPickManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(String name) {
     debutWMatches
-        .insertPickManiacWMatchesFromManiacAndUniqueIdByUserParameterListPickManiacWMatches(maniac,firstUniqueIdByUser);
+        .insertPickManiacWMatchesFromNameAndUniqueIdByUserParameterListPickManiacWMatches(name,firstUniqueIdByUser);
   }
 
-  void insertPickManiacWMatchesFromManiacParametersDebutWMatchesAndSecondUniqueIdByUser(Maniac maniac) {
+  void insertPickManiacWMatchesFromNameParametersDebutWMatchesAndSecondUniqueIdByUser(String name) {
     debutWMatches
-        .insertPickManiacWMatchesFromManiacAndUniqueIdByUserParameterListPickManiacWMatches(maniac,secondUniqueIdByUser);
+        .insertPickManiacWMatchesFromNameAndUniqueIdByUserParameterListPickManiacWMatches(name,secondUniqueIdByUser);
   }
 
-  void insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromMapsParametersTwo(Maps maps) {
+  void insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromNameParametersTwo(String name) {
     debutWMatches
-        .insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromMapsAndUniqueIdByUserParameterOne(maps,firstUniqueIdByUser);
+        .insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromNameAndUniqueIdByUserParameterOne(name,firstUniqueIdByUser);
   }
 
-  void insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromMapsParametersTwoFIRST(Maps maps) {
+  void insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromNameParametersTwoFIRST(String name) {
     debutWMatches
-        .insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromMapsAndUniqueIdByUserParameterOne(maps,secondUniqueIdByUser);
+        .insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromNameAndUniqueIdByUserParameterOne(name,secondUniqueIdByUser);
   }
 
   void insertListPickManiacPerkWMatchesWhereLastItemPickManiacWMatchesParametersThree() {
@@ -204,24 +200,24 @@ base class Matches extends BaseModel {
         .insertListPickSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(firstUniqueIdByUser,secondUniqueIdByUser);
   }
 
-  void insertManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromManiacPerkParametersTwo(ManiacPerk maniacPerk) {
+  void insertManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromNameParametersTwo(String name) {
     debutWMatches
-        .insertManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(maniacPerk,firstUniqueIdByUser);
+        .insertManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(name,firstUniqueIdByUser);
   }
 
-  void insertManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromManiacPerkParametersTwoFIRST(ManiacPerk maniacPerk) {
+  void insertManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromNameParametersTwoFIRST(String name) {
     debutWMatches
-        .insertManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(maniacPerk,secondUniqueIdByUser);
+        .insertManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(name,secondUniqueIdByUser);
   }
 
-  void insertSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromSurvivorPerkParametersTwo(SurvivorPerk survivorPerk) {
+  void insertSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromNameParametersTwo(String name) {
     debutWMatches
-        .insertSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(survivorPerk,firstUniqueIdByUser);
+        .insertSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(name,firstUniqueIdByUser);
   }
 
-  void insertSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromSurvivorPerkParametersTwoFIRST(SurvivorPerk survivorPerk) {
+  void insertSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromNameParametersTwoFIRST(String name) {
     debutWMatches
-        .insertSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(survivorPerk,secondUniqueIdByUser);
+        .insertSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(name,secondUniqueIdByUser);
   }
 
   bool isWhereLengthPickManiacPerkEqualsNecessaryLengthPickManiacPerkParametersTwo() {

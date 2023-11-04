@@ -733,9 +733,9 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     final matches = getDataForNamedParameterNamedStreamWState.matches;
     final itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree = matches
         .debutWMatches
-        .getListManiacWMatchBalanceWhereNotBannedWPickedParametersThree[index];
+        .getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index];
     matches
-        .insertBanManiacWMatchesFromManiacParametersDebutWMatchesAndFirstUniqueIdByUser(itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree.maniac.getClone);
+        .insertBanManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree.maniac.name);
     final textLogAction = matches.textLogAction.isNotEmpty
         ? "${matches.textLogAction}\nUser: '${matches.firstUniqueIdByUser}' banned maniac '${itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree.maniac.name}'"
         : "User: '${matches.firstUniqueIdByUser}' banned maniac '${itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree.maniac.name}'";
@@ -761,9 +761,9 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     final matches = getDataForNamedParameterNamedStreamWState.matches;
     final itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree = matches
         .debutWMatches
-        .getListManiacWMatchBalanceWhereNotBannedWPickedParametersThree[index];
+        .getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index];
     matches
-        .insertPickManiacWMatchesFromManiacParametersDebutWMatchesAndFirstUniqueIdByUser(itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree.maniac.getClone);
+        .insertPickManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree.maniac.name);
     final textLogAction = "${matches.textLogAction}\nUser: '${matches.firstUniqueIdByUser}' picked maniac '${itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree.maniac.name}'";
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matches.getNewMatchesFromThree(textLogAction,false,EnumStageNamed.bansMapsToManiac));
@@ -822,7 +822,7 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         debugPrint("ListPickManiacWMatchesWSecondUniqueIdByUser: ${matches.getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndSecondUniqueIdByUser}");
         debugPrint("ListBanManiacWMatchesWFirstUniqueIdByUser: ${matches.getListBanManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
         debugPrint("ListBanManiacWMatchesWSecondUniqueIdByUser: ${matches.getListBanManiacWMatchesWhereEqualsParametersDebutWMatchesAndSecondUniqueIdByUser}");
-        debugPrint("ListManiacWMatchBalance: ${matches.debutWMatches.getListManiacWMatchBalanceWhereNotBannedWPickedParametersThree}");
+        debugPrint("ListManiacWMatchBalance: ${matches.debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree}");
         debugPrint("You turns Ban Maniac (index): ");
         final input = stdin.readLineSync();
         final parse = int.parse(input ?? "0");
@@ -835,7 +835,7 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         debugPrint("ListPickManiacWMatchesWSecondUniqueIdByUser: ${matches.getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndSecondUniqueIdByUser}");
         debugPrint("ListBanManiacWMatchesWFirstUniqueIdByUser: ${matches.getListBanManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
         debugPrint("ListBanManiacWMatchesWSecondUniqueIdByUser: ${matches.getListBanManiacWMatchesWhereEqualsParametersDebutWMatchesAndSecondUniqueIdByUser}");
-        debugPrint("ListManiacWMatchBalance: ${matches.debutWMatches.getListManiacWMatchBalanceWhereNotBannedWPickedParametersThree}");
+        debugPrint("ListManiacWMatchBalance: ${matches.debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree}");
         debugPrint("You turns Pick Maniac (index): ");
         final input = stdin.readLineSync();
         final parse = int.parse(input ?? "0");

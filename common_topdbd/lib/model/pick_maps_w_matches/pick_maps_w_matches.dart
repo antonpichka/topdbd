@@ -3,15 +3,15 @@ import 'package:meta/meta.dart';
 
 @immutable
 base class PickMapsWMatches extends BaseModel {
-  final String nameMaps;
+  final String name;
 
-  const PickMapsWMatches(this.nameMaps) : super(nameMaps);
+  const PickMapsWMatches(this.name) : super(name);
 
   @override
-  PickMapsWMatches get getClone => PickMapsWMatches(nameMaps);
+  PickMapsWMatches get getClone => PickMapsWMatches(name);
 
   @override
   String toString() {
-    return "PickMapsWMatches(nameMaps: $nameMaps)";
+    return "PickMapsWMatches(name: $name)";
   }
 }

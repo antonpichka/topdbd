@@ -1,20 +1,19 @@
-import 'package:common_topdbd/model/survivor_perk/survivor_perk.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
 @immutable
 base class PickSurvivorPerkWMatches extends BaseModel {
-  final SurvivorPerk survivorPerk;
+  final String name;
   final String uniqueIdByUser;
 
-  PickSurvivorPerkWMatches(this.survivorPerk,this.uniqueIdByUser) : super(survivorPerk.uniqueId);
+  const PickSurvivorPerkWMatches(this.name,this.uniqueIdByUser) : super(name);
 
   @override
-  PickSurvivorPerkWMatches get getClone => PickSurvivorPerkWMatches(survivorPerk.getClone,uniqueIdByUser);
+  PickSurvivorPerkWMatches get getClone => PickSurvivorPerkWMatches(name,uniqueIdByUser);
 
   @override
   String toString() {
-    return "PickSurvivorPerkWMatches(survivorPerk: $survivorPerk, "
+    return "PickSurvivorPerkWMatches(name: $name, "
         "uniqueIdByUser: $uniqueIdByUser)";
   }
 }

@@ -499,7 +499,9 @@ final class ThreeStagesOfTheMatchView {
             "Build: Exception(${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException})");
         break;
       case EnumDataForThreeStagesOfTheMatchView.firstUniqueIdByUserWDebutWMatches:
-        FirstUniqueIdByUserWDebutWMatchesView();
+        final firstUniqueIdByUserWDebutWMatchesView = FirstUniqueIdByUserWDebutWMatchesView();
+        firstUniqueIdByUserWDebutWMatchesView.initState();
+        firstUniqueIdByUserWDebutWMatchesView.build();
         break;
       case EnumDataForThreeStagesOfTheMatchView.firstUniqueIdByUserWMiddlegameWMatches:
         // TODO: Handle this case.
@@ -796,11 +798,6 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
 
 final class FirstUniqueIdByUserWDebutWMatchesView {
   late final FirstUniqueIdByUserWDebutWMatchesViewModel _firstUniqueIdByUserWDebutWMatchesViewModel;
-
-  FirstUniqueIdByUserWDebutWMatchesView() {
-    initState();
-    build();
-  }
 
   // Override
   void initState() {

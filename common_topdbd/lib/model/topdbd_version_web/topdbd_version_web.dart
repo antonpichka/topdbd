@@ -1,4 +1,5 @@
 import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
+import 'package:common_topdbd/named_utility/ready_data_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -16,9 +17,9 @@ base class TOPDBDVersionWeb extends BaseModel {
     return "TOPDBDVersionWeb(version: $version)";
   }
 
-  String getExceptionInStringWhereNotEqualsFromVersionParameterVersion(String version) {
-    if(this.version != version) {
-      return KeysExceptionUtility.tOPDBDVersionWebQQGetExceptionInStringWhereNotEqualsFromVersionParameterVersion;
+  String getExceptionInStringWhereNotEqualsParameterVersion() {
+    if(version != ReadyDataUtility.getVersionByTOPDBDVersionWeb.field) {
+      return KeysExceptionUtility.tOPDBDVersionWebQQGetExceptionInStringWhereNotEqualsParameterVersion;
     }
     return "";
   }

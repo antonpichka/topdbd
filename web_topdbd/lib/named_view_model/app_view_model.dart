@@ -21,7 +21,6 @@ import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_bools_ee_where_named_ee_from_named_ee_parameters_temp_cache_service_and_stream_subscription/start_listening_and_cancel_listening_ee_bools_ee_where_is_hacked_by_security_ee_from_key_name_stream_and_callback_ee_parameters_temp_cache_service_and_stream_subscription.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_bools_ee_where_named_ee_from_named_ee_parameters_temp_cache_service_and_stream_subscription/start_listening_and_cancel_listening_ee_bools_ee_where_is_init_by_init_ee_from_key_name_stream_and_callback_ee_parameters_temp_cache_service_and_stream_subscription.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_bools_ee_where_named_ee_from_named_ee_parameters_temp_cache_service_and_stream_subscription/start_listening_and_cancel_listening_ee_bools_ee_where_is_verified_user_by_verified_user_ee_from_key_name_stream_and_callback_ee_parameters_temp_cache_service_and_stream_subscription.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_country_tc_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_list_ee_country_tc_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_dates_times_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_dates_times_ee_where_creation_time_by_user_ee_from_dates_times_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_dates_times_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_dates_times_ee_where_end_of_season_time_by_season_ee_from_dates_times_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_dates_times_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_dates_times_ee_where_last_login_time_by_last_login_time_user_ee_from_dates_times_ee_parameter_temp_cache_service.dart';
@@ -30,20 +29,14 @@ import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_ints_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_ints_ee_where_matches_won_by_stats_ee_from_ints_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_ints_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_ints_ee_where_rating_points_by_stats_ee_from_ints_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_ints_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_ints_ee_where_season_number_by_season_ee_from_ints_ee_parameter_temp_cache_service.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_maniac_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_list_ee_maniac_ee_parameter_temp_cache_service.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_maniac_perk_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_list_ee_maniac_perk_ee_parameter_temp_cache_service.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_maps_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_list_ee_maps_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_season_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_list_ee_season_ee_from_list_season_ee_parameter_temp_cache_service.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/get_ee_strings_ee_where_version_by_topdbd_version_web_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_strings_ee_where_code_dbd_by_about_me_ee_from_strings_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_strings_ee_where_global_name_by_discord_user_ee_from_strings_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_strings_ee_where_ip_by_ip_address_ee_from_strings_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_strings_ee_where_name_country_by_country_ee_from_strings_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_strings_ee_where_unique_id_by_user_ee_from_strings_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_strings_ee_where_username_by_discord_user_ee_from_strings_ee_parameter_temp_cache_service.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_strings_ee_where_version_by_topdbd_version_web_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameters_temp_cache_service_and_stream_subscription/start_listening_and_cancel_listening_ee_strings_ee_where_unique_id_by_user_ee_from_key_name_stream_and_callback_ee_parameters_temp_cache_service_and_stream_subscription.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_survivor_perk_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_list_ee_survivor_perk_ee_parameter_temp_cache_service.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/data_for_named/data_for_app_view/data_for_app_view.dart';
@@ -70,8 +63,6 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
   GetEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService();
   final _getEEUserEEParameterSharedPreferencesService =
   GetEEUserEEParameterSharedPreferencesService();
-  final _getEEStringsEEWhereVersionByTOPDBDVersionWebEEParameterTempCacheService =
-  GetEEStringsEEWhereVersionByTOPDBDVersionWebEEParameterTempCacheService();
   final _getEEDiscordUserFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService =
   GetEEDiscordUserFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService();
   final _getEEIPAddressEEWhereJsonipAPIEEParameterHttpClientService =
@@ -88,8 +79,6 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
   GetEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEParameterFirebaseFirestoreService();
   final _getListEESeasonEEWhereNotEqualsAndSortingSeasonNumberOrderByDescEEFromSeasonNumberEEParameterFirebaseFirestoreService =
   GetListEESeasonEEWhereNotEqualsAndSortingSeasonNumberOrderByDescEEFromSeasonNumberEEParameterFirebaseFirestoreService();
-  final _updateEEStringsEEWhereVersionByTOPDBDVersionWebEEParameterTempCacheService =
-  UpdateEEStringsEEWhereVersionByTOPDBDVersionWebEEParameterTempCacheService();
   final _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService =
   UpdateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService();
   final _updateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService =
@@ -124,16 +113,6 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
   UpdateEEDatesTimesEEWhereStartOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService();
   final _updateEEDatesTimesEEWhereEndOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService =
   UpdateEEDatesTimesEEWhereEndOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService();
-  final _updateListEESurvivorPerkEEParameterTempCacheService =
-  UpdateListEESurvivorPerkEEParameterTempCacheService();
-  final _updateListEEMapsEEParameterTempCacheService =
-  UpdateListEEMapsEEParameterTempCacheService();
-  final _updateListEEManiacEEParameterTempCacheService =
-  UpdateListEEManiacEEParameterTempCacheService();
-  final _updateListEEManiacPerkEEParameterTempCacheService =
-  UpdateListEEManiacPerkEEParameterTempCacheService();
-  final _updateListEECountryTCEEParameterTempCacheService =
-  UpdateListEECountryTCEEParameterTempCacheService();
   final _updateListEESeasonEEFromListSeasonEEParameterTempCacheService =
   UpdateListEESeasonEEFromListSeasonEEParameterTempCacheService();
   final _deleteEEUserEEParameterSharedPreferencesService =
@@ -175,46 +154,6 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
   @override
   Future<String> init()
   async {
-    final updateListSurvivorPerkParameterTempCacheService = _updateListEESurvivorPerkEEParameterTempCacheService
-        .updateListSurvivorPerkParameterTempCacheService();
-    if(updateListSurvivorPerkParameterTempCacheService
-        .exceptionController
-        .isWhereNotEqualsNullParameterException())
-    {
-      return _firstQQInitQQUpdateListSurvivorPerkParameterTempCacheService(updateListSurvivorPerkParameterTempCacheService);
-    }
-    final updateListMapsParameterTempCacheService = _updateListEEMapsEEParameterTempCacheService
-        .updateListMapsParameterTempCacheService();
-    if(updateListMapsParameterTempCacheService
-        .exceptionController
-        .isWhereNotEqualsNullParameterException())
-    {
-      return _firstQQInitQQUpdateListMapsParameterTempCacheService(updateListMapsParameterTempCacheService);
-    }
-    final updateListManiacParameterTempCacheService = _updateListEEManiacEEParameterTempCacheService
-        .updateListManiacParameterTempCacheService();
-    if(updateListManiacParameterTempCacheService
-        .exceptionController
-        .isWhereNotEqualsNullParameterException())
-    {
-      return _firstQQInitQQUpdateListManiacParameterTempCacheService(updateListManiacParameterTempCacheService);
-    }
-    final updateListManiacPerkParameterTempCacheService = _updateListEEManiacPerkEEParameterTempCacheService
-        .updateListManiacPerkParameterTempCacheService();
-    if(updateListManiacPerkParameterTempCacheService
-        .exceptionController
-        .isWhereNotEqualsNullParameterException())
-    {
-      return _firstQQInitQQUpdateListManiacPerkParameterTempCacheService(updateListManiacPerkParameterTempCacheService);
-    }
-    final updateListCountryTCParameterTempCacheService = _updateListEECountryTCEEParameterTempCacheService
-        .updateListCountryTCParameterTempCacheService();
-    if(updateListCountryTCParameterTempCacheService
-        .exceptionController
-        .isWhereNotEqualsNullParameterException())
-    {
-      return _firstQQInitQQUpdateListCountryTCParameterTempCacheService(updateListCountryTCParameterTempCacheService);
-    }
     final getUserParameterSharedPreferencesService = await _getEEUserEEParameterSharedPreferencesService
         .getUserParameterSharedPreferencesService();
     if(getUserParameterSharedPreferencesService
@@ -362,7 +301,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
 
   void listeningStreamsTempCacheService() {
     _startListeningAndCancelListeningEEStringsEEWhereUniqueIdByUserEEFromKeyNameStreamAndCallbackEEParametersTempCacheServiceAndStreamSubscription
-        .startListeningStringsWhereUniqueIdByUserFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(KeysNameStreamToTempCacheServiceUtility.stringsQQUniqueIdByUser,(Result<Strings> strings)
+        .startListeningStringsWhereUniqueIdByUserFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(KeysNameStreamToTempCacheServiceUtility.appViewModelQQStringsQQUniqueIdByUser,(Result<Strings> strings)
     {
       getDataForNamedParameterNamedStreamWState
           .uniqueIdByUser = strings.parameter?.field ?? "";
@@ -385,21 +324,21 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
       }
     });
     _startListeningAndCancelListeningEEBoolsEEWhereIsVerifiedUserByVerifiedUserEEFromKeyNameStreamAndCallbackEEParametersTempCacheServiceAndStreamSubscription
-        .startListeningBoolsWhereIsVerifiedUserByVerifiedUserFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(KeysNameStreamToTempCacheServiceUtility.boolsQQIsVerifiedUserByVerifiedUser, (Result<Bools> bools)
+        .startListeningBoolsWhereIsVerifiedUserByVerifiedUserFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(KeysNameStreamToTempCacheServiceUtility.appViewModelQQBoolsQQIsVerifiedUserByVerifiedUser, (Result<Bools> bools)
     {
       getDataForNamedParameterNamedStreamWState
           .isNotVerifiedUserByVerifiedUser = !(bools.parameter?.isField ?? false);
       notifyStreamDataForNamedParameterNamedStreamWState();
     });
     _startListeningAndCancelListeningEEBoolsEEWhereIsHackedBySecurityEEFromKeyNameStreamAndCallbackEEParametersTempCacheServiceAndStreamSubscription
-        .startListeningBoolsWhereIsHackedBySecurityFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(KeysNameStreamToTempCacheServiceUtility.boolsQQIsHackedBySecurity,(Result<Bools> bools)
+        .startListeningBoolsWhereIsHackedBySecurityFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(KeysNameStreamToTempCacheServiceUtility.appViewModelQQBoolsQQIsHackedBySecurity,(Result<Bools> bools)
     {
       getDataForNamedParameterNamedStreamWState
           .isHackedBySecurity = bools.parameter?.isField ?? false;
       notifyStreamDataForNamedParameterNamedStreamWState();
     });
     _startListeningAndCancelListeningEEBoolsEEWhereIsInitByInitEEFromKeyNameStreamAndCallbackEEParametersTempCacheServiceAndStreamSubscription
-        .startListeningBoolsWhereIsInitByInitFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(KeysNameStreamToTempCacheServiceUtility.boolsQQIsInitByInit,(Result<Bools> bools)
+        .startListeningBoolsWhereIsInitByInitFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(KeysNameStreamToTempCacheServiceUtility.appViewModelQQBoolsQQIsInitByInit,(Result<Bools> bools)
     {
       getDataForNamedParameterNamedStreamWState
           .enumStatusNotifyListInitStream = EnumStatusNotifyListInitStream.infinityNotify;
@@ -407,24 +346,6 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
   }
 
   void listeningStreamsFirebaseFirestoreService() {
-    final updateStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService = _updateEEStringsEEWhereVersionByTOPDBDVersionWebEEParameterTempCacheService
-        .updateStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService();
-    if(updateStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService
-        .exceptionController
-        .isWhereNotEqualsNullParameterException())
-    {
-      _firstQQListeningStreamsFirebaseFirestoreServiceQQUpdateStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService(updateStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService);
-      return;
-    }
-    final getStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService = _getEEStringsEEWhereVersionByTOPDBDVersionWebEEParameterTempCacheService
-        .getStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService();
-    if(getStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService
-        .exceptionController
-        .isWhereNotEqualsNullParameterException())
-    {
-      _firstQQListeningStreamsFirebaseFirestoreServiceQQGetStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService(getStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService);
-      return;
-    }
     _startListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription
         .startListeningThoseWorksFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription((Result<ThoseWorks> thoseWorks)
     {
@@ -465,11 +386,12 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
         _firstQQListeningStreamsFirebaseFirestoreServiceQQStartListeningTOPDBDVersionWebFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(tOPDBDVersionWeb);
         return;
       }
-      final getStringWhereNotEqualsFromVersionParameterVersion = tOPDBDVersionWeb
+      final getExceptionInStringWhereNotEqualsParameterVersion = tOPDBDVersionWeb
           .parameter
-          ?.getExceptionInStringWhereNotEqualsFromVersionParameterVersion(getStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService.parameter?.field ?? "") ?? "";
-      if(getStringWhereNotEqualsFromVersionParameterVersion.isNotEmpty) {
-        _firstQQListeningStreamsFirebaseFirestoreServiceQQGetStringWhereNotEqualsFromVersionParameterVersion(tOPDBDVersionWeb.parameter ?? const TOPDBDVersionWeb(""));
+          ?.getExceptionInStringWhereNotEqualsParameterVersion()
+          ?? "";
+      if(getExceptionInStringWhereNotEqualsParameterVersion.isNotEmpty) {
+        _firstQQListeningStreamsFirebaseFirestoreServiceQQGetExceptionInStringWhereNotEqualsParameterVersion(tOPDBDVersionWeb.parameter ?? const TOPDBDVersionWeb(""));
         return;
       }
       getDataForNamedParameterNamedStreamWState.isNotValidVersionTOPDBDVersionWeb = false;
@@ -501,41 +423,6 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
       _firstQQNotifyStreamDataForAppViewQQIsWhereTrueAndNotEqualsOneNotifyParametersListInitStreamAndEnumStatusNotifyListInitStream();
       return;
     }
-  }
-
-  Future<String> _firstQQInitQQUpdateListSurvivorPerkParameterTempCacheService(Result<bool> updateListSurvivorPerkParameterTempCacheService)
-  async {
-    getDataForNamedParameterNamedStreamWState
-        .exceptionController = updateListSurvivorPerkParameterTempCacheService.exceptionController;
-    return updateListSurvivorPerkParameterTempCacheService.exceptionController.getKeyParameterException;
-  }
-
-  Future<String> _firstQQInitQQUpdateListMapsParameterTempCacheService(Result<bool> updateListMapsParameterTempCacheService)
-  async {
-    getDataForNamedParameterNamedStreamWState
-        .exceptionController = updateListMapsParameterTempCacheService.exceptionController;
-    return updateListMapsParameterTempCacheService.exceptionController.getKeyParameterException;
-  }
-
-  Future<String> _firstQQInitQQUpdateListManiacParameterTempCacheService(Result<bool> updateListManiacParameterTempCacheService)
-  async {
-    getDataForNamedParameterNamedStreamWState
-        .exceptionController = updateListManiacParameterTempCacheService.exceptionController;
-    return updateListManiacParameterTempCacheService.exceptionController.getKeyParameterException;
-  }
-
-  Future<String> _firstQQInitQQUpdateListManiacPerkParameterTempCacheService(Result<bool> updateListManiacPerkParameterTempCacheService)
-  async {
-    getDataForNamedParameterNamedStreamWState
-        .exceptionController = updateListManiacPerkParameterTempCacheService.exceptionController;
-    return updateListManiacPerkParameterTempCacheService.exceptionController.getKeyParameterException;
-  }
-
-  Future<String> _firstQQInitQQUpdateListCountryTCParameterTempCacheService(Result<bool> updateListCountryTCParameterTempCacheService)
-  async {
-    getDataForNamedParameterNamedStreamWState
-        .exceptionController = updateListCountryTCParameterTempCacheService.exceptionController;
-    return updateListCountryTCParameterTempCacheService.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQQInitQQGetUserParameterSharedPreferencesService(Result<User> getUserParameterSharedPreferencesService)
@@ -640,12 +527,6 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
     return getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.exceptionController.getKeyParameterException;
   }
 
-  void _firstQQListeningStreamsFirebaseFirestoreServiceQQUpdateStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService(Result<bool> updateStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService) {
-    getDataForNamedParameterNamedStreamWState
-        .exceptionController = updateStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService.exceptionController;
-    notifyStreamDataForNamedParameterNamedStreamWState();
-  }
-
   void _firstQQListeningStreamsFirebaseFirestoreServiceQQStartListeningThoseWorksFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(Result<ThoseWorks> thoseWorks) {
     getDataForNamedParameterNamedStreamWState
         .exceptionController = thoseWorks.exceptionController;
@@ -658,13 +539,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
-  void _firstQQListeningStreamsFirebaseFirestoreServiceQQGetStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService(Result<Strings> getStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService) {
-    getDataForNamedParameterNamedStreamWState
-        .exceptionController = getStringsWhereVersionByTOPDBDVersionWebParameterTempCacheService.exceptionController;
-    notifyStreamDataForNamedParameterNamedStreamWState();
-  }
-
-  void _firstQQListeningStreamsFirebaseFirestoreServiceQQGetStringWhereNotEqualsFromVersionParameterVersion(TOPDBDVersionWeb tOPDBDVersionWeb) {
+  void _firstQQListeningStreamsFirebaseFirestoreServiceQQGetExceptionInStringWhereNotEqualsParameterVersion(TOPDBDVersionWeb tOPDBDVersionWeb) {
     getDataForNamedParameterNamedStreamWState
         .isNotValidVersionTOPDBDVersionWeb = true;
     getDataForNamedParameterNamedStreamWState

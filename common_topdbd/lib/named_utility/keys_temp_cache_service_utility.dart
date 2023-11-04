@@ -11,7 +11,6 @@ final class KeysTempCacheServiceUtility {
   static const String stringsQQIpByIPAddress = "stringsQQIpByIPAddress";
   static const String stringsQQNameCountryByCountry = "stringsQQNameCountryByCountry";
   static const String stringsQQCodeDBDByAboutMe = "stringsQQCodeDBDByAboutMe";
-  static const String stringsQQVersionByTOPDBDVersionWeb = "stringsQQVersionByTOPDBDVersionWeb";
   /* Ints */
   static const String intsQQSeasonNumberBySeason = "intsQQSeasonNumberBySeason";
   static const String intsQQMatchesWonByStats = "intsQQMatchesWonByStats";
@@ -28,16 +27,6 @@ final class KeysTempCacheServiceUtility {
   static const String datesTimesQQLastLoginTimeByLastLoginTimeUser = "datesTimesQQLastLoginTimeByLastLoginTimeUser";
   static const String datesTimesQQStartOfSeasonTimeBySeason = "datesTimesQQStartOfSeasonTimeBySeason";
   static const String datesTimesQQEndOfSeasonTimeBySeason = "datesTimesQQEndOfSeasonTimeBySeason";
-  /* ListManiac */
-  static const String listManiac = "listManiac";
-  /* ListMaps */
-  static const String listMaps = "listMaps";
-  /* ListManiacPerk */
-  static const String listManiacPerk = "listManiacPerk";
-  /* ListSurvivorPerk */
-  static const String listSurvivorPerk = "listSurvivorPerk";
-  /* ListCountryTC */
-  static const String listCountryTC = "listCountryTC";
   /* ListSeason */
   static const String listSeason = "listSeason";
 

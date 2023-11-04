@@ -2,15 +2,15 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 
 @immutable
-base class CountryTC extends BaseModel {
+base class CountryRD extends BaseModel {
   final String countryAbbreviation;
   final String nameCountry;
   final String pathToTheIcon;
 
-  const CountryTC(this.countryAbbreviation,this.nameCountry,this.pathToTheIcon) : super(countryAbbreviation);
+  const CountryRD(this.countryAbbreviation,this.nameCountry,this.pathToTheIcon) : super(countryAbbreviation);
 
   @override
-  CountryTC get getClone => CountryTC(countryAbbreviation, nameCountry, pathToTheIcon);
+  CountryRD get getClone => CountryRD(countryAbbreviation, nameCountry, pathToTheIcon);
 
   @override
   String toString() {

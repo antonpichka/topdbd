@@ -743,30 +743,35 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .debutWMatches
         .isWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance();
     if(isWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance) {
-      _firstQQMyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(matches.getNewMatchesFromThree(textLogAction,false,EnumStageNamed.pickManiac));
+      _firstQQMyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(matches,textLogAction);
       return;
     }
     final isWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance = matches
         .debutWMatches
         .isWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance();
     if(isWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance) {
-      _firstQQMyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(matches.getNewMatchesFromThree(textLogAction,false,EnumStageNamed.systemPickManiac));
+      _firstQQMyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(matches,textLogAction);
       return;
     }
+    final newMatchesFromThree = matches
+        .getNewMatchesFromThree(textLogAction,false,EnumStageNamed.banManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matches.getNewMatchesFromThree(textLogAction,false,EnumStageNamed.banManiac));
+        .updateMatchesFromMatchesParameterTempCacheService(newMatchesFromThree);
   }
 
   void myTurnsPickManiac(int index) {
-    final matches = getDataForNamedParameterNamedStreamWState.matches;
+    final matches = getDataForNamedParameterNamedStreamWState
+        .matches;
     final itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree = matches
         .debutWMatches
         .getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index];
     matches
         .insertPickManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree.maniac.name);
     final textLogAction = "${matches.textLogAction}\nUser: '${matches.firstUniqueIdByUser}' picked maniac '${itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree.maniac.name}'";
+    final newMatchesFromThree = matches
+        .getNewMatchesFromThree(textLogAction,false,EnumStageNamed.bansMapsToManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matches.getNewMatchesFromThree(textLogAction,false,EnumStageNamed.bansMapsToManiac));
+        .updateMatchesFromMatchesParameterTempCacheService(newMatchesFromThree);
   }
 
   Future<String> _firstQQInitQQGetMatchesParameterTempCacheService(Result<Matches> getMatchesParameterTempCacheService) async {
@@ -774,12 +779,16 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
-  void _firstQQMyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(Matches newMatchesFromThree) {
+  void _firstQQMyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(Matches matches,String textLogAction) {
+    final newMatchesFromThree = matches
+        .getNewMatchesFromThree(textLogAction,false,EnumStageNamed.pickManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(newMatchesFromThree);
   }
 
-  void _firstQQMyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(Matches newMatchesFromThree) {
+  void _firstQQMyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(Matches matches,String textLogAction) {
+    final newMatchesFromThree = matches
+        .getNewMatchesFromThree(textLogAction,false,EnumStageNamed.systemPickManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(newMatchesFromThree);
   }

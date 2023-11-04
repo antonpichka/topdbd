@@ -8,5 +8,5 @@ enum EnumStageNamed {
   bansMapsToManiac,
   pickManiacPerkToManiac,
   pickSurvivorPerkToManiac,
-  ready
+  isCompleted
 }

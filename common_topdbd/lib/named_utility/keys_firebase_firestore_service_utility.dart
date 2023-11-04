@@ -62,7 +62,7 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String statsQQMatchesWon = "matchesWon";
   static const String statsQQMatchesLost = "matchesLost";
   static const String statsQQRatingPoints = "ratingPoints";
-  /* MatchBalance */
+  /* MatchBalance *//*
   static const String matchBalance = "matchBalance";
   static const String matchBalanceQQSeasonNumberBySeason = "seasonNumberBySeason";
   static const String matchBalanceQQNumberOfRounds = "numberOfRounds";
@@ -83,7 +83,7 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchBalanceQQListManiacWhereMatchBalanceQQListSurvivorPerkQQPerk = "perk";
   static const String matchBalanceQQListManiacWhereMatchBalanceQQListSurvivorPerkQQPerkQQName = "name";
   static const String matchBalanceQQListManiacWhereMatchBalanceQQListSurvivorPerkQQPerkQQImagePath = "imagePath";
-  /* Matches */
+  *//* Matches *//*
   static const String matches = "matches";
   static const String matchesQQUniqueId = "uniqueId";
   static const String matchesQQCreationTime = "creationTime";
@@ -156,6 +156,6 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String matchesQQListRoundWhereMatchesQQNumberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond = "numberOfMilliSecondsTheSurvivorRanForUniqueIdByUserWhereSecond";
   static const String matchesQQResultRatingPointsForUniqueIdByUserWhereFirst = "resultRatingPointsForUniqueIdByUserWhereFirst";
   static const String matchesQQResultRatingPointsForUniqueIdByUserWhereSecond = "resultRatingPointsForUniqueIdByUserWhereSecond";
-
+*/
   const KeysFirebaseFirestoreServiceUtility._();
 }

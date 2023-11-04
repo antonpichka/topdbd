@@ -1,6 +1,10 @@
+import 'dart:core';
+
 import 'package:common_topdbd/model/ban_maniac_w_matches/ban_maniac_w_matches.dart';
 import 'package:common_topdbd/model/debut_w_matches/debut_w_matches.dart';
+import 'package:common_topdbd/model/debut_w_matches/enum_stage_named.dart';
 import 'package:common_topdbd/model/endgame_w_matches/endgame_w_matches.dart';
+import 'package:common_topdbd/model/maniac/maniac.dart';
 import 'package:common_topdbd/model/maniac_perk/maniac_perk.dart';
 import 'package:common_topdbd/model/maps/maps.dart';
 import 'package:common_topdbd/model/middlegame_w_matches/middlegame_w_matches.dart';
@@ -38,6 +42,25 @@ base class Matches extends BaseModel {
         "endgameWMatches: $endgameWMatches)";
   }
 
+  Matches getNewMatchesFromThree(String textLogAction,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+    return Matches(
+        uniqueId,
+        creationTime,
+        textLogAction,
+        firstUniqueIdByUser,
+        secondUniqueIdByUser,
+        DebutWMatches(
+          debutWMatches.isCompleted,
+          enumStageNamedByDebutWMatches.name,
+          debutWMatches.matchBalance.getClone,
+          isStageNamedWFirstUniqueIdByUserByDebutWMatches,
+          debutWMatches.listBanManiacWMatches.getClone,
+          debutWMatches.listPickManiacWMatches.getClone
+        ),
+        middlegameWMatches.getClone,
+        endgameWMatches.getClone);
+  }
+
   List<PickManiacWMatches> get getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser {
     return debutWMatches
         .listPickManiacWMatches
@@ -66,6 +89,12 @@ base class Matches extends BaseModel {
     return debutWMatches
         .listBanManiacWMatches
         .getListBanManiacWMatchesWhereEqualsFromUniqueIdByUserParameterListModel(secondUniqueIdByUser);
+  }
+
+  String get getFormattedParameterTextLogAction {
+    return "\n<-------TEXT LOG ACTION------->\n"
+        "$textLogAction"
+        "\n<-------TEXT LOG ACTION------->\n";
   }
 
   String get getUniqueIdByUserWhoTheManiacWhereFirstItemUnfinishedListRoundWMatchesParametersThree {
@@ -135,24 +164,24 @@ base class Matches extends BaseModel {
     }
   }
 
-  void insertBanManiacWMatchesFromNameBannedManiacParametersDebutWMatchesAndFirstUniqueIdByUser(String nameBannedManiac) {
+  void insertBanManiacWMatchesFromManiacParametersDebutWMatchesAndFirstUniqueIdByUser(Maniac maniac) {
     debutWMatches
-        .insertBanManiacWMatchesFromNameBannedManiacAndUniqueIdByUserParameterListBanManiacWMatches(nameBannedManiac,firstUniqueIdByUser);
+        .insertBanManiacWMatchesFromManiacAndUniqueIdByUserParameterListBanManiacWMatches(maniac,firstUniqueIdByUser);
   }
 
-  void insertBanManiacWMatchesFromNameBannedManiacParametersDebutWMatchesAndSecondUniqueIdByUser(String nameBannedManiac) {
+  void insertBanManiacWMatchesFromManiacParametersDebutWMatchesAndSecondUniqueIdByUser(Maniac maniac) {
     debutWMatches
-        .insertBanManiacWMatchesFromNameBannedManiacAndUniqueIdByUserParameterListBanManiacWMatches(nameBannedManiac,secondUniqueIdByUser);
+        .insertBanManiacWMatchesFromManiacAndUniqueIdByUserParameterListBanManiacWMatches(maniac,secondUniqueIdByUser);
   }
 
-  void insertPickManiacWMatchesFromNamePickedManiacParametersDebutWMatchesAndFirstUniqueIdByUser(String namePickedManiac) {
+  void insertPickManiacWMatchesFromManiacParametersDebutWMatchesAndFirstUniqueIdByUser(Maniac maniac) {
     debutWMatches
-        .insertPickManiacWMatchesFromNamePickedManiacAndUniqueIdByUserParameterListPickManiacWMatches(namePickedManiac,firstUniqueIdByUser);
+        .insertPickManiacWMatchesFromManiacAndUniqueIdByUserParameterListPickManiacWMatches(maniac,firstUniqueIdByUser);
   }
 
-  void insertPickManiacWMatchesFromNamePickedManiacParametersDebutWMatchesAndSecondUniqueIdByUser(String namePickedManiac) {
+  void insertPickManiacWMatchesFromManiacParametersDebutWMatchesAndSecondUniqueIdByUser(Maniac maniac) {
     debutWMatches
-        .insertPickManiacWMatchesFromNamePickedManiacAndUniqueIdByUserParameterListPickManiacWMatches(namePickedManiac,secondUniqueIdByUser);
+        .insertPickManiacWMatchesFromManiacAndUniqueIdByUserParameterListPickManiacWMatches(maniac,secondUniqueIdByUser);
   }
 
   void insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromMapsParametersTwo(Maps maps) {

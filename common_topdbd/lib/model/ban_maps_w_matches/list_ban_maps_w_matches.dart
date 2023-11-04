@@ -15,6 +15,17 @@ base class ListBanMapsWMatches<T extends BanMapsWMatches> extends BaseListModel<
     return ListBanMapsWMatches<T>(newListModel);
   }
 
+  List<T> getListBanMapsWMatchesFromUniqueIdByUser(String uniqueIdByUser) {
+    final listBanMapsWMatches = ListBanMapsWMatches<T>(List.empty(growable: true));
+    for(T itemModel in listModel) {
+      if(itemModel.uniqueIdByUser != uniqueIdByUser) {
+        continue;
+      }
+      listBanMapsWMatches.insertFromBanMapsWMatchesParameterListModel(itemModel.getClone as T);
+    }
+    return listBanMapsWMatches.listModel;
+  }
+
   void insertFromBanMapsWMatchesParameterListModel(T banMapsWMatches) {
     super.insertFromNewModelParameterListModel(banMapsWMatches);
   }

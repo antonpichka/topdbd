@@ -1292,7 +1292,7 @@ void _listViewModelFirstSystemPickMapsToManiac() {
     return;
   }
   if(matches?.isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance() ?? false) {
-    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,matches.isStageNamedWFirstUniqueIdByUser,EnumStageNamed.ready);
+    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,matches.isStageNamedWFirstUniqueIdByUser,EnumStageNamed.isCompleted);
     _dataForStagePickAndBanTestMain?.isLoadingForButton = false;
     _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
     return;
@@ -1351,7 +1351,7 @@ void _listViewModelSecondSystemPickMapsToManiac() {
     return;
   }
   if(matches?.isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance() ?? false) {
-    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,matches.isStageNamedWFirstUniqueIdByUser,EnumStageNamed.ready);
+    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,matches.isStageNamedWFirstUniqueIdByUser,EnumStageNamed.isCompleted);
     _dataForStagePickAndBanTestMain?.isLoadingForButton = false;
     _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
     return;
@@ -1406,7 +1406,7 @@ void _listViewModelFirstSystemPickManiacPerkToManiac() {
     return;
   }
   if(matches?.isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance() ?? false) {
-    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,matches.isStageNamedWFirstUniqueIdByUser,EnumStageNamed.ready);
+    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,matches.isStageNamedWFirstUniqueIdByUser,EnumStageNamed.isCompleted);
     _dataForStagePickAndBanTestMain?.isLoadingForButton = false;
     _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
     return;
@@ -1449,7 +1449,7 @@ void _listViewModelSecondSystemPickManiacPerkToManiac() {
     return;
   }
   if(matches?.isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance() ?? false) {
-    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,matches.isStageNamedWFirstUniqueIdByUser,EnumStageNamed.ready);
+    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,matches.isStageNamedWFirstUniqueIdByUser,EnumStageNamed.isCompleted);
     _dataForStagePickAndBanTestMain?.isLoadingForButton = false;
     _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
     return;
@@ -1488,7 +1488,7 @@ void _listViewModelFirstSystemPickSurvivorPerkToManiac() {
     return;
   }
   if(matches?.isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance() ?? false) {
-    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,matches.isStageNamedWFirstUniqueIdByUser,EnumStageNamed.ready);
+    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,matches.isStageNamedWFirstUniqueIdByUser,EnumStageNamed.isCompleted);
     _dataForStagePickAndBanTestMain?.isLoadingForButton = false;
     _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
     return;
@@ -1515,7 +1515,7 @@ void _listViewModelSecondSystemPickSurvivorPerkToManiac() {
     return;
   }
   if(matches?.isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance() ?? false) {
-    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,matches.isStageNamedWFirstUniqueIdByUser,EnumStageNamed.ready);
+    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,matches.isStageNamedWFirstUniqueIdByUser,EnumStageNamed.isCompleted);
     _dataForStagePickAndBanTestMain?.isLoadingForButton = false;
     _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
     return;
@@ -1533,7 +1533,7 @@ void _listViewModelFirstBanManiac(ManiacWMatchBalance maniacWhereMatchBalance) {
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.insertBanManiacWMatchesFromNameBannedManiacParametersDebutWMatchesAndFirstUniqueIdByUser(maniacWhereMatchBalance.maniac.name);
+      ?.insertBanManiacWMatchesFromManiacParametersDebutWMatchesAndFirstUniqueIdByUser(maniacWhereMatchBalance.maniac.name);
   final textLogAction = (matches?.textLogAction.isNotEmpty ?? false)
       ? "${matches?.textLogAction}\nPlayer: '${matches?.firstUniqueIdByUser}' banned maniac '${maniacWhereMatchBalance.maniac.name}'"
       : "Player: '${matches?.firstUniqueIdByUser}' banned maniac '${maniacWhereMatchBalance.maniac.name}'";
@@ -1570,7 +1570,7 @@ void _listViewModelSecondBanManiac(ManiacWMatchBalance maniacWhereMatchBalance) 
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.insertBanManiacWMatchesFromNameBannedManiacParametersDebutWMatchesAndSecondUniqueIdByUser(maniacWhereMatchBalance.maniac.name);
+      ?.insertBanManiacWMatchesFromManiacParametersDebutWMatchesAndSecondUniqueIdByUser(maniacWhereMatchBalance.maniac.name);
   final textLogAction = (matches?.textLogAction.isNotEmpty ?? false)
       ? "${matches?.textLogAction}\nPlayer: '${matches?.secondUniqueIdByUser}' banned maniac '${maniacWhereMatchBalance.maniac.name}'"
       : "Player: '${matches?.secondUniqueIdByUser}' banned maniac '${maniacWhereMatchBalance.maniac.name}'";
@@ -1607,7 +1607,7 @@ void _listViewModelFirstPickManiac(ManiacWMatchBalance maniacWhereMatchBalance) 
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.insertPickManiacWMatchesFromNamePickedManiacParametersDebutWMatchesAndFirstUniqueIdByUser(maniacWhereMatchBalance.maniac.name);
+      ?.insertPickManiacWMatchesFromManiacParametersDebutWMatchesAndFirstUniqueIdByUser(maniacWhereMatchBalance.maniac.name);
   final textLogAction = "${matches?.textLogAction}\nPlayer: '${matches?.firstUniqueIdByUser}' picked maniac '${maniacWhereMatchBalance.maniac.name}'";
   _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,false,EnumStageNamed.bansMapsToManiac);
   _dataForStagePickAndBanTestMain?.isLoadingForButton = false;
@@ -1622,7 +1622,7 @@ void _listViewModelSecondPickManiac(ManiacWMatchBalance maniacWhereMatchBalance)
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.insertPickManiacWMatchesFromNamePickedManiacParametersDebutWMatchesAndSecondUniqueIdByUser(maniacWhereMatchBalance.maniac.name);
+      ?.insertPickManiacWMatchesFromManiacParametersDebutWMatchesAndSecondUniqueIdByUser(maniacWhereMatchBalance.maniac.name);
   final textLogAction = "${matches?.textLogAction}\nPlayer: '${matches?.secondUniqueIdByUser}' picked maniac '${maniacWhereMatchBalance.maniac.name}'";
   _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches!,textLogAction,true,EnumStageNamed.bansMapsToManiac);
   _dataForStagePickAndBanTestMain?.isLoadingForButton = false;
@@ -1716,7 +1716,7 @@ void _firstBranchOneQListViewModelFirstPickManiacPerkToManiac(Matches matches, S
     return;
   }
   if(matches.isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance()) {
-    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches,textLogAction,false,EnumStageNamed.ready);
+    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches,textLogAction,false,EnumStageNamed.isCompleted);
     _dataForStagePickAndBanTestMain?.isLoadingForButton = false;
     _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
     return;
@@ -1771,7 +1771,7 @@ void _firstBranchOneQListViewModelSecondPickManiacPerkToManiac(Matches matches, 
     return;
   }
   if(matches.isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance()) {
-    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches,textLogAction,true,EnumStageNamed.ready);
+    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches,textLogAction,true,EnumStageNamed.isCompleted);
     _dataForStagePickAndBanTestMain?.isLoadingForButton = false;
     _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
     return;
@@ -1814,7 +1814,7 @@ void _firstBranchOneQListViewModelFirstPickSurvivorPerkToManiac(Matches matches,
     return;
   }
   if(matches.isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance()) {
-    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches,textLogAction,false,EnumStageNamed.ready);
+    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches,textLogAction,false,EnumStageNamed.isCompleted);
     _dataForStagePickAndBanTestMain?.isLoadingForButton = false;
     _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
     return;
@@ -1856,7 +1856,7 @@ void _firstBranchOneQListViewModelSecondPickSurvivorPerkToManiac(Matches matches
     return;
   }
   if(matches.isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance()) {
-    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches,textLogAction,true,EnumStageNamed.ready);
+    _dataForStagePickAndBanTestMain?.matches = _dataSourceDataForStagePickAndBanTestMain(matches,textLogAction,true,EnumStageNamed.isCompleted);
     _dataForStagePickAndBanTestMain?.isLoadingForButton = false;
     _streamControllerForDataForStagePickAndBanTestMain.sink.add(_dataForStagePickAndBanTestMain!);
     return;

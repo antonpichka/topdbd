@@ -21,13 +21,13 @@ base class ListManiacWMatchBalance<T extends ManiacWMatchBalance> extends BaseLi
     final clone = getClone;
     for(T itemModel in listModel) {
       for(BanManiacWMatches banManiacWMatches in listBanManiacWMatches) {
-        if(banManiacWMatches.nameBannedManiac == itemModel.maniac.name) {
+        if(banManiacWMatches.maniac.name == itemModel.maniac.name) {
           clone.deleteFromUniqueIdByManiacWMatchBalanceParameterListModel(itemModel.uniqueId);
           break;
         }
       }
       for(PickManiacWMatches pickManiacWMatches in listPickManiacWMatches) {
-        if(pickManiacWMatches.namePickedManiac == itemModel.maniac.name) {
+        if(pickManiacWMatches.maniac.name == itemModel.maniac.name) {
           clone.deleteFromUniqueIdByManiacWMatchBalanceParameterListModel(itemModel.uniqueId);
           break;
         }

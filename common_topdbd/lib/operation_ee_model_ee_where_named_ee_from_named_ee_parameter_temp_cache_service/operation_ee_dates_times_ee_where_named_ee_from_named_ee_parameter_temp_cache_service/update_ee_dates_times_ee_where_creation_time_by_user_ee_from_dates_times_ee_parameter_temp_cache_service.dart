@@ -10,7 +10,7 @@ base class UpdateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParamete
 
   Result<bool> updateDatesTimesWhereCreationTimeByUserFromDatesTimesParameterTempCacheService(T datesTimes) {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.datesTimesQQCreationTimeByUser,datesTimes);
+      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.datesTimesQQCreationTimeByUser,datesTimes);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

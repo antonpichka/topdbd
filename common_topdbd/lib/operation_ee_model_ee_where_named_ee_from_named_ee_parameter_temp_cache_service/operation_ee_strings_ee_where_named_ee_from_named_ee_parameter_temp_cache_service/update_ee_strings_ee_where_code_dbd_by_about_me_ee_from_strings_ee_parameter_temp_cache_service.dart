@@ -10,7 +10,7 @@ base class UpdateEEStringsEEWhereCodeDBDByAboutMeEEFromStringsEEParameterTempCac
 
   Result<bool> updateStringsWhereCodeDBDByAboutMeFromStringsParameterTempCacheService(T strings) {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.stringsQQCodeDBDByAboutMe,strings);
+      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.stringsQQCodeDBDByAboutMe,strings);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

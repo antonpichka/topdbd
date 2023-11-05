@@ -10,7 +10,7 @@ base class GetEEStringsEEWhereCodeDBDByAboutMeEEParameterTempCacheService<T exte
 
   Result<T> getStringsWhereCodeDBDByAboutMeParameterTempCacheService() {
     try {
-      final strings = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.stringsQQCodeDBDByAboutMe) as T;
+      final strings = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.stringsQQCodeDBDByAboutMe) as T;
       return Result<T>.success(strings);
     } on LocalException catch(e) {
       return Result<T>.exception(e);

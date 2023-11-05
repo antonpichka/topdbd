@@ -10,7 +10,7 @@ base class GetEEDatesTimesEEWhereLastLoginTimeByLastLoginTimeUserEEParameterTemp
 
   Result<T> getDatesTimesWhereLastLoginTimeByLastLoginTimeUserParameterTempCacheService() {
     try {
-      final datesTimes = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.datesTimesQQLastLoginTimeByLastLoginTimeUser) as T;
+      final datesTimes = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.datesTimesQQLastLoginTimeByLastLoginTimeUser) as T;
       return Result<T>.success(datesTimes);
     } on LocalException catch(e) {
       return Result<T>.exception(e);

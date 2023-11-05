@@ -10,7 +10,7 @@ base class UpdateEEDatesTimesEEWhereEndOfSeasonTimeBySeasonEEFromDatesTimesEEPar
 
   Result<bool> updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(T datesTimes) {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.datesTimesQQEndOfSeasonTimeBySeason,datesTimes);
+      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.datesTimesQQEndOfSeasonTimeBySeason,datesTimes);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

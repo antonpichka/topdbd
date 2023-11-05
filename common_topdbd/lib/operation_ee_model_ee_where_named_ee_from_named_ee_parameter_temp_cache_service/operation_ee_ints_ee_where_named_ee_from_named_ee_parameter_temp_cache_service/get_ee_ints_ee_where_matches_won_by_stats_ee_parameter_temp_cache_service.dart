@@ -10,7 +10,7 @@ base class GetEEIntsEEWhereMatchesWonByStatsEEParameterTempCacheService<T extend
 
   Result<T> getIntsWhereMatchesWonByStatsParameterTempCacheService() {
     try {
-      final ints = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.intsQQMatchesWonByStats) as T;
+      final ints = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.intsQQMatchesWonByStats) as T;
       return Result<T>.success(ints);
     } on LocalException catch(e) {
       return Result<T>.exception(e);

@@ -10,7 +10,7 @@ base class UpdateEEBoolsEEWhereIsHackedBySecurityEEFromBoolsEEParameterTempCache
 
   Result<bool> updateBoolsWhereIsHackedBySecurityFromBoolsParameterTempCacheService(T bools) {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.boolsQQIsHackedBySecurity,bools);
+      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.boolsQQIsHackedBySecurity,bools);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

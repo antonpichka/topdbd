@@ -10,7 +10,7 @@ base class UpdateEEBoolsEEWhereIsVerifiedUserByVerifiedUserEEFromBoolsEEParamete
 
   Result<bool> updateBoolsWhereIsVerifiedUserByVerifiedUserFromBoolsParameterTempCacheService(T bools) {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.boolsQQIsVerifiedUserByVerifiedUser,bools);
+      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.boolsQQIsVerifiedUserByVerifiedUser,bools);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

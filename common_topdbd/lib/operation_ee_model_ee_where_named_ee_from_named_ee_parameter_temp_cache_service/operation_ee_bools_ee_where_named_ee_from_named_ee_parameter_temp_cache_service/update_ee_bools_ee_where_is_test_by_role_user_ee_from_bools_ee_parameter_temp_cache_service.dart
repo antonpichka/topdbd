@@ -10,7 +10,7 @@ base class UpdateEEBoolsEEWhereIsTestByRoleUserEEFromBoolsEEParameterTempCacheSe
 
   Result<bool> updateBoolsWhereIsTestByRoleUserFromBoolsParameterTempCacheService(T bools) {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.boolsQQIsTestByRoleUser,bools);
+      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.boolsQQIsTestByRoleUser,bools);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

@@ -227,14 +227,6 @@ final class KeysTempCacheServiceUtility {
 }
 
 @immutable
-final class KeysWCreationStreamWNameStreamToTempCacheServiceUtility {
-  /* ThreeStagesOfTheMatchViewModel */
-  static const String threeStagesOfTheMatchViewModelQQMatches = "matches";
-
-  const KeysWCreationStreamWNameStreamToTempCacheServiceUtility._();
-}
-
-@immutable
 final class KeysExceptionUtility {
   /* UNKNOWN */
   static const String uNKNOWN = "uNKNOWN";
@@ -250,15 +242,15 @@ final class KeysSuccessUtility {
   const KeysSuccessUtility._();
 }
 
-base class StartListeningAndCancelListeningEEMatchesEEFromKeyNameStreamAndCallbackEEParametersTempCacheServiceAndStreamSubscription<T extends Matches, Y extends ListMatches<T>> {
+base class StartListeningAndCancelListeningEEMatchesEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription<T extends Matches, Y extends ListMatches<T>> {
   @protected
   final tempCacheService = TempCacheService.instance;
   @protected
   StreamSubscription<dynamic>? streamSubscription;
 
-  void startListeningMatchesFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(String keyNameStream,Function(Result<T>) callback) {
+  void startListeningMatchesFromCallbackParametersTempCacheServiceAndStreamSubscription(Function(Result<T>) callback) {
     streamSubscription = tempCacheService
-        .getStreamObjectFromKeyNameStreamAndKeyTempCacheAndMillisecondsParametersTempCacheAndNameStreamWTempCacheWIsHaveYouReceivedTheLatestData(keyNameStream,KeysTempCacheServiceUtility.matches)
+        .getStreamFromKeyTempCacheParameterOne(KeysTempCacheServiceUtility.matches)
         .listen((event) {
           callback(Result.success(event as T));
         });
@@ -276,7 +268,7 @@ base class GetEEMatchesEEParameterTempCacheService<T extends Matches,Y extends L
 
   Result<T> getMatchesParameterTempCacheService() {
     try {
-      final matches = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.matches) as T;
+      final matches = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.matches) as T;
       return Result<T>.success(matches);
     } on LocalException catch(e) {
       return Result<T>.exception(e);
@@ -293,7 +285,7 @@ base class UpdateEEMatchesEEFromMatchesEEParameterTempCacheService<T extends Mat
 
   Result<bool> updateMatchesFromMatchesParameterTempCacheService(T matches) {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.matches,matches);
+      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.matches,matches);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
@@ -308,7 +300,7 @@ base class GetEEStringsEEWhereUniqueIdByUserEEParameterTempCacheService<T extend
 
   Result<T> getStringsWhereUniqueIdByUserParameterTempCacheService() {
     try {
-      final strings = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.stringsQQUniqueIdByUser) as T;
+      final strings = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.stringsQQUniqueIdByUser) as T;
       return Result<T>.success(strings);
     } on LocalException catch(e) {
       return Result<T>.exception(e);
@@ -325,7 +317,7 @@ base class UpdateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCache
 
   Result<bool> updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(T strings) {
     try {
-      tempCacheService.updateObjectFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.stringsQQUniqueIdByUser,strings);
+      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.stringsQQUniqueIdByUser,strings);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
@@ -387,8 +379,8 @@ final class ThreeStagesOfTheMatchViewModel extends BaseNamedViewModel<DataForThr
   GetEEMatchesEEParameterTempCacheService();
   final _getEEStringsEEWhereUniqueIdByUserEEParameterTempCacheService =
   GetEEStringsEEWhereUniqueIdByUserEEParameterTempCacheService();
-  final _startListeningAndCancelListeningEEMatchesEEFromKeyNameStreamAndCallbackEEParametersTempCacheServiceAndStreamSubscription =
-  StartListeningAndCancelListeningEEMatchesEEFromKeyNameStreamAndCallbackEEParametersTempCacheServiceAndStreamSubscription();
+  final _startListeningAndCancelListeningEEMatchesEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription =
+  StartListeningAndCancelListeningEEMatchesEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription();
 
   // NamedUtility
 
@@ -420,13 +412,13 @@ final class ThreeStagesOfTheMatchViewModel extends BaseNamedViewModel<DataForThr
   @override
   void dispose() {
     super.dispose();
-    _startListeningAndCancelListeningEEMatchesEEFromKeyNameStreamAndCallbackEEParametersTempCacheServiceAndStreamSubscription
+    _startListeningAndCancelListeningEEMatchesEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
         .cancelListeningMatchesParameterStreamSubscription();
   }
 
   void listeningStreamsTempCacheService() {
-    _startListeningAndCancelListeningEEMatchesEEFromKeyNameStreamAndCallbackEEParametersTempCacheServiceAndStreamSubscription
-        .startListeningMatchesFromKeyNameStreamAndCallbackParametersTempCacheServiceAndStreamSubscription(KeysWCreationStreamWNameStreamToTempCacheServiceUtility.threeStagesOfTheMatchViewModelQQMatches, (Result<Matches> resultMatches) {
+    _startListeningAndCancelListeningEEMatchesEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
+        .startListeningMatchesFromCallbackParametersTempCacheServiceAndStreamSubscription((Result<Matches> resultMatches) {
           getDataForNamedParameterNamedStreamWState.matches = resultMatches.parameter!.getClone;
           notifyStreamDataForNamedParameterNamedStreamWState();
         });
@@ -733,14 +725,14 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
 
   void myTurnsBanManiac(int index) {
     final matches = getDataForNamedParameterNamedStreamWState.matches;
-    final itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree = matches
+    final itemManiacWMatchBalanceWhereNotBannedAndPickedParametersThree = matches
         .debutWMatches
         .getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index];
     matches
-        .insertBanManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree.maniac.name);
+        .insertBanManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(itemManiacWMatchBalanceWhereNotBannedAndPickedParametersThree.maniac.name);
     final textLogAction = matches.textLogAction.isNotEmpty
-        ? "${matches.textLogAction}\nUser: '${matches.firstUniqueIdByUser}' banned maniac '${itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree.maniac.name}'"
-        : "User: '${matches.firstUniqueIdByUser}' banned maniac '${itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree.maniac.name}'";
+        ? "${matches.textLogAction}\nUser: '${matches.firstUniqueIdByUser}' banned maniac '${itemManiacWMatchBalanceWhereNotBannedAndPickedParametersThree.maniac.name}'"
+        : "User: '${matches.firstUniqueIdByUser}' banned maniac '${itemManiacWMatchBalanceWhereNotBannedAndPickedParametersThree.maniac.name}'";
     final isWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance = matches
         .debutWMatches
         .isWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance();
@@ -764,12 +756,12 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
   void myTurnsPickManiac(int index) {
     final matches = getDataForNamedParameterNamedStreamWState
         .matches;
-    final itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree = matches
+    final itemManiacWMatchBalanceWhereNotBannedAndPickedParametersThree = matches
         .debutWMatches
         .getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index];
     matches
-        .insertPickManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree.maniac.name);
-    final textLogAction = "${matches.textLogAction}\nUser: '${matches.firstUniqueIdByUser}' picked maniac '${itemManiacWMatchBalanceWhereNotBannedWPickedParametersThree.maniac.name}'";
+        .insertPickManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(itemManiacWMatchBalanceWhereNotBannedAndPickedParametersThree.maniac.name);
+    final textLogAction = "${matches.textLogAction}\nUser: '${matches.firstUniqueIdByUser}' picked maniac '${itemManiacWMatchBalanceWhereNotBannedAndPickedParametersThree.maniac.name}'";
     final newMatchesFromThree = matches
         .getNewMatchesFromThree(textLogAction,false,EnumStageNamed.bansMapsToManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService

@@ -10,7 +10,7 @@ base class GetEEDatesTimesEEWhereEndOfSeasonTimeBySeasonEEParameterTempCacheServ
 
   Result<T> getDatesTimesWhereEndOfSeasonTimeBySeasonParameterTempCacheService() {
     try {
-      final datesTimes = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.datesTimesQQEndOfSeasonTimeBySeason) as T;
+      final datesTimes = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.datesTimesQQEndOfSeasonTimeBySeason) as T;
       return Result<T>.success(datesTimes);
     } on LocalException catch(e) {
       return Result<T>.exception(e);

@@ -10,7 +10,7 @@ base class GetEEStringsEEWhereNameCountryByCountryEEParameterTempCacheService<T 
 
   Result<T> getStringsWhereNameCountryByCountryParameterTempCacheService() {
     try {
-      final strings = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.stringsQQNameCountryByCountry) as T;
+      final strings = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.stringsQQNameCountryByCountry) as T;
       return Result<T>.success(strings);
     } on LocalException catch(e) {
       return Result<T>.exception(e);

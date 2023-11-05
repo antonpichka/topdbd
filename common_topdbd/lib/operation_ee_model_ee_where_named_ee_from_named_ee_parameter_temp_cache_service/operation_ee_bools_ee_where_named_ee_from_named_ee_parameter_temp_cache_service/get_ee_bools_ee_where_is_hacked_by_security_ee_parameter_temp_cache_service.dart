@@ -10,7 +10,7 @@ base class GetEEBoolsEEWhereIsHackedBySecurityEEParameterTempCacheService<T exte
 
   Result<T> getBoolsWhereIsHackedBySecurityParameterTempCacheService() {
     try {
-      final bools = tempCacheService.getObjectFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.boolsQQIsHackedBySecurity) as T;
+      final bools = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.boolsQQIsHackedBySecurity) as T;
       return Result<T>.success(bools);
     } on LocalException catch(e) {
       return Result<T>.exception(e);

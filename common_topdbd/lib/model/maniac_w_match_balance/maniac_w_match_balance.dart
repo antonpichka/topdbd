@@ -1,46 +1,45 @@
-import 'package:common_topdbd/model/maniac/maniac.dart';
-import 'package:common_topdbd/model/maniac_perk/list_maniac_perk.dart';
-import 'package:common_topdbd/model/maps/list_maps.dart';
-import 'package:common_topdbd/model/survivor_perk/list_survivor_perk.dart';
+import 'package:common_topdbd/model/maniac_perk_w_match_balance/list_maniac_perk_w_match_balance.dart';
+import 'package:common_topdbd/model/maps_w_match_balance/list_maps_w_match_balance.dart';
+import 'package:common_topdbd/model/survivor_perk_w_match_balance/list_survivor_perk_w_match_balance.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
 @immutable
 base class ManiacWMatchBalance extends BaseModel {
-  final Maniac maniac;
+  final String name;
   final int lengthPickManiacPerk;
   final int lengthPickSurvivorPerk;
-  final ListMaps listMaps;
-  final ListManiacPerk listManiacPerk;
-  final ListSurvivorPerk listSurvivorPerk;
+  final ListMapsWMatchBalance listMapsWMatchBalance;
+  final ListManiacPerkWMatchBalance listManiacPerkWMatchBalance;
+  final ListSurvivorPerkWMatchBalance listSurvivorPerkWMatchBalance;
 
-  ManiacWMatchBalance(this.maniac, this.lengthPickManiacPerk, this.lengthPickSurvivorPerk, this.listMaps, this.listManiacPerk, this.listSurvivorPerk) : super(maniac.uniqueId);
+  const ManiacWMatchBalance(this.name, this.lengthPickManiacPerk, this.lengthPickSurvivorPerk, this.listMapsWMatchBalance, this.listManiacPerkWMatchBalance, this.listSurvivorPerkWMatchBalance) : super(name);
 
   @override
-  ManiacWMatchBalance get getClone => ManiacWMatchBalance(maniac.getClone,lengthPickManiacPerk, lengthPickSurvivorPerk, listMaps.getClone, listManiacPerk.getClone,listSurvivorPerk.getClone);
+  ManiacWMatchBalance get getClone => ManiacWMatchBalance(name,lengthPickManiacPerk, lengthPickSurvivorPerk, listMapsWMatchBalance.getClone, listManiacPerkWMatchBalance.getClone,listSurvivorPerkWMatchBalance.getClone);
 
   @override
   String toString() {
-    return "ManiacWMatchBalance(maniac: $maniac, "
+    return "ManiacWMatchBalance(name: $name, "
         "lengthPickManiacPerk: $lengthPickManiacPerk, "
         "lengthPickSurvivorPerk: $lengthPickSurvivorPerk, "
-        "ListMaps: ${listMaps.listModel}, "
-        "ListManiacPerk: ${listManiacPerk.listModel}, "
-        "ListSurvivorPerk: ${listSurvivorPerk.listModel})";
+        "listMapsWMatchBalance: ${listMapsWMatchBalance.listModel}, "
+        "listManiacPerkWMatchBalance: ${listManiacPerkWMatchBalance.listModel}, "
+        "listSurvivorPerkWMatchBalance: ${listSurvivorPerkWMatchBalance.listModel})";
   }
 
-  bool isWhereNotEqualsParametersLengthPickManiacPerkAndListManiacPerk() {
-    return lengthPickManiacPerk != listManiacPerk.listModel.length;
+  bool isWhereNotEqualsParametersLengthPickManiacPerkAndListManiacPerkWMatchBalance() {
+    return lengthPickManiacPerk != listManiacPerkWMatchBalance.listModel.length;
   }
 
-  bool isWhereNotEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerk() {
-    return lengthPickSurvivorPerk != listSurvivorPerk.listModel.length;
+  bool isWhereNotEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance() {
+    return lengthPickSurvivorPerk != listSurvivorPerkWMatchBalance.listModel.length;
   }
 
-  bool isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerk() {
-    if(listSurvivorPerk.listModel.isEmpty) {
+  bool isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance() {
+    if(listSurvivorPerkWMatchBalance.listModel.isEmpty) {
       return false;
     }
-    return lengthPickSurvivorPerk == listSurvivorPerk.listModel.length;
+    return lengthPickSurvivorPerk == listSurvivorPerkWMatchBalance.listModel.length;
   }
 }

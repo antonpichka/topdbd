@@ -1,12 +1,12 @@
 enum EnumStageNamed {
-  systemPickManiac,
-  systemPickMapsToManiac,
-  systemPickManiacPerkToManiac,
-  systemPickSurvivorPerkToManiac,
   banManiac,
   pickManiac,
-  bansMapsToManiac,
-  pickManiacPerkToManiac,
-  pickSurvivorPerkToManiac,
+  bansMapsToPickedManiac,
+  systemPickMapsToPickedManiac,
+  pickManiacPerkToPickedManiac,
+  pickSurvivorPerkToPickedManiac,
+  systemPickManiacPerkToPickedManiac,
+  systemPickSurvivorPerkToPickedManiac,
+  systemPickManiac,
   isCompleted
 }

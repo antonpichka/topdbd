@@ -4,6 +4,7 @@ import 'package:common_topdbd/model/ban_maniac_w_matches/ban_maniac_w_matches.da
 import 'package:common_topdbd/model/debut_w_matches/debut_w_matches.dart';
 import 'package:common_topdbd/model/debut_w_matches/enum_stage_named.dart';
 import 'package:common_topdbd/model/endgame_w_matches/endgame_w_matches.dart';
+import 'package:common_topdbd/model/maniac_perk_w_match_balance/maniac_perk_w_match_balance.dart';
 import 'package:common_topdbd/model/middlegame_w_matches/middlegame_w_matches.dart';
 import 'package:common_topdbd/model/pick_maniac_w_matches/pick_maniac_w_matches.dart';
 import 'package:common_topdbd/model/round_w_matches/enum_round_status.dart';
@@ -38,20 +39,77 @@ base class Matches extends BaseModel {
         "endgameWMatches: $endgameWMatches)";
   }
 
-  Matches getNewMatchesFromThree(String textLogAction,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+  Matches getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersSeven(int index,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
     return Matches(
         uniqueId,
         creationTime,
-        textLogAction,
+        getWhereFirstUniqueIdByUserTurnsBanManiacFromIndexParametersThree(index),
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         DebutWMatches(
-          debutWMatches.isCompleted,
-          enumStageNamedByDebutWMatches.name,
-          debutWMatches.matchBalance.getClone,
-          isStageNamedWFirstUniqueIdByUserByDebutWMatches,
-          debutWMatches.listBanManiacWMatches.getClone,
-          debutWMatches.listPickManiacWMatches.getClone
+            debutWMatches.isCompleted,
+            enumStageNamedByDebutWMatches.name,
+            debutWMatches.matchBalance.getClone,
+            isStageNamedWFirstUniqueIdByUserByDebutWMatches,
+            debutWMatches.listBanManiacWMatches.getClone,
+            debutWMatches.listPickManiacWMatches.getClone
+        ),
+        middlegameWMatches.getClone,
+        endgameWMatches.getClone);
+  }
+
+  Matches getMatchesWhereNewAndFirstUniqueIdByUserTurnsPickManiacFromThreeParametersSeven(int index,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+    return Matches(
+        uniqueId,
+        creationTime,
+        getWhereFirstUniqueIdByUserTurnsPickManiacFromIndexParametersThree(index),
+        firstUniqueIdByUser,
+        secondUniqueIdByUser,
+        DebutWMatches(
+            debutWMatches.isCompleted,
+            enumStageNamedByDebutWMatches.name,
+            debutWMatches.matchBalance.getClone,
+            isStageNamedWFirstUniqueIdByUserByDebutWMatches,
+            debutWMatches.listBanManiacWMatches.getClone,
+            debutWMatches.listPickManiacWMatches.getClone
+        ),
+        middlegameWMatches.getClone,
+        endgameWMatches.getClone);
+  }
+
+  Matches getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanMapsToPickedManiacFromThreeParametersSeven(int index,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+    return Matches(
+        uniqueId,
+        creationTime,
+        getWhereFirstUniqueIdByUserTurnsBanMapsToPickedManiacFromIndexParametersThree(index),
+        firstUniqueIdByUser,
+        secondUniqueIdByUser,
+        DebutWMatches(
+            debutWMatches.isCompleted,
+            enumStageNamedByDebutWMatches.name,
+            debutWMatches.matchBalance.getClone,
+            isStageNamedWFirstUniqueIdByUserByDebutWMatches,
+            debutWMatches.listBanManiacWMatches.getClone,
+            debutWMatches.listPickManiacWMatches.getClone
+        ),
+        middlegameWMatches.getClone,
+        endgameWMatches.getClone);
+  }
+
+  Matches getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven(EnumStageNamed enumStageNamedByDebutWMatches) {
+    return Matches(
+        uniqueId,
+        creationTime,
+        getWhereSystemPickMapsToPickedManiacParametersTwo,
+        firstUniqueIdByUser,
+        secondUniqueIdByUser,
+        DebutWMatches(
+            debutWMatches.isCompleted,
+            enumStageNamedByDebutWMatches.name,
+            debutWMatches.matchBalance.getClone,
+            debutWMatches.isStageNamedWFirstUniqueIdByUser,
+            debutWMatches.listBanManiacWMatches.getClone,
+            debutWMatches.listPickManiacWMatches.getClone
         ),
         middlegameWMatches.getClone,
         endgameWMatches.getClone);
@@ -85,6 +143,16 @@ base class Matches extends BaseModel {
     return debutWMatches
         .listBanManiacWMatches
         .getListBanManiacWMatchesWhereEqualsFromUniqueIdByUserParameterListModel(secondUniqueIdByUser);
+  }
+
+  List<ManiacPerkWMatchBalance> get getListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo {
+    return debutWMatches
+        .getListManiacPerkWMatchBalanceWhereNotPickedAndLastItemFromUniqueIdByUserParameterOne(firstUniqueIdByUser);
+  }
+
+  List<ManiacPerkWMatchBalance> get getListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwoFIRST {
+    return debutWMatches
+        .getListManiacPerkWMatchBalanceWhereNotPickedAndLastItemFromUniqueIdByUserParameterOne(secondUniqueIdByUser);
   }
 
   String get getFormattedParameterTextLogAction {
@@ -141,6 +209,28 @@ base class Matches extends BaseModel {
     return secondUniqueIdByUser;
   }
 
+  @protected
+  String getWhereFirstUniqueIdByUserTurnsBanManiacFromIndexParametersThree(int index) {
+    return textLogAction.isNotEmpty
+        ? "$textLogAction\nUser '$firstUniqueIdByUser': banned maniac '${debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index].name}'"
+        : "User '$firstUniqueIdByUser': banned maniac '${debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index].name}'";
+  }
+
+  @protected
+  String getWhereFirstUniqueIdByUserTurnsPickManiacFromIndexParametersThree(int index) {
+    return "$textLogAction\nUser '$firstUniqueIdByUser': picked maniac '${debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index].name}'";
+  }
+
+  @protected
+  String getWhereFirstUniqueIdByUserTurnsBanMapsToPickedManiacFromIndexParametersThree(int index) {
+    return "$textLogAction\nUser '$firstUniqueIdByUser': banned maps '${debutWMatches.getListMapsWMatchBalanceWhereNotBannedMapsAndLastItemParameterListPickManiacWMatches[index].name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
+  }
+
+  @protected
+  String get getWhereSystemPickMapsToPickedManiacParametersTwo {
+    return "$textLogAction\nSystem: picked maps '${debutWMatches.getListMapsWMatchBalanceWhereNotBannedMapsAndLastItemParameterListPickManiacWMatches.last.name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
+  }
+
   void insertListRoundWMatchesWhereBeforeCallIteratorParametersThree() {
     debutWMatches
         .listPickManiacWMatches
@@ -160,34 +250,34 @@ base class Matches extends BaseModel {
     }
   }
 
-  void insertBanManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(String name) {
+  void insertBanManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(int index) {
     debutWMatches
-        .insertBanManiacWMatchesFromNameAndUniqueIdByUserParameterListBanManiacWMatches(name,firstUniqueIdByUser);
+        .insertBanManiacWMatchesFromIndexAndUniqueIdByUserParameterListBanManiacWMatches(index,firstUniqueIdByUser);
   }
 
-  void insertBanManiacWMatchesFromNameParametersDebutWMatchesAndSecondUniqueIdByUser(String name) {
+  void insertBanManiacWMatchesFromNameParametersDebutWMatchesAndSecondUniqueIdByUser(int index) {
     debutWMatches
-        .insertBanManiacWMatchesFromNameAndUniqueIdByUserParameterListBanManiacWMatches(name,secondUniqueIdByUser);
+        .insertBanManiacWMatchesFromIndexAndUniqueIdByUserParameterListBanManiacWMatches(index,secondUniqueIdByUser);
   }
 
-  void insertPickManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(String name) {
+  void insertPickManiacWMatchesFromIndexParametersDebutWMatchesAndFirstUniqueIdByUser(int index) {
     debutWMatches
-        .insertPickManiacWMatchesFromNameAndUniqueIdByUserParameterListPickManiacWMatches(name,firstUniqueIdByUser);
+        .insertPickManiacWMatchesFromIndexAndUniqueIdByUserParameterListPickManiacWMatches(index,firstUniqueIdByUser);
   }
 
-  void insertPickManiacWMatchesFromNameParametersDebutWMatchesAndSecondUniqueIdByUser(String name) {
+  void insertPickManiacWMatchesFromIndexParametersDebutWMatchesAndSecondUniqueIdByUser(int index) {
     debutWMatches
-        .insertPickManiacWMatchesFromNameAndUniqueIdByUserParameterListPickManiacWMatches(name,secondUniqueIdByUser);
+        .insertPickManiacWMatchesFromIndexAndUniqueIdByUserParameterListPickManiacWMatches(index,secondUniqueIdByUser);
   }
 
-  void insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromNameParametersTwo(String name) {
+  void insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromIndexParametersTwo(int index) {
     debutWMatches
-        .insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromNameAndUniqueIdByUserParameterOne(name,firstUniqueIdByUser);
+        .insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromIndexAndUniqueIdByUserParameterOne(index,firstUniqueIdByUser);
   }
 
-  void insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromNameParametersTwoFIRST(String name) {
+  void insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromIndexParametersTwoFIRST(int index) {
     debutWMatches
-        .insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromNameAndUniqueIdByUserParameterOne(name,secondUniqueIdByUser);
+        .insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromIndexAndUniqueIdByUserParameterOne(index,secondUniqueIdByUser);
   }
 
   void insertListPickManiacPerkWMatchesWhereLastItemPickManiacWMatchesParametersThree() {
@@ -200,24 +290,24 @@ base class Matches extends BaseModel {
         .insertListPickSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(firstUniqueIdByUser,secondUniqueIdByUser);
   }
 
-  void insertManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromNameParametersTwo(String name) {
+  void insertPickManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromIndexParametersTwo(int index) {
     debutWMatches
-        .insertManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(name,firstUniqueIdByUser);
+        .insertPickManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(index,firstUniqueIdByUser);
   }
 
-  void insertManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromNameParametersTwoFIRST(String name) {
+  void insertPickManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromIndexParametersTwoFIRST(int index) {
     debutWMatches
-        .insertManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(name,secondUniqueIdByUser);
+        .insertPickManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(index,secondUniqueIdByUser);
   }
 
-  void insertSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromNameParametersTwo(String name) {
+  void insertPickSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromIndexParametersTwo(int index) {
     debutWMatches
-        .insertSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(name,firstUniqueIdByUser);
+        .insertPickSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(index,firstUniqueIdByUser);
   }
 
-  void insertSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromNameParametersTwoFIRST(String name) {
+  void insertPickSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromIndexParametersTwoFIRST(int index) {
     debutWMatches
-        .insertSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(name,secondUniqueIdByUser);
+        .insertPickSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(index,secondUniqueIdByUser);
   }
 
   bool isWhereLengthPickManiacPerkEqualsNecessaryLengthPickManiacPerkParametersTwo() {

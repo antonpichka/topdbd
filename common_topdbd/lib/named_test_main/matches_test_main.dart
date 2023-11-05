@@ -4,201 +4,199 @@ import 'package:common_topdbd/model/ban_maniac_w_matches/list_ban_maniac_w_match
 import 'package:common_topdbd/model/debut_w_matches/debut_w_matches.dart';
 import 'package:common_topdbd/model/debut_w_matches/enum_stage_named.dart';
 import 'package:common_topdbd/model/endgame_w_matches/endgame_w_matches.dart';
-import 'package:common_topdbd/model/maniac/maniac.dart';
-import 'package:common_topdbd/model/maniac_perk/list_maniac_perk.dart';
-import 'package:common_topdbd/model/maniac_perk/maniac_perk.dart';
+import 'package:common_topdbd/model/maniac_perk_w_match_balance/list_maniac_perk_w_match_balance.dart';
+import 'package:common_topdbd/model/maniac_perk_w_match_balance/maniac_perk_w_match_balance.dart';
 import 'package:common_topdbd/model/maniac_w_match_balance/list_maniac_w_match_balance.dart';
 import 'package:common_topdbd/model/maniac_w_match_balance/maniac_w_match_balance.dart';
-import 'package:common_topdbd/model/maps/list_maps.dart';
-import 'package:common_topdbd/model/maps/maps.dart';
+import 'package:common_topdbd/model/maps_w_match_balance/list_maps_w_match_balance.dart';
+import 'package:common_topdbd/model/maps_w_match_balance/maps_w_match_balance.dart';
 import 'package:common_topdbd/model/match_balance/match_balance.dart';
 import 'package:common_topdbd/model/matches/list_matches.dart';
 import 'package:common_topdbd/model/matches/matches.dart';
 import 'package:common_topdbd/model/middlegame_w_matches/middlegame_w_matches.dart';
-import 'package:common_topdbd/model/perk/perk.dart';
 import 'package:common_topdbd/model/pick_maniac_w_matches/list_pick_maniac_w_matches.dart';
 import 'package:common_topdbd/model/round_w_matches/list_round_w_matches.dart';
-import 'package:common_topdbd/model/survivor_perk/list_survivor_perk.dart';
-import 'package:common_topdbd/model/survivor_perk/survivor_perk.dart';
+import 'package:common_topdbd/model/survivor_perk_w_match_balance/list_survivor_perk_w_match_balance.dart';
+import 'package:common_topdbd/model/survivor_perk_w_match_balance/survivor_perk_w_match_balance.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
 void main() {
   UpdateEEMatchesEEFromMatchesEEParameterTempCacheService()
-      .updateMatchesFromMatchesParameterTempCacheService(ReadyDataUtility.getMatchesWhereUsingGetStrings);
+      .updateMatchesFromMatchesParameterTempCacheService(ReadyDataUtility.getMatchesWhereUsingGetWUniqueIdByUser);
   UpdateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService()
-      .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(ReadyDataUtility.getStrings);
+      .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(ReadyDataUtility.getWhereUniqueIByUser);
 }
 
 @immutable
 final class ReadyDataUtility {
   const ReadyDataUtility._();
 
-  static Matches get getMatchesWhereUsingGetStrings {
+  static Matches get getMatchesWhereUsingGetWUniqueIdByUser {
     return Matches(
         "409419d6-4fb0-11ee-be56-0242ac120002",
         DateTime.now(),
         "",
-        getStrings.field,
+        getWhereUniqueIByUser.field,
         "EnemyUser 5f8cd3aa-4fb0-11ee-be56-0242ac120002",
         DebutWMatches(
             false,
             EnumStageNamed.banManiac.name,
-            MatchBalance(1,3,ListManiacWMatchBalance([
+            const MatchBalance(1,3,ListManiacWMatchBalance([
               ManiacWMatchBalance(
-                  const Maniac("Anna","assets/icon/dbd/maniac/maniac_anna.png"),
+                  "Anna",
                   1,
                   1,
-                  const ListMaps([
-                    Maps("Chapel","assets/icon/dbd/maps/maps_asy_chapel.png"),
-                    Maps("Coal Tower","assets/icon/dbd/maps/maps_ind_coal_tower.png"),
-                    Maps("Mine","assets/icon/dbd/maps/maps_ind_mine.png"),
+                  ListMapsWMatchBalance([
+                    MapsWMatchBalance("Chapel"),
+                    MapsWMatchBalance("Coal Tower"),
+                    MapsWMatchBalance("Mine"),
                   ]),
-                  ListManiacPerk([
-                    ManiacPerk(const Perk("Brutal strength", "")),
-                    ManiacPerk(const Perk("Raffle", ""))
+                  ListManiacPerkWMatchBalance([
+                    ManiacPerkWMatchBalance("Brutal strength"),
+                    ManiacPerkWMatchBalance("Raffle")
                   ]),
-                  ListSurvivorPerk([
-                    SurvivorPerk(const Perk("Sprint","")),
+                  ListSurvivorPerkWMatchBalance([
+                    SurvivorPerkWMatchBalance("Sprint"),
+                  ])
+              ),
+             ManiacWMatchBalance(
+                  "Bilyas",
+                  1,
+                  1,
+                  ListMapsWMatchBalance([
+                    MapsWMatchBalance("Chapel"),
+                    MapsWMatchBalance("Coal Tower"),
+                    MapsWMatchBalance("Mine"),
+                  ]),
+                  ListManiacPerkWMatchBalance([
+                    ManiacPerkWMatchBalance("Brutal strength"),
+                    ManiacPerkWMatchBalance("Raffle")
+                  ]),
+                  ListSurvivorPerkWMatchBalance([
+                    SurvivorPerkWMatchBalance("Sprint"),
                   ])
               ),
               ManiacWMatchBalance(
-                  const Maniac("Bilyas", "assets/icon/dbd/maniac/maniac_bilyas.png"),
-                  1,
-                  1,
-                  const ListMaps([
-                    Maps("Chapel","assets/icon/dbd/maps/maps_asy_chapel.png"),
-                    Maps("Coal Tower","assets/icon/dbd/maps/maps_ind_coal_tower.png"),
-                    Maps("Mine","assets/icon/dbd/maps/maps_ind_mine.png"),
-                  ]),
-                  ListManiacPerk([
-                    ManiacPerk(const Perk("Brutal strength", "")),
-                    ManiacPerk(const Perk("Raffle", ""))
-                  ]),
-                  ListSurvivorPerk([
-                    SurvivorPerk(const Perk("Sprint","")),
-                  ])
-              ),
-              ManiacWMatchBalance(
-                  const Maniac("Bubba", "assets/icon/dbd/maniac/maniac_bubba.png"),
+                  "Bubba",
                   0,
                   1,
-                  const ListMaps([
-                    Maps("Chapel","assets/icon/dbd/maps/maps_asy_chapel.png"),
-                    Maps("Coal Tower","assets/icon/dbd/maps/maps_ind_coal_tower.png"),
-                    Maps("Mine","assets/icon/dbd/maps/maps_ind_mine.png"),
+                  ListMapsWMatchBalance([
+                    MapsWMatchBalance("Chapel"),
+                    MapsWMatchBalance("Coal Tower"),
+                    MapsWMatchBalance("Mine"),
                   ]),
-                  const ListManiacPerk([]),
-                  ListSurvivorPerk([
-                    SurvivorPerk(const Perk("Sprint","")),
-                    SurvivorPerk(const Perk("Flexibility",""))
+                  ListManiacPerkWMatchBalance([]),
+                  ListSurvivorPerkWMatchBalance([
+                    SurvivorPerkWMatchBalance("Sprint"),
+                    SurvivorPerkWMatchBalance("Flexibility")
                   ])
               ),
               ManiacWMatchBalance(
-                  const Maniac("Trapper", "assets/icon/dbd/maniac/maniac_trapper.png"),
+                  "Trapper",
                   2,
                   2,
-                  const ListMaps([
-                    Maps("Chapel","assets/icon/dbd/maps/maps_asy_chapel.png"),
-                    Maps("Gas Station","assets/icon/dbd/maps/maps_jnk_gas_station.png"),
-                    Maps("Coal Tower","assets/icon/dbd/maps/maps_ind_coal_tower.png"),
-                    Maps("Mine","assets/icon/dbd/maps/maps_ind_mine.png"),
-                    Maps("StoreHouse","assets/icon/dbd/maps/maps_ind_storehouse.png"),
+                  ListMapsWMatchBalance([
+                    MapsWMatchBalance("Chapel"),
+                    MapsWMatchBalance("Gas Station"),
+                    MapsWMatchBalance("Coal Tower"),
+                    MapsWMatchBalance("Mine"),
+                    MapsWMatchBalance("StoreHouse"),
                   ]),
-                  ListManiacPerk([
-                    ManiacPerk(const Perk("Brutal strength", "")),
-                    ManiacPerk(const Perk("Raffle", ""))
+                  ListManiacPerkWMatchBalance([
+                    ManiacPerkWMatchBalance("Brutal strength"),
+                    ManiacPerkWMatchBalance("Raffle")
                   ]),
-                  ListSurvivorPerk([
-                    SurvivorPerk(const Perk("Sprint","")),
-                    SurvivorPerk(const Perk("Flexibility",""))
+                  ListSurvivorPerkWMatchBalance([
+                    SurvivorPerkWMatchBalance("Sprint"),
+                    SurvivorPerkWMatchBalance("Flexibility")
                   ])
               ),
               ManiacWMatchBalance(
-                  const Maniac("Mor", "assets/icon/dbd/maniac/maniac_mor.png"),
+                  "Mor",
                   0,
                   1,
-                  const ListMaps([
-                    Maps("StoreHouse","assets/icon/dbd/maps/maps_ind_storehouse.png"),
-                    Maps("Gas Station","assets/icon/dbd/maps/maps_jnk_gas_station.png"),
-                    Maps("Scrapyard","assets/icon/dbd/maps/maps_jnk_scrapyard.png")
+                  ListMapsWMatchBalance([
+                    MapsWMatchBalance("StoreHouse"),
+                    MapsWMatchBalance("Gas Station"),
+                    MapsWMatchBalance("Scrapyard")
                   ]),
-                  const ListManiacPerk([]),
-                  ListSurvivorPerk([
-                    SurvivorPerk(const Perk("Sprint","")),
-                    SurvivorPerk(const Perk("Flexibility",""))
+                  ListManiacPerkWMatchBalance([]),
+                  ListSurvivorPerkWMatchBalance([
+                    SurvivorPerkWMatchBalance("Sprint"),
+                    SurvivorPerkWMatchBalance("Flexibility")
                   ])
               ),
               ManiacWMatchBalance(
-                  const Maniac("Nurse", "assets/icon/dbd/maniac/maniac_nurse.png"),
+                  "Nurse",
                   1,
                   0,
-                  const ListMaps([
-                    Maps("StoreHouse","assets/icon/dbd/maps/maps_ind_storehouse.png"),
-                    Maps("Gas Station","assets/icon/dbd/maps/maps_jnk_gas_station.png"),
-                    Maps("Scrapyard","assets/icon/dbd/maps/maps_jnk_scrapyard.png")
+                  ListMapsWMatchBalance([
+                    MapsWMatchBalance("StoreHouse"),
+                    MapsWMatchBalance("Gas Station"),
+                    MapsWMatchBalance("Scrapyard")
                   ]),
-                  ListManiacPerk([
-                    ManiacPerk(const Perk("Brutal strength", "")),
-                    ManiacPerk(const Perk("Raffle", ""))
+                  ListManiacPerkWMatchBalance([
+                    ManiacPerkWMatchBalance("Brutal strength"),
+                    ManiacPerkWMatchBalance("Raffle")
                   ]),
-                  const ListSurvivorPerk([])
+                  ListSurvivorPerkWMatchBalance([])
               ),
               ManiacWMatchBalance(
-                  const Maniac("Kolya", "assets/icon/dbd/maniac/maniac_kolya.png"),
+                  "Kolya",
                   1,
                   1,
-                  const ListMaps([
-                    Maps("Chapel","assets/icon/dbd/maps/maps_asy_chapel.png"),
-                    Maps("StoreHouse","assets/icon/dbd/maps/maps_ind_storehouse.png"),
-                    Maps("Gas Station","assets/icon/dbd/maps/maps_jnk_gas_station.png"),
-                    Maps("Scrapyard","assets/icon/dbd/maps/maps_jnk_scrapyard.png"),
-                    Maps("Coal Tower","assets/icon/dbd/maps/maps_ind_coal_tower.png"),
+                  ListMapsWMatchBalance([
+                    MapsWMatchBalance("Chapel"),
+                    MapsWMatchBalance("StoreHouse"),
+                    MapsWMatchBalance("Gas Station"),
+                    MapsWMatchBalance("Scrapyard"),
+                    MapsWMatchBalance("Coal Tower"),
                   ]),
-                  ListManiacPerk([
-                    ManiacPerk(const Perk("Brutal strength", "")),
+                  ListManiacPerkWMatchBalance([
+                    ManiacPerkWMatchBalance("Brutal strength"),
                   ]),
-                  ListSurvivorPerk([
-                    SurvivorPerk(const Perk("Sprint","")),
-                    SurvivorPerk(const Perk("Flexibility",""))
+                  ListSurvivorPerkWMatchBalance([
+                    SurvivorPerkWMatchBalance("Sprint"),
+                    SurvivorPerkWMatchBalance("Flexibility")
                   ])
               ),
               ManiacWMatchBalance(
-                  const Maniac("Doctor", "assets/icon/dbd/maniac/maniac_doctor.png"),
+                  "Doctor",
                   1,
                   2,
-                  const ListMaps([
-                    Maps("Chapel","assets/icon/dbd/maps/maps_asy_chapel.png"),
-                    Maps("Coal Tower","assets/icon/dbd/maps/maps_ind_coal_tower.png"),
-                    Maps("StoreHouse","assets/icon/dbd/maps/maps_ind_storehouse.png"),
-                    Maps("Gas Station","assets/icon/dbd/maps/maps_jnk_gas_station.png"),
-                    Maps("Scrapyard","assets/icon/dbd/maps/maps_jnk_scrapyard.png")
+                  ListMapsWMatchBalance([
+                    MapsWMatchBalance("Chapel"),
+                    MapsWMatchBalance("Coal Tower"),
+                    MapsWMatchBalance("StoreHouse"),
+                    MapsWMatchBalance("Gas Station"),
+                    MapsWMatchBalance("Scrapyard")
                   ]),
-                  ListManiacPerk([
-                    ManiacPerk(const Perk("Brutal strength", "")),
-                    ManiacPerk(const Perk("Raffle", ""))
+                  ListManiacPerkWMatchBalance([
+                    ManiacPerkWMatchBalance("Brutal strength"),
+                    ManiacPerkWMatchBalance("Raffle")
                   ]),
-                  ListSurvivorPerk([
-                    SurvivorPerk(const Perk("Sprint","")),
-                    SurvivorPerk(const Perk("Flexibility",""))
+                  ListSurvivorPerkWMatchBalance([
+                    SurvivorPerkWMatchBalance("Sprint"),
+                    SurvivorPerkWMatchBalance("Flexibility")
                   ])
               ),
               ManiacWMatchBalance(
-                  const Maniac("Vesker", "assets/icon/dbd/maniac/maniac_vesker.png"),
+                  "Vesker",
                   1,
                   1,
-                  const ListMaps([
-                    Maps("StoreHouse","assets/icon/dbd/maps/maps_ind_storehouse.png"),
-                    Maps("Gas Station","assets/icon/dbd/maps/maps_jnk_gas_station.png"),
-                    Maps("Scrapyard","assets/icon/dbd/maps/maps_jnk_scrapyard.png")
+                  ListMapsWMatchBalance([
+                    MapsWMatchBalance("StoreHouse"),
+                    MapsWMatchBalance("Gas Station"),
+                    MapsWMatchBalance("Scrapyard")
                   ]),
-                  ListManiacPerk([
-                    ManiacPerk(const Perk("Brutal strength", "")),
-                    ManiacPerk(const Perk("Raffle", ""))
+                  ListManiacPerkWMatchBalance([
+                    ManiacPerkWMatchBalance("Brutal strength"),
+                    ManiacPerkWMatchBalance("Raffle")
                   ]),
-                  ListSurvivorPerk([
-                    SurvivorPerk(const Perk("Sprint","")),
-                    SurvivorPerk(const Perk("Flexibility",""))
+                  ListSurvivorPerkWMatchBalance([
+                    SurvivorPerkWMatchBalance("Sprint"),
+                    SurvivorPerkWMatchBalance("Flexibility")
                   ])
               ),
             ])),
@@ -211,7 +209,7 @@ final class ReadyDataUtility {
     );
   }
 
-  static Strings get getStrings {
+  static Strings get getWhereUniqueIByUser {
     return Strings("MyUser 51d1a9f2-4fb0-11ee-be56-0242ac120002");
   }
 }
@@ -553,45 +551,45 @@ final class DataForFirstUniqueIdByUserWDebutWMatchesView extends BaseDataForName
     }
     if(matches
         .debutWMatches
-        .isWhereTrueAndEqualsBanMapsToManiacParametersTwo())
+        .isWhereTrueAndEqualsBanMapsToPickedManiacParametersTwo())
     {
-      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsBansMapsToManiac;
+      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsBansMapsToPickedManiac;
     }
     if(matches
         .debutWMatches
-        .isWhereTrueAndEqualsSystemPickMapsToManiacParametersTwo())
+        .isWhereEqualsSystemPickMapsToPickedManiacParameterEnumStageNamed())
     {
-      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsSystemPickMapsToManiac;
+      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.systemPickMapsToPickedManiac;
     }
     if(matches
         .debutWMatches
-        .isWhereTrueAndEqualsPickManiacPerkToManiacParametersTwo())
+        .isWhereTrueAndEqualsPickManiacPerkToPickedManiacParametersTwo())
     {
-      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsPickManiacPerkToManiac;
+      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsPickManiacPerkToPickedManiac;
     }
     if(matches
         .debutWMatches
-        .isWhereTrueAndEqualsPickSurvivorPerkToManiacParametersTwo())
+        .isWhereTrueAndEqualsPickSurvivorPerkToPickedManiacParametersTwo())
     {
-      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsPickSurvivorPerkToManiac;
+      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsPickSurvivorPerkToPickedManiac;
     }
     if(matches
         .debutWMatches
-        .isWhereTrueAndEqualsSystemPickManiacPerkToManiacParametersTwo())
+        .isWhereEqualsSystemPickManiacPerkToPickedManiacParameterEnumStageNamed())
     {
-      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsSystemPickManiacPerkToManiac;
+      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.systemPickManiacPerkToPickedManiac;
     }
     if(matches
         .debutWMatches
-        .isWhereTrueAndEqualsSystemPickSurvivorPerkToManiacParametersTwo())
+        .isWhereEqualsSystemPickSurvivorPerkToPickedManiacParameterEnumStageNamed())
     {
-      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsSystemPickSurvivorPerkToManiac;
+      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.systemPickSurvivorPerkToPickedManiac;
     }
     if(matches
         .debutWMatches
-        .isWhereTrueAndEqualsSystemPickManiacParametersTwo())
+        .isWhereEqualsSystemPickManiacParameterEnumStageNamed())
     {
-      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsSystemPickManiac;
+      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.systemPickManiac;
     }
     if(matches
         .debutWMatches
@@ -607,45 +605,21 @@ final class DataForFirstUniqueIdByUserWDebutWMatchesView extends BaseDataForName
     }
     if(matches
         .debutWMatches
-        .isWhereFalseAndEqualsBanMapsToManiacParametersTwo())
+        .isWhereFalseAndEqualsBanMapsToPickedManiacParametersTwo())
     {
-      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsBansMapsToManiac;
+      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsBansMapsToPickedManiac;
     }
     if(matches
         .debutWMatches
-        .isWhereFalseAndEqualsSystemPickMapsToManiacParametersTwo())
+        .isWhereFalseAndEqualsPickManiacPerkToPickedManiacParametersTwo())
     {
-      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsSystemPickMapsToManiac;
+      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsPickManiacPerkToPickedManiac;
     }
     if(matches
         .debutWMatches
-        .isWhereFalseAndEqualsPickManiacPerkToManiacParametersTwo())
+        .isWhereFalseAndEqualsPickSurvivorPerkToPickedManiacParametersTwo())
     {
-      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsPickManiacPerkToManiac;
-    }
-    if(matches
-        .debutWMatches
-        .isWhereFalseAndEqualsPickSurvivorPerkToManiacParametersTwo())
-    {
-      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsPickSurvivorPerkToManiac;
-    }
-    if(matches
-        .debutWMatches
-        .isWhereFalseAndEqualsSystemPickManiacPerkToManiacParametersTwo())
-    {
-      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsSystemPickManiacPerkToManiac;
-    }
-    if(matches
-        .debutWMatches
-        .isWhereFalseAndEqualsSystemPickSurvivorPerkToManiacParametersTwo())
-    {
-      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsSystemPickSurvivorPerkToManiac;
-    }
-    if(matches
-        .debutWMatches
-        .isWhereFalseAndEqualsSystemPickManiacParametersTwo())
-    {
-      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsSystemPickManiac;
+      return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsPickSurvivorPerkToPickedManiac;
     }
     return EnumDataForFirstUniqueIdByUserWDebutWMatchesView.isCompleted;
   }
@@ -656,22 +630,18 @@ enum EnumDataForFirstUniqueIdByUserWDebutWMatchesView {
   exception,
   myTurnsBanManiac,
   myTurnsPickManiac,
-  myTurnsBansMapsToManiac,
-  myTurnsSystemPickMapsToManiac,
-  myTurnsPickManiacPerkToManiac,
-  myTurnsPickSurvivorPerkToManiac,
-  myTurnsSystemPickManiacPerkToManiac,
-  myTurnsSystemPickSurvivorPerkToManiac,
-  myTurnsSystemPickManiac,
+  myTurnsBansMapsToPickedManiac,
+  systemPickMapsToPickedManiac,
+  myTurnsPickManiacPerkToPickedManiac,
+  myTurnsPickSurvivorPerkToPickedManiac,
+  systemPickManiacPerkToPickedManiac,
+  systemPickSurvivorPerkToPickedManiac,
+  systemPickManiac,
   enemyTurnsBanManiac,
   enemyTurnsPickManiac,
-  enemyTurnsBansMapsToManiac,
-  enemyTurnsSystemPickMapsToManiac,
-  enemyTurnsPickManiacPerkToManiac,
-  enemyTurnsPickSurvivorPerkToManiac,
-  enemyTurnsSystemPickManiacPerkToManiac,
-  enemyTurnsSystemPickSurvivorPerkToManiac,
-  enemyTurnsSystemPickManiac,
+  enemyTurnsBansMapsToPickedManiac,
+  enemyTurnsPickManiacPerkToPickedManiac,
+  enemyTurnsPickSurvivorPerkToPickedManiac,
   isCompleted
 }
 
@@ -725,47 +695,105 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
 
   void myTurnsBanManiac(int index) {
     final matches = getDataForNamedParameterNamedStreamWState.matches;
-    final itemManiacWMatchBalanceWhereNotBannedAndPickedParametersThree = matches
-        .debutWMatches
-        .getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index];
     matches
-        .insertBanManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(itemManiacWMatchBalanceWhereNotBannedAndPickedParametersThree.maniac.name);
-    final textLogAction = matches.textLogAction.isNotEmpty
-        ? "${matches.textLogAction}\nUser: '${matches.firstUniqueIdByUser}' banned maniac '${itemManiacWMatchBalanceWhereNotBannedAndPickedParametersThree.maniac.name}'"
-        : "User: '${matches.firstUniqueIdByUser}' banned maniac '${itemManiacWMatchBalanceWhereNotBannedAndPickedParametersThree.maniac.name}'";
+        .insertBanManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(index);
     final isWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance = matches
         .debutWMatches
         .isWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance();
     if(isWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance) {
-      _firstQQMyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(matches,textLogAction);
+      _firstQQMyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(index,matches);
       return;
     }
     final isWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance = matches
         .debutWMatches
         .isWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance();
     if(isWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance) {
-      _firstQQMyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(matches,textLogAction);
+      _firstQQMyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(index,matches);
       return;
     }
-    final newMatchesFromThree = matches
-        .getNewMatchesFromThree(textLogAction,false,EnumStageNamed.banManiac);
+    final matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThree = matches
+        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersSeven(index,false,EnumStageNamed.banManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(newMatchesFromThree);
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThree);
   }
 
   void myTurnsPickManiac(int index) {
-    final matches = getDataForNamedParameterNamedStreamWState
-        .matches;
-    final itemManiacWMatchBalanceWhereNotBannedAndPickedParametersThree = matches
-        .debutWMatches
-        .getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index];
+    final matches = getDataForNamedParameterNamedStreamWState.matches;
     matches
-        .insertPickManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(itemManiacWMatchBalanceWhereNotBannedAndPickedParametersThree.maniac.name);
-    final textLogAction = "${matches.textLogAction}\nUser: '${matches.firstUniqueIdByUser}' picked maniac '${itemManiacWMatchBalanceWhereNotBannedAndPickedParametersThree.maniac.name}'";
-    final newMatchesFromThree = matches
-        .getNewMatchesFromThree(textLogAction,false,EnumStageNamed.bansMapsToManiac);
+        .insertPickManiacWMatchesFromIndexParametersDebutWMatchesAndFirstUniqueIdByUser(index);
+    final matchesWhereNewAndFirstUniqueIdByUserTurnsPickManiacFromThree = matches
+        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsPickManiacFromThreeParametersSeven(index,false,EnumStageNamed.bansMapsToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(newMatchesFromThree);
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsPickManiacFromThree);
+  }
+
+  void myTurnsBanMapsToPickedManiac(int index) {
+    final matches = getDataForNamedParameterNamedStreamWState.matches;
+    matches
+        .insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromIndexParametersTwo(index);
+    if(matches
+        .debutWMatches
+        .isWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne())
+    {
+      _firstQQMyTurnsBanMapsToPickedManiacQQIsWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne(index,matches);
+      return;
+    }
+    final matchesWhereNewAndMyTurnsBanMapsToPickedManiacFromThree = matches
+        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanMapsToPickedManiacFromThreeParametersSeven(index,false,EnumStageNamed.bansMapsToPickedManiac);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndMyTurnsBanMapsToPickedManiacFromThree);
+  }
+
+  Future<void> systemPickMapsToPickedManiac() async {
+    await Future.delayed(Duration(seconds: 1));
+    final matches = getDataForNamedParameterNamedStreamWState.matches;
+    matches
+        .debutWMatches
+        .updatePickManiacWMatchesWhereLastItemAndUpdatedPickMapsWMatchesParameterListPickManiacWMatches();
+    final isNotEmpty = matches
+        .debutWMatches
+        .getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
+        .listManiacPerkWMatchBalance
+        .listModel
+        .isNotEmpty;
+    if(isNotEmpty) {
+      _firstQQSystemPickMapsToPickedManiacQQIsNotEmpty(matches);
+      return;
+    }
+    final isNotEmptyFIRST = matches
+        .debutWMatches
+        .getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
+        .listSurvivorPerkWMatchBalance
+        .listModel
+        .isNotEmpty;
+    if(isNotEmptyFIRST) {
+      _firstQQSystemPickMapsToPickedManiacQQIsNotEmptyFIRST(matches);
+      return;
+    }
+    final isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance = matches
+        .debutWMatches
+        .isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance();
+    if(isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance) {
+      _firstQQSystemPickMapsToPickedManiacQQIsWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance(matches);
+      return;
+    }
+    final isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance = matches
+        .debutWMatches
+        .isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance();
+    if(isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance) {
+      _firstQQSystemPickMapsToPickedManiacQQIsWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance(matches);
+      return;
+    }
+    final matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven = matches
+        .getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven(EnumStageNamed.pickManiac);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven);
+  }
+
+  void myTurnsPickManiacPerkToPickedManiac(int index) {
+    final matches = getDataForNamedParameterNamedStreamWState.matches;
+    matches.insertPickManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromIndexParametersTwo(index);
+    // Next tomorrow
   }
 
   Future<String> _firstQQInitQQGetMatchesParameterTempCacheService(Result<Matches> getMatchesParameterTempCacheService) async {
@@ -773,18 +801,83 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
-  void _firstQQMyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(Matches matches,String textLogAction) {
-    final newMatchesFromThree = matches
-        .getNewMatchesFromThree(textLogAction,false,EnumStageNamed.pickManiac);
+  void _firstQQMyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(int index,Matches matches) {
+    final matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThree = matches
+        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersSeven(index,false,EnumStageNamed.pickManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(newMatchesFromThree);
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThree);
   }
 
-  void _firstQQMyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(Matches matches,String textLogAction) {
-    final newMatchesFromThree = matches
-        .getNewMatchesFromThree(textLogAction,false,EnumStageNamed.systemPickManiac);
+  void _firstQQMyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(int index,Matches matches) {
+    final matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThree = matches
+        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersSeven(index,false,EnumStageNamed.systemPickManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(newMatchesFromThree);
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThree);
+  }
+
+  void _firstQQMyTurnsBanMapsToPickedManiacQQIsWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne(int index,Matches matches) {
+    final matchesWhereNewAndMyTurnsBanMapsToPickedManiacFromThree = matches
+        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanMapsToPickedManiacFromThreeParametersSeven(index,false,EnumStageNamed.systemPickMapsToPickedManiac);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndMyTurnsBanMapsToPickedManiacFromThree);
+  }
+
+  void _firstQQSystemPickMapsToPickedManiacQQIsNotEmpty(Matches matches) {
+    final isWhereNotEqualsParametersLengthPickManiacPerkAndListManiacPerkWMatchBalance =  matches
+        .debutWMatches
+        .getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
+        .isWhereNotEqualsParametersLengthPickManiacPerkAndListManiacPerkWMatchBalance();
+    if(isWhereNotEqualsParametersLengthPickManiacPerkAndListManiacPerkWMatchBalance) {
+      _firstBranchOneQQSystemPickMapsToPickedManiacQQIsNotEmpty(matches);
+      return;
+    }
+    final matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven = matches
+        .getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven(EnumStageNamed.systemPickManiacPerkToPickedManiac);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven);
+  }
+
+  void _firstBranchOneQQSystemPickMapsToPickedManiacQQIsNotEmpty(Matches matches) {
+    final matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven = matches
+        .getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven(EnumStageNamed.pickManiacPerkToPickedManiac);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven);
+  }
+
+  void _firstQQSystemPickMapsToPickedManiacQQIsNotEmptyFIRST(Matches matches) {
+    final isWhereNotEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance =  matches
+        .debutWMatches
+        .getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
+        .isWhereNotEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance();
+    if(isWhereNotEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance) {
+      _firstBranchOneQQSystemPickMapsToPickedManiacQQIsNotEmptyFIRST(matches);
+      return;
+    }
+    final matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven = matches
+        .getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven(EnumStageNamed.systemPickSurvivorPerkToPickedManiac);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven);
+  }
+
+  void _firstBranchOneQQSystemPickMapsToPickedManiacQQIsNotEmptyFIRST(Matches matches) {
+    final matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven = matches
+        .getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven(EnumStageNamed.pickSurvivorPerkToPickedManiac);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven);
+  }
+
+  void _firstQQSystemPickMapsToPickedManiacQQIsWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance(Matches matches) {
+    final matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven = matches
+        .getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven(EnumStageNamed.banManiac);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven);
+  }
+
+  void _firstQQSystemPickMapsToPickedManiacQQIsWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance(Matches matches) {
+    final matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven = matches
+        .getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven(EnumStageNamed.isCompleted);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven);
   }
 }
 
@@ -821,7 +914,7 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         debugPrint("ListBanManiacWMatchesWFirstUniqueIdByUser: ${matches.getListBanManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
         debugPrint("ListBanManiacWMatchesWSecondUniqueIdByUser: ${matches.getListBanManiacWMatchesWhereEqualsParametersDebutWMatchesAndSecondUniqueIdByUser}");
         debugPrint("ListManiacWMatchBalance: ${matches.debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree}");
-        debugPrint("You turns Ban Maniac (index): ");
+        debugPrint("You turns ban maniac (index): ");
         final input = stdin.readLineSync();
         final parse = int.parse(input ?? "0");
         _firstUniqueIdByUserWDebutWMatchesViewModel.myTurnsBanManiac(parse);
@@ -834,40 +927,58 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         debugPrint("ListBanManiacWMatchesWFirstUniqueIdByUser: ${matches.getListBanManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
         debugPrint("ListBanManiacWMatchesWSecondUniqueIdByUser: ${matches.getListBanManiacWMatchesWhereEqualsParametersDebutWMatchesAndSecondUniqueIdByUser}");
         debugPrint("ListManiacWMatchBalance: ${matches.debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree}");
-        debugPrint("You turns Pick Maniac (index): ");
+        debugPrint("You turns pick maniac (index): ");
         final input = stdin.readLineSync();
         final parse = int.parse(input ?? "0");
         _firstUniqueIdByUserWDebutWMatchesViewModel.myTurnsPickManiac(parse);
         break;
-      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsBansMapsToManiac:
+      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsBansMapsToPickedManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
         debugPrint(matches.getFormattedParameterTextLogAction);
         debugPrint("LastItemPickManiacWMatches: ${matches.debutWMatches.listPickManiacWMatches.listModel.last}");
-        debugPrint("ListMapsWhereNotBannedMapsWLastItemPickManiacWMatches: ${matches.debutWMatches.getListMapsWhereNotBannedMapsAndLastItemParameterListPickManiacWMatches}");
+        debugPrint("ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: ${matches.debutWMatches.getListMapsWMatchBalanceWhereNotBannedMapsAndLastItemParameterListPickManiacWMatches}");
+        debugPrint("You turns ban maps to picked maniac (index): ");
         final input = stdin.readLineSync();
         final parse = int.parse(input ?? "0");
-
+        _firstUniqueIdByUserWDebutWMatchesViewModel.myTurnsBanMapsToPickedManiac(parse);
         break;
-      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsSystemPickMapsToManiac:
+      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.systemPickMapsToPickedManiac:
+        final matches = dataForNamedParameterNamedStreamWState.matches;
+        debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("LastItemPickManiacWMatches: ${matches.debutWMatches.listPickManiacWMatches.listModel.last}");
+        debugPrint("ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: ${matches.debutWMatches.getListMapsWMatchBalanceWhereNotBannedMapsAndLastItemParameterListPickManiacWMatches}");
+        debugPrint("System: Now pick maps to picked maniac");
+        /// THIS CODE IS EXECUTED ONLY BY THE FIRST USER
+        _firstUniqueIdByUserWDebutWMatchesViewModel.systemPickMapsToPickedManiac();
+        break;
+      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsPickManiacPerkToPickedManiac:
+        final matches = dataForNamedParameterNamedStreamWState.matches;
+        debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("LastItemPickManiacWMatches: ${matches.debutWMatches.listPickManiacWMatches.listModel.last}");
+        debugPrint("ListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: ${matches.getListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo}");
+        debugPrint("You turns pick maniac perk to picked maniac (index): ");
+        final input = stdin.readLineSync();
+        final parse = int.parse(input ?? "0");
+        _firstUniqueIdByUserWDebutWMatchesViewModel.myTurnsPickManiacPerkToPickedManiac(parse);
+        break;
+      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsPickSurvivorPerkToPickedManiac:
         // TODO: Handle this case.
-      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsPickManiacPerkToManiac:
+      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.systemPickManiacPerkToPickedManiac:
         // TODO: Handle this case.
-      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsPickSurvivorPerkToManiac:
+      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.systemPickSurvivorPerkToPickedManiac:
         // TODO: Handle this case.
-      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsSystemPickManiacPerkToManiac:
-        // TODO: Handle this case.
-      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsSystemPickSurvivorPerkToManiac:
-        // TODO: Handle this case.
-      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsSystemPickManiac:
+      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.systemPickManiac:
         // TODO: Handle this case.
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsBanManiac:
         // TODO: Handle this case.
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsPickManiac:
         // TODO: Handle this case.
-      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsBansMapsToManiac:
+      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsBansMapsToPickedManiac:
         // TODO: Handle this case.
-      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsSystemPickMapsToManiac:
-        // TODO: Handle this case
+      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsPickManiacPerkToPickedManiac:
+        // TODO: Handle this case.
+      case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsPickSurvivorPerkToPickedManiac:
+        // TODO: Handle this case.
       default:
         break;
     }

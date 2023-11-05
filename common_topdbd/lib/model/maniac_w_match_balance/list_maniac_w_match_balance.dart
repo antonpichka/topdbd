@@ -20,14 +20,14 @@ base class ListManiacWMatchBalance<T extends ManiacWMatchBalance> extends BaseLi
   List<T> getListManiacWMatchBalanceWhereNotBannedWPickedFromTwoParameterListModel(List<BanManiacWMatches> listBanManiacWMatches, List<PickManiacWMatches> listPickManiacWMatches) {
     final clone = getClone;
     for(T itemModel in listModel) {
-      for(BanManiacWMatches banManiacWMatches in listBanManiacWMatches) {
-        if(banManiacWMatches.name == itemModel.maniac.name) {
+      for(BanManiacWMatches itemBanManiacWMatches in listBanManiacWMatches) {
+        if(itemModel.name == itemBanManiacWMatches.name) {
           clone.deleteFromUniqueIdByManiacWMatchBalanceParameterListModel(itemModel.uniqueId);
           break;
         }
       }
-      for(PickManiacWMatches pickManiacWMatches in listPickManiacWMatches) {
-        if(pickManiacWMatches.name == itemModel.maniac.name) {
+      for(PickManiacWMatches itemPickManiacWMatches in listPickManiacWMatches) {
+        if(itemModel.name == itemPickManiacWMatches.name) {
           clone.deleteFromUniqueIdByManiacWMatchBalanceParameterListModel(itemModel.uniqueId);
           break;
         }

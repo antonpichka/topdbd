@@ -37,9 +37,7 @@ base class ManiacWMatchBalance extends BaseModel {
   }
 
   bool isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance() {
-    if(listSurvivorPerkWMatchBalance.listModel.isEmpty) {
-      return false;
-    }
-    return lengthPickSurvivorPerk == listSurvivorPerkWMatchBalance.listModel.length;
+    return listSurvivorPerkWMatchBalance.listModel.isNotEmpty &&
+        lengthPickSurvivorPerk == listSurvivorPerkWMatchBalance.listModel.length;
   }
 }

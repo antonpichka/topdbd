@@ -731,10 +731,10 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     final matches = getDataForNamedParameterNamedStreamWState.matches;
     matches
         .insertBanMapsWMatchesWhereLastItemPickManiacWMatchesFromIndexParametersTwo(index);
-    if(matches
+    final isWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne = matches
         .debutWMatches
-        .isWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne())
-    {
+        .isWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne();
+    if(isWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne) {
       _firstQQMyTurnsBanMapsToPickedManiacQQIsWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne(index,matches);
       return;
     }
@@ -793,7 +793,16 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
   void myTurnsPickManiacPerkToPickedManiac(int index) {
     final matches = getDataForNamedParameterNamedStreamWState.matches;
     matches.insertPickManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromIndexParametersTwo(index);
-    // Next tomorrow
+    final isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo = matches
+        .isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo();
+    if(isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo) {
+      _firstQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(index,matches);
+      return;
+    }
+    final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven = matches
+        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven(index,true,EnumStageNamed.pickManiacPerkToPickedManiac);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven);
   }
 
   Future<String> _firstQQInitQQGetMatchesParameterTempCacheService(Result<Matches> getMatchesParameterTempCacheService) async {
@@ -879,6 +888,82 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersSeven);
   }
+
+  void _firstQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(int index,Matches matches) {
+    final isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST = matches
+        .isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST();
+    if(isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST) {
+      _firstBranchOneQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(index,matches);
+      return;
+    }
+    final isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance = matches
+        .debutWMatches
+        .getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
+        .isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance();
+    if(isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance) {
+      _firstBranchTwoQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(index,matches);
+      return;
+    }
+    final isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST = matches
+        .isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST();
+    if(isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST) {
+      _firstBranchThreeQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(index,matches);
+      return;
+    }
+    final isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance = matches
+        .debutWMatches
+        .isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance();
+    if(isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance) {
+      _firstBranchFourQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(index,matches);
+      return;
+    }
+    final isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance = matches
+        .debutWMatches
+        .isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance();
+    if(isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance) {
+      _firstBranchFiveQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(index,matches);
+      return;
+    }
+    final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven = matches
+        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven(index,false,EnumStageNamed.pickManiac);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven);
+  }
+
+  void _firstBranchOneQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(int index,Matches matches) {
+    final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven = matches
+        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven(index,false,EnumStageNamed.pickManiacPerkToPickedManiac);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven);
+  }
+
+  void _firstBranchTwoQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(int index, Matches matches) {
+    final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven = matches
+        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven(index,false,EnumStageNamed.systemPickSurvivorPerkToPickedManiac);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven);
+  }
+
+  void _firstBranchThreeQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(int index, Matches matches) {
+    final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven = matches
+        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven(index,false,EnumStageNamed.pickSurvivorPerkToPickedManiac);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven);
+  }
+
+  void _firstBranchFourQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(int index, Matches matches) {
+    final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven = matches
+        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven(index,false,EnumStageNamed.banManiac);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven);
+  }
+
+  void _firstBranchFiveQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(int index, Matches matches) {
+    final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven = matches
+        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven(index,false,EnumStageNamed.isCompleted);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven);
+  }
 }
 
 final class FirstUniqueIdByUserWDebutWMatchesView {
@@ -962,7 +1047,12 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         _firstUniqueIdByUserWDebutWMatchesViewModel.myTurnsPickManiacPerkToPickedManiac(parse);
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsPickSurvivorPerkToPickedManiac:
-        // TODO: Handle this case.
+        final matches = dataForNamedParameterNamedStreamWState.matches;
+        debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("LastItemPickManiacWMatches: ${matches.debutWMatches.listPickManiacWMatches.listModel.last}");
+        debugPrint("ListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: ${matches.getListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo}");
+        /// THERE
+        break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.systemPickManiacPerkToPickedManiac:
         // TODO: Handle this case.
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.systemPickSurvivorPerkToPickedManiac:

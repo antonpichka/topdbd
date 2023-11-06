@@ -9,6 +9,7 @@ import 'package:common_topdbd/model/middlegame_w_matches/middlegame_w_matches.da
 import 'package:common_topdbd/model/pick_maniac_w_matches/pick_maniac_w_matches.dart';
 import 'package:common_topdbd/model/round_w_matches/enum_round_status.dart';
 import 'package:common_topdbd/model/round_w_matches/round_w_matches.dart';
+import 'package:common_topdbd/model/survivor_perk_w_match_balance/survivor_perk_w_match_balance.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -43,7 +44,7 @@ base class Matches extends BaseModel {
     return Matches(
         uniqueId,
         creationTime,
-        getWhereFirstUniqueIdByUserTurnsBanManiacFromIndexParametersThree(index),
+        getStringWhereFirstUniqueIdByUserTurnsBanManiacFromIndexParametersThree(index),
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         DebutWMatches(
@@ -62,7 +63,7 @@ base class Matches extends BaseModel {
     return Matches(
         uniqueId,
         creationTime,
-        getWhereFirstUniqueIdByUserTurnsPickManiacFromIndexParametersThree(index),
+        getStringWhereFirstUniqueIdByUserTurnsPickManiacFromIndexParametersThree(index),
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         DebutWMatches(
@@ -81,7 +82,7 @@ base class Matches extends BaseModel {
     return Matches(
         uniqueId,
         creationTime,
-        getWhereFirstUniqueIdByUserTurnsBanMapsToPickedManiacFromIndexParametersThree(index),
+        getStringWhereFirstUniqueIdByUserTurnsBanMapsToPickedManiacFromIndexParametersThree(index),
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         DebutWMatches(
@@ -100,7 +101,7 @@ base class Matches extends BaseModel {
     return Matches(
         uniqueId,
         creationTime,
-        getWhereSystemPickMapsToPickedManiacParametersTwo,
+        getStringWhereSystemPickMapsToPickedManiacParametersTwo,
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         DebutWMatches(
@@ -108,6 +109,25 @@ base class Matches extends BaseModel {
             enumStageNamedByDebutWMatches.name,
             debutWMatches.matchBalance.getClone,
             debutWMatches.isStageNamedWFirstUniqueIdByUser,
+            debutWMatches.listBanManiacWMatches.getClone,
+            debutWMatches.listPickManiacWMatches.getClone
+        ),
+        middlegameWMatches.getClone,
+        endgameWMatches.getClone);
+  }
+
+  Matches getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersSeven(int index,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+    return Matches(
+        uniqueId,
+        creationTime,
+        getStringWhereFirstUIBUTurnsPickManiacPerkToPickedManiacFromIndexParametersThree(index),
+        firstUniqueIdByUser,
+        secondUniqueIdByUser,
+        DebutWMatches(
+            debutWMatches.isCompleted,
+            enumStageNamedByDebutWMatches.name,
+            debutWMatches.matchBalance.getClone,
+            isStageNamedWFirstUniqueIdByUserByDebutWMatches,
             debutWMatches.listBanManiacWMatches.getClone,
             debutWMatches.listPickManiacWMatches.getClone
         ),
@@ -153,6 +173,16 @@ base class Matches extends BaseModel {
   List<ManiacPerkWMatchBalance> get getListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwoFIRST {
     return debutWMatches
         .getListManiacPerkWMatchBalanceWhereNotPickedAndLastItemFromUniqueIdByUserParameterOne(secondUniqueIdByUser);
+  }
+
+  List<SurvivorPerkWMatchBalance> get getListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo {
+    return debutWMatches
+        .getListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemFromUniqueIdByUserParameterOne(firstUniqueIdByUser);
+  }
+
+  List<SurvivorPerkWMatchBalance> get getListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwoFIRST {
+    return debutWMatches
+        .getListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemFromUniqueIdByUserParameterOne(secondUniqueIdByUser);
   }
 
   String get getFormattedParameterTextLogAction {
@@ -210,25 +240,30 @@ base class Matches extends BaseModel {
   }
 
   @protected
-  String getWhereFirstUniqueIdByUserTurnsBanManiacFromIndexParametersThree(int index) {
+  String getStringWhereFirstUniqueIdByUserTurnsBanManiacFromIndexParametersThree(int index) {
     return textLogAction.isNotEmpty
         ? "$textLogAction\nUser '$firstUniqueIdByUser': banned maniac '${debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index].name}'"
         : "User '$firstUniqueIdByUser': banned maniac '${debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index].name}'";
   }
 
   @protected
-  String getWhereFirstUniqueIdByUserTurnsPickManiacFromIndexParametersThree(int index) {
+  String getStringWhereFirstUniqueIdByUserTurnsPickManiacFromIndexParametersThree(int index) {
     return "$textLogAction\nUser '$firstUniqueIdByUser': picked maniac '${debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index].name}'";
   }
 
   @protected
-  String getWhereFirstUniqueIdByUserTurnsBanMapsToPickedManiacFromIndexParametersThree(int index) {
+  String getStringWhereFirstUniqueIdByUserTurnsBanMapsToPickedManiacFromIndexParametersThree(int index) {
     return "$textLogAction\nUser '$firstUniqueIdByUser': banned maps '${debutWMatches.getListMapsWMatchBalanceWhereNotBannedMapsAndLastItemParameterListPickManiacWMatches[index].name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
   }
 
   @protected
-  String get getWhereSystemPickMapsToPickedManiacParametersTwo {
+  String get getStringWhereSystemPickMapsToPickedManiacParametersTwo {
     return "$textLogAction\nSystem: picked maps '${debutWMatches.getListMapsWMatchBalanceWhereNotBannedMapsAndLastItemParameterListPickManiacWMatches.last.name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
+  }
+
+  @protected
+  String getStringWhereFirstUIBUTurnsPickManiacPerkToPickedManiacFromIndexParametersThree(int index) {
+    return "$textLogAction\nUser '$firstUniqueIdByUser': picked maniac perk '${getListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo[index].name}' to maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
   }
 
   void insertListRoundWMatchesWhereBeforeCallIteratorParametersThree() {
@@ -310,44 +345,44 @@ base class Matches extends BaseModel {
         .insertPickSurvivorPerkWMatchesWhereLastItemPickManiacWMatchesFromTwoParameterOne(index,secondUniqueIdByUser);
   }
 
-  bool isWhereLengthPickManiacPerkEqualsNecessaryLengthPickManiacPerkParametersTwo() {
+  bool isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo() {
     return debutWMatches
-        .isWhereLengthPickManiacPerkEqualsNecessaryLengthPickManiacPerkFromUniqueIdByUserParameterOne(firstUniqueIdByUser);
+        .isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkFromOneParameterOne(firstUniqueIdByUser);
   }
 
-  bool isWhereLengthPickManiacPerkEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST() {
+  bool isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST() {
     return debutWMatches
-        .isWhereLengthPickManiacPerkEqualsNecessaryLengthPickManiacPerkFromUniqueIdByUserParameterOne(secondUniqueIdByUser);
+        .isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkFromOneParameterOne(secondUniqueIdByUser);
   }
 
-  bool isWhereLengthPickManiacPerkNotEqualsNecessaryLengthPickManiacPerkParametersTwo() {
+  bool isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkParametersTwo() {
     return debutWMatches
-        .isWhereLengthPickManiacPerkNotEqualsNecessaryLengthPickManiacPerkFromUniqueIdByUserParameterOne(firstUniqueIdByUser);
+        .isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkFromOneParameterOne(firstUniqueIdByUser);
   }
 
-  bool isWhereLengthPickManiacPerkNotEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST() {
+  bool isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST() {
     return debutWMatches
-        .isWhereLengthPickManiacPerkNotEqualsNecessaryLengthPickManiacPerkFromUniqueIdByUserParameterOne(secondUniqueIdByUser);
+        .isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkFromOneParameterOne(secondUniqueIdByUser);
   }
 
-  bool isWhereLengthPickSurvivorPerkEqualsNecessaryLengthPickSurvivorPerkParametersTwo() {
+  bool isWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo() {
     return debutWMatches
-        .isWhereLengthPickSurvivorPerkEqualsNecessaryLengthPickSurvivorPerkFromUniqueIdByUserParameterOne(firstUniqueIdByUser);
+        .isWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkFromOneParameterOne(firstUniqueIdByUser);
   }
 
-  bool isWhereLengthPickSurvivorPerkEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST() {
+  bool isWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST() {
     return debutWMatches
-        .isWhereLengthPickSurvivorPerkEqualsNecessaryLengthPickSurvivorPerkFromUniqueIdByUserParameterOne(secondUniqueIdByUser);
+        .isWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkFromOneParameterOne(secondUniqueIdByUser);
   }
 
-  bool isWhereLengthPickSurvivorPerkNotEqualsNecessaryLengthPickSurvivorPerkParametersTwo() {
+  bool isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwo() {
     return debutWMatches
-        .isWhereLengthPickSurvivorPerkNotEqualsNecessaryLengthPickSurvivorPerkFromUniqueIdByUserParameterOne(firstUniqueIdByUser);
+        .isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkFromUniqueIdByUserParameterOne(firstUniqueIdByUser);
   }
 
-  bool isWhereLengthPickSurvivorPerkNotEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST() {
+  bool isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST() {
     return debutWMatches
-        .isWhereLengthPickSurvivorPerkNotEqualsNecessaryLengthPickSurvivorPerkFromUniqueIdByUserParameterOne(secondUniqueIdByUser);
+        .isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkFromUniqueIdByUserParameterOne(secondUniqueIdByUser);
   }
 
   bool isWhereFalseAndEqualsFromOneParametersDebutWMatchesAndFirstUniqueIdByUser(String uniqueIdByUser) {

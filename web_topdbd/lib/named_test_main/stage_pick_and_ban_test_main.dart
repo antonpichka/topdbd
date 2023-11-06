@@ -1681,7 +1681,7 @@ void _listViewModelFirstPickManiacPerkToManiac(ManiacPerk maniacPerk) {
   matches
       ?.insertPickManiacPerkWMatchesWhereLastItemPickManiacWMatchesFromIndexParametersTwo(maniacPerk.getClone);
   final textLogAction = "${matches?.textLogAction}\nPlayer: '${matches?.firstUniqueIdByUser}' picked maniac perk '${maniacPerk.perk.name}' to maniac '${matches?.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches.nameSurvivorPerk}'";
-  if(matches?.isWhereLengthPickManiacPerkEqualsNecessaryLengthPickManiacPerkParametersTwo() ?? false) {
+  if(matches?.isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo() ?? false) {
     _firstBranchOneQListViewModelFirstPickManiacPerkToManiac(matches!,textLogAction);
     return;
   }
@@ -1736,7 +1736,7 @@ void _listViewModelSecondPickManiacPerkToManiac(ManiacPerk maniacPerk) {
   matches
       ?.insertManiacPerkWhereMatchesToPickManiacWhereMatchesForUniqueIdByUserWhereSecondFromManiacPerkParameterListPickManiacWhereMatches(maniacPerk.getClone);
   final textLogAction = "${matches?.textLogAction}\nPlayer: '${matches?.secondUniqueIdByUser}' picked maniac perk '${maniacPerk.perk.name}' to maniac '${matches?.getLastItemPickManiacWhereMatchesParameterListPickManiacWhereMatches.nameSurvivorPerk}'";
-  if(matches?.isWhereLengthPickManiacPerkEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST() ?? false) {
+  if(matches?.isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST() ?? false) {
     _firstBranchOneQListViewModelSecondPickManiacPerkToManiac(matches!,textLogAction);
     return;
   }

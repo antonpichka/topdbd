@@ -365,7 +365,7 @@ base class DebutWMatches extends BaseModel {
     return length == (lengthFIRST-1);
   }
 
-  bool isWhereLengthPickManiacPerkEqualsNecessaryLengthPickManiacPerkFromUniqueIdByUserParameterOne(String uniqueIdByUser) {
+  bool isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkFromOneParameterOne(String uniqueIdByUser) {
     final last = listPickManiacWMatches.listModel.last;
     final maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo = getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo;
     final length = last
@@ -377,7 +377,7 @@ base class DebutWMatches extends BaseModel {
     return length == lengthPickManiacPerk;
   }
 
-  bool isWhereLengthPickManiacPerkNotEqualsNecessaryLengthPickManiacPerkFromUniqueIdByUserParameterOne(String uniqueIdByUser) {
+  bool isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkFromOneParameterOne(String uniqueIdByUser) {
     final last = listPickManiacWMatches.listModel.last;
     final maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo = getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo;
     final length = last
@@ -389,7 +389,7 @@ base class DebutWMatches extends BaseModel {
     return length != lengthPickManiacPerk;
   }
 
-  bool isWhereLengthPickSurvivorPerkEqualsNecessaryLengthPickSurvivorPerkFromUniqueIdByUserParameterOne(String uniqueIdByUser) {
+  bool isWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkFromOneParameterOne(String uniqueIdByUser) {
     final last = listPickManiacWMatches.listModel.last;
     final maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo = getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo;
     final length = last
@@ -401,7 +401,7 @@ base class DebutWMatches extends BaseModel {
     return length == lengthPickSurvivorPerk;
   }
 
-  bool isWhereLengthPickSurvivorPerkNotEqualsNecessaryLengthPickSurvivorPerkFromUniqueIdByUserParameterOne(String uniqueIdByUser) {
+  bool isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkFromUniqueIdByUserParameterOne(String uniqueIdByUser) {
     final last = listPickManiacWMatches.listModel.last;
     final maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo = getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo;
     final length = last

@@ -66,15 +66,13 @@ base class RoundWMatches extends BaseModel {
   bool isWhereWinRoundWFirstUniqueIdByUserParametersTwo() {
     return numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser > numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser;
   }
-  /// FIRST USER  | SECOND USER
-  /// My Maniac and my turns start timer | Enemy Survivor and wait my maniac
+
   bool isWhereTrueAndFalseAndNotEqualsNextRoundParametersThree() {
     return isRoleManiacWFirstUniqueIdByUser &&
         !isStartTimerWFirstUniqueIdByUser &&
         enumRoundStatus != EnumRoundStatus.nextRound;
   }
 
-  /// My Maniac and wait enemy survivor | Enemy Survivor and enemy turns start timer
   bool isWhereTrueAndTrueAndFalseAndNotEqualsNextRoundParametersFour() {
     return isRoleManiacWFirstUniqueIdByUser &&
         isStartTimerWFirstUniqueIdByUser &&
@@ -82,28 +80,12 @@ base class RoundWMatches extends BaseModel {
         enumRoundStatus != EnumRoundStatus.nextRound;
   }
 
-  /// My Maniac and stop timer | Enemy Survivor and stop timer
-  bool isWhereTrueAndTrueAndTrueAndNotEqualsNextRoundParametersFour() {
-    return isRoleManiacWFirstUniqueIdByUser &&
-        isStartTimerWFirstUniqueIdByUser &&
-        isStartTimerWSecondUniqueIdByUser &&
-        enumRoundStatus != EnumRoundStatus.nextRound;
-  }
-
-  /// My Maniac and next round | Enemy Survivor and next round
-  bool isWhereTrueAndEqualsNextRoundParametersIsRoleManiacWFirstUniqueIdByUserAndEnumRoundStatus() {
-    return isRoleManiacWFirstUniqueIdByUser &&
-        enumRoundStatus == EnumRoundStatus.nextRound;
-  }
-
-  /// My Survivor and wait enemy maniac | Enemy Maniac and enemy turns start timer
   bool isWhereFalseAndFalseAndNotEqualsNextRoundParametersThree() {
     return !isRoleManiacWFirstUniqueIdByUser &&
         !isStartTimerWSecondUniqueIdByUser &&
         enumRoundStatus != EnumRoundStatus.nextRound;
   }
 
-  /// My Survivor and my turns start timer | Enemy Maniac and wait my survivor
   bool isWhereFalseAndFalseAndTrueAndNotEqualsNextRoundParametersFour() {
     return !isRoleManiacWFirstUniqueIdByUser &&
         !isStartTimerWFirstUniqueIdByUser &&
@@ -111,17 +93,13 @@ base class RoundWMatches extends BaseModel {
         enumRoundStatus != EnumRoundStatus.nextRound;
   }
 
-  /// My Survivor and stop timer | Enemy Maniac and stop timer
-  bool isFalseAndTrueAndTrueAndNotEqualsNextRoundParametersFour() {
-    return !isRoleManiacWFirstUniqueIdByUser &&
-        isStartTimerWFirstUniqueIdByUser &&
+  bool isWhereTrueAndTrueAndNotEqualsNextRoundParametersThree() {
+    return isStartTimerWFirstUniqueIdByUser &&
         isStartTimerWSecondUniqueIdByUser &&
         enumRoundStatus != EnumRoundStatus.nextRound;
   }
 
-  /// My Survivor and next round | Enemy Maniac and next round
-  bool isFalseAndEqualsNextRoundParametersIsRoleManiacWFirstUniqueIdByUserAndEnumRoundStatus() {
-    return !isRoleManiacWFirstUniqueIdByUser &&
-        enumRoundStatus == EnumRoundStatus.nextRound;
+  bool isWhereEqualsNextRoundParameterEnumRoundStatus() {
+    return enumRoundStatus == EnumRoundStatus.nextRound;
   }
 }

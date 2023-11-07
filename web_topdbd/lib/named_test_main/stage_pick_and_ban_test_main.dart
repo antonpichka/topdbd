@@ -1533,7 +1533,7 @@ void _listViewModelFirstBanManiac(ManiacWMatchBalance maniacWhereMatchBalance) {
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.insertBanManiacWMatchesFromNameParametersDebutWMatchesAndFirstUniqueIdByUser(maniacWhereMatchBalance.name.name);
+      ?.insertBanManiacWMatchesFromIndexParametersDebutWMatchesAndFirstUniqueIdByUser(maniacWhereMatchBalance.name.name);
   final textLogAction = (matches?.textLogAction.isNotEmpty ?? false)
       ? "${matches?.textLogAction}\nPlayer: '${matches?.firstUniqueIdByUser}' banned maniac '${maniacWhereMatchBalance.name.name}'"
       : "Player: '${matches?.firstUniqueIdByUser}' banned maniac '${maniacWhereMatchBalance.name.name}'";
@@ -1570,7 +1570,7 @@ void _listViewModelSecondBanManiac(ManiacWMatchBalance maniacWhereMatchBalance) 
   _dataForStagePickAndBanTestMain?.isLoadingForButton = true;
   final matches = _dataForStagePickAndBanTestMain?.matches;
   matches
-      ?.insertBanManiacWMatchesFromNameParametersDebutWMatchesAndSecondUniqueIdByUser(maniacWhereMatchBalance.name.name);
+      ?.insertBanManiacWMatchesFromIndexParametersDebutWMatchesAndSecondUniqueIdByUser(maniacWhereMatchBalance.name.name);
   final textLogAction = (matches?.textLogAction.isNotEmpty ?? false)
       ? "${matches?.textLogAction}\nPlayer: '${matches?.secondUniqueIdByUser}' banned maniac '${maniacWhereMatchBalance.name.name}'"
       : "Player: '${matches?.secondUniqueIdByUser}' banned maniac '${maniacWhereMatchBalance.name.name}'";

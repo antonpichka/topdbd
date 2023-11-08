@@ -16,8 +16,11 @@ import 'package:common_topdbd/model/matches/matches.dart';
 import 'package:common_topdbd/model/middlegame_w_matches/middlegame_w_matches.dart';
 import 'package:common_topdbd/model/pick_maniac_w_matches/list_pick_maniac_w_matches.dart';
 import 'package:common_topdbd/model/round_w_matches/list_round_w_matches.dart';
+import 'package:common_topdbd/model/stats/list_stats.dart';
+import 'package:common_topdbd/model/stats/stats.dart';
 import 'package:common_topdbd/model/survivor_perk_w_match_balance/list_survivor_perk_w_match_balance.dart';
 import 'package:common_topdbd/model/survivor_perk_w_match_balance/survivor_perk_w_match_balance.dart';
+import 'package:common_topdbd/named_utility/timer_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -25,7 +28,11 @@ void main() {
   UpdateEEMatchesEEFromMatchesEEParameterTempCacheService()
       .updateMatchesFromMatchesParameterTempCacheService(ReadyDataUtility.getMatchesWhereUsingGetWUniqueIdByUser);
   UpdateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService()
-      .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(ReadyDataUtility.getWhereUniqueIByUser);
+      .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(ReadyDataUtility.getStringsWhereUniqueIByUser);
+  UpdateEEStatsEEWhereFirstUserEEFromStatsEEParameterTempCacheService()
+      .updateStatsWhereFirstUserFromStatsParameterTempCacheService(ReadyDataUtility.getStatsWhereFirstUser);
+  UpdateEEStatsEEWhereSecondUserEEFromStatsEEParameterTempCacheService()
+      .updateStatsWhereSecondUserFromStatsParameterTempCacheService(ReadyDataUtility.getStatsWhereSecondUser);
   final threeStagesOfTheMatchView = ThreeStagesOfTheMatchView();
   threeStagesOfTheMatchView.initState();
   threeStagesOfTheMatchView.build();
@@ -40,9 +47,9 @@ final class ReadyDataUtility {
         "409419d6-4fb0-11ee-be56-0242ac120002",
         DateTime.now(),
         "",
-        getWhereUniqueIByUser.field,
+        getStringsWhereUniqueIByUser.field,
         "5f8cd3aa-4fb0-11ee-be56-0242ac120002",
-        getWhereUsernameByModel.field,
+        getStringWhereUsernameByModel.field,
         "EnemyUser",
         DebutWMatches(
             false,
@@ -210,16 +217,24 @@ final class ReadyDataUtility {
           ListPickManiacWMatches(List.empty(growable: true))
         ),
         MiddlegameWMatches(false,ListRoundWMatches(List.empty(growable: true))),
-        EndgameWMatches(false,0,0)
+        EndgameWMatches(0,0)
     );
   }
 
-  static Strings get getWhereUniqueIByUser {
+  static Strings get getStringsWhereUniqueIByUser {
     return const Strings("51d1a9f2-4fb0-11ee-be56-0242ac120002");
   }
 
-  static Strings get getWhereUsernameByModel {
+  static Strings get getStringWhereUsernameByModel {
     return const Strings("MyUser");
+  }
+
+  static Stats get getStatsWhereFirstUser {
+    return Stats(getStringsWhereUniqueIByUser.field,1,0,0,300);
+  }
+
+  static Stats get getStatsWhereSecondUser {
+    return Stats("5f8cd3aa-4fb0-11ee-be56-0242ac120002",1,0,0,300);
   }
 }
 
@@ -227,8 +242,15 @@ final class ReadyDataUtility {
 final class KeysTempCacheServiceUtility {
   /* Matches */
   static const String matches = "matches";
+  /* Stats */
+  static const String stats = "stats";
+  static const String statsFIRST = "statsFIRST";
   /* Strings */
   static const String stringsQQUniqueIdByUser = "stringsQQUniqueIdByUser";
+  /* Bools */
+  static const String boolsQQIsStopTimer = "boolsQQIsStopTimer";
+  /* Ints */
+  static const String intsQQElapsedTimeInMilliseconds = "intsQQElapsedTimeInMilliseconds";
 
   const KeysTempCacheServiceUtility._();
 }
@@ -247,25 +269,6 @@ final class KeysSuccessUtility {
   static const String sUCCESS = "sUCCESS";
 
   const KeysSuccessUtility._();
-}
-
-base class StartListeningAndCancelListeningEEMatchesEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription<T extends Matches, Y extends ListMatches<T>> {
-  @protected
-  final tempCacheService = TempCacheService.instance;
-  @protected
-  StreamSubscription<dynamic>? streamSubscription;
-
-  void startListeningMatchesFromCallbackParametersTempCacheServiceAndStreamSubscription(Function(Result<T>) callback) {
-    streamSubscription = tempCacheService
-        .getStreamFromKeyTempCacheParameterOne(KeysTempCacheServiceUtility.matches)
-        .listen((event) {
-          callback(Result.success(event as T));
-        });
-  }
-
-  void cancelListeningMatchesParameterStreamSubscription() {
-    streamSubscription?.cancel();
-  }
 }
 
 @immutable
@@ -293,6 +296,89 @@ base class UpdateEEMatchesEEFromMatchesEEParameterTempCacheService<T extends Mat
   Result<bool> updateMatchesFromMatchesParameterTempCacheService(T matches) {
     try {
       tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.matches,matches);
+      return Result.success(true);
+    } catch(e) {
+      return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+    }
+  }
+}
+
+base class StartListeningAndCancelListeningEEMatchesEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription<T extends Matches, Y extends ListMatches<T>> {
+  @protected
+  final tempCacheService = TempCacheService.instance;
+  @protected
+  StreamSubscription<dynamic>? streamSubscription;
+
+  void startListeningMatchesFromCallbackParametersTempCacheServiceAndStreamSubscription(Function(Result<T>) callback) {
+    streamSubscription = tempCacheService
+        .getStreamFromKeyTempCacheParameterOne(KeysTempCacheServiceUtility.matches)
+        .listen((event) {
+          callback(Result.success(event as T));
+        });
+  }
+
+  void cancelListeningMatchesParameterStreamSubscription() {
+    streamSubscription?.cancel();
+  }
+}
+
+@immutable
+base class GetEEStatsEEWhereFirstUserEEParameterTempCacheService<T extends Stats,Y extends ListStats<T>> {
+  @protected
+  final tempCacheService = TempCacheService.instance;
+
+  Result<T> getStatsWhereFirstUserParameterTempCacheService() {
+    try {
+      final stats = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.stats) as T;
+      return Result<T>.success(stats);
+    } on LocalException catch(e) {
+      return Result<T>.exception(e);
+    } catch(e) {
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+    }
+  }
+}
+
+@immutable
+base class UpdateEEStatsEEWhereFirstUserEEFromStatsEEParameterTempCacheService<T extends Stats,Y extends ListStats<T>> {
+  @protected
+  final tempCacheService = TempCacheService.instance;
+
+  Result<bool> updateStatsWhereFirstUserFromStatsParameterTempCacheService(T stats) {
+    try {
+      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.stats,stats);
+      return Result.success(true);
+    } catch(e) {
+      return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+    }
+  }
+}
+
+@immutable
+base class GetEEStatsEEWhereSecondUserEEParameterTempCacheService<T extends Stats,Y extends ListStats<T>> {
+  @protected
+  final tempCacheService = TempCacheService.instance;
+
+  Result<T> getStatsWhereSecondUserParameterTempCacheService() {
+    try {
+      final stats = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.statsFIRST) as T;
+      return Result<T>.success(stats);
+    } on LocalException catch(e) {
+      return Result<T>.exception(e);
+    } catch(e) {
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+    }
+  }
+}
+
+@immutable
+base class UpdateEEStatsEEWhereSecondUserEEFromStatsEEParameterTempCacheService<T extends Stats,Y extends ListStats<T>> {
+  @protected
+  final tempCacheService = TempCacheService.instance;
+
+  Result<bool> updateStatsWhereSecondUserFromStatsParameterTempCacheService(T stats) {
+    try {
+      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.statsFIRST,stats);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
@@ -332,11 +418,79 @@ base class UpdateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCache
   }
 }
 
+@immutable
+base class UpdateEEBoolsEEWhereIsStopTimerEEFromBoolsEEParameterTempCacheService<T extends Bools,Y extends ListBools<T>> {
+  @protected
+  final tempCacheService = TempCacheService.instance;
+
+  Result<bool> updateBoolsWhereIsStopTimerFromBoolsParameterTempCacheService(T bools) {
+    try {
+      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.boolsQQIsStopTimer,bools);
+      return Result.success(true);
+    } catch(e) {
+      return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+    }
+  }
+}
+
+base class StartListeningAndCancelListeningEEBoolsEEWhereIsStopTimerEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription<T extends Bools, Y extends ListBools<T>> {
+  @protected
+  final tempCacheService = TempCacheService.instance;
+  @protected
+  StreamSubscription<dynamic>? streamSubscription;
+
+  void startListeningBoolsWhereIsStopTimerFromCallbackParametersTempCacheServiceAndStreamSubscription(Function(Result<T>) callback) {
+    streamSubscription = tempCacheService
+        .getStreamFromKeyTempCacheParameterOne(KeysTempCacheServiceUtility.boolsQQIsStopTimer)
+        .listen((event) {
+          callback(Result.success(event as T));
+        });
+  }
+
+  void cancelListeningBoolsWhereIsStopTimerParameterStreamSubscription() {
+    streamSubscription?.cancel();
+  }
+}
+
+@immutable
+base class GetEEIntsEEWhereElapsedTimeInMillisecondsEEParameterTempCacheService<T extends Ints,Y extends ListInts<T>> {
+  @protected
+  final tempCacheService = TempCacheService.instance;
+
+  Result<T> getIntsWhereElapsedTimeInMillisecondsParameterTempCacheService() {
+    try {
+      final ints = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.intsQQElapsedTimeInMilliseconds) as T;
+      return Result<T>.success(ints);
+    } on LocalException catch(e) {
+      return Result<T>.exception(e);
+    } catch(e) {
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+    }
+  }
+}
+
+@immutable
+base class UpdateEEIntsEEWhereElapsedTimeInMillisecondsEEFromIntsEEParameterTempCacheService<T extends Ints,Y extends ListInts<T>> {
+  @protected
+  final tempCacheService = TempCacheService.instance;
+
+  Result<bool> updateIntsWhereElapsedTimeInMillisecondsFromIntsParameterTempCacheService(T ints) {
+    try {
+      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.intsQQElapsedTimeInMilliseconds,ints);
+      return Result.success(true);
+    } catch(e) {
+      return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
+    }
+  }
+}
+
 final class DataForThreeStagesOfTheMatchView extends BaseDataForNamed<EnumDataForThreeStagesOfTheMatchView> {
   Matches matches;
   String uniqueIdByUser;
+  Stats statsWFirstUser;
+  Stats statsWSecondUser;
 
-  DataForThreeStagesOfTheMatchView(super.isLoading,this.matches,this.uniqueIdByUser);
+  DataForThreeStagesOfTheMatchView(super.isLoading,this.matches,this.uniqueIdByUser,this.statsWFirstUser,this.statsWSecondUser);
 
   @override
   EnumDataForThreeStagesOfTheMatchView get getEnumDataForNamed {
@@ -352,7 +506,7 @@ final class DataForThreeStagesOfTheMatchView extends BaseDataForNamed<EnumDataFo
     if(matches.isWhereFalseAndEqualsFromOneParametersMiddlegameWMatchesAndFirstUniqueIdByUser(uniqueIdByUser)) {
       return EnumDataForThreeStagesOfTheMatchView.firstUniqueIdByUserWMiddlegameWMatches;
     }
-    if(matches.isWhereFalseAndEqualsFromOneParametersEndgameWMatchesAndFirstUniqueIdByUser(uniqueIdByUser)) {
+    if(matches.isWhereTrueAndTrueAndEqualsFromOneParametersThree(uniqueIdByUser)) {
       return EnumDataForThreeStagesOfTheMatchView.firstUniqueIdByUserWEndgameWMatches;
     }
     if(matches.isWhereFalseAndEqualsFromOneParametersDebutWMatchesAndSecondUniqueIdByUser(uniqueIdByUser)) {
@@ -361,10 +515,10 @@ final class DataForThreeStagesOfTheMatchView extends BaseDataForNamed<EnumDataFo
     if(matches.isWhereFalseAndEqualsFromOneParametersMiddlegameWMatchesAndSecondUniqueIdByUser(uniqueIdByUser)) {
       return EnumDataForThreeStagesOfTheMatchView.secondUniqueIdByUserWMiddlegameWMatches;
     }
-    if(matches.isWhereFalseAndEqualsFromOneParametersEndgameWMatchesAndSecondUniqueIdByUser(uniqueIdByUser)) {
+    if(matches.isWhereTrueAndTrueAndEqualsFromOneParametersThreeFIRST(uniqueIdByUser)) {
       return EnumDataForThreeStagesOfTheMatchView.secondUniqueIdByUserWEndgameWMatches;
     }
-    return EnumDataForThreeStagesOfTheMatchView.finishedThreeStages;
+    return EnumDataForThreeStagesOfTheMatchView.firstUniqueIdByUserWEndgameWMatches;
   }
 }
 
@@ -377,7 +531,6 @@ enum EnumDataForThreeStagesOfTheMatchView {
   secondUniqueIdByUserWDebutWMatches,
   secondUniqueIdByUserWMiddlegameWMatches,
   secondUniqueIdByUserWEndgameWMatches,
-  finishedThreeStages
 }
 
 final class ThreeStagesOfTheMatchViewModel extends BaseNamedViewModel<DataForThreeStagesOfTheMatchView,DefaultStreamWState<DataForThreeStagesOfTheMatchView>> {
@@ -386,6 +539,10 @@ final class ThreeStagesOfTheMatchViewModel extends BaseNamedViewModel<DataForThr
   GetEEMatchesEEParameterTempCacheService();
   final _getEEStringsEEWhereUniqueIdByUserEEParameterTempCacheService =
   GetEEStringsEEWhereUniqueIdByUserEEParameterTempCacheService();
+  final _getEEStatsEEWhereFirstUserEEParameterTempCacheService =
+  GetEEStatsEEWhereFirstUserEEParameterTempCacheService();
+  final _getEEStatsEEWhereSecondUserEEParameterTempCacheService =
+  GetEEStatsEEWhereSecondUserEEParameterTempCacheService();
   final _startListeningAndCancelListeningEEMatchesEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription =
   StartListeningAndCancelListeningEEMatchesEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription();
 
@@ -413,9 +570,11 @@ final class ThreeStagesOfTheMatchViewModel extends BaseNamedViewModel<DataForThr
             false,
             ListRoundWMatches(List.empty(growable: true))
         ),
-        EndgameWMatches(false,0,0)
+        EndgameWMatches(0,0)
     ),
     "",
+    Stats("",0,0,0,0),
+    Stats("",0,0,0,0)
   )));
 
   @override
@@ -423,14 +582,6 @@ final class ThreeStagesOfTheMatchViewModel extends BaseNamedViewModel<DataForThr
     super.dispose();
     _startListeningAndCancelListeningEEMatchesEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
         .cancelListeningMatchesParameterStreamSubscription();
-  }
-
-  void listeningStreamsTempCacheService() {
-    _startListeningAndCancelListeningEEMatchesEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
-        .startListeningMatchesFromCallbackParametersTempCacheServiceAndStreamSubscription((Result<Matches> resultMatches) {
-          getDataForNamedParameterNamedStreamWState.matches = resultMatches.parameter!.getClone;
-          notifyStreamDataForNamedParameterNamedStreamWState();
-        });
   }
 
   @override
@@ -441,7 +592,7 @@ final class ThreeStagesOfTheMatchViewModel extends BaseNamedViewModel<DataForThr
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      return _firstQQInitQQGetMatchesParameterTempCacheService(getMatchesParameterTempCacheService);
+      return _firstQQInitQQGetMatchesParameterTempCacheService(getMatchesParameterTempCacheService.exceptionController);
     }
     final getStringsWhereUniqueIdByUserParameterTempCacheService = _getEEStringsEEWhereUniqueIdByUserEEParameterTempCacheService
         .getStringsWhereUniqueIdByUserParameterTempCacheService();
@@ -449,21 +600,58 @@ final class ThreeStagesOfTheMatchViewModel extends BaseNamedViewModel<DataForThr
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      return _firstQQInitQQGetStringsWhereUniqueIdByUserParameterTempCacheService(getStringsWhereUniqueIdByUserParameterTempCacheService);
+      return _firstQQInitQQGetStringsWhereUniqueIdByUserParameterTempCacheService(getStringsWhereUniqueIdByUserParameterTempCacheService.exceptionController);
+    }
+    final getStatsWhereFirstUserParameterTempCacheService = _getEEStatsEEWhereFirstUserEEParameterTempCacheService
+        .getStatsWhereFirstUserParameterTempCacheService();
+    if(getStatsWhereFirstUserParameterTempCacheService
+        .exceptionController
+        .isWhereNotEqualsNullParameterException())
+    {
+      return _firstQQInitQQGetStatsWhereFirstUserParameterTempCacheService(getStatsWhereFirstUserParameterTempCacheService.exceptionController);
+    }
+    final getStatsWhereSecondUserParameterTempCacheService = _getEEStatsEEWhereSecondUserEEParameterTempCacheService
+        .getStatsWhereSecondUserParameterTempCacheService();
+    if(getStatsWhereSecondUserParameterTempCacheService
+        .exceptionController
+        .isWhereNotEqualsNullParameterException())
+    {
+      return _firstQQInitQQGetStatsWhereSecondUserParameterTempCacheService(getStatsWhereSecondUserParameterTempCacheService.exceptionController);
     }
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     getDataForNamedParameterNamedStreamWState.matches = getMatchesParameterTempCacheService.parameter!.getClone;
     getDataForNamedParameterNamedStreamWState.uniqueIdByUser = getStringsWhereUniqueIdByUserParameterTempCacheService.parameter?.field ?? "";
+    getDataForNamedParameterNamedStreamWState.statsWFirstUser = getStatsWhereFirstUserParameterTempCacheService.parameter!.getClone;
+    getDataForNamedParameterNamedStreamWState.statsWSecondUser = getStatsWhereSecondUserParameterTempCacheService.parameter!.getClone;
     return KeysSuccessUtility.sUCCESS;
   }
 
-  Future<String> _firstQQInitQQGetMatchesParameterTempCacheService(Result<Matches> getMatchesParameterTempCacheService) async {
-    getDataForNamedParameterNamedStreamWState.exceptionController = getMatchesParameterTempCacheService.exceptionController;
+  void listeningStreamsTempCacheService() {
+    _startListeningAndCancelListeningEEMatchesEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
+        .startListeningMatchesFromCallbackParametersTempCacheServiceAndStreamSubscription((Result<Matches> resultMatches)
+    {
+      getDataForNamedParameterNamedStreamWState.matches = resultMatches.parameter!.getClone;
+      notifyStreamDataForNamedParameterNamedStreamWState();
+    });
+  }
+
+  Future<String> _firstQQInitQQGetMatchesParameterTempCacheService(ExceptionController exceptionController) async {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
-  Future<String> _firstQQInitQQGetStringsWhereUniqueIdByUserParameterTempCacheService(Result<Strings> getStringsWhereUniqueIdByUserParameterTempCacheService) async {
-    getDataForNamedParameterNamedStreamWState.exceptionController = getStringsWhereUniqueIdByUserParameterTempCacheService.exceptionController;
+  Future<String> _firstQQInitQQGetStringsWhereUniqueIdByUserParameterTempCacheService(ExceptionController exceptionController) async {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
+    return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
+  }
+
+  Future<String> _firstQQInitQQGetStatsWhereFirstUserParameterTempCacheService(ExceptionController exceptionController) async {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
+    return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
+  }
+
+  Future<String> _firstQQInitQQGetStatsWhereSecondUserParameterTempCacheService(ExceptionController exceptionController) async {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 }
@@ -496,13 +684,17 @@ final class ThreeStagesOfTheMatchView {
         break;
       case EnumDataForThreeStagesOfTheMatchView.firstUniqueIdByUserWDebutWMatches:
         final firstUniqueIdByUserWDebutWMatchesView = FirstUniqueIdByUserWDebutWMatchesView(
-            dataForNamedParameterNamedStreamWState.matches.getClone);
+            dataForNamedParameterNamedStreamWState.matches.getClone,
+            dataForNamedParameterNamedStreamWState.statsWFirstUser.getClone,
+            dataForNamedParameterNamedStreamWState.statsWSecondUser.getClone);
         firstUniqueIdByUserWDebutWMatchesView.initState();
         firstUniqueIdByUserWDebutWMatchesView.build();
         break;
       case EnumDataForThreeStagesOfTheMatchView.firstUniqueIdByUserWMiddlegameWMatches:
         final firstUniqueIdByUserWMiddlegameWMatchesView = FirstUniqueIdByUserWMiddlegameWMatchesView(
-          dataForNamedParameterNamedStreamWState.matches.getClone);
+            dataForNamedParameterNamedStreamWState.matches.getClone,
+            dataForNamedParameterNamedStreamWState.statsWFirstUser.getClone,
+            dataForNamedParameterNamedStreamWState.statsWSecondUser.getClone);
         firstUniqueIdByUserWMiddlegameWMatchesView.initState();
         firstUniqueIdByUserWMiddlegameWMatchesView.build();
         break;
@@ -513,8 +705,6 @@ final class ThreeStagesOfTheMatchView {
       case EnumDataForThreeStagesOfTheMatchView.secondUniqueIdByUserWMiddlegameWMatches:
         break;
       case EnumDataForThreeStagesOfTheMatchView.secondUniqueIdByUserWEndgameWMatches:
-        break;
-      case EnumDataForThreeStagesOfTheMatchView.finishedThreeStages:
         break;
       default:
         break;
@@ -536,8 +726,10 @@ final class ThreeStagesOfTheMatchView {
 
 final class DataForFirstUniqueIdByUserWDebutWMatchesView extends BaseDataForNamed<EnumDataForFirstUniqueIdByUserWDebutWMatchesView> {
   Matches matches;
+  Stats statsWFirstUser;
+  Stats statsWSecondUser;
 
-  DataForFirstUniqueIdByUserWDebutWMatchesView(super.isLoading,this.matches);
+  DataForFirstUniqueIdByUserWDebutWMatchesView(super.isLoading,this.matches,this.statsWFirstUser,this.statsWSecondUser);
 
   @override
   EnumDataForFirstUniqueIdByUserWDebutWMatchesView get getEnumDataForNamed {
@@ -662,9 +854,11 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
 
   // NamedUtility
 
-  FirstUniqueIdByUserWDebutWMatchesViewModel(Matches matches) : super(DefaultStreamWState(DataForFirstUniqueIdByUserWDebutWMatchesView(
+  FirstUniqueIdByUserWDebutWMatchesViewModel(Matches matches, Stats statsWFirstUser, Stats statsWSecondUser) : super(DefaultStreamWState(DataForFirstUniqueIdByUserWDebutWMatchesView(
     true,
-    matches
+    matches,
+    statsWFirstUser,
+    statsWSecondUser
   )));
 
   @override
@@ -966,7 +1160,7 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     matches
         .insertListRoundWMatchesWhereBeforeCallIteratorParametersThree();
     final matchesWhereNewAndTrueIsCompletedByDebutWMatchesParametersNine = matches
-        .getMatchesWhereNewAndTrueIsCompletedByDebutWMatchesParametersNine;
+        .getMatchesWhereNewAndIsCompletedByDebutWMatchesParametersNine;
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndTrueIsCompletedByDebutWMatchesParametersNine);
   }
@@ -1373,8 +1567,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
 final class FirstUniqueIdByUserWDebutWMatchesView {
   final FirstUniqueIdByUserWDebutWMatchesViewModel _firstUniqueIdByUserWDebutWMatchesViewModel;
 
-  FirstUniqueIdByUserWDebutWMatchesView(Matches matches)
-      : _firstUniqueIdByUserWDebutWMatchesViewModel = FirstUniqueIdByUserWDebutWMatchesViewModel(matches);
+  FirstUniqueIdByUserWDebutWMatchesView(Matches matches,Stats statsWFirstUser,Stats statsWSecondUser)
+      : _firstUniqueIdByUserWDebutWMatchesViewModel = FirstUniqueIdByUserWDebutWMatchesViewModel(matches,statsWFirstUser,statsWSecondUser);
 
   // Override
   void initState() {
@@ -1399,7 +1593,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsBanManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("ListPickManiacWMatchesWFirstUniqueIdByUser: ${matches.getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
         debugPrint("ListPickManiacWMatchesWSecondUniqueIdByUser: ${matches.getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndSecondUniqueIdByUser}");
         debugPrint("ListBanManiacWMatchesWFirstUniqueIdByUser: ${matches.getListBanManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
@@ -1412,7 +1610,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsPickManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("ListPickManiacWMatchesWFirstUniqueIdByUser: ${matches.getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
         debugPrint("ListPickManiacWMatchesWSecondUniqueIdByUser: ${matches.getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndSecondUniqueIdByUser}");
         debugPrint("ListBanManiacWMatchesWFirstUniqueIdByUser: ${matches.getListBanManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
@@ -1425,7 +1627,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsBansMapsToPickedManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("LastItemPickManiacWMatches: ${matches.debutWMatches.listPickManiacWMatches.listModel.last}");
         debugPrint("ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: ${matches.debutWMatches.getListMapsWMatchBalanceWhereNotBannedMapsAndLastItemParameterListPickManiacWMatches}");
         debugPrint("You turns bans maps to picked maniac (index): ");
@@ -1435,7 +1641,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.systemPickMapsToPickedManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("LastItemPickManiacWMatches: ${matches.debutWMatches.listPickManiacWMatches.listModel.last}");
         debugPrint("ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: ${matches.debutWMatches.getListMapsWMatchBalanceWhereNotBannedMapsAndLastItemParameterListPickManiacWMatches}");
         debugPrint("System: Now pick maps to picked maniac");
@@ -1444,7 +1654,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsPickManiacPerkToPickedManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("LastItemPickManiacWMatches: ${matches.debutWMatches.listPickManiacWMatches.listModel.last}");
         debugPrint("ListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: ${matches.getListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo}");
         debugPrint("You turns pick maniac perk to picked maniac (index): ");
@@ -1454,7 +1668,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.myTurnsPickSurvivorPerkToPickedManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("LastItemPickManiacWMatches: ${matches.debutWMatches.listPickManiacWMatches.listModel.last}");
         debugPrint("ListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: ${matches.getListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo}");
         final input = stdin.readLineSync();
@@ -1463,7 +1681,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.systemPickManiacPerkToPickedManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("LastItemPickManiacWMatches: ${matches.debutWMatches.listPickManiacWMatches.listModel.last}");
         debugPrint("ListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: ${matches.getListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo}");
         debugPrint("System: Now pick maniac perk to picked maniac");
@@ -1472,7 +1694,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.systemPickSurvivorPerkToPickedManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("LastItemPickManiacWMatches: ${matches.debutWMatches.listPickManiacWMatches.listModel.last}");
         debugPrint("ListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: ${matches.getListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo}");
         debugPrint("System: Now pick survivor perk to picked maniac");
@@ -1481,7 +1707,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.systemPickManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("ListPickManiacWMatchesWFirstUniqueIdByUser: ${matches.getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
         debugPrint("ListPickManiacWMatchesWSecondUniqueIdByUser: ${matches.getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndSecondUniqueIdByUser}");
         debugPrint("ListBanManiacWMatchesWFirstUniqueIdByUser: ${matches.getListBanManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
@@ -1493,7 +1723,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsBanManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("ListPickManiacWMatchesWFirstUniqueIdByUser: ${matches.getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
         debugPrint("ListPickManiacWMatchesWSecondUniqueIdByUser: ${matches.getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndSecondUniqueIdByUser}");
         debugPrint("ListBanManiacWMatchesWFirstUniqueIdByUser: ${matches.getListBanManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
@@ -1504,7 +1738,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsPickManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("ListPickManiacWMatchesWFirstUniqueIdByUser: ${matches.getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
         debugPrint("ListPickManiacWMatchesWSecondUniqueIdByUser: ${matches.getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndSecondUniqueIdByUser}");
         debugPrint("ListBanManiacWMatchesWFirstUniqueIdByUser: ${matches.getListBanManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
@@ -1515,7 +1753,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsBansMapsToPickedManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("LastItemPickManiacWMatches: ${matches.debutWMatches.listPickManiacWMatches.listModel.last}");
         debugPrint("ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: ${matches.debutWMatches.getListMapsWMatchBalanceWhereNotBannedMapsAndLastItemParameterListPickManiacWMatches}");
         debugPrint("Enemy turns bans maps to picked maniac (index): 0");
@@ -1523,7 +1765,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsPickManiacPerkToPickedManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("LastItemPickManiacWMatches: ${matches.debutWMatches.listPickManiacWMatches.listModel.last}");
         debugPrint("ListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: ${matches.getListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo}");
         debugPrint("Enemy turns pick maniac perk to picked maniac (index): 0");
@@ -1531,7 +1777,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.enemyTurnsPickSurvivorPerkToPickedManiac:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("LastItemPickManiacWMatches: ${matches.debutWMatches.listPickManiacWMatches.listModel.last}");
         debugPrint("ListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: ${matches.getListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo}");
         debugPrint("Enemy turns pick survivor perk to picked maniac (index): 0");
@@ -1539,7 +1789,11 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWDebutWMatchesView.isCompleted:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("ListPickManiacWMatchesWFirstUniqueIdByUser: ${matches.getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser}");
         debugPrint("ListPickManiacWMatchesWSecondUniqueIdByUser: ${matches.getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndSecondUniqueIdByUser}");
         debugPrint("ListPickManiacWMatchesWSystem: ${matches.getListPickManiacWMatchesWhereNotEqualsParametersThree}");
@@ -1568,8 +1822,10 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
 
 final class DataForFirstUniqueIdByUserWMiddlegameWMatchesView extends BaseDataForNamed<EnumDataForFirstUniqueIdByUserWMiddlegameWMatchesView> {
   Matches matches;
+  Stats statsWFirstUser;
+  Stats statsWSecondUser;
 
-  DataForFirstUniqueIdByUserWMiddlegameWMatchesView(super.isLoading,this.matches);
+  DataForFirstUniqueIdByUserWMiddlegameWMatchesView(super.isLoading,this.matches,this.statsWFirstUser,this.statsWSecondUser);
 
   @override
   EnumDataForFirstUniqueIdByUserWMiddlegameWMatchesView get getEnumDataForNamed {
@@ -1660,14 +1916,24 @@ enum EnumDataForFirstUniqueIdByUserWMiddlegameWMatchesView {
 
 final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedViewModel<DataForFirstUniqueIdByUserWMiddlegameWMatchesView,DefaultStreamWState<DataForFirstUniqueIdByUserWMiddlegameWMatchesView>> {
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
+  final _getEEIntsEEWhereElapsedTimeInMillisecondsEEParameterTempCacheService =
+  GetEEIntsEEWhereElapsedTimeInMillisecondsEEParameterTempCacheService();
+  final _updateEEBoolsEEWhereIsStopTimerEEFromBoolsEEParameterTempCacheService =
+  UpdateEEBoolsEEWhereIsStopTimerEEFromBoolsEEParameterTempCacheService();
+  final _updateEEStatsEEWhereFirstUserEEFromStatsEEParameterTempCacheService =
+  UpdateEEStatsEEWhereFirstUserEEFromStatsEEParameterTempCacheService();
+  final _updateEEStatsEEWhereSecondUserEEFromStatsEEParameterTempCacheService =
+  UpdateEEStatsEEWhereSecondUserEEFromStatsEEParameterTempCacheService();
   final _updateEEMatchesEEFromMatchesEEParameterTempCacheService =
   UpdateEEMatchesEEFromMatchesEEParameterTempCacheService();
 
   // NamedUtility
 
-  FirstUniqueIdByUserWMiddlegameWMatchesViewModel(Matches matches) : super(DefaultStreamWState(DataForFirstUniqueIdByUserWMiddlegameWMatchesView(
+  FirstUniqueIdByUserWMiddlegameWMatchesViewModel(Matches matches, Stats statsWFirstUser, Stats statsWSecondUser) : super(DefaultStreamWState(DataForFirstUniqueIdByUserWMiddlegameWMatchesView(
     true,
-    matches
+    matches,
+    statsWFirstUser,
+    statsWSecondUser
   )));
 
   @override
@@ -1725,13 +1991,112 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndMySurvivorWEnemyTurnsClickStartTimerParametersNine);
   }
+
+  void myManiacWSurvivorWMyClickStopTimer() {
+    _updateEEBoolsEEWhereIsStopTimerEEFromBoolsEEParameterTempCacheService
+        .updateBoolsWhereIsStopTimerFromBoolsParameterTempCacheService(Bools(true));
+    final getIntsWhereElapsedTimeInMillisecondsParameterTempCacheService = _getEEIntsEEWhereElapsedTimeInMillisecondsEEParameterTempCacheService
+        .getIntsWhereElapsedTimeInMillisecondsParameterTempCacheService();
+    if(getIntsWhereElapsedTimeInMillisecondsParameterTempCacheService
+        .exceptionController
+        .isWhereNotEqualsNullParameterException())
+    {
+      _firstQQMyManiacWSurvivorWMyClickStopTimerQQGetIntsWhereElapsedTimeInMillisecondsParameterTempCacheService(getIntsWhereElapsedTimeInMillisecondsParameterTempCacheService.exceptionController);
+      return;
+    }
+    final matches = getDataForNamedParameterNamedStreamWState.matches;
+    matches
+        .middlegameWMatches
+        .listRoundWMatches
+        .updateWhereSwapRoleManiacWFalseStartTimerWUniqueIdByUserFromOneParameterListModel(getIntsWhereElapsedTimeInMillisecondsParameterTempCacheService.parameter?.field ?? 0);
+    final matchesWhereNewAndMyManiacWSurvivorWMyClickStopTimerFromOneParametersNine = matches
+        .getMatchesWhereNewAndMyManiacWSurvivorWMyClickStopTimerFromOneParametersNine(getIntsWhereElapsedTimeInMillisecondsParameterTempCacheService.parameter?.field ?? 0);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndMyManiacWSurvivorWMyClickStopTimerFromOneParametersNine);
+  }
+
+  void systemNextRound() {
+    final matches = getDataForNamedParameterNamedStreamWState.matches;
+    matches
+        .middlegameWMatches
+        .listRoundWMatches
+        .updateWhereEnumRoundStatusSettingEndOfTheRoundParameterListModel();
+    final isEmpty = matches
+        .middlegameWMatches
+        .listRoundWMatches
+        .getUnfinishedListRoundWMatchesParameterListModel
+        .isEmpty;
+    if(isEmpty) {
+      _firstQQSystemNextRoundQQIsEmpty(matches);
+      return;
+    }
+    final isWhereFinishedListRoundWMatchesMoreThanUnfinishedListRoundWMatches = matches
+        .middlegameWMatches
+        .listRoundWMatches
+        .isWhereFinishedListRoundWMatchesMoreThanUnfinishedListRoundWMatches();
+    if(isWhereFinishedListRoundWMatchesMoreThanUnfinishedListRoundWMatches) {
+      _firstQQSystemNextRoundQQIsWhereFinishedListRoundWMatchesMoreThanUnfinishedListRoundWMatches(matches);
+      return;
+    }
+    final matchesWhereNewAndSystemNextRoundWStartRoundParametersNine =
+        matches.getMatchesWhereNewAndSystemNextRoundWStartRoundParametersNine;
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemNextRoundWStartRoundParametersNine);
+  }
+
+  void completed() {
+    final matches = getDataForNamedParameterNamedStreamWState.matches;
+    final statsWFirstUser = getDataForNamedParameterNamedStreamWState.statsWFirstUser;
+    final statsWSecondUser = getDataForNamedParameterNamedStreamWState.statsWSecondUser;
+    final matchesWhereNewAndIsCompletedByMiddlegameWMatchesFromTwoParametersNine = matches
+        .getMatchesWhereNewAndIsCompletedByMiddlegameWMatchesFromTwoParametersNine(statsWFirstUser.ratingPoints,statsWSecondUser.ratingPoints);
+    // TODO: Update FIRST/SECOND STATS AND ADD IF TO LISTENING MATCHES TO ThreeStagesMatchViewModel
+    _updateEEStatsEEWhereFirstUserEEFromStatsEEParameterTempCacheService
+        .updateStatsWhereFirstUserFromStatsParameterTempCacheService(stats);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndIsCompletedByMiddlegameWMatchesFromTwoParametersNine);
+  }
+
+  void _firstQQMyManiacWSurvivorWMyClickStopTimerQQGetIntsWhereElapsedTimeInMillisecondsParameterTempCacheService(ExceptionController exceptionController) {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  void _firstQQSystemNextRoundQQIsEmpty(Matches matches) {
+    final matchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine =
+        matches.getMatchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine;
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine);
+  }
+
+  void _firstQQSystemNextRoundQQIsWhereFinishedListRoundWMatchesMoreThanUnfinishedListRoundWMatches(Matches matches) {
+    final isWhereFinishedListRoundWMatchesAndWereWonByOneUser = matches
+        .middlegameWMatches
+        .listRoundWMatches
+        .isWhereFinishedListRoundWMatchesAndWereWonByOneUser();
+    if(isWhereFinishedListRoundWMatchesAndWereWonByOneUser) {
+      _firstBranchOneQQSystemNextRoundQQIsWhereFinishedListRoundWMatchesMoreThanUnfinishedListRoundWMatches(matches);
+      return;
+    }
+    final matchesWhereNewAndSystemNextRoundWStartRoundParametersNine =
+        matches.getMatchesWhereNewAndSystemNextRoundWStartRoundParametersNine;
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemNextRoundWStartRoundParametersNine);
+  }
+
+  void _firstBranchOneQQSystemNextRoundQQIsWhereFinishedListRoundWMatchesMoreThanUnfinishedListRoundWMatches(Matches matches) {
+    final matchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine =
+        matches.getMatchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine;
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine);
+  }
 }
 
 final class FirstUniqueIdByUserWMiddlegameWMatchesView {
   final FirstUniqueIdByUserWMiddlegameWMatchesViewModel _firstUniqueIdByUserWMiddlegameWMatchesViewModel;
 
-  FirstUniqueIdByUserWMiddlegameWMatchesView(Matches matches)
-      : _firstUniqueIdByUserWMiddlegameWMatchesViewModel = FirstUniqueIdByUserWMiddlegameWMatchesViewModel(matches);
+  FirstUniqueIdByUserWMiddlegameWMatchesView(Matches matches, Stats statsWFirstUser, Stats statsWSecondUser)
+      : _firstUniqueIdByUserWMiddlegameWMatchesViewModel = FirstUniqueIdByUserWMiddlegameWMatchesViewModel(matches,statsWFirstUser,statsWSecondUser);
 
   // Override
   void initState() {
@@ -1755,16 +2120,30 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesView {
         debugPrint("Build: Exception(${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException})");
         break;
       case EnumDataForFirstUniqueIdByUserWMiddlegameWMatchesView.isCompleted:
-        // TODO: Handle this case.
+        final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
+        debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
+        debugPrint("ListRoundWMatches: ${matches.middlegameWMatches.listRoundWMatches.listModel}");
+        debugPrint("Preparation, please wait");
+        /// THIS CODE IS EXECUTED ONLY BY THE FIRST USER
+        _firstUniqueIdByUserWMiddlegameWMatchesViewModel.completed();
+        break;
       case EnumDataForFirstUniqueIdByUserWMiddlegameWMatchesView.myManiacWMyTurnsClickStartTimer:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
-        debugPrint("ListRoundWMatches: ${matches.middlegameWMatches.listRoundWMatches}");
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
+        debugPrint("ListRoundWMatches: ${matches.middlegameWMatches.listRoundWMatches.listModel}");
         debugPrint("Round: ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.round}");
         debugPrint("Who's the maniac ?: You");
         debugPrint("Maniac: ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.pickManiacWMatches.name}");
         debugPrint("Chase Time (You): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser}");
-        debugPrint("Chase Time (User '${matches.secondUsernameByModel}'): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser}");
+        debugPrint("Chase Time (${matches.secondUsernameByModel}): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser}");
         debugPrint("Start timer (Input 'yes'): ");
         final input = stdin.readLineSync();
         if(input != "yes") {
@@ -1774,12 +2153,16 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWMiddlegameWMatchesView.mySurvivorWMyTurnsClickStartTimer:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
-        debugPrint("ListRoundWMatches: ${matches.middlegameWMatches.listRoundWMatches}");
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
+        debugPrint("ListRoundWMatches: ${matches.middlegameWMatches.listRoundWMatches.listModel}");
         debugPrint("Round: ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.round}");
         debugPrint("Who's the maniac ?: User '${matches.secondUsernameByModel}'");
         debugPrint("Chase Time (You): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser}");
-        debugPrint("Chase Time (User '${matches.secondUsernameByModel}'): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser}");
+        debugPrint("Chase Time (${matches.secondUsernameByModel}): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser}");
         debugPrint("Start timer (Input 'yes'): ");
         final input = stdin.readLineSync();
         if(input != "yes") {
@@ -1789,33 +2172,75 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesView {
         break;
       case EnumDataForFirstUniqueIdByUserWMiddlegameWMatchesView.myManiacWEnemyTurnsClickStartTimer:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
-        debugPrint("ListRoundWMatches: ${matches.middlegameWMatches.listRoundWMatches}");
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
+        debugPrint("ListRoundWMatches: ${matches.middlegameWMatches.listRoundWMatches.listModel}");
         debugPrint("Round: ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.round}");
         debugPrint("Who's the maniac ?: You");
         debugPrint("Maniac: ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.pickManiacWMatches.name}");
         debugPrint("Chase Time (You): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser}");
-        debugPrint("Chase Time (User '${matches.secondUsernameByModel}'): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser}");
+        debugPrint("Chase Time (${matches.secondUsernameByModel}): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser}");
         debugPrint("Wait enemy");
         _firstUniqueIdByUserWMiddlegameWMatchesViewModel.myManiacWEnemyTurnsClickStartTimer();
         break;
       case EnumDataForFirstUniqueIdByUserWMiddlegameWMatchesView.mySurvivorWEnemyTurnsClickStartTimer:
         final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
         debugPrint(matches.getFormattedParameterTextLogAction);
-        debugPrint("ListRoundWMatches: ${matches.middlegameWMatches.listRoundWMatches}");
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
+        debugPrint("ListRoundWMatches: ${matches.middlegameWMatches.listRoundWMatches.listModel}");
         debugPrint("Round: ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.round}");
         debugPrint("Who's the maniac ?: User '${matches.secondUsernameByModel}'");
         debugPrint("Maniac: ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.pickManiacWMatches.name}");
         debugPrint("Chase Time (You): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser}");
-        debugPrint("Chase Time (User '${matches.secondUsernameByModel}'): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser}");
+        debugPrint("Chase Time (${matches.secondUsernameByModel}): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser}");
         debugPrint("Wait enemy");
         _firstUniqueIdByUserWMiddlegameWMatchesViewModel.mySurvivorWEnemyTurnsClickStartTimer();
         break;
       case EnumDataForFirstUniqueIdByUserWMiddlegameWMatchesView.myManiacWSurvivorWMyClickStopTimer:
-        // TODO: CURRENT
+        final timerView = TimerView();
+        timerView.initState();
+        timerView.build();
+        final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
+        debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
+        debugPrint("ListRoundWMatches: ${matches.middlegameWMatches.listRoundWMatches.listModel}");
+        debugPrint("Round: ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.round}");
+        debugPrint("Who's the maniac ?: ${matches.getStringWhoTheManiacWhereFirstUIBUAndFirstItemUnfinishedListRoundWMatchesParametersTwo}");
+        debugPrint("Maniac: ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.pickManiacWMatches.name}");
+        debugPrint("Chase Time (You): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser}");
+        debugPrint("Chase Time (${matches.secondUsernameByModel}): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser}");
+        debugPrint("Stop timer (Input 'yes'): ");
+        final input = stdin.readLineSync();
+        if(input != "yes") {
+          break;
+        }
+        _firstUniqueIdByUserWMiddlegameWMatchesViewModel.myManiacWSurvivorWMyClickStopTimer();
         break;
       case EnumDataForFirstUniqueIdByUserWMiddlegameWMatchesView.systemNextRound:
-        // TODO: Handle this case.
+        final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
+        debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
+        debugPrint("ListRoundWMatches: ${matches.middlegameWMatches.listRoundWMatches.listModel}");
+        debugPrint("Round: ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.round}");
+        debugPrint("Maniac: ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.pickManiacWMatches.name}");
+        debugPrint("Chase Time (You): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser}");
+        debugPrint("Chase Time (${matches.secondUsernameByModel}): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser}");
+        debugPrint("Win Round: ${matches.getStringWhoWinRoundWhereFirstUIBUAndFirstItemUnfinishedListRoundWMatchesParametersThree}");
+        /// THIS CODE IS EXECUTED ONLY BY THE FIRST USER
+        _firstUniqueIdByUserWMiddlegameWMatchesViewModel.systemNextRound();
+        break;
       default:
         break;
     }
@@ -1830,5 +2255,123 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesView {
     final result = await _firstUniqueIdByUserWMiddlegameWMatchesViewModel.init();
     debugPrint("FirstUniqueIdByUserWMiddlegameWMatchesView: $result");
     _firstUniqueIdByUserWMiddlegameWMatchesViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+}
+
+final class DataForTimerView extends BaseDataForNamed<EnumDataForTimerView> {
+  String formattedElapsedTimeInMilliseconds;
+
+  DataForTimerView(super.isLoading,this.formattedElapsedTimeInMilliseconds);
+
+  @override
+  EnumDataForTimerView get getEnumDataForNamed {
+    if(isLoading) {
+      return EnumDataForTimerView.isLoading;
+    }
+    if(exceptionController.isWhereNotEqualsNullParameterException()) {
+      return EnumDataForTimerView.exception;
+    }
+    return EnumDataForTimerView.success;
+  }
+}
+
+enum EnumDataForTimerView {
+  isLoading,
+  exception,
+  success
+}
+
+final class TimerViewModel extends BaseNamedViewModel<DataForTimerView,DefaultStreamWState<DataForTimerView>> {
+  // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
+  final _updateEEIntsEEWhereElapsedTimeInMillisecondsEEFromIntsEEParameterTempCacheService =
+  UpdateEEIntsEEWhereElapsedTimeInMillisecondsEEFromIntsEEParameterTempCacheService();
+  final _startListeningAndCancelListeningEEBoolsEEWhereIsStopTimerEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription =
+  StartListeningAndCancelListeningEEBoolsEEWhereIsStopTimerEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription();
+
+  // NamedUtility
+  final _timerUtility = TimerUtility();
+
+  TimerViewModel() : super(DefaultStreamWState(DataForTimerView(
+      false,
+      "00:00.00")));
+
+  @override
+  void dispose() {
+    super.dispose();
+    _startListeningAndCancelListeningEEBoolsEEWhereIsStopTimerEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
+        .cancelListeningBoolsWhereIsStopTimerParameterStreamSubscription();
+    _timerUtility.dispose();
+  }
+
+  @override
+  Future<String> init() async {
+    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    return KeysSuccessUtility.sUCCESS;
+  }
+
+  void listeningStreamsTempCacheService() {
+    _startListeningAndCancelListeningEEBoolsEEWhereIsStopTimerEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
+        .startListeningBoolsWhereIsStopTimerFromCallbackParametersTempCacheServiceAndStreamSubscription((Result<Bools> resultBools)
+    {
+      _timerUtility.stopTimerParametersTwo();
+      notifyStreamDataForNamedParameterNamedStreamWState();
+    });
+  }
+
+  void startTimerToTimerUtility() {
+    _timerUtility.startTimerFromCallbackParametersTwo((int elapsedTimeInMilliseconds, String formattedElapsedTimeInMilliseconds) {
+      _updateEEIntsEEWhereElapsedTimeInMillisecondsEEFromIntsEEParameterTempCacheService
+          .updateIntsWhereElapsedTimeInMillisecondsFromIntsParameterTempCacheService(Ints(elapsedTimeInMilliseconds));
+      getDataForNamedParameterNamedStreamWState
+          .formattedElapsedTimeInMilliseconds = formattedElapsedTimeInMilliseconds;
+      notifyStreamDataForNamedParameterNamedStreamWState();
+    });
+  }
+}
+
+final class TimerView {
+  late final TimerViewModel _timerViewModel;
+
+  // Override
+  void initState() {
+    _timerViewModel = TimerViewModel();
+    _initParameterTimerViewModel();
+  }
+
+  // Override
+  void dispose() {
+    _timerViewModel.dispose();
+  }
+
+  // Override
+  void build() {
+    final dataForNamedParameterNamedStreamWState = _timerViewModel
+        .getDataForNamedParameterNamedStreamWState;
+    switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
+      case EnumDataForTimerView.isLoading:
+        debugPrint("Build: IsLoading");
+        break;
+      case EnumDataForTimerView.exception:
+        debugPrint("Build: Exception(${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException})");
+        break;
+      case EnumDataForTimerView.success:
+        debugPrint("Timer: ${dataForNamedParameterNamedStreamWState.formattedElapsedTimeInMilliseconds}");
+        break;
+      default:
+        break;
+    }
+  }
+
+  Future<void> _initParameterTimerViewModel() async {
+    _timerViewModel
+        .getStreamDataForNamedParameterNamedStreamWState
+        .listen((event) {
+          build();
+        });
+    _timerViewModel.listeningStreamsTempCacheService();
+    final result = await _timerViewModel.init();
+    debugPrint("TimerView: $result");
+    _timerViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
+    _timerViewModel.startTimerToTimerUtility();
   }
 }

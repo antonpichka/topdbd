@@ -891,7 +891,7 @@ async {
       debugPrint("Chase Time (You): ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getFirstItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser}");
       debugPrint("Chase Time (Player '${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.secondUniqueIdByUser}'): ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getFirstItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser}");
       /// VIEW WHO HAS WON
-      debugPrint("Win Round: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getUniqueIdByUserWhoWinRoundWhereFirstItemUnfinishedListRoundWMatchesParametersThree}");
+      debugPrint("Win Round: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getStringWhoWinRoundWhereFirstItemUnfinishedListRoundWMatchesParametersThree}");
       /// NEXT ROUND
       await Future.delayed(const Duration(seconds: 1));
       /// TO PRODUCTION CODE NO LIST VIEW (Exception: For UniqueIdByUserWhereFirst)
@@ -970,7 +970,7 @@ async {
       debugPrint("Chase Time (You): ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getFirstItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser}");
       debugPrint("Chase Time (Player '${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.secondUniqueIdByUser}'): ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getFirstItemUnfinishedRoundWhereMatchesParameterListRoundWhereMatches.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser}");
       /// VIEW WHO HAS WON
-      debugPrint("Win Round: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getUniqueIdByUserWhoWinRoundWhereFirstItemUnfinishedListRoundWMatchesParametersThree}");
+      debugPrint("Win Round: ${_dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst!.matches.getStringWhoWinRoundWhereFirstItemUnfinishedListRoundWMatchesParametersThree}");
       /// NEXT ROUND
       await Future.delayed(const Duration(seconds: 1));
       /// TO PRODUCTION CODE NO LIST VIEW (Exception: For UniqueIdByUserWhereFirst)
@@ -1098,7 +1098,7 @@ void _listViewModelMyManiacAndNextRoundWhereMyUniqueIdByUserWhereFirst() {
   final matches = _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.matches;
   matches
       ?.updateRoundWhereMatchesWhereNameByEndOfTheRoundQEnumTurnOfManiacsAndEndOfTheRoundParameterListRoundWhereMatches();
-  final textLogAction = "${matches?.textLogAction}\nSystem: end '${matches?.getLastItemFinishedRoundWhereMatchesParameterListRoundWhereMatches.round}' round. Won Round '${matches?.getUniqueIdByUserWhoWinRoundWhereLastItemFinishedListRoundWMatchesParametersThree}'. Maniac '${matches?.getLastItemFinishedRoundWhereMatchesParameterListRoundWhereMatches.pickManiacWMatches.nameSurvivorPerk}'";
+  final textLogAction = "${matches?.textLogAction}\nSystem: end '${matches?.getLastItemFinishedRoundWhereMatchesParameterListRoundWhereMatches.round}' round. Won Round '${matches?.getStringWhoWinRoundWhereLastItemFinishedListRoundWMatchesParametersThree}'. Maniac '${matches?.getLastItemFinishedRoundWhereMatchesParameterListRoundWhereMatches.pickManiacWMatches.nameSurvivorPerk}'";
   if(matches?.isEmptyByListUnfinishedRoundWhereMatchesParameterListRoundWhereMatches() ?? false) {
     _firstBranchOneQListViewModelMyManiacAndNextRoundWhereMyUniqueIdByUserWhereFirst(matches!,textLogAction);
     return;
@@ -1194,7 +1194,7 @@ void _listViewModelMySurvivorAndNextRoundWhereMyUniqueIdByUserWhereFirst() {
   final matches = _dataForListRoundTestMainWhereMyUniqueIdByUserWhereFirst?.matches;
   matches
       ?.updateRoundWhereMatchesWhereNameByEndOfTheRoundQEnumTurnOfManiacsAndEndOfTheRoundParameterListRoundWhereMatches();
-  final textLogAction = "${matches?.textLogAction}\nSystem: end '${matches?.getLastItemFinishedRoundWhereMatchesParameterListRoundWhereMatches.round}' round. Won Round '${matches?.getUniqueIdByUserWhoWinRoundWhereLastItemFinishedListRoundWMatchesParametersThree}'. Maniac '${matches?.getLastItemFinishedRoundWhereMatchesParameterListRoundWhereMatches.pickManiacWMatches.nameSurvivorPerk}'";
+  final textLogAction = "${matches?.textLogAction}\nSystem: end '${matches?.getLastItemFinishedRoundWhereMatchesParameterListRoundWhereMatches.round}' round. Won Round '${matches?.getStringWhoWinRoundWhereLastItemFinishedListRoundWMatchesParametersThree}'. Maniac '${matches?.getLastItemFinishedRoundWhereMatchesParameterListRoundWhereMatches.pickManiacWMatches.nameSurvivorPerk}'";
   if(matches?.isEmptyByListUnfinishedRoundWhereMatchesParameterListRoundWhereMatches() ?? false) {
     _firstBranchOneQListViewModelMySurvivorAndNextRoundWhereMyUniqueIdByUserWhereFirst(matches!,textLogAction);
     return;

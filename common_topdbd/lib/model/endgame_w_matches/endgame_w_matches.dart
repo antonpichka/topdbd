@@ -3,19 +3,17 @@ import 'package:meta/meta.dart';
 
 @immutable
 base class EndgameWMatches extends BaseModel {
-  final bool isCompleted;
   final int resultRatingPointsWFirstUniqueIdByUser;
   final int resultRatingPointsWSecondUniqueIdByUser;
 
-  const EndgameWMatches(this.isCompleted, this.resultRatingPointsWFirstUniqueIdByUser, this.resultRatingPointsWSecondUniqueIdByUser) : super("$isCompleted");
+  const EndgameWMatches(this.resultRatingPointsWFirstUniqueIdByUser, this.resultRatingPointsWSecondUniqueIdByUser) : super("$resultRatingPointsWFirstUniqueIdByUser");
 
   @override
-  EndgameWMatches get getClone => EndgameWMatches(isCompleted,resultRatingPointsWFirstUniqueIdByUser,resultRatingPointsWSecondUniqueIdByUser);
+  EndgameWMatches get getClone => EndgameWMatches(resultRatingPointsWFirstUniqueIdByUser,resultRatingPointsWSecondUniqueIdByUser);
 
   @override
   String toString() {
-    return "EndgameWMatches(isCompleted: $isCompleted, "
-        "resultRatingPointsWFirstUniqueIdByUser: $resultRatingPointsWFirstUniqueIdByUser, "
+    return "EndgameWMatches(resultRatingPointsWFirstUniqueIdByUser: $resultRatingPointsWFirstUniqueIdByUser, "
         "resultRatingPointsWSecondUniqueIdByUser: $resultRatingPointsWSecondUniqueIdByUser)";
   }
 }

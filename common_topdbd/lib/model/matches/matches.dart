@@ -338,7 +338,7 @@ base class Matches extends BaseModel {
         endgameWMatches.getClone);
   }
 
-  Matches get getMatchesWhereNewAndTrueIsCompletedByDebutWMatchesParametersNine {
+  Matches get getMatchesWhereNewAndIsCompletedByDebutWMatchesParametersNine {
     return Matches(
         uniqueId,
         creationTime,
@@ -415,6 +415,71 @@ base class Matches extends BaseModel {
         endgameWMatches.getClone);
   }
 
+  Matches getMatchesWhereNewAndMyManiacWSurvivorWMyClickStopTimerFromOneParametersNine(int numberOfMilliSecondsTheSurvivorRan) {
+    return Matches(
+        uniqueId,
+        creationTime,
+        getStringWhereMyManiacWSurvivorWMyClickStopTimerFromOneParametersThree(numberOfMilliSecondsTheSurvivorRan),
+        firstUniqueIdByUser,
+        secondUniqueIdByUser,
+        firstUsernameByModel,
+        secondUsernameByModel,
+        debutWMatches.getClone,
+        middlegameWMatches.getClone,
+        endgameWMatches.getClone);
+  }
+
+  Matches get getMatchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine {
+    return Matches(
+        uniqueId,
+        creationTime,
+        getStringWhereSystemNextRoundWCompletedMatch,
+        firstUniqueIdByUser,
+        secondUniqueIdByUser,
+        firstUsernameByModel,
+        secondUsernameByModel,
+        debutWMatches.getClone,
+        middlegameWMatches.getClone,
+        endgameWMatches.getClone);
+  }
+
+  Matches get getMatchesWhereNewAndSystemNextRoundWStartRoundParametersNine {
+    return Matches(
+        uniqueId,
+        creationTime,
+        getStringWhereSystemNextRoundWStartRound,
+        firstUniqueIdByUser,
+        secondUniqueIdByUser,
+        firstUsernameByModel,
+        secondUsernameByModel,
+        debutWMatches.getClone,
+        middlegameWMatches.getClone,
+        endgameWMatches.getClone);
+  }
+
+  Matches getMatchesWhereNewAndIsCompletedByMiddlegameWMatchesFromTwoParametersNine(int ratingPointsByStatsWFirstUniqueIdByUser, int ratingPointsByStatsWSecondUniqueIdByUser) {
+    return Matches(
+        uniqueId,
+        creationTime,
+        textLogAction,
+        firstUniqueIdByUser,
+        secondUniqueIdByUser,
+        firstUsernameByModel,
+        secondUsernameByModel,
+        debutWMatches.getClone,
+        MiddlegameWMatches(
+            true,
+            middlegameWMatches.listRoundWMatches.getClone),
+        EndgameWMatches(
+            middlegameWMatches
+                .listRoundWMatches
+                .getNumberOfRatingPointsPerMatchWFirstUniqueIdByUserWhereNewStatsFromTwo(ratingPointsByStatsWFirstUniqueIdByUser, ratingPointsByStatsWSecondUniqueIdByUser),
+            middlegameWMatches
+                .listRoundWMatches
+                .getNumberOfRatingPointsPerMatchWSecondUniqueIdByUserWhereNewStatsFromTwo(ratingPointsByStatsWFirstUniqueIdByUser, ratingPointsByStatsWSecondUniqueIdByUser)
+        ));
+  }
+
   List<PickManiacWMatches> get getListPickManiacWMatchesWhereEqualsParametersDebutWMatchesAndFirstUniqueIdByUser {
     return debutWMatches
         .listPickManiacWMatches
@@ -471,7 +536,7 @@ base class Matches extends BaseModel {
         "\n<-------TEXT LOG ACTION------->\n";
   }
 
-  String get getUniqueIdByUserWhoTheManiacWhereFirstItemUnfinishedListRoundWMatchesParametersThree {
+  String get getStringWhoTheManiacWhereFirstItemUnfinishedListRoundWMatchesParametersThree {
     if(middlegameWMatches
         .listRoundWMatches
         .getUnfinishedListRoundWMatchesParameterListModel
@@ -483,7 +548,13 @@ base class Matches extends BaseModel {
     return secondUniqueIdByUser;
   }
 
-  String get getUniqueIdByUserWhoWinRoundWhereFirstItemUnfinishedListRoundWMatchesParametersThree {
+  String get getStringWhoTheManiacWhereFirstUIBUAndFirstItemUnfinishedListRoundWMatchesParametersTwo {
+    return getStringWhoTheManiacWhereFirstItemUnfinishedListRoundWMatchesParametersThree == firstUniqueIdByUser
+        ? "You"
+        : secondUsernameByModel;
+  }
+
+  String get getStringWhoWinRoundWhereFirstItemUnfinishedListRoundWMatchesParametersThree {
     if(middlegameWMatches
         .listRoundWMatches
         .getUnfinishedListRoundWMatchesParameterListModel
@@ -495,7 +566,13 @@ base class Matches extends BaseModel {
     return secondUniqueIdByUser;
   }
 
-  String get getUniqueIdByUserWhoTheManiacWhereLastItemFinishedListRoundWMatchesParametersThree {
+  String get getStringWhoWinRoundWhereFirstUIBUAndFirstItemUnfinishedListRoundWMatchesParametersThree {
+    return getStringWhoWinRoundWhereFirstItemUnfinishedListRoundWMatchesParametersThree == firstUniqueIdByUser
+        ? "You"
+        : secondUsernameByModel;
+  }
+
+  String get getStringWhoTheManiacWhereLastItemFinishedListRoundWMatchesParametersThree {
     if(middlegameWMatches
         .listRoundWMatches
         .getFinishedListRoundWMatchesParameterListModel
@@ -507,7 +584,7 @@ base class Matches extends BaseModel {
     return secondUniqueIdByUser;
   }
 
-  String get getUniqueIdByUserWhoWinRoundWhereLastItemFinishedListRoundWMatchesParametersThree {
+  String get getStringWhoWinRoundWhereLastItemFinishedListRoundWMatchesParametersThree {
     if(middlegameWMatches
         .listRoundWMatches
         .getFinishedListRoundWMatchesParameterListModel
@@ -517,6 +594,22 @@ base class Matches extends BaseModel {
       return firstUniqueIdByUser;
     }
     return secondUniqueIdByUser;
+  }
+
+  String get getStringWhoWinRoundWhereDetailsAndLastItemFinishedListRoundWMatchesParametersFour {
+    return getStringWhoWinRoundWhereLastItemFinishedListRoundWMatchesParametersThree == firstUniqueIdByUser
+        ? "$firstUniqueIdByUser($firstUsernameByModel)"
+        : "$secondUniqueIdByUser($secondUsernameByModel)";
+  }
+
+  String get getStringWhoWinMatchWhereDetailsParametersFive {
+    if(middlegameWMatches
+        .listRoundWMatches
+        .isWhereWinMatchWFirstUniqueIdByUser())
+    {
+      return "$firstUniqueIdByUser($firstUsernameByModel)";
+    }
+    return "$secondUniqueIdByUser($secondUsernameByModel)";
   }
 
   @protected
@@ -595,7 +688,8 @@ base class Matches extends BaseModel {
 
   @protected
   String get getStringWhereIsCompletedByDebutWMatchesParametersTwo {
-    return "$textLogAction\nSystem: start '${middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.round}' round. Maniac '${middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.pickManiacWMatches.name}'";
+    return "$textLogAction\nSystem: start '${middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.round} round'. "
+        "Maniac - '${middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.pickManiacWMatches.name}'";
   }
 
   @protected
@@ -616,6 +710,39 @@ base class Matches extends BaseModel {
   @protected
   String get getStringWhereMySurvivorWEnemyTurnsClickStartTimerParametersThree {
     return "$textLogAction\nUser '$secondUniqueIdByUser($secondUsernameByModel)': start timer. The maniac is ready, we are waiting for a survivor";
+  }
+
+  @protected
+  String getStringWhereMyManiacWSurvivorWMyClickStopTimerFromOneParametersThree(int numberOfMilliSecondsTheSurvivorRan) {
+    return "$textLogAction\nUser '$firstUniqueIdByUser($firstUsernameByModel)': stop timer. "
+        "Role '$getStringWhereRoleWFirstUIBUAndFirstItemUnfinishedListRoundWMatchesParameterOne'. "
+        "Chase Time '$numberOfMilliSecondsTheSurvivorRan'";
+  }
+
+  @protected
+  String get getStringWhereRoleWFirstUIBUAndFirstItemUnfinishedListRoundWMatchesParameterOne {
+    return getStringWhoTheManiacWhereFirstItemUnfinishedListRoundWMatchesParametersThree == firstUniqueIdByUser
+        ? "Maniac"
+        : "Survivor";
+  }
+
+  @protected
+  String get getStringWhereSystemNextRoundParametersTwo {
+    return "$textLogAction\nSystem: end '${middlegameWMatches.listRoundWMatches.getFinishedListRoundWMatchesParameterListModel.last.round}' round. "
+        "Maniac '${middlegameWMatches.listRoundWMatches.getFinishedListRoundWMatchesParameterListModel.last.pickManiacWMatches.name}'. "
+        "Won Round '$getStringWhoWinRoundWhereDetailsAndLastItemFinishedListRoundWMatchesParametersFour'";
+  }
+
+  @protected
+  String get getStringWhereSystemNextRoundWCompletedMatch {
+    return "$getStringWhereSystemNextRoundParametersTwo\nSystem: completed match. "
+        "Won Match '$getStringWhoWinMatchWhereDetailsParametersFive'";
+  }
+
+  @protected
+  String get getStringWhereSystemNextRoundWStartRound {
+    return "$getStringWhereSystemNextRoundParametersTwo\nSystem: start '${middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.round} round'. "
+        "Maniac '${middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.pickManiacWMatches.name}'";
   }
 
   void insertBanManiacWMatchesFromIndexParametersDebutWMatchesAndFirstUniqueIdByUser(int index) {
@@ -747,8 +874,9 @@ base class Matches extends BaseModel {
         firstUniqueIdByUser == uniqueIdByUser;
   }
 
-  bool isWhereFalseAndEqualsFromOneParametersEndgameWMatchesAndFirstUniqueIdByUser(String uniqueIdByUser) {
-    return !endgameWMatches.isCompleted &&
+  bool isWhereTrueAndTrueAndEqualsFromOneParametersThree(String uniqueIdByUser) {
+    return debutWMatches.isCompleted &&
+        middlegameWMatches.isCompleted &&
         firstUniqueIdByUser == uniqueIdByUser;
   }
 
@@ -762,8 +890,9 @@ base class Matches extends BaseModel {
         secondUniqueIdByUser == uniqueIdByUser;
   }
 
-  bool isWhereFalseAndEqualsFromOneParametersEndgameWMatchesAndSecondUniqueIdByUser(String uniqueIdByUser) {
-    return !endgameWMatches.isCompleted &&
+  bool isWhereTrueAndTrueAndEqualsFromOneParametersThreeFIRST(String uniqueIdByUser) {
+    return debutWMatches.isCompleted &&
+        middlegameWMatches.isCompleted &&
         secondUniqueIdByUser == uniqueIdByUser;
   }
 }

@@ -70,6 +70,8 @@ final class KeysExceptionUtility {
   static const String tOPDBDVersionWebQQGetExceptionInStringWhereNotEqualsParameterVersion = "tOPDBDVersionWebQQGetExceptionInStringWhereNotEqualsParameterVersion";
   /* VerifiedUser */
   static const String verifiedUserQQGetExceptionInStringWhereUsingIsWNotVerifiedUserWIsVerifiedUser = "verifiedUserQQGetExceptionInStringWhereUsingIsWNotVerifiedUserWIsVerifiedUser";
+  /* TimerUtility */
+  static const String timerUtilityQQStartTimerFromCallbackParametersTwo = "timerUtilityQQStartTimerFromCallbackParametersTwo";
 
   const KeysExceptionUtility._();
 }

@@ -145,6 +145,34 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
     }
   }
 
+  void updateWhereEnumRoundStatusSettingEndOfTheRoundParameterListModel() {
+    final first = getUnfinishedListRoundWMatchesParameterListModel.first;
+    for(T itemModel in listModel) {
+      if(itemModel.round == first.round) {
+        updateFromRoundWMatchesParameterListModel(RoundWMatches(
+            itemModel.round,
+            itemModel.pickManiacWMatches.getClone,
+            EnumRoundStatus.endOfTheRound.name,
+            itemModel.isRoleManiacWFirstUniqueIdByUser,
+            itemModel.isStartTimerWFirstUniqueIdByUser,
+            itemModel.isStartTimerWSecondUniqueIdByUser,
+            itemModel.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser,
+            itemModel.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser) as T);
+        break;
+      }
+    }
+  }
+
+  void updateWhereSwapRoleManiacWFalseStartTimerWUniqueIdByUserFromOneParameterListModel(int numberOfMilliSecondsTheSurvivorRan) {
+    final first = getUnfinishedListRoundWMatchesParameterListModel.first;
+    if(first.isRoleManiacWFirstUniqueIdByUser) {
+      updateWhereSwapRoleManiacWFalseStartTimerWSecondUniqueIdByUserFromOneParameterListModel(numberOfMilliSecondsTheSurvivorRan);
+      return;
+    }
+    updateWhereSwapRoleManiacWFalseStartTimerWFirstUniqueIdByUserFromOneParameterListModel(numberOfMilliSecondsTheSurvivorRan);
+  }
+
+  @protected
   void updateWhereSwapRoleManiacWFalseStartTimerWFirstUniqueIdByUserFromOneParameterListModel(int numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser) {
     final first = getUnfinishedListRoundWMatchesParameterListModel.first;
     for(T itemModel in listModel) {
@@ -163,6 +191,7 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
     }
   }
 
+  @protected
   void updateWhereSwapRoleManiacWFalseStartTimerWSecondUniqueIdByUserFromOneParameterListModel(int numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser) {
     final first = getUnfinishedListRoundWMatchesParameterListModel.first;
     for(T itemModel in listModel) {
@@ -176,24 +205,6 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
             false,
             itemModel.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser,
             numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser) as T);
-        break;
-      }
-    }
-  }
-
-  void updateWhereEnumRoundStatusSettingEndOfTheRoundParameterListModel() {
-    final first = getUnfinishedListRoundWMatchesParameterListModel.first;
-    for(T itemModel in listModel) {
-      if(itemModel.round == first.round) {
-        updateFromRoundWMatchesParameterListModel(RoundWMatches(
-            itemModel.round,
-            itemModel.pickManiacWMatches.getClone,
-            EnumRoundStatus.endOfTheRound.name,
-            itemModel.isRoleManiacWFirstUniqueIdByUser,
-            itemModel.isStartTimerWFirstUniqueIdByUser,
-            itemModel.isStartTimerWSecondUniqueIdByUser,
-            itemModel.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser,
-            itemModel.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser) as T);
         break;
       }
     }
@@ -221,12 +232,7 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
       }
       iterationWinRoundWSecondUniqueIdByUser++;
     }
-    if(iterationWinRoundWFirstUniqueIdByUser == finishedListRoundWMatchesParameterListModel.length) {
-      return true;
-    }
-    if(iterationWinRoundWSecondUniqueIdByUser == finishedListRoundWMatchesParameterListModel.length) {
-      return true;
-    }
-    return false;
+    return iterationWinRoundWFirstUniqueIdByUser == finishedListRoundWMatchesParameterListModel.length ||
+        iterationWinRoundWSecondUniqueIdByUser == finishedListRoundWMatchesParameterListModel.length;
   }
 }

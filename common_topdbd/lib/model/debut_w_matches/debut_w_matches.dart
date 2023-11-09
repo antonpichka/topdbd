@@ -96,11 +96,6 @@ base class DebutWMatches extends BaseModel {
     return clone.listModel;
   }
 
-  List<BanMapsWMatches> getListBanMapsWMatchesWhereLastItemFromUniqueIdByUserParameterListPickManiacWMatches(String uniqueIdByUser) {
-    final last = listPickManiacWMatches.listModel.last;
-    return last.listBanMapsWMatches.getListBanMapsWMatchesFromUniqueIdByUser(uniqueIdByUser);
-  }
-
   List<ManiacPerkWMatchBalance> getListManiacPerkWMatchBalanceWhereNotPickedAndLastItemFromUniqueIdByUserParameterOne(String uniqueIdByUser) {
     final last = listPickManiacWMatches.listModel.last;
     final maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo = getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo;
@@ -114,11 +109,6 @@ base class DebutWMatches extends BaseModel {
     return clone.listModel;
   }
 
-  List<PickManiacPerkWMatches> getListPickManiacPerkWhereLastItemFromUniqueIdByUserParameterListPickManiacWMatches(String uniqueIdByUser) {
-    final last = listPickManiacWMatches.listModel.last;
-    return last.listPickManiacPerkWMatches.getListPickManiacPerkWMatchesFromUniqueIdByUserParameterListModel(uniqueIdByUser);
-  }
-
   List<SurvivorPerkWMatchBalance> getListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemFromUniqueIdByUserParameterOne(String uniqueIdByUser) {
     final last = listPickManiacWMatches.listModel.last;
     final maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo = getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo;
@@ -130,11 +120,6 @@ base class DebutWMatches extends BaseModel {
       clone.deleteFromUniqueIdBySurvivorPerkWMatchBalanceParameterListModel(itemPickSurvivorPerkWMatchesFromUniqueIdByUserParameterListModel.name);
     }
     return clone.listModel;
-  }
-
-  List<PickSurvivorPerkWMatches> getListPickSurvivorPerkWhereLastItemFromUniqueIdByUserParameterListPickManiacWMatches(String uniqueIdByUser) {
-    final last = listPickManiacWMatches.listModel.last;
-    return last.listPickSurvivorPerkWMatches.getListPickSurvivorPerkWMatchesFromUniqueIdByUserParameterListModel(uniqueIdByUser);
   }
 
   ManiacWMatchBalance get getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo {

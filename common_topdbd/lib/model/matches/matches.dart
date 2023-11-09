@@ -1,5 +1,4 @@
 import 'dart:core';
-
 import 'package:common_topdbd/model/ban_maniac_w_matches/ban_maniac_w_matches.dart';
 import 'package:common_topdbd/model/debut_w_matches/debut_w_matches.dart';
 import 'package:common_topdbd/model/debut_w_matches/enum_stage_named.dart';
@@ -44,11 +43,11 @@ base class Matches extends BaseModel {
         "endgameWMatches: $endgameWMatches)";
   }
 
-  Matches getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine(int index,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+  Matches getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine(bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
     return Matches(
         uniqueId,
         creationTime,
-        getStringWhereFirstUniqueIdByUserTurnsBanManiacFromIndexParametersFour(index),
+        getStringWhereFirstUniqueIdByUserTurnsBanManiacFromIndexParametersFour,
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         firstUsernameByModel,
@@ -65,11 +64,11 @@ base class Matches extends BaseModel {
         endgameWMatches.getClone);
   }
 
-  Matches getMatchesWhereNewAndFirstUniqueIdByUserTurnsPickManiacFromThreeParametersNine(int index,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+  Matches getMatchesWhereNewAndFirstUniqueIdByUserTurnsPickManiacFromThreeParametersNine(bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
     return Matches(
         uniqueId,
         creationTime,
-        getStringWhereFirstUniqueIdByUserTurnsPickManiacFromIndexParametersFour(index),
+        getStringWhereFirstUniqueIdByUserTurnsPickManiacFromIndexParametersFour,
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         firstUsernameByModel,
@@ -86,11 +85,11 @@ base class Matches extends BaseModel {
         endgameWMatches.getClone);
   }
 
-  Matches getMatchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(int index,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+  Matches getMatchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
     return Matches(
         uniqueId,
         creationTime,
-        getStringWhereFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromIndexParametersFour(index),
+        getStringWhereFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromIndexParametersFour,
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         firstUsernameByModel,
@@ -128,11 +127,11 @@ base class Matches extends BaseModel {
         endgameWMatches.getClone);
   }
 
-  Matches getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(int index,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+  Matches getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
     return Matches(
         uniqueId,
         creationTime,
-        getStringWhereFirstUIBUTurnsPickManiacPerkToPickedManiacFromIndexParametersFour(index),
+        getStringWhereFirstUIBUTurnsPickManiacPerkToPickedManiacFromIndexParametersFour,
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         firstUsernameByModel,
@@ -149,11 +148,11 @@ base class Matches extends BaseModel {
         endgameWMatches.getClone);
   }
 
-  Matches getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(int index,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+  Matches getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
     return Matches(
         uniqueId,
         creationTime,
-        getStringWhereFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromIndexParametersFour(index),
+        getStringWhereFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromIndexParametersFour,
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         firstUsernameByModel,
@@ -233,11 +232,11 @@ base class Matches extends BaseModel {
         endgameWMatches.getClone);
   }
 
-  Matches getMatchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine(int index,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+  Matches getMatchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine(bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
     return Matches(
         uniqueId,
         creationTime,
-        getStringWhereSecondUniqueIdByUserTurnsBanManiacFromIndexParametersFour(index),
+        getStringWhereSecondUniqueIdByUserTurnsBanManiacFromIndexParametersFour,
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         firstUsernameByModel,
@@ -254,11 +253,11 @@ base class Matches extends BaseModel {
         endgameWMatches.getClone);
   }
 
-  Matches getMatchesWhereNewAndSecondUniqueIdByUserTurnsPickManiacFromThreeParametersNine(int index,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+  Matches getMatchesWhereNewAndSecondUniqueIdByUserTurnsPickManiacFromThreeParametersNine(bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
     return Matches(
         uniqueId,
         creationTime,
-        getStringWhereSecondUniqueIdByUserTurnsPickManiacFromIndexParametersFour(index),
+        getStringWhereSecondUniqueIdByUserTurnsPickManiacFromIndexParametersFour,
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         firstUsernameByModel,
@@ -275,11 +274,11 @@ base class Matches extends BaseModel {
         endgameWMatches.getClone);
   }
 
-  Matches getMatchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(int index,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+  Matches getMatchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
     return Matches(
         uniqueId,
         creationTime,
-        getStringWhereSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromIndexParametersFour(index),
+        getStringWhereSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromIndexParametersFour,
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         firstUsernameByModel,
@@ -296,11 +295,11 @@ base class Matches extends BaseModel {
         endgameWMatches.getClone);
   }
 
-  Matches getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(int index,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+  Matches getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
     return Matches(
         uniqueId,
         creationTime,
-        getStringWhereSecondUIBUTurnsPickManiacPerkToPickedManiacFromIndexParametersFour(index),
+        getStringWhereSecondUIBUTurnsPickManiacPerkToPickedManiacFromIndexParametersFour,
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         firstUsernameByModel,
@@ -317,11 +316,11 @@ base class Matches extends BaseModel {
         endgameWMatches.getClone);
   }
 
-  Matches getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(int index,bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
+  Matches getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(bool isStageNamedWFirstUniqueIdByUserByDebutWMatches,EnumStageNamed enumStageNamedByDebutWMatches) {
     return Matches(
         uniqueId,
         creationTime,
-        getStringWhereSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromIndexParametersFour(index),
+        getStringWhereSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromIndexParametersFour,
         firstUniqueIdByUser,
         secondUniqueIdByUser,
         firstUsernameByModel,
@@ -536,70 +535,16 @@ base class Matches extends BaseModel {
         "\n<-------TEXT LOG ACTION------->\n";
   }
 
-  String get getStringWhoTheManiacWhereFirstItemUnfinishedListRoundWMatchesParametersThree {
-    if(middlegameWMatches
-        .listRoundWMatches
-        .getUnfinishedListRoundWMatchesParameterListModel
-        .first
-        .isRoleManiacWFirstUniqueIdByUser)
-    {
-      return firstUniqueIdByUser;
-    }
-    return secondUniqueIdByUser;
-  }
-
   String get getStringWhoTheManiacWhereFirstUIBUAndFirstItemUnfinishedListRoundWMatchesParametersTwo {
     return getStringWhoTheManiacWhereFirstItemUnfinishedListRoundWMatchesParametersThree == firstUniqueIdByUser
         ? "You"
         : secondUsernameByModel;
   }
 
-  String get getStringWhoWinRoundWhereFirstItemUnfinishedListRoundWMatchesParametersThree {
-    if(middlegameWMatches
-        .listRoundWMatches
-        .getUnfinishedListRoundWMatchesParameterListModel
-        .first
-        .isWhereWinRoundWFirstUniqueIdByUserParametersTwo())
-    {
-      return firstUniqueIdByUser;
-    }
-    return secondUniqueIdByUser;
-  }
-
   String get getStringWhoWinRoundWhereFirstUIBUAndFirstItemUnfinishedListRoundWMatchesParametersThree {
     return getStringWhoWinRoundWhereFirstItemUnfinishedListRoundWMatchesParametersThree == firstUniqueIdByUser
         ? "You"
         : secondUsernameByModel;
-  }
-
-  String get getStringWhoTheManiacWhereLastItemFinishedListRoundWMatchesParametersThree {
-    if(middlegameWMatches
-        .listRoundWMatches
-        .getFinishedListRoundWMatchesParameterListModel
-        .last
-        .isRoleManiacWFirstUniqueIdByUser)
-    {
-      return firstUniqueIdByUser;
-    }
-    return secondUniqueIdByUser;
-  }
-
-  String get getStringWhoWinRoundWhereLastItemFinishedListRoundWMatchesParametersThree {
-    if(middlegameWMatches
-        .listRoundWMatches
-        .getFinishedListRoundWMatchesParameterListModel
-        .last
-        .isWhereWinRoundWFirstUniqueIdByUserParametersTwo())
-    {
-      return firstUniqueIdByUser;
-    }
-    return secondUniqueIdByUser;
-  }
-
-  String get getStringWhoWinRoundWhereDetailsAndLastItemFinishedListRoundWMatchesParametersFour {
-    return getStringWhoWinRoundWhereLastItemFinishedListRoundWMatchesParametersThree == firstUniqueIdByUser
-        ? "$firstUniqueIdByUser($firstUsernameByModel)"
-        : "$secondUniqueIdByUser($secondUsernameByModel)";
   }
 
   String get getStringWhoWinMatchWhereDetailsParametersFive {
@@ -612,36 +557,67 @@ base class Matches extends BaseModel {
     return "$secondUniqueIdByUser($secondUsernameByModel)";
   }
 
+  String get getStringWhereMatchScoreParametersThree {
+    return "$firstUsernameByModel ${middlegameWMatches.listRoundWMatches.getStringWhereMatchScore} $secondUsernameByModel";
+  }
+
   @protected
-  String getStringWhereFirstUniqueIdByUserTurnsBanManiacFromIndexParametersFour(int index) {
+  String get getStringWhoWinRoundWhereFirstItemUnfinishedListRoundWMatchesParametersThree {
+    if(middlegameWMatches
+        .listRoundWMatches
+        .getUnfinishedListRoundWMatchesParameterListModel
+        .first
+        .isWhereWinRoundWFirstUniqueIdByUserParametersTwo())
+    {
+      return firstUniqueIdByUser;
+    }
+    return secondUniqueIdByUser;
+  }
+
+
+  @protected
+  String get getStringWhoTheManiacWhereFirstItemUnfinishedListRoundWMatchesParametersThree {
+    if(middlegameWMatches
+        .listRoundWMatches
+        .getUnfinishedListRoundWMatchesParameterListModel
+        .first
+        .isRoleManiacWFirstUniqueIdByUser)
+    {
+      return firstUniqueIdByUser;
+    }
+    return secondUniqueIdByUser;
+  }
+
+  @protected
+  String get getStringWhereFirstUniqueIdByUserTurnsBanManiacFromIndexParametersFour {
     return textLogAction.isNotEmpty
-        ? "$textLogAction\nUser '$firstUniqueIdByUser($firstUsernameByModel)': banned maniac '${debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index].name}'"
-        : "User '$firstUniqueIdByUser($firstUsernameByModel)': banned maniac '${debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index].name}'";
+        ? "$textLogAction\nUser '$firstUniqueIdByUser($firstUsernameByModel)': banned maniac '${debutWMatches.listBanManiacWMatches.listModel.last.name}'"
+        : "User '$firstUniqueIdByUser($firstUsernameByModel)': banned maniac '${debutWMatches.listBanManiacWMatches.listModel.last.name}'";
   }
 
   @protected
-  String getStringWhereFirstUniqueIdByUserTurnsPickManiacFromIndexParametersFour(int index) {
-    return "$textLogAction\nUser '$firstUniqueIdByUser($firstUsernameByModel)': picked maniac '${debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index].name}'";
+  String get getStringWhereFirstUniqueIdByUserTurnsPickManiacFromIndexParametersFour {
+    return "$textLogAction\nUser '$firstUniqueIdByUser($firstUsernameByModel)': picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
   }
 
   @protected
-  String getStringWhereFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromIndexParametersFour(int index) {
-    return "$textLogAction\nUser '$firstUniqueIdByUser($firstUsernameByModel)': banned maps '${debutWMatches.getListMapsWMatchBalanceWhereNotBannedMapsAndLastItemParameterListPickManiacWMatches[index].name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
+  String get getStringWhereFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromIndexParametersFour {
+    return "$textLogAction\nUser '$firstUniqueIdByUser($firstUsernameByModel)': banned maps '${debutWMatches.listPickManiacWMatches.listModel.last.listBanMapsWMatches.listModel.last.name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
   }
 
   @protected
   String get getStringWhereSystemPickMapsToPickedManiacParametersTwo {
-    return "$textLogAction\nSystem: picked maps '${debutWMatches.getListMapsWMatchBalanceWhereNotBannedMapsAndLastItemParameterListPickManiacWMatches.last.name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
+    return "$textLogAction\nSystem: picked maps '${debutWMatches.listPickManiacWMatches.listModel.last.pickMapsWMatches.name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
   }
 
   @protected
-  String getStringWhereFirstUIBUTurnsPickManiacPerkToPickedManiacFromIndexParametersFour(int index) {
-    return "$textLogAction\nUser '$firstUniqueIdByUser($firstUsernameByModel)': picked maniac perk '${getListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo[index].name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
+  String get getStringWhereFirstUIBUTurnsPickManiacPerkToPickedManiacFromIndexParametersFour {
+    return "$textLogAction\nUser '$firstUniqueIdByUser($firstUsernameByModel)': picked maniac perk '${debutWMatches.listPickManiacWMatches.listModel.last.listPickManiacPerkWMatches.listModel.last.name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
   }
 
   @protected
-  String getStringWhereFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromIndexParametersFour(int index) {
-    return "$textLogAction\nUser '$firstUniqueIdByUser($firstUsernameByModel)': picked survivor perk '${getListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo[index].name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
+  String get getStringWhereFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromIndexParametersFour {
+    return "$textLogAction\nUser '$firstUniqueIdByUser($firstUsernameByModel)': picked survivor perk '${debutWMatches.listPickManiacWMatches.listModel.last.listPickSurvivorPerkWMatches.listModel.last.name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
   }
 
   @protected
@@ -651,45 +627,45 @@ base class Matches extends BaseModel {
 
   @protected
   String get getStringWhereSystemPickManiacPerkToPickedManiacParametersTwo {
-    return "$textLogAction\nSystem: picked maniac perk '${debutWMatches.getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo.listManiacPerkWMatchBalance.listModel}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
+    return "$textLogAction\nSystem: picked maniac perk '${debutWMatches.listPickManiacWMatches.listModel.last.listPickManiacPerkWMatches.getStringWhereNameWListPickManiacPerkWMatchesFromUniqueIdByUser(firstUniqueIdByUser)}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
   }
 
   @protected
   String get getStringWhereSystemPickSurvivorPerkToPickedManiacParametersTwo {
-    return "$textLogAction\nSystem: picked survivor perk '${debutWMatches.getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo.listSurvivorPerkWMatchBalance.listModel}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
+    return "$textLogAction\nSystem: picked survivor perk '${debutWMatches.listPickManiacWMatches.listModel.last.listPickSurvivorPerkWMatches.getStringWhereNameWListPickSurvivorPerkWMatchesFromUniqueIdByUser(firstUniqueIdByUser)}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
   }
 
   @protected
-  String getStringWhereSecondUniqueIdByUserTurnsBanManiacFromIndexParametersFour(int index) {
+  String get getStringWhereSecondUniqueIdByUserTurnsBanManiacFromIndexParametersFour {
     return textLogAction.isNotEmpty
-        ? "$textLogAction\nUser '$secondUniqueIdByUser($secondUsernameByModel)': banned maniac '${debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index].name}'"
-        : "User '$secondUniqueIdByUser($secondUsernameByModel)': banned maniac '${debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index].name}'";
+        ? "$textLogAction\nUser '$secondUniqueIdByUser($secondUsernameByModel)': banned maniac '${debutWMatches.listBanManiacWMatches.listModel.last.name}'"
+        : "User '$secondUniqueIdByUser($secondUsernameByModel)': banned maniac '${debutWMatches.listBanManiacWMatches.listModel.last.name}'";
   }
 
   @protected
-  String getStringWhereSecondUniqueIdByUserTurnsPickManiacFromIndexParametersFour(int index) {
-    return "$textLogAction\nUser '$secondUniqueIdByUser($secondUsernameByModel)': picked maniac '${debutWMatches.getListManiacWMatchBalanceWhereNotBannedAndPickedParametersThree[index].name}'";
+  String get getStringWhereSecondUniqueIdByUserTurnsPickManiacFromIndexParametersFour {
+    return "$textLogAction\nUser '$secondUniqueIdByUser($secondUsernameByModel)': picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
   }
 
   @protected
-  String getStringWhereSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromIndexParametersFour(int index) {
-    return "$textLogAction\nUser '$secondUniqueIdByUser($secondUsernameByModel)': banned maps '${debutWMatches.getListMapsWMatchBalanceWhereNotBannedMapsAndLastItemParameterListPickManiacWMatches[index].name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
+  String get getStringWhereSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromIndexParametersFour {
+    return "$textLogAction\nUser '$secondUniqueIdByUser($secondUsernameByModel)': banned maps '${debutWMatches.listPickManiacWMatches.listModel.last.listBanMapsWMatches.listModel.last.name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
   }
 
   @protected
-  String getStringWhereSecondUIBUTurnsPickManiacPerkToPickedManiacFromIndexParametersFour(int index) {
-    return "$textLogAction\nUser '$secondUniqueIdByUser($secondUsernameByModel)': picked maniac perk '${getListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo[index].name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
+  String get getStringWhereSecondUIBUTurnsPickManiacPerkToPickedManiacFromIndexParametersFour {
+    return "$textLogAction\nUser '$secondUniqueIdByUser($secondUsernameByModel)': picked maniac perk '${debutWMatches.listPickManiacWMatches.listModel.last.listPickManiacPerkWMatches.listModel.last.name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
   }
 
   @protected
-  String getStringWhereSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromIndexParametersFour(int index) {
-    return "$textLogAction\nUser '$secondUniqueIdByUser($secondUsernameByModel)': picked survivor perk '${getListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo[index].name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
+  String get getStringWhereSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromIndexParametersFour {
+    return "$textLogAction\nUser '$secondUniqueIdByUser($secondUsernameByModel)': picked survivor perk '${debutWMatches.listPickManiacWMatches.listModel.last.listPickSurvivorPerkWMatches.listModel.last.name}' to picked maniac '${debutWMatches.listPickManiacWMatches.listModel.last.name}'";
   }
 
   @protected
   String get getStringWhereIsCompletedByDebutWMatchesParametersTwo {
     return "$textLogAction\nSystem: start '${middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.round} round'. "
-        "Maniac - '${middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.pickManiacWMatches.name}'";
+        "Maniac '${middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.pickManiacWMatches.name}'";
   }
 
   @protected
@@ -715,15 +691,7 @@ base class Matches extends BaseModel {
   @protected
   String getStringWhereMyManiacWSurvivorWMyClickStopTimerFromOneParametersThree(int numberOfMilliSecondsTheSurvivorRan) {
     return "$textLogAction\nUser '$firstUniqueIdByUser($firstUsernameByModel)': stop timer. "
-        "Role '$getStringWhereRoleWFirstUIBUAndFirstItemUnfinishedListRoundWMatchesParameterOne'. "
         "Chase Time '$numberOfMilliSecondsTheSurvivorRan'";
-  }
-
-  @protected
-  String get getStringWhereRoleWFirstUIBUAndFirstItemUnfinishedListRoundWMatchesParameterOne {
-    return getStringWhoTheManiacWhereFirstItemUnfinishedListRoundWMatchesParametersThree == firstUniqueIdByUser
-        ? "Maniac"
-        : "Survivor";
   }
 
   @protected
@@ -731,6 +699,26 @@ base class Matches extends BaseModel {
     return "$textLogAction\nSystem: end '${middlegameWMatches.listRoundWMatches.getFinishedListRoundWMatchesParameterListModel.last.round}' round. "
         "Maniac '${middlegameWMatches.listRoundWMatches.getFinishedListRoundWMatchesParameterListModel.last.pickManiacWMatches.name}'. "
         "Won Round '$getStringWhoWinRoundWhereDetailsAndLastItemFinishedListRoundWMatchesParametersFour'";
+  }
+
+  @protected
+  String get getStringWhoWinRoundWhereDetailsAndLastItemFinishedListRoundWMatchesParametersFour {
+    return getStringWhoWinRoundWhereLastItemFinishedListRoundWMatchesParametersThree == firstUniqueIdByUser
+        ? "$firstUniqueIdByUser($firstUsernameByModel)"
+        : "$secondUniqueIdByUser($secondUsernameByModel)";
+  }
+
+  @protected
+  String get getStringWhoWinRoundWhereLastItemFinishedListRoundWMatchesParametersThree {
+    if(middlegameWMatches
+        .listRoundWMatches
+        .getFinishedListRoundWMatchesParameterListModel
+        .last
+        .isWhereWinRoundWFirstUniqueIdByUserParametersTwo())
+    {
+      return firstUniqueIdByUser;
+    }
+    return secondUniqueIdByUser;
   }
 
   @protected

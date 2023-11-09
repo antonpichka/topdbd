@@ -29,8 +29,4 @@ base class ListBanManiacWMatches<T extends BanManiacWMatches> extends BaseListMo
   void insertFromBanManiacWMatchesParameterListModel(T banManiacWMatches) {
     super.insertFromNewModelParameterListModel(banManiacWMatches);
   }
-
-  void insertFromListBanManiacWMatchesParameterListModel(List<T> listBanManiacWMatches) {
-    super.insertFromNewListModelParameterListModel(listBanManiacWMatches);
-  }
 }

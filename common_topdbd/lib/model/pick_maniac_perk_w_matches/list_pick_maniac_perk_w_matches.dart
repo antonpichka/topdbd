@@ -26,6 +26,19 @@ base class ListPickManiacPerkWMatches<T extends PickManiacPerkWMatches> extends 
     return listPickManiacPerkWMatches;
   }
 
+  String getStringWhereNameWListPickManiacPerkWMatchesFromUniqueIdByUser(String uniqueIdByUser) {
+    final listPickManiacPerkWMatchesFromUniqueIdByUserParameterListModel = getListPickManiacPerkWMatchesFromUniqueIdByUserParameterListModel(uniqueIdByUser);
+    String name = "";
+    for(T itemPickManiacPerkWMatchesFromUniqueIdByUserParameterListModel in listPickManiacPerkWMatchesFromUniqueIdByUserParameterListModel) {
+      if(name.isEmpty) {
+        name = itemPickManiacPerkWMatchesFromUniqueIdByUserParameterListModel.name;
+        continue;
+      }
+      name += " ,${itemPickManiacPerkWMatchesFromUniqueIdByUserParameterListModel.name}";
+    }
+    return name;
+  }
+
   void insertFromPickManiacPerkWMatchesParameterListModel(T pickManiacPerkWMatches) {
     super.insertFromNewModelParameterListModel(pickManiacPerkWMatches);
   }

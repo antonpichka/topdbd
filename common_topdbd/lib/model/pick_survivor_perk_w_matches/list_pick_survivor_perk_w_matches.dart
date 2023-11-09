@@ -26,6 +26,19 @@ base class ListPickSurvivorPerkWMatches<T extends PickSurvivorPerkWMatches> exte
     return listPickSurvivorPerkWMatches;
   }
 
+  String getStringWhereNameWListPickSurvivorPerkWMatchesFromUniqueIdByUser(String uniqueIdByUser) {
+    final listPickSurvivorPerkWMatchesFromUniqueIdByUserParameterListModel = getListPickSurvivorPerkWMatchesFromUniqueIdByUserParameterListModel(uniqueIdByUser);
+    String name = "";
+    for(T itemPickSurvivorPerkWMatchesFromUniqueIdByUserParameterListModel in listPickSurvivorPerkWMatchesFromUniqueIdByUserParameterListModel) {
+      if(name.isEmpty) {
+        name = itemPickSurvivorPerkWMatchesFromUniqueIdByUserParameterListModel.name;
+        continue;
+      }
+      name += " ,${itemPickSurvivorPerkWMatchesFromUniqueIdByUserParameterListModel.name}";
+    }
+    return name;
+  }
+
   void insertFromPickSurvivorPerkWMatchesParameterListModel(T pickSurvivorPerkWMatches) {
     super.insertFromNewModelParameterListModel(pickSurvivorPerkWMatches);
   }

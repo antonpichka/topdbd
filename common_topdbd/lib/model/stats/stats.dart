@@ -22,4 +22,24 @@ base class Stats extends BaseModel {
         "matchesLost: $matchesLost, "
         "ratingPoints: $ratingPoints)";
   }
+
+  Stats getStatsWhereNewAndWinMatchFromOneParametersFour(int newRatingPoints) {
+    final newMatchesWon = matchesWon + 1;
+    return Stats(
+        uniqueIdByUser,
+        seasonNumberBySeason,
+        newMatchesWon,
+        matchesLost,
+        newRatingPoints);
+  }
+
+  Stats getStatsWhereNewAndLostMatchFromOneParametersFour(int newRatingPoints) {
+    final newMatchesLost = matchesLost + 1;
+    return Stats(
+        uniqueIdByUser,
+        seasonNumberBySeason,
+        matchesWon,
+        newMatchesLost,
+        newRatingPoints);
+  }
 }

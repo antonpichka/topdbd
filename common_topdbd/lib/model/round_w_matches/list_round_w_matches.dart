@@ -42,6 +42,7 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
     return listRoundWMatches.listModel;
   }
 
+  @protected
   List<int> get getListWithTwoItemWhereCountingWhoWonTheMatch {
     final finishedListRoundWMatchesParameterListModel = getFinishedListRoundWMatchesParameterListModel;
     int iterationWinRoundWFirstUniqueIdByUser = 0;
@@ -94,7 +95,7 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
     return getNewStatsWSecondUniqueIdByUserWhereThereIsEloFromTwo(ratingPointsByStatsWFirstUniqueIdByUser,ratingPointsByStatsWSecondUniqueIdByUser) - ratingPointsByStatsWSecondUniqueIdByUser;
   }
 
-  String get getMatchScore {
+  String get getStringWhereMatchScore {
     final listWithTwoItemWhereCountingWhoWonTheMatch = getListWithTwoItemWhereCountingWhoWonTheMatch;
     final firstItemListWithTwoItemWhereCountingWhoWonTheMatch = listWithTwoItemWhereCountingWhoWonTheMatch[0];
     final secondItemListWithTwoItemWhereCountingWhoWonTheMatch = listWithTwoItemWhereCountingWhoWonTheMatch[1];
@@ -234,5 +235,10 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
     }
     return iterationWinRoundWFirstUniqueIdByUser == finishedListRoundWMatchesParameterListModel.length ||
         iterationWinRoundWSecondUniqueIdByUser == finishedListRoundWMatchesParameterListModel.length;
+  }
+
+  bool isWhereFinishedListRoundWMatchesMoreThanUnfinishedListRoundWMatchesAndWereWonByOneUser() {
+    return isWhereFinishedListRoundWMatchesMoreThanUnfinishedListRoundWMatches() &&
+        isWhereFinishedListRoundWMatchesAndWereWonByOneUser();
   }
 }

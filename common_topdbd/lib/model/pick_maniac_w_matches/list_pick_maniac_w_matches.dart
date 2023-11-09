@@ -51,8 +51,4 @@ base class ListPickManiacWMatches<T extends PickManiacWMatches> extends BaseList
   void updateFromPickManiacWMatchesParameterListModel(T pickManiacWMatches) {
     updateFromNewModelParameterListModel(pickManiacWMatches);
   }
-
-  void insertFromListPickManiacWMatchesParameterListModel(List<T> listPickManiacWMatches) {
-    insertFromNewListModelParameterListModel(listPickManiacWMatches);
-  }
 }

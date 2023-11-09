@@ -23,10 +23,11 @@ import 'package:common_topdbd/model/survivor_perk_w_match_balance/survivor_perk_
 import 'package:common_topdbd/named_utility/timer_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
+import 'dart:math' as math;
 
 void main() {
   UpdateEEMatchesEEFromMatchesEEParameterTempCacheService()
-      .updateMatchesFromMatchesParameterTempCacheService(ReadyDataUtility.getMatchesWhereUsingGetWUniqueIdByUser);
+      .updateMatchesFromMatchesParameterTempCacheService(ReadyDataUtility.getMatchesWhereUsingUniqueIdByUser);
   UpdateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService()
       .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(ReadyDataUtility.getStringsWhereUniqueIByUser);
   UpdateEEStatsEEWhereFirstUserEEFromStatsEEParameterTempCacheService()
@@ -35,14 +36,1529 @@ void main() {
       .updateStatsWhereSecondUserFromStatsParameterTempCacheService(ReadyDataUtility.getStatsWhereSecondUser);
   final threeStagesOfTheMatchView = ThreeStagesOfTheMatchView();
   threeStagesOfTheMatchView.initState();
-  threeStagesOfTheMatchView.build();
+  // EXPECTED OUTPUT:
+  //
+  // ThreeStagesOfTheMatchView: sUCCESS
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  //
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListPickManiacWMatchesWFirstUniqueIdByUser: []
+  // ListPickManiacWMatchesWSecondUniqueIdByUser: []
+  // ListBanManiacWMatchesWFirstUniqueIdByUser: []
+  // ListBanManiacWMatchesWSecondUniqueIdByUser: []
+  // ListManiacWMatchBalance: [ManiacWMatchBalance(name: Anna, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: Mine)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint)]), ManiacWMatchBalance(name: Bilyas, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: Mine)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint)]), ManiacWMatchBalance(name: Bubba, lengthPickManiacPerk: 0, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: Mine)], listManiacPerkWMatchBalance: [], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Trapper, lengthPickManiacPerk: 2, lengthPickSurvivorPerk: 2, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: Mine), MapsWMatchBalance(name: StoreHouse)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Mor, lengthPickManiacPerk: 0, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Nurse, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 0, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: []), ManiacWMatchBalance(name: Kolya, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard), MapsWMatchBalance(name: Coal Tower)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Doctor, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 2, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Vesker, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)])]
+  // You turns ban maniac (index):
+  // 1
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListPickManiacWMatchesWFirstUniqueIdByUser: []
+  // ListPickManiacWMatchesWSecondUniqueIdByUser: []
+  // ListBanManiacWMatchesWFirstUniqueIdByUser: [BanManiacWMatches(name: Bilyas, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)]
+  // ListBanManiacWMatchesWSecondUniqueIdByUser: []
+  // ListManiacWMatchBalance: [ManiacWMatchBalance(name: Anna, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: Mine)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint)]), ManiacWMatchBalance(name: Bubba, lengthPickManiacPerk: 0, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: Mine)], listManiacPerkWMatchBalance: [], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Trapper, lengthPickManiacPerk: 2, lengthPickSurvivorPerk: 2, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: Mine), MapsWMatchBalance(name: StoreHouse)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Mor, lengthPickManiacPerk: 0, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Nurse, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 0, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: []), ManiacWMatchBalance(name: Kolya, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard), MapsWMatchBalance(name: Coal Tower)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Doctor, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 2, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Vesker, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)])]
+  // Enemy turns ban maniac (index): 0
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListPickManiacWMatchesWFirstUniqueIdByUser: []
+  // ListPickManiacWMatchesWSecondUniqueIdByUser: []
+  // ListBanManiacWMatchesWFirstUniqueIdByUser: [BanManiacWMatches(name: Bilyas, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)]
+  // ListBanManiacWMatchesWSecondUniqueIdByUser: [BanManiacWMatches(name: Anna, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]
+  // ListManiacWMatchBalance: [ManiacWMatchBalance(name: Bubba, lengthPickManiacPerk: 0, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: Mine)], listManiacPerkWMatchBalance: [], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Trapper, lengthPickManiacPerk: 2, lengthPickSurvivorPerk: 2, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: Mine), MapsWMatchBalance(name: StoreHouse)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Mor, lengthPickManiacPerk: 0, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Nurse, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 0, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: []), ManiacWMatchBalance(name: Kolya, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard), MapsWMatchBalance(name: Coal Tower)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Doctor, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 2, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Vesker, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)])]
+  // You turns pick maniac (index):
+  // 1
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [], pickMapsWMatches: PickMapsWMatches(name: ), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [])
+  // ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: Mine), MapsWMatchBalance(name: StoreHouse)]
+  // Enemy turns bans maps to picked maniac (index): 0
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: ), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [])
+  // ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: [MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: Mine), MapsWMatchBalance(name: StoreHouse)]
+  // You turns bans maps to picked maniac (index):
+  // 1
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: ), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [])
+  // ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: [MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Mine), MapsWMatchBalance(name: StoreHouse)]
+  // Enemy turns bans maps to picked maniac (index): 0
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: ), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [])
+  // ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: [MapsWMatchBalance(name: Mine), MapsWMatchBalance(name: StoreHouse)]
+  // You turns bans maps to picked maniac (index):
+  // 0
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: ), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [])
+  // ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: [MapsWMatchBalance(name: StoreHouse)]
+  // System: Now pick maps to picked maniac
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [])
+  // ListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)]
+  // System: Now pick maniac perk to picked maniac
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [])
+  // ListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]
+  // System: Now pick survivor perk to picked maniac
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListPickManiacWMatchesWFirstUniqueIdByUser: [PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)])]
+  // ListPickManiacWMatchesWSecondUniqueIdByUser: []
+  // ListBanManiacWMatchesWFirstUniqueIdByUser: [BanManiacWMatches(name: Bilyas, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)]
+  // ListBanManiacWMatchesWSecondUniqueIdByUser: [BanManiacWMatches(name: Anna, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]
+  // ListManiacWMatchBalance: [ManiacWMatchBalance(name: Bubba, lengthPickManiacPerk: 0, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: Mine)], listManiacPerkWMatchBalance: [], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Mor, lengthPickManiacPerk: 0, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Nurse, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 0, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: []), ManiacWMatchBalance(name: Kolya, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard), MapsWMatchBalance(name: Coal Tower)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Doctor, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 2, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Vesker, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)])]
+  // Enemy turns pick maniac (index): 0
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [], pickMapsWMatches: PickMapsWMatches(name: ), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [])
+  // ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: Mine)]
+  // You turns bans maps to picked maniac (index):
+  // 1
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: ), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [])
+  // ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Mine)]
+  // Enemy turns bans maps to picked maniac (index): 0
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: ), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [])
+  // ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: [MapsWMatchBalance(name: Mine)]
+  // System: Now pick maps to picked maniac
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [])
+  // ListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]
+  // You turns pick survivor perk to picked maniac (index):
+  // 1
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)])
+  // ListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: [SurvivorPerkWMatchBalance(name: Sprint)]
+  // Enemy turns pick survivor perk to picked maniac (index): 0
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListPickManiacWMatchesWFirstUniqueIdByUser: [PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)])]
+  // ListPickManiacWMatchesWSecondUniqueIdByUser: [PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)])]
+  // ListBanManiacWMatchesWFirstUniqueIdByUser: [BanManiacWMatches(name: Bilyas, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)]
+  // ListBanManiacWMatchesWSecondUniqueIdByUser: [BanManiacWMatches(name: Anna, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]
+  // ListManiacWMatchBalance: [ManiacWMatchBalance(name: Mor, lengthPickManiacPerk: 0, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Nurse, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 0, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: []), ManiacWMatchBalance(name: Kolya, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard), MapsWMatchBalance(name: Coal Tower)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Doctor, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 2, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Vesker, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)])]
+  // You turns ban maniac (index):
+  // 1
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListPickManiacWMatchesWFirstUniqueIdByUser: [PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)])]
+  // ListPickManiacWMatchesWSecondUniqueIdByUser: [PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)])]
+  // ListBanManiacWMatchesWFirstUniqueIdByUser: [BanManiacWMatches(name: Bilyas, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanManiacWMatches(name: Nurse, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)]
+  // ListBanManiacWMatchesWSecondUniqueIdByUser: [BanManiacWMatches(name: Anna, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]
+  // ListManiacWMatchBalance: [ManiacWMatchBalance(name: Mor, lengthPickManiacPerk: 0, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Kolya, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard), MapsWMatchBalance(name: Coal Tower)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Doctor, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 2, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Vesker, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)])]
+  // Enemy turns ban maniac (index): 0
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListPickManiacWMatchesWFirstUniqueIdByUser: [PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)])]
+  // ListPickManiacWMatchesWSecondUniqueIdByUser: [PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)])]
+  // ListBanManiacWMatchesWFirstUniqueIdByUser: [BanManiacWMatches(name: Bilyas, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanManiacWMatches(name: Nurse, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)]
+  // ListBanManiacWMatchesWSecondUniqueIdByUser: [BanManiacWMatches(name: Anna, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanManiacWMatches(name: Mor, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]
+  // ListManiacWMatchBalance: [ManiacWMatchBalance(name: Kolya, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard), MapsWMatchBalance(name: Coal Tower)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Doctor, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 2, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: Coal Tower), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Vesker, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)])]
+  // You turns ban maniac (index):
+  // 1
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListPickManiacWMatchesWFirstUniqueIdByUser: [PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)])]
+  // ListPickManiacWMatchesWSecondUniqueIdByUser: [PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)])]
+  // ListBanManiacWMatchesWFirstUniqueIdByUser: [BanManiacWMatches(name: Bilyas, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanManiacWMatches(name: Nurse, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanManiacWMatches(name: Doctor, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)]
+  // ListBanManiacWMatchesWSecondUniqueIdByUser: [BanManiacWMatches(name: Anna, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanManiacWMatches(name: Mor, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]
+  // ListManiacWMatchBalance: [ManiacWMatchBalance(name: Kolya, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: Chapel), MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard), MapsWMatchBalance(name: Coal Tower)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]), ManiacWMatchBalance(name: Vesker, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)])]
+  // Enemy turns ban maniac (index): 0
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListPickManiacWMatchesWFirstUniqueIdByUser: [PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)])]
+  // ListPickManiacWMatchesWSecondUniqueIdByUser: [PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)])]
+  // ListBanManiacWMatchesWFirstUniqueIdByUser: [BanManiacWMatches(name: Bilyas, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanManiacWMatches(name: Nurse, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanManiacWMatches(name: Doctor, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)]
+  // ListBanManiacWMatchesWSecondUniqueIdByUser: [BanManiacWMatches(name: Anna, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanManiacWMatches(name: Mor, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanManiacWMatches(name: Kolya, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]
+  // ListManiacWMatchBalance: [ManiacWMatchBalance(name: Vesker, lengthPickManiacPerk: 1, lengthPickSurvivorPerk: 1, listMapsWMatchBalance: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)], listManiacPerkWMatchBalance: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)], listSurvivorPerkWMatchBalance: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)])]
+  // System: Now pick maniac
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [], pickMapsWMatches: PickMapsWMatches(name: ), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [])
+  // ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Gas Station), MapsWMatchBalance(name: Scrapyard)]
+  // You turns bans maps to picked maniac (index):
+  // 1
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: ), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [])
+  // ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: [MapsWMatchBalance(name: StoreHouse), MapsWMatchBalance(name: Scrapyard)]
+  // Enemy turns bans maps to picked maniac (index): 0
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: ), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [])
+  // ListMapsWhereNotBannedMapsAndLastItemPickManiacWMatches: [MapsWMatchBalance(name: Scrapyard)]
+  // System: Now pick maps to picked maniac
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [])
+  // ListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: [ManiacPerkWMatchBalance(name: Brutal strength), ManiacPerkWMatchBalance(name: Raffle)]
+  // You turns pick maniac perk to picked maniac (index):
+  // 1
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [])
+  // ListManiacPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: [ManiacPerkWMatchBalance(name: Brutal strength)]
+  // Enemy turns pick maniac perk to picked maniac (index): 0
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [])
+  // ListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: [SurvivorPerkWMatchBalance(name: Sprint), SurvivorPerkWMatchBalance(name: Flexibility)]
+  // You turns pick survivor perk to picked maniac (index):
+  // 0
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // LastItemPickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)])
+  // ListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: [SurvivorPerkWMatchBalance(name: Flexibility)]
+  // Enemy turns pick survivor perk to picked maniac (index): 0
+  // FirstUniqueIdByUserWDebutWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListPickManiacWMatchesWFirstUniqueIdByUser: [PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)])]
+  // ListPickManiacWMatchesWSecondUniqueIdByUser: [PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)])]
+  // ListPickManiacWMatchesWSystem: [PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)])]
+  // ListBanManiacWMatchesWFirstUniqueIdByUser: [BanManiacWMatches(name: Bilyas, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanManiacWMatches(name: Nurse, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanManiacWMatches(name: Doctor, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)]
+  // ListBanManiacWMatchesWSecondUniqueIdByUser: [BanManiacWMatches(name: Anna, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanManiacWMatches(name: Mor, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanManiacWMatches(name: Kolya, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]
+  // Preparation, please wait
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Round: 1
+  // Who's the maniac ?: You
+  // Maniac: Trapper
+  // Chase Time (You): 0
+  // Chase Time (EnemyUser): 0
+  // Start timer (Input 'yes'):
+  // yes
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: true, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Round: 1
+  // Who's the maniac ?: You
+  // Maniac: Trapper
+  // Chase Time (You): 0
+  // Chase Time (EnemyUser): 0
+  // Wait enemy
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: true, isStartTimerWSecondUniqueIdByUser: true, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Round: 1
+  // Who's the maniac ?: You
+  // Maniac: Trapper
+  // Chase Time (You): 0
+  // Chase Time (EnemyUser): 0
+  // Stop timer (Input 'yes'):
+  // yes
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: secondManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 4), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Round: 1
+  // Who's the maniac ?: User 'EnemyUser'
+  // Maniac: Trapper
+  // Chase Time (You): 0
+  // Chase Time (EnemyUser): 4
+  // Wait enemy
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: secondManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: true, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 4), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Round: 1
+  // Who's the maniac ?: 'EnemyUser'
+  // Chase Time (You): 0
+  // Chase Time (EnemyUser): 4
+  // Start timer (Input 'yes'):
+  // yes
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: secondManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: true, isStartTimerWSecondUniqueIdByUser: true, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 4), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Round: 1
+  // Who's the maniac ?: EnemyUser
+  // Maniac: Trapper
+  // Chase Time (You): 0
+  // Chase Time (EnemyUser): 4
+  // Stop timer (Input 'yes'):
+  // yes
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '9'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: nextRound, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 9, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 4), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Round: 1
+  // Maniac: Trapper
+  // Chase Time (You): 9
+  // Chase Time (EnemyUser): 4
+  // Win Round: You
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '9'
+  // System: end '1' round. Maniac 'Trapper'. Won Round '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)'
+  // System: start '2 round'. Maniac 'Bubba'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: endOfTheRound, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 9, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 4), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Round: 2
+  // Who's the maniac ?: User 'EnemyUser'
+  // Maniac: Bubba
+  // Chase Time (You): 0
+  // Chase Time (EnemyUser): 0
+  // Wait enemy
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '9'
+  // System: end '1' round. Maniac 'Trapper'. Won Round '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)'
+  // System: start '2 round'. Maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: endOfTheRound, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 9, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 4), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: true, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Round: 2
+  // Who's the maniac ?: 'EnemyUser'
+  // Chase Time (You): 0
+  // Chase Time (EnemyUser): 0
+  // Start timer (Input 'yes'):
+  // yes
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '9'
+  // System: end '1' round. Maniac 'Trapper'. Won Round '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)'
+  // System: start '2 round'. Maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: endOfTheRound, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 9, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 4), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: true, isStartTimerWSecondUniqueIdByUser: true, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Round: 2
+  // Who's the maniac ?: EnemyUser
+  // Maniac: Bubba
+  // Chase Time (You): 0
+  // Chase Time (EnemyUser): 0
+  // Stop timer (Input 'yes'):
+  // yes
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '9'
+  // System: end '1' round. Maniac 'Trapper'. Won Round '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)'
+  // System: start '2 round'. Maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: endOfTheRound, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 9, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 4), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: secondManiac, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 4, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Round: 2
+  // Who's the maniac ?: You
+  // Maniac: Bubba
+  // Chase Time (You): 4
+  // Chase Time (EnemyUser): 0
+  // Start timer (Input 'yes'):
+  // yes
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '9'
+  // System: end '1' round. Maniac 'Trapper'. Won Round '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)'
+  // System: start '2 round'. Maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: endOfTheRound, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 9, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 4), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: secondManiac, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: true, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 4, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Round: 2
+  // Who's the maniac ?: You
+  // Maniac: Bubba
+  // Chase Time (You): 4
+  // Chase Time (EnemyUser): 0
+  // Wait enemy
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '9'
+  // System: end '1' round. Maniac 'Trapper'. Won Round '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)'
+  // System: start '2 round'. Maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: endOfTheRound, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 9, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 4), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: secondManiac, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: true, isStartTimerWSecondUniqueIdByUser: true, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 4, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Round: 2
+  // Who's the maniac ?: You
+  // Maniac: Bubba
+  // Chase Time (You): 4
+  // Chase Time (EnemyUser): 0
+  // Stop timer (Input 'yes'):
+  // yes
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '9'
+  // System: end '1' round. Maniac 'Trapper'. Won Round '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)'
+  // System: start '2 round'. Maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '1'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 0, ratingPoints: 300)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: endOfTheRound, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 9, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 4), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: nextRound, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 4, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 1), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Round: 2
+  // Maniac: Bubba
+  // Chase Time (You): 4
+  // Chase Time (EnemyUser): 1
+  // Win Round: You
+  // FirstUniqueIdByUserWMiddlegameWMatchesView: sUCCESS
+  // Preparation, please wait
+  // FirstUniqueIdByUserWEndgameWMatchesView: sUCCESS
+  //
+  // <-------TEXT LOG ACTION------->
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Bilyas'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Anna'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Gas Station' to picked maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Mine' to picked maniac 'Trapper'
+  // System: picked maps 'StoreHouse' to picked maniac 'Trapper'
+  // System: picked maniac perk 'Brutal strength ,Raffle' to picked maniac 'Trapper'
+  // System: picked survivor perk 'Sprint ,Flexibility' to picked maniac 'Trapper'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Coal Tower' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'Chapel' to picked maniac 'Bubba'
+  // System: picked maps 'Mine' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Flexibility' to picked maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Bubba'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Nurse'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Mor'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maniac 'Doctor'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maniac 'Kolya'
+  // System: picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': banned maps 'Gas Station' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': banned maps 'StoreHouse' to picked maniac 'Vesker'
+  // System: picked maps 'Scrapyard' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked maniac perk 'Raffle' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked maniac perk 'Brutal strength' to picked maniac 'Vesker'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': picked survivor perk 'Sprint' to picked maniac 'Vesker'
+  // System: start '1 round'. Maniac 'Trapper'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '9'
+  // System: end '1' round. Maniac 'Trapper'. Won Round '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)'
+  // System: start '2 round'. Maniac 'Bubba'
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '4'
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': start timer. The maniac is ready, we are waiting for a survivor
+  // User '5f8cd3aa-4fb0-11ee-be56-0242ac120002(EnemyUser)': start timer. The survivor is ready. Let the escape begin
+  // User '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)': stop timer. Chase Time '1'
+  // System: end '2' round. Maniac 'Bubba'. Won Round '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)'
+  // System: completed match. Won Match '51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)'
+  // <-------TEXT LOG ACTION------->
+  //
+  // StatsWFirstUser: Stats(uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 1, matchesLost: 0, ratingPoints: 325)
+  // StatsWSecondUser: Stats(uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, seasonNumberBySeason: 1, matchesWon: 0, matchesLost: 1, ratingPoints: 275)
+  // ListRoundWMatches: [RoundWMatches(round: 1, pickManiacWMatches: PickManiacWMatches(name: Trapper, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:18:55.259490, listBanMapsWMatches: [BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Gas Station, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Mine, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: StoreHouse), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: endOfTheRound, isRoleManiacWFirstUniqueIdByUser: true, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 9, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 4), RoundWMatches(round: 2, pickManiacWMatches: PickManiacWMatches(name: Bubba, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002, creationTime: 2023-11-09 17:19:06.750172, listBanMapsWMatches: [BanMapsWMatches(name: Coal Tower, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: Chapel, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Mine), listPickManiacPerkWMatches: [], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Flexibility, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: endOfTheRound, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 4, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 1), RoundWMatches(round: 3, pickManiacWMatches: PickManiacWMatches(name: Vesker, uniqueIdByUser: , creationTime: 2023-11-09 17:19:25.213398, listBanMapsWMatches: [BanMapsWMatches(name: Gas Station, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), BanMapsWMatches(name: StoreHouse, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], pickMapsWMatches: PickMapsWMatches(name: Scrapyard), listPickManiacPerkWMatches: [PickManiacPerkWMatches(name: Raffle, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickManiacPerkWMatches(name: Brutal strength, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)], listPickSurvivorPerkWMatches: [PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 51d1a9f2-4fb0-11ee-be56-0242ac120002), PickSurvivorPerkWMatches(name: Sprint, uniqueIdByUser: 5f8cd3aa-4fb0-11ee-be56-0242ac120002)]), enumRoundStatus: firstManiac, isRoleManiacWFirstUniqueIdByUser: false, isStartTimerWFirstUniqueIdByUser: false, isStartTimerWSecondUniqueIdByUser: false, numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser: 0, numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser: 0)]
+  // Won Match: 51d1a9f2-4fb0-11ee-be56-0242ac120002(MyUser)
+  // Score: MyUser 2:0 EnemyUser
+  // ResultRatingPointsWFirstUniqueIdByUser: 25
+  // ResultRatingPointsWSecondUniqueIdByUser: -25
+  //
+  // Process finished with exit code 0
+}
+
+@immutable
+final class AlgorithmsUtility {
+  const AlgorithmsUtility._();
+
+  static int get getIntWhereRandomNumbers {
+    final rng = math.Random();
+    return rng.nextInt(10);
+  }
 }
 
 @immutable
 final class ReadyDataUtility {
   const ReadyDataUtility._();
 
-  static Matches get getMatchesWhereUsingGetWUniqueIdByUser {
+  static Matches get getMatchesWhereUsingUniqueIdByUser {
     return Matches(
         "409419d6-4fb0-11ee-be56-0242ac120002",
         DateTime.now(),
@@ -212,7 +1728,7 @@ final class ReadyDataUtility {
                   ])
               ),
             ])),
-          false,
+          true,
           ListBanManiacWMatches(List.empty(growable: true)),
           ListPickManiacWMatches(List.empty(growable: true))
         ),
@@ -250,7 +1766,7 @@ final class KeysTempCacheServiceUtility {
   /* Bools */
   static const String boolsQQIsStopTimer = "boolsQQIsStopTimer";
   /* Ints */
-  static const String intsQQElapsedTimeInMilliseconds = "intsQQElapsedTimeInMilliseconds";
+  static const String intsQQElapsedTimeInMillisecondsByTimerUtility = "intsQQElapsedTimeInMillisecondsByTimerUtility";
 
   const KeysTempCacheServiceUtility._();
 }
@@ -453,13 +1969,13 @@ base class StartListeningAndCancelListeningEEBoolsEEWhereIsStopTimerEEFromCallba
 }
 
 @immutable
-base class GetEEIntsEEWhereElapsedTimeInMillisecondsEEParameterTempCacheService<T extends Ints,Y extends ListInts<T>> {
+base class GetEEIntsEEWhereElapsedTimeInMillisecondsByTimerUtilityEEParameterTempCacheService<T extends Ints,Y extends ListInts<T>> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Result<T> getIntsWhereElapsedTimeInMillisecondsParameterTempCacheService() {
+  Result<T> getIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService() {
     try {
-      final ints = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.intsQQElapsedTimeInMilliseconds) as T;
+      final ints = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.intsQQElapsedTimeInMillisecondsByTimerUtility) as T;
       return Result<T>.success(ints);
     } on LocalException catch(e) {
       return Result<T>.exception(e);
@@ -470,13 +1986,13 @@ base class GetEEIntsEEWhereElapsedTimeInMillisecondsEEParameterTempCacheService<
 }
 
 @immutable
-base class UpdateEEIntsEEWhereElapsedTimeInMillisecondsEEFromIntsEEParameterTempCacheService<T extends Ints,Y extends ListInts<T>> {
+base class UpdateEEIntsEEWhereElapsedTimeInMillisecondsByTimerUtilityEEFromIntsEEParameterTempCacheService<T extends Ints,Y extends ListInts<T>> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Result<bool> updateIntsWhereElapsedTimeInMillisecondsFromIntsParameterTempCacheService(T ints) {
+  Result<bool> updateIntsWhereElapsedTimeInMillisecondsByTimerUtilityFromIntsParameterTempCacheService(T ints) {
     try {
-      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.intsQQElapsedTimeInMilliseconds,ints);
+      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.intsQQElapsedTimeInMillisecondsByTimerUtility,ints);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
@@ -520,6 +2036,15 @@ final class DataForThreeStagesOfTheMatchView extends BaseDataForNamed<EnumDataFo
     }
     return EnumDataForThreeStagesOfTheMatchView.firstUniqueIdByUserWEndgameWMatches;
   }
+
+
+  bool isWhereEndgameWMatchesParametersMatchesAndUniqueIdByUser() {
+    return matches.isWhereTrueAndTrueAndEqualsFromOneParametersThree(uniqueIdByUser);
+  }
+
+  bool isWhereEndgameWMatchesParametersMatchesAndUniqueIdByUserFIRST() {
+    return matches.isWhereTrueAndTrueAndEqualsFromOneParametersThreeFIRST(uniqueIdByUser);
+  }
 }
 
 enum EnumDataForThreeStagesOfTheMatchView {
@@ -562,7 +2087,7 @@ final class ThreeStagesOfTheMatchViewModel extends BaseNamedViewModel<DataForThr
           false,
           "",
           MatchBalance(0,0,ListManiacWMatchBalance(List.empty(growable: true))),
-          false,
+          true,
           ListBanManiacWMatches(List.empty(growable: true)),
           ListPickManiacWMatches(List.empty(growable: true)),
         ),
@@ -631,6 +2156,18 @@ final class ThreeStagesOfTheMatchViewModel extends BaseNamedViewModel<DataForThr
         .startListeningMatchesFromCallbackParametersTempCacheServiceAndStreamSubscription((Result<Matches> resultMatches)
     {
       getDataForNamedParameterNamedStreamWState.matches = resultMatches.parameter!.getClone;
+      final isWhereEndgameWMatchesParametersMatchesAndUniqueIdByUser = getDataForNamedParameterNamedStreamWState
+          .isWhereEndgameWMatchesParametersMatchesAndUniqueIdByUser();
+      if(isWhereEndgameWMatchesParametersMatchesAndUniqueIdByUser) {
+        _firstQQListeningStreamsTempCacheServiceQQIsWhereEndgameWMatchesParametersMatchesAndUniqueIdByUser();
+        return;
+      }
+      final isWhereEndgameWMatchesParametersMatchesAndUniqueIdByUserFIRST = getDataForNamedParameterNamedStreamWState
+          .isWhereEndgameWMatchesParametersMatchesAndUniqueIdByUserFIRST();
+      if(isWhereEndgameWMatchesParametersMatchesAndUniqueIdByUserFIRST) {
+        _firstQQListeningStreamsTempCacheServiceQQIsWhereEndgameWMatchesParametersMatchesAndUniqueIdByUserFIRST();
+        return;
+      }
       notifyStreamDataForNamedParameterNamedStreamWState();
     });
   }
@@ -654,6 +2191,74 @@ final class ThreeStagesOfTheMatchViewModel extends BaseNamedViewModel<DataForThr
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
+
+  void _firstQQListeningStreamsTempCacheServiceQQIsWhereEndgameWMatchesParametersMatchesAndUniqueIdByUser() {
+    final getStatsWhereFirstUserParameterTempCacheService = _getEEStatsEEWhereFirstUserEEParameterTempCacheService
+        .getStatsWhereFirstUserParameterTempCacheService();
+    if(getStatsWhereFirstUserParameterTempCacheService
+        .exceptionController
+        .isWhereNotEqualsNullParameterException())
+    {
+      _firstBranchOneQQListeningStreamsTempCacheServiceQQIsWhereEndgameWMatchesParametersMatchesAndUniqueIdByUser(getStatsWhereFirstUserParameterTempCacheService.exceptionController);
+      return;
+    }
+    final getStatsWhereSecondUserParameterTempCacheService = _getEEStatsEEWhereSecondUserEEParameterTempCacheService
+        .getStatsWhereSecondUserParameterTempCacheService();
+    if(getStatsWhereSecondUserParameterTempCacheService
+        .exceptionController
+        .isWhereNotEqualsNullParameterException())
+    {
+      _firstBranchTwoQQListeningStreamsTempCacheServiceQQIsWhereEndgameWMatchesParametersMatchesAndUniqueIdByUser(getStatsWhereSecondUserParameterTempCacheService.exceptionController);
+      return;
+    }
+    getDataForNamedParameterNamedStreamWState.statsWFirstUser = getStatsWhereFirstUserParameterTempCacheService.parameter!.getClone;
+    getDataForNamedParameterNamedStreamWState.statsWSecondUser = getStatsWhereSecondUserParameterTempCacheService.parameter!.getClone;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  void _firstBranchOneQQListeningStreamsTempCacheServiceQQIsWhereEndgameWMatchesParametersMatchesAndUniqueIdByUser(ExceptionController exceptionController) {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  void _firstBranchTwoQQListeningStreamsTempCacheServiceQQIsWhereEndgameWMatchesParametersMatchesAndUniqueIdByUser(ExceptionController exceptionController) {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  void _firstQQListeningStreamsTempCacheServiceQQIsWhereEndgameWMatchesParametersMatchesAndUniqueIdByUserFIRST() {
+    final getStatsWhereFirstUserParameterTempCacheService = _getEEStatsEEWhereFirstUserEEParameterTempCacheService
+        .getStatsWhereFirstUserParameterTempCacheService();
+    if(getStatsWhereFirstUserParameterTempCacheService
+        .exceptionController
+        .isWhereNotEqualsNullParameterException())
+    {
+      _firstBranchOneQQListeningStreamsTempCacheServiceQQIsWhereEndgameWMatchesParametersMatchesAndUniqueIdByUserFIRST(getStatsWhereFirstUserParameterTempCacheService.exceptionController);
+      return;
+    }
+    final getStatsWhereSecondUserParameterTempCacheService = _getEEStatsEEWhereSecondUserEEParameterTempCacheService
+        .getStatsWhereSecondUserParameterTempCacheService();
+    if(getStatsWhereSecondUserParameterTempCacheService
+        .exceptionController
+        .isWhereNotEqualsNullParameterException())
+    {
+      _firstBranchTwoQQListeningStreamsTempCacheServiceQQIsWhereEndgameWMatchesParametersMatchesAndUniqueIdByUserFIRST(getStatsWhereSecondUserParameterTempCacheService.exceptionController);
+      return;
+    }
+    getDataForNamedParameterNamedStreamWState.statsWFirstUser = getStatsWhereFirstUserParameterTempCacheService.parameter!.getClone;
+    getDataForNamedParameterNamedStreamWState.statsWSecondUser = getStatsWhereSecondUserParameterTempCacheService.parameter!.getClone;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  void _firstBranchOneQQListeningStreamsTempCacheServiceQQIsWhereEndgameWMatchesParametersMatchesAndUniqueIdByUserFIRST(ExceptionController exceptionController) {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  void _firstBranchTwoQQListeningStreamsTempCacheServiceQQIsWhereEndgameWMatchesParametersMatchesAndUniqueIdByUserFIRST(ExceptionController exceptionController) {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
 }
 
 final class ThreeStagesOfTheMatchView {
@@ -671,7 +2276,7 @@ final class ThreeStagesOfTheMatchView {
   }
 
   // Override
-  void build() {
+  Future<void> build() async {
     final dataForNamedParameterNamedStreamWState =
         _threeStagesOfTheMatchViewModel.getDataForNamedParameterNamedStreamWState;
     switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
@@ -688,7 +2293,6 @@ final class ThreeStagesOfTheMatchView {
             dataForNamedParameterNamedStreamWState.statsWFirstUser.getClone,
             dataForNamedParameterNamedStreamWState.statsWSecondUser.getClone);
         firstUniqueIdByUserWDebutWMatchesView.initState();
-        firstUniqueIdByUserWDebutWMatchesView.build();
         break;
       case EnumDataForThreeStagesOfTheMatchView.firstUniqueIdByUserWMiddlegameWMatches:
         final firstUniqueIdByUserWMiddlegameWMatchesView = FirstUniqueIdByUserWMiddlegameWMatchesView(
@@ -696,10 +2300,14 @@ final class ThreeStagesOfTheMatchView {
             dataForNamedParameterNamedStreamWState.statsWFirstUser.getClone,
             dataForNamedParameterNamedStreamWState.statsWSecondUser.getClone);
         firstUniqueIdByUserWMiddlegameWMatchesView.initState();
-        firstUniqueIdByUserWMiddlegameWMatchesView.build();
         break;
       case EnumDataForThreeStagesOfTheMatchView.firstUniqueIdByUserWEndgameWMatches:
-        // TODO: Handle this case.
+        final firstUniqueIdByUserWEndgameWMatchesView = FirstUniqueIdByUserWEndgameWMatchesView(
+            dataForNamedParameterNamedStreamWState.matches.getClone,
+            dataForNamedParameterNamedStreamWState.statsWFirstUser.getClone,
+            dataForNamedParameterNamedStreamWState.statsWSecondUser.getClone);
+        firstUniqueIdByUserWEndgameWMatchesView.initState();
+        break;
       case EnumDataForThreeStagesOfTheMatchView.secondUniqueIdByUserWDebutWMatches:
         break;
       case EnumDataForThreeStagesOfTheMatchView.secondUniqueIdByUserWMiddlegameWMatches:
@@ -719,7 +2327,7 @@ final class ThreeStagesOfTheMatchView {
         });
     _threeStagesOfTheMatchViewModel.listeningStreamsTempCacheService();
     final result = await _threeStagesOfTheMatchViewModel.init();
-    debugPrint("MainView: $result");
+    debugPrint("ThreeStagesOfTheMatchView: $result");
     _threeStagesOfTheMatchViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }
@@ -875,18 +2483,18 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .debutWMatches
         .isWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance();
     if(isWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance) {
-      _firstQQMyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(index,matches);
+      _firstQQMyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(matches);
       return;
     }
     final isWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance = matches
         .debutWMatches
         .isWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance();
     if(isWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance) {
-      _firstQQMyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(index,matches);
+      _firstQQMyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(matches);
       return;
     }
     final matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine(index,false,EnumStageNamed.banManiac);
+        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine(false,EnumStageNamed.banManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
   }
@@ -896,7 +2504,7 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     matches
         .insertPickManiacWMatchesFromIndexParametersDebutWMatchesAndFirstUniqueIdByUser(index);
     final matchesWhereNewAndFirstUniqueIdByUserTurnsPickManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsPickManiacFromThreeParametersNine(index,false,EnumStageNamed.bansMapsToPickedManiac);
+        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsPickManiacFromThreeParametersNine(false,EnumStageNamed.bansMapsToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsPickManiacFromThreeParametersNine);
   }
@@ -909,11 +2517,11 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .debutWMatches
         .isWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne();
     if(isWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne) {
-      _firstQQMyTurnsBansMapsToPickedManiacQQIsWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne(index,matches);
+      _firstQQMyTurnsBansMapsToPickedManiacQQIsWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne(matches);
       return;
     }
     final matchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(index,false,EnumStageNamed.bansMapsToPickedManiac);
+        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(false,EnumStageNamed.bansMapsToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine);
   }
@@ -970,11 +2578,11 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     final isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo = matches
         .isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo();
     if(isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo) {
-      _firstQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(index,matches);
+      _firstQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(matches);
       return;
     }
     final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(index,true,EnumStageNamed.pickManiacPerkToPickedManiac);
+        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.pickManiacPerkToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
@@ -985,11 +2593,11 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     final isWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo = matches
         .isWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo();
     if(isWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo) {
-      _firstQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(index,matches);
+      _firstQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(matches);
       return;
     }
     final matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(index,true,EnumStageNamed.pickSurvivorPerkToPickedManiac);
+        .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.pickSurvivorPerkToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
@@ -1066,8 +2674,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickSurvivorPerkToPickedManiacFromOneParametersNine);
   }
 
-  Future<void> enemyTurnsBanManiac(int index) async {
-    await Future.delayed(Duration(seconds: 1));
+  Future<void> enemyTurnsBanManiac(int index)  async {
+    await Future.delayed(const Duration(seconds: 1));
     final matches = getDataForNamedParameterNamedStreamWState.matches;
     matches
         .insertBanManiacWMatchesFromIndexParametersDebutWMatchesAndSecondUniqueIdByUser(index);
@@ -1075,18 +2683,18 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .debutWMatches
         .isWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance();
     if(isWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance) {
-      _firstQQEnemyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(index,matches);
+      _firstQQEnemyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(matches);
       return;
     }
     final isWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance = matches
         .debutWMatches
         .isWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance();
     if(isWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance) {
-      _firstQQEnemyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(index,matches);
+      _firstQQEnemyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(matches);
       return;
     }
     final matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine(index,true,EnumStageNamed.banManiac);
+        .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine(true,EnumStageNamed.banManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
   }
@@ -1097,7 +2705,7 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     matches
         .insertPickManiacWMatchesFromIndexParametersDebutWMatchesAndSecondUniqueIdByUser(index);
     final matchesWhereNewAndSecondUniqueIdByUserTurnsPickManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUniqueIdByUserTurnsPickManiacFromThreeParametersNine(index,true,EnumStageNamed.bansMapsToPickedManiac);
+        .getMatchesWhereNewAndSecondUniqueIdByUserTurnsPickManiacFromThreeParametersNine(true,EnumStageNamed.bansMapsToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsPickManiacFromThreeParametersNine);
   }
@@ -1111,11 +2719,11 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .debutWMatches
         .isWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne();
     if(isWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne) {
-      _firstQQEnemyTurnsBansMapsToPickedManiacQQIsWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne(index,matches);
+      _firstQQEnemyTurnsBansMapsToPickedManiacQQIsWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne(matches);
       return;
     }
     final matchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(index,true,EnumStageNamed.bansMapsToPickedManiac);
+        .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(true,EnumStageNamed.bansMapsToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine);
   }
@@ -1128,11 +2736,11 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     final isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST = matches
         .isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST();
     if(isWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST) {
-      _firstQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(index,matches);
+      _firstQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(matches);
       return;
     }
     final matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(index,false,EnumStageNamed.pickManiacPerkToPickedManiac);
+        .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.pickManiacPerkToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
@@ -1145,11 +2753,11 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     final isWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST = matches
         .isWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST();
     if(isWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST) {
-      _firstQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(index,matches);
+      _firstQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(matches);
       return;
     }
     final matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(index,false,EnumStageNamed.pickSurvivorPerkToPickedManiac);
+        .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.pickSurvivorPerkToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
@@ -1165,23 +2773,23 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndTrueIsCompletedByDebutWMatchesParametersNine);
   }
 
-  void _firstQQMyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(int index,Matches matches) {
+  void _firstQQMyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(Matches matches) {
     final matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine(index,false,EnumStageNamed.pickManiac);
+        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine(false,EnumStageNamed.pickManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
   }
 
-  void _firstQQMyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(int index,Matches matches) {
+  void _firstQQMyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(Matches matches) {
     final matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine(index,false,EnumStageNamed.systemPickManiac);
+        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine(false,EnumStageNamed.systemPickManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
   }
 
-  void _firstQQMyTurnsBansMapsToPickedManiacQQIsWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne(int index,Matches matches) {
+  void _firstQQMyTurnsBansMapsToPickedManiacQQIsWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne(Matches matches) {
     final matchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(index,false,EnumStageNamed.systemPickMapsToPickedManiac);
+        .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(false,EnumStageNamed.systemPickMapsToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine);
   }
@@ -1244,11 +2852,11 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
   }
 
-  void _firstQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(int index,Matches matches) {
+  void _firstQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(Matches matches) {
     final isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST = matches
         .isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST();
     if(isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST) {
-      _firstBranchOneQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(index,matches);
+      _firstBranchOneQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(matches);
       return;
     }
     final isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance = matches
@@ -1256,114 +2864,114 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
         .isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance();
     if(isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance) {
-      _firstBranchTwoQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(index,matches);
+      _firstBranchTwoQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(matches);
       return;
     }
     final isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST = matches
         .isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST();
     if(isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST) {
-      _firstBranchThreeQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(index,matches);
+      _firstBranchThreeQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(matches);
       return;
     }
     final isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance = matches
         .debutWMatches
         .isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance();
     if(isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance) {
-      _firstBranchFourQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(index,matches);
+      _firstBranchFourQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(matches);
       return;
     }
     final isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance = matches
         .debutWMatches
         .isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance();
     if(isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance) {
-      _firstBranchFiveQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(index,matches);
+      _firstBranchFiveQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(matches);
       return;
     }
     final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(index,false,EnumStageNamed.pickManiac);
+        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.pickManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchOneQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(int index,Matches matches) {
+  void _firstBranchOneQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(index,false,EnumStageNamed.pickManiacPerkToPickedManiac);
+        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.pickManiacPerkToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchTwoQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(int index, Matches matches) {
+  void _firstBranchTwoQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(index,false,EnumStageNamed.systemPickSurvivorPerkToPickedManiac);
+        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.systemPickSurvivorPerkToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchThreeQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(int index, Matches matches) {
+  void _firstBranchThreeQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(index,false,EnumStageNamed.pickSurvivorPerkToPickedManiac);
+        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.pickSurvivorPerkToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchFourQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(int index, Matches matches) {
+  void _firstBranchFourQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(index,false,EnumStageNamed.banManiac);
+        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.banManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchFiveQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(int index, Matches matches) {
+  void _firstBranchFiveQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(index,false,EnumStageNamed.isCompleted);
+        .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.isCompleted);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(int index, Matches matches) {
+  void _firstQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(Matches matches) {
     final isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST = matches
         .isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST();
     if(isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST) {
-      _firstBranchOneQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(index,matches);
+      _firstBranchOneQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(matches);
       return;
     }
     final isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance = matches
         .debutWMatches
         .isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance();
     if(isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance) {
-      _firstBranchTwoQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(index,matches);
+      _firstBranchTwoQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(matches);
       return;
     }
     final isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance = matches
         .debutWMatches
         .isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance();
     if(isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance) {
-      _firstBranchThreeQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(index,matches);
+      _firstBranchThreeQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(matches);
       return;
     }
     final matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(index,false,EnumStageNamed.pickManiac);
+        .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.pickManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchOneQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(int index, Matches matches) {
+  void _firstBranchOneQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(index,false,EnumStageNamed.pickSurvivorPerkToPickedManiac);
+        .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.pickSurvivorPerkToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchTwoQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(int index, Matches matches) {
+  void _firstBranchTwoQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(index,false,EnumStageNamed.banManiac);
+        .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.banManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchThreeQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(int index, Matches matches) {
+  void _firstBranchThreeQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(index,false,EnumStageNamed.isCompleted);
+        .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.isCompleted);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
@@ -1418,32 +3026,32 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickSurvivorPerkToPickedManiacFromOneParametersNine);
   }
 
-  void _firstQQEnemyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(int index,Matches matches) {
+  void _firstQQEnemyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(Matches matches) {
     final matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine(index,true,EnumStageNamed.pickManiac);
+        .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine(true,EnumStageNamed.pickManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
   }
 
-  void _firstQQEnemyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(int index,Matches matches) {
+  void _firstQQEnemyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(Matches matches) {
     final matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine(index,true,EnumStageNamed.systemPickManiac);
+        .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine(true,EnumStageNamed.systemPickManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
   }
 
-  void _firstQQEnemyTurnsBansMapsToPickedManiacQQIsWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne(int index, Matches matches) {
+  void _firstQQEnemyTurnsBansMapsToPickedManiacQQIsWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne(Matches matches) {
     final matchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(index,true,EnumStageNamed.systemPickMapsToPickedManiac);
+        .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(true,EnumStageNamed.systemPickMapsToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(int index, Matches matches) {
+  void _firstQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(Matches matches) {
     final isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkParametersTwo = matches
         .isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkParametersTwo();
     if(isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkParametersTwo) {
-      _firstBranchOneQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(index,matches);
+      _firstBranchOneQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(matches);
       return;
     }
     final isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance = matches
@@ -1451,114 +3059,114 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
         .isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance();
     if(isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance) {
-      _firstBranchTwoQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(index,matches);
+      _firstBranchTwoQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(matches);
       return;
     }
     final isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwo = matches
         .isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwo();
     if(isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwo) {
-      _firstBranchThreeQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(index,matches);
+      _firstBranchThreeQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(matches);
       return;
     }
     final isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance = matches
         .debutWMatches
         .isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance();
     if(isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance) {
-      _firstBranchFourQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(index,matches);
+      _firstBranchFourQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(matches);
       return;
     }
     final isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance = matches
         .debutWMatches
         .isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance();
     if(isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance) {
-      _firstBranchFiveQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(index,matches);
+      _firstBranchFiveQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(matches);
       return;
     }
     final matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(index,true,EnumStageNamed.pickManiac);
+        .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.pickManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchOneQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(int index, Matches matches) {
+  void _firstBranchOneQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(index,true,EnumStageNamed.pickManiacPerkToPickedManiac);
+        .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.pickManiacPerkToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchTwoQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(int index, Matches matches) {
+  void _firstBranchTwoQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(index,true,EnumStageNamed.systemPickSurvivorPerkToPickedManiac);
+        .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.systemPickSurvivorPerkToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchThreeQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(int index, Matches matches) {
+  void _firstBranchThreeQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(index,true,EnumStageNamed.pickSurvivorPerkToPickedManiac);
+        .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.pickSurvivorPerkToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchFourQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(int index, Matches matches) {
+  void _firstBranchFourQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(index,true,EnumStageNamed.banManiac);
+        .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.banManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchFiveQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(int index, Matches matches) {
+  void _firstBranchFiveQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(index,true,EnumStageNamed.isCompleted);
+        .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.isCompleted);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(int index, Matches matches) {
+  void _firstQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(Matches matches) {
     final isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwo = matches
         .isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwo();
     if(isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkParametersTwo) {
-      _firstBranchOneQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(index,matches);
+      _firstBranchOneQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(matches);
       return;
     }
     final isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance = matches
         .debutWMatches
         .isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance();
     if(isWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance) {
-      _firstBranchTwoQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(index,matches);
+      _firstBranchTwoQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(matches);
       return;
     }
     final isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance = matches
         .debutWMatches
         .isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance();
     if(isWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance) {
-      _firstBranchThreeQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(index,matches);
+      _firstBranchThreeQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(matches);
       return;
     }
     final matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(index,true,EnumStageNamed.pickManiac);
+        .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.pickManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchOneQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(int index, Matches matches) {
+  void _firstBranchOneQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(index,true,EnumStageNamed.pickSurvivorPerkToPickedManiac);
+        .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.pickSurvivorPerkToPickedManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchTwoQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(int index, Matches matches) {
+  void _firstBranchTwoQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(index,true,EnumStageNamed.banManiac);
+        .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.banManiac);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
-  void _firstBranchThreeQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(int index, Matches matches) {
+  void _firstBranchThreeQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
-        .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(index,true,EnumStageNamed.isCompleted);
+        .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.isCompleted);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
@@ -1675,6 +3283,7 @@ final class FirstUniqueIdByUserWDebutWMatchesView {
         debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("LastItemPickManiacWMatches: ${matches.debutWMatches.listPickManiacWMatches.listModel.last}");
         debugPrint("ListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatches: ${matches.getListSurvivorPerkWMatchBalanceWhereNotPickedAndLastItemPickManiacWMatchesParametersTwo}");
+        debugPrint("You turns pick survivor perk to picked maniac (index): ");
         final input = stdin.readLineSync();
         final parse = int.parse(input ?? "0");
         _firstUniqueIdByUserWDebutWMatchesViewModel.myTurnsPickSurvivorPerkToPickedManiac(parse);
@@ -1846,6 +3455,13 @@ final class DataForFirstUniqueIdByUserWMiddlegameWMatchesView extends BaseDataFo
     if(matches
         .middlegameWMatches
         .listRoundWMatches
+        .isWhereFinishedListRoundWMatchesMoreThanUnfinishedListRoundWMatchesAndWereWonByOneUser())
+    {
+      return EnumDataForFirstUniqueIdByUserWMiddlegameWMatchesView.isCompleted;
+    }
+    if(matches
+        .middlegameWMatches
+        .listRoundWMatches
         .getUnfinishedListRoundWMatchesParameterListModel
         .first
         .isWhereTrueAndFalseAndNotEqualsNextRoundParametersThree())
@@ -1916,8 +3532,8 @@ enum EnumDataForFirstUniqueIdByUserWMiddlegameWMatchesView {
 
 final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedViewModel<DataForFirstUniqueIdByUserWMiddlegameWMatchesView,DefaultStreamWState<DataForFirstUniqueIdByUserWMiddlegameWMatchesView>> {
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
-  final _getEEIntsEEWhereElapsedTimeInMillisecondsEEParameterTempCacheService =
-  GetEEIntsEEWhereElapsedTimeInMillisecondsEEParameterTempCacheService();
+  final _getEEIntsEEWhereElapsedTimeInMillisecondsByTimerUtilityEEParameterTempCacheService =
+  GetEEIntsEEWhereElapsedTimeInMillisecondsByTimerUtilityEEParameterTempCacheService();
   final _updateEEBoolsEEWhereIsStopTimerEEFromBoolsEEParameterTempCacheService =
   UpdateEEBoolsEEWhereIsStopTimerEEFromBoolsEEParameterTempCacheService();
   final _updateEEStatsEEWhereFirstUserEEFromStatsEEParameterTempCacheService =
@@ -1995,22 +3611,22 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
   void myManiacWSurvivorWMyClickStopTimer() {
     _updateEEBoolsEEWhereIsStopTimerEEFromBoolsEEParameterTempCacheService
         .updateBoolsWhereIsStopTimerFromBoolsParameterTempCacheService(Bools(true));
-    final getIntsWhereElapsedTimeInMillisecondsParameterTempCacheService = _getEEIntsEEWhereElapsedTimeInMillisecondsEEParameterTempCacheService
-        .getIntsWhereElapsedTimeInMillisecondsParameterTempCacheService();
-    if(getIntsWhereElapsedTimeInMillisecondsParameterTempCacheService
+    final getIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService = _getEEIntsEEWhereElapsedTimeInMillisecondsByTimerUtilityEEParameterTempCacheService
+        .getIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService();
+    if(getIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQMyManiacWSurvivorWMyClickStopTimerQQGetIntsWhereElapsedTimeInMillisecondsParameterTempCacheService(getIntsWhereElapsedTimeInMillisecondsParameterTempCacheService.exceptionController);
+      _firstQQMyManiacWSurvivorWMyClickStopTimerQQGetIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService(getIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService.exceptionController);
       return;
     }
     final matches = getDataForNamedParameterNamedStreamWState.matches;
     matches
         .middlegameWMatches
         .listRoundWMatches
-        .updateWhereSwapRoleManiacWFalseStartTimerWUniqueIdByUserFromOneParameterListModel(getIntsWhereElapsedTimeInMillisecondsParameterTempCacheService.parameter?.field ?? 0);
+        .updateWhereSwapRoleManiacWFalseStartTimerWUniqueIdByUserFromOneParameterListModel(getIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService.parameter?.field ?? 0);
     final matchesWhereNewAndMyManiacWSurvivorWMyClickStopTimerFromOneParametersNine = matches
-        .getMatchesWhereNewAndMyManiacWSurvivorWMyClickStopTimerFromOneParametersNine(getIntsWhereElapsedTimeInMillisecondsParameterTempCacheService.parameter?.field ?? 0);
+        .getMatchesWhereNewAndMyManiacWSurvivorWMyClickStopTimerFromOneParametersNine(getIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService.parameter?.field ?? 0);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndMyManiacWSurvivorWMyClickStopTimerFromOneParametersNine);
   }
@@ -2048,16 +3664,37 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
     final matches = getDataForNamedParameterNamedStreamWState.matches;
     final statsWFirstUser = getDataForNamedParameterNamedStreamWState.statsWFirstUser;
     final statsWSecondUser = getDataForNamedParameterNamedStreamWState.statsWSecondUser;
+    final newStatsWFirstUniqueIdByUserWhereThereIsEloFromTwo = matches
+        .middlegameWMatches
+        .listRoundWMatches
+        .getNewStatsWFirstUniqueIdByUserWhereThereIsEloFromTwo(statsWFirstUser.ratingPoints,statsWSecondUser.ratingPoints);
+    final newStatsWSecondUniqueIdByUserWhereThereIsEloFromTwo = matches
+        .middlegameWMatches
+        .listRoundWMatches
+        .getNewStatsWSecondUniqueIdByUserWhereThereIsEloFromTwo(statsWFirstUser.ratingPoints,statsWSecondUser.ratingPoints);
+    final isWhereWinMatchWFirstUniqueIdByUser = matches
+        .middlegameWMatches
+        .listRoundWMatches
+        .isWhereWinMatchWFirstUniqueIdByUser();
+    if(isWhereWinMatchWFirstUniqueIdByUser) {
+      _firstQQCompletedQQIsWhereWinMatchWFirstUniqueIdByUser(matches,statsWFirstUser,statsWSecondUser,newStatsWFirstUniqueIdByUserWhereThereIsEloFromTwo,newStatsWSecondUniqueIdByUserWhereThereIsEloFromTwo);
+      return;
+    }
+    final statsWhereNewAndLostMatchFromOneParametersFour = statsWFirstUser
+        .getStatsWhereNewAndLostMatchFromOneParametersFour(newStatsWFirstUniqueIdByUserWhereThereIsEloFromTwo);
+    final statsWhereNewAndWinMatchFromOneParametersFour = statsWSecondUser
+        .getStatsWhereNewAndWinMatchFromOneParametersFour(newStatsWSecondUniqueIdByUserWhereThereIsEloFromTwo);
     final matchesWhereNewAndIsCompletedByMiddlegameWMatchesFromTwoParametersNine = matches
         .getMatchesWhereNewAndIsCompletedByMiddlegameWMatchesFromTwoParametersNine(statsWFirstUser.ratingPoints,statsWSecondUser.ratingPoints);
-    // TODO: Update FIRST/SECOND STATS AND ADD IF TO LISTENING MATCHES TO ThreeStagesMatchViewModel
     _updateEEStatsEEWhereFirstUserEEFromStatsEEParameterTempCacheService
-        .updateStatsWhereFirstUserFromStatsParameterTempCacheService(stats);
+        .updateStatsWhereFirstUserFromStatsParameterTempCacheService(statsWhereNewAndLostMatchFromOneParametersFour);
+    _updateEEStatsEEWhereSecondUserEEFromStatsEEParameterTempCacheService
+        .updateStatsWhereSecondUserFromStatsParameterTempCacheService(statsWhereNewAndWinMatchFromOneParametersFour);
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndIsCompletedByMiddlegameWMatchesFromTwoParametersNine);
   }
 
-  void _firstQQMyManiacWSurvivorWMyClickStopTimerQQGetIntsWhereElapsedTimeInMillisecondsParameterTempCacheService(ExceptionController exceptionController) {
+  void _firstQQMyManiacWSurvivorWMyClickStopTimerQQGetIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService(ExceptionController exceptionController) {
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
@@ -2090,6 +3727,21 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
     _updateEEMatchesEEFromMatchesEEParameterTempCacheService
         .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine);
   }
+
+  void _firstQQCompletedQQIsWhereWinMatchWFirstUniqueIdByUser(Matches matches,Stats statsWFirstUser, Stats statsWSecondUser, int newStatsWFirstUniqueIdByUserWhereThereIsEloFromTwo, int newStatsWSecondUniqueIdByUserWhereThereIsEloFromTwo) {
+    final statsWhereNewAndWinMatchFromOneParametersFour = statsWFirstUser
+        .getStatsWhereNewAndWinMatchFromOneParametersFour(newStatsWFirstUniqueIdByUserWhereThereIsEloFromTwo);
+    final statsWhereNewAndLostMatchFromOneParametersFour = statsWSecondUser
+        .getStatsWhereNewAndLostMatchFromOneParametersFour(newStatsWSecondUniqueIdByUserWhereThereIsEloFromTwo);
+    final matchesWhereNewAndIsCompletedByMiddlegameWMatchesFromTwoParametersNine = matches
+        .getMatchesWhereNewAndIsCompletedByMiddlegameWMatchesFromTwoParametersNine(statsWFirstUser.ratingPoints,statsWSecondUser.ratingPoints);
+    _updateEEStatsEEWhereFirstUserEEFromStatsEEParameterTempCacheService
+        .updateStatsWhereFirstUserFromStatsParameterTempCacheService(statsWhereNewAndWinMatchFromOneParametersFour);
+    _updateEEStatsEEWhereSecondUserEEFromStatsEEParameterTempCacheService
+        .updateStatsWhereSecondUserFromStatsParameterTempCacheService(statsWhereNewAndLostMatchFromOneParametersFour);
+    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
+        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndIsCompletedByMiddlegameWMatchesFromTwoParametersNine);
+  }
 }
 
 final class FirstUniqueIdByUserWMiddlegameWMatchesView {
@@ -2120,13 +3772,6 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesView {
         debugPrint("Build: Exception(${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException})");
         break;
       case EnumDataForFirstUniqueIdByUserWMiddlegameWMatchesView.isCompleted:
-        final matches = dataForNamedParameterNamedStreamWState.matches;
-        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
-        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
-        debugPrint(matches.getFormattedParameterTextLogAction);
-        debugPrint("StatsWFirstUser: $statsWFirstUser");
-        debugPrint("StatsWSecondUser: $statsWSecondUser");
-        debugPrint("ListRoundWMatches: ${matches.middlegameWMatches.listRoundWMatches.listModel}");
         debugPrint("Preparation, please wait");
         /// THIS CODE IS EXECUTED ONLY BY THE FIRST USER
         _firstUniqueIdByUserWMiddlegameWMatchesViewModel.completed();
@@ -2160,7 +3805,7 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesView {
         debugPrint("StatsWSecondUser: $statsWSecondUser");
         debugPrint("ListRoundWMatches: ${matches.middlegameWMatches.listRoundWMatches.listModel}");
         debugPrint("Round: ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.round}");
-        debugPrint("Who's the maniac ?: User '${matches.secondUsernameByModel}'");
+        debugPrint("Who's the maniac ?: '${matches.secondUsernameByModel}'");
         debugPrint("Chase Time (You): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWFirstUniqueIdByUser}");
         debugPrint("Chase Time (${matches.secondUsernameByModel}): ${matches.middlegameWMatches.listRoundWMatches.getUnfinishedListRoundWMatchesParameterListModel.first.numberOfMilliSecondsTheSurvivorRanWSecondUniqueIdByUser}");
         debugPrint("Start timer (Input 'yes'): ");
@@ -2203,9 +3848,10 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesView {
         _firstUniqueIdByUserWMiddlegameWMatchesViewModel.mySurvivorWEnemyTurnsClickStartTimer();
         break;
       case EnumDataForFirstUniqueIdByUserWMiddlegameWMatchesView.myManiacWSurvivorWMyClickStopTimer:
-        final timerView = TimerView();
-        timerView.initState();
-        timerView.build();
+        /// This code does not work in the console in the application, but will work in the UI
+        // final timerView = TimerView();
+        // timerView.initState();
+        SimulationTimerView();
         final matches = dataForNamedParameterNamedStreamWState.matches;
         final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
         final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
@@ -2258,6 +3904,110 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesView {
   }
 }
 
+final class DataForFirstUniqueIdByUserWEndgameWMatchesView extends BaseDataForNamed<EnumDataForFirstUniqueIdByUserWEndgameWMatchesView> {
+  Matches matches;
+  Stats statsWFirstUser;
+  Stats statsWSecondUser;
+
+  DataForFirstUniqueIdByUserWEndgameWMatchesView(super.isLoading,this.matches,this.statsWFirstUser,this.statsWSecondUser);
+
+  @override
+  EnumDataForFirstUniqueIdByUserWEndgameWMatchesView get getEnumDataForNamed {
+    if(isLoading) {
+      return EnumDataForFirstUniqueIdByUserWEndgameWMatchesView.isLoading;
+    }
+    if(exceptionController.isWhereNotEqualsNullParameterException()) {
+      return EnumDataForFirstUniqueIdByUserWEndgameWMatchesView.exception;
+    }
+    return EnumDataForFirstUniqueIdByUserWEndgameWMatchesView.success;
+  }
+}
+
+enum EnumDataForFirstUniqueIdByUserWEndgameWMatchesView {
+  isLoading,
+  exception,
+  success
+}
+
+final class FirstUniqueIdByUserWEndgameWMatchesViewModel extends BaseNamedViewModel<DataForFirstUniqueIdByUserWEndgameWMatchesView,DefaultStreamWState<DataForFirstUniqueIdByUserWEndgameWMatchesView>> {
+  FirstUniqueIdByUserWEndgameWMatchesViewModel(Matches matches, Stats statsWFirstUser, Stats statsWSecondUser) : super(DefaultStreamWState(DataForFirstUniqueIdByUserWEndgameWMatchesView(
+      true,
+      matches,
+      statsWFirstUser,
+      statsWSecondUser)));
+
+  @override
+  Future<String> init() async {
+    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    return KeysSuccessUtility.sUCCESS;
+  }
+}
+
+final class FirstUniqueIdByUserWEndgameWMatchesView {
+  final FirstUniqueIdByUserWEndgameWMatchesViewModel _firstUniqueIdByUserWEndgameWMatchesViewModel;
+
+  FirstUniqueIdByUserWEndgameWMatchesView(Matches matches, Stats statsWFirstUser, Stats statsWSecondUser)
+      : _firstUniqueIdByUserWEndgameWMatchesViewModel = FirstUniqueIdByUserWEndgameWMatchesViewModel(matches,statsWFirstUser,statsWSecondUser);
+
+  // Override
+  void initState() {
+    _initParameterFirstUniqueIdByUserWEndgameWMatchesViewModel();
+  }
+
+  // Override
+  void dispose() {
+    _firstUniqueIdByUserWEndgameWMatchesViewModel.dispose();
+  }
+
+  // Override
+  void build() {
+    final dataForNamedParameterNamedStreamWState = _firstUniqueIdByUserWEndgameWMatchesViewModel
+        .getDataForNamedParameterNamedStreamWState;
+    switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
+      case EnumDataForFirstUniqueIdByUserWEndgameWMatchesView.isLoading:
+        debugPrint("Build: IsLoading");
+        break;
+      case EnumDataForFirstUniqueIdByUserWEndgameWMatchesView.exception:
+        debugPrint("Build: Exception(${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException})");
+        break;
+      case EnumDataForFirstUniqueIdByUserWEndgameWMatchesView.success:
+        final matches = dataForNamedParameterNamedStreamWState.matches;
+        final statsWFirstUser = dataForNamedParameterNamedStreamWState.statsWFirstUser;
+        final statsWSecondUser = dataForNamedParameterNamedStreamWState.statsWSecondUser;
+        debugPrint(matches.getFormattedParameterTextLogAction);
+        debugPrint("StatsWFirstUser: $statsWFirstUser");
+        debugPrint("StatsWSecondUser: $statsWSecondUser");
+        debugPrint("ListRoundWMatches: ${matches.middlegameWMatches.listRoundWMatches.listModel}");
+        debugPrint("Won Match: ${matches.getStringWhoWinMatchWhereDetailsParametersFive}");
+        debugPrint("Score: ${matches.getStringWhereMatchScoreParametersThree}");
+        debugPrint("ResultRatingPointsWFirstUniqueIdByUser: ${matches.endgameWMatches.resultRatingPointsWFirstUniqueIdByUser}");
+        debugPrint("ResultRatingPointsWSecondUniqueIdByUser: ${matches.endgameWMatches.resultRatingPointsWSecondUniqueIdByUser}");
+        break;
+      default:
+        break;
+    }
+  }
+
+  Future<void> _initParameterFirstUniqueIdByUserWEndgameWMatchesViewModel() async {
+    _firstUniqueIdByUserWEndgameWMatchesViewModel
+        .getStreamDataForNamedParameterNamedStreamWState
+        .listen((event) {
+          build();
+        });
+    final result = await _firstUniqueIdByUserWEndgameWMatchesViewModel.init();
+    debugPrint("FirstUniqueIdByUserWEndgameWMatchesView: $result");
+    _firstUniqueIdByUserWEndgameWMatchesViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+}
+
+/// This code will only be in the console application
+final class SimulationTimerView {
+  SimulationTimerView() {
+    UpdateEEIntsEEWhereElapsedTimeInMillisecondsByTimerUtilityEEFromIntsEEParameterTempCacheService()
+        .updateIntsWhereElapsedTimeInMillisecondsByTimerUtilityFromIntsParameterTempCacheService(Ints(AlgorithmsUtility.getIntWhereRandomNumbers));
+  }
+}
+
 final class DataForTimerView extends BaseDataForNamed<EnumDataForTimerView> {
   String formattedElapsedTimeInMilliseconds;
 
@@ -2283,8 +4033,8 @@ enum EnumDataForTimerView {
 
 final class TimerViewModel extends BaseNamedViewModel<DataForTimerView,DefaultStreamWState<DataForTimerView>> {
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
-  final _updateEEIntsEEWhereElapsedTimeInMillisecondsEEFromIntsEEParameterTempCacheService =
-  UpdateEEIntsEEWhereElapsedTimeInMillisecondsEEFromIntsEEParameterTempCacheService();
+  final _updateEEIntsEEWhereElapsedTimeInMillisecondsByTimerUtilityEEFromIntsEEParameterTempCacheService =
+  UpdateEEIntsEEWhereElapsedTimeInMillisecondsByTimerUtilityEEFromIntsEEParameterTempCacheService();
   final _startListeningAndCancelListeningEEBoolsEEWhereIsStopTimerEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription =
   StartListeningAndCancelListeningEEBoolsEEWhereIsStopTimerEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription();
 
@@ -2320,8 +4070,8 @@ final class TimerViewModel extends BaseNamedViewModel<DataForTimerView,DefaultSt
 
   void startTimerToTimerUtility() {
     _timerUtility.startTimerFromCallbackParametersTwo((int elapsedTimeInMilliseconds, String formattedElapsedTimeInMilliseconds) {
-      _updateEEIntsEEWhereElapsedTimeInMillisecondsEEFromIntsEEParameterTempCacheService
-          .updateIntsWhereElapsedTimeInMillisecondsFromIntsParameterTempCacheService(Ints(elapsedTimeInMilliseconds));
+      _updateEEIntsEEWhereElapsedTimeInMillisecondsByTimerUtilityEEFromIntsEEParameterTempCacheService
+          .updateIntsWhereElapsedTimeInMillisecondsByTimerUtilityFromIntsParameterTempCacheService(Ints(elapsedTimeInMilliseconds));
       getDataForNamedParameterNamedStreamWState
           .formattedElapsedTimeInMilliseconds = formattedElapsedTimeInMilliseconds;
       notifyStreamDataForNamedParameterNamedStreamWState();
@@ -2371,7 +4121,6 @@ final class TimerView {
     _timerViewModel.listeningStreamsTempCacheService();
     final result = await _timerViewModel.init();
     debugPrint("TimerView: $result");
-    _timerViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
     _timerViewModel.startTimerToTimerUtility();
   }
 }

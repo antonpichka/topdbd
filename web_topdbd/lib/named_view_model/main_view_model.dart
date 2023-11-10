@@ -49,7 +49,7 @@ final class MainViewModel extends BaseNamedViewModel<DataForMainView,DefaultStre
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQListeningStreamsFirebaseFirestoreServiceQQGetStringsWhereUniqueIdByUserParameterTempCacheService(getStringsWhereUniqueIdByUserParameterTempCacheService);
+      _firstQQListeningStreamsFirebaseFirestoreServiceQQGetStringsWhereUniqueIdByUserParameterTempCacheService(getStringsWhereUniqueIdByUserParameterTempCacheService.exceptionController);
       return;
     }
     await _startListeningAndCancelListeningEEVerifiedUserEEFromUniqueIdByUserAndCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription
@@ -59,7 +59,7 @@ final class MainViewModel extends BaseNamedViewModel<DataForMainView,DefaultStre
           .exceptionController
           .isWhereNotEqualsNullParameterException())
       {
-        _firstQQListeningStreamsFirebaseFirestoreServiceQQStartListeningVerifiedUserFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(resultVerifiedUser);
+        _firstQQListeningStreamsFirebaseFirestoreServiceQQStartListeningVerifiedUserFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(resultVerifiedUser.exceptionController);
         return;
       }
       final getExceptionInStringWhereUsingIsWNotVerifiedUserWIsVerifiedUser = resultVerifiedUser
@@ -78,7 +78,7 @@ final class MainViewModel extends BaseNamedViewModel<DataForMainView,DefaultStre
           .exceptionController
           .isWhereNotEqualsNullParameterException())
       {
-        _firstQQListeningStreamsFirebaseFirestoreServiceQQStartListeningIPAddressFirestoreFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(resultIPAddressFirestore);
+        _firstQQListeningStreamsFirebaseFirestoreServiceQQStartListeningIPAddressFirestoreFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(resultIPAddressFirestore.exceptionController);
         return;
       }
       final getStringsWhereIpByIPAddressParameterTempCacheService = _getEEStringsEEWhereIpByIPAddressEEParameterTempCacheService
@@ -87,7 +87,7 @@ final class MainViewModel extends BaseNamedViewModel<DataForMainView,DefaultStre
           .exceptionController
           .isWhereNotEqualsNullParameterException())
       {
-        _firstQQListeningStreamsFirebaseFirestoreServiceQQGetStringsWhereIpByIPAddressParameterTempCacheService(getStringsWhereIpByIPAddressParameterTempCacheService);
+        _firstQQListeningStreamsFirebaseFirestoreServiceQQGetStringsWhereIpByIPAddressParameterTempCacheService(getStringsWhereIpByIPAddressParameterTempCacheService.exceptionController);
         return;
       }
       final getExceptionInStringWhereNotEqualsFromIpParameterIp = resultIPAddressFirestore
@@ -108,23 +108,23 @@ final class MainViewModel extends BaseNamedViewModel<DataForMainView,DefaultStre
     return KeysSuccessUtility.sUCCESS;
   }
 
-  void _firstQQListeningStreamsFirebaseFirestoreServiceQQGetStringsWhereUniqueIdByUserParameterTempCacheService(Result<Strings> getStringsWhereUniqueIdByUserParameterTempCacheService) {
-    getDataForNamedParameterNamedStreamWState.exceptionController = getStringsWhereUniqueIdByUserParameterTempCacheService.exceptionController;
+  void _firstQQListeningStreamsFirebaseFirestoreServiceQQGetStringsWhereUniqueIdByUserParameterTempCacheService(ExceptionController exceptionController) {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
-  void _firstQQListeningStreamsFirebaseFirestoreServiceQQStartListeningVerifiedUserFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(Result<VerifiedUser> resultVerifiedUser) {
-    getDataForNamedParameterNamedStreamWState.exceptionController = resultVerifiedUser.exceptionController;
+  void _firstQQListeningStreamsFirebaseFirestoreServiceQQStartListeningVerifiedUserFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(ExceptionController exceptionController) {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
-  void _firstQQListeningStreamsFirebaseFirestoreServiceQQStartListeningIPAddressFirestoreFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(Result<IPAddressFirestore> resultIPAddressFirestore) {
-    getDataForNamedParameterNamedStreamWState.exceptionController = resultIPAddressFirestore.exceptionController;
+  void _firstQQListeningStreamsFirebaseFirestoreServiceQQStartListeningIPAddressFirestoreFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(ExceptionController exceptionController) {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
-  void _firstQQListeningStreamsFirebaseFirestoreServiceQQGetStringsWhereIpByIPAddressParameterTempCacheService(Result<Strings> getStringsWhereIpByIPAddressParameterTempCacheService) {
-    getDataForNamedParameterNamedStreamWState.exceptionController = getStringsWhereIpByIPAddressParameterTempCacheService.exceptionController;
+  void _firstQQListeningStreamsFirebaseFirestoreServiceQQGetStringsWhereIpByIPAddressParameterTempCacheService(ExceptionController exceptionController) {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 

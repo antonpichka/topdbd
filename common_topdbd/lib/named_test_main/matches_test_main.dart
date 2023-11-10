@@ -2795,11 +2795,11 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
   }
 
   void _firstQQSystemPickMapsToPickedManiacQQIsNotEmpty(Matches matches) {
-    final isWhereNotEqualsParametersLengthPickManiacPerkAndListManiacPerkWMatchBalance =  matches
+    final isWhereNotEqualsParametersNecessaryLengthPickedManiacPerkAndListManiacPerkWMatchBalance =  matches
         .debutWMatches
         .getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
-        .isWhereNotEqualsParametersLengthPickManiacPerkAndListManiacPerkWMatchBalance();
-    if(isWhereNotEqualsParametersLengthPickManiacPerkAndListManiacPerkWMatchBalance) {
+        .isWhereNotEqualsParametersNecessaryLengthPickedManiacPerkAndListManiacPerkWMatchBalance();
+    if(isWhereNotEqualsParametersNecessaryLengthPickedManiacPerkAndListManiacPerkWMatchBalance) {
       _firstBranchOneQQSystemPickMapsToPickedManiacQQIsNotEmpty(matches);
       return;
     }
@@ -2817,11 +2817,11 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
   }
 
   void _firstQQSystemPickMapsToPickedManiacQQIsNotEmptyFIRST(Matches matches) {
-    final isWhereNotEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance =  matches
+    final isWhereNotEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance =  matches
         .debutWMatches
         .getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
-        .isWhereNotEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance();
-    if(isWhereNotEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance) {
+        .isWhereNotEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance();
+    if(isWhereNotEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance) {
       _firstBranchOneQQSystemPickMapsToPickedManiacQQIsNotEmptyFIRST(matches);
       return;
     }
@@ -2859,11 +2859,11 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
       _firstBranchOneQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(matches);
       return;
     }
-    final isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance = matches
+    final isWhereNotEmptyAndEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance = matches
         .debutWMatches
         .getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
-        .isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance();
-    if(isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance) {
+        .isWhereNotEmptyAndEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance();
+    if(isWhereNotEmptyAndEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance) {
       _firstBranchTwoQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(matches);
       return;
     }
@@ -2977,11 +2977,11 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
   }
 
   void _firstQQSystemPickManiacPerkToPickedManiacQQIsNotEmpty(Matches matches) {
-    final isWhereNotEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance = matches
+    final isWhereNotEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance = matches
         .debutWMatches
         .getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
-        .isWhereNotEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance();
-    if(isWhereNotEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance) {
+        .isWhereNotEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance();
+    if(isWhereNotEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance) {
       _firstBranchOneQQSystemPickManiacPerkToPickedManiacQQIsNotEmpty(matches);
       return;
     }
@@ -3054,11 +3054,11 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
       _firstBranchOneQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(matches);
       return;
     }
-    final isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance = matches
+    final isWhereNotEmptyAndEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance = matches
         .debutWMatches
         .getManiacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
-        .isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance();
-    if(isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance) {
+        .isWhereNotEmptyAndEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance();
+    if(isWhereNotEmptyAndEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance) {
       _firstBranchTwoQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(matches);
       return;
     }

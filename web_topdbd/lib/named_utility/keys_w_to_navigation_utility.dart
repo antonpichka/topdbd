@@ -1,9 +1,9 @@
 import 'package:meta/meta.dart';
 
 @immutable
-final class KeysParametersToNavigationUtility {
+final class KeysWToNavigationUtility {
   /* AppView */
   static const String appViewQId = "appViewQId";
 
-  const KeysParametersToNavigationUtility._();
+  const KeysWToNavigationUtility._();
 }

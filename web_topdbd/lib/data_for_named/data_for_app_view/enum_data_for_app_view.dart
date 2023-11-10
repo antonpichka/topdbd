@@ -1,9 +1,8 @@
 enum EnumDataForAppView {
+  isLoading,
   exception,
   otherException,
-  waitingInitStreams,
   thoseWorks,
-  isNotValidVersionTOPDBDVersionWeb,
   login,
   isNotVerifiedUser,
   isHacked,

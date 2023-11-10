@@ -5,8 +5,7 @@ import 'package:web_topdbd/data_for_named/data_for_app_view/enum_data_for_app_vi
 import 'package:web_topdbd/l10n/l10n.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
-import 'package:web_topdbd/named_utility/keys_parameters_to_navigation_utility.dart';
-import 'package:web_topdbd/named_view/exception_to_app_view.dart';
+import 'package:web_topdbd/named_utility/keys_w_to_navigation_utility.dart';
 import 'package:web_topdbd/named_view/login_view.dart';
 import 'package:web_topdbd/named_view/main_view.dart';
 import 'package:web_topdbd/named_view_model/app_view_model.dart';
@@ -70,7 +69,7 @@ final class _AppViewState extends State<AppView> {
     if(!mounted) {
       return;
     }
-    _appViewModel.notifyStreamDataForAppView();
+    _appViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   RouterConfig<Object> get _getRouterConfig {
@@ -189,7 +188,7 @@ final class _AppViewState extends State<AppView> {
         ]);
   }
 
-  MaterialPage _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(BuildContext context,GoRouterState state, [String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers, String id = KeysParametersToNavigationUtility.appViewQId]) {
+  MaterialPage _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(BuildContext context,GoRouterState state, [String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers, String id = KeysWToNavigationUtility.appViewQId]) {
     final dataForNamed = _appViewModel.getDataForNamedParameterNamedStreamWState;
     final value = ResponsiveValue<Widget>(
         context,
@@ -197,14 +196,6 @@ final class _AppViewState extends State<AppView> {
           Condition.equals(name: MOBILE, value: _getWidgetWhereThoseWorksFromContextAndSizedBoxWidthAndTextSize(context,250,18)),
           Condition.equals(name: TABLET, value: _getWidgetWhereThoseWorksFromContextAndSizedBoxWidthAndTextSize(context,300,24)),
           Condition.equals(name: DESKTOP, value: _getWidgetWhereThoseWorksFromContextAndSizedBoxWidthAndTextSize(context,400,30)),
-        ]
-    ).value ?? Container();
-    final valueFIRST = ResponsiveValue<Widget>(
-        context,
-        conditionalValues: [
-          Condition.equals(name: MOBILE, value: _getWidgetWhereNotValidTOPDBDVersionWebFromContextAndVersionByTOPDBDVersionWebAndSizedBoxWidthAndTextSize(context,dataForNamed.versionByTOPDBDVersionWeb,250,18)),
-          Condition.equals(name: TABLET, value: _getWidgetWhereNotValidTOPDBDVersionWebFromContextAndVersionByTOPDBDVersionWebAndSizedBoxWidthAndTextSize(context,dataForNamed.versionByTOPDBDVersionWeb,300,24)),
-          Condition.equals(name: DESKTOP, value: _getWidgetWhereNotValidTOPDBDVersionWebFromContextAndVersionByTOPDBDVersionWebAndSizedBoxWidthAndTextSize(context,dataForNamed.versionByTOPDBDVersionWeb,400,30)),
         ]
     ).value ?? Container();
     final valueSECOND = ResponsiveValue<Widget>(
@@ -224,21 +215,9 @@ final class _AppViewState extends State<AppView> {
         ]
     ).value ?? Container();
     switch(dataForNamed.getEnumDataForNamed) {
-      case EnumDataForAppView.exception:
-        return MaterialPage(
-            child: ExceptionToAppView(dataForNamed.exceptionController.getKeyParameterException));
-      case EnumDataForAppView.otherException:
-        return MaterialPage(
-            child: ExceptionToAppView(dataForNamed.otherException));
-      case EnumDataForAppView.waitingInitStreams:
-        return const MaterialPage(
-            child: Scaffold(body: Center(child: CircularProgressIndicator())));
       case EnumDataForAppView.thoseWorks:
         return MaterialPage(
             child: value);
-      case EnumDataForAppView.isNotValidVersionTOPDBDVersionWeb:
-        return MaterialPage(
-            child: valueFIRST);
       case EnumDataForAppView.login:
         return MaterialPage(
             child: LoginView());
@@ -264,12 +243,8 @@ final class _AppViewState extends State<AppView> {
         return "/exception";
       case EnumDataForAppView.otherException:
         return "/otherException";
-      case EnumDataForAppView.waitingInitStreams:
-        return nameRoute;
       case EnumDataForAppView.thoseWorks:
         return "/thoseWorks";
-      case EnumDataForAppView.isNotValidVersionTOPDBDVersionWeb:
-        return "/newVersion";
       case EnumDataForAppView.login:
         return "/login";
       case EnumDataForAppView.isNotVerifiedUser:
@@ -299,39 +274,6 @@ final class _AppViewState extends State<AppView> {
                             children: [
                               Text(
                                 "Engineering works. Check back later",
-                                style: TextStyle(
-                                  fontSize: textSize,
-                                  fontWeight: FontWeight.w400,
-                                  letterSpacing: 1.8,
-                                ),
-                              ),
-                            ]
-                        ),
-                      ),
-                    ),
-                  ),
-                ])
-        ),
-      ),
-    );
-  }
-
-  Widget _getWidgetWhereNotValidTOPDBDVersionWebFromContextAndVersionByTOPDBDVersionWebAndSizedBoxWidthAndTextSize(BuildContext context,String versionByTOPDBDVersionWeb,double sizedBoxWidth,double textSize) {
-    return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-            child: Column(
-                children: [
-                  SizedBox(
-                    width: sizedBoxWidth,
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.all(16.0),
-                        child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                "The site version has been changed. Check back later (Version: $versionByTOPDBDVersionWeb)",
                                 style: TextStyle(
                                   fontSize: textSize,
                                   fontWeight: FontWeight.w400,

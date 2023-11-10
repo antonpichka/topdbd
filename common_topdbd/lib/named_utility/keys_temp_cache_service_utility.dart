@@ -21,7 +21,6 @@ final class KeysTempCacheServiceUtility {
   static const String boolsQQIsAdminByRoleUser = "boolsQQIsAdminByRoleUser";
   static const String boolsQQIsTestByRoleUser = "boolsQQIsTestByRoleUser";
   static const String boolsQQIsHackedBySecurity = "boolsQQIsHackedBySecurity";
-  static const String boolsQQIsInitByInit = "boolsQQIsInitByInit";
   /* DatesTimes */
   static const String datesTimesQQCreationTimeByUser = "datesTimesQQCreationTimeByUser";
   static const String datesTimesQQLastLoginTimeByLastLoginTimeUser = "datesTimesQQLastLoginTimeByLastLoginTimeUser";

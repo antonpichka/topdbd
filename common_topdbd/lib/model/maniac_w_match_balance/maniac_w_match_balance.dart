@@ -7,37 +7,37 @@ import 'package:meta/meta.dart';
 @immutable
 base class ManiacWMatchBalance extends BaseModel {
   final String name;
-  final int lengthPickManiacPerk;
-  final int lengthPickSurvivorPerk;
+  final int necessaryLengthPickedManiacPerk;
+  final int necessaryLengthPickedSurvivorPerk;
   final ListMapsWMatchBalance listMapsWMatchBalance;
   final ListManiacPerkWMatchBalance listManiacPerkWMatchBalance;
   final ListSurvivorPerkWMatchBalance listSurvivorPerkWMatchBalance;
 
-  const ManiacWMatchBalance(this.name, this.lengthPickManiacPerk, this.lengthPickSurvivorPerk, this.listMapsWMatchBalance, this.listManiacPerkWMatchBalance, this.listSurvivorPerkWMatchBalance) : super(name);
+  const ManiacWMatchBalance(this.name, this.necessaryLengthPickedManiacPerk, this.necessaryLengthPickedSurvivorPerk, this.listMapsWMatchBalance, this.listManiacPerkWMatchBalance, this.listSurvivorPerkWMatchBalance) : super(name);
 
   @override
-  ManiacWMatchBalance get getClone => ManiacWMatchBalance(name,lengthPickManiacPerk, lengthPickSurvivorPerk, listMapsWMatchBalance.getClone, listManiacPerkWMatchBalance.getClone,listSurvivorPerkWMatchBalance.getClone);
+  ManiacWMatchBalance get getClone => ManiacWMatchBalance(name,necessaryLengthPickedManiacPerk, necessaryLengthPickedSurvivorPerk, listMapsWMatchBalance.getClone, listManiacPerkWMatchBalance.getClone,listSurvivorPerkWMatchBalance.getClone);
 
   @override
   String toString() {
     return "ManiacWMatchBalance(name: $name, "
-        "lengthPickManiacPerk: $lengthPickManiacPerk, "
-        "lengthPickSurvivorPerk: $lengthPickSurvivorPerk, "
+        "necessaryLengthPickedManiacPerk: $necessaryLengthPickedManiacPerk, "
+        "necessaryLengthPickedSurvivorPerk: $necessaryLengthPickedSurvivorPerk, "
         "listMapsWMatchBalance: ${listMapsWMatchBalance.listModel}, "
         "listManiacPerkWMatchBalance: ${listManiacPerkWMatchBalance.listModel}, "
         "listSurvivorPerkWMatchBalance: ${listSurvivorPerkWMatchBalance.listModel})";
   }
 
-  bool isWhereNotEqualsParametersLengthPickManiacPerkAndListManiacPerkWMatchBalance() {
-    return lengthPickManiacPerk != listManiacPerkWMatchBalance.listModel.length;
+  bool isWhereNotEqualsParametersNecessaryLengthPickedManiacPerkAndListManiacPerkWMatchBalance() {
+    return necessaryLengthPickedManiacPerk != listManiacPerkWMatchBalance.listModel.length;
   }
 
-  bool isWhereNotEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance() {
-    return lengthPickSurvivorPerk != listSurvivorPerkWMatchBalance.listModel.length;
+  bool isWhereNotEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance() {
+    return necessaryLengthPickedSurvivorPerk != listSurvivorPerkWMatchBalance.listModel.length;
   }
 
-  bool isWhereNotEmptyAndEqualsParametersLengthPickSurvivorPerkAndListSurvivorPerkWMatchBalance() {
+  bool isWhereNotEmptyAndEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance() {
     return listSurvivorPerkWMatchBalance.listModel.isNotEmpty &&
-        lengthPickSurvivorPerk == listSurvivorPerkWMatchBalance.listModel.length;
+        necessaryLengthPickedSurvivorPerk == listSurvivorPerkWMatchBalance.listModel.length;
   }
 }

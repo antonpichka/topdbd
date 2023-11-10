@@ -1,17 +1,7 @@
-import 'package:common_topdbd/model/about_me/about_me.dart';
-import 'package:common_topdbd/model/country/country.dart';
 import 'package:common_topdbd/model/discord_user/discord_user.dart';
 import 'package:common_topdbd/model/discord_user_firestore/discord_user_firestore.dart';
-import 'package:common_topdbd/model/ip_address/ip_address.dart';
-import 'package:common_topdbd/model/ip_address_firestore/ip_address_firestore.dart';
-import 'package:common_topdbd/model/last_login_time_user/last_login_time_user.dart';
-import 'package:common_topdbd/model/role_user/role_user.dart';
 import 'package:common_topdbd/model/season/list_season.dart';
-import 'package:common_topdbd/model/season/season.dart';
-import 'package:common_topdbd/model/stats/stats.dart';
 import 'package:common_topdbd/model/user/user.dart';
-import 'package:common_topdbd/model/verified_user/verified_user.dart';
-import 'package:common_topdbd/named_utility/unique_id_by_user_w_season_number_by_season_to_stats_utility.dart';
 import 'package:common_topdbd/named_utility/ip_to_ip_address_firestore_utility.dart';
 import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
@@ -20,6 +10,7 @@ import 'package:common_topdbd/named_utility/registration_discord_user_firestore_
 import 'package:common_topdbd/named_utility/registration_ip_address_firestore_utility.dart';
 import 'package:common_topdbd/named_utility/registration_stats_utility.dart';
 import 'package:common_topdbd/named_utility/registration_verified_user_utility.dart';
+import 'package:common_topdbd/named_utility/unique_id_by_user_w_season_number_by_season_to_stats_utility.dart';
 import 'package:common_topdbd/named_utility/username_w_global_name_to_discord_user_firestore_utility.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_bools_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_bools_ee_where_is_admin_by_role_user_ee_from_bools_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_bools_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_bools_ee_where_is_test_by_role_user_ee_from_bools_ee_parameter_temp_cache_service.dart';
@@ -176,8 +167,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
-  Future<void> signInWithDiscord(Function(String) callbackException)
-  async {
+  Future<void> signInWithDiscord(Function(String) callbackException) async {
     if(getDataForNamedParameterNamedStreamWState.isLoading) {
       return;
     }
@@ -189,7 +179,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQSignInWithDiscordQQGetDiscordUserWhereDiscordAuthAPIParameterHttpClientService(getDiscordUserWhereDiscordAuthAPIParameterHttpClientService,callbackException);
+      _firstQQSignInWithDiscordQQGetDiscordUserWhereDiscordAuthAPIParameterHttpClientService(getDiscordUserWhereDiscordAuthAPIParameterHttpClientService.exceptionController,callbackException);
       return;
     }
     final getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService = await _getEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreService
@@ -198,7 +188,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService,callbackException,getDiscordUserWhereDiscordAuthAPIParameterHttpClientService.parameter!.getClone);
+      _firstQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.exceptionController,callbackException,getDiscordUserWhereDiscordAuthAPIParameterHttpClientService.parameter!);
       return;
     }
     final getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName = getDiscordUserWhereDiscordAuthAPIParameterHttpClientService
@@ -206,7 +196,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         ?.getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.parameter?.username ?? "",getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.parameter?.globalName ?? "")
         ?? "";
     if(getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName.isNotEmpty) {
-      _firstQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName,callbackException,getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.parameter!.getClone);
+      _firstQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName,callbackException,getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.parameter!);
       return;
     }
     final getUserFromUniqueIdParameterFirebaseFirestoreService = await _getEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService
@@ -215,7 +205,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQSignInWithDiscordQQGetUserFromUniqueIdParameterFirebaseFirestoreService(getUserFromUniqueIdParameterFirebaseFirestoreService,callbackException);
+      _firstQQSignInWithDiscordQQGetUserFromUniqueIdParameterFirebaseFirestoreService(getUserFromUniqueIdParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getIPAddressWhereJsonipAPIParameterHttpClientService = await _getEEIPAddressEEWhereJsonipAPIEEParameterHttpClientService
@@ -224,7 +214,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQSignInWithDiscordQQGetIPAddressWhereJsonipAPIParameterHttpClientService(getIPAddressWhereJsonipAPIParameterHttpClientService,callbackException);
+      _firstQQSignInWithDiscordQQGetIPAddressWhereJsonipAPIParameterHttpClientService(getIPAddressWhereJsonipAPIParameterHttpClientService.exceptionController,callbackException);
       return;
     }
     final getCountryFromUniqueIdByUserParameterFirebaseFirestoreService = await _getEECountryEEFromUniqueIdByUserEEParameterFirebaseFirestoreService
@@ -233,7 +223,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQSignInWithDiscordQQGetCountryFromUniqueIdByUserParameterFirebaseFirestoreService(getCountryFromUniqueIdByUserParameterFirebaseFirestoreService,callbackException);
+      _firstQQSignInWithDiscordQQGetCountryFromUniqueIdByUserParameterFirebaseFirestoreService(getCountryFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry = getIPAddressWhereJsonipAPIParameterHttpClientService
@@ -250,7 +240,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQSignInWithDiscordQQGetRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService(getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService,callbackException);
+      _firstQQSignInWithDiscordQQGetRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService(getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final updateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService = await _updateEEIPAddressFirestoreEEFromIPToIPAddressFirestoreUtilityEEParameterFirebaseFirestoreService
@@ -259,7 +249,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQSignInWithDiscordQQUpdateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService(updateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService,callbackException);
+      _firstQQSignInWithDiscordQQUpdateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService(updateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService = await _getEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService
@@ -268,7 +258,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQSignInWithDiscordQQGetAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService(getAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService,callbackException);
+      _firstQQSignInWithDiscordQQGetAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService(getAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService = await _getEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService
@@ -277,7 +267,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQSignInWithDiscordQQGetSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService,callbackException);
+      _firstQQSignInWithDiscordQQGetSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService = await _getListEESeasonEEWhereNotEqualsAndSortingSeasonNumberOrderByDescEEFromSeasonNumberEEParameterFirebaseFirestoreService
@@ -286,7 +276,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQSignInWithDiscordQQGetListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService,callbackException);
+      _firstQQSignInWithDiscordQQGetListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService = await _getEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEParameterFirebaseFirestoreService
@@ -295,7 +285,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQSignInWithDiscordQQGetStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService(getStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService,callbackException);
+      _firstQQSignInWithDiscordQQGetStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService(getStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final updateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService = await _updateEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService
@@ -304,7 +294,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQSignInWithDiscordQQUpdateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService(updateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService,callbackException);
+      _firstQQSignInWithDiscordQQUpdateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService(updateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     await _updateEEUserEEFromUserEEParameterSharedPreferencesService
@@ -345,21 +335,17 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(Strings(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? ""));
   }
 
-  void _firstQQSignInWithDiscordQQGetDiscordUserWhereDiscordAuthAPIParameterHttpClientService(Result<DiscordUser> getDiscordUserWhereDiscordAuthAPIParameterHttpClientService,Function(String) callbackException) {
+  void _firstQQSignInWithDiscordQQGetDiscordUserWhereDiscordAuthAPIParameterHttpClientService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getDiscordUserWhereDiscordAuthAPIParameterHttpClientService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  Future<void> _firstQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(Result<DiscordUserFirestore> getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService,Function(String) callbackException, DiscordUser getClone)
-  async {
-    if(getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService
-        .exceptionController
-        .getKeyParameterException == KeysExceptionUtility.uNKNOWN)
-    {
+  Future<void> _firstQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException, DiscordUser parameter) async {
+    if(exceptionController.getKeyParameterException == KeysExceptionUtility.uNKNOWN) {
       getDataForNamedParameterNamedStreamWState.isLoading = false;
       notifyStreamDataForNamedParameterNamedStreamWState();
-      callbackException(getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+      callbackException(exceptionController.getKeyParameterException);
       return;
     }
     final insertUserFromUniqueIdParameterFirebaseFirestoreService =  await _insertEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService
@@ -368,16 +354,16 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchOneQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertUserFromUniqueIdParameterFirebaseFirestoreService,callbackException);
+      _firstBranchOneQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertUserFromUniqueIdParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final insertDiscordUserFirestoreFromRegistrationDiscordUserFirestoreUtilityParameterFirebaseFirestoreService = await _insertEEDiscordUserFirestoreEEFromRegistrationDiscordUserFirestoreUtilityEEParameterFirebaseFirestoreService
-        .insertDiscordUserFirestoreFromRegistrationDiscordUserFirestoreUtilityParameterFirebaseFirestoreService(RegistrationDiscordUserFirestoreUtility(getClone.id, insertUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "", getClone.username, getClone.globalName));
+        .insertDiscordUserFirestoreFromRegistrationDiscordUserFirestoreUtilityParameterFirebaseFirestoreService(RegistrationDiscordUserFirestoreUtility(parameter.id, insertUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "", parameter.username, parameter.globalName));
     if(insertDiscordUserFirestoreFromRegistrationDiscordUserFirestoreUtilityParameterFirebaseFirestoreService
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchTwoQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertDiscordUserFirestoreFromRegistrationDiscordUserFirestoreUtilityParameterFirebaseFirestoreService,callbackException);
+      _firstBranchTwoQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertDiscordUserFirestoreFromRegistrationDiscordUserFirestoreUtilityParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final insertVerifiedUserFromRegistrationVerifiedUserUtilityParameterFirebaseFirestoreService =  await _insertEEVerifiedUserEEFromRegistrationVerifiedUserUtilityEEParameterFirebaseFirestoreService
@@ -386,7 +372,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchThreeQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertVerifiedUserFromRegistrationVerifiedUserUtilityParameterFirebaseFirestoreService,callbackException);
+      _firstBranchThreeQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertVerifiedUserFromRegistrationVerifiedUserUtilityParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final insertLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService = await _insertEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService
@@ -395,7 +381,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchFourQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService,callbackException);
+      _firstBranchFourQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getIPAddressWhereJsonipAPIParameterHttpClientService = await _getEEIPAddressEEWhereJsonipAPIEEParameterHttpClientService
@@ -404,7 +390,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchFiveQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(getIPAddressWhereJsonipAPIParameterHttpClientService,callbackException);
+      _firstBranchFiveQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(getIPAddressWhereJsonipAPIParameterHttpClientService.exceptionController,callbackException);
       return;
     }
     final insertIPAddressFirestoreFromRegistrationIPAddressFirestoreUtilityParameterFirebaseFirestoreService = await _insertEEIPAddressFirestoreEEFromRegistrationIPAddressFirestoreUtilityEEParameterFirebaseFirestoreService
@@ -413,7 +399,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchSixQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertIPAddressFirestoreFromRegistrationIPAddressFirestoreUtilityParameterFirebaseFirestoreService,callbackException);
+      _firstBranchSixQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertIPAddressFirestoreFromRegistrationIPAddressFirestoreUtilityParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final insertCountryFromRegistrationCountryUtilityParameterFirebaseFirestoreService = await _insertEECountryEEFromRegistrationCountryUtilityEEParameterFirebaseFirestoreService
@@ -422,7 +408,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchSevenQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertCountryFromRegistrationCountryUtilityParameterFirebaseFirestoreService,callbackException);
+      _firstBranchSevenQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertCountryFromRegistrationCountryUtilityParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService = await _getEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService
@@ -431,7 +417,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchEightQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService,callbackException);
+      _firstBranchEightQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final insertAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService = await _insertEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService
@@ -440,7 +426,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchNineQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService,callbackException);
+      _firstBranchNineQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final insertStatsFromRegistrationStatsUtilityParameterFirebaseFirestoreService = await _insertEEStatsEEFromRegistrationStatsUtilityEEParameterFirebaseFirestoreService
@@ -449,7 +435,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchTenQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertStatsFromRegistrationStatsUtilityParameterFirebaseFirestoreService,callbackException);
+      _firstBranchTenQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertStatsFromRegistrationStatsUtilityParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final insertRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService = await _insertEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService
@@ -458,7 +444,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchElevenQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService,callbackException);
+      _firstBranchElevenQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(insertRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService = await _getListEESeasonEEWhereNotEqualsAndSortingSeasonNumberOrderByDescEEFromSeasonNumberEEParameterFirebaseFirestoreService
@@ -467,7 +453,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchTwelveQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService,callbackException);
+      _firstBranchTwelveQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     await _updateEEUserEEFromUserEEParameterSharedPreferencesService
@@ -508,81 +494,80 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(Strings(insertUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? ""));
   }
 
-  void _firstBranchOneQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(Result<User> insertUserFromUniqueIdParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchOneQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(insertUserFromUniqueIdParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchTwoQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(Result<DiscordUserFirestore> insertDiscordUserFirestoreFromRegistrationDiscordUserFirestoreUtilityParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchTwoQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(insertDiscordUserFirestoreFromRegistrationDiscordUserFirestoreUtilityParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchThreeQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(Result<VerifiedUser> insertVerifiedUserFromRegistrationVerifiedUserUtilityParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchThreeQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(insertVerifiedUserFromRegistrationVerifiedUserUtilityParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchFourQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(Result<LastLoginTimeUser> insertLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchFourQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(insertLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchFiveQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(Result<IPAddress> getIPAddressWhereJsonipAPIParameterHttpClientService,Function(String) callbackException) {
+  void _firstBranchFiveQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getIPAddressWhereJsonipAPIParameterHttpClientService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchSixQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(Result<IPAddressFirestore> insertIPAddressFirestoreFromRegistrationIPAddressFirestoreUtilityParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchSixQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(insertIPAddressFirestoreFromRegistrationIPAddressFirestoreUtilityParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchSevenQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(Result<Country> insertCountryFromRegistrationCountryUtilityParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchSevenQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(insertCountryFromRegistrationCountryUtilityParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchEightQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(Result<Season> getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchEightQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchNineQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(Result<AboutMe> insertAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchNineQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(insertAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchTenQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(Result<Stats> insertStatsFromRegistrationStatsUtilityParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchTenQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(insertStatsFromRegistrationStatsUtilityParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchElevenQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(Result<RoleUser> insertRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchElevenQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(insertRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  Future<void> _firstQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(String getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName,Function(String) callbackException, DiscordUserFirestore getClone)
-  async {
+  Future<void> _firstQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(String getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName,Function(String) callbackException, DiscordUserFirestore parameter) async {
     final updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService = await _updateEEDiscordUserFirestoreEEFromUsernameWGlobalNameToDiscordUserFirestoreUtilityEEParameterFirebaseFirestoreService
-        .updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService(UsernameWGlobalNameToDiscordUserFirestoreUtility(getClone.uniqueId, getClone.uniqueIdByUser, getClone.username, getClone.globalName));
+        .updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService(UsernameWGlobalNameToDiscordUserFirestoreUtility(parameter.uniqueId, parameter.uniqueIdByUser, parameter.username, parameter.globalName));
     if(updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchOneQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService,callbackException);
+      _firstBranchOneQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getUserFromUniqueIdParameterFirebaseFirestoreService = await _getEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService
@@ -591,7 +576,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchTwoQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getUserFromUniqueIdParameterFirebaseFirestoreService,callbackException);
+      _firstBranchTwoQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getUserFromUniqueIdParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getIPAddressWhereJsonipAPIParameterHttpClientService = await _getEEIPAddressEEWhereJsonipAPIEEParameterHttpClientService
@@ -600,7 +585,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchThreeQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getIPAddressWhereJsonipAPIParameterHttpClientService,callbackException);
+      _firstBranchThreeQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getIPAddressWhereJsonipAPIParameterHttpClientService.exceptionController,callbackException);
       return;
     }
     final getCountryFromUniqueIdByUserParameterFirebaseFirestoreService = await _getEECountryEEFromUniqueIdByUserEEParameterFirebaseFirestoreService
@@ -609,7 +594,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchFourQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getCountryFromUniqueIdByUserParameterFirebaseFirestoreService,callbackException);
+      _firstBranchFourQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getCountryFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry = getIPAddressWhereJsonipAPIParameterHttpClientService
@@ -626,7 +611,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchSixQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService,callbackException);
+      _firstBranchSixQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final updateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService = await _updateEEIPAddressFirestoreEEFromIPToIPAddressFirestoreUtilityEEParameterFirebaseFirestoreService
@@ -635,7 +620,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchSevenQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(updateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService,callbackException);
+      _firstBranchSevenQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(updateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService = await _getEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService
@@ -644,7 +629,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchEightQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService,callbackException);
+      _firstBranchEightQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService = await _getEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService
@@ -653,7 +638,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchNineQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService,callbackException);
+      _firstBranchNineQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService = await _getEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEParameterFirebaseFirestoreService
@@ -662,7 +647,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchTenQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService,callbackException);
+      _firstBranchTenQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final updateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService = await _updateEELastLoginTimeUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService
@@ -671,7 +656,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchElevenQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(updateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService,callbackException);
+      _firstBranchElevenQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(updateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     final getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService = await _getListEESeasonEEWhereNotEqualsAndSortingSeasonNumberOrderByDescEEFromSeasonNumberEEParameterFirebaseFirestoreService
@@ -680,7 +665,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstBranchTwelveQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService,callbackException);
+      _firstBranchTwelveQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
     await _updateEEUserEEFromUserEEParameterSharedPreferencesService
@@ -721,28 +706,28 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(Strings(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? ""));
   }
 
-  void _firstBranchOneQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(Result<DiscordUserFirestore> updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchOneQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchTwoQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(Result<User> getUserFromUniqueIdParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchTwoQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getUserFromUniqueIdParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchThreeQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(Result<IPAddress> getIPAddressWhereJsonipAPIParameterHttpClientService,Function(String) callbackException) {
+  void _firstBranchThreeQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getIPAddressWhereJsonipAPIParameterHttpClientService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchFourQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(Result<Country> getCountryFromUniqueIdByUserParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchFourQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getCountryFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
   void _firstBranchFiveQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(String getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry,Function(String) callbackException) {
@@ -751,58 +736,58 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     callbackException(getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry);
   }
 
-  void _firstBranchSixQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(Result<RoleUser> getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchSixQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchSevenQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(Result<IPAddressFirestore> updateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchSevenQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(updateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchEightQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(Result<AboutMe> getAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService, Function(String) callbackException) {
+  void _firstBranchEightQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(ExceptionController exceptionController, Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchNineQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(Result<Season> getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchNineQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchTenQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(Result<Stats> getStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchTenQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchElevenQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(Result<LastLoginTimeUser> updateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchElevenQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(updateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstQQSignInWithDiscordQQGetUserFromUniqueIdParameterFirebaseFirestoreService(Result<User> getUserFromUniqueIdParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstQQSignInWithDiscordQQGetUserFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getUserFromUniqueIdParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstQQSignInWithDiscordQQGetIPAddressWhereJsonipAPIParameterHttpClientService(Result<IPAddress> getIPAddressWhereJsonipAPIParameterHttpClientService,Function(String) callbackException) {
+  void _firstQQSignInWithDiscordQQGetIPAddressWhereJsonipAPIParameterHttpClientService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getIPAddressWhereJsonipAPIParameterHttpClientService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstQQSignInWithDiscordQQGetCountryFromUniqueIdByUserParameterFirebaseFirestoreService(Result<Country> getCountryFromUniqueIdByUserParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstQQSignInWithDiscordQQGetCountryFromUniqueIdByUserParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getCountryFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
   void _firstQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry(String getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry,Function(String) callbackException) {
@@ -811,57 +796,57 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     callbackException(getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry);
   }
 
-  void _firstQQSignInWithDiscordQQGetRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService(Result<RoleUser> getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService, Function(String) callbackException) {
+  void _firstQQSignInWithDiscordQQGetRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService(ExceptionController exceptionController, Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstQQSignInWithDiscordQQUpdateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService(Result<IPAddressFirestore> updateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstQQSignInWithDiscordQQUpdateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(updateIPAddressFirestoreFromIPToIPAddressFirestoreUtilityParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstQQSignInWithDiscordQQGetAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService(Result<AboutMe> getAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstQQSignInWithDiscordQQGetAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstQQSignInWithDiscordQQGetSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService(Result<Season> getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstQQSignInWithDiscordQQGetSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstQQSignInWithDiscordQQGetStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService(Result<Stats> getStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstQQSignInWithDiscordQQGetStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstQQSignInWithDiscordQQUpdateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService(Result<LastLoginTimeUser> updateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstQQSignInWithDiscordQQUpdateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(updateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstQQSignInWithDiscordQQGetListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService(Result<ListSeason<Season>> getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstQQSignInWithDiscordQQGetListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchTwelveQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(Result<ListSeason<Season>> getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchTwelveQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchTwelveQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(Result<ListSeason<Season>> getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService,Function(String) callbackException) {
+  void _firstBranchTwelveQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.exceptionController.getKeyParameterException);
+    callbackException(exceptionController.getKeyParameterException);
   }
 }

@@ -357,9 +357,9 @@ base class DebutWMatches extends BaseModel {
         .listPickManiacPerkWMatches
         .getListPickManiacPerkWMatchesFromUniqueIdByUserParameterListModel(uniqueIdByUser)
         .length;
-    final lengthPickManiacPerk = maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
-        .lengthPickManiacPerk;
-    return length == lengthPickManiacPerk;
+    final necessaryLengthPickedManiacPerk = maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
+        .necessaryLengthPickedManiacPerk;
+    return length == necessaryLengthPickedManiacPerk;
   }
 
   bool isWhereLengthListPickManiacPerkWMatchesNotEqualsNecessaryLengthPickManiacPerkFromOneParameterOne(String uniqueIdByUser) {
@@ -369,9 +369,9 @@ base class DebutWMatches extends BaseModel {
         .listPickManiacPerkWMatches
         .getListPickManiacPerkWMatchesFromUniqueIdByUserParameterListModel(uniqueIdByUser)
         .length;
-    final lengthPickManiacPerk = maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
-        .lengthPickManiacPerk;
-    return length != lengthPickManiacPerk;
+    final necessaryLengthPickedManiacPerk = maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
+        .necessaryLengthPickedManiacPerk;
+    return length != necessaryLengthPickedManiacPerk;
   }
 
   bool isWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkFromOneParameterOne(String uniqueIdByUser) {
@@ -381,9 +381,9 @@ base class DebutWMatches extends BaseModel {
         .listPickSurvivorPerkWMatches
         .getListPickSurvivorPerkWMatchesFromUniqueIdByUserParameterListModel(uniqueIdByUser)
         .length;
-    final lengthPickSurvivorPerk = maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
-        .lengthPickSurvivorPerk;
-    return length == lengthPickSurvivorPerk;
+    final necessaryLengthPickedSurvivorPerk = maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
+        .necessaryLengthPickedSurvivorPerk;
+    return length == necessaryLengthPickedSurvivorPerk;
   }
 
   bool isWhereLengthListPickSurvivorPerkWMatchesNotEqualsNecessaryLengthPickSurvivorPerkFromUniqueIdByUserParameterOne(String uniqueIdByUser) {
@@ -393,8 +393,8 @@ base class DebutWMatches extends BaseModel {
         .listPickSurvivorPerkWMatches
         .getListPickSurvivorPerkWMatchesFromUniqueIdByUserParameterListModel(uniqueIdByUser)
         .length;
-    final lengthPickSurvivorPerk = maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
-        .lengthPickSurvivorPerk;
-    return length != lengthPickSurvivorPerk;
+    final necessaryLengthPickedSurvivorPerk = maniacWMatchBalanceWhereLastItemPickManiacWMatchesParametersTwo
+        .necessaryLengthPickedSurvivorPerk;
+    return length != necessaryLengthPickedSurvivorPerk;
   }
 }

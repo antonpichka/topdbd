@@ -66,8 +66,6 @@ final class KeysExceptionUtility {
   static const String iPAddressFirestoreQQGetExceptionInStringWhereNotEqualsFromIpParameterIp = "iPAddressFirestoreQQGetExceptionInStringWhereNotEqualsFromIpParameterIp";
   /* User */
   static const String userQQGetExceptionInStringWhereIsEmptyParameterUniqueId = "userQQGetExceptionInStringWhereIsEmptyParameterUniqueId";
-  /* TOPDBDVersionWeb */
-  static const String tOPDBDVersionWebQQGetExceptionInStringWhereNotEqualsParameterVersion = "tOPDBDVersionWebQQGetExceptionInStringWhereNotEqualsParameterVersion";
   /* VerifiedUser */
   static const String verifiedUserQQGetExceptionInStringWhereUsingIsWNotVerifiedUserWIsVerifiedUser = "verifiedUserQQGetExceptionInStringWhereUsingIsWNotVerifiedUserWIsVerifiedUser";
   /* TimerUtility */

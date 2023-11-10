@@ -1,7 +1,5 @@
 import 'package:common_topdbd/model/country_rd/country_rd.dart';
 import 'package:common_topdbd/model/country_rd/list_country_rd.dart';
-import 'package:common_topdbd/model/init_stream/init_stream.dart';
-import 'package:common_topdbd/model/init_stream/list_init_stream.dart';
 import 'package:common_topdbd/model/maniac/list_maniac.dart';
 import 'package:common_topdbd/model/maniac/maniac.dart';
 import 'package:common_topdbd/model/maniac_perk/list_maniac_perk.dart';
@@ -10,8 +8,6 @@ import 'package:common_topdbd/model/maps/list_maps.dart';
 import 'package:common_topdbd/model/maps/maps.dart';
 import 'package:common_topdbd/model/survivor_perk/list_survivor_perk.dart';
 import 'package:common_topdbd/model/survivor_perk/survivor_perk.dart';
-import 'package:common_topdbd/named_utility/keys_name_stream_to_init_stream_utility.dart';
-import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
 @immutable
@@ -52,10 +48,6 @@ final class ReadyDataUtility {
   static ListSurvivorPerk<SurvivorPerk> get getListSurvivorPerk {
     final listSurvivorPerk = List<SurvivorPerk>.empty(growable: true);
     return ListSurvivorPerk(listSurvivorPerk);
-  }
-
-  static Strings get getVersionByTOPDBDVersionWeb {
-    return const Strings("v0.0.1_beta");
   }
 
   static ListCountryRD<CountryRD> get getListCountryRD {
@@ -276,13 +268,5 @@ final class ReadyDataUtility {
     listCountryTC.add(const CountryRD("TZ","Tanzania","assets/icon/flags/tanzania.png"));
     listCountryTC.add(const CountryRD("UZ","Uzbekistan","assets/icon/flags/uzbekistan.png"));
     return ListCountryRD(listCountryTC);
-  }
-
-  static ListInitStream<InitStream> get getListInitStream {
-    final listInitStream = List<InitStream>.empty(growable: true);
-    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewModelQQStringsUniqueIdByUser,false));
-    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewModelQQThoseWorks,false));
-    listInitStream.add(InitStream(KeysNameStreamToInitStreamUtility.appViewModelQQTOPDBDVersionWeb,false));
-    return ListInitStream<InitStream>(listInitStream);
   }
 }

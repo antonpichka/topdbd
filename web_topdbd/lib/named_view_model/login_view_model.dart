@@ -226,14 +226,6 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
       _firstQQSignInWithDiscordQQGetCountryFromUniqueIdByUserParameterFirebaseFirestoreService(getCountryFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
-    final getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry = getIPAddressWhereJsonipAPIParameterHttpClientService
-        .parameter
-        ?.getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry(getCountryFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.nameCountry ?? "")
-        ?? "";
-    if(getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry.isNotEmpty) {
-      _firstQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry(getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry,callbackException);
-      return;
-    }
     final getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService = await _getEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService
         .getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "");
     if(getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService
@@ -597,14 +589,6 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
       _firstBranchFourQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getCountryFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController,callbackException);
       return;
     }
-    final getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry = getIPAddressWhereJsonipAPIParameterHttpClientService
-        .parameter
-        ?.getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry(getCountryFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.nameCountry ?? "")
-        ?? "";
-    if(getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry.isNotEmpty) {
-      _firstBranchFiveQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry,callbackException);
-      return;
-    }
     final getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService = await _getEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService
         .getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "");
     if(getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService
@@ -730,12 +714,6 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     callbackException(exceptionController.getKeyParameterException);
   }
 
-  void _firstBranchFiveQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(String getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry,Function(String) callbackException) {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
-    notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry);
-  }
-
   void _firstBranchSixQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(ExceptionController exceptionController,Function(String) callbackException) {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
@@ -788,12 +766,6 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
     callbackException(exceptionController.getKeyParameterException);
-  }
-
-  void _firstQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry(String getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry,Function(String) callbackException) {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
-    notifyStreamDataForNamedParameterNamedStreamWState();
-    callbackException(getExceptionInStringWhereNotEqualsFromNameCountryParameterNameCountry);
   }
 
   void _firstQQSignInWithDiscordQQGetRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService(ExceptionController exceptionController, Function(String) callbackException) {

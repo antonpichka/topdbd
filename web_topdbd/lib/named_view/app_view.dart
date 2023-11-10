@@ -62,7 +62,6 @@ final class _AppViewState extends State<AppView> {
         .listen((event) {
           setState(() {});
         });
-    _appViewModel.listeningStreamsTempCacheService();
     _appViewModel.listeningStreamsFirebaseFirestoreService();
     final result = await _appViewModel.init();
     debugPrint("AppView: $result");
@@ -75,115 +74,47 @@ final class _AppViewState extends State<AppView> {
   RouterConfig<Object> get _getRouterConfig {
     return GoRouter(
         routes: [
-          /// In this class (launch)
           GoRoute(
               path: '/',
               builder: (BuildContext context, GoRouterState state) {
                 return Container(color: FlutterThemeUtility.darkBackgroundColor);
               },
-              redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
-              }
-          ),
-          GoRoute(
-              path: '/loading',
-              pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
-              },
-              redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
-              }
-          ),
-          GoRoute(
-              path: '/exception',
-              pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
-              },
-              redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
-              }
-          ),
-          GoRoute(
-              path: '/otherException',
-              pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
-              },
-              redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
-              }
-          ),
-          GoRoute(
-              path: '/thoseWorks',
-              pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
-              },
-              redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
-              }
-          ),
-          GoRoute(
-              path: '/newVersion',
-              pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
-              },
-              redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
-              }
           ),
           GoRoute(
               path: '/login',
               pageBuilder:(BuildContext context, GoRouterState state) {
                 return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
               },
-              redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
-              }
           ),
           GoRoute(
               path: '/notVerifiedUser',
               pageBuilder:(BuildContext context, GoRouterState state) {
                 return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
               },
-              redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
-              }
           ),
           GoRoute(
               path: '/hacked',
               pageBuilder:(BuildContext context, GoRouterState state) {
                 return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
               },
-              redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state);
-              }
           ),
-          /// In other class (launch)
           GoRoute(
               path: KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers,
               pageBuilder:(BuildContext context, GoRouterState state) {
                 return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers);
               },
-              redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers);
-              }
           ),
           GoRoute(
               path: KeysNavigationUtility.selectedNavigationItemViewQQBalance,
               pageBuilder:(BuildContext context, GoRouterState state) {
                 return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQBalance);
               },
-              redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQBalance);
-              }
           ),
           GoRoute(
               path: KeysNavigationUtility.selectedNavigationItemViewQQTournaments,
               pageBuilder:(BuildContext context, GoRouterState state) {
                 return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTournaments);
               },
-              redirect: (BuildContext context, GoRouterState state) {
-                return _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTournaments);
-              }
           ),
         ]);
   }
@@ -233,28 +164,6 @@ final class _AppViewState extends State<AppView> {
       default:
         return MaterialPage(
             child: Container());
-    }
-  }
-
-  String _getChoicedUrlFromContextAndStateAndNameRouteParameterAppViewModel(BuildContext context,GoRouterState state,[String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers]) {
-    final dataForNamed = _appViewModel.getDataForNamedParameterNamedStreamWState;
-    switch(dataForNamed.getEnumDataForNamed) {
-      case EnumDataForAppView.exception:
-        return "/exception";
-      case EnumDataForAppView.otherException:
-        return "/otherException";
-      case EnumDataForAppView.thoseWorks:
-        return "/thoseWorks";
-      case EnumDataForAppView.login:
-        return "/login";
-      case EnumDataForAppView.isNotVerifiedUser:
-        return "/notVerifiedUser";
-      case EnumDataForAppView.isHacked:
-        return "/hacked";
-      case EnumDataForAppView.main:
-        return nameRoute;
-      default:
-        return "";
     }
   }
 

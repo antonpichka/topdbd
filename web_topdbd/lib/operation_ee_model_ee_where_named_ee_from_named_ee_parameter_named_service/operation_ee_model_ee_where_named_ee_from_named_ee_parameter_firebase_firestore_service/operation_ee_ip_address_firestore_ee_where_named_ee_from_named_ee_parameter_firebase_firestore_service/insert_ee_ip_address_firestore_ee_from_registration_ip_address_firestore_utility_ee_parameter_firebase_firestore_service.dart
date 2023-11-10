@@ -27,8 +27,8 @@ base class InsertEEIPAddressFirestoreEEFromRegistrationIPAddressFirestoreUtility
         return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEEIPAddressFirestoreEEFromRegistrationIPAddressFirestoreUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(IPAddressFirestore(
-          documentByIPAddress?.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser],
-          documentByIPAddress?.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQIp]) as T);
+          documentByIPAddress?.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser] ?? "",
+          documentByIPAddress?.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQIp] ?? "") as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

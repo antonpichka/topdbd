@@ -31,14 +31,14 @@ base class UpdateEEDiscordUserFirestoreEEFromUsernameWGlobalNameToDiscordUserFir
           ?.collection(KeysFirebaseFirestoreServiceUtility.discordUser)
           .doc(firstItemDocumentByDiscordUser?.id)
           .update({
-        KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId : firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId],
-        KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser : firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser],
+        KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId : firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId] ?? "",
+        KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser : firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser] ?? "",
         KeysFirebaseFirestoreServiceUtility.discordUserQQUsername : usernameWGlobalNameToDiscordUserFirestoreUtility.newUsername,
         KeysFirebaseFirestoreServiceUtility.discordUserQQGlobalName : usernameWGlobalNameToDiscordUserFirestoreUtility.newGlobalName
           });
       return Result<T>.success(DiscordUserFirestore(
-          firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId],
-          firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser],
+          firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId] ?? "",
+          firstItemDocumentByDiscordUser?.data()[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser] ?? "",
           usernameWGlobalNameToDiscordUserFirestoreUtility.newUsername,
           usernameWGlobalNameToDiscordUserFirestoreUtility.newGlobalName) as T);
     } catch(e) {

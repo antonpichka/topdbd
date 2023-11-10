@@ -215,6 +215,8 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
     {
       return _firstQQInitQQUpdateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService(updateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController);
     }
+    _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
+        .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(Strings(getUserParameterSharedPreferencesService.parameter?.uniqueId ?? ""));
     _updateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService
         .updateDatesTimesWhereCreationTimeByUserFromDatesTimesParameterTempCacheService(DatesTimes(getUserParameterSharedPreferencesService.parameter?.creationTime ?? DateTime.now()));
     _updateEEDatesTimesEEWhereLastLoginTimeByLastLoginTimeUserEEFromDatesTimesEEParameterTempCacheService
@@ -247,8 +249,6 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
         .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.endOfSeasonTime ?? DateTime.now()));
     _updateListEESeasonEEFromListSeasonEEParameterTempCacheService
         .updateListSeasonFromListSeasonParameterTempCacheService(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.parameter?.getClone ?? ListSeason(List.empty(growable: true)));
-    _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
-        .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(Strings(getUserParameterSharedPreferencesService.parameter?.uniqueId ?? ""));
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     return KeysSuccessUtility.sUCCESS;
   }
@@ -346,10 +346,10 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
   Future<String> _firstQQInitQQGetExceptionInStringWhereNotEqualsFromIpParameterIp(String getExceptionInStringWhereNotEqualsFromIpParameterIp) async {
     await _deleteEEUserEEParameterSharedPreferencesService
         .deleteUserParameterSharedPreferencesService();
-    _updateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService
-        .updateDatesTimesWhereCreationTimeByUserFromDatesTimesParameterTempCacheService(DatesTimes(DateTime.fromMillisecondsSinceEpoch(0)));
     _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
         .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(const Strings(""));
+    _updateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService
+        .updateDatesTimesWhereCreationTimeByUserFromDatesTimesParameterTempCacheService(DatesTimes(DateTime.fromMillisecondsSinceEpoch(0)));
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     return getExceptionInStringWhereNotEqualsFromIpParameterIp;
   }

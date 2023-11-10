@@ -10,7 +10,7 @@ base class UpdateEEBoolsEEWhereIsAdminByRoleUserEEFromBoolsEEParameterTempCacheS
 
   Result<bool> updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(T bools) {
     try {
-      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.boolsQQIsAdminByRoleUser,bools);
+      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.boolsQQIsAdminByRoleUser,bools);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

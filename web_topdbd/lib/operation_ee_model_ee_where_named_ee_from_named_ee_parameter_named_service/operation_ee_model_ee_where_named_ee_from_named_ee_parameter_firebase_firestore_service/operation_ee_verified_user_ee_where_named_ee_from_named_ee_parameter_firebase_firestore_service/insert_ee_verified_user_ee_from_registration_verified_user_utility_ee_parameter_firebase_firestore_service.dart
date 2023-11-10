@@ -27,8 +27,8 @@ base class InsertEEVerifiedUserEEFromRegistrationVerifiedUserUtilityEEParameterF
         return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEEVerifiedUserEEFromRegistrationVerifiedUserUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(VerifiedUser(
-          documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQQUniqueIdByUser],
-          documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser]) as T);
+          documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQQUniqueIdByUser] ?? "",
+          documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser] ?? false) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

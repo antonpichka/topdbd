@@ -22,7 +22,8 @@ base class StartListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParameter
           .snapshots()
           .listen((event) {
             final documentByThoseWorks = event.docs[0];
-            callback(Result<T>.success(ThoseWorks(documentByThoseWorks.data()[KeysFirebaseFirestoreServiceUtility.thoseWorksQQIsThoseWorks]) as T));
+            callback(Result<T>.success(ThoseWorks(
+                documentByThoseWorks.data()[KeysFirebaseFirestoreServiceUtility.thoseWorksQQIsThoseWorks] ?? false) as T));
           });
     } catch(e) {
       callback(Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString())));

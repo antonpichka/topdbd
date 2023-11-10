@@ -24,11 +24,11 @@ base class GetListEESeasonEEWhereNotEqualsAndSortingSeasonNumberOrderByDescEEFro
       List<T> listSeason = List.empty(growable: true);
       for(QueryDocumentSnapshot<Map<String,dynamic>> documentBySeason in listDocumentBySeason?.docs ?? List.empty(growable: true)) {
         listSeason.add(Season(
-            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber],
-            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfMatchesPlayedPerSeason],
-            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfUniquePlayersWhoPlayedInASeason],
-            (documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQStartOfSeasonTime]).toDate(),
-            (documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQEndOfSeasonTime]).toDate()) as T);
+            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber] ?? 0,
+            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfMatchesPlayedPerSeason] ?? "",
+            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfUniquePlayersWhoPlayedInASeason] ?? "",
+            (documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQStartOfSeasonTime]).toDate() ?? DateTime.now(),
+            (documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQEndOfSeasonTime]).toDate() ?? DateTime.now()) as T);
       }
       return Result<Y>.success(ListSeason(listSeason) as Y);
     } catch(e) {

@@ -24,8 +24,8 @@ base class GetEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFiresto
         return Result.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.getEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result.success(IPAddressFirestore(
-          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser],
-          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQIp]) as T);
+          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser] ?? "",
+          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQIp] ?? "") as T);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

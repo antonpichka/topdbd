@@ -34,8 +34,8 @@ base class StartListeningAndCancelListeningEEIPAddressFirestoreEEFromUniqueIdByU
           .snapshots()
           .listen((event) {
             callback(Result<T>.success(IPAddressFirestore(
-                event.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser],
-                event.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQIp]) as T));
+                event.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser] ?? "",
+                event.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQIp] ?? "") as T));
           });
     } catch(e) {
       callback(Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString())));

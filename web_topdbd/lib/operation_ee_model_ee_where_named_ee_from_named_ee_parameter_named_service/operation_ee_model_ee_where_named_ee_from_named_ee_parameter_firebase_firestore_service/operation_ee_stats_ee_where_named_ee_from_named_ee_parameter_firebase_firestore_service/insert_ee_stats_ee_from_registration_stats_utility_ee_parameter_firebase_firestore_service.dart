@@ -30,11 +30,11 @@ base class InsertEEStatsEEFromRegistrationStatsUtilityEEParameterFirebaseFiresto
         return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEEStatsEEFromRegistrationStatsUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(Stats(
-          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQUniqueIdByUser],
-          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQSeasonNumberBySeason],
-          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQMatchesWon],
-          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQMatchesLost],
-          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQRatingPoints]) as T);
+          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQUniqueIdByUser] ?? "",
+          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQSeasonNumberBySeason] ?? 0,
+          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQMatchesWon] ?? 0,
+          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQMatchesLost] ?? 0,
+          documentByStats?.data()?[KeysFirebaseFirestoreServiceUtility.statsQQRatingPoints] ?? 0) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

@@ -26,8 +26,8 @@ import 'package:meta/meta.dart';
 import 'dart:math' as math;
 
 void main() {
-  UpdateEEMatchesEEFromMatchesEEParameterTempCacheService()
-      .updateMatchesFromMatchesParameterTempCacheService(ReadyDataUtility.getMatchesWhereUsingUniqueIdByUser);
+  UpdateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService()
+      .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(ReadyDataUtility.getMatchesWhereUsingUniqueIdByUser);
   UpdateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService()
       .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(ReadyDataUtility.getStringsWhereUniqueIByUser);
   UpdateEEStatsEEWhereFirstUserEEFromStatsEEParameterTempCacheService()
@@ -1805,11 +1805,11 @@ base class GetEEMatchesEEParameterTempCacheService<T extends Matches,Y extends L
 }
 
 @immutable
-base class UpdateEEMatchesEEFromMatchesEEParameterTempCacheService<T extends Matches,Y extends ListMatches<T>> {
+base class UpdateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService<T extends Matches,Y extends ListMatches<T>> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Result<bool> updateMatchesFromMatchesParameterTempCacheService(T matches) {
+  Result<bool> updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(T matches) {
     try {
       tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.matches,matches);
       return Result.success(true);
@@ -1862,7 +1862,7 @@ base class UpdateEEStatsEEWhereFirstUserEEFromStatsEEParameterTempCacheService<T
 
   Result<bool> updateStatsWhereFirstUserFromStatsParameterTempCacheService(T stats) {
     try {
-      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.stats,stats);
+      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.stats,stats);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
@@ -1894,7 +1894,7 @@ base class UpdateEEStatsEEWhereSecondUserEEFromStatsEEParameterTempCacheService<
 
   Result<bool> updateStatsWhereSecondUserFromStatsParameterTempCacheService(T stats) {
     try {
-      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.statsFIRST,stats);
+      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.statsFIRST,stats);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
@@ -1926,7 +1926,7 @@ base class UpdateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCache
 
   Result<bool> updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(T strings) {
     try {
-      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.stringsQQUniqueIdByUser,strings);
+      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.stringsQQUniqueIdByUser,strings);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
@@ -1935,11 +1935,11 @@ base class UpdateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCache
 }
 
 @immutable
-base class UpdateEEBoolsEEWhereIsStopTimerEEFromBoolsEEParameterTempCacheService<T extends Bools,Y extends ListBools<T>> {
+base class UpdateEEBoolsEEWhereStreamNotificationIsPossibleAndIsStopTimerEEFromBoolsEEParameterTempCacheService<T extends Bools,Y extends ListBools<T>> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Result<bool> updateBoolsWhereIsStopTimerFromBoolsParameterTempCacheService(T bools) {
+  Result<bool> updateBoolsWhereStreamNotificationIsPossibleAndIsStopTimerFromBoolsParameterTempCacheService(T bools) {
     try {
       tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.boolsQQIsStopTimer,bools);
       return Result.success(true);
@@ -1992,7 +1992,7 @@ base class UpdateEEIntsEEWhereElapsedTimeInMillisecondsByTimerUtilityEEFromIntsE
 
   Result<bool> updateIntsWhereElapsedTimeInMillisecondsByTimerUtilityFromIntsParameterTempCacheService(T ints) {
     try {
-      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.intsQQElapsedTimeInMillisecondsByTimerUtility,ints);
+      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.intsQQElapsedTimeInMillisecondsByTimerUtility,ints);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
@@ -2457,8 +2457,8 @@ enum EnumDataForFirstUniqueIdByUserWDebutWMatchesView {
 
 final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewModel<DataForFirstUniqueIdByUserWDebutWMatchesView,DefaultStreamWState<DataForFirstUniqueIdByUserWDebutWMatchesView>> {
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
-  final _updateEEMatchesEEFromMatchesEEParameterTempCacheService =
-  UpdateEEMatchesEEFromMatchesEEParameterTempCacheService();
+  final _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService =
+  UpdateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService();
 
   // NamedUtility
 
@@ -2495,8 +2495,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine(false,EnumStageNamed.banManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
   }
 
   void myTurnsPickManiac(int index) {
@@ -2505,8 +2505,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .insertPickManiacWMatchesFromIndexParametersDebutWMatchesAndFirstUniqueIdByUser(index);
     final matchesWhereNewAndFirstUniqueIdByUserTurnsPickManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUniqueIdByUserTurnsPickManiacFromThreeParametersNine(false,EnumStageNamed.bansMapsToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsPickManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsPickManiacFromThreeParametersNine);
   }
 
   void myTurnsBansMapsToPickedManiac(int index) {
@@ -2522,8 +2522,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(false,EnumStageNamed.bansMapsToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine);
   }
 
   Future<void> systemPickMapsToPickedManiac() async {
@@ -2568,8 +2568,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine(EnumStageNamed.pickManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
   }
 
   void myTurnsPickManiacPerkToPickedManiac(int index) {
@@ -2583,8 +2583,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.pickManiacPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
   void myTurnsPickSurvivorPerkToPickedManiac(int index) {
@@ -2598,8 +2598,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.pickSurvivorPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
   Future<void> systemPickManiac() async {
@@ -2610,8 +2610,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .insertPickManiacWMatchesWhereLastItemManiacWMatchBalanceWNotBannedWPickedParameterOne();
     final matchesWhereNewAndSystemPickManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickManiacFromOneParametersNine(EnumStageNamed.bansMapsToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickManiacFromOneParametersNine);
   }
 
   Future<void> systemPickManiacPerkToPickedManiac() async {
@@ -2645,8 +2645,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine(EnumStageNamed.pickManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine);
   }
 
   Future<void> systemPickSurvivorPerkToPickedManiac() async {
@@ -2670,8 +2670,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndSystemPickSurvivorPerkToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickSurvivorPerkToPickedManiacFromOneParametersNine(EnumStageNamed.pickManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickSurvivorPerkToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickSurvivorPerkToPickedManiacFromOneParametersNine);
   }
 
   Future<void> enemyTurnsBanManiac(int index)  async {
@@ -2695,8 +2695,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine(true,EnumStageNamed.banManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
   }
 
   Future<void> enemyTurnsPickManiac(int index) async {
@@ -2706,8 +2706,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .insertPickManiacWMatchesFromIndexParametersDebutWMatchesAndSecondUniqueIdByUser(index);
     final matchesWhereNewAndSecondUniqueIdByUserTurnsPickManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUniqueIdByUserTurnsPickManiacFromThreeParametersNine(true,EnumStageNamed.bansMapsToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsPickManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsPickManiacFromThreeParametersNine);
   }
 
   Future<void> enemyTurnsBansMapsToPickedManiac(int index) async {
@@ -2724,8 +2724,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(true,EnumStageNamed.bansMapsToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine);
   }
 
   Future<void> enemyTurnsPickManiacPerkToPickedManiac(int index) async {
@@ -2741,8 +2741,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.pickManiacPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
   Future<void> enemyTurnsPickSurvivorPerkToPickedManiac(int index) async {
@@ -2758,8 +2758,8 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.pickSurvivorPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
   Future<void> completed() async {
@@ -2769,29 +2769,29 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
         .insertListRoundWMatchesWhereBeforeCallIteratorParametersThree();
     final matchesWhereNewAndTrueIsCompletedByDebutWMatchesParametersNine = matches
         .getMatchesWhereNewAndIsCompletedByDebutWMatchesParametersNine;
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndTrueIsCompletedByDebutWMatchesParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndTrueIsCompletedByDebutWMatchesParametersNine);
   }
 
   void _firstQQMyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(Matches matches) {
     final matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine(false,EnumStageNamed.pickManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
   }
 
   void _firstQQMyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(Matches matches) {
     final matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine(false,EnumStageNamed.systemPickManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
   }
 
   void _firstQQMyTurnsBansMapsToPickedManiacQQIsWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne(Matches matches) {
     final matchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(false,EnumStageNamed.systemPickMapsToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine);
   }
 
   void _firstQQSystemPickMapsToPickedManiacQQIsNotEmpty(Matches matches) {
@@ -2805,15 +2805,15 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine(EnumStageNamed.systemPickManiacPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
   }
 
   void _firstBranchOneQQSystemPickMapsToPickedManiacQQIsNotEmpty(Matches matches) {
     final matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine(EnumStageNamed.pickManiacPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
   }
 
   void _firstQQSystemPickMapsToPickedManiacQQIsNotEmptyFIRST(Matches matches) {
@@ -2827,29 +2827,29 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine(EnumStageNamed.systemPickSurvivorPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
   }
 
   void _firstBranchOneQQSystemPickMapsToPickedManiacQQIsNotEmptyFIRST(Matches matches) {
     final matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine(EnumStageNamed.pickSurvivorPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
   }
 
   void _firstQQSystemPickMapsToPickedManiacQQIsWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance(Matches matches) {
     final matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine(EnumStageNamed.banManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
   }
 
   void _firstQQSystemPickMapsToPickedManiacQQIsWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance(Matches matches) {
     final matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine(EnumStageNamed.isCompleted);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickMapsToPickedManiacFromOneParametersNine);
   }
 
   void _firstQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(Matches matches) {
@@ -2889,43 +2889,43 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.pickManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchOneQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.pickManiacPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchTwoQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.systemPickSurvivorPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchThreeQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.pickSurvivorPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchFourQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.banManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchFiveQQMyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.isCompleted);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(Matches matches) {
@@ -2951,29 +2951,29 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.pickManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchOneQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.pickSurvivorPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchTwoQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.banManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchThreeQQMyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwo(Matches matches) {
     final matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(false,EnumStageNamed.isCompleted);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndFirstUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstQQSystemPickManiacPerkToPickedManiacQQIsNotEmpty(Matches matches) {
@@ -2987,64 +2987,64 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine(EnumStageNamed.systemPickSurvivorPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine);
   }
 
   void _firstBranchOneQQSystemPickManiacPerkToPickedManiacQQIsNotEmpty(Matches matches) {
     final matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine(EnumStageNamed.pickSurvivorPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine);
   }
 
   void _firstQQSystemPickManiacPerkToPickedManiacQQIsWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance(Matches matches) {
     final matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine(EnumStageNamed.banManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine);
   }
 
   void _firstQQSystemPickManiacPerkToPickedManiacQQIsWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance(Matches matches) {
     final matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine(EnumStageNamed.isCompleted);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickManiacPerkToPickedManiacFromOneParametersNine);
   }
 
   void _firstQQSystemPickSurvivorPerkToPickedManiacQQIsWhereDoneFirstStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance(Matches matches) {
     final matchesWhereNewAndSystemPickSurvivorPerkToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickSurvivorPerkToPickedManiacFromOneParametersNine(EnumStageNamed.banManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickSurvivorPerkToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickSurvivorPerkToPickedManiacFromOneParametersNine);
   }
 
   void _firstQQSystemPickSurvivorPerkToPickedManiacQQIsWhereDoneSecondStagePickManiacWMatchesParametersListPickManiacWMatchesAndMatchBalance(Matches matches) {
     final matchesWhereNewAndSystemPickSurvivorPerkToPickedManiacFromOneParametersNine = matches
         .getMatchesWhereNewAndSystemPickSurvivorPerkToPickedManiacFromOneParametersNine(EnumStageNamed.isCompleted);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickSurvivorPerkToPickedManiacFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemPickSurvivorPerkToPickedManiacFromOneParametersNine);
   }
 
   void _firstQQEnemyTurnsBanManiacQQIsWhereDoneFirstStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(Matches matches) {
     final matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine(true,EnumStageNamed.pickManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
   }
 
   void _firstQQEnemyTurnsBanManiacQQIsWhereDoneSecondStageBanManiacWMatchesParametersListBanManiacWMatchesAndMatchBalance(Matches matches) {
     final matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine(true,EnumStageNamed.systemPickManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBanManiacFromThreeParametersNine);
   }
 
   void _firstQQEnemyTurnsBansMapsToPickedManiacQQIsWhereNumberOfBannedMapsEqualsNumberOfMapsWithoutOneAndLastItemPickManiacWMatchesParameterOne(Matches matches) {
     final matchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine(true,EnumStageNamed.systemPickMapsToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUniqueIdByUserTurnsBansMapsToPickedManiacFromThreeParametersNine);
   }
 
   void _firstQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(Matches matches) {
@@ -3084,43 +3084,43 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.pickManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchOneQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.pickManiacPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchTwoQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.systemPickSurvivorPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchThreeQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.pickSurvivorPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchFourQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.banManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchFiveQQEnemyTurnsPickManiacPerkToPickedManiacQQIsWhereLengthListPickManiacPerkWMatchesEqualsNecessaryLengthPickManiacPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.isCompleted);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickManiacPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(Matches matches) {
@@ -3146,29 +3146,29 @@ final class FirstUniqueIdByUserWDebutWMatchesViewModel extends BaseNamedViewMode
     }
     final matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.pickManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchOneQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.pickSurvivorPerkToPickedManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchTwoQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.banManiac);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 
   void _firstBranchThreeQQEnemyTurnsPickSurvivorPerkToPickedManiacQQIsWhereLengthListPickSurvivorPerkWMatchesEqualsNecessaryLengthPickSurvivorPerkParametersTwoFIRST(Matches matches) {
     final matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine = matches
         .getMatchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine(true,EnumStageNamed.isCompleted);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSecondUIBUTurnsPickSurvivorPerkToPickedManiacFromThreeParametersNine);
   }
 }
 
@@ -3534,14 +3534,14 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   final _getEEIntsEEWhereElapsedTimeInMillisecondsByTimerUtilityEEParameterTempCacheService =
   GetEEIntsEEWhereElapsedTimeInMillisecondsByTimerUtilityEEParameterTempCacheService();
-  final _updateEEBoolsEEWhereIsStopTimerEEFromBoolsEEParameterTempCacheService =
-  UpdateEEBoolsEEWhereIsStopTimerEEFromBoolsEEParameterTempCacheService();
+  final _updateEEBoolsEEWhereStreamNotificationIsPossibleAndIsStopTimerEEFromBoolsEEParameterTempCacheService =
+  UpdateEEBoolsEEWhereStreamNotificationIsPossibleAndIsStopTimerEEFromBoolsEEParameterTempCacheService();
   final _updateEEStatsEEWhereFirstUserEEFromStatsEEParameterTempCacheService =
   UpdateEEStatsEEWhereFirstUserEEFromStatsEEParameterTempCacheService();
   final _updateEEStatsEEWhereSecondUserEEFromStatsEEParameterTempCacheService =
   UpdateEEStatsEEWhereSecondUserEEFromStatsEEParameterTempCacheService();
-  final _updateEEMatchesEEFromMatchesEEParameterTempCacheService =
-  UpdateEEMatchesEEFromMatchesEEParameterTempCacheService();
+  final _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService =
+  UpdateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService();
 
   // NamedUtility
 
@@ -3566,8 +3566,8 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
         .updateWhereIsStartTimerWFirstUniqueIdByUserSettingTrueParameterListModel();
     final matchesWhereNewAndMyManiacWMyTurnsClickStartTimerParametersNine = matches
         .getMatchesWhereNewAndMyManiacWMyTurnsClickStartTimerParametersNine;
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndMyManiacWMyTurnsClickStartTimerParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndMyManiacWMyTurnsClickStartTimerParametersNine);
   }
 
   void mySurvivorWMyTurnsClickStartTimer() {
@@ -3578,8 +3578,8 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
         .updateWhereIsStartTimerWFirstUniqueIdByUserSettingTrueParameterListModel();
     final matchesWhereNewAndMySurvivorWMyTurnsClickStartTimerParametersNine = matches
         .getMatchesWhereNewAndMySurvivorWMyTurnsClickStartTimerParametersNine;
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndMySurvivorWMyTurnsClickStartTimerParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndMySurvivorWMyTurnsClickStartTimerParametersNine);
   }
 
   Future<void> myManiacWEnemyTurnsClickStartTimer() async {
@@ -3591,8 +3591,8 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
         .updateWhereIsStartTimerWSecondUniqueIdByUserSettingTrueParameterListModel();
     final matchesWhereNewAndMyManiacWEnemyTurnsClickStartTimerParametersNine = matches
         .getMatchesWhereNewAndMyManiacWEnemyTurnsClickStartTimerParametersNine;
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndMyManiacWEnemyTurnsClickStartTimerParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndMyManiacWEnemyTurnsClickStartTimerParametersNine);
   }
 
   Future<void> mySurvivorWEnemyTurnsClickStartTimer() async {
@@ -3604,13 +3604,13 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
         .updateWhereIsStartTimerWSecondUniqueIdByUserSettingTrueParameterListModel();
     final matchesWhereNewAndMySurvivorWEnemyTurnsClickStartTimerParametersNine = matches
         .getMatchesWhereNewAndMySurvivorWEnemyTurnsClickStartTimerParametersNine;
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndMySurvivorWEnemyTurnsClickStartTimerParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndMySurvivorWEnemyTurnsClickStartTimerParametersNine);
   }
 
   void myManiacWSurvivorWMyClickStopTimer() {
-    _updateEEBoolsEEWhereIsStopTimerEEFromBoolsEEParameterTempCacheService
-        .updateBoolsWhereIsStopTimerFromBoolsParameterTempCacheService(Bools(true));
+    _updateEEBoolsEEWhereStreamNotificationIsPossibleAndIsStopTimerEEFromBoolsEEParameterTempCacheService
+        .updateBoolsWhereStreamNotificationIsPossibleAndIsStopTimerFromBoolsParameterTempCacheService(Bools(true));
     final getIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService = _getEEIntsEEWhereElapsedTimeInMillisecondsByTimerUtilityEEParameterTempCacheService
         .getIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService();
     if(getIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService
@@ -3627,8 +3627,8 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
         .updateWhereSwapRoleManiacWFalseStartTimerWUniqueIdByUserFromOneParameterListModel(getIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService.parameter?.field ?? 0);
     final matchesWhereNewAndMyManiacWSurvivorWMyClickStopTimerFromOneParametersNine = matches
         .getMatchesWhereNewAndMyManiacWSurvivorWMyClickStopTimerFromOneParametersNine(getIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService.parameter?.field ?? 0);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndMyManiacWSurvivorWMyClickStopTimerFromOneParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndMyManiacWSurvivorWMyClickStopTimerFromOneParametersNine);
   }
 
   void systemNextRound() {
@@ -3656,8 +3656,8 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
     }
     final matchesWhereNewAndSystemNextRoundWStartRoundParametersNine =
         matches.getMatchesWhereNewAndSystemNextRoundWStartRoundParametersNine;
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemNextRoundWStartRoundParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemNextRoundWStartRoundParametersNine);
   }
 
   void completed() {
@@ -3690,8 +3690,8 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
         .updateStatsWhereFirstUserFromStatsParameterTempCacheService(statsWhereNewAndLostMatchFromOneParametersFour);
     _updateEEStatsEEWhereSecondUserEEFromStatsEEParameterTempCacheService
         .updateStatsWhereSecondUserFromStatsParameterTempCacheService(statsWhereNewAndWinMatchFromOneParametersFour);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndIsCompletedByMiddlegameWMatchesFromTwoParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndIsCompletedByMiddlegameWMatchesFromTwoParametersNine);
   }
 
   void _firstQQMyManiacWSurvivorWMyClickStopTimerQQGetIntsWhereElapsedTimeInMillisecondsByTimerUtilityParameterTempCacheService(ExceptionController exceptionController) {
@@ -3702,8 +3702,8 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
   void _firstQQSystemNextRoundQQIsEmpty(Matches matches) {
     final matchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine =
         matches.getMatchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine;
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine);
   }
 
   void _firstQQSystemNextRoundQQIsWhereFinishedListRoundWMatchesMoreThanUnfinishedListRoundWMatches(Matches matches) {
@@ -3717,15 +3717,15 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
     }
     final matchesWhereNewAndSystemNextRoundWStartRoundParametersNine =
         matches.getMatchesWhereNewAndSystemNextRoundWStartRoundParametersNine;
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemNextRoundWStartRoundParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemNextRoundWStartRoundParametersNine);
   }
 
   void _firstBranchOneQQSystemNextRoundQQIsWhereFinishedListRoundWMatchesMoreThanUnfinishedListRoundWMatches(Matches matches) {
     final matchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine =
         matches.getMatchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine;
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndSystemNextRoundWCompletedMatchParametersNine);
   }
 
   void _firstQQCompletedQQIsWhereWinMatchWFirstUniqueIdByUser(Matches matches,Stats statsWFirstUser, Stats statsWSecondUser, int newStatsWFirstUniqueIdByUserWhereThereIsEloFromTwo, int newStatsWSecondUniqueIdByUserWhereThereIsEloFromTwo) {
@@ -3739,8 +3739,8 @@ final class FirstUniqueIdByUserWMiddlegameWMatchesViewModel extends BaseNamedVie
         .updateStatsWhereFirstUserFromStatsParameterTempCacheService(statsWhereNewAndWinMatchFromOneParametersFour);
     _updateEEStatsEEWhereSecondUserEEFromStatsEEParameterTempCacheService
         .updateStatsWhereSecondUserFromStatsParameterTempCacheService(statsWhereNewAndLostMatchFromOneParametersFour);
-    _updateEEMatchesEEFromMatchesEEParameterTempCacheService
-        .updateMatchesFromMatchesParameterTempCacheService(matchesWhereNewAndIsCompletedByMiddlegameWMatchesFromTwoParametersNine);
+    _updateEEMatchesEEWhereStreamNotificationIsPossibleEEFromMatchesEEParameterTempCacheService
+        .updateMatchesWhereStreamNotificationIsPossibleFromMatchesParameterTempCacheService(matchesWhereNewAndIsCompletedByMiddlegameWMatchesFromTwoParametersNine);
   }
 }
 

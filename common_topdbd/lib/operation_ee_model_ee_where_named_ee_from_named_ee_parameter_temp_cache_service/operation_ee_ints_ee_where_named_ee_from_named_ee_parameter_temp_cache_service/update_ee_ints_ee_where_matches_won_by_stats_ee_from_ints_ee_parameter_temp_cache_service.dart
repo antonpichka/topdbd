@@ -10,7 +10,7 @@ base class UpdateEEIntsEEWhereMatchesWonByStatsEEFromIntsEEParameterTempCacheSer
 
   Result<bool> updateIntsWhereMatchesWonByStatsFromIntsParameterTempCacheService(T ints) {
     try {
-      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.intsQQMatchesWonByStats,ints);
+      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.intsQQMatchesWonByStats,ints);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

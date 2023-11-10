@@ -29,10 +29,10 @@ base class InsertEEDiscordUserFirestoreEEFromRegistrationDiscordUserFirestoreUti
         return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEEDiscordUserFirestoreEEFromRegistrationDiscordUserFirestoreUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(DiscordUserFirestore(
-          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId],
-          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser],
-          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQUsername],
-          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQGlobalName]) as T);
+          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueId] ?? "",
+          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQUniqueIdByUser] ?? "",
+          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQUsername] ?? "",
+          documentByDiscordUser?.data()?[KeysFirebaseFirestoreServiceUtility.discordUserQQGlobalName] ?? "") as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

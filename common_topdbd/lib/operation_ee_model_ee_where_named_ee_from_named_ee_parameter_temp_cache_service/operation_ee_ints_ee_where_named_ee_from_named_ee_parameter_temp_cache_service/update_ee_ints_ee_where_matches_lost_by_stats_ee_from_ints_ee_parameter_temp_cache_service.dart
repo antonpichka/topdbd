@@ -10,7 +10,7 @@ base class UpdateEEIntsEEWhereMatchesLostByStatsEEFromIntsEEParameterTempCacheSe
 
   Result<bool> updateIntsWhereMatchesLostByStatsFromIntsParameterTempCacheService(T ints) {
     try {
-      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.intsQQMatchesLostByStats,ints);
+      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.intsQQMatchesLostByStats,ints);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

@@ -27,8 +27,8 @@ base class InsertEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService<T exten
         return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(User(
-          documentByUser?.data()?[KeysFirebaseFirestoreServiceUtility.userQQUniqueId],
-          (documentByUser?.data()?[KeysFirebaseFirestoreServiceUtility.userQQCreationTime]).toDate()) as T);
+          documentByUser?.data()?[KeysFirebaseFirestoreServiceUtility.userQQUniqueId] ?? "",
+          (documentByUser?.data()?[KeysFirebaseFirestoreServiceUtility.userQQCreationTime]).toDate() ?? DateTime.now()) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

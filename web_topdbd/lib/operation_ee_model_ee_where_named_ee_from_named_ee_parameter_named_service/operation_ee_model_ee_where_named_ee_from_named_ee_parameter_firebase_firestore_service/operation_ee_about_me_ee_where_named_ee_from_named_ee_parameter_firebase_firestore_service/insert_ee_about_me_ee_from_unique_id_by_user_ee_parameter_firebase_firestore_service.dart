@@ -26,8 +26,8 @@ base class InsertEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreServic
         return Result.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEEAboutMeEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result.success(AboutMe(
-          documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQQUniqueIdByUser],
-          documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQQCodeDBD]) as T);
+          documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQQUniqueIdByUser] ?? "",
+          documentByAboutMe?.data()?[KeysFirebaseFirestoreServiceUtility.aboutMeQQCodeDBD] ?? "") as T);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

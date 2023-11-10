@@ -26,11 +26,11 @@ base class GetEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEPa
         return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.getEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(Stats(
-          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQUniqueIdByUser],
-          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQSeasonNumberBySeason],
-          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQMatchesWon],
-          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQMatchesLost],
-          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQRatingPoints]) as T);
+          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQUniqueIdByUser] ?? "",
+          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQSeasonNumberBySeason] ?? 0,
+          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQMatchesWon] ?? 0,
+          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQMatchesLost] ?? 0,
+          documentByStats?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.statsQQRatingPoints] ?? 0) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

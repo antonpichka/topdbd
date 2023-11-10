@@ -27,9 +27,9 @@ base class InsertEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreServi
         return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEERoleUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(RoleUser(
-          documentByRoleUser?.data()?[KeysFirebaseFirestoreServiceUtility.roleUserQQUniqueIdByUser],
-          documentByRoleUser?.data()?[KeysFirebaseFirestoreServiceUtility.roleUserQQIsAdmin],
-          documentByRoleUser?.data()?[KeysFirebaseFirestoreServiceUtility.roleUserQQIsTest]) as T);
+          documentByRoleUser?.data()?[KeysFirebaseFirestoreServiceUtility.roleUserQQUniqueIdByUser] ?? "",
+          documentByRoleUser?.data()?[KeysFirebaseFirestoreServiceUtility.roleUserQQIsAdmin] ?? false,
+          documentByRoleUser?.data()?[KeysFirebaseFirestoreServiceUtility.roleUserQQIsTest] ?? false) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

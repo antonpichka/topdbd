@@ -291,6 +291,8 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     }
     await _updateEEUserEEFromUserEEParameterSharedPreferencesService
         .updateUserFromUserParameterSharedPreferencesService(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.getClone ?? User("",DateTime.now()));
+    _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
+        .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(Strings(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? ""));
     _updateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService
         .updateDatesTimesWhereCreationTimeByUserFromDatesTimesParameterTempCacheService(DatesTimes(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.creationTime ?? DateTime.now()));
     _updateEEDatesTimesEEWhereLastLoginTimeByLastLoginTimeUserEEFromDatesTimesEEParameterTempCacheService
@@ -323,8 +325,6 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .updateDatesTimesWhereStartOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.startOfSeasonTime ?? DateTime.now()));
     _updateEEDatesTimesEEWhereEndOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
         .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.endOfSeasonTime ?? DateTime.now()));
-    _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
-        .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(Strings(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? ""));
   }
 
   void _firstQQSignInWithDiscordQQGetDiscordUserWhereDiscordAuthAPIParameterHttpClientService(ExceptionController exceptionController,Function(String) callbackException) {
@@ -450,6 +450,8 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     }
     await _updateEEUserEEFromUserEEParameterSharedPreferencesService
         .updateUserFromUserParameterSharedPreferencesService(insertUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.getClone ?? User("",DateTime.now()));
+    _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
+        .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(Strings(insertUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? ""));
     _updateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService
         .updateDatesTimesWhereCreationTimeByUserFromDatesTimesParameterTempCacheService(DatesTimes(insertUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.creationTime ?? DateTime.now()));
     _updateEEDatesTimesEEWhereLastLoginTimeByLastLoginTimeUserEEFromDatesTimesEEParameterTempCacheService
@@ -482,8 +484,6 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.endOfSeasonTime ?? DateTime.now()));
     _updateListEESeasonEEFromListSeasonEEParameterTempCacheService
         .updateListSeasonFromListSeasonParameterTempCacheService(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.parameter?.getClone ?? ListSeason(List.empty(growable: true)));
-    _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
-        .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(Strings(insertUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? ""));
   }
 
   void _firstBranchOneQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
@@ -654,6 +654,8 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     }
     await _updateEEUserEEFromUserEEParameterSharedPreferencesService
         .updateUserFromUserParameterSharedPreferencesService(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.getClone ?? User("",DateTime.now()));
+    _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
+        .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(Strings(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? ""));
     _updateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService
         .updateDatesTimesWhereCreationTimeByUserFromDatesTimesParameterTempCacheService(DatesTimes(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.creationTime ?? DateTime.now()));
     _updateEEDatesTimesEEWhereLastLoginTimeByLastLoginTimeUserEEFromDatesTimesEEParameterTempCacheService
@@ -686,8 +688,6 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.endOfSeasonTime ?? DateTime.now()));
     _updateListEESeasonEEFromListSeasonEEParameterTempCacheService
         .updateListSeasonFromListSeasonParameterTempCacheService(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.parameter?.getClone ?? ListSeason(List.empty(growable: true)));
-    _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
-        .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(Strings(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? ""));
   }
 
   void _firstBranchOneQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(ExceptionController exceptionController,Function(String) callbackException) {

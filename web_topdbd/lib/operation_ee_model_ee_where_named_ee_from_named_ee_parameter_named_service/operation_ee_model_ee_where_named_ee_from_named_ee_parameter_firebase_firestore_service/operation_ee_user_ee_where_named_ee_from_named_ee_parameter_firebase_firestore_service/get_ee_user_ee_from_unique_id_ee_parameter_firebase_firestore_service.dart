@@ -24,8 +24,8 @@ base class GetEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService<T extends 
         return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.getEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(User(
-          listDocumentByUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.userQQUniqueId],
-          (listDocumentByUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.userQQCreationTime]).toDate()) as T);
+          listDocumentByUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.userQQUniqueId] ?? "",
+          (listDocumentByUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.userQQCreationTime]).toDate() ?? DateTime.now()) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

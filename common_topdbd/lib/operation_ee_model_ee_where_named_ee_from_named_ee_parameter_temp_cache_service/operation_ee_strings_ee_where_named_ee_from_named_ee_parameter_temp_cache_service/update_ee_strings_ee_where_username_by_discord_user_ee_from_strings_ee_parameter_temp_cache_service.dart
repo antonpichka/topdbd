@@ -10,7 +10,7 @@ base class UpdateEEStringsEEWhereUsernameByDiscordUserEEFromStringsEEParameterTe
 
   Result<bool> updateStringsWhereUsernameByDiscordUserFromStringsParameterTempCacheService(T strings) {
     try {
-      tempCacheService.updateWhereStreamNotificationIsPossibleFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.stringsQQUsernameByDiscordUser,strings);
+      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.stringsQQUsernameByDiscordUser,strings);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

@@ -24,11 +24,11 @@ base class GetEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFi
         return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.getEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(Season(
-          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber],
-          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfMatchesPlayedPerSeason],
-          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfUniquePlayersWhoPlayedInASeason],
-          (documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQStartOfSeasonTime]).toDate(),
-          (documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQEndOfSeasonTime]).toDate()) as T);
+          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber] ?? 0,
+          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfMatchesPlayedPerSeason] ?? "",
+          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfUniquePlayersWhoPlayedInASeason] ?? "",
+          (documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQStartOfSeasonTime]).toDate() ?? DateTime.now(),
+          (documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQEndOfSeasonTime]).toDate() ?? DateTime.now()) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

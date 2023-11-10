@@ -30,11 +30,11 @@ base class UpdateEEIPAddressFirestoreEEFromIPToIPAddressFirestoreUtilityEEParame
           ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
           .doc(firstItemDocumentByIPAddress?.id)
           .update({
-        KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser : firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser],
+        KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser : firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser] ?? "",
         KeysFirebaseFirestoreServiceUtility.ipAddressQQIp : iPToIPAddressFirestoreUtility.ip,
       });
       return Result<T>.success(IPAddressFirestore(
-          firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser],
+          firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser] ?? "",
           iPToIPAddressFirestoreUtility.ip) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

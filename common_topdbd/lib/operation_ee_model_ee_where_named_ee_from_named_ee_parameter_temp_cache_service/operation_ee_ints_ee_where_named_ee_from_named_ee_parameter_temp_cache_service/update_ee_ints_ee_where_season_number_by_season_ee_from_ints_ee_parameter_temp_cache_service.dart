@@ -10,7 +10,7 @@ base class UpdateEEIntsEEWhereSeasonNumberBySeasonEEFromIntsEEParameterTempCache
 
   Result<bool> updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(T ints) {
     try {
-      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.intsQQSeasonNumberBySeason,ints);
+      tempCacheService.updateFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.intsQQSeasonNumberBySeason,ints);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

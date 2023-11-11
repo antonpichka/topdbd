@@ -10,7 +10,7 @@ base class UpdateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCache
 
   Result<bool> updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(T strings) {
     try {
-      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.stringsQQUniqueIdByUser,strings);
+      tempCacheService.updateFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.stringsQQUniqueIdByUser,strings);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

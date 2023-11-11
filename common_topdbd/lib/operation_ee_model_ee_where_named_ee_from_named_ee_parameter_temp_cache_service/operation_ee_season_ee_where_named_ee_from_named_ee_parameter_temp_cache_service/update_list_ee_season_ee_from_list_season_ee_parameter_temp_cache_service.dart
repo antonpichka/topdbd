@@ -12,7 +12,7 @@ base class UpdateListEESeasonEEFromListSeasonEEParameterTempCacheService<T exten
 
   Result<bool> updateListSeasonFromListSeasonParameterTempCacheService(Y listSeason) {
     try {
-      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.listSeason,listSeason);
+      tempCacheService.updateFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.listSeason,listSeason);
       return Result<bool>.success(true);
     } on LocalException catch(e) {
       return Result<bool>.exception(e);

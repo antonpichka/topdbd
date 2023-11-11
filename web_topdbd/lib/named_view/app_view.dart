@@ -6,6 +6,7 @@ import 'package:web_topdbd/l10n/l10n.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 import 'package:web_topdbd/named_utility/keys_w_to_navigation_utility.dart';
+import 'package:web_topdbd/named_view/auth_main_view.dart';
 import 'package:web_topdbd/named_view/login_view.dart';
 import 'package:web_topdbd/named_view/main_view.dart';
 import 'package:web_topdbd/named_view_model/app_view_model.dart';
@@ -87,18 +88,6 @@ final class _AppViewState extends State<AppView> {
               },
           ),
           GoRoute(
-              path: '/notVerifiedUser',
-              pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
-              },
-          ),
-          GoRoute(
-              path: '/hacked',
-              pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
-              },
-          ),
-          GoRoute(
               path: KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers,
               pageBuilder:(BuildContext context, GoRouterState state) {
                 return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers);
@@ -119,7 +108,7 @@ final class _AppViewState extends State<AppView> {
         ]);
   }
 
-  MaterialPage _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(BuildContext context,GoRouterState state, [String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers, String id = KeysWToNavigationUtility.appViewQId]) {
+  MaterialPage _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(BuildContext context,GoRouterState state, [String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers, String id = KeysWToNavigationUtility.appViewQQId]) {
     final dataForNamed = _appViewModel.getDataForNamedParameterNamedStreamWState;
     final value = ResponsiveValue<Widget>(
         context,
@@ -146,19 +135,19 @@ final class _AppViewState extends State<AppView> {
         ]
     ).value ?? Container();
     switch(dataForNamed.getEnumDataForNamed) {
+      case EnumDataForAppView.isLoading:
+        return const MaterialPage(
+            child: Scaffold(body: Center(child: CircularProgressIndicator())));
+      case EnumDataForAppView.exception:
+        return MaterialPage(
+            child: Scaffold(body: Center(child: Text(dataForNamed.exceptionController.getKeyParameterException))));
       case EnumDataForAppView.thoseWorks:
         return MaterialPage(
             child: value);
-      case EnumDataForAppView.login:
+      case EnumDataForAppView.authMainView:
         return MaterialPage(
-            child: LoginView());
-      case EnumDataForAppView.isNotVerifiedUser:
-        return MaterialPage(
-            child: valueSECOND);
-      case EnumDataForAppView.isHacked:
-        return MaterialPage(
-            child: valueTHIRD);
-      case EnumDataForAppView.main:
+            child: AuthMainView(nameRoute,state.pathParameters[id] ?? ""));
+      case EnumDataForAppView.mainView:
         return MaterialPage(
             child: MainView(nameRoute,state.pathParameters[id] ?? ""));
       default:

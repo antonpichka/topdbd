@@ -10,7 +10,7 @@ base class UpdateEEStringsEEWhereNameCountryByCountryEEFromStringsEEParameterTem
 
   Result<bool> updateStringsWhereNameCountryByCountryFromStringsParameterTempCacheService(T strings) {
     try {
-      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.stringsQQNameCountryByCountry,strings);
+      tempCacheService.updateFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.stringsQQNameCountryByCountry,strings);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

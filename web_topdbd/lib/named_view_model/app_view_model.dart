@@ -102,7 +102,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
 
   // NamedUtility
 
-  AppViewModel() : super(DefaultStreamWState(DataForAppView(true,"",false,"",false,false)));
+  AppViewModel() : super(DefaultStreamWState(DataForAppView(true,false,"")));
 
   @override
   void dispose() {
@@ -250,6 +250,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
     _updateListEESeasonEEFromListSeasonEEParameterTempCacheService
         .updateListSeasonFromListSeasonParameterTempCacheService(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.parameter?.getClone ?? ListSeason(List.empty(growable: true)));
     getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.uniqueIdByUser = getUserParameterSharedPreferencesService.parameter?.uniqueId ?? "";
     return KeysSuccessUtility.sUCCESS;
   }
 
@@ -283,8 +284,6 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
   }
 
   Future<String> _firstQQInitQQGetExceptionInStringWhereIsEmptyParameterUniqueId(String getExceptionInStringWhereIsEmptyParameterUniqueId) async {
-    _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
-        .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(const Strings(""));
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     return getExceptionInStringWhereIsEmptyParameterUniqueId;
   }

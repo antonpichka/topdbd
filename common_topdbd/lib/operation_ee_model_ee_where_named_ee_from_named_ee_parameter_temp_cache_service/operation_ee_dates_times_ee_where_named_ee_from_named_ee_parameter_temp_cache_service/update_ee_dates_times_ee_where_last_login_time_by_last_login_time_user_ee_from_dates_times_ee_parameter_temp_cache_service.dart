@@ -10,7 +10,7 @@ base class UpdateEEDatesTimesEEWhereLastLoginTimeByLastLoginTimeUserEEFromDatesT
 
   Result<bool> updateDatesTimesWhereLastLoginTimeByLastLoginTimeUserFromDatesTimesParameterTempCacheService(T datesTimes) {
     try {
-      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.datesTimesQQLastLoginTimeByLastLoginTimeUser,datesTimes);
+      tempCacheService.updateFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.datesTimesQQLastLoginTimeByLastLoginTimeUser,datesTimes);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

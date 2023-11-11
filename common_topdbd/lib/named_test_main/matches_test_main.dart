@@ -1862,7 +1862,7 @@ base class UpdateEEStatsEEWhereFirstUserEEFromStatsEEParameterTempCacheService<T
 
   Result<bool> updateStatsWhereFirstUserFromStatsParameterTempCacheService(T stats) {
     try {
-      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.stats,stats);
+      tempCacheService.updateFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.stats,stats);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
@@ -1894,7 +1894,7 @@ base class UpdateEEStatsEEWhereSecondUserEEFromStatsEEParameterTempCacheService<
 
   Result<bool> updateStatsWhereSecondUserFromStatsParameterTempCacheService(T stats) {
     try {
-      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.statsFIRST,stats);
+      tempCacheService.updateFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.statsFIRST,stats);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
@@ -1926,7 +1926,7 @@ base class UpdateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCache
 
   Result<bool> updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(T strings) {
     try {
-      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.stringsQQUniqueIdByUser,strings);
+      tempCacheService.updateFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.stringsQQUniqueIdByUser,strings);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
@@ -1992,7 +1992,7 @@ base class UpdateEEIntsEEWhereElapsedTimeInMillisecondsByTimerUtilityEEFromIntsE
 
   Result<bool> updateIntsWhereElapsedTimeInMillisecondsByTimerUtilityFromIntsParameterTempCacheService(T ints) {
     try {
-      tempCacheService.updateFromKeyTempCacheAndValueParametersTwo(KeysTempCacheServiceUtility.intsQQElapsedTimeInMillisecondsByTimerUtility,ints);
+      tempCacheService.updateFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.intsQQElapsedTimeInMillisecondsByTimerUtility,ints);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

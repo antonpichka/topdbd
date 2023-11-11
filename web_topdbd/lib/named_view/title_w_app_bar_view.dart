@@ -3,12 +3,12 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/named_view/buttons_account_view.dart';
 import 'package:web_topdbd/named_view/search_users_view.dart';
 
-final class TitleToAppBarToMainView extends StatefulWidget {
+final class TitleWAppBarView extends StatefulWidget {
   @override
-  State<TitleToAppBarToMainView> createState() => _TitleToAppBarToMainViewState();
+  State<TitleWAppBarView> createState() => _TitleWAppBarViewState();
 }
 
-final class _TitleToAppBarToMainViewState extends State<TitleToAppBarToMainView> {
+final class _TitleWAppBarViewState extends State<TitleWAppBarView> {
   @override
   void initState() {
     super.initState();

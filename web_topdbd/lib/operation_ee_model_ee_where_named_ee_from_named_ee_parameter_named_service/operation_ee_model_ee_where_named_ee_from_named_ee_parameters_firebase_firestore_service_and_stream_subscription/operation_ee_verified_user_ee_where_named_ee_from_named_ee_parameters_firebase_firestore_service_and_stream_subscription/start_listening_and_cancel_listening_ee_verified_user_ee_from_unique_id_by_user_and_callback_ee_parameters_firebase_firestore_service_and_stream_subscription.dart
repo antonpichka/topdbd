@@ -35,8 +35,8 @@ base class StartListeningAndCancelListeningEEVerifiedUserEEFromUniqueIdByUserAnd
           .listen((event) {
             final documentByVerifiedUser = event;
             callback(Result<T>.success(VerifiedUser(
-                documentByVerifiedUser.data()![KeysFirebaseFirestoreServiceUtility.verifiedUserQQUniqueIdByUser] ?? "",
-                documentByVerifiedUser.data()![KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser] ?? false) as T));
+                documentByVerifiedUser.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQQUniqueIdByUser] ?? "",
+                documentByVerifiedUser.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser] ?? false) as T));
           });
     } catch(e) {
       callback(Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString())));

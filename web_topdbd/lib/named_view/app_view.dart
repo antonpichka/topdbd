@@ -7,7 +7,6 @@ import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 import 'package:web_topdbd/named_utility/keys_w_to_navigation_utility.dart';
 import 'package:web_topdbd/named_view/auth_main_view.dart';
-import 'package:web_topdbd/named_view/login_view.dart';
 import 'package:web_topdbd/named_view/main_view.dart';
 import 'package:web_topdbd/named_view_model/app_view_model.dart';
 
@@ -63,13 +62,14 @@ final class _AppViewState extends State<AppView> {
         .listen((event) {
           setState(() {});
         });
+    _appViewModel.listeningStreamsTempCacheService();
     _appViewModel.listeningStreamsFirebaseFirestoreService();
     final result = await _appViewModel.init();
     debugPrint("AppView: $result");
     if(!mounted) {
       return;
     }
-    _appViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
+    _appViewModel.notifyStreamDataForAppViewParameterNamedStreamWState();
   }
 
   RouterConfig<Object> get _getRouterConfig {
@@ -77,16 +77,16 @@ final class _AppViewState extends State<AppView> {
         routes: [
           GoRoute(
               path: '/',
-              builder: (BuildContext context, GoRouterState state) {
-                return Container(color: FlutterThemeUtility.darkBackgroundColor);
+              pageBuilder: (BuildContext context, GoRouterState state) {
+                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers);
               },
           ),
-          GoRoute(
+          /*GoRoute(
               path: '/login',
               pageBuilder:(BuildContext context, GoRouterState state) {
                 return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
               },
-          ),
+          ),*/
           GoRoute(
               path: KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers,
               pageBuilder:(BuildContext context, GoRouterState state) {
@@ -109,7 +109,7 @@ final class _AppViewState extends State<AppView> {
   }
 
   MaterialPage _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(BuildContext context,GoRouterState state, [String nameRoute = KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers, String id = KeysWToNavigationUtility.appViewQQId]) {
-    final dataForNamed = _appViewModel.getDataForNamedParameterNamedStreamWState;
+    final dataForNamedParameterNamedStreamWState = _appViewModel.getDataForNamedParameterNamedStreamWState;
     final value = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
@@ -118,29 +118,13 @@ final class _AppViewState extends State<AppView> {
           Condition.equals(name: DESKTOP, value: _getWidgetWhereThoseWorksFromContextAndSizedBoxWidthAndTextSize(context,400,30)),
         ]
     ).value ?? Container();
-    final valueSECOND = ResponsiveValue<Widget>(
-        context,
-        conditionalValues: [
-          Condition.equals(name: MOBILE, value: _getWidgetWhereNotVerifiedUserFromContextAndSizedBoxWidthAndTextSizeAndTextButtonSize(context,250,18,18)),
-          Condition.equals(name: TABLET, value: _getWidgetWhereNotVerifiedUserFromContextAndSizedBoxWidthAndTextSizeAndTextButtonSize(context,300,24,24)),
-          Condition.equals(name: DESKTOP, value: _getWidgetWhereNotVerifiedUserFromContextAndSizedBoxWidthAndTextSizeAndTextButtonSize(context,400,30,30)),
-        ]
-    ).value ?? Container();
-    final valueTHIRD = ResponsiveValue<Widget>(
-        context,
-        conditionalValues: [
-          Condition.equals(name: MOBILE, value: _getWidgetWhereIsHackedFromContextAndSizedBoxWidthAndTextSize(context,250,18)),
-          Condition.equals(name: TABLET, value: _getWidgetWhereIsHackedFromContextAndSizedBoxWidthAndTextSize(context,300,24)),
-          Condition.equals(name: DESKTOP, value: _getWidgetWhereIsHackedFromContextAndSizedBoxWidthAndTextSize(context,400,30)),
-        ]
-    ).value ?? Container();
-    switch(dataForNamed.getEnumDataForNamed) {
+    switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
       case EnumDataForAppView.isLoading:
         return const MaterialPage(
             child: Scaffold(body: Center(child: CircularProgressIndicator())));
       case EnumDataForAppView.exception:
         return MaterialPage(
-            child: Scaffold(body: Center(child: Text(dataForNamed.exceptionController.getKeyParameterException))));
+            child: Scaffold(body: Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"))));
       case EnumDataForAppView.thoseWorks:
         return MaterialPage(
             child: value);
@@ -172,91 +156,6 @@ final class _AppViewState extends State<AppView> {
                             children: [
                               Text(
                                 "Engineering works. Check back later",
-                                style: TextStyle(
-                                  fontSize: textSize,
-                                  fontWeight: FontWeight.w400,
-                                  letterSpacing: 1.8,
-                                ),
-                              ),
-                            ]
-                        ),
-                      ),
-                    ),
-                  ),
-                ])
-        ),
-      ),
-    );
-  }
-
-  Widget _getWidgetWhereNotVerifiedUserFromContextAndSizedBoxWidthAndTextSizeAndTextButtonSize(BuildContext context,double sizedBoxWidth,double textSize,double textButtonSize) {
-    return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-            child: Column(
-                children: [
-                  SizedBox(
-                    width: sizedBoxWidth,
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.all(16.0),
-                        child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                "You are not a verified user",
-                                style: TextStyle(
-                                  fontSize: textSize,
-                                  fontWeight: FontWeight.w400,
-                                  letterSpacing: 1.8,
-                                ),
-                              ),
-                              const SizedBox(height: 5,),
-                              ElevatedButton(
-                                  onPressed: () {
-
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Theme.of(context).colorScheme.secondary,
-                                    foregroundColor: Theme.of(context).textTheme.bodyMedium?.color,
-                                  ),
-                                  child: Text(
-                                    "Logout",
-                                    style: TextStyle(
-                                      color: Theme.of(context).textTheme.bodyMedium?.color,
-                                      fontSize: textButtonSize,
-                                      fontWeight: FontWeight.w400,
-                                      letterSpacing: 1.8,
-                                    ),
-                                  )
-                              ),
-                            ]
-                        ),
-                      ),
-                    ),
-                  ),
-                ])
-        ),
-      ),
-    );
-  }
-
-  Widget _getWidgetWhereIsHackedFromContextAndSizedBoxWidthAndTextSize(BuildContext context,double sizedBoxWidth,double textSize) {
-    return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-            child: Column(
-                children: [
-                  SizedBox(
-                    width: sizedBoxWidth,
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.all(16.0),
-                        child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                "Someone logged into your account OR your ip address has changed (IP addresses do not match)",
                                 style: TextStyle(
                                   fontSize: textSize,
                                   fontWeight: FontWeight.w400,

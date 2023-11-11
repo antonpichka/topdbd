@@ -9,7 +9,7 @@ import 'package:web_topdbd/named_view/list_season_view.dart';
 import 'package:web_topdbd/named_view/navigation_view.dart';
 import 'package:web_topdbd/named_view/season_view.dart';
 import 'package:web_topdbd/named_view/selected_navigation_item_view.dart';
-import 'package:web_topdbd/named_view/title_to_app_bar_to_main_view.dart';
+import 'package:web_topdbd/named_view/title_w_app_bar_view.dart';
 import 'package:web_topdbd/named_view_model/main_view_model.dart';
 
 final class MainView extends StatefulWidget {
@@ -24,11 +24,12 @@ final class MainView extends StatefulWidget {
 
 final class _MainViewState extends State<MainView> {
   late final MainViewModel _mainViewModel;
-  Color _color = Colors.white;
+  late Color _color;
 
   @override
   void initState() {
     _mainViewModel = MainViewModel();
+    _color = Colors.white;
     super.initState();
     _initParameterMainViewModel();
   }
@@ -60,7 +61,7 @@ final class _MainViewState extends State<MainView> {
             child: Scaffold(
               appBar: AppBar(
                 centerTitle: true,
-                title: TitleToAppBarToMainView(),
+                title: TitleWAppBarView(),
                 iconTheme: const IconThemeData(
                     color: Colors.white60,
                     size: 40),
@@ -156,15 +157,13 @@ final class _MainViewState extends State<MainView> {
     }
   }
 
-  Future<void> _initParameterMainViewModel()
-  async {
+  Future<void> _initParameterMainViewModel() async {
     _mainViewModel
         .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {
           setState(() {});
         });
-    await _mainViewModel.listeningStreamsFirebaseFirestoreService();
-    final result = _mainViewModel.init();
+    final result = await _mainViewModel.init();
     debugPrint("MainView: $result");
     if(!mounted) {
       return;

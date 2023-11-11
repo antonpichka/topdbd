@@ -2,14 +2,15 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:web_topdbd/data_for_named/data_for_app_view/enum_data_for_app_view.dart';
 
 final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
+  List<bool> listLoaded;
   bool isThoseWorks;
   String uniqueIdByUser;
 
-  DataForAppView(super.isLoading,this.isThoseWorks,this.uniqueIdByUser);
+  DataForAppView(this.listLoaded,this.isThoseWorks,this.uniqueIdByUser) : super(false);
 
   @override
   EnumDataForAppView get getEnumDataForNamed {
-    if(isLoading) {
+    if(listLoaded.length < 2) {
       return EnumDataForAppView.isLoading;
     }
     if(exceptionController.isWhereNotEqualsNullParameterException()) {
@@ -22,5 +23,12 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
       return EnumDataForAppView.authMainView;
     }
     return EnumDataForAppView.mainView;
+  }
+
+  void insertWhereSmallerNumberTwoParameterListLoaded() {
+    if(listLoaded.length >= 2) {
+      return;
+    }
+    listLoaded.add(true);
   }
 }

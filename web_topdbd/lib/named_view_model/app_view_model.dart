@@ -19,6 +19,7 @@ import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_strings_ee_where_name_country_by_country_ee_from_strings_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_strings_ee_where_unique_id_by_user_ee_from_strings_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_strings_ee_where_username_by_discord_user_ee_from_strings_ee_parameter_temp_cache_service.dart';
+import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameters_temp_cache_service_and_stream_subscription/start_listening_and_cancel_listening_ee_strings_ee_where_unique_id_by_user_ee_from_callback_ee_parameters_temp_cache_service_and_stream_subscription.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/data_for_named/data_for_app_view/data_for_app_view.dart';
@@ -97,18 +98,20 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
   UpdateListEESeasonEEFromListSeasonEEParameterTempCacheService();
   final _deleteEEUserEEParameterSharedPreferencesService =
   DeleteEEUserEEParameterSharedPreferencesService();
+  final _startListeningAndCancelListeningEEStringsEEWhereUniqueIdByUserEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription =
+  StartListeningAndCancelListeningEEStringsEEWhereUniqueIdByUserEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription();
   final _startListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription =
   StartListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription();
 
   // NamedUtility
 
-  AppViewModel() : super(DefaultStreamWState(DataForAppView(true,false,"")));
+  AppViewModel() : super(DefaultStreamWState(DataForAppView(List<bool>.empty(growable: true),false,"")));
 
   @override
   void dispose() {
+    _startListeningAndCancelListeningEEStringsEEWhereUniqueIdByUserEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription.cancelListeningStringsWhereUniqueIdByUserParameterStreamSubscription();
+    _startListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription.cancelListeningThoseWorksParameterStreamSubscription();
     super.dispose();
-    _startListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription
-        .cancelListeningThoseWorksParameterStreamSubscription();
   }
 
   @override
@@ -124,7 +127,8 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
     }
     final getExceptionInStringWhereIsEmptyParameterUniqueId = getUserParameterSharedPreferencesService
         .parameter
-        ?.getExceptionInStringWhereIsEmptyParameterUniqueId ?? "";
+        ?.getExceptionInStringWhereIsEmptyParameterUniqueId
+        ?? "";
     if(getExceptionInStringWhereIsEmptyParameterUniqueId.isNotEmpty) {
       return _firstQQInitQQGetExceptionInStringWhereIsEmptyParameterUniqueId(getExceptionInStringWhereIsEmptyParameterUniqueId);
     }
@@ -249,119 +253,155 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
         .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.endOfSeasonTime ?? DateTime.now()));
     _updateListEESeasonEEFromListSeasonEEParameterTempCacheService
         .updateListSeasonFromListSeasonParameterTempCacheService(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.parameter?.getClone ?? ListSeason(List.empty(growable: true)));
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.uniqueIdByUser = getUserParameterSharedPreferencesService.parameter?.uniqueId ?? "";
     return KeysSuccessUtility.sUCCESS;
   }
 
-  void listeningStreamsFirebaseFirestoreService() {
-    _startListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription
-        .startListeningThoseWorksFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription((Result<ThoseWorks> thoseWorks)
+  void listeningStreamsTempCacheService() {
+    _startListeningAndCancelListeningEEStringsEEWhereUniqueIdByUserEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
+        .startListeningStringsWhereUniqueIdByUserFromCallbackParametersTempCacheServiceAndStreamSubscription((Result<Strings> resultStrings)
     {
-      if(thoseWorks
-          .exceptionController
-          .isWhereNotEqualsNullParameterException())
-      {
-        _firstQQListeningStreamsFirebaseFirestoreServiceQQStartListeningThoseWorksFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(thoseWorks.exceptionController);
-        return;
-      }
-      final isThoseWorks = thoseWorks
-          .parameter
-          ?.isThoseWorks ?? false;
-      if(!isThoseWorks) {
-        return;
-      }
-      getDataForNamedParameterNamedStreamWState
-          .isThoseWorks = isThoseWorks;
+      getDataForNamedParameterNamedStreamWState.uniqueIdByUser = resultStrings.parameter?.field ?? "";
       notifyStreamDataForNamedParameterNamedStreamWState();
     });
   }
 
+  void listeningStreamsFirebaseFirestoreService() {
+    _startListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription
+        .startListeningThoseWorksFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription((Result<ThoseWorks> resultThoseWorks)
+    {
+      if(resultThoseWorks
+          .exceptionController
+          .isWhereNotEqualsNullParameterException())
+      {
+        _firstQQListeningStreamsFirebaseFirestoreServiceQQStartListeningThoseWorksFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(resultThoseWorks.exceptionController);
+        return;
+      }
+      final isNotThoseWorks = !(resultThoseWorks
+          .parameter
+          ?.isThoseWorks ?? false);
+      if(isNotThoseWorks) {
+        _firstQQListeningStreamsFirebaseFirestoreServiceQQIsNotThoseWorks();
+        return;
+      }
+      _startListeningAndCancelListeningEEStringsEEWhereUniqueIdByUserEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
+          .cancelListeningStringsWhereUniqueIdByUserParameterStreamSubscription();
+      _startListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription
+          .cancelListeningThoseWorksParameterStreamSubscription();
+      getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
+      getDataForNamedParameterNamedStreamWState.isThoseWorks = true;
+      if(getDataForNamedParameterNamedStreamWState
+          .listLoaded
+          .length < 2)
+      {
+        return;
+      }
+      notifyStreamDataForNamedParameterNamedStreamWState();
+    });
+  }
+
+  void notifyStreamDataForAppViewParameterNamedStreamWState() {
+    if(getDataForNamedParameterNamedStreamWState
+        .listLoaded
+        .length < 2)
+    {
+      return;
+    }
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
   Future<String> _firstQQInitQQGetUserParameterSharedPreferencesService(ExceptionController exceptionController) async {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQQInitQQGetExceptionInStringWhereIsEmptyParameterUniqueId(String getExceptionInStringWhereIsEmptyParameterUniqueId) async {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     return getExceptionInStringWhereIsEmptyParameterUniqueId;
   }
 
   Future<String> _firstQQInitQQGetDiscordUserFirestoreFromUniqueIdByUserParameterFirebaseFirestoreService(ExceptionController exceptionController) async {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQQInitQQGetIPAddressWhereJsonipAPIParameterHttpClientService(ExceptionController exceptionController) async {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQQInitQQGetCountryFromUniqueIdByUserParameterFirebaseFirestoreService(ExceptionController exceptionController) async {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQQInitQQGetRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService(ExceptionController exceptionController) async {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQQInitQQGetAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService(ExceptionController exceptionController) async {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQQInitQQGetSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService(ExceptionController exceptionController) async {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQQInitQQGetStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService(ExceptionController exceptionController) async {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
-    return  getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
+    return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQQInitQQUpdateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService(ExceptionController exceptionController) async {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
-    return  getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
+    return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQQInitQQGetIPAddressFirestoreFromUniqueIdByUserParameterFirebaseFirestoreService(ExceptionController exceptionController) async {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
-    return  getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
+    return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
   Future<String> _firstQQInitQQGetExceptionInStringWhereNotEqualsFromIpParameterIp(String getExceptionInStringWhereNotEqualsFromIpParameterIp) async {
-    await _deleteEEUserEEParameterSharedPreferencesService
-        .deleteUserParameterSharedPreferencesService();
-    _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
-        .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(const Strings(""));
-    _updateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService
-        .updateDatesTimesWhereCreationTimeByUserFromDatesTimesParameterTempCacheService(DatesTimes(DateTime.fromMillisecondsSinceEpoch(0)));
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    await _deleteEEUserEEParameterSharedPreferencesService.deleteUserParameterSharedPreferencesService();
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     return getExceptionInStringWhereNotEqualsFromIpParameterIp;
   }
 
   Future<String> _firstQQInitQQGetListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService(ExceptionController exceptionController) async {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
   void _firstQQListeningStreamsFirebaseFirestoreServiceQQStartListeningThoseWorksFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(ExceptionController exceptionController) {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  void _firstQQListeningStreamsFirebaseFirestoreServiceQQIsNotThoseWorks() {
+    getDataForNamedParameterNamedStreamWState.insertWhereSmallerNumberTwoParameterListLoaded();
+    if(getDataForNamedParameterNamedStreamWState
+        .listLoaded
+        .length < 2)
+    {
+      return;
+    }
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

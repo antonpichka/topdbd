@@ -6,15 +6,18 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
   bool isThoseWorks;
   String uniqueIdByUser;
 
-  DataForAppView(this.listLoaded,this.isThoseWorks,this.uniqueIdByUser) : super(false);
+  DataForAppView(super.isLoading,this.listLoaded,this.isThoseWorks,this.uniqueIdByUser);
 
   @override
   EnumDataForAppView get getEnumDataForNamed {
-    if(listLoaded.length < 2) {
+    if(isLoading) {
       return EnumDataForAppView.isLoading;
     }
     if(exceptionController.isWhereNotEqualsNullParameterException()) {
       return EnumDataForAppView.exception;
+    }
+    if(isWhereLengthSmallerThanTwoParameterListLoaded()) {
+      return EnumDataForAppView.isLoading;
     }
     if(isThoseWorks) {
       return EnumDataForAppView.thoseWorks;
@@ -25,10 +28,14 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
     return EnumDataForAppView.mainView;
   }
 
-  void insertWhereSmallerNumberTwoParameterListLoaded() {
+  void insertWhereLengthMoreThanOrEqualTwoParameterListLoaded() {
     if(listLoaded.length >= 2) {
       return;
     }
     listLoaded.add(true);
+  }
+
+  bool isWhereLengthSmallerThanTwoParameterListLoaded() {
+    return listLoaded.length < 2;
   }
 }

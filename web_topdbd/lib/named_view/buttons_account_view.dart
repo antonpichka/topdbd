@@ -32,16 +32,14 @@ final class _ButtonsAccountViewState extends State<ButtonsAccountView> {
         Padding(
           padding: const EdgeInsets.only(top: 4.0),
           child: Ink(
-            decoration: ShapeDecoration(
-                color: Theme.of(context).colorScheme.primary,
-                shape: const CircleBorder()
+            decoration: const ShapeDecoration(
+                shape: CircleBorder()
             ),
             child: IconButton(
               icon: const Icon(
                 Icons.logout,
               ),
               iconSize: 25,
-              color: Colors.white,
               onPressed: () {
                 showDialog(context: context, builder: (BuildContext context){
                   return CupertinoAlertDialog(

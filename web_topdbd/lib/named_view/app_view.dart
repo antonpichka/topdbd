@@ -7,7 +7,10 @@ import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 import 'package:web_topdbd/named_utility/keys_w_to_navigation_utility.dart';
 import 'package:web_topdbd/named_view/auth_main_view.dart';
+import 'package:web_topdbd/named_view/balance_view.dart';
+import 'package:web_topdbd/named_view/home_view.dart';
 import 'package:web_topdbd/named_view/main_view.dart';
+import 'package:web_topdbd/named_view/top_players_view.dart';
 import 'package:web_topdbd/named_view_model/app_view_model.dart';
 
 final class AppView extends StatefulWidget {
@@ -76,65 +79,43 @@ final class _AppViewState extends State<AppView> {
     return GoRouter(
         routes: [
           GoRoute(
-            path: '/',
-            name: '/',
-            pageBuilder: (BuildContext context, GoRouterState state) {
-              return MaterialPage(child: Container(color: Colors.white,));
-            },
-            redirect:  (BuildContext context, GoRouterState state) {
-              return KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers;
-            }
-          ),
-          /*GoRoute(
-              path: '/',
-              builder: (BuildContext context, GoRouterState state) {
-                return Container(color: Colors.white,);
-              },
-              redirect: (BuildContext context, GoRouterState state) {
-                return state.name ?? KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers;
-              }
-          ),*/
-          /*GoRoute(
-              path: '/login',
+              path: KeysNavigationUtility.navigationViewQQHome,
+              name: KeysNavigationUtility.navigationViewQQHome,
+              pageBuilder: (BuildContext context, GoRouterState state) {
+                return _getChoicedMaterialPageFromFourParameterAppViewModel(context,state,HomeView());
+              }),
+          GoRoute(
+              path: KeysNavigationUtility.navigationViewQQTopPlayers,
+              name: KeysNavigationUtility.navigationViewQQTopPlayers,
+              pageBuilder: (BuildContext context, GoRouterState state) {
+                return _getChoicedMaterialPageFromFourParameterAppViewModel(context,state,TopPlayersView());
+              }),
+          GoRoute(
+              path: KeysNavigationUtility.navigationViewQQBalance,
+              name: KeysNavigationUtility.navigationViewQQBalance,
+              pageBuilder: (BuildContext context, GoRouterState state) {
+                return _getChoicedMaterialPageFromFourParameterAppViewModel(context,state,BalanceView());
+              }),
+         /* GoRoute(
+              path: KeysNavigationUtility.navigationViewQQTournaments,
+              name: KeysNavigationUtility.navigationViewQQTournaments,
               pageBuilder:(BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state);
-              },
-          ),*/
-          GoRoute(
-            path: KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers,
-            name: KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers,
-            pageBuilder: (BuildContext context, GoRouterState state) {
-              return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTopPlayers);
-            },
-          ),
-          GoRoute(
-            path: KeysNavigationUtility.selectedNavigationItemViewQQBalance,
-            name: KeysNavigationUtility.selectedNavigationItemViewQQBalance,
-            pageBuilder: (BuildContext context, GoRouterState state) {
-              return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQBalance);
-            },
-          ),
-          GoRoute(
-            path: KeysNavigationUtility.selectedNavigationItemViewQQTournaments,
-            name: KeysNavigationUtility.selectedNavigationItemViewQQTournaments,
-            pageBuilder:(BuildContext context, GoRouterState state) {
-              return _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(context,state,KeysNavigationUtility.selectedNavigationItemViewQQTournaments);
-            },
-          ),
+                return _getChoicedMaterialPageFromFourParameterAppViewModel(context,state,TournamentsView());
+              }),*/
         ],
         errorPageBuilder: (BuildContext context, GoRouterState state) {
           return const MaterialPage(child: Scaffold(body: Center(child: Text("404 NOT FOUND"))));
         });
   }
 
-  MaterialPage _getChoicedMaterialPageFromContextAndStateAndNameRouteAndIdParameterAppViewModel(BuildContext context,GoRouterState state, String nameRoute, [String id = KeysWToNavigationUtility.appViewQQId]) {
+  MaterialPage _getChoicedMaterialPageFromFourParameterAppViewModel(BuildContext context,GoRouterState state,Widget namedView,[String id = KeysWToNavigationUtility.appViewQQId]) {
     final dataForNamedParameterNamedStreamWState = _appViewModel.getDataForNamedParameterNamedStreamWState;
     final value = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
-          Condition.equals(name: MOBILE, value: _getWidgetWhereThoseWorksFromContextAndSizedBoxWidthAndTextSize(context,250,18)),
-          Condition.equals(name: TABLET, value: _getWidgetWhereThoseWorksFromContextAndSizedBoxWidthAndTextSize(context,300,24)),
-          Condition.equals(name: DESKTOP, value: _getWidgetWhereThoseWorksFromContextAndSizedBoxWidthAndTextSize(context,400,30)),
+          Condition.equals(name: MOBILE, value: _getWidgetWhereThoseWorksFromThree(context,250,18)),
+          Condition.equals(name: TABLET, value: _getWidgetWhereThoseWorksFromThree(context,300,24)),
+          Condition.equals(name: DESKTOP, value: _getWidgetWhereThoseWorksFromThree(context,400,30)),
         ]
     ).value ?? Container();
     switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
@@ -145,15 +126,15 @@ final class _AppViewState extends State<AppView> {
       case EnumDataForAppView.thoseWorks:
         return MaterialPage(child: value);
       case EnumDataForAppView.authMainView:
-        return MaterialPage(child: AuthMainView(nameRoute,state.pathParameters[id] ?? ""));
+        return MaterialPage(child: AuthMainView(namedView,state.pathParameters[id] ?? ""));
       case EnumDataForAppView.mainView:
-        return MaterialPage(child: MainView(nameRoute,state.pathParameters[id] ?? ""));
+        return MaterialPage(child: MainView(namedView,state.pathParameters[id] ?? ""));
       default:
         return MaterialPage(child: Container());
     }
   }
 
-  Widget _getWidgetWhereThoseWorksFromContextAndSizedBoxWidthAndTextSize(BuildContext context,double sizedBoxWidth,double textSize) {
+  Widget _getWidgetWhereThoseWorksFromThree(BuildContext context,double sizedBoxWidth,double textSize) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(

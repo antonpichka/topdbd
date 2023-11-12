@@ -33,7 +33,6 @@ final class _ListSeasonStatsUserViewState extends State<ListSeasonStatsUserView>
     return SizedBox(
       width: MediaQuery.of(context).size.width / value,
       child: Card(
-        color: Theme.of(context).colorScheme.surface,
         child: Column(
             children: [
               const SizedBox(

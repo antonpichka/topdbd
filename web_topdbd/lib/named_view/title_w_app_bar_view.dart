@@ -40,19 +40,22 @@ final class _TitleWAppBarViewState extends State<TitleWAppBarView> {
   }
 
   Widget _getWidgetWhereDesktop() {
-    return Row(
-      children: [
-        Expanded(child: Container()),
-        Image.asset(
-            'assets/icon/app_icon.png',
-            width: 75,
-            height: 75,
-            fit: BoxFit.cover),
-        Expanded(child: Container()),
-        Expanded(flex: 2,child: SearchUsersView()),
-        const SizedBox(width: 10,),
-        Expanded(flex: 3,child: ButtonsAccountView()),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
+      child: Row(
+        children: [
+          Expanded(child: Container()),
+          Image.asset(
+              'assets/icon/app_icon.png',
+              width: 75,
+              height: 75,
+              fit: BoxFit.cover),
+          Expanded(child: Container()),
+          Expanded(flex: 2,child: SearchUsersView()),
+          const SizedBox(width: 10,),
+          Expanded(flex: 3,child: ButtonsAccountView()),
+        ],
+      ),
     );
   }
 }

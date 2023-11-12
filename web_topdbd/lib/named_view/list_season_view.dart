@@ -33,7 +33,6 @@ final class _ListSeasonViewState extends State<ListSeasonView> {
     return SizedBox(
       width: MediaQuery.of(context).size.width / value,
       child: Card(
-        color: Theme.of(context).colorScheme.surface,
         child: Column(
           children: [
             const SizedBox(
@@ -63,30 +62,23 @@ final class _ListSeasonViewState extends State<ListSeasonView> {
               width: double.infinity,
               child: MouseRegion(
                 cursor: SystemMouseCursors.allScroll,
-                child: RawScrollbar(
-                  controller: _scrollController,
-                  thumbColor: Theme.of(context).colorScheme.secondary,
-                  radius: const Radius.circular(30),
-                  thickness: 15,
-                  thumbVisibility: true,
-                  child: ListView.separated(
-                      controller: _scrollController,
-                      primary: false,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: 10,
-                      itemBuilder: (context,index) {
-                        return _getItemToListViewFromFive("1","Sep 1, 2023","Sep 30, 2023","120","10");
-                      },
-                      separatorBuilder: (context,index) {
-                        return  Container(
-                            decoration: BoxDecoration(
-                                border: Border(
-                                    bottom: BorderSide(color: Theme.of(context).dividerColor))
-                            )
-                        );
-                      }),
-                ),
+                child: ListView.separated(
+                    controller: _scrollController,
+                    primary: false,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemCount: 10,
+                    itemBuilder: (context,index) {
+                      return _getItemToListViewFromFive("1","Sep 1, 2023","Sep 30, 2023","120","10");
+                    },
+                    separatorBuilder: (context,index) {
+                      return  Container(
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(color: Theme.of(context).dividerColor))
+                          )
+                      );
+                    }),
               ),
             ),
           ],

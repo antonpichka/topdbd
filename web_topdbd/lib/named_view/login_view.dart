@@ -75,7 +75,6 @@ final class _LoginViewState extends State<LoginView> {
                           child: SingleChildScrollView(
                             controller: _scrollController,
                             child: Card(
-                              color: Colors.black,
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(dataForNamedParameterNamedStreamWState.termsOfUse),

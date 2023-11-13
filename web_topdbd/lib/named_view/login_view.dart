@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/data_for_named/data_for_login_view/data_for_login_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_login_view/enum_data_for_login_view.dart';
-import 'package:web_topdbd/named_view_model/login_view_model.dart';
+import 'package:web_topdbd/named_view_model/login_view_model/test_login_view_model.dart';
 
 final class LoginView extends StatefulWidget {
   @override
@@ -11,12 +11,18 @@ final class LoginView extends StatefulWidget {
 }
 
 final class _LoginViewState extends State<LoginView> {
-  late final LoginViewModel _loginViewModel;
+  /// RELEASE CODE
+  // late final LoginViewModel _loginViewModel;
+  /// TEST CODE
+  late final TestLoginViewModel _loginViewModel;
   late final ScrollController _scrollController;
 
   @override
   void initState() {
-    _loginViewModel = LoginViewModel();
+    /// RELEASE CODE
+    // _loginViewModel = LoginViewModel();
+    /// TEST CODE
+    _loginViewModel = TestLoginViewModel();
     _scrollController = ScrollController();
     super.initState();
     _initParameterLoginViewModel();

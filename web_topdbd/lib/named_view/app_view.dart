@@ -5,13 +5,12 @@ import 'package:web_topdbd/data_for_named/data_for_app_view/enum_data_for_app_vi
 import 'package:web_topdbd/l10n/l10n.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
-import 'package:web_topdbd/named_utility/keys_w_to_navigation_utility.dart';
 import 'package:web_topdbd/named_view/auth_main_view.dart';
 import 'package:web_topdbd/named_view/balance_view.dart';
 import 'package:web_topdbd/named_view/home_view.dart';
 import 'package:web_topdbd/named_view/main_view.dart';
 import 'package:web_topdbd/named_view/top_players_view.dart';
-import 'package:web_topdbd/named_view_model/app_view_model.dart';
+import 'package:web_topdbd/named_view_model/app_view_model/test_app_view_model.dart';
 
 final class AppView extends StatefulWidget {
   @override
@@ -19,11 +18,17 @@ final class AppView extends StatefulWidget {
 }
 
 final class _AppViewState extends State<AppView> {
-  late final AppViewModel _appViewModel;
+  /// RELEASE CODE
+  // late final AppViewModel _appViewModel;
+  /// TEST CODE
+  late final TestAppViewModel _appViewModel;
 
   @override
   void initState() {
-    _appViewModel = AppViewModel();
+    /// RELEASE CODE
+    // _appViewModel = AppViewModel();
+    /// TEST CODE
+    _appViewModel = TestAppViewModel();
     super.initState();
     _initParameterAppViewModel();
   }
@@ -82,19 +87,19 @@ final class _AppViewState extends State<AppView> {
               path: KeysNavigationUtility.navigationViewQQHome,
               name: KeysNavigationUtility.navigationViewQQHome,
               pageBuilder: (BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPageFromFourParameterAppViewModel(context,state,HomeView());
+                return _getChoicedMaterialPageFromFourParameterAppViewModel(context,HomeView());
               }),
           GoRoute(
               path: KeysNavigationUtility.navigationViewQQTopPlayers,
               name: KeysNavigationUtility.navigationViewQQTopPlayers,
               pageBuilder: (BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPageFromFourParameterAppViewModel(context,state,TopPlayersView());
+                return _getChoicedMaterialPageFromFourParameterAppViewModel(context,TopPlayersView());
               }),
           GoRoute(
               path: KeysNavigationUtility.navigationViewQQBalance,
               name: KeysNavigationUtility.navigationViewQQBalance,
               pageBuilder: (BuildContext context, GoRouterState state) {
-                return _getChoicedMaterialPageFromFourParameterAppViewModel(context,state,BalanceView());
+                return _getChoicedMaterialPageFromFourParameterAppViewModel(context,BalanceView());
               }),
          /* GoRoute(
               path: KeysNavigationUtility.navigationViewQQTournaments,
@@ -108,7 +113,7 @@ final class _AppViewState extends State<AppView> {
         });
   }
 
-  MaterialPage _getChoicedMaterialPageFromFourParameterAppViewModel(BuildContext context,GoRouterState state,Widget namedView,[String id = KeysWToNavigationUtility.appViewQQId]) {
+  MaterialPage _getChoicedMaterialPageFromFourParameterAppViewModel(BuildContext context,Widget namedView) {
     final dataForNamedParameterNamedStreamWState = _appViewModel.getDataForNamedParameterNamedStreamWState;
     final value = ResponsiveValue<Widget>(
         context,
@@ -126,9 +131,9 @@ final class _AppViewState extends State<AppView> {
       case EnumDataForAppView.thoseWorks:
         return MaterialPage(child: value);
       case EnumDataForAppView.authMainView:
-        return MaterialPage(child: AuthMainView(namedView,state.pathParameters[id] ?? ""));
+        return MaterialPage(child: AuthMainView(namedView));
       case EnumDataForAppView.mainView:
-        return MaterialPage(child: MainView(namedView,state.pathParameters[id] ?? ""));
+        return MaterialPage(child: MainView(namedView));
       default:
         return MaterialPage(child: Container());
     }

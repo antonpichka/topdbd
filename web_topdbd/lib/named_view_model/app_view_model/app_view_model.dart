@@ -23,6 +23,7 @@ import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/data_for_named/data_for_app_view/data_for_app_view.dart';
+import 'package:web_topdbd/named_view_model/app_view_model/i_app_view_model.dart';
 import 'package:web_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_named_service/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_firebase_firestore_service/operation_ee_about_me_ee_where_named_ee_from_named_ee_parameter_firebase_firestore_service/get_ee_about_me_ee_from_unique_id_by_user_ee_parameter_firebase_firestore_service.dart';
 import 'package:web_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_named_service/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_firebase_firestore_service/operation_ee_country_ee_where_named_ee_from_named_ee_parameter_firebase_firestore_service/get_ee_country_ee_from_unique_id_by_user_ee_parameter_firebase_firestore_service.dart';
 import 'package:web_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_named_service/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_firebase_firestore_service/operation_ee_discord_user_firestore_ee_where_named_ee_from_named_ee_parameter_firebase_firestore_service/get_ee_discord_user_firestore_ee_from_unique_id_by_user_ee_parameter_firebase_firestore_service.dart';
@@ -38,7 +39,9 @@ import 'package:web_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_pa
 import 'package:web_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_named_service/operation_ee_model_ee_where_named_ee_from_named_ee_parameters_firebase_firestore_service_and_stream_subscription/operation_ee_those_works_ee_where_named_ee_from_named_ee_parameters_firebase_firestore_service_and_stream_subscription/start_listening_and_cancel_listening_ee_those_works_ee_from_callback_ee_parameters_firebase_firestore_service_and_stream_subscription.dart';
 
 @immutable
-final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStreamWState<DataForAppView>> {
+final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStreamWState<DataForAppView>>
+    implements IAppViewModel
+{
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   final _getEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService =
   GetEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService();
@@ -258,6 +261,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
     return KeysSuccessUtility.sUCCESS;
   }
 
+  @override
   void listeningStreamsTempCacheService() {
     _startListeningAndCancelListeningEEStringsEEWhereUniqueIdByUserEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
         .startListeningStringsWhereUniqueIdByUserFromCallbackParametersTempCacheServiceAndStreamSubscription((Result<Strings> resultStrings)
@@ -267,6 +271,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
     });
   }
 
+  @override
   void listeningStreamsFirebaseFirestoreService() {
     _startListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription
         .startListeningThoseWorksFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription((Result<ThoseWorks> resultThoseWorks)
@@ -295,6 +300,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
     });
   }
 
+  @override
   void notifyStreamDataForAppView() {
     final isWhereLengthSmallerThanTwoParameterListLoaded = getDataForNamedParameterNamedStreamWState
         .isWhereLengthSmallerThanTwoParameterListLoaded();

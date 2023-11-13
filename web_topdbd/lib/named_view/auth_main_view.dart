@@ -6,24 +6,29 @@ import 'package:web_topdbd/data_for_named/data_for_auth_main_view/enum_data_for_
 import 'package:web_topdbd/named_view/custom_footer_view.dart';
 import 'package:web_topdbd/named_view/navigation_view.dart';
 import 'package:web_topdbd/named_view/title_w_app_bar_view.dart';
-import 'package:web_topdbd/named_view_model/auth_main_view_model.dart';
+import 'package:web_topdbd/named_view_model/auth_main_view_model/test_auth_main_view_model.dart';
 
 final class AuthMainView extends StatefulWidget {
   final Widget namedView;
-  final String id;
 
-  const AuthMainView(this.namedView,this.id);
+  const AuthMainView(this.namedView);
 
   @override
   State<AuthMainView> createState() => _AuthMainViewState();
 }
 
 final class _AuthMainViewState extends State<AuthMainView> {
-  late final AuthMainViewModel _authMainViewModel;
+  /// RELEASE CODE
+  // late final AuthMainViewModel _authMainViewModel;
+  /// TEST CODE
+  late final TestAuthMainViewModel _authMainViewModel;
 
   @override
   void initState() {
-    _authMainViewModel = AuthMainViewModel();
+    /// RELEASE CODE
+    // _authMainViewModel = AuthMainViewModel();
+    /// TEST CODE
+    _authMainViewModel = TestAuthMainViewModel();
     super.initState();
     _initParameterAuthMainViewModel();
   }

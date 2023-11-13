@@ -7,24 +7,29 @@ import 'package:web_topdbd/named_view/custom_footer_view.dart';
 import 'package:web_topdbd/named_view/drawer_view.dart';
 import 'package:web_topdbd/named_view/navigation_view.dart';
 import 'package:web_topdbd/named_view/title_w_app_bar_view.dart';
-import 'package:web_topdbd/named_view_model/main_view_model.dart';
+import 'package:web_topdbd/named_view_model/main_view_model/test_main_view_model.dart';
 
 final class MainView extends StatefulWidget {
   final Widget namedView;
-  final String id;
 
-  const MainView(this.namedView,this.id);
+  const MainView(this.namedView);
 
   @override
   State<MainView> createState() => _MainViewState();
 }
 
 final class _MainViewState extends State<MainView> {
-  late final MainViewModel _mainViewModel;
+  /// RELEASE CODE
+  // late final MainViewModel _mainViewModel;
+  /// TEST CODE
+  late final TestMainViewModel _mainViewModel;
 
   @override
   void initState() {
-    _mainViewModel = MainViewModel();
+    /// RELEASE CODE
+    // _mainViewModel = MainViewModel();
+    /// TEST CODE
+    _mainViewModel = TestMainViewModel();
     super.initState();
     _initParameterMainViewModel();
   }

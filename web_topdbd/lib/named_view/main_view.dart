@@ -3,6 +3,7 @@ import 'package:footer/footer.dart';
 import 'package:footer/footer_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/data_for_named/data_for_main_view/enum_data_for_main_view.dart';
+import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_view/custom_footer_view.dart';
 import 'package:web_topdbd/named_view/drawer_view.dart';
 import 'package:web_topdbd/named_view/navigation_view.dart';
@@ -50,14 +51,6 @@ final class _MainViewState extends State<MainView> {
           Condition.equals(name: DESKTOP, value: null),
         ]
     ).value;
-    final valueFIRST = ResponsiveValue<double>(
-        context,
-        conditionalValues: [
-          Condition.equals(name: MOBILE, value: 4.0),
-          Condition.equals(name: TABLET, value: 4.0),
-          Condition.equals(name: DESKTOP, value: 50.0),
-        ]
-    ).value ?? 0.0;
     final dataForNamed = _mainViewModel.getDataForNamedParameterNamedStreamWState;
     switch(dataForNamed.getEnumDataForNamed) {
       case EnumDataForMainView.isLoading:
@@ -72,19 +65,20 @@ final class _MainViewState extends State<MainView> {
               title: TitleWAppBarView(),
               backgroundColor: Theme.of(context).colorScheme.surface,
               bottom: PreferredSize(
-                  preferredSize: Size.fromHeight(valueFIRST),
+                  preferredSize: const Size.fromHeight(50.0),
                   child: NavigationView())
           ),
           drawer: value,
           body: FooterView(
             footer: Footer(
-                backgroundColor: Theme.of(context).colorScheme.background,
+                backgroundColor: FlutterThemeUtility.seedColorFIRST,
                 alignment: Alignment.center,
+                padding: const EdgeInsets.all(8.0),
                 child: CustomFooterView()
             ),
             flex: 1,
             children: [
-              const SizedBox(height: 5),
+              const SizedBox(height: 10),
               widget.namedView
             ],
           ),

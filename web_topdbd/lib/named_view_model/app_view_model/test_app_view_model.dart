@@ -11,11 +11,10 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   // NamedUtility
 
-  TestAppViewModel() : super(DefaultStreamWState(DataForAppView(true,List<bool>.empty(growable: true),false,"")));
+  TestAppViewModel() : super(DefaultStreamWState(DataForAppView(false,List<bool>.of([true,true]),false,"")));
 
   @override
   Future<String> init() async {
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
     return KeysSuccessUtility.sUCCESS;
   }
 

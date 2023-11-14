@@ -10,10 +10,9 @@ final class _ButtonsAccountViewState extends State<ButtonsAccountView> {
   @override
   Widget build(BuildContext context) {
     const username = "WWwwww qwwwwWwwwwwwqqw";
-    return Wrap(
+    return Row(
       children: [
-        SizedBox(
-          width: 240,
+        Expanded(
           child: Tooltip(
             message: username,
             child: ListTile(
@@ -29,39 +28,66 @@ final class _ButtonsAccountViewState extends State<ButtonsAccountView> {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 4.0),
-          child: Ink(
-            decoration: const ShapeDecoration(
-                shape: CircleBorder()
-            ),
-            child: IconButton(
-              icon: const Icon(
-                Icons.logout,
-              ),
-              iconSize: 25,
-              onPressed: () {
-                showDialog(context: context, builder: (BuildContext context){
-                  return CupertinoAlertDialog(
-                    content: Text("Are you sure you want to log out of your account ?",
-                        style: Theme.of(context).textTheme.bodyMedium),
-                    actions: [
-                      CupertinoDialogAction(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text("Yes",
-                              style: Theme.of(context).textTheme.bodyMedium)),
-                      CupertinoDialogAction(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text("No",
-                            style: Theme.of(context).textTheme.bodyMedium,)),
-                    ],
-                  );
-                });
-              },
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 4.0),
+            child: Row(
+              children: [
+                Tooltip(
+                  message: "Logout",
+                  child: Ink(
+                    decoration: const ShapeDecoration(
+                        shape: CircleBorder()
+                    ),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.logout,
+                      ),
+                      iconSize: 25,
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return CupertinoAlertDialog(
+                                content: Text("Are you sure you want to log out of your account ?",
+                                    style: Theme.of(context).textTheme.bodyMedium),
+                                actions: [
+                                  CupertinoDialogAction(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                        },
+                                      child: Text("Yes",
+                                          style: Theme.of(context).textTheme.bodyMedium)),
+                                  CupertinoDialogAction(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                        },
+                                      child: Text("No",
+                                        style: Theme.of(context).textTheme.bodyMedium,)),
+                                ],
+                              );
+                            });
+                        },
+                    ),
+                  ),
+                ),
+                Tooltip(
+                  message: "Download",
+                  child: Ink(
+                    decoration: const ShapeDecoration(
+                        shape: CircleBorder()
+                    ),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.download,
+                      ),
+                      iconSize: 25,
+                      onPressed: () {
+                      },
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),

@@ -28,58 +28,45 @@ final class _ListSeasonViewState extends State<ListSeasonView> {
         conditionalValues: [
           Condition.equals(name: MOBILE, value: 1.0),
           Condition.equals(name: TABLET, value: 1.0),
-          Condition.equals(name: DESKTOP,value: 2.1),
+          Condition.equals(name: DESKTOP,value: 1.05),
         ]).value ?? 0.0;
     return SizedBox(
       width: MediaQuery.of(context).size.width / value,
       child: Card(
         child: Column(
           children: [
-            const SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding: EdgeInsets.all(4.0),
-                child: Wrap(
-                  alignment: WrapAlignment.center,
-                  children: [
-                    Icon(Icons.rocket, color: Colors.white,),
-                    Padding(
-                      padding: EdgeInsets.only(top: 3.0),
-                      child: Text("Past Seasons"),
-                    ),
-                  ],
-                ),
+            const Padding(
+              padding: EdgeInsets.all(4.0),
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                children: [
+                  Icon(Icons.rocket),
+                  SizedBox(width: 2,),
+                  Padding(
+                    padding: EdgeInsets.only(top: 3.0),
+                    child: Text("Past Seasons"),
+                  ),
+                ],
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
-              ),
-            ),
-            SizedBox(
-              height: 150,
-              width: double.infinity,
-              child: MouseRegion(
-                cursor: SystemMouseCursors.allScroll,
-                child: ListView.separated(
-                    controller: _scrollController,
-                    primary: false,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: 10,
-                    itemBuilder: (context,index) {
-                      return _getItemToListViewFromFive("1","Sep 1, 2023","Sep 30, 2023","120","10");
-                    },
-                    separatorBuilder: (context,index) {
-                      return  Container(
-                          decoration: BoxDecoration(
-                              border: Border(
-                                  bottom: BorderSide(color: Theme.of(context).dividerColor))
-                          )
-                      );
-                    }),
-              ),
+            Divider(
+              height: 1.0,
+              color: Theme.of(context).dividerColor,),
+            MouseRegion(
+              cursor: SystemMouseCursors.allScroll,
+              child: ListView.separated(
+                  controller: _scrollController,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  itemCount: 10,
+                  itemBuilder: (context,index) {
+                    return _getItemToListViewFromFive("1","Sep 1, 2023","Sep 30, 2023","120","10");
+                  },
+                  separatorBuilder: (context,index) {
+                    return Divider(
+                      height: 1.0,
+                      color: Theme.of(context).dividerColor,);
+                  }),
             ),
           ],
         ),
@@ -99,18 +86,16 @@ final class _ListSeasonViewState extends State<ListSeasonView> {
               const Icon(Icons.history_edu, color: Colors.white,),
               Padding(
                 padding: const EdgeInsets.only(top: 4),
-                child: Text("Season #$name",
-                  style: Theme.of(context).textTheme.bodyMedium,
+                child: Text("Season #$name"
                 ),
               ),
             ],
           ),
-          Text("$startOfSeasonTime - $endOfSeasonTime",
-            style: Theme.of(context).textTheme.bodyMedium,),
-          Text("Number of matches played per season: $strNumberOfMatchesPlayedPerSeason",
-            style: Theme.of(context).textTheme.bodyMedium,),
-          Text("Number of unique players who played in a season: $strNumberOfUniquePlayersWhoPlayedInASeason",
-            style: Theme.of(context).textTheme.bodyMedium,),
+          Text("$startOfSeasonTime - $endOfSeasonTime"),
+          const Text("Number of matches played per season:"),
+          Text(strNumberOfMatchesPlayedPerSeason),
+          const Text("Number of unique players who played in a season:",),
+          Text(strNumberOfUniquePlayersWhoPlayedInASeason),
         ],
       ),
     );

@@ -3,7 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 @immutable
 final class FlutterThemeUtility {
-  static const Color colorGithub = Color.fromRGBO(13, 17, 23,1.0);
+  static const Color seedColor = Color.fromRGBO(13, 17, 23,1.0);
+  static const Color seedColorFIRST = Color.fromRGBO(26, 29, 34,1.0);
+  static const Color discordLogoColor = Color.fromRGBO(88, 101, 242,1.0);
 
   const FlutterThemeUtility._();
 
@@ -12,7 +14,7 @@ final class FlutterThemeUtility {
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(
         brightness: Brightness.light,
-        seedColor: colorGithub,
+        seedColor: seedColor,
       ),
       textTheme: TextTheme(
         displayLarge: const TextStyle(
@@ -34,7 +36,7 @@ final class FlutterThemeUtility {
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(
         brightness: Brightness.dark,
-        seedColor: colorGithub,
+        seedColor: seedColor,
       ),
       textTheme: TextTheme(
         displayLarge: const TextStyle(

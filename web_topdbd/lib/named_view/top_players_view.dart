@@ -19,58 +19,54 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Card(
-        color: Theme.of(context).colorScheme.surface,
+        color: Colors.transparent,
         child: Column(
           children: [
-            const SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding: EdgeInsets.all(4.0),
-                child: Wrap(
-                  alignment: WrapAlignment.center,
-                  children: [
-                    Icon(Icons.stacked_bar_chart, color: Colors.white,),
-                    Padding(
-                      padding: EdgeInsets.only(top: 3.0),
-                      child: Text("TOP Players"),
-                    ),
-                  ],
-                ),
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                children: [
+                  const Icon(Icons.stacked_bar_chart),
+                  const SizedBox(width: 2,),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 2),
+                    child: Text("TOP Players",
+                      style: Theme.of(context).textTheme.bodyLarge,),
+                  ),
+                ],
               ),
             ),
+            Divider(
+              height: 1.0,
+              color: Theme.of(context).dividerColor,),
             Container(
               decoration: BoxDecoration(
                   border: Border(
-                      bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                      left: BorderSide(color: Theme.of(context).colorScheme.secondary),
-                      right: BorderSide(color: Theme.of(context).colorScheme.secondary))
+                      left: BorderSide(color: Theme.of(context).dividerColor),
+                      right: BorderSide(color: Theme.of(context).dividerColor))
               ),
               child: DropdownButtonHideUnderline(
                 child: DropdownButton<String>(
                   isExpanded: true,
-                  value: "TOP Players from 1 to ∞",
+                  value: "1 - ∞",
                   items: const [
                     DropdownMenuItem<String>(
-                      value: "TOP Players from 1 to ∞",
+                      value: "1 - ∞",
                       child: Center(
                           child: Text(
-                              "TOP Players from 1 to ∞",
+                              "1 - ∞",
                               textAlign: TextAlign.center)
                       )
                     ),
                     DropdownMenuItem<String>(
-                        value: "TOP Players from 25 to ∞",
+                        value: "25 - ∞",
                         child: Center(
                             child: Text(
-                                "TOP Players from 25 to ∞",
+                                "25 - ∞",
                                 textAlign: TextAlign.center)
                         )
                     ),
@@ -81,37 +77,28 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
                 ),
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
-              ),
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: ListView.separated(
-                  primary: false,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  itemCount: 100, /// hasReachedMax == true ? listModel.length : listModel.length + 1
-                  itemBuilder: (context,index) {
-                   /*if(index >= listModel.length) {
-                      return buildButtonMoreDataToListView();
-                    }*/
-                    if(index == 0) {
-                      return _getHeaderToListViewWhereItemToListViewFromIndexAndUsername(index,"Vicar32");
-                    }
-                    return _getItemToListViewFromIndexAndUsername(index,"Vicar32");
-                  },
-                  separatorBuilder: (context,index) {
-                    return Container(
-                        decoration: BoxDecoration(
-                            border: Border(
-                                bottom: BorderSide(color: Theme.of(context).dividerColor))
-                        )
-                    );
-                  }),
-            ),
+            Divider(
+              height: 1.0,
+              color: Theme.of(context).dividerColor,),
+            ListView.separated(
+                primary: false,
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemCount: 100, /// hasReachedMax == true ? listModel.length : listModel.length + 1
+                itemBuilder: (context,index) {
+                 /*if(index >= listModel.length) {
+                    return buildButtonMoreDataToListView();
+                  }*/
+                  if(index == 0) {
+                    return _getHeaderToListViewWhereItemToListViewFromIndexAndUsername(index,"Vicar32");
+                  }
+                  return _getItemToListViewFromIndexAndUsername(index,"Vicar32");
+                },
+                separatorBuilder: (context,index) {
+                  return Divider(
+                    height: 1.0,
+                    color: Theme.of(context).dividerColor,);
+                }),
           ],
         ),
       ),
@@ -134,9 +121,19 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
             ),
             Expanded(
               flex: 2,
-              child: Text(
-                  "Player",
-                  style: Theme.of(context).textTheme.bodyLarge),
+              child: Row(
+                children: [
+                  Image.asset(
+                      'assets/icon/flags/unknown.png',
+                      width: 32,
+                      height: 32,
+                      fit: BoxFit.cover),
+                  const SizedBox(width: 2,),
+                  Text(
+                      "Player",
+                      style: Theme.of(context).textTheme.bodyLarge),
+                ],
+              ),
             ),
             Expanded(
                 child: Text(
@@ -158,7 +155,10 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
                     style: Theme.of(context).textTheme.bodyLarge)),*/
           ],
         ),
-        const Divider(height: 2.0,thickness: 2.0,),
+        Divider(
+          height: 2.0,
+          thickness: 2.0,
+          color: Theme.of(context).dividerColor,),
         _getItemToListViewFromIndexAndUsername(index,username),
       ],
     );
@@ -176,28 +176,25 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
         ),
         Expanded(
           flex: 2,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Image.asset(
-                    'assets/icon/flags/france.png',
-                    width: 32,
-                    height: 32,
-                    fit: BoxFit.cover),
-                const SizedBox(width: 2,),
-                RichText(
-                    text: TextSpan(
-                      text: username,
-                      style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: Theme.of(context).textTheme.bodyMedium?.fontSize),
-                      recognizer: TapGestureRecognizer()..onTap = () {
-                      },
-                    )
-                ),
-              ],
-            ),
+          child: Row(
+            children: [
+              Image.asset(
+                  'assets/icon/flags/france.png',
+                  width: 32,
+                  height: 32,
+                  fit: BoxFit.cover),
+              const SizedBox(width: 2,),
+              RichText(
+                  text: TextSpan(
+                    text: username,
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: Theme.of(context).textTheme.bodyMedium?.fontSize),
+                    recognizer: TapGestureRecognizer()..onTap = () {
+                    },
+                  )
+              ),
+            ],
           ),
         ),
         const Expanded(

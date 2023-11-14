@@ -4,6 +4,7 @@ import 'package:footer/footer_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/data_for_named/data_for_auth_main_view/enum_data_for_auth_main_view.dart';
 import 'package:web_topdbd/named_view/custom_footer_view.dart';
+import 'package:web_topdbd/named_view/login_view.dart';
 import 'package:web_topdbd/named_view/navigation_view.dart';
 import 'package:web_topdbd/named_view/title_w_app_bar_view.dart';
 import 'package:web_topdbd/named_view_model/auth_main_view_model/test_auth_main_view_model.dart';
@@ -81,14 +82,16 @@ final class _AuthMainViewState extends State<AuthMainView> {
         drawer: value,
         body: FooterView(
           footer: Footer(
-              backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+              backgroundColor: Theme.of(context).colorScheme.secondary,
               alignment: Alignment.center,
               child: CustomFooterView()
           ),
           flex: 1,
           children: [
             const SizedBox(height: 5),
-            widget.namedView
+            widget.namedView == LoginView()
+                ? const Center(child: Text("You are already logged in :roflanEbalo"))
+                : widget.namedView
           ],
         ),
       );

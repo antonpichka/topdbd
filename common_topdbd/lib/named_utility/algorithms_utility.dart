@@ -15,6 +15,22 @@ final class AlgorithmsUtility {
     return result;
   }
 
+  static String getStringWhereProcessedNameRouteFromRawNameRoute(String rawNameRoute) {
+    String nameRoute = "";
+    for(String itemRawNameRoute in rawNameRoute.split('')) {
+      if(itemRawNameRoute == "(") {
+        break;
+      }
+      nameRoute += itemRawNameRoute;
+    }
+    if(nameRoute.length == 1) {
+      return nameRoute;
+    }
+    return nameRoute[0] == "#"
+        ? nameRoute
+        : "#$nameRoute";
+  }
+
   static int getInterestFormulaFromNumberAndFindPercent(int number, int findPercent) {
     return ((number / 100) * findPercent).toInt();
   }

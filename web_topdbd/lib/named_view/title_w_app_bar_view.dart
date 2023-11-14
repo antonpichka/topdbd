@@ -23,9 +23,9 @@ final class _TitleWAppBarViewState extends State<TitleWAppBarView> {
     final value = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
+          Condition.equals(name: MOBILE, value: _getWidgetWhereTabletAndMobile()),
           Condition.equals(name: TABLET, value: _getWidgetWhereTabletAndMobile()),
-          Condition.largerThan(name: TABLET, value: _getWidgetWhereDesktop()),
-          Condition.smallerThan(name: TABLET, value: _getWidgetWhereTabletAndMobile())
+          Condition.equals(name: DESKTOP, value: _getWidgetWhereDesktop()),
         ]
     ).value ?? Container();
     return value;

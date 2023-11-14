@@ -1,8 +1,8 @@
-import 'package:custom_signin_buttons/custom_signin_buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:web_topdbd/data_for_named/data_for_login_view/data_for_login_view.dart';
 import 'package:web_topdbd/data_for_named/data_for_login_view/enum_data_for_login_view.dart';
+import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_view_model/login_view_model/test_login_view_model.dart';
 
 final class LoginView extends StatefulWidget {
@@ -15,7 +15,6 @@ final class _LoginViewState extends State<LoginView> {
   // late final LoginViewModel _loginViewModel;
   /// TEST CODE
   late final TestLoginViewModel _loginViewModel;
-  late final ScrollController _scrollController;
 
   @override
   void initState() {
@@ -23,7 +22,6 @@ final class _LoginViewState extends State<LoginView> {
     // _loginViewModel = LoginViewModel();
     /// TEST CODE
     _loginViewModel = TestLoginViewModel();
-    _scrollController = ScrollController();
     super.initState();
     _initParameterLoginViewModel();
   }
@@ -31,97 +29,78 @@ final class _LoginViewState extends State<LoginView> {
   @override
   void dispose() {
     _loginViewModel.dispose();
-    _scrollController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final dataForNamedParameterNamedStreamWState = _loginViewModel.getDataForNamedParameterNamedStreamWState;
-    final value = ResponsiveValue<Widget>(
+    final termsOfUse = dataForNamedParameterNamedStreamWState.termsOfUse;
+    final isCheckAgreeTermsOfUse = dataForNamedParameterNamedStreamWState.isCheckAgreeTermsOfUse;
+    final value = ResponsiveValue<double>(
         context,
         conditionalValues: [
-          Condition.equals(name: MOBILE, value: _getLoginFromFiveParametersTwo(context,dataForNamedParameterNamedStreamWState,250,230,150)),
-          Condition.equals(name: TABLET, value: _getLoginFromFiveParametersTwo(context,dataForNamedParameterNamedStreamWState,300,280,170)),
-          Condition.equals(name: DESKTOP, value: _getLoginFromFiveParametersTwo(context,dataForNamedParameterNamedStreamWState,400,380,200)),
+          Condition.equals(name: MOBILE, value: 280),
+          Condition.equals(name: TABLET, value: 330),
+          Condition.equals(name: DESKTOP, value: 400),
         ]
-    ).value ?? Container();
+    ).value ?? 0.0;
     switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
       case EnumDataForLoginView.isLoading:
-        return const Scaffold(body: Center(child: CircularProgressIndicator()));
+        return const Center(child: CircularProgressIndicator());
       case EnumDataForLoginView.exception:
-        return Scaffold(body: Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}")));
+        return Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"));
       case EnumDataForLoginView.login:
-        return value;
+        return Center(
+          child: SizedBox(
+            width: value,
+            child: Card(
+              color: Colors.transparent,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(termsOfUse),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0,left: 8.0,right: 8.0),
+                    child: Row(
+                      children: [
+                        isCheckAgreeTermsOfUse ? IconButton(
+                            icon: const Icon(Icons.check_box_outlined),
+                            onPressed: () {
+                              _loginViewModel.setCheckAgreeTermsOfUse(false);
+                            })
+                            : IconButton(
+                            icon: const Icon(Icons.check_box_outline_blank),
+                            onPressed: () {
+                              _loginViewModel.setCheckAgreeTermsOfUse(true);
+                            }),
+                        const Flexible(
+                            child: Text("I agree to the terms of use of 'TOPDBD'",)),
+                      ],
+                    ),
+                  ),
+                  isCheckAgreeTermsOfUse ? Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      title: const Text("Sign In With Discord"),
+                      leading: const Icon(FontAwesomeIcons.discord),
+                      tileColor: FlutterThemeUtility.discordLogoColor,
+                      onTap: () {
+                        _loginViewModel.signInWithDiscord((p0) => {});
+                      },),)
+                      : Container(),
+                  const SizedBox(height: 5,),
+                ],),),),);
       default:
         return Container();
     }
-  }
-
-  Widget _getLoginFromFiveParametersTwo(BuildContext context,DataForLoginView dataForNamedParameterNamedStreamWState,double sizedBoxWidthLogin,double discordButtonWidth,double sizedBoxHeightTermsOfUse) {
-    return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                width: sizedBoxWidthLogin,
-                child: Card(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SizedBox(
-                        height: sizedBoxHeightTermsOfUse,
-                        child: RawScrollbar(
-                          controller: _scrollController,
-                          thumbColor: Theme.of(context).colorScheme.secondary,
-                          radius: const Radius.circular(20),
-                          thickness: 5,
-                          thumbVisibility: true,
-                          child: SingleChildScrollView(
-                            controller: _scrollController,
-                            child: Card(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(dataForNamedParameterNamedStreamWState.termsOfUse),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 5,),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Theme(
-                              data: ThemeData.dark().copyWith(
-                                unselectedWidgetColor: Theme.of(context).colorScheme.secondary,
-                              ),
-                              child: Checkbox(
-                                  checkColor: Theme.of(context).colorScheme.secondary,
-                                  activeColor: Theme.of(context).colorScheme.primary,
-                                  value: dataForNamedParameterNamedStreamWState.isCheckAgreeTermsOfUse,
-                                  onChanged: (value) {
-                                    _loginViewModel.setCheckAgreeTermsOfUse(value);
-                                  }),
-                            ),
-                            const Flexible(child: Text("I agree to the terms of use of 'TOPDBD'",)),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 5,),
-                      dataForNamedParameterNamedStreamWState.isCheckAgreeTermsOfUse ? SignInButton(
-                        width: discordButtonWidth,
-                        button: Button.Discord,
-                        text: 'Sign in with Discord',
-                        onPressed: () {
-                          _loginViewModel.signInWithDiscord((msg){});
-                        },
-                      ) : Container(),
-                      const SizedBox(height: 5,),
-                    ],),),),
-            ],),),),);
   }
 
   Future<void> _initParameterLoginViewModel()

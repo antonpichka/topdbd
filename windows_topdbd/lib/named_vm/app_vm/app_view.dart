@@ -9,10 +9,8 @@ final class AppView extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "",
-        // To test the dark theme in the debug mode,
-        // you need to write this line
-        // (this is if you test on an android emulator, I did not test it on other emulators)
         themeMode: ThemeMode.dark,
+        theme: FlutterThemeUtility.light,
         darkTheme: FlutterThemeUtility.dark,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,

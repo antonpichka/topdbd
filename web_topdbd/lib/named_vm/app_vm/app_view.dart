@@ -46,10 +46,8 @@ final class _AppViewState extends State<AppView> {
     return MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: "",
-        // To test the dark theme in the debug mode,
-        // you need to write this line
-        // (this is if you test on an android emulator, I did not test it on other emulators)
         themeMode: ThemeMode.dark,
+        theme: FlutterThemeUtility.light,
         darkTheme: FlutterThemeUtility.dark,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
@@ -61,8 +59,7 @@ final class _AppViewState extends State<AppView> {
             const Breakpoint(start: 801, end: double.infinity, name: DESKTOP),
           ],
         ),
-        routerConfig: _getRouterConfig,
-    );
+        routerConfig: _getRouterConfigParameterAppViewModel);
   }
 
   Future<void> _initParameterAppViewModel()
@@ -82,7 +79,7 @@ final class _AppViewState extends State<AppView> {
     _appViewModel.notifyStreamDataForAppView();
   }
 
-  RouterConfig<RouteMatchList> get _getRouterConfig {
+  RouterConfig<RouteMatchList> get _getRouterConfigParameterAppViewModel {
     return GoRouter(
         routes: [],
         errorPageBuilder: (BuildContext context, GoRouterState state) {

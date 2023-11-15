@@ -12,6 +12,7 @@ import 'package:web_topdbd/named_vm/home_view.dart';
 import 'package:web_topdbd/named_vm/login_vm/login_view.dart';
 import 'package:web_topdbd/named_vm/main_vm/main_view.dart';
 import 'package:web_topdbd/named_vm/not_found_view.dart';
+import 'package:web_topdbd/named_vm/terms_of_use_vm/terms_of_use_view.dart';
 import 'package:web_topdbd/named_vm/top_players_view.dart';
 
 final class AppView extends StatefulWidget {
@@ -109,6 +110,8 @@ final class _AppViewState extends State<AppView> {
               return MaterialPage(child: AuthMainView(BalanceView()));
             case EnumDataForAppView.authMainViewWLogin:
               return MaterialPage(child: AuthMainView(AlreadyLoggedView()));
+            case EnumDataForAppView.authMainViewWTermsOfUse:
+              return MaterialPage(child: AuthMainView(TermsOfUseView()));
             case EnumDataForAppView.mainViewWHome:
               return MaterialPage(child: MainView(HomeView()));
             case EnumDataForAppView.mainViewWTopPlayers:
@@ -117,6 +120,8 @@ final class _AppViewState extends State<AppView> {
               return MaterialPage(child: MainView(BalanceView()));
             case EnumDataForAppView.mainViewWLogin:
               return MaterialPage(child: MainView(LoginView()));
+            case EnumDataForAppView.mainViewWTermsOfUse:
+              return MaterialPage(child: MainView(TermsOfUseView()));
             case EnumDataForAppView.notFound:
               return MaterialPage(child: MainView(NotFoundView(dataForNamedParameterNamedStreamWState.nameRoute)));
           }

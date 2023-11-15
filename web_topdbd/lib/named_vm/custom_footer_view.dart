@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
+import 'package:web_topdbd/named_utility/web_navigation_utility.dart';
 
 final class CustomFooterView extends StatelessWidget {
   @override
@@ -12,7 +14,8 @@ final class CustomFooterView extends StatelessWidget {
               text: "Terms of Use",
               style: Theme.of(context).textTheme.bodyLarge,
               recognizer: TapGestureRecognizer()..onTap = () {
-
+                WebNavigationUtility
+                    .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.navigationViewQQTermsOfUse);
               }
           ),
         ),

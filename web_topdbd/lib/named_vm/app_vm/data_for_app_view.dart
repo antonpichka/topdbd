@@ -44,6 +44,11 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
     {
       return EnumDataForAppView.authMainViewWLogin;
     }
+    if(uniqueIdByUser.isNotEmpty &&
+        nameRoute == KeysNavigationUtility.navigationViewQQTermsOfUse)
+    {
+      return EnumDataForAppView.authMainViewWTermsOfUse;
+    }
     if(uniqueIdByUser.isEmpty &&
         nameRoute == KeysNavigationUtility.navigationViewQQHome)
     {
@@ -63,6 +68,11 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
         nameRoute == KeysNavigationUtility.navigationViewQQLogin)
     {
       return EnumDataForAppView.mainViewWLogin;
+    }
+    if(uniqueIdByUser.isEmpty &&
+        nameRoute == KeysNavigationUtility.navigationViewQQTermsOfUse)
+    {
+      return EnumDataForAppView.mainViewWTermsOfUse;
     }
     return EnumDataForAppView.notFound;
   }

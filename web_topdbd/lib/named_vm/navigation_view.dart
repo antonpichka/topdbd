@@ -1,30 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pluto_menu_bar/pluto_menu_bar.dart';
 import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
+import 'package:web_topdbd/named_utility/web_navigation_utility.dart';
 
-final class NavigationView extends StatefulWidget {
-  @override
-  State<NavigationView> createState() => _NavigationViewState();
-}
-
-final class _NavigationViewState extends State<NavigationView> {
-  late final ScrollController _scrollController;
-
-  @override
-  void initState() {
-    _scrollController = ScrollController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
-
+final class NavigationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -40,8 +19,8 @@ final class _NavigationViewState extends State<NavigationView> {
               fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
               fontSize: Theme.of(context).textTheme.bodyMedium?.fontSize,
               color: Theme.of(context).hintColor,),
-            iconColor: Colors.white,
-            moreIconColor: Colors.white,
+            iconColor: Theme.of(context).iconTheme.color!,
+            moreIconColor: Theme.of(context).iconTheme.color!,
           ),
           menus: [
             PlutoMenuItem(
@@ -99,8 +78,8 @@ final class _NavigationViewState extends State<NavigationView> {
                 title: "Home",
                 icon: Icons.home,
                 onTap: () {
-                  html.window.history.pushState(null,'',KeysNavigationUtility.navigationViewQQHome);
-                  context.go(KeysNavigationUtility.navigationViewQQHome);
+                  WebNavigationUtility
+                      .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.navigationViewQQHome);
                 }),
             PlutoMenuItem(
                 title: "|",
@@ -109,8 +88,8 @@ final class _NavigationViewState extends State<NavigationView> {
                 title: "TOP Players",
                 icon: Icons.stacked_bar_chart,
                 onTap: () {
-                  html.window.history.pushState(null,'',KeysNavigationUtility.navigationViewQQTopPlayers);
-                  context.go(KeysNavigationUtility.navigationViewQQTopPlayers);
+                  WebNavigationUtility
+                      .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.navigationViewQQTopPlayers);
                 }),
             PlutoMenuItem(
                 title: "|",
@@ -119,8 +98,8 @@ final class _NavigationViewState extends State<NavigationView> {
                 title: "Balance",
                 icon: Icons.balance,
                 onTap: () {
-                  html.window.history.pushState(null, '',KeysNavigationUtility.navigationViewQQBalance);
-                  context.go(KeysNavigationUtility.navigationViewQQBalance);
+                  WebNavigationUtility
+                      .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.navigationViewQQBalance);
                 }),
             PlutoMenuItem(
                 title: "",

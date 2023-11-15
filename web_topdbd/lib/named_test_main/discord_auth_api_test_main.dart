@@ -40,7 +40,7 @@ void main() {
   //
   // ===start_to_trace_exception===
   //
-  // WhereHappenedException(Class) --> JsonipAPI
+  // WhereHappenedException(Class) --> ${WhereHappenedException(Class)}
   // NameException(Class) --> ${NameException(Class)}
   // toString() --> ${toString()}
   //

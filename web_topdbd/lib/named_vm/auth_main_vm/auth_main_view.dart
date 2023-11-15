@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:footer/footer.dart';
 import 'package:footer/footer_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_vm/auth_main_vm/enum_data_for_auth_main_view.dart';
 import 'package:web_topdbd/named_vm/auth_main_vm/test_auth_main_view_model.dart';
+import 'package:web_topdbd/named_vm/auth_vm/auth_view.dart';
 import 'package:web_topdbd/named_vm/custom_footer_view.dart';
+import 'package:web_topdbd/named_vm/drawer_view.dart';
 import 'package:web_topdbd/named_vm/navigation_view.dart';
 import 'package:web_topdbd/named_vm/title_w_app_bar_view.dart';
 
@@ -58,6 +61,14 @@ final class _AuthMainViewState extends State<AuthMainView> {
           Condition.equals(name: DESKTOP, value: _getWidgetWhereHackedFromContextAndSizedBoxWidthAndTextSize(context,400,30)),
         ]
     ).value ?? Container();
+    final valueSECOND = ResponsiveValue<Drawer?>(
+        context,
+        conditionalValues: [
+          Condition.equals(name: MOBILE, value: Drawer(child: DrawerView(AuthView()))),
+          Condition.equals(name: TABLET, value: Drawer(child: DrawerView(AuthView()))),
+          Condition.equals(name: DESKTOP, value: null),
+        ]
+    ).value;
     switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
       case EnumDataForAuthMainView.isLoading:
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
@@ -68,32 +79,33 @@ final class _AuthMainViewState extends State<AuthMainView> {
       case EnumDataForAuthMainView.hacked:
         return valueFIRST;
       case EnumDataForAuthMainView.success:
-      return Scaffold(
-        appBar: AppBar(
-            scrolledUnderElevation: 0.0,
-            centerTitle: true,
-            title: TitleWAppBarView(),
-            backgroundColor: Theme.of(context).colorScheme.surface,
-            bottom: PreferredSize(
-                preferredSize: const Size.fromHeight(4.0),
-                child: NavigationView())
-        ),
-        drawer: value,
-        body: FooterView(
-          footer: Footer(
-              backgroundColor: Theme.of(context).colorScheme.secondary,
-              alignment: Alignment.center,
-              child: CustomFooterView()
+        return Scaffold(
+          appBar: AppBar(
+              scrolledUnderElevation: 0.0,
+              centerTitle: true,
+              title: TitleWAppBarView(AuthView()),
+              backgroundColor: Theme.of(context).colorScheme.surface,
+              bottom: PreferredSize(
+                  preferredSize: const Size.fromHeight(50.0),
+                  child: NavigationView())
           ),
-          flex: 1,
-          children: [
-            const SizedBox(height: 5),
-            widget.namedView
-          ],
-        ),
-      );
-      default:
-        return Container();
+          drawer: valueSECOND,
+          body: FooterView(
+            footer: Footer(
+                backgroundColor: FlutterThemeUtility.seedColorFIRST,
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(8.0),
+                child: CustomFooterView()
+            ),
+            flex: 1,
+            children: [
+              const SizedBox(height: 10),
+              widget.namedView
+            ],
+          ),
+        );
+        default:
+          return Container();
     }
   }
 

@@ -7,8 +7,9 @@ import 'package:web_topdbd/named_vm/custom_footer_view.dart';
 import 'package:web_topdbd/named_vm/drawer_view.dart';
 import 'package:web_topdbd/named_vm/main_vm/enum_data_for_main_view.dart';
 import 'package:web_topdbd/named_vm/navigation_view.dart';
-import 'package:web_topdbd/named_vm/title_w_app_bar_view.dart';
 import 'package:web_topdbd/named_vm/main_vm/test_main_view_model.dart';
+import 'package:web_topdbd/named_vm/title_w_app_bar_view.dart';
+import 'package:web_topdbd/named_vm/un_auth_vm/un_auth_view.dart';
 
 final class MainView extends StatefulWidget {
   final Widget namedView;
@@ -46,8 +47,8 @@ final class _MainViewState extends State<MainView> {
     final value = ResponsiveValue<Drawer?>(
         context,
         conditionalValues: [
-          Condition.equals(name: MOBILE, value: Drawer(child: DrawerView())),
-          Condition.equals(name: TABLET, value: Drawer(child: DrawerView())),
+          Condition.equals(name: MOBILE, value: Drawer(child: DrawerView(UnAuthView()))),
+          Condition.equals(name: TABLET, value: Drawer(child: DrawerView(UnAuthView()))),
           Condition.equals(name: DESKTOP, value: null),
         ]
     ).value;
@@ -62,7 +63,7 @@ final class _MainViewState extends State<MainView> {
           appBar: AppBar(
               scrolledUnderElevation: 0.0,
               centerTitle: true,
-              title: TitleWAppBarView(),
+              title: TitleWAppBarView(UnAuthView()),
               backgroundColor: Theme.of(context).colorScheme.surface,
               bottom: PreferredSize(
                   preferredSize: const Size.fromHeight(50.0),

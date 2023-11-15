@@ -7,6 +7,7 @@ final class KeysNavigationUtility {
   static const String navigationViewQQTopPlayers = "#/top_players";
   static const String navigationViewQQBalance = "#/balance";
   static const String navigationViewQQLogin = "#/login";
+  static const String navigationViewQQTermsOfUse = "#/terms_of_use";
   static const String navigationViewQQTournaments = "#/tournaments";
 
   const KeysNavigationUtility._();

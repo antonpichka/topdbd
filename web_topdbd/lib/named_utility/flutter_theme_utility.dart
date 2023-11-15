@@ -12,6 +12,8 @@ final class FlutterThemeUtility {
   static ThemeData get light {
     return ThemeData(
       useMaterial3: true,
+      iconTheme: const IconThemeData(
+          color: Colors.black38),
       colorScheme: ColorScheme.fromSeed(
         brightness: Brightness.light,
         seedColor: seedColor,
@@ -34,6 +36,8 @@ final class FlutterThemeUtility {
   static ThemeData get dark {
     return ThemeData(
       useMaterial3: true,
+      iconTheme: const IconThemeData(
+          color: Colors.white),
       colorScheme: ColorScheme.fromSeed(
         brightness: Brightness.dark,
         seedColor: seedColor,

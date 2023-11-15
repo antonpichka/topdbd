@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-final class ButtonsAccountView extends StatefulWidget {
+final class AuthView extends StatefulWidget {
   @override
-  State<ButtonsAccountView> createState() => _ButtonsAccountViewState();
+  State<AuthView> createState() => _AuthViewState();
 }
 
-final class _ButtonsAccountViewState extends State<ButtonsAccountView> {
+final class _AuthViewState extends State<AuthView> {
   @override
   Widget build(BuildContext context) {
     const username = "WWwwww qwwwwWwwwwwwqqw";
@@ -19,7 +19,7 @@ final class _ButtonsAccountViewState extends State<ButtonsAccountView> {
               onTap: () {
               },
               leading: Image.asset(
-                  'assets/icon/flags/france.png',
+                  "assets/icon/flags/france.png",
                   width: 32,
                   height: 32,
                   fit: BoxFit.cover),
@@ -31,7 +31,7 @@ final class _ButtonsAccountViewState extends State<ButtonsAccountView> {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.only(top: 4.0),
-            child: Row(
+            child: Wrap(
               children: [
                 Tooltip(
                   message: "Logout",
@@ -43,10 +43,10 @@ final class _ButtonsAccountViewState extends State<ButtonsAccountView> {
                       icon: const Icon(
                         Icons.logout,
                       ),
-                      iconSize: 25,
+                      iconSize: 30,
                       onPressed: () {
                         showDialog(
-                            context: context,
+                              context: context,
                             builder: (BuildContext context) {
                               return CupertinoAlertDialog(
                                 content: Text("Are you sure you want to log out of your account ?",
@@ -81,7 +81,7 @@ final class _ButtonsAccountViewState extends State<ButtonsAccountView> {
                       icon: const Icon(
                         Icons.download,
                       ),
-                      iconSize: 25,
+                      iconSize: 30,
                       onPressed: () {
                       },
                     ),

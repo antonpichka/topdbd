@@ -6,9 +6,11 @@ enum EnumDataForAppView {
   authMainViewWTopPlayers,
   authMainViewWBalance,
   authMainViewWLogin,
+  authMainViewWTermsOfUse,
   mainViewWHome,
   mainViewWTopPlayers,
   mainViewWBalance,
   mainViewWLogin,
+  mainViewWTermsOfUse,
   notFound
 }

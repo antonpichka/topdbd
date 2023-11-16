@@ -3,6 +3,7 @@ import 'package:footer/footer.dart';
 import 'package:footer/footer_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
+import 'package:web_topdbd/named_vm/auth_drawer_vm/auth_drawer_view.dart';
 import 'package:web_topdbd/named_vm/auth_main_vm/enum_data_for_auth_main_view.dart';
 import 'package:web_topdbd/named_vm/auth_main_vm/test_auth_main_view_model.dart';
 import 'package:web_topdbd/named_vm/auth_vm/auth_view.dart';
@@ -64,8 +65,8 @@ final class _AuthMainViewState extends State<AuthMainView> {
     final valueSECOND = ResponsiveValue<Drawer?>(
         context,
         conditionalValues: [
-          Condition.equals(name: MOBILE, value: Drawer(child: DrawerView(AuthView()))),
-          Condition.equals(name: TABLET, value: Drawer(child: DrawerView(AuthView()))),
+          Condition.equals(name: MOBILE, value: Drawer(child: DrawerView(AuthDrawerView()))),
+          Condition.equals(name: TABLET, value: Drawer(child: DrawerView(AuthDrawerView()))),
           Condition.equals(name: DESKTOP, value: null),
         ]
     ).value;

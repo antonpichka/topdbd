@@ -9,7 +9,7 @@ final class AuthView extends StatefulWidget {
 final class _AuthViewState extends State<AuthView> {
   @override
   Widget build(BuildContext context) {
-    const username = "WWwwww qwwwwWwwwwwwqqw";
+    const username = "WWwwww qwwwwWwwwwwwqqwwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq";
     return Row(
       children: [
         Expanded(

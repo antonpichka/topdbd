@@ -9,6 +9,7 @@ import 'package:web_topdbd/named_vm/main_vm/enum_data_for_main_view.dart';
 import 'package:web_topdbd/named_vm/navigation_view.dart';
 import 'package:web_topdbd/named_vm/main_vm/test_main_view_model.dart';
 import 'package:web_topdbd/named_vm/title_w_app_bar_view.dart';
+import 'package:web_topdbd/named_vm/un_auth_drawer_vm/un_auth_drawer_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_vm/un_auth_view.dart';
 
 final class MainView extends StatefulWidget {
@@ -47,8 +48,8 @@ final class _MainViewState extends State<MainView> {
     final value = ResponsiveValue<Drawer?>(
         context,
         conditionalValues: [
-          Condition.equals(name: MOBILE, value: Drawer(child: DrawerView(UnAuthView()))),
-          Condition.equals(name: TABLET, value: Drawer(child: DrawerView(UnAuthView()))),
+          Condition.equals(name: MOBILE, value: Drawer(child: DrawerView(UnAuthDrawerView()))),
+          Condition.equals(name: TABLET, value: Drawer(child: DrawerView(UnAuthDrawerView()))),
           Condition.equals(name: DESKTOP, value: null),
         ]
     ).value;

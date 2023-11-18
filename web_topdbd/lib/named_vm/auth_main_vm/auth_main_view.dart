@@ -6,10 +6,10 @@ import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_vm/auth_drawer_vm/auth_drawer_view.dart';
 import 'package:web_topdbd/named_vm/auth_main_vm/enum_data_for_auth_main_view.dart';
 import 'package:web_topdbd/named_vm/auth_main_vm/test_auth_main_view_model.dart';
-import 'package:web_topdbd/named_vm/auth_vm/auth_view.dart';
+import 'package:web_topdbd/named_vm/auth_navigation_vm/auth_navigation_view.dart';
+import 'package:web_topdbd/named_vm/auth_title_w_app_bar_vm/auth_title_w_app_bar_view.dart';
 import 'package:web_topdbd/named_vm/custom_footer_view.dart';
 import 'package:web_topdbd/named_vm/drawer_view.dart';
-import 'package:web_topdbd/named_vm/navigation_view.dart';
 import 'package:web_topdbd/named_vm/title_w_app_bar_view.dart';
 
 final class AuthMainView extends StatefulWidget {
@@ -84,11 +84,11 @@ final class _AuthMainViewState extends State<AuthMainView> {
           appBar: AppBar(
               scrolledUnderElevation: 0.0,
               centerTitle: true,
-              title: TitleWAppBarView(AuthView()),
+              title: TitleWAppBarView(AuthTitleWAppBarView()),
               backgroundColor: Theme.of(context).colorScheme.surface,
-              bottom: PreferredSize(
-                  preferredSize: const Size.fromHeight(50.0),
-                  child: NavigationView())
+              bottom: const PreferredSize(
+                  preferredSize: Size.fromHeight(50.0),
+                  child: AuthNavigationView(true))
           ),
           drawer: valueSECOND,
           body: FooterView(

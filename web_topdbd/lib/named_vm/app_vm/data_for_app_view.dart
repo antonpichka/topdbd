@@ -1,3 +1,4 @@
+import 'package:common_topdbd/named_utility/algorithms_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 import 'package:web_topdbd/named_vm/app_vm/enum_data_for_app_view.dart';
@@ -49,6 +50,21 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
     {
       return EnumDataForAppView.authMainViewWTermsOfUse;
     }
+    if(uniqueIdByUser.isNotEmpty &&
+        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQId)
+    {
+      return EnumDataForAppView.authMainViewWUserQQId;
+    }
+    if(uniqueIdByUser.isNotEmpty &&
+        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQStats)
+    {
+      return EnumDataForAppView.authMainViewWUserQQIdQQStats;
+    }
+    if(uniqueIdByUser.isNotEmpty &&
+        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQMatches)
+    {
+      return EnumDataForAppView.authMainViewWUserQQIdQQMatches;
+    }
     if(uniqueIdByUser.isEmpty &&
         nameRoute == KeysNavigationUtility.navigationViewQQHome)
     {
@@ -74,7 +90,47 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
     {
       return EnumDataForAppView.mainViewWTermsOfUse;
     }
+    if(uniqueIdByUser.isEmpty &&
+        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQId)
+    {
+      return EnumDataForAppView.mainViewWUserQQId;
+    }
+    if(uniqueIdByUser.isEmpty &&
+        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQStats)
+    {
+      return EnumDataForAppView.mainViewWUserQQIdQQStats;
+    }
+    if(uniqueIdByUser.isEmpty &&
+        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQMatches)
+    {
+      return EnumDataForAppView.mainViewWUserQQIdQQMatches;
+    }
     return EnumDataForAppView.notFound;
+  }
+
+  String get getWhereReplaceAllParameterNameRoute {
+    return nameRoute.replaceAll(AlgorithmsUtility.regExpWNameRoute,AlgorithmsUtility.replacedNameWNameRoute);
+  }
+
+  String get getIdWhereSplitParameterNameRoute {
+    bool isBreak = false;
+    String id = "";
+    for(String itemNameRoute in nameRoute.split("/")) {
+      if(isBreak) {
+        break;
+      }
+      if(itemNameRoute[0] != "{") {
+        continue;
+      }
+      for(int i = 1; i < itemNameRoute.length; i++) {
+        if(itemNameRoute[i] == "}") {
+          isBreak = true;
+          break;
+        }
+        id += itemNameRoute[i];
+      }
+    }
+    return id;
   }
 
   void insertWhereLengthMoreThanOrEqualTwoParameterListLoaded() {

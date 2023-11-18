@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:web_topdbd/named_vm/about_me_user_view.dart';
-import 'package:web_topdbd/named_vm/desktop_auth_id_user_view.dart';
-import 'package:web_topdbd/named_vm/list_matches_user_view.dart';
-import 'package:web_topdbd/named_vm/list_season_stats_user_view.dart';
-import 'package:web_topdbd/named_vm/stats_user_view.dart';
+import 'package:web_topdbd/named_vm/navigation_user_vm/navigation_user_view.dart';
 
 final class UserView extends StatefulWidget {
+  final String username;
+  final Widget namedUserView;
+
+  const UserView(this.username,this.namedUserView);
+
   @override
-  State<UserView> createState() => _UserViewState();
+  State<UserView> createState() => _UserViewStats();
 }
 
-final class _UserViewState extends State<UserView> {
+final class _UserViewStats extends State<UserView> {
   @override
   Widget build(BuildContext context) {
     // localhost/#/user/vicar32  // (info)
@@ -43,15 +44,16 @@ final class _UserViewState extends State<UserView> {
                   const SizedBox(width: 1,),
                   Padding(
                     padding: const EdgeInsets.only(top: 5),
-                    child: Text("Vicar32",
+                    child: Text(widget.username,
                       style: Theme.of(context).textTheme.bodyLarge,),
                   ),
                 ],
               ),
             ),
-            Wrap(
+            NavigationUserView(),
+            widget.namedUserView,
+            /*Wrap(
               children: [
-                DesktopAuthIdUserView(),
                 AboutMeUserView()
               ],
             ),
@@ -66,7 +68,7 @@ final class _UserViewState extends State<UserView> {
                 ListMatchesUserView(),
                 // Statistics
               ],
-            )
+            )*/
           ],),
       ),
     );

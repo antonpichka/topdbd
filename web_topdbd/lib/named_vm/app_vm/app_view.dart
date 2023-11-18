@@ -112,6 +112,12 @@ final class _AppViewState extends State<AppView> {
               return MaterialPage(child: AuthMainView(AlreadyLoggedView()));
             case EnumDataForAppView.authMainViewWTermsOfUse:
               return MaterialPage(child: AuthMainView(TermsOfUseView()));
+            case EnumDataForAppView.authMainViewWUserQQId:
+            // TODO: Handle this case.
+            case EnumDataForAppView.authMainViewWUserQQIdQQStats:
+            // TODO: Handle this case.
+            case EnumDataForAppView.authMainViewWUserQQIdQQMatches:
+            // TODO: Handle this case.
             case EnumDataForAppView.mainViewWHome:
               return MaterialPage(child: MainView(HomeView()));
             case EnumDataForAppView.mainViewWTopPlayers:
@@ -122,6 +128,12 @@ final class _AppViewState extends State<AppView> {
               return MaterialPage(child: MainView(LoginView()));
             case EnumDataForAppView.mainViewWTermsOfUse:
               return MaterialPage(child: MainView(TermsOfUseView()));
+            case EnumDataForAppView.mainViewWUserQQId:
+            // TODO: Handle this case.
+            case EnumDataForAppView.mainViewWUserQQIdQQStats:
+            // TODO: Handle this case.
+            case EnumDataForAppView.mainViewWUserQQIdQQMatches:
+            // TODO: Handle this case.
             case EnumDataForAppView.notFound:
               return MaterialPage(child: MainView(NotFoundView(dataForNamedParameterNamedStreamWState.nameRoute)));
           }

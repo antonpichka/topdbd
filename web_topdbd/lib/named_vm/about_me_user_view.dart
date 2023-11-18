@@ -20,175 +20,153 @@ final class _AboutMeUserViewState extends State<AboutMeUserView> {
     return SizedBox(
       width: MediaQuery.of(context).size.width / value,
       child: Card(
-        color: Theme.of(context).colorScheme.surface,
-        child: Column(
-          children: [
-            const SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding: EdgeInsets.all(4.0),
-                child: Wrap(
-                  alignment: WrapAlignment.center,
-                  children: [
-                    Icon(Icons.info_outline, color: Colors.white,),
-                    SizedBox(width: 2,),
-                    Padding(
-                      padding: EdgeInsets.only(top: 3.0),
-                      child: Text("About Me"),
-                    ),
-                  ],
-                ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              const Wrap(
+                alignment: WrapAlignment.center,
+                children: [
+                  Icon(Icons.info_outline, color: Colors.white,),
+                  SizedBox(width: 2,),
+                  Padding(
+                    padding: EdgeInsets.only(top: 3.0),
+                    child: Text("About Me"),
+                  ),
+                ],
               ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
-              ),
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Wrap(
-                  alignment: WrapAlignment.center,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(top: 8.0),
-                      child: Tooltip(
-                          message: "Access is only available to: 'YOU'",
-                          child: Icon(Icons.lock, color: Colors.white,)),
+              Divider(
+                height: 1.0,
+                color: Theme.of(context).dividerColor,),
+              Wrap(
+                alignment: WrapAlignment.center,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: Tooltip(
+                        message: "Access is only available to: 'YOU'",
+                        child: Icon(Icons.lock)),
+                  ),
+                  const SizedBox(width: 2,),
+                  Ink(
+                    decoration: ShapeDecoration(
+                        color: Theme.of(context).colorScheme.primary,
+                        shape: const CircleBorder()
                     ),
-                    const SizedBox(width: 2,),
-                    Ink(
-                      decoration: ShapeDecoration(
-                          color: Theme.of(context).colorScheme.primary,
-                          shape: const CircleBorder()
+                    child: IconButton(
+                        onPressed: () {
+                        },
+                        icon: const Icon(
+                          Icons.edit,
+                          size: 20,
+                          color: Colors.white,)
+                    ),
+                  ),
+                ],
+              ),
+              Divider(
+                height: 1.0,
+                color: Theme.of(context).dividerColor,),
+              const SizedBox(height: 5,),
+              Column(
+                children: [
+                  Wrap(
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(top: 5.0),
+                        child: Text("Roles: "),
                       ),
-                      child: IconButton(
-                          onPressed: () {
-                          },
-                          icon: const Icon(
-                            Icons.edit,
-                            size: 20,
-                            color: Colors.white,)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 5.0),
+                        child: ElevatedButton(
+                            onPressed: () {
+
+                            },
+                            style: ButtonStyle(
+                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(18.0),
+                                        side: BorderSide(color: Theme.of(context).colorScheme.primary)
+                                    )
+                                )
+                            ),
+                            child: Text("Admin",
+                                style: Theme.of(context).textTheme.bodyMedium)
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
-              ),
-            ),
-            const SizedBox(height: 5,),
-            SizedBox(
-                width: double.infinity,
-                child: Column(
-                  children: [
-                    Wrap(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 5.0),
-                          child: Text("Roles: "),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5.0),
-                          child: ElevatedButton(
-                              onPressed: () {
+                      Padding(
+                        padding: const EdgeInsets.only(right: 5.0),
+                        child: ElevatedButton(
+                            onPressed: () {
 
-                              },
-                              style: ButtonStyle(
-                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(18.0),
-                                          side: BorderSide(color: Theme.of(context).colorScheme.primary)
-                                      )
-                                  )
+                            },
+                            style: ButtonStyle(
+                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(18.0),
+                                        side: BorderSide(color: Theme.of(context).colorScheme.primary)
+                                    )
+                                )
+                            ),
+                            child: Text("Test",
+                                style: Theme.of(context).textTheme.bodyMedium)
+                        ),
+                      ),
+                    ],),
+                  const SizedBox(height: 5,),
+                  Divider(
+                    height: 1.0,
+                    color: Theme.of(context).dividerColor,),
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 16.0),
+                          child: TextFormField(
+                            initialValue: "wqwqrs#1255",
+                            decoration:  const InputDecoration(
+                              labelText: "DBD Code",
+                              labelStyle: TextStyle(color: Colors.white),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
                               ),
-                              child: Text("Admin",
-                                  style: Theme.of(context).textTheme.bodyMedium)
+                            ),
+                            enableSuggestions: false,
+                            autocorrect: false,
+                            enabled: false,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5.0),
-                          child: ElevatedButton(
+                      ),
+                      Expanded(
+                        child: Ink(
+                          decoration: ShapeDecoration(
+                              color: Theme.of(context).colorScheme.primary,
+                              shape: const CircleBorder()
+                          ),
+                          child: IconButton(
                               onPressed: () {
-
+                                Clipboard.setData(const ClipboardData(text: "wqwqrs#1255")).then((_) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text('Copied \'DBD Code\'',
+                                          style: Theme.of(context).textTheme.bodyMedium,),
+                                        duration: const Duration(seconds: 1),));
+                                });
                               },
-                              style: ButtonStyle(
-                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(18.0),
-                                          side: BorderSide(color: Theme.of(context).colorScheme.primary)
-                                      )
-                                  )
-                              ),
-                              child: Text("Test",
-                                  style: Theme.of(context).textTheme.bodyMedium)
+                              icon: const Icon(
+                                Icons.copy,
+                                size: 20,
+                                color: Colors.white,)
                           ),
                         ),
-                      ],),
-                    const SizedBox(height: 5,),
-                    Container(
-                        decoration: BoxDecoration(
-                            border: Border(
-                                bottom: BorderSide(color: Theme.of(context).dividerColor))
-                        )
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 16.0),
-                            child: TextFormField(
-                              initialValue: "wqwqrs#1255",
-                              decoration:  const InputDecoration(
-                                labelText: "DBD Code",
-                                labelStyle: TextStyle(color: Colors.white),
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                              enableSuggestions: false,
-                              autocorrect: false,
-                              enabled: false,
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Ink(
-                            decoration: ShapeDecoration(
-                                color: Theme.of(context).colorScheme.primary,
-                                shape: const CircleBorder()
-                            ),
-                            child: IconButton(
-                                onPressed: () {
-                                  Clipboard.setData(const ClipboardData(text: "wqwqrs#1255")).then((_) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                        SnackBar(
-                                          content: Text('Copied \'DBD Code\'',
-                                            style: Theme.of(context).textTheme.bodyMedium,),
-                                          duration: const Duration(seconds: 1),));
-                                  });
-                                },
-                                icon: const Icon(
-                                  Icons.copy,
-                                  size: 20,
-                                  color: Colors.white,)
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 5,),
-                      ],),
-                  ],
-                )
-            ),
-          ],
+                      ),
+                      const SizedBox(height: 5,),
+                    ],),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

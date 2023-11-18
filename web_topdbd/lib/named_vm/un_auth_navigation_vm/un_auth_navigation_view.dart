@@ -3,7 +3,7 @@ import 'package:pluto_menu_bar/pluto_menu_bar.dart';
 import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 import 'package:web_topdbd/named_utility/web_navigation_utility.dart';
 
-final class NavigationView extends StatelessWidget {
+final class UnAuthNavigationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(

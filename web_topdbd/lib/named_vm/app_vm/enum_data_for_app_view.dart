@@ -7,10 +7,16 @@ enum EnumDataForAppView {
   authMainViewWBalance,
   authMainViewWLogin,
   authMainViewWTermsOfUse,
+  authMainViewWUserQQId,
+  authMainViewWUserQQIdQQStats,
+  authMainViewWUserQQIdQQMatches,
   mainViewWHome,
   mainViewWTopPlayers,
   mainViewWBalance,
   mainViewWLogin,
   mainViewWTermsOfUse,
+  mainViewWUserQQId,
+  mainViewWUserQQIdQQStats,
+  mainViewWUserQQIdQQMatches,
   notFound
 }

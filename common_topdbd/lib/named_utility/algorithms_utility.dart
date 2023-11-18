@@ -4,6 +4,9 @@ import 'package:meta/meta.dart';
 
 @immutable
 final class AlgorithmsUtility {
+  static final RegExp regExpWNameRoute = RegExp(r'{[a-zA-Z0-9_.!]*}');
+  static const String replacedNameWNameRoute = "{id}";
+
   const AlgorithmsUtility._();
 
   static String getStringWhereRandomNumbersFromNumberOfScrolls(int numberOfScrolls) {
@@ -17,7 +20,7 @@ final class AlgorithmsUtility {
 
   static String getStringWhereProcessedNameRouteFromRawNameRoute(String rawNameRoute) {
     String nameRoute = "";
-    for(String itemRawNameRoute in rawNameRoute.split('')) {
+    for(String itemRawNameRoute in rawNameRoute.split("")) {
       if(itemRawNameRoute == "(") {
         break;
       }

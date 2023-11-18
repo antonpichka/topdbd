@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-final class AuthView extends StatefulWidget {
+final class AuthTitleWAppBarView extends StatefulWidget {
   @override
-  State<AuthView> createState() => _AuthViewState();
+  State<AuthTitleWAppBarView> createState() => _AuthTitleWAppBarViewState();
 }
 
-final class _AuthViewState extends State<AuthView> {
+final class _AuthTitleWAppBarViewState extends State<AuthTitleWAppBarView> {
   @override
   Widget build(BuildContext context) {
     const username = "WWwwww qwwwwWwwwwwwqqwwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq";

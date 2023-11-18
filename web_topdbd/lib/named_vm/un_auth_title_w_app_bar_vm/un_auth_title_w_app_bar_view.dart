@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 import 'package:web_topdbd/named_utility/web_navigation_utility.dart';
 
-final class UnAuthView extends StatefulWidget {
+final class UnAuthTitleWAppBarView extends StatefulWidget {
   @override
-  State<UnAuthView> createState() => _UnAuthViewState();
+  State<UnAuthTitleWAppBarView> createState() => _UnAuthTitleWAppBarViewState();
 }
 
-final class _UnAuthViewState extends State<UnAuthView> {
+final class _UnAuthTitleWAppBarViewState extends State<UnAuthTitleWAppBarView> {
   @override
   Widget build(BuildContext context) {
     return Padding(

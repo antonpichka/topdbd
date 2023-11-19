@@ -109,7 +109,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
 
   // NamedUtility
 
-  AppViewModel() : super(DefaultStreamWState(DataForAppView(false,List<bool>.empty(growable: true),false,"","")));
+  AppViewModel() : super(DefaultStreamWState(DataForAppView(false,List<bool>.empty(growable: true),false,"","","")));
 
   @override
   void dispose() {
@@ -259,6 +259,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
         .updateListSeasonFromListSeasonParameterTempCacheService(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.parameter?.getClone ?? ListSeason(List.empty(growable: true)));
     getDataForNamedParameterNamedStreamWState.insertWhereLengthMoreThanOrEqualTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.uniqueIdByUser = getUserParameterSharedPreferencesService.parameter?.uniqueId ?? "";
+    getDataForNamedParameterNamedStreamWState.usernameByDiscordUserFirestore = getDiscordUserFirestoreFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.username ?? "";
     return KeysSuccessUtility.sUCCESS;
   }
 

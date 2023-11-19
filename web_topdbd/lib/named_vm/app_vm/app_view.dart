@@ -3,17 +3,21 @@ import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/l10n/l10n.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
+import 'package:web_topdbd/named_vm/about_me_user_view.dart';
 import 'package:web_topdbd/named_vm/already_logged_view.dart';
 import 'package:web_topdbd/named_vm/app_vm/enum_data_for_app_view.dart';
 import 'package:web_topdbd/named_vm/app_vm/test_app_view_model.dart';
 import 'package:web_topdbd/named_vm/auth_main_vm/auth_main_view.dart';
+import 'package:web_topdbd/named_vm/auth_navigation_user_vm/auth_navigation_user_view.dart';
 import 'package:web_topdbd/named_vm/balance_view.dart';
 import 'package:web_topdbd/named_vm/home_view.dart';
 import 'package:web_topdbd/named_vm/login_vm/login_view.dart';
 import 'package:web_topdbd/named_vm/main_vm/main_view.dart';
 import 'package:web_topdbd/named_vm/not_found_view.dart';
+import 'package:web_topdbd/named_vm/stats_user_w_list_season_stats_user_view.dart';
 import 'package:web_topdbd/named_vm/terms_of_use_vm/terms_of_use_view.dart';
 import 'package:web_topdbd/named_vm/top_players_view.dart';
+import 'package:web_topdbd/named_vm/user_vm/user_view.dart';
 
 final class AppView extends StatefulWidget {
   @override
@@ -112,11 +116,45 @@ final class _AppViewState extends State<AppView> {
               return MaterialPage(child: AuthMainView(AlreadyLoggedView()));
             case EnumDataForAppView.authMainViewWTermsOfUse:
               return MaterialPage(child: AuthMainView(TermsOfUseView()));
-            case EnumDataForAppView.authMainViewWUserQQId:
+            case EnumDataForAppView.authMainViewWUserWId:
+              return MaterialPage(
+                  child: AuthMainView(
+                      UserView(
+                          dataForNamedParameterNamedStreamWState.getIdWhereSplitParameterNameRoute,
+                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereSplitParameterNameRoute,true),
+                          AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereSplitParameterNameRoute)))
+              );
+            case EnumDataForAppView.authMainViewWUserWIdFIRST:
+              return MaterialPage(
+                  child: AuthMainView(
+                      UserView(
+                          dataForNamedParameterNamedStreamWState.getIdWhereSplitParameterNameRoute,
+                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereSplitParameterNameRoute,false),
+                          AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereSplitParameterNameRoute)))
+              );
+            case EnumDataForAppView.authMainViewWUserWIdWStats:
+              return MaterialPage(
+                  child: AuthMainView(
+                      UserView(
+                          dataForNamedParameterNamedStreamWState.getIdWhereSplitParameterNameRoute,
+                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereSplitParameterNameRoute,true),
+                          StatsUserWListSeasonStatsUseView(dataForNamedParameterNamedStreamWState.getIdWhereSplitParameterNameRoute)))
+              );
+            case EnumDataForAppView.authMainViewWUserWIdWStatsFIRST:
+              return MaterialPage(
+                  child: AuthMainView(
+                      UserView(
+                          dataForNamedParameterNamedStreamWState.getIdWhereSplitParameterNameRoute,
+                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereSplitParameterNameRoute,false),
+                          StatsUserWListSeasonStatsUseView(dataForNamedParameterNamedStreamWState.getIdWhereSplitParameterNameRoute)))
+              );
+            case EnumDataForAppView.authMainViewWUserWIdWMatches:
             // TODO: Handle this case.
-            case EnumDataForAppView.authMainViewWUserQQIdQQStats:
+            case EnumDataForAppView.authMainViewWUserWIdWMatchesFIRST:
             // TODO: Handle this case.
-            case EnumDataForAppView.authMainViewWUserQQIdQQMatches:
+            case EnumDataForAppView.authMainViewWUserWIdWSettings:
+            // TODO: Handle this case.
+            case EnumDataForAppView.authMainViewWUserWIdWSettingsFIRST:
             // TODO: Handle this case.
             case EnumDataForAppView.mainViewWHome:
               return MaterialPage(child: MainView(HomeView()));
@@ -128,11 +166,13 @@ final class _AppViewState extends State<AppView> {
               return MaterialPage(child: MainView(LoginView()));
             case EnumDataForAppView.mainViewWTermsOfUse:
               return MaterialPage(child: MainView(TermsOfUseView()));
-            case EnumDataForAppView.mainViewWUserQQId:
+            case EnumDataForAppView.mainViewWUserWId:
             // TODO: Handle this case.
-            case EnumDataForAppView.mainViewWUserQQIdQQStats:
+            case EnumDataForAppView.mainViewWUserWIdWStats:
             // TODO: Handle this case.
-            case EnumDataForAppView.mainViewWUserQQIdQQMatches:
+            case EnumDataForAppView.mainViewWUserWIdWMatches:
+            // TODO: Handle this case.
+            case EnumDataForAppView.mainViewWUserWIdWSettings:
             // TODO: Handle this case.
             case EnumDataForAppView.notFound:
               return MaterialPage(child: MainView(NotFoundView(dataForNamedParameterNamedStreamWState.nameRoute)));

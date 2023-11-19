@@ -12,7 +12,7 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   // NamedUtility
 
-  TestAppViewModel() : super(DefaultStreamWState(DataForAppView(false,List<bool>.of([true,true]),false,"","")));
+  TestAppViewModel() : super(DefaultStreamWState(DataForAppView(false,List<bool>.of([true,true]),false,"","","")));
 
   @override
   Future<String> init() async {

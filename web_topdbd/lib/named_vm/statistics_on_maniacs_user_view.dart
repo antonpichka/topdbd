@@ -19,38 +19,28 @@ final class _StatisticsOnManiacsUserViewState extends State<StatisticsOnManiacsU
     return  SizedBox(
         width: MediaQuery.of(context).size.width / value,
         child: Card(
-            color: Theme.of(context).colorScheme.surface,
             child: Column(
               children: [
-                const SizedBox(
-                  width: double.infinity,
-                  child: Padding(
-                    padding: EdgeInsets.all(4.0),
-                    child: Wrap(
-                      alignment: WrapAlignment.center,
-                      children: [
-                        Icon(Icons.stacked_bar_chart, color: Colors.white),
-                        Icon(Icons.accessibility, color: Colors.white,),
-                        SizedBox(width: 2,),
-                        Padding(
-                          padding: EdgeInsets.only(top: 3.0),
-                          child: Text("Statistics on maniacs"),
-                        ),
-                      ],
-                    ),
+                const Padding(
+                  padding: EdgeInsets.all(4.0),
+                  child: Wrap(
+                    alignment: WrapAlignment.center,
+                    children: [
+                      Icon(Icons.stacked_bar_chart, color: Colors.white),
+                      Icon(Icons.accessibility, color: Colors.white,),
+                      SizedBox(width: 2,),
+                      Padding(
+                        padding: EdgeInsets.only(top: 3.0),
+                        child: Text("Statistics on maniacs"),
+                      ),
+                    ],
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
-                  ),
-                ),
+                Divider(
+                  height: 1.0,
+                  color: Theme.of(context).dividerColor,),
                 const SizedBox(height: 5,),
-                SizedBox(
-                    width: double.infinity,
-                    child: Container()
-                ),
+                Container(),
               ],)
         )
     );

@@ -3,7 +3,11 @@ import 'package:pluto_menu_bar/pluto_menu_bar.dart';
 import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 import 'package:web_topdbd/named_utility/web_navigation_utility.dart';
 
-final class NavigationUserView extends StatelessWidget {
+final class UnAuthNavigationUserView extends StatelessWidget {
+  final String username;
+
+  const UnAuthNavigationUserView(this.username);
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -29,8 +33,8 @@ final class NavigationUserView extends StatelessWidget {
                 onTap: () {
                   WebNavigationUtility.goWhereChangeUrlAddressAndNewViewWithWFromThree(
                       context,
-                      KeysNavigationUtility.getHtmlRouteWhereNavigationUserViewQQUserQQIdFromId("Vicar32"),
-                      KeysNavigationUtility.getNameRouteWhereNavigationUserViewQQUserQQIdFromId("Vicar32"));
+                      KeysNavigationUtility.getHtmlRouteWhereUnAuthNavigationUserViewQQUserQQIdFromId(username),
+                      KeysNavigationUtility.getNameRouteWhereUnAuthNavigationUserViewQQUserQQIdFromId(username));
                 }),
             PlutoMenuItem(
                 title: "|",
@@ -41,8 +45,8 @@ final class NavigationUserView extends StatelessWidget {
                 onTap: () {
                   WebNavigationUtility.goWhereChangeUrlAddressAndNewViewWithWFromThree(
                       context,
-                      KeysNavigationUtility.getHtmlRouteWhereNavigationUserViewQQUserQQIdQQStatsFromId("Vicar32"),
-                      KeysNavigationUtility.getNameRouteWhereNavigationUserViewQQUserQQIdQQStatsFromId("Vicar32"));
+                      KeysNavigationUtility.getHtmlRouteWhereUnAuthNavigationUserViewQQUserQQIdQQStatsFromId(username),
+                      KeysNavigationUtility.getNameRouteWhereUnAuthNavigationUserViewQQUserQQIdQQStatsFromId(username));
                 }),
             PlutoMenuItem(
                 title: "|",
@@ -53,8 +57,8 @@ final class NavigationUserView extends StatelessWidget {
                 onTap: () {
                   WebNavigationUtility.goWhereChangeUrlAddressAndNewViewWithWFromThree(
                       context,
-                      KeysNavigationUtility.getHtmlRouteWhereNavigationUserViewQQUserQQIdQQMatchesFromId("Vicar32"),
-                      KeysNavigationUtility.getNameRouteWhereNavigationUserViewQQUserQQIdQQMatchesFromId("Vicar32"));
+                      KeysNavigationUtility.getHtmlRouteWhereUnAuthNavigationUserViewQQUserQQIdQQMatchesFromId(username),
+                      KeysNavigationUtility.getNameRouteWhereUnAuthNavigationUserViewQQUserQQIdQQMatchesFromId(username));
                 }),
           ],
         ),

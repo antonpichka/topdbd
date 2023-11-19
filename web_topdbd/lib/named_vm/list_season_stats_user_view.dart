@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 final class ListSeasonStatsUserView extends StatefulWidget {
+  final String username;
+
+  const ListSeasonStatsUserView(this.username);
+
   @override
   State<ListSeasonStatsUserView> createState() => _ListSeasonStatsUserViewState();
 }
@@ -35,31 +39,25 @@ final class _ListSeasonStatsUserViewState extends State<ListSeasonStatsUserView>
       child: Card(
         child: Column(
             children: [
-              const SizedBox(
-                width: double.infinity,
-                child: Padding(
-                  padding: EdgeInsets.all(4.0),
-                  child: Wrap(
-                    alignment: WrapAlignment.center,
-                    children: [
-                      Icon(Icons.rocket, color: Colors.white,),
-                      SizedBox(width: 2,),
-                      Icon(Icons.query_stats, color: Colors.white,),
-                      SizedBox(width: 2,),
-                      Padding(
-                        padding: EdgeInsets.only(top: 3.0),
-                        child: Text("Statistics from past seasons"),
-                      ),
-                    ],
-                  ),
+              const Padding(
+                padding: EdgeInsets.all(4.0),
+                child: Wrap(
+                  alignment: WrapAlignment.center,
+                  children: [
+                    Icon(Icons.rocket, color: Colors.white,),
+                    SizedBox(width: 2,),
+                    Icon(Icons.query_stats, color: Colors.white,),
+                    SizedBox(width: 2,),
+                    Padding(
+                      padding: EdgeInsets.only(top: 3.0),
+                      child: Text("Statistics from past seasons"),
+                    ),
+                  ],
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(
-                    border: Border(
-                        bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
-                ),
-              ),
+              Divider(
+                height: 1.0,
+                color: Theme.of(context).dividerColor,),
               const SizedBox(height: 5,),
               SizedBox(
                 height: 150,

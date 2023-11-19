@@ -53,8 +53,8 @@ final class AlgorithmsUtility {
     final score = enumWinNumberUser == EnumWinNumberUser.winFirstUser ? 1.0 : 0.0;
     final diff = ratingFirstUser - ratingSecondUser;
     final exponent = -(diff / n);
-    final expectedOne = 1.0 / (1.0 + math.pow(10.0, exponent));
-    final resultRatingFirstUser = ratingFirstUser + kFactor * (score - expectedOne);
+    final expected = 1.0 / (1.0 + math.pow(10.0, exponent));
+    final resultRatingFirstUser = ratingFirstUser + kFactor * (score - expected);
     return resultRatingFirstUser.toInt();
   }
 
@@ -65,8 +65,8 @@ final class AlgorithmsUtility {
     final score = enumWinNumberUser == EnumWinNumberUser.winSecondUser ? 0.0 : 1.0;
     final diff = ratingFirstUser - ratingSecondUser;
     final exponent = -(diff / n);
-    final expectedTwo = 1.0 / (1.0 + math.pow(10.0, -exponent));
-    final resultRatingSecondUser = ratingSecondUser + kFactor * ((1.0 - score) - expectedTwo);
+    final expected = 1.0 / (1.0 + math.pow(10.0, -exponent));
+    final resultRatingSecondUser = ratingSecondUser + kFactor * ((1.0 - score) - expected);
     return resultRatingSecondUser.toInt();
   }
 }

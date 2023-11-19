@@ -3,6 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 final class AboutMeUserView extends StatefulWidget {
+  final String username;
+
+  const AboutMeUserView(this.username);
+
   @override
   State<AboutMeUserView> createState() => _AboutMeUserViewState();
 }
@@ -27,40 +31,11 @@ final class _AboutMeUserViewState extends State<AboutMeUserView> {
               const Wrap(
                 alignment: WrapAlignment.center,
                 children: [
-                  Icon(Icons.info_outline, color: Colors.white,),
+                  Icon(Icons.info_outline),
                   SizedBox(width: 2,),
                   Padding(
                     padding: EdgeInsets.only(top: 3.0),
                     child: Text("About Me"),
-                  ),
-                ],
-              ),
-              Divider(
-                height: 1.0,
-                color: Theme.of(context).dividerColor,),
-              Wrap(
-                alignment: WrapAlignment.center,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 8.0),
-                    child: Tooltip(
-                        message: "Access is only available to: 'YOU'",
-                        child: Icon(Icons.lock)),
-                  ),
-                  const SizedBox(width: 2,),
-                  Ink(
-                    decoration: ShapeDecoration(
-                        color: Theme.of(context).colorScheme.primary,
-                        shape: const CircleBorder()
-                    ),
-                    child: IconButton(
-                        onPressed: () {
-                        },
-                        icon: const Icon(
-                          Icons.edit,
-                          size: 20,
-                          color: Colors.white,)
-                    ),
                   ),
                 ],
               ),

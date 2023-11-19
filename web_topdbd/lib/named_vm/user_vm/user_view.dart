@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:web_topdbd/named_vm/navigation_user_vm/navigation_user_view.dart';
 
 final class UserView extends StatefulWidget {
   final String username;
+  final Widget namedNavigationUserView;
   final Widget namedUserView;
 
-  const UserView(this.username,this.namedUserView);
+  const UserView(this.username,this.namedNavigationUserView,this.namedUserView);
 
   @override
   State<UserView> createState() => _UserViewStats();
@@ -14,9 +14,6 @@ final class UserView extends StatefulWidget {
 final class _UserViewStats extends State<UserView> {
   @override
   Widget build(BuildContext context) {
-    // localhost/#/user/vicar32  // (info)
-    // localhost/#/user/stats/vicar32
-    // localhost/#/user/matches/vicar32
     return SizedBox(
       width: double.infinity,
       child: Card(
@@ -50,7 +47,7 @@ final class _UserViewStats extends State<UserView> {
                 ],
               ),
             ),
-            NavigationUserView(),
+            widget.namedNavigationUserView,
             widget.namedUserView,
             /*Wrap(
               children: [

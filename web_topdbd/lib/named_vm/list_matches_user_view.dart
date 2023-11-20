@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 final class ListMatchesUserView extends StatefulWidget {
   @override
@@ -7,82 +6,50 @@ final class ListMatchesUserView extends StatefulWidget {
 }
 
 final class _ListMatchesUserViewState extends State<ListMatchesUserView> {
-  late final ScrollController _scrollController;
   bool _isExpanded = false;
 
   @override
-  void initState() {
-    _scrollController = ScrollController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final value = ResponsiveValue<double>(
-        context,
-        conditionalValues: [
-          Condition.equals(name: MOBILE, value: 1.0),
-          Condition.equals(name: TABLET, value: 1.0),
-          Condition.equals(name: DESKTOP,value: 2.1),
-        ]).value ?? 0.0;
-    return SizedBox(
-      width: MediaQuery.of(context).size.width / value,
-      child: Card(
-        color: Theme.of(context).colorScheme.surface,
-        child: Column(
-            children: [
-              const SizedBox(
-                width: double.infinity,
-                child: Padding(
-                  padding: EdgeInsets.all(4.0),
-                  child: Wrap(
-                    alignment: WrapAlignment.center,
-                    children: [
-                      Icon(Icons.videogame_asset, color: Colors.white,),
-                      SizedBox(width: 2,),
-                      Padding(
-                        padding: EdgeInsets.only(top: 3.0),
-                        child: Text("Matches"),
-                      ),
-                    ],
+    return Card(
+      child: Column(
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(4.0),
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                children: [
+                  Icon(Icons.videogame_asset_outlined),
+                  SizedBox(width: 2,),
+                  Padding(
+                    padding: EdgeInsets.only(top: 3.0),
+                    child: Text("Matches"),
                   ),
-                ),
+                ],
               ),
-              Container(
-                decoration: BoxDecoration(
-                    border: Border(
-                        bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
-                ),
-              ),
-              const SizedBox(height: 5,),
-              SizedBox(
-                width: double.infinity,
-                child: ExpansionPanelList(
-                  expansionCallback: (int index, bool isExpanded) {
-                    setState(() {
-                      _isExpanded = isExpanded;
-                    });
-                  }, children: [
-                      _buildExpansionPanelToExpansionPanelList(),
-                      _buildExpansionPanelToExpansionPanelList(),
-                      _buildExpansionPanelToExpansionPanelList(),
-                      _buildExpansionPanelToExpansionPanelList(),
-                      _buildExpansionPanelToExpansionPanelList(),
-                    ],
-                )),
-            ]),
-      ),
+            ),
+            Divider(
+              height: 1.0,
+              color: Theme.of(context).dividerColor,),
+            const SizedBox(height: 5,),
+            ExpansionPanelList(
+              expansionCallback: (int index, bool isExpanded) {
+                setState(() {
+                  _isExpanded = isExpanded;
+                });
+              }, children: [
+                  _getExpansionPanelToExpansionPanelListParameterIsExpanded(),
+                  _getExpansionPanelToExpansionPanelListParameterIsExpanded(),
+                  _getExpansionPanelToExpansionPanelListParameterIsExpanded(),
+                  _getExpansionPanelToExpansionPanelListParameterIsExpanded(),
+                  _getExpansionPanelToExpansionPanelListParameterIsExpanded(),
+                ],
+            ),
+          ]),
     );
   }
 
 
-  ExpansionPanel _buildExpansionPanelToExpansionPanelList() {
+  ExpansionPanel _getExpansionPanelToExpansionPanelListParameterIsExpanded() {
     return ExpansionPanel(
       isExpanded: _isExpanded,
       headerBuilder: (BuildContext context, bool isExpanded) {

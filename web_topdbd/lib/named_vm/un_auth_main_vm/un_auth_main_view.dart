@@ -5,41 +5,41 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_vm/custom_footer_view.dart';
 import 'package:web_topdbd/named_vm/drawer_view.dart';
-import 'package:web_topdbd/named_vm/main_vm/enum_data_for_main_view.dart';
+import 'package:web_topdbd/named_vm/un_auth_main_vm/enum_data_for_un_auth_main_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_navigation_vm/un_auth_navigation_view.dart';
-import 'package:web_topdbd/named_vm/main_vm/test_main_view_model.dart';
+import 'package:web_topdbd/named_vm/un_auth_main_vm/test_un_auth_main_view_model.dart';
 import 'package:web_topdbd/named_vm/title_w_app_bar_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_drawer_vm/un_auth_drawer_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_title_w_app_bar_vm/un_auth_title_w_app_bar_view.dart';
 
-final class MainView extends StatefulWidget {
+final class UnAuthMainView extends StatefulWidget {
   final Widget namedView;
 
-  const MainView(this.namedView);
+  const UnAuthMainView(this.namedView);
 
   @override
-  State<MainView> createState() => _MainViewState();
+  State<UnAuthMainView> createState() => _UnAuthMainViewState();
 }
 
-final class _MainViewState extends State<MainView> {
+final class _UnAuthMainViewState extends State<UnAuthMainView> {
   /// RELEASE CODE
-  // late final MainViewModel _mainViewModel;
+  // late final UnAuthMainViewModel _unAuthMainViewModel;
   /// TEST CODE
-  late final TestMainViewModel _mainViewModel;
+  late final TestUnAuthMainViewModel _unAuthMainViewModel;
 
   @override
   void initState() {
     /// RELEASE CODE
-    // _mainViewModel = MainViewModel();
+    // _unAuthMainViewModel = UnAuthMainViewModel();
     /// TEST CODE
-    _mainViewModel = TestMainViewModel();
+    _unAuthMainViewModel = TestUnAuthMainViewModel();
     super.initState();
-    _initParameterMainViewModel();
+    _initParameterUnAuthMainViewModel();
   }
 
   @override
   void dispose() {
-    _mainViewModel.dispose();
+    _unAuthMainViewModel.dispose();
     super.dispose();
   }
 
@@ -53,13 +53,13 @@ final class _MainViewState extends State<MainView> {
           Condition.equals(name: DESKTOP, value: null),
         ]
     ).value;
-    final dataForNamed = _mainViewModel.getDataForNamedParameterNamedStreamWState;
+    final dataForNamed = _unAuthMainViewModel.getDataForNamedParameterNamedStreamWState;
     switch(dataForNamed.getEnumDataForNamed) {
-      case EnumDataForMainView.isLoading:
+      case EnumDataForUnAuthMainView.isLoading:
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
-      case EnumDataForMainView.exception:
+      case EnumDataForUnAuthMainView.exception:
         return Scaffold(body: Center(child: Text("Exception: ${dataForNamed.exceptionController.getKeyParameterException}")));
-      case EnumDataForMainView.success:
+      case EnumDataForUnAuthMainView.success:
         return Scaffold(
           appBar: AppBar(
               scrolledUnderElevation: 0.0,
@@ -90,17 +90,17 @@ final class _MainViewState extends State<MainView> {
     }
   }
 
-  Future<void> _initParameterMainViewModel() async {
-    _mainViewModel
+  Future<void> _initParameterUnAuthMainViewModel() async {
+    _unAuthMainViewModel
         .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {
           setState(() {});
         });
-    final result = await _mainViewModel.init();
+    final result = await _unAuthMainViewModel.init();
     debugPrint("MainView: $result");
     if(!mounted) {
       return;
     }
-    _mainViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
+    _unAuthMainViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

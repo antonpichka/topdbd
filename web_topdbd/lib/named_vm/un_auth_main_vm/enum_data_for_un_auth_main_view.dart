@@ -1,4 +1,4 @@
-enum EnumDataForMainView {
+enum EnumDataForUnAuthMainView {
   isLoading,
   exception,
   success

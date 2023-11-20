@@ -52,106 +52,98 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
       return EnumDataForAppView.authMainViewWTermsOfUse;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore == getIdWhereSplitParameterNameRoute &&
-        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQId)
+        usernameByDiscordUserFirestore == getIdWhereURLProcessingParameterNameRoute &&
+        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQId)
     {
       return EnumDataForAppView.authMainViewWUserWId;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore != getIdWhereSplitParameterNameRoute &&
-        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQId)
+        usernameByDiscordUserFirestore != getIdWhereURLProcessingParameterNameRoute &&
+        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQId)
     {
       return EnumDataForAppView.authMainViewWUserWIdFIRST;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore == getIdWhereSplitParameterNameRoute &&
-        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQStats)
+        usernameByDiscordUserFirestore == getIdWhereURLProcessingParameterNameRoute &&
+        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQStats)
     {
       return EnumDataForAppView.authMainViewWUserWIdWStats;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore != getIdWhereSplitParameterNameRoute &&
-        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQStats)
+        usernameByDiscordUserFirestore != getIdWhereURLProcessingParameterNameRoute &&
+        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQStats)
     {
       return EnumDataForAppView.authMainViewWUserWIdWStatsFIRST;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore == getIdWhereSplitParameterNameRoute &&
-        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQMatches)
+        usernameByDiscordUserFirestore == getIdWhereURLProcessingParameterNameRoute &&
+        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQMatches)
     {
       return EnumDataForAppView.authMainViewWUserWIdWMatches;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore != getIdWhereSplitParameterNameRoute &&
-        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQMatches)
+        usernameByDiscordUserFirestore != getIdWhereURLProcessingParameterNameRoute &&
+        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQMatches)
     {
       return EnumDataForAppView.authMainViewWUserWIdWMatchesFIRST;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore == getIdWhereSplitParameterNameRoute &&
-        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.authNavigationUserViewQQUserQQIdQQSettings)
+        usernameByDiscordUserFirestore == getIdWhereURLProcessingParameterNameRoute &&
+        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.authNavigationUserViewQQUserQQIdQQSettings)
     {
       return EnumDataForAppView.authMainViewWUserWIdWSettings;
     }
-    if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore != getIdWhereSplitParameterNameRoute &&
-        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.authNavigationUserViewQQUserQQIdQQSettings)
-    {
-      return EnumDataForAppView.authMainViewWUserWIdWSettingsFIRST;
+    if(uniqueIdByUser.isNotEmpty) {
+      return EnumDataForAppView.authMainViewWNotFound;
     }
     if(uniqueIdByUser.isEmpty &&
         nameRoute == KeysNavigationUtility.navigationViewQQHome)
     {
-      return EnumDataForAppView.mainViewWHome;
+      return EnumDataForAppView.unAuthMainViewWHome;
     }
     if(uniqueIdByUser.isEmpty &&
         nameRoute == KeysNavigationUtility.navigationViewQQTopPlayers)
     {
-      return EnumDataForAppView.mainViewWTopPlayers;
+      return EnumDataForAppView.unAuthMainViewWTopPlayers;
     }
     if(uniqueIdByUser.isEmpty &&
         nameRoute == KeysNavigationUtility.navigationViewQQBalance)
     {
-      return EnumDataForAppView.mainViewWBalance;
+      return EnumDataForAppView.unAuthMainViewWBalance;
     }
     if(uniqueIdByUser.isEmpty &&
         nameRoute == KeysNavigationUtility.navigationViewQQLogin)
     {
-      return EnumDataForAppView.mainViewWLogin;
+      return EnumDataForAppView.unAuthMainViewWLogin;
     }
     if(uniqueIdByUser.isEmpty &&
         nameRoute == KeysNavigationUtility.navigationViewQQTermsOfUse)
     {
-      return EnumDataForAppView.mainViewWTermsOfUse;
+      return EnumDataForAppView.unAuthMainViewWTermsOfUse;
     }
     if(uniqueIdByUser.isEmpty &&
-        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQId)
+        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQId)
     {
-      return EnumDataForAppView.mainViewWUserWId;
+      return EnumDataForAppView.unAuthMainViewWUserWId;
     }
     if(uniqueIdByUser.isEmpty &&
-        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQStats)
+        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQStats)
     {
-      return EnumDataForAppView.mainViewWUserWIdWStats;
+      return EnumDataForAppView.unAuthMainViewWUserWIdWStats;
     }
     if(uniqueIdByUser.isEmpty &&
-        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQMatches)
+        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQMatches)
     {
-      return EnumDataForAppView.mainViewWUserWIdWMatches;
+      return EnumDataForAppView.unAuthMainViewWUserWIdWMatches;
     }
-    if(uniqueIdByUser.isEmpty &&
-        getWhereReplaceAllParameterNameRoute == KeysNavigationUtility.authNavigationUserViewQQUserQQIdQQSettings)
-    {
-      return EnumDataForAppView.mainViewWUserWIdWSettings;
-    }
-    return EnumDataForAppView.notFound;
+    return EnumDataForAppView.unAuthMainViewWNotFound;
   }
 
-  String get getWhereReplaceAllParameterNameRoute {
+  String get getNewUrlWhereReplaceAllParameterNameRoute {
     return nameRoute.replaceAll(AlgorithmsUtility.regExpWNameRoute,AlgorithmsUtility.replacedNameWNameRoute);
   }
 
-  String get getIdWhereSplitParameterNameRoute {
+  String get getIdWhereURLProcessingParameterNameRoute {
     bool isBreak = false;
     String id = "";
     for(String itemNameRoute in nameRoute.split("/")) {

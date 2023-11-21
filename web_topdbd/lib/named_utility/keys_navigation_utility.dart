@@ -9,46 +9,30 @@ final class KeysNavigationUtility {
   static const String navigationViewQQLogin = "#/login";
   static const String navigationViewQQTermsOfUse = "#/terms_of_use";
   static const String navigationViewQQTournaments = "#/tournaments";
-  /* UnAuthNavigationUserView */
-  static const String unAuthNavigationUserViewQQUserQQId = "#/user/{id}";
-  static const String unAuthNavigationUserViewQQUserQQIdQQStats = "#/user/{id}/stats";
-  static const String unAuthNavigationUserViewQQUserQQIdQQMatches = "#/user/{id}/matches";
+  /* NavigationUserView */
+  static const String navigationUserViewQQUserQQId = "#/user/id";
+  static const String navigationUserViewQQUserQQIdQQStats = "#/user/id/stats";
+  static const String navigationUserViewQQUserQQIdQQMatches = "#/user/id/matches";
   /* AuthNavigationUserView */
-  static const String authNavigationUserViewQQUserQQIdQQSettings = "#/user/{id}/settings";
+  static const String authNavigationUserViewQQUserQQIdQQSettings = "#/user/id/settings";
 
   const KeysNavigationUtility._();
 
-  /* UnAuthNavigationUserView */
-  static String getHtmlRouteWhereUnAuthNavigationUserViewQQUserQQIdFromId(String id) {
+  /* NavigationUserView */
+  static String getNavigationUserViewQQUserQQIdFromId(String id) {
     return "#/user/$id";
   }
 
-  static String getNameRouteWhereUnAuthNavigationUserViewQQUserQQIdFromId(String id) {
-    return "#/user/{$id}";
-  }
-
-  static String getHtmlRouteWhereUnAuthNavigationUserViewQQUserQQIdQQStatsFromId(String id) {
+  static String getNavigationUserViewQQUserQQIdQQStatsFromId(String id) {
     return "#/user/$id/stats";
   }
 
-  static String getNameRouteWhereUnAuthNavigationUserViewQQUserQQIdQQStatsFromId(String id) {
-    return "#/user/{$id}/stats";
-  }
-
-  static String getHtmlRouteWhereUnAuthNavigationUserViewQQUserQQIdQQMatchesFromId(String id) {
+  static String getNavigationUserViewQQUserQQIdQQMatchesFromId(String id) {
     return "#/user/$id/matches";
   }
 
-  static String getNameRouteWhereUnAuthNavigationUserViewQQUserQQIdQQMatchesFromId(String id) {
-    return "#/user/{$id}/matches";
-  }
-
   /* AuthNavigationUserView */
-  static String getHtmlRouteWhereAuthNavigationUserViewQQUserQQIdQQSettingsFromId(String id) {
+  static String getAuthNavigationUserViewQQUserQQIdQQSettingsFromId(String id) {
     return "#/user/$id/settings";
-  }
-
-  static String getNameRouteWhereAuthNavigationUserViewQQUserQQIdQQSettingsFromId(String id) {
-    return "#/user/{$id}/settings";
   }
 }

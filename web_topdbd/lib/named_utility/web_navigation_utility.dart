@@ -11,9 +11,4 @@ final class WebNavigationUtility {
     html.window.history.pushState(null, '',nameRoute);
     context.go(nameRoute);
   }
-
-  static void goWhereChangeUrlAddressAndNewViewWithWFromThree(BuildContext context,String htmlRoute, String nameRoute) {
-    html.window.history.pushState(null, '',htmlRoute);
-    context.go(nameRoute);
-  }
 }

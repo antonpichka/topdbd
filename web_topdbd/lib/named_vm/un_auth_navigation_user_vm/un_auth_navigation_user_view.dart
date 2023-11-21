@@ -31,10 +31,9 @@ final class UnAuthNavigationUserView extends StatelessWidget {
                 title: "Info",
                 icon: Icons.info_outline,
                 onTap: () {
-                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewWithWFromThree(
+                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(
                       context,
-                      KeysNavigationUtility.getHtmlRouteWhereUnAuthNavigationUserViewQQUserQQIdFromId(username),
-                      KeysNavigationUtility.getNameRouteWhereUnAuthNavigationUserViewQQUserQQIdFromId(username));
+                      KeysNavigationUtility.getNavigationUserViewQQUserQQIdFromId(username));
                 }),
             PlutoMenuItem(
                 title: "|",
@@ -43,10 +42,9 @@ final class UnAuthNavigationUserView extends StatelessWidget {
                 title: "Stats",
                 icon: Icons.query_stats,
                 onTap: () {
-                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewWithWFromThree(
+                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(
                       context,
-                      KeysNavigationUtility.getHtmlRouteWhereUnAuthNavigationUserViewQQUserQQIdQQStatsFromId(username),
-                      KeysNavigationUtility.getNameRouteWhereUnAuthNavigationUserViewQQUserQQIdQQStatsFromId(username));
+                      KeysNavigationUtility.getNavigationUserViewQQUserQQIdQQStatsFromId(username));
                 }),
             PlutoMenuItem(
                 title: "|",
@@ -55,10 +53,9 @@ final class UnAuthNavigationUserView extends StatelessWidget {
                 title: "Matches",
                 icon: Icons.videogame_asset_outlined,
                 onTap: () {
-                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewWithWFromThree(
+                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(
                       context,
-                      KeysNavigationUtility.getHtmlRouteWhereUnAuthNavigationUserViewQQUserQQIdQQMatchesFromId(username),
-                      KeysNavigationUtility.getNameRouteWhereUnAuthNavigationUserViewQQUserQQIdQQMatchesFromId(username));
+                      KeysNavigationUtility.getNavigationUserViewQQUserQQIdQQMatchesFromId(username));
                 }),
           ],
         ),

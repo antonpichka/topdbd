@@ -124,57 +124,57 @@ final class _AppViewState extends State<AppView> {
               return MaterialPage(
                   child: AuthMainView(
                       UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,
-                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,true),
-                          AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute)))
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true),
+                          AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
               );
             case EnumDataForAppView.authMainViewWUserWIdFIRST:
               return MaterialPage(
                   child: AuthMainView(
                       UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,
-                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,false),
-                          AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute)))
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,false),
+                          AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
               );
             case EnumDataForAppView.authMainViewWUserWIdWStats:
               return MaterialPage(
                   child: AuthMainView(
                       UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,
-                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,true),
-                          StatsUserWListSeasonStatsUseView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute)))
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true),
+                          StatsUserWListSeasonStatsUseView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
               );
             case EnumDataForAppView.authMainViewWUserWIdWStatsFIRST:
               return MaterialPage(
                   child: AuthMainView(
                       UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,
-                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,false),
-                          StatsUserWListSeasonStatsUseView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute)))
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,false),
+                          StatsUserWListSeasonStatsUseView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
               );
             case EnumDataForAppView.authMainViewWUserWIdWMatches:
               return MaterialPage(
                   child: AuthMainView(
                       UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,
-                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,true),
-                          ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute)))
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true),
+                          ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
               );
             case EnumDataForAppView.authMainViewWUserWIdWMatchesFIRST:
               return MaterialPage(
                   child: AuthMainView(
                       UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,
-                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,false),
-                          ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute)))
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,false),
+                          ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
               );
             case EnumDataForAppView.authMainViewWUserWIdWSettings:
               return MaterialPage(
                   child: AuthMainView(
                       UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,
-                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,true),
-                          SettingsUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute)))
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true),
+                          SettingsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
               );
             case EnumDataForAppView.authMainViewWNotFound:
               return MaterialPage(child: AuthMainView(NotFoundView(dataForNamedParameterNamedStreamWState.nameRoute)));
@@ -192,25 +192,25 @@ final class _AppViewState extends State<AppView> {
               return MaterialPage(
                   child: UnAuthMainView(
                       UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,
-                          UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute),
-                          AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute)))
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute),
+                          AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
               );
             case EnumDataForAppView.unAuthMainViewWUserWIdWStats:
               return MaterialPage(
                   child: UnAuthMainView(
                       UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,
-                          UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute),
-                          StatsUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute)))
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute),
+                          StatsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
               );
             case EnumDataForAppView.unAuthMainViewWUserWIdWMatches:
               return MaterialPage(
                   child: UnAuthMainView(
                       UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute,
-                          UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute),
-                          ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereURLProcessingParameterNameRoute)))
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute),
+                          ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
               );
             case EnumDataForAppView.unAuthMainViewWNotFound:
               return MaterialPage(child: UnAuthMainView(NotFoundView(dataForNamedParameterNamedStreamWState.nameRoute)));

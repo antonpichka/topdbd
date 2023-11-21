@@ -32,10 +32,9 @@ final class AuthNavigationUserView extends StatelessWidget {
                 title: "Info",
                 icon: Icons.info_outline,
                 onTap: () {
-                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewWithWFromThree(
+                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(
                       context,
-                      KeysNavigationUtility.getHtmlRouteWhereUnAuthNavigationUserViewQQUserQQIdFromId(username),
-                      KeysNavigationUtility.getNameRouteWhereUnAuthNavigationUserViewQQUserQQIdFromId(username));
+                      KeysNavigationUtility.getNavigationUserViewQQUserQQIdFromId(username));
                 }),
             PlutoMenuItem(
                 title: "|",
@@ -44,10 +43,9 @@ final class AuthNavigationUserView extends StatelessWidget {
                 title: "Stats",
                 icon: Icons.query_stats,
                 onTap: () {
-                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewWithWFromThree(
+                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(
                       context,
-                      KeysNavigationUtility.getHtmlRouteWhereUnAuthNavigationUserViewQQUserQQIdQQStatsFromId(username),
-                      KeysNavigationUtility.getNameRouteWhereUnAuthNavigationUserViewQQUserQQIdQQStatsFromId(username));
+                      KeysNavigationUtility.getNavigationUserViewQQUserQQIdQQStatsFromId(username));
                 }),
             PlutoMenuItem(
                 title: "|",
@@ -56,10 +54,9 @@ final class AuthNavigationUserView extends StatelessWidget {
                 title: "Matches",
                 icon: Icons.videogame_asset_outlined,
                 onTap: () {
-                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewWithWFromThree(
+                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(
                       context,
-                      KeysNavigationUtility.getHtmlRouteWhereUnAuthNavigationUserViewQQUserQQIdQQMatchesFromId(username),
-                      KeysNavigationUtility.getNameRouteWhereUnAuthNavigationUserViewQQUserQQIdQQMatchesFromId(username));
+                      KeysNavigationUtility.getNavigationUserViewQQUserQQIdQQMatchesFromId(username));
                 }),
             isAuthMyUser
                 ? PlutoMenuItem(
@@ -73,10 +70,9 @@ final class AuthNavigationUserView extends StatelessWidget {
                 title: "Settings",
                 icon: Icons.lock,
                 onTap: () {
-                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewWithWFromThree(
+                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(
                       context,
-                      KeysNavigationUtility.getHtmlRouteWhereAuthNavigationUserViewQQUserQQIdQQSettingsFromId(username),
-                      KeysNavigationUtility.getNameRouteWhereAuthNavigationUserViewQQUserQQIdQQSettingsFromId(username));
+                      KeysNavigationUtility.getAuthNavigationUserViewQQUserQQIdQQSettingsFromId(username));
                 })
                 : PlutoMenuItem(
                 title: "",

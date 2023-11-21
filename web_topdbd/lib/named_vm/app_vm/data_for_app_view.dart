@@ -1,4 +1,3 @@
-import 'package:common_topdbd/named_utility/algorithms_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 import 'package:web_topdbd/named_vm/app_vm/enum_data_for_app_view.dart';
@@ -52,44 +51,44 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
       return EnumDataForAppView.authMainViewWTermsOfUse;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore == getIdWhereURLProcessingParameterNameRoute &&
-        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQId)
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQId &&
+        usernameByDiscordUserFirestore == getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWId;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore != getIdWhereURLProcessingParameterNameRoute &&
-        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQId)
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQId &&
+        usernameByDiscordUserFirestore != getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdFIRST;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore == getIdWhereURLProcessingParameterNameRoute &&
-        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQStats)
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQStats &&
+        usernameByDiscordUserFirestore == getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdWStats;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore != getIdWhereURLProcessingParameterNameRoute &&
-        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQStats)
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQStats &&
+        usernameByDiscordUserFirestore != getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdWStatsFIRST;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore == getIdWhereURLProcessingParameterNameRoute &&
-        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQMatches)
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQMatches &&
+        usernameByDiscordUserFirestore == getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdWMatches;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore != getIdWhereURLProcessingParameterNameRoute &&
-        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQMatches)
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQMatches &&
+        usernameByDiscordUserFirestore != getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdWMatchesFIRST;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        usernameByDiscordUserFirestore == getIdWhereURLProcessingParameterNameRoute &&
-        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.authNavigationUserViewQQUserQQIdQQSettings)
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.authNavigationUserViewQQUserQQIdQQSettings &&
+        usernameByDiscordUserFirestore == getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdWSettings;
     }
@@ -122,46 +121,46 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
       return EnumDataForAppView.unAuthMainViewWTermsOfUse;
     }
     if(uniqueIdByUser.isEmpty &&
-        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQId)
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQId)
     {
       return EnumDataForAppView.unAuthMainViewWUserWId;
     }
     if(uniqueIdByUser.isEmpty &&
-        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQStats)
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQStats)
     {
       return EnumDataForAppView.unAuthMainViewWUserWIdWStats;
     }
     if(uniqueIdByUser.isEmpty &&
-        getNewUrlWhereReplaceAllParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQMatches)
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQMatches)
     {
       return EnumDataForAppView.unAuthMainViewWUserWIdWMatches;
     }
     return EnumDataForAppView.unAuthMainViewWNotFound;
   }
 
-  String get getNewUrlWhereReplaceAllParameterNameRoute {
-    return nameRoute.replaceAll(AlgorithmsUtility.regExpWNameRoute,AlgorithmsUtility.replacedNameWNameRoute);
-  }
-
-  String get getIdWhereURLProcessingParameterNameRoute {
-    bool isBreak = false;
-    String id = "";
-    for(String itemNameRoute in nameRoute.split("/")) {
-      if(isBreak) {
-        break;
-      }
-      if(itemNameRoute[0] != "{") {
+  String get getUrlWhereUserParameterNameRoute {
+    String url = "#";
+    for(int i = 1; i < nameRoute.split("/").length;) {
+      final itemNameRoute = nameRoute.split("/")[i];
+      if(itemNameRoute != "user") {
+        url += "/$itemNameRoute";
+        i++;
         continue;
       }
-      for(int i = 1; i < itemNameRoute.length; i++) {
-        if(itemNameRoute[i] == "}") {
-          isBreak = true;
-          break;
-        }
-        id += itemNameRoute[i];
-      }
+      url += "/user/id";
+      i = i + 2;
     }
-    return id;
+    return url;
+  }
+
+  String get getIdWhereUserParameterNameRoute {
+    if(nameRoute.split("/").length < 3) {
+      return "";
+    }
+    if(nameRoute.split("/")[1] != "user") {
+      return "";
+    }
+    return nameRoute.split("/")[2];
   }
 
   void insertWhereLengthMoreThanOrEqualTwoParameterListLoaded() {

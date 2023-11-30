@@ -63,9 +63,10 @@ final class _AppViewState extends State<AppView> {
         builder: (context, child) => ResponsiveBreakpoints.builder(
           child: child!,
           breakpoints: [
-            const Breakpoint(start: 0, end: 599, name: MOBILE),
-            const Breakpoint(start: 600, end: 800, name: TABLET),
-            const Breakpoint(start: 801, end: double.infinity, name: DESKTOP),
+            const Breakpoint(start: 0, end: 450, name: MOBILE),
+            const Breakpoint(start: 451, end: 800, name: TABLET),
+            const Breakpoint(start: 801, end: 1920, name: DESKTOP),
+            const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
           ],
         ),
         routerConfig: _getRouterConfigParameterAppViewModel);
@@ -105,117 +106,123 @@ final class _AppViewState extends State<AppView> {
           final dataForNamedParameterNamedStreamWState = _appViewModel.getDataForNamedParameterNamedStreamWState;
           switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
             case EnumDataForAppView.isLoading:
-              return const MaterialPage(child: Scaffold(body: Center(child: CircularProgressIndicator())));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,const Scaffold(body: Center(child: CircularProgressIndicator())));
             case EnumDataForAppView.exception:
-              return MaterialPage(child: Scaffold(body: Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"))));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,Scaffold(body: Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"))));
             case EnumDataForAppView.thoseWorks:
-              return MaterialPage(child: valueFIRST);
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,valueFIRST);
             case EnumDataForAppView.authMainViewWHome:
-              return MaterialPage(child: AuthMainView(HomeView()));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(HomeView()));
             case EnumDataForAppView.authMainViewWTopPlayers:
-              return MaterialPage(child: AuthMainView(TopPlayersView()));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(TopPlayersView()));
             case EnumDataForAppView.authMainViewWBalance:
-              return MaterialPage(child: AuthMainView(BalanceView()));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(BalanceView()));
             case EnumDataForAppView.authMainViewWLogin:
-              return MaterialPage(child: AuthMainView(AlreadyLoggedView()));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(AlreadyLoggedView()));
             case EnumDataForAppView.authMainViewWTermsOfUse:
-              return MaterialPage(child: AuthMainView(TermsOfUseView()));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(TermsOfUseView()));
             case EnumDataForAppView.authMainViewWUserWId:
-              return MaterialPage(
-                  child: AuthMainView(
-                      UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true),
-                          AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
-              );
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
+                  UserView(
+                      dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                      AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true),
+                      AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
+              ));
             case EnumDataForAppView.authMainViewWUserWIdFIRST:
-              return MaterialPage(
-                  child: AuthMainView(
-                      UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,false),
-                          AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
-              );
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
+                  UserView(
+                      dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                      AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,false),
+                      AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
+              ));
             case EnumDataForAppView.authMainViewWUserWIdWStats:
-              return MaterialPage(
-                  child: AuthMainView(
-                      UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true),
-                          StatsUserWListSeasonStatsUseView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
-              );
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
+                  UserView(
+                      dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                      AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true),
+                      StatsUserWListSeasonStatsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
+              ));
             case EnumDataForAppView.authMainViewWUserWIdWStatsFIRST:
-              return MaterialPage(
-                  child: AuthMainView(
-                      UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,false),
-                          StatsUserWListSeasonStatsUseView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
-              );
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
+                  UserView(
+                      dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                      AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,false),
+                      StatsUserWListSeasonStatsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
+              ));
             case EnumDataForAppView.authMainViewWUserWIdWMatches:
-              return MaterialPage(
-                  child: AuthMainView(
-                      UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true),
-                          ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
-              );
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
+                  UserView(
+                      dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                      AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true),
+                      ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
+              ));
             case EnumDataForAppView.authMainViewWUserWIdWMatchesFIRST:
-              return MaterialPage(
-                  child: AuthMainView(
-                      UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,false),
-                          ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
-              );
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
+                  UserView(
+                      dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                      AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,false),
+                      ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
+              ));
             case EnumDataForAppView.authMainViewWUserWIdWSettings:
-              return MaterialPage(
-                  child: AuthMainView(
-                      UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                          AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true),
-                          SettingsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
-              );
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
+                  UserView(
+                      dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                      AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true),
+                      SettingsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
+              ));
             case EnumDataForAppView.authMainViewWNotFound:
-              return MaterialPage(child: AuthMainView(NotFoundView(dataForNamedParameterNamedStreamWState.nameRoute)));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(NotFoundView(dataForNamedParameterNamedStreamWState.nameRoute)));
             case EnumDataForAppView.unAuthMainViewWHome:
-              return MaterialPage(child: UnAuthMainView(HomeView()));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(HomeView()));
             case EnumDataForAppView.unAuthMainViewWTopPlayers:
-              return MaterialPage(child: UnAuthMainView(TopPlayersView()));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(TopPlayersView()));
             case EnumDataForAppView.unAuthMainViewWBalance:
-              return MaterialPage(child: UnAuthMainView(BalanceView()));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(BalanceView()));
             case EnumDataForAppView.unAuthMainViewWLogin:
-              return MaterialPage(child: UnAuthMainView(LoginView()));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(LoginView()));
             case EnumDataForAppView.unAuthMainViewWTermsOfUse:
-              return MaterialPage(child: UnAuthMainView(TermsOfUseView()));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(TermsOfUseView()));
             case EnumDataForAppView.unAuthMainViewWUserWId:
-              return MaterialPage(
-                  child: UnAuthMainView(
-                      UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                          UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute),
-                          AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
-              );
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
+                  UserView(
+                      dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                      UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute),
+                      AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
+              ));
             case EnumDataForAppView.unAuthMainViewWUserWIdWStats:
-              return MaterialPage(
-                  child: UnAuthMainView(
-                      UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                          UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute),
-                          StatsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
-              );
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
+                  UserView(
+                      dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                      UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute),
+                      StatsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
+              ));
             case EnumDataForAppView.unAuthMainViewWUserWIdWMatches:
-              return MaterialPage(
-                  child: UnAuthMainView(
-                      UserView(
-                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                          UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute),
-                          ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute)))
-              );
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
+                  UserView(
+                      dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                      UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute),
+                      ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
+              ));
             case EnumDataForAppView.unAuthMainViewWNotFound:
-              return MaterialPage(child: UnAuthMainView(NotFoundView(dataForNamedParameterNamedStreamWState.nameRoute)));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(NotFoundView(dataForNamedParameterNamedStreamWState.nameRoute)));
           }
         });
+  }
+
+  MaterialPage _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(BuildContext context,Widget child) {
+    return MaterialPage(
+        child: MaxWidthBox(
+          maxWidth: 1200,
+          background: Container(
+              color: Theme.of(context).colorScheme.background,
+              child: Image.asset(
+                "assets/icon/background.png",
+                fit: BoxFit.cover,
+                width: double.infinity,)
+          ),
+          child: child,
+        )
+    );
   }
 
   Widget _getWidgetWhereThoseWorksFromThree(BuildContext context,double sizedBoxWidth,double textSize) {

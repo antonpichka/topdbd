@@ -41,6 +41,7 @@ flutter:
   assets:
     - assets/icon/app_icon.ico
     - assets/icon/app_icon.png
+    - assets/icon/background.png
     - assets/icon/dbd/maniac/maniac_anna.png
     - assets/icon/dbd/maniac/maniac_bilyas.png
     - assets/icon/dbd/maniac/maniac_bubba.png

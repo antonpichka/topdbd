@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:footer/footer.dart';
 import 'package:footer/footer_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_vm/custom_footer_view.dart';
 import 'package:web_topdbd/named_vm/drawer_view.dart';
-import 'package:web_topdbd/named_vm/un_auth_main_vm/enum_data_for_un_auth_main_view.dart';
-import 'package:web_topdbd/named_vm/un_auth_navigation_vm/un_auth_navigation_view.dart';
-import 'package:web_topdbd/named_vm/un_auth_main_vm/test_un_auth_main_view_model.dart';
 import 'package:web_topdbd/named_vm/title_w_app_bar_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_drawer_vm/un_auth_drawer_view.dart';
+import 'package:web_topdbd/named_vm/un_auth_main_vm/enum_data_for_un_auth_main_view.dart';
+import 'package:web_topdbd/named_vm/un_auth_main_vm/test_un_auth_main_view_model.dart';
+import 'package:web_topdbd/named_vm/un_auth_navigation_vm/un_auth_navigation_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_title_w_app_bar_vm/un_auth_title_w_app_bar_view.dart';
 
 final class UnAuthMainView extends StatefulWidget {
@@ -73,7 +72,7 @@ final class _UnAuthMainViewState extends State<UnAuthMainView> {
           drawer: value,
           body: FooterView(
             footer: Footer(
-                backgroundColor: FlutterThemeUtility.seedColorFIRST,
+                backgroundColor: Theme.of(context).colorScheme.background,
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(8.0),
                 child: CustomFooterView()

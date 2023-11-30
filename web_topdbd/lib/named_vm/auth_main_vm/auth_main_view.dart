@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:footer/footer.dart';
 import 'package:footer/footer_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_vm/auth_drawer_vm/auth_drawer_view.dart';
 import 'package:web_topdbd/named_vm/auth_main_vm/enum_data_for_auth_main_view.dart';
 import 'package:web_topdbd/named_vm/auth_main_vm/test_auth_main_view_model.dart';
@@ -93,7 +92,7 @@ final class _AuthMainViewState extends State<AuthMainView> {
           drawer: valueSECOND,
           body: FooterView(
             footer: Footer(
-                backgroundColor: FlutterThemeUtility.seedColorFIRST,
+                backgroundColor: Theme.of(context).colorScheme.background,
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(8.0),
                 child: CustomFooterView()

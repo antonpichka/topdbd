@@ -21,6 +21,7 @@ import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_strings_ee_where_unique_id_by_user_ee_from_strings_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_strings_ee_where_username_by_discord_user_ee_from_strings_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameters_temp_cache_service_and_stream_subscription/start_listening_and_cancel_listening_ee_strings_ee_where_unique_id_by_user_ee_from_callback_ee_parameters_temp_cache_service_and_stream_subscription.dart';
+import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameters_temp_cache_service_and_stream_subscription/start_listening_and_cancel_listening_ee_strings_ee_where_username_by_discord_user_ee_from_callback_ee_parameters_temp_cache_service_and_stream_subscription.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_vm/app_vm/data_for_app_view.dart';
@@ -106,6 +107,8 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
   StartListeningAndCancelListeningEEStringsEEWhereUniqueIdByUserEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription();
   final _startListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription =
   StartListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription();
+  final _startListeningAndCancelListeningEEStringsEEWhereUsernameByDiscordUserEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription =
+  StartListeningAndCancelListeningEEStringsEEWhereUsernameByDiscordUserEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription();
 
   // NamedUtility
 
@@ -115,6 +118,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
   void dispose() {
     _startListeningAndCancelListeningEEStringsEEWhereUniqueIdByUserEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription.cancelListeningStringsWhereUniqueIdByUserParameterStreamSubscription();
     _startListeningAndCancelListeningEEThoseWorksEEFromCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription.cancelListeningThoseWorksParameterStreamSubscription();
+    _startListeningAndCancelListeningEEStringsEEWhereUsernameByDiscordUserEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription.cancelListeningStringsWhereUsernameByDiscordUserParameterStreamSubscription();
     super.dispose();
   }
 
@@ -259,7 +263,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
         .updateListSeasonFromListSeasonParameterTempCacheService(getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService.parameter?.getClone ?? ListSeason(List.empty(growable: true)));
     getDataForNamedParameterNamedStreamWState.insertWhereLengthMoreThanOrEqualTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.uniqueIdByUser = getUserParameterSharedPreferencesService.parameter?.uniqueId ?? "";
-    getDataForNamedParameterNamedStreamWState.usernameByDiscordUserFirestore = getDiscordUserFirestoreFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.username ?? "";
+    getDataForNamedParameterNamedStreamWState.usernameByDiscordUser = getDiscordUserFirestoreFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.username ?? "";
     return KeysSuccessUtility.sUCCESS;
   }
 
@@ -269,7 +273,13 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
         .startListeningStringsWhereUniqueIdByUserFromCallbackParametersTempCacheServiceAndStreamSubscription((Result<Strings> resultStrings)
     {
       getDataForNamedParameterNamedStreamWState.uniqueIdByUser = resultStrings.parameter?.field ?? "";
-      notifyStreamDataForNamedParameterNamedStreamWState();
+      notifyStreamDataForAppView();
+    });
+    _startListeningAndCancelListeningEEStringsEEWhereUsernameByDiscordUserEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
+        .startListeningStringsWhereUsernameByDiscordUserFromCallbackParametersTempCacheServiceAndStreamSubscription((Result<Strings> resultStrings)
+    {
+      getDataForNamedParameterNamedStreamWState.usernameByDiscordUser = resultStrings.parameter?.field ?? "";
+      notifyStreamDataForAppView();
     });
   }
 

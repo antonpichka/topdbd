@@ -65,15 +65,13 @@ final class _AppViewState extends State<AppView> {
           breakpoints: [
             const Breakpoint(start: 0, end: 450, name: MOBILE),
             const Breakpoint(start: 451, end: 800, name: TABLET),
-            const Breakpoint(start: 801, end: 1920, name: DESKTOP),
-            const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
+            const Breakpoint(start: 801, end: double.infinity, name: DESKTOP)
           ],
         ),
         routerConfig: _getRouterConfigParameterAppViewModel);
   }
 
-  Future<void> _initParameterAppViewModel()
-  async {
+  Future<void> _initParameterAppViewModel() async {
     _appViewModel
         .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {

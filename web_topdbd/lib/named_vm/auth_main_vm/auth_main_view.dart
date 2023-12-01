@@ -85,9 +85,9 @@ final class _AuthMainViewState extends State<AuthMainView> {
               centerTitle: true,
               title: TitleWAppBarView(AuthTitleWAppBarView()),
               backgroundColor: Theme.of(context).colorScheme.surface,
-              bottom: const PreferredSize(
-                  preferredSize: Size.fromHeight(50.0),
-                  child: AuthNavigationView(true))
+              bottom: PreferredSize(
+                  preferredSize: const Size.fromHeight(50.0),
+                  child: AuthNavigationView())
           ),
           drawer: valueSECOND,
           body: FooterView(
@@ -117,7 +117,7 @@ final class _AuthMainViewState extends State<AuthMainView> {
         });
     await _authMainViewModel.listeningStreamsFirebaseFirestoreService();
     final result = await _authMainViewModel.init();
-    debugPrint("AuthMainViewModel: $result");
+    debugPrint("AuthMainView: $result");
     if(!mounted) {
       return;
     }

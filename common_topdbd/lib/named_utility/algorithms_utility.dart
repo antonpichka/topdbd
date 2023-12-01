@@ -1,5 +1,7 @@
 import 'dart:math' as math;
+import 'package:common_topdbd/model/country_rd/country_rd.dart';
 import 'package:common_topdbd/named_utility/enum_win_number_user.dart';
+import 'package:common_topdbd/named_utility/ready_data_utility.dart';
 import 'package:meta/meta.dart';
 
 @immutable
@@ -65,5 +67,17 @@ final class AlgorithmsUtility {
     final expected = 1.0 / (1.0 + math.pow(10.0, -exponent));
     final resultRatingSecondUser = ratingSecondUser + kFactor * ((1.0 - score) - expected);
     return resultRatingSecondUser.toInt();
+  }
+
+  static CountryRD getCountryRDWhereListCountryRDWReadyDataUtilityFromCountryAbbreviation(String countryAbbreviation) {
+    CountryRD? countryRD;
+    final listCountryRD = ReadyDataUtility.getListCountryRD;
+    for(CountryRD itemModel in listCountryRD.listModel) {
+      if(itemModel.countryAbbreviation != countryAbbreviation) {
+        continue;
+      }
+      countryRD = itemModel.getClone;
+    }
+    return countryRD ?? listCountryRD.listModel.last;
   }
 }

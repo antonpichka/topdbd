@@ -6,10 +6,10 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
   List<bool> listLoaded;
   bool isThoseWorks;
   String uniqueIdByUser;
-  String usernameByDiscordUserFirestore;
+  String usernameByDiscordUser;
   String nameRoute;
 
-  DataForAppView(super.isLoading,this.listLoaded,this.isThoseWorks,this.uniqueIdByUser,this.usernameByDiscordUserFirestore,this.nameRoute);
+  DataForAppView(super.isLoading,this.listLoaded,this.isThoseWorks,this.uniqueIdByUser,this.usernameByDiscordUser,this.nameRoute);
 
   @override
   EnumDataForAppView get getEnumDataForNamed {
@@ -52,43 +52,43 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
     }
     if(uniqueIdByUser.isNotEmpty &&
         getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQId &&
-        usernameByDiscordUserFirestore == getIdWhereUserParameterNameRoute)
+        usernameByDiscordUser == getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWId;
     }
     if(uniqueIdByUser.isNotEmpty &&
         getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQId &&
-        usernameByDiscordUserFirestore != getIdWhereUserParameterNameRoute)
+        usernameByDiscordUser != getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdFIRST;
     }
     if(uniqueIdByUser.isNotEmpty &&
         getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQStats &&
-        usernameByDiscordUserFirestore == getIdWhereUserParameterNameRoute)
+        usernameByDiscordUser == getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdWStats;
     }
     if(uniqueIdByUser.isNotEmpty &&
         getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQStats &&
-        usernameByDiscordUserFirestore != getIdWhereUserParameterNameRoute)
+        usernameByDiscordUser != getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdWStatsFIRST;
     }
     if(uniqueIdByUser.isNotEmpty &&
         getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQMatches &&
-        usernameByDiscordUserFirestore == getIdWhereUserParameterNameRoute)
+        usernameByDiscordUser == getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdWMatches;
     }
     if(uniqueIdByUser.isNotEmpty &&
         getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQMatches &&
-        usernameByDiscordUserFirestore != getIdWhereUserParameterNameRoute)
+        usernameByDiscordUser != getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdWMatchesFIRST;
     }
     if(uniqueIdByUser.isNotEmpty &&
         getUrlWhereUserParameterNameRoute == KeysNavigationUtility.authNavigationUserViewQQUserQQIdQQSettings &&
-        usernameByDiscordUserFirestore == getIdWhereUserParameterNameRoute)
+        usernameByDiscordUser == getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdWSettings;
     }

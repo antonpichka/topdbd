@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
+import 'package:web_topdbd/named_utility/web_navigation_utility.dart';
 import 'package:web_topdbd/named_vm/auth_drawer_vm/enum_data_for_auth_drawer_view.dart';
 import 'package:web_topdbd/named_vm/auth_drawer_vm/test_auth_drawer_view_model.dart';
 
@@ -46,13 +48,16 @@ final class _AuthDrawerViewState extends State<AuthDrawerView> {
                 style: Theme.of(context).textTheme.bodyMedium,),
               leading: Image.asset(
                   dataForNamedParameterNamedStreamWState
-                      .getCountryRDWhereListCountryRDWReadyDataUtilityFromCountryAbbreviationParameterOne
+                      .getCountryRDWhereListCountryRDWReadyDataUtilityParameterOne
                       .pathToTheIcon,
                   width: 32,
                   height: 32,
                   fit: BoxFit.cover),
               tileColor: Theme.of(context).colorScheme.surface,
               onTap: () {
+                _authDrawerViewModel.clickOnMyUser((p1)=>
+                    WebNavigationUtility
+                        .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getNavigationUserViewQQUserQQIdFromId(p1)));
               },),
             const SizedBox(height: 2,),
             ListTile(
@@ -70,6 +75,8 @@ final class _AuthDrawerViewState extends State<AuthDrawerView> {
                           CupertinoDialogAction(
                               onPressed: () {
                                 Navigator.of(context).pop();
+                                _authDrawerViewModel.logout(()=> WebNavigationUtility
+                                    .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.navigationViewQQHome));
                               },
                               child: Text("Yes",
                                   style: Theme.of(context).textTheme.bodyMedium)),
@@ -89,6 +96,7 @@ final class _AuthDrawerViewState extends State<AuthDrawerView> {
               leading: const Icon(Icons.download),
               tileColor: Theme.of(context).colorScheme.surface,
               onTap: () {
+                _authDrawerViewModel.download();
               },),
           ],);
     }

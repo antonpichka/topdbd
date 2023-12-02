@@ -8,11 +8,26 @@ import 'package:web_topdbd/named_vm/auth_drawer_vm/i_auth_drawer_view_model.dart
 final class AuthDrawerViewModel extends BaseNamedViewModel<DataForAuthDrawerView,DefaultStreamWState<DataForAuthDrawerView>>
     implements IAuthDrawerViewModel
 {
-  AuthDrawerViewModel() : super(DefaultStreamWState(DataForAuthDrawerView(true,"WWwwwwQwwwwWwwwwwwqqwwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq","UA")));
+  AuthDrawerViewModel() : super(DefaultStreamWState(DataForAuthDrawerView(true,"","")));
 
   @override
   Future<String> init() async {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     return KeysSuccessUtility.sUCCESS;
+  }
+
+  @override
+  void clickOnMyUser(Function(String) callback) {
+    // TODO: implement clickOnMyUser
+  }
+
+  @override
+  void download() {
+    // TODO: implement download
+  }
+
+  @override
+  void logout(Function() callback) {
+    // TODO: implement logout
   }
 }

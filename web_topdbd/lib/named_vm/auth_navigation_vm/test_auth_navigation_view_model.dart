@@ -8,7 +8,7 @@ import 'package:web_topdbd/named_vm/auth_navigation_vm/i_auth_navigation_view_mo
 final class TestAuthNavigationViewModel extends BaseNamedViewModel<DataForAuthNavigationView,DefaultStreamWState<DataForAuthNavigationView>>
     implements IAuthNavigationViewModel
 {
-  TestAuthNavigationViewModel() : super(DefaultStreamWState(DataForAuthNavigationView(true,true)));
+  TestAuthNavigationViewModel() : super(DefaultStreamWState(DataForAuthNavigationView(true,false)));
 
   @override
   Future<String> init() async {

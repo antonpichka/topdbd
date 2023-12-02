@@ -48,8 +48,8 @@ final class KeysFirebaseFirestoreServiceUtility {
   /* Season */
   static const String season = "season";
   static const String seasonQQSeasonNumber = "seasonNumber";
-  static const String seasonQQStrNumberOfMatchesPlayedPerSeason = "strNumberOfMatchesPlayedPerSeason";
-  static const String seasonQQStrNumberOfUniquePlayersWhoPlayedInASeason = "strNumberOfUniquePlayersWhoPlayedInASeason";
+  static const String seasonQQNumberOfMatchesPlayedPerSeason = "numberOfMatchesPlayedPerSeason";
+  static const String seasonQQNumberOfUniquePlayersWhoPlayedInASeason = "numberOfUniquePlayersWhoPlayedInASeason";
   static const String seasonQQStartOfSeasonTime = "startOfSeasonTime";
   static const String seasonQQEndOfSeasonTime = "endOfSeasonTime";
   /* Stats */

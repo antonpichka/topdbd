@@ -273,13 +273,13 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
         .startListeningStringsWhereUniqueIdByUserFromCallbackParametersTempCacheServiceAndStreamSubscription((Result<Strings> resultStrings)
     {
       getDataForNamedParameterNamedStreamWState.uniqueIdByUser = resultStrings.parameter?.field ?? "";
-      notifyStreamDataForAppView();
+      notifyStreamDataForNamedParameterNamedStreamWState();
     });
     _startListeningAndCancelListeningEEStringsEEWhereUsernameByDiscordUserEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
         .startListeningStringsWhereUsernameByDiscordUserFromCallbackParametersTempCacheServiceAndStreamSubscription((Result<Strings> resultStrings)
     {
       getDataForNamedParameterNamedStreamWState.usernameByDiscordUser = resultStrings.parameter?.field ?? "";
-      notifyStreamDataForAppView();
+      notifyStreamDataForNamedParameterNamedStreamWState();
     });
   }
 

@@ -81,7 +81,9 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
   Future<String> init() async {
     /// UNAUTH
    /* getDataForNamedParameterNamedStreamWState.isLoading = false;
-    getDataForNamedParameterNamedStreamWState.listLoaded = List<bool>.of([true,true]);*/
+     getDataForNamedParameterNamedStreamWState.listLoaded = List<bool>.of([true,true]);
+     return KeysSuccessUtility.sUCCESS;
+    */
     /// AUTH
     const uniqueIdByUser = "4b08db90-9114-11ee-b9d1-0242ac120002";
     const usernameByDiscordUser = "wwwwwwqwwwwwwwwwwwqqwwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq";
@@ -107,12 +109,12 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
         .updateIntsWhereMatchesLostByStatsFromIntsParameterTempCacheService(const Ints(10));
     _updateEEIntsEEWhereRatingPointsByStatsEEFromIntsEEParameterTempCacheService
         .updateIntsWhereRatingPointsByStatsFromIntsParameterTempCacheService(const Ints(534));
-    _updateEEIntsEEWhereSeasonNumberBySeasonEEFromIntsEEParameterTempCacheService
-        .updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(const Ints(30));
     _updateEEBoolsEEWhereIsAdminByRoleUserEEFromBoolsEEParameterTempCacheService
         .updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(const Bools(true));
     _updateEEBoolsEEWhereIsTestByRoleUserEEFromBoolsEEParameterTempCacheService
-        .updateBoolsWhereIsTestByRoleUserFromBoolsParameterTempCacheService(const Bools(true));
+       .updateBoolsWhereIsTestByRoleUserFromBoolsParameterTempCacheService(const Bools(true));
+    _updateEEIntsEEWhereSeasonNumberBySeasonEEFromIntsEEParameterTempCacheService
+        .updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(const Ints(30));
     _updateEEDatesTimesEEWhereStartOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
         .updateDatesTimesWhereStartOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(DateTime.parse("2023-10-01")));
     _updateEEDatesTimesEEWhereEndOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
@@ -140,11 +142,11 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
   @override
   void listeningStreamsTempCacheService() {
     _startListeningAndCancelListeningEEUIBUWUBDUEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
-        .startListeningUIBUWUBDUFromCallbackParametersTempCacheServiceAndStreamSubscription((uIBUWUBDU) {
-          getDataForNamedParameterNamedStreamWState.uniqueIdByUser = uIBUWUBDU.parameter?.uniqueIdByUser ?? "";
-          getDataForNamedParameterNamedStreamWState.usernameByDiscordUser = uIBUWUBDU.parameter?.usernameByDiscordUser ?? "";
-          notifyStreamDataForNamedParameterNamedStreamWState();
-        });
+        .startListeningUIBUWUBDUFromCallbackParametersTempCacheServiceAndStreamSubscription((uIBUWUBDU)
+    {
+      getDataForNamedParameterNamedStreamWState.uniqueIdByUser = uIBUWUBDU.parameter?.uniqueIdByUser ?? "";
+      getDataForNamedParameterNamedStreamWState.usernameByDiscordUser = uIBUWUBDU.parameter?.usernameByDiscordUser ?? "";
+    });
   }
 
   @override

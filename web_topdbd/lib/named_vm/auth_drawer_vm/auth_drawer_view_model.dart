@@ -8,6 +8,9 @@ import 'package:web_topdbd/named_vm/auth_drawer_vm/i_auth_drawer_view_model.dart
 final class AuthDrawerViewModel extends BaseNamedViewModel<DataForAuthDrawerView,DefaultStreamWState<DataForAuthDrawerView>>
     implements IAuthDrawerViewModel
 {
+  // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
+  // NamedUtility
+
   AuthDrawerViewModel() : super(DefaultStreamWState(DataForAuthDrawerView(true,"","")));
 
   @override
@@ -23,7 +26,7 @@ final class AuthDrawerViewModel extends BaseNamedViewModel<DataForAuthDrawerView
 
   @override
   void download() {
-    // TODO: implement download
+    // TODO: implement logout
   }
 
   @override

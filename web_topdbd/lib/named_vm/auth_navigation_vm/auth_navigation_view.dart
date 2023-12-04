@@ -3,6 +3,7 @@ import 'package:pluto_menu_bar/pluto_menu_bar.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 import 'package:web_topdbd/named_utility/web_navigation_utility.dart';
+import 'package:web_topdbd/named_vm/auth_navigation_vm/enum_data_for_auth_navigation_view.dart';
 import 'package:web_topdbd/named_vm/auth_navigation_vm/test_auth_navigation_view_model.dart';
 
 final class AuthNavigationView extends StatefulWidget {
@@ -49,26 +50,33 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
               : _getListPlutoMenuItemWhereDesktopFromContext(context)),
         ]
     ).value ?? _getListPlutoMenuItemWhereDesktopFromContext(context);
-    return Card(
-      color: Theme.of(context).colorScheme.secondary,
-      child: MouseRegion(
-        cursor: SystemMouseCursors.allScroll,
-        child: PlutoMenuBar(
-          mode: PlutoMenuBarMode.hover,
-          backgroundColor: Theme.of(context).colorScheme.background,
-          borderColor: Theme.of(context).colorScheme.background,
-          itemStyle: PlutoMenuItemStyle(
-            textStyle: TextStyle(
-              fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
-              fontSize: Theme.of(context).textTheme.bodyMedium?.fontSize,
-              color: Theme.of(context).hintColor,),
-            iconColor: Theme.of(context).iconTheme.color!,
-            moreIconColor: Theme.of(context).iconTheme.color!,
+    switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
+      case EnumDataForAuthNavigationView.isLoading:
+        return Container();
+      case EnumDataForAuthNavigationView.exception:
+        return Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"));
+      case EnumDataForAuthNavigationView.success:
+        return Card(
+          color: Theme.of(context).colorScheme.secondary,
+          child: MouseRegion(
+            cursor: SystemMouseCursors.allScroll,
+            child: PlutoMenuBar(
+                mode: PlutoMenuBarMode.hover,
+                backgroundColor: Theme.of(context).colorScheme.background,
+                borderColor: Theme.of(context).colorScheme.background,
+                itemStyle: PlutoMenuItemStyle(
+                  textStyle: TextStyle(
+                    fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                    fontSize: Theme.of(context).textTheme.bodyMedium?.fontSize,
+                    color: Theme.of(context).hintColor,),
+                  iconColor: Theme.of(context).iconTheme.color!,
+                  moreIconColor: Theme.of(context).iconTheme.color!,
+                ),
+                menus: value
+            ),
           ),
-          menus: value
-        ),
-      ),
-    );
+        );
+    }
   }
 
   List<PlutoMenuItem> _getListPlutoMenuItemWhereMobileWTabletFromContext(BuildContext context) {

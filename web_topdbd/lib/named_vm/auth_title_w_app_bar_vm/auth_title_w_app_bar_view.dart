@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
+import 'package:web_topdbd/named_utility/web_navigation_utility.dart';
 import 'package:web_topdbd/named_vm/auth_title_w_app_bar_vm/enum_data_for_auth_title_w_app_bar_view.dart';
 import 'package:web_topdbd/named_vm/auth_title_w_app_bar_vm/test_auth_title_w_app_bar_view_model.dart';
 
@@ -37,7 +39,7 @@ final class _AuthTitleWAppBarViewState extends State<AuthTitleWAppBarView> {
       case EnumDataForAuthTitleWAppBarView.isLoading:
         return Container();
       case EnumDataForAuthTitleWAppBarView.exception:
-        return Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}");
+        return Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"));
       case EnumDataForAuthTitleWAppBarView.success:
         return Row(
           children: [
@@ -46,7 +48,8 @@ final class _AuthTitleWAppBarViewState extends State<AuthTitleWAppBarView> {
                 message: dataForNamedParameterNamedStreamWState.usernameByDiscordUser,
                 child: ListTile(
                   onTap: () {
-                    _authTitleWAppBarViewModel.clickOnMyUser();
+                    _authTitleWAppBarViewModel.clickOnMyUser((p1)=> WebNavigationUtility
+                        .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getNavigationUserViewQQUserQQIdFromId(p1)));
                   },
                   leading: Image.asset(
                       dataForNamedParameterNamedStreamWState
@@ -86,8 +89,9 @@ final class _AuthTitleWAppBarViewState extends State<AuthTitleWAppBarView> {
                                     actions: [
                                       CupertinoDialogAction(
                                           onPressed: () {
-                                            _authTitleWAppBarViewModel.logout();
                                             Navigator.of(context).pop();
+                                            _authTitleWAppBarViewModel.logout(()=> WebNavigationUtility
+                                                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.navigationViewQQHome));
                                           },
                                           child: Text("Yes",
                                               style: Theme.of(context).textTheme.bodyMedium)),

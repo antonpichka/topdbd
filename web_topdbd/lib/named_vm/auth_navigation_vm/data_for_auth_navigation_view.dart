@@ -2,7 +2,7 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:web_topdbd/named_vm/auth_navigation_vm/enum_data_for_auth_navigation_view.dart';
 
 final class DataForAuthNavigationView extends BaseDataForNamed<EnumDataForAuthNavigationView> {
-  final bool isAdminByRoleUser;
+  bool isAdminByRoleUser;
 
   DataForAuthNavigationView(super.isLoading,this.isAdminByRoleUser);
 

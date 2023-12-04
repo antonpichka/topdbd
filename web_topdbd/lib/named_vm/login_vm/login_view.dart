@@ -34,9 +34,8 @@ final class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+    /// THERE
     final dataForNamedParameterNamedStreamWState = _loginViewModel.getDataForNamedParameterNamedStreamWState;
-    final termsOfUse = dataForNamedParameterNamedStreamWState.termsOfUse;
-    final isCheckAgreeTermsOfUse = dataForNamedParameterNamedStreamWState.isCheckAgreeTermsOfUse;
     final value = ResponsiveValue<double>(
         context,
         conditionalValues: [
@@ -63,7 +62,7 @@ final class _LoginViewState extends State<LoginView> {
                     child: Card(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(termsOfUse),
+                        child: Text(dataForNamedParameterNamedStreamWState.termsOfUse),
                       ),
                     ),
                   ),
@@ -71,7 +70,7 @@ final class _LoginViewState extends State<LoginView> {
                     padding: const EdgeInsets.only(bottom: 8.0,left: 8.0,right: 8.0),
                     child: Row(
                       children: [
-                        isCheckAgreeTermsOfUse ? IconButton(
+                        dataForNamedParameterNamedStreamWState.isCheckAgreeTermsOfUse ? IconButton(
                             icon: const Icon(Icons.check_box_outlined),
                             onPressed: () {
                               _loginViewModel.setCheckAgreeTermsOfUse(false);
@@ -86,7 +85,7 @@ final class _LoginViewState extends State<LoginView> {
                       ],
                     ),
                   ),
-                  isCheckAgreeTermsOfUse ? Padding(
+                  dataForNamedParameterNamedStreamWState.isCheckAgreeTermsOfUse ? Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ListTile(
                       title: const Text("Sign In With Discord"),

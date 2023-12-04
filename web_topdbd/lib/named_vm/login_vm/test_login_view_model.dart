@@ -21,7 +21,8 @@ final class TestLoginViewModel extends BaseNamedViewModel<DataForLoginView,Defau
   Future<String> init() async {
     final getStringsWhereTermsOfUseParameterAssetBundleService = await _getEEStringsEEWhereTermsOfUseEEParameterAssetBundleService
         .getStringsWhereTermsOfUseParameterAssetBundleService();
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState
+        .isLoading = false;
     getDataForNamedParameterNamedStreamWState
         .exceptionController = getStringsWhereTermsOfUseParameterAssetBundleService.exceptionController;
     getDataForNamedParameterNamedStreamWState

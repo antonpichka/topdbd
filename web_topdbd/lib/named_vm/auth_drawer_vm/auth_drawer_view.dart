@@ -39,7 +39,7 @@ final class _AuthDrawerViewState extends State<AuthDrawerView> {
       case EnumDataForAuthDrawerView.isLoading:
         return Container();
       case EnumDataForAuthDrawerView.exception:
-        return Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}");
+        return Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"));
       case EnumDataForAuthDrawerView.success:
         return Column(
           children: [
@@ -55,9 +55,8 @@ final class _AuthDrawerViewState extends State<AuthDrawerView> {
                   fit: BoxFit.cover),
               tileColor: Theme.of(context).colorScheme.surface,
               onTap: () {
-                _authDrawerViewModel.clickOnMyUser((p1)=>
-                    WebNavigationUtility
-                        .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getNavigationUserViewQQUserQQIdFromId(p1)));
+                _authDrawerViewModel.clickOnMyUser((p1)=> WebNavigationUtility
+                    .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getNavigationUserViewQQUserQQIdFromId(p1)));
               },),
             const SizedBox(height: 2,),
             ListTile(

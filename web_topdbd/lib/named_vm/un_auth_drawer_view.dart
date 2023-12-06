@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 import 'package:web_topdbd/named_utility/web_navigation_utility.dart';
 
-final class UnAuthDrawerView extends StatefulWidget {
-  @override
-  State<UnAuthDrawerView> createState() => _UnAuthDrawerViewState();
-}
-
-final class _UnAuthDrawerViewState extends State<UnAuthDrawerView> {
+final class UnAuthDrawerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(

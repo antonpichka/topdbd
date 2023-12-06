@@ -19,56 +19,47 @@ final class _SearchUsersToListViewState extends State<SearchUsersToListView> {
 
   @override
   Widget build(BuildContext context) {
+    /// THERE SECOND
     return SizedBox(
       width: double.infinity,
       child: Card(
-        color: Theme.of(context).colorScheme.surface,
+        color: Colors.transparent,
         child: Column(
           children: [
-            const SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding: EdgeInsets.all(4.0),
-                child: Wrap(
-                  alignment: WrapAlignment.center,
-                  children: [
-                    Icon(Icons.search, color: Colors.white,),
-                    Padding(
-                      padding: EdgeInsets.only(top: 3.0),
-                      child: Text("Search users"),
-                    ),
-                  ],
-                ),
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                children: [
+                  const Icon(Icons.search),
+                  const SizedBox(width: 2,),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 3.0),
+                    child: Text("Search users",
+                      style: Theme.of(context).textTheme.bodyLarge,),
+                  ),
+                ],
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(color: Theme.of(context).colorScheme.secondary))
-              ),
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: ListView.separated(
-                  primary: false,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  itemCount: 100,
-                  itemBuilder: (context,index) {
-                    if(index == 0) {
-                      return _getHeaderToListViewWhereItemToListViewFromIndexAndUsername(index,"Vicar32");
-                    }
-                    return _getItemToListViewWhereItemRoleToListViewFromIndexAndUsername(index,"Vicar32");
-                  },
-                  separatorBuilder: (context,index) {
-                    return Container(
-                        decoration: BoxDecoration(
-                            border: Border(
-                                bottom: BorderSide(color: Theme.of(context).dividerColor))
-                        )
-                    );
-                  }),
-            ),
+            Divider(
+              height: 1.0,
+              color: Theme.of(context).dividerColor,),
+            ListView.separated(
+                primary: false,
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemCount: 100,
+                itemBuilder: (context,index) {
+                  if(index == 0) {
+                    return _getHeaderToListViewWhereItemToListViewFromIndexAndUsername(index,"Vicar32");
+                  }
+                  return _getItemToListViewWhereItemRoleToListViewFromIndexAndUsername(index,"Vicar32");
+                },
+                separatorBuilder: (context,index) {
+                  return  Divider(
+                    height: 1.0,
+                    color: Theme.of(context).dividerColor,);
+                }),
           ],
         ),
       ),

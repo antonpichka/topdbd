@@ -15,6 +15,6 @@ final class DataForLoginView extends BaseDataForNamed<EnumDataForLoginView> {
     if(exceptionController.isWhereNotEqualsNullParameterException()) {
       return EnumDataForLoginView.exception;
     }
-    return EnumDataForLoginView.login;
+    return EnumDataForLoginView.success;
   }
 }

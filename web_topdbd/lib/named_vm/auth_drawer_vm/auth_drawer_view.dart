@@ -12,29 +12,29 @@ final class AuthDrawerView extends StatefulWidget {
 
 final class _AuthDrawerViewState extends State<AuthDrawerView> {
   /// RELEASE CODE
-  // late final AuthDrawerViewModel _authDrawerViewModel;
+  // late final AuthDrawerViewModel _viewModel;
   /// TEST CODE
-  late final TestAuthDrawerViewModel _authDrawerViewModel;
+  late final TestAuthDrawerViewModel _viewModel;
 
   @override
   void initState() {
     /// RELEASE CODE
-    // _authDrawerViewModel = AuthDrawerViewModel();
+    // _viewModel = AuthDrawerViewModel();
     /// TEST CODE
-    _authDrawerViewModel = TestAuthDrawerViewModel();
+    _viewModel = TestAuthDrawerViewModel();
     super.initState();
-    _initParameterAuthDrawerViewModel();
+    _initParameterViewModel();
   }
 
   @override
   void dispose() {
-    _authDrawerViewModel.dispose();
+    _viewModel.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final dataForNamedParameterNamedStreamWState = _authDrawerViewModel.getDataForNamedParameterNamedStreamWState;
+    final dataForNamedParameterNamedStreamWState = _viewModel.getDataForNamedParameterNamedStreamWState;
     switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
       case EnumDataForAuthDrawerView.isLoading:
         return Container();
@@ -55,7 +55,7 @@ final class _AuthDrawerViewState extends State<AuthDrawerView> {
                   fit: BoxFit.cover),
               tileColor: Theme.of(context).colorScheme.surface,
               onTap: () {
-                _authDrawerViewModel.clickOnMyUser((p1)=> WebNavigationUtility
+                _viewModel.clickOnMyUser((p1)=> WebNavigationUtility
                     .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getNavigationUserViewQQUserQQIdFromId(p1)));
               },),
             const SizedBox(height: 2,),
@@ -74,7 +74,7 @@ final class _AuthDrawerViewState extends State<AuthDrawerView> {
                           CupertinoDialogAction(
                               onPressed: () {
                                 Navigator.of(context).pop();
-                                _authDrawerViewModel.logout(()=> WebNavigationUtility
+                                _viewModel.logout(()=> WebNavigationUtility
                                     .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.navigationViewQQHome));
                               },
                               child: Text("Yes",
@@ -95,23 +95,23 @@ final class _AuthDrawerViewState extends State<AuthDrawerView> {
               leading: const Icon(Icons.download),
               tileColor: Theme.of(context).colorScheme.surface,
               onTap: () {
-                _authDrawerViewModel.download();
+                _viewModel.download();
               },),
           ],);
     }
   }
 
-  Future<void> _initParameterAuthDrawerViewModel() async {
-    _authDrawerViewModel
+  Future<void> _initParameterViewModel() async {
+    _viewModel
         .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {
           setState(() {});
         });
-    final result = await _authDrawerViewModel.init();
+    final result = await _viewModel.init();
     debugPrint("AuthDrawerView: $result");
     if(!mounted) {
       return;
     }
-    _authDrawerViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
+    _viewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

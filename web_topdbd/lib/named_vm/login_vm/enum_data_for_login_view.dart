@@ -1,5 +1,5 @@
 enum EnumDataForLoginView {
   isLoading,
   exception,
-  login
+  success
 }

@@ -69,7 +69,7 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
 
   // NamedUtility
 
-  TestAppViewModel() : super(DefaultStreamWState(DataForAppView(true,List<bool>.empty(growable: true),false,"","","")));
+  TestAppViewModel() : super(DefaultStreamWState(DataForAppView(false,List<bool>.empty(growable: true),false,"","","")));
 
   @override
   void dispose() {
@@ -80,7 +80,26 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
   @override
   Future<String> init() async {
     /// UNAUTH
-   /* getDataForNamedParameterNamedStreamWState.isLoading = false;
+   /*
+     _updateEEIntsEEWhereSeasonNumberBySeasonEEFromIntsEEParameterTempCacheService
+        .updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(const Ints(30));
+     _updateEEDatesTimesEEWhereStartOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
+        .updateDatesTimesWhereStartOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(DateTime.parse("2023-10-01")));
+     _updateEEDatesTimesEEWhereEndOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
+        .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(DateTime.parse("2023-10-31")));
+     _updateListEESeasonEEFromListSeasonEEParameterTempCacheService
+        .updateListSeasonFromListSeasonParameterTempCacheService(ListSeason(List.of(
+        [
+          Season(1,200,40,DateTime.parse("2023-01-01"),DateTime.parse("2023-01-31")),
+          Season(2,200,40,DateTime.parse("2023-02-01"),DateTime.parse("2023-02-28")),
+          Season(3,200,40,DateTime.parse("2023-03-01"),DateTime.parse("2023-03-31")),
+          Season(4,200,40,DateTime.parse("2023-04-01"),DateTime.parse("2023-04-30")),
+          Season(5,200,40,DateTime.parse("2023-05-01"),DateTime.parse("2023-05-31")),
+          Season(6,200,40,DateTime.parse("2023-06-01"),DateTime.parse("2023-06-30")),
+          Season(7,200,40,DateTime.parse("2023-07-01"),DateTime.parse("2023-07-31")),
+          Season(8,200,40,DateTime.parse("2023-08-01"),DateTime.parse("2023-08-31")),
+          Season(9,200,40,DateTime.parse("2023-09-01"),DateTime.parse("2023-09-30"))
+        ])));
      getDataForNamedParameterNamedStreamWState.listLoaded = List<bool>.of([true,true]);
      return KeysSuccessUtility.sUCCESS;
     */
@@ -132,7 +151,6 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
           Season(8,200,40,DateTime.parse("2023-08-01"),DateTime.parse("2023-08-31")),
           Season(9,200,40,DateTime.parse("2023-09-01"),DateTime.parse("2023-09-30"))
         ])));
-    getDataForNamedParameterNamedStreamWState.isLoading = false;
     getDataForNamedParameterNamedStreamWState.listLoaded = List<bool>.of([true,true]);
     getDataForNamedParameterNamedStreamWState.uniqueIdByUser = uniqueIdByUser;
     getDataForNamedParameterNamedStreamWState.usernameByDiscordUser = usernameByDiscordUser;

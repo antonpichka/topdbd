@@ -93,9 +93,6 @@ final class TestAuthTitleWAppBarViewModel extends BaseNamedViewModel<DataForAuth
   }
 
   @override
-  void download() {}
-
-  @override
   void logout(Function() callback) {
     _deleteEEStringsEEWhereUniqueIdByUserEEParameterTempCacheService
         .deleteStringsWhereUniqueIdByUserParameterTempCacheService();

@@ -12,29 +12,29 @@ final class AuthTitleWAppBarView extends StatefulWidget {
 
 final class _AuthTitleWAppBarViewState extends State<AuthTitleWAppBarView> {
   /// RELEASE CODE
-  // late final AuthTitleWAppBarViewModel _authTitleWAppBarViewModel;
+  // late final AuthTitleWAppBarViewModel _viewModel;
   /// TEST CODE
-  late final TestAuthTitleWAppBarViewModel _authTitleWAppBarViewModel;
+  late final TestAuthTitleWAppBarViewModel _viewModel;
 
   @override
   void initState() {
     /// RELEASE CODE
-    // _authTitleWAppBarViewModel = AuthTitleWAppBarViewModel();
+    // _viewModel = AuthTitleWAppBarViewModel();
     /// TEST CODE
-    _authTitleWAppBarViewModel = TestAuthTitleWAppBarViewModel();
+    _viewModel = TestAuthTitleWAppBarViewModel();
     super.initState();
-    _initParameterAuthTitleWAppBarViewModel();
+    _initParameterViewModel();
   }
 
   @override
   void dispose() {
-    _authTitleWAppBarViewModel.dispose();
+    _viewModel.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final dataForNamedParameterNamedStreamWState = _authTitleWAppBarViewModel.getDataForNamedParameterNamedStreamWState;
+    final dataForNamedParameterNamedStreamWState = _viewModel.getDataForNamedParameterNamedStreamWState;
     switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
       case EnumDataForAuthTitleWAppBarView.isLoading:
         return Container();
@@ -48,7 +48,7 @@ final class _AuthTitleWAppBarViewState extends State<AuthTitleWAppBarView> {
                 message: dataForNamedParameterNamedStreamWState.usernameByDiscordUser,
                 child: ListTile(
                   onTap: () {
-                    _authTitleWAppBarViewModel.clickOnMyUser((p1)=> WebNavigationUtility
+                    _viewModel.clickOnMyUser((p1)=> WebNavigationUtility
                         .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getNavigationUserViewQQUserQQIdFromId(p1)));
                   },
                   leading: Image.asset(
@@ -90,7 +90,7 @@ final class _AuthTitleWAppBarViewState extends State<AuthTitleWAppBarView> {
                                       CupertinoDialogAction(
                                           onPressed: () {
                                             Navigator.of(context).pop();
-                                            _authTitleWAppBarViewModel.logout(()=> WebNavigationUtility
+                                            _viewModel.logout(()=> WebNavigationUtility
                                                 .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.navigationViewQQHome));
                                           },
                                           child: Text("Yes",
@@ -120,7 +120,6 @@ final class _AuthTitleWAppBarViewState extends State<AuthTitleWAppBarView> {
                           ),
                           iconSize: 30,
                           onPressed: () {
-                            _authTitleWAppBarViewModel.download();
                           },
                         ),
                       ),
@@ -133,17 +132,17 @@ final class _AuthTitleWAppBarViewState extends State<AuthTitleWAppBarView> {
     }
   }
 
-  Future<void> _initParameterAuthTitleWAppBarViewModel() async {
-    _authTitleWAppBarViewModel
+  Future<void> _initParameterViewModel() async {
+    _viewModel
         .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {
           setState(() {});
         });
-    final result = await _authTitleWAppBarViewModel.init();
+    final result = await _viewModel.init();
     debugPrint("AuthTitleWAppBarView: $result");
     if(!mounted) {
       return;
     }
-    _authTitleWAppBarViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
+    _viewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

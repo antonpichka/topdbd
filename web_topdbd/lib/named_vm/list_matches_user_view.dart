@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 final class ListMatchesUserView extends StatefulWidget {
+  final String usernameByDiscordUser;
+
+  const ListMatchesUserView(this.usernameByDiscordUser);
+
   @override
   State<ListMatchesUserView> createState() => _ListMatchesUserViewState();
 }

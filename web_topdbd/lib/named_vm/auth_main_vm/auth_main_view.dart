@@ -22,29 +22,29 @@ final class AuthMainView extends StatefulWidget {
 
 final class _AuthMainViewState extends State<AuthMainView> {
   /// RELEASE CODE
-  // late final AuthMainViewModel _authMainViewModel;
+  // late final AuthMainViewModel _viewModel;
   /// TEST CODE
-  late final TestAuthMainViewModel _authMainViewModel;
+  late final TestAuthMainViewModel _viewModel;
 
   @override
   void initState() {
     /// RELEASE CODE
-    // _authMainViewModel = AuthMainViewModel();
+    // _viewModel = AuthMainViewModel();
     /// TEST CODE
-    _authMainViewModel = TestAuthMainViewModel();
+    _viewModel = TestAuthMainViewModel();
     super.initState();
-    _initParameterAuthMainViewModel();
+    _initParameterViewModel();
   }
 
   @override
   void dispose() {
-    _authMainViewModel.dispose();
+    _viewModel.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final dataForNamedParameterNamedStreamWState = _authMainViewModel.getDataForNamedParameterNamedStreamWState;
+    final dataForNamedParameterNamedStreamWState = _viewModel.getDataForNamedParameterNamedStreamWState;
     final value = ResponsiveValue<Widget>(
         context,
         conditionalValues: [
@@ -100,7 +100,10 @@ final class _AuthMainViewState extends State<AuthMainView> {
             flex: 1,
             children: [
               const SizedBox(height: 10),
-              widget.namedView
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: widget.namedView,
+              )
             ],
           ),
         );
@@ -109,19 +112,19 @@ final class _AuthMainViewState extends State<AuthMainView> {
     }
   }
 
-  Future<void> _initParameterAuthMainViewModel() async {
-    _authMainViewModel
+  Future<void> _initParameterViewModel() async {
+    _viewModel
         .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {
           setState(() {});
         });
-    await _authMainViewModel.listeningStreamsFirebaseFirestoreService();
-    final result = await _authMainViewModel.init();
+    await _viewModel.listeningStreamsFirebaseFirestoreService();
+    final result = await _viewModel.init();
     debugPrint("AuthMainView: $result");
     if(!mounted) {
       return;
     }
-    _authMainViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
+    _viewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   Widget _getWidgetWhereNotVerifiedUserFromContextAndSizedBoxWidthAndTextSizeAndTextButtonSize(BuildContext context,double sizedBoxWidth,double textSize,double textButtonSize) {

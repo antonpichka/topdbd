@@ -25,8 +25,8 @@ base class GetEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFi
       }
       return Result<T>.success(Season(
           documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber] ?? 0,
-          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfMatchesPlayedPerSeason] ?? "",
-          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfUniquePlayersWhoPlayedInASeason] ?? "",
+          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQNumberOfMatchesPlayedPerSeason] ?? 0,
+          documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQNumberOfUniquePlayersWhoPlayedInASeason] ?? 0,
           (documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQStartOfSeasonTime]).toDate() ?? DateTime.now(),
           (documentBySeason?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.seasonQQEndOfSeasonTime]).toDate() ?? DateTime.now()) as T);
     } catch(e) {

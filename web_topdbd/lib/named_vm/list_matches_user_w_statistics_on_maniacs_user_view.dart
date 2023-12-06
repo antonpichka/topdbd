@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:web_topdbd/named_vm/list_matches_user_view.dart';
+import 'package:web_topdbd/named_vm/statistics_on_maniacs_user_view.dart';
 
-final class StatisticsOnManiacsUserView extends StatefulWidget {
+final class ListMatchesUserWStatisticsOnManiacsUserView extends StatelessWidget {
   final String usernameByDiscordUser;
 
-  const StatisticsOnManiacsUserView(this.usernameByDiscordUser);
+  const ListMatchesUserWStatisticsOnManiacsUserView(this.usernameByDiscordUser);
 
-  @override
-  State<StatisticsOnManiacsUserView> createState() => _StatisticsOnManiacsUserViewState();
-}
-
-final class _StatisticsOnManiacsUserViewState extends State<StatisticsOnManiacsUserView> {
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return SizedBox(
+      width: double.infinity,
+      child: Card(
+        color: Colors.transparent,
         child: Column(
           children: [
             const Padding(
@@ -22,10 +22,12 @@ final class _StatisticsOnManiacsUserViewState extends State<StatisticsOnManiacsU
                 children: [
                   Icon(Icons.stacked_bar_chart),
                   Icon(Icons.accessibility),
+                  Text("/"),
+                  Icon(Icons.videogame_asset_outlined),
                   SizedBox(width: 2,),
                   Padding(
                     padding: EdgeInsets.only(top: 3.0),
-                    child: Text("Statistics on maniacs"),
+                    child: Text("Statistics on maniacs/Matches"),
                   ),
                 ],
               ),
@@ -34,8 +36,10 @@ final class _StatisticsOnManiacsUserViewState extends State<StatisticsOnManiacsU
               height: 1.0,
               color: Theme.of(context).dividerColor,),
             const SizedBox(height: 5,),
-            Container(),
-          ],)
+            StatisticsOnManiacsUserView(usernameByDiscordUser),
+            ListMatchesUserView(usernameByDiscordUser),
+          ],),
+      ),
     );
   }
 }

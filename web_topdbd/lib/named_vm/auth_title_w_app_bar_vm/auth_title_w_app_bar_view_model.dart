@@ -25,11 +25,6 @@ final class AuthTitleWAppBarViewModel extends BaseNamedViewModel<DataForAuthTitl
   }
 
   @override
-  void download() {
-    // TODO: implement download
-  }
-
-  @override
   void logout(Function() callback) {
     // TODO: implement logout
   }

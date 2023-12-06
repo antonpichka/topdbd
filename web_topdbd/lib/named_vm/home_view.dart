@@ -5,8 +5,8 @@ import 'package:web_topdbd/named_vm/season_view.dart';
 final class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+    return SizedBox(
+      width: double.infinity,
       child: Card(
         color: Colors.transparent,
         child: Column(

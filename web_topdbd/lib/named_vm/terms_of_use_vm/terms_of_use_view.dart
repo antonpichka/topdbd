@@ -10,23 +10,23 @@ final class TermsOfUseView extends StatefulWidget {
 
 final class _TermsOfUseViewState extends State<TermsOfUseView> {
   /// RELEASE CODE
-  // late final TermsOfUseViewModel _termsOfUseViewModel;
+  // late final TermsOfUseViewModel _viewModel;
   /// TEST CODE
-  late final TestTermsOfUseViewModel _termsOfUseViewModel;
+  late final TestTermsOfUseViewModel _viewModel;
 
   @override
   void initState() {
     /// RELEASE CODE
-    // _termsOfUseViewModel = TermsOfUseViewModel();
+    // _viewModel = TermsOfUseViewModel();
     /// TEST CODE
-    _termsOfUseViewModel = TestTermsOfUseViewModel();
+    _viewModel = TestTermsOfUseViewModel();
     super.initState();
-    _initParameterTermsOfUseViewModel();
+    _initParameterViewModel();
   }
 
   @override
   void dispose() {
-    _termsOfUseViewModel.dispose();
+    _viewModel.dispose();
     super.dispose();
   }
 
@@ -40,7 +40,7 @@ final class _TermsOfUseViewState extends State<TermsOfUseView> {
           Condition.equals(name: DESKTOP, value: 400),
         ]
     ).value ?? 0.0;
-    final dataForNamedParameterNamedStreamWState = _termsOfUseViewModel.getDataForNamedParameterNamedStreamWState;
+    final dataForNamedParameterNamedStreamWState = _viewModel.getDataForNamedParameterNamedStreamWState;
     switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
       case EnumDataForTermsOfUseView.isLoading:
         return const Center(child: CircularProgressIndicator());
@@ -65,17 +65,17 @@ final class _TermsOfUseViewState extends State<TermsOfUseView> {
     }
   }
 
-  Future<void> _initParameterTermsOfUseViewModel() async {
-    _termsOfUseViewModel
+  Future<void> _initParameterViewModel() async {
+    _viewModel
         .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {
           setState(() {});
         });
-    final result = await _termsOfUseViewModel.init();
+    final result = await _viewModel.init();
     debugPrint("TermsOfUseView: $result");
     if(!mounted) {
       return;
     }
-    _termsOfUseViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
+    _viewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

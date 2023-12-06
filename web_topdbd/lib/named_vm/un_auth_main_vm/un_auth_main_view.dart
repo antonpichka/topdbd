@@ -5,11 +5,11 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/named_vm/custom_footer_view.dart';
 import 'package:web_topdbd/named_vm/drawer_view.dart';
 import 'package:web_topdbd/named_vm/title_w_app_bar_view.dart';
-import 'package:web_topdbd/named_vm/un_auth_drawer_vm/un_auth_drawer_view.dart';
+import 'package:web_topdbd/named_vm/un_auth_drawer_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_main_vm/enum_data_for_un_auth_main_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_main_vm/test_un_auth_main_view_model.dart';
-import 'package:web_topdbd/named_vm/un_auth_navigation_vm/un_auth_navigation_view.dart';
-import 'package:web_topdbd/named_vm/un_auth_title_w_app_bar_vm/un_auth_title_w_app_bar_view.dart';
+import 'package:web_topdbd/named_vm/un_auth_navigation_view.dart';
+import 'package:web_topdbd/named_vm/un_auth_title_w_app_bar_view.dart';
 
 final class UnAuthMainView extends StatefulWidget {
   final Widget namedView;
@@ -22,23 +22,23 @@ final class UnAuthMainView extends StatefulWidget {
 
 final class _UnAuthMainViewState extends State<UnAuthMainView> {
   /// RELEASE CODE
-  // late final UnAuthMainViewModel _unAuthMainViewModel;
+  // late final UnAuthMainViewModel _viewModel;
   /// TEST CODE
-  late final TestUnAuthMainViewModel _unAuthMainViewModel;
+  late final TestUnAuthMainViewModel _viewModel;
 
   @override
   void initState() {
     /// RELEASE CODE
-    // _unAuthMainViewModel = UnAuthMainViewModel();
+    // _viewModel = UnAuthMainViewModel();
     /// TEST CODE
-    _unAuthMainViewModel = TestUnAuthMainViewModel();
+    _viewModel = TestUnAuthMainViewModel();
     super.initState();
-    _initParameterUnAuthMainViewModel();
+    _initParameterViewModel();
   }
 
   @override
   void dispose() {
-    _unAuthMainViewModel.dispose();
+    _viewModel.dispose();
     super.dispose();
   }
 
@@ -52,7 +52,7 @@ final class _UnAuthMainViewState extends State<UnAuthMainView> {
           Condition.equals(name: DESKTOP, value: null),
         ]
     ).value;
-    final dataForNamed = _unAuthMainViewModel.getDataForNamedParameterNamedStreamWState;
+    final dataForNamed = _viewModel.getDataForNamedParameterNamedStreamWState;
     switch(dataForNamed.getEnumDataForNamed) {
       case EnumDataForUnAuthMainView.isLoading:
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
@@ -80,7 +80,10 @@ final class _UnAuthMainViewState extends State<UnAuthMainView> {
             flex: 1,
             children: [
               const SizedBox(height: 10),
-              widget.namedView
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: widget.namedView,
+              )
             ],
           ),
         );
@@ -89,17 +92,17 @@ final class _UnAuthMainViewState extends State<UnAuthMainView> {
     }
   }
 
-  Future<void> _initParameterUnAuthMainViewModel() async {
-    _unAuthMainViewModel
+  Future<void> _initParameterViewModel() async {
+    _viewModel
         .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {
           setState(() {});
         });
-    final result = await _unAuthMainViewModel.init();
-    debugPrint("MainView: $result");
+    final result = await _viewModel.init();
+    debugPrint("UnAuthMainView: $result");
     if(!mounted) {
       return;
     }
-    _unAuthMainViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
+    _viewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

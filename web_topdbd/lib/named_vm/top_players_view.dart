@@ -19,8 +19,8 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+    return SizedBox(
+      width: double.infinity,
       child: Card(
         color: Colors.transparent,
         child: Column(

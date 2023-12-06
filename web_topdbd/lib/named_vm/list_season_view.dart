@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 final class ListSeasonView extends StatefulWidget {
   @override
@@ -23,15 +22,8 @@ final class _ListSeasonViewState extends State<ListSeasonView> {
 
   @override
   Widget build(BuildContext context) {
-    final value = ResponsiveValue<double>(
-        context,
-        conditionalValues: [
-          Condition.equals(name: MOBILE, value: 1.0),
-          Condition.equals(name: TABLET, value: 1.0),
-          Condition.equals(name: DESKTOP,value: 1.05),
-        ]).value ?? 0.0;
     return SizedBox(
-      width: MediaQuery.of(context).size.width / value,
+      width: double.infinity,
       child: Card(
         child: Column(
           children: [

@@ -12,30 +12,29 @@ final class LoginView extends StatefulWidget {
 
 final class _LoginViewState extends State<LoginView> {
   /// RELEASE CODE
-  // late final LoginViewModel _loginViewModel;
+  // late final LoginViewModel _viewModel;
   /// TEST CODE
-  late final TestLoginViewModel _loginViewModel;
+  late final TestLoginViewModel _viewModel;
 
   @override
   void initState() {
     /// RELEASE CODE
-    // _loginViewModel = LoginViewModel();
+    // _viewModel = LoginViewModel();
     /// TEST CODE
-    _loginViewModel = TestLoginViewModel();
+    _viewModel = TestLoginViewModel();
     super.initState();
-    _initParameterLoginViewModel();
+    _initParameterViewModel();
   }
 
   @override
   void dispose() {
-    _loginViewModel.dispose();
+    _viewModel.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    /// THERE
-    final dataForNamedParameterNamedStreamWState = _loginViewModel.getDataForNamedParameterNamedStreamWState;
+    final dataForNamedParameterNamedStreamWState = _viewModel.getDataForNamedParameterNamedStreamWState;
     final value = ResponsiveValue<double>(
         context,
         conditionalValues: [
@@ -49,7 +48,7 @@ final class _LoginViewState extends State<LoginView> {
         return const Center(child: CircularProgressIndicator());
       case EnumDataForLoginView.exception:
         return Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"));
-      case EnumDataForLoginView.login:
+      case EnumDataForLoginView.success:
         return Center(
           child: SizedBox(
             width: value,
@@ -73,12 +72,12 @@ final class _LoginViewState extends State<LoginView> {
                         dataForNamedParameterNamedStreamWState.isCheckAgreeTermsOfUse ? IconButton(
                             icon: const Icon(Icons.check_box_outlined),
                             onPressed: () {
-                              _loginViewModel.setCheckAgreeTermsOfUse(false);
+                              _viewModel.setCheckAgreeTermsOfUse(false);
                             })
                             : IconButton(
                             icon: const Icon(Icons.check_box_outline_blank),
                             onPressed: () {
-                              _loginViewModel.setCheckAgreeTermsOfUse(true);
+                              _viewModel.setCheckAgreeTermsOfUse(true);
                             }),
                         const Flexible(
                             child: Text("I agree to the terms of use of 'TOPDBD'",)),
@@ -92,7 +91,7 @@ final class _LoginViewState extends State<LoginView> {
                       leading: const Icon(FontAwesomeIcons.discord),
                       tileColor: FlutterThemeUtility.discordLogoColor,
                       onTap: () {
-                        _loginViewModel.signInWithDiscord((p0) => {});
+                        _viewModel.signInWithDiscord((p0) => {});
                       },),)
                       : Container(),
                   const SizedBox(height: 5,),
@@ -102,19 +101,18 @@ final class _LoginViewState extends State<LoginView> {
     }
   }
 
-  Future<void> _initParameterLoginViewModel()
-  async {
-    _loginViewModel
+  Future<void> _initParameterViewModel() async {
+    _viewModel
         .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {
           setState(() {});
         });
-    final result = await _loginViewModel
+    final result = await _viewModel
         .init();
     debugPrint("LoginView: $result");
     if(!mounted) {
       return;
     }
-    _loginViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
+    _viewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

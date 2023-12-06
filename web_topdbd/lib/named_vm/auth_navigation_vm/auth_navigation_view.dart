@@ -13,29 +13,29 @@ final class AuthNavigationView extends StatefulWidget {
 
 final class _AuthNavigationViewState extends State<AuthNavigationView> {
   /// RELEASE CODE
-  // late final AuthNavigationViewModel _authNavigationViewModel;
+  // late final AuthNavigationViewModel _viewModel;
   /// TEST CODE
-  late final TestAuthNavigationViewModel _authNavigationViewModel;
+  late final TestAuthNavigationViewModel _viewModel;
 
   @override
   void initState() {
     /// RELEASE CODE
-    // _authNavigationViewModel = AuthNavigationViewModel();
+    // _viewModel = AuthNavigationViewModel();
     /// TEST CODE
-    _authNavigationViewModel = TestAuthNavigationViewModel();
+    _viewModel = TestAuthNavigationViewModel();
     super.initState();
-    _initParameterAuthNavigationViewModel();
+    _initParameterViewModel();
   }
 
   @override
   void dispose() {
-    _authNavigationViewModel.dispose();
+    _viewModel.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final dataForNamedParameterNamedStreamWState = _authNavigationViewModel.getDataForNamedParameterNamedStreamWState;
+    final dataForNamedParameterNamedStreamWState = _viewModel.getDataForNamedParameterNamedStreamWState;
     final value = ResponsiveValue<List<PlutoMenuItem>>(
         context,
         conditionalValues: [
@@ -381,17 +381,17 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
     ];
   }
 
-  Future<void> _initParameterAuthNavigationViewModel() async {
-    _authNavigationViewModel
+  Future<void> _initParameterViewModel() async {
+    _viewModel
         .getStreamDataForNamedParameterNamedStreamWState
         .listen((event) {
           setState(() {});
         });
-    final result = await _authNavigationViewModel.init();
+    final result = await _viewModel.init();
     debugPrint("AuthNavigationView: $result");
     if(!mounted) {
       return;
     }
-    _authNavigationViewModel.notifyStreamDataForNamedParameterNamedStreamWState();
+    _viewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

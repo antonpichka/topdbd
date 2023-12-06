@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 final class SettingsUserView extends StatefulWidget {
-  final String username;
+  final String usernameByDiscordUser;
 
-  const SettingsUserView(this.username);
+  const SettingsUserView(this.usernameByDiscordUser);
 
   @override
   State<SettingsUserView> createState() => _SettingsUserViewState();

@@ -13,34 +13,35 @@ final class AntiDDosSystemView extends StatefulWidget {
 
 final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
   /// RELEASE CODE
-  // late final AntiDDosSystemViewModel _antiDDosSystemViewModel;
+  // late final AntiDDosSystemViewModel _viewModel;
   /// TEST CODE
-  late final TestAntiDDosSystemViewModel _antiDDosSystemViewModel;
+  late final TestAntiDDosSystemViewModel _viewModel;
 
   @override
   void initState() {
     /// RELEASE CODE
-    // _antiDDosSystemViewModel = AntiDDosSystemViewModel();
+    // _viewModel = AntiDDosSystemViewModel();
     /// TEST CODE
-    _antiDDosSystemViewModel = TestAntiDDosSystemViewModel();
+    _viewModel = TestAntiDDosSystemViewModel();
     super.initState();
-    _initParameterAntiDDosSystemViewModel();
+    _initParameterViewModel();
   }
 
   @override
   void dispose() {
-    _antiDDosSystemViewModel.dispose();
+    _viewModel.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final dataForNamedParameterNamedStreamWState =
-        _antiDDosSystemViewModel.getDataForNamedParameterNamedStreamWState;
-    final value = ResponsiveValue<Widget>(context, conditionalValues: [
+        _viewModel.getDataForNamedParameterNamedStreamWState;
+    final value = ResponsiveValue<Widget>(context,
+        conditionalValues: [
           Condition.equals(
               name: MOBILE,
-              value: _getWidgetWhereFormFromSixParameterAntiDDosSystemViewModel(
+              value: _getWidgetWhereFormFromSixParameterViewModel(
                   context,
                   dataForNamedParameterNamedStreamWState,
                   200,
@@ -49,7 +50,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                   60)),
           Condition.equals(
               name: TABLET,
-              value: _getWidgetWhereFormFromSixParameterAntiDDosSystemViewModel(
+              value: _getWidgetWhereFormFromSixParameterViewModel(
                   context,
                   dataForNamedParameterNamedStreamWState,
                   300,
@@ -58,15 +59,14 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                   70)),
           Condition.equals(
               name: DESKTOP,
-              value: _getWidgetWhereFormFromSixParameterAntiDDosSystemViewModel(
+              value: _getWidgetWhereFormFromSixParameterViewModel(
                   context,
                   dataForNamedParameterNamedStreamWState,
                   400,
                   40,
                   40,
                   200)),
-        ]).value ??
-        Container();
+        ]).value ?? Container();
     switch (dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
       case EnumDataForAntiDDosSystemView.isLoading:
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
@@ -84,7 +84,21 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
     }
   }
 
-  Widget _getWidgetWhereFormFromSixParameterAntiDDosSystemViewModel(
+  Future<void> _initParameterViewModel() async {
+    _viewModel
+        .getStreamDataForNamedParameterNamedStreamWState
+        .listen((event) {
+          setState(() {});
+        });
+    final result = await _viewModel.init();
+    debugPrint("AntiDDosSystemView: $result");
+    if (!mounted) {
+      return;
+    }
+    _viewModel.notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  Widget _getWidgetWhereFormFromSixParameterViewModel(
       BuildContext context,
       DataForAntiDDosSystemView dataForNamedParameterNamedStreamWState,
       double sizedBoxWidth,
@@ -113,7 +127,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: TextFormField(
                         initialValue:
-                            dataForNamedParameterNamedStreamWState.inputCode,
+                        dataForNamedParameterNamedStreamWState.inputCode,
                         maxLength: 8,
                         decoration: InputDecoration(
                           constraints: BoxConstraints(
@@ -134,7 +148,7 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                         cursorColor: Theme.of(context).colorScheme.secondary,
                         style: Theme.of(context).textTheme.bodyLarge,
                         onChanged: (String text) {
-                          _antiDDosSystemViewModel.setInputCode(text);
+                          _viewModel.setInputCode(text);
                         },
                       ),
                     ),
@@ -143,21 +157,21 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        _antiDDosSystemViewModel.clickButtonDone(() {},
-                            (String msg) {
-                          showTopSnackBar(
-                            Overlay.of(context),
-                            CustomSnackBar.error(
-                              message: msg,
-                            ),
-                          );
-                        });
+                        _viewModel.clickButtonDone(() {},
+                                (String msg) {
+                              showTopSnackBar(
+                                Overlay.of(context),
+                                CustomSnackBar.error(
+                                  message: msg,
+                                ),
+                              );
+                            });
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
-                            Theme.of(context).colorScheme.secondary,
+                        Theme.of(context).colorScheme.secondary,
                         foregroundColor:
-                            Theme.of(context).textTheme.bodyMedium?.color,
+                        Theme.of(context).textTheme.bodyMedium?.color,
                       ),
                       child: Text(
                         "Done",
@@ -180,19 +194,5 @@ final class _AntiDDosSystemViewState extends State<AntiDDosSystemView> {
         ),
       ),
     );
-  }
-
-  Future<void> _initParameterAntiDDosSystemViewModel() async {
-    _antiDDosSystemViewModel.getStreamDataForNamedParameterNamedStreamWState
-        .listen((event) {
-      setState(() {});
-    });
-    final result = await _antiDDosSystemViewModel.init();
-    debugPrint("AntiDDosSystemView: $result");
-    if (!mounted) {
-      return;
-    }
-    _antiDDosSystemViewModel
-        .notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

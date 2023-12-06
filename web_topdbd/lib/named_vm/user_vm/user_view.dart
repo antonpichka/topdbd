@@ -13,8 +13,18 @@ final class UserView extends StatefulWidget {
 
 final class _UserViewStats extends State<UserView> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    /// THERE
+    /// THERE THIRD
     return SizedBox(
       width: double.infinity,
       child: Card(
@@ -50,23 +60,6 @@ final class _UserViewStats extends State<UserView> {
             ),
             widget.namedNavigationUserView,
             widget.namedUserView,
-            /*Wrap(
-              children: [
-                AboutMeUserView()
-              ],
-            ),
-            Wrap(
-              children: [
-                StatsUserView(),
-                ListSeasonStatsUserView()
-              ],
-            ),
-            Wrap(
-              children: [
-                ListMatchesUserView(),
-                // Statistics
-              ],
-            )*/
           ],),
       ),
     );

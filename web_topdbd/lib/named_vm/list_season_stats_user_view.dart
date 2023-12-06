@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 final class ListSeasonStatsUserView extends StatefulWidget {
-  final String username;
+  final String usernameByDiscordUser;
 
-  const ListSeasonStatsUserView(this.username);
+  const ListSeasonStatsUserView(this.usernameByDiscordUser);
 
   @override
   State<ListSeasonStatsUserView> createState() => _ListSeasonStatsUserViewState();
@@ -27,15 +26,8 @@ final class _ListSeasonStatsUserViewState extends State<ListSeasonStatsUserView>
 
   @override
   Widget build(BuildContext context) {
-    final value = ResponsiveValue<double>(
-        context,
-        conditionalValues: [
-          Condition.equals(name: MOBILE, value: 1.0),
-          Condition.equals(name: TABLET, value: 1.0),
-          Condition.equals(name: DESKTOP,value: 2.1),
-        ]).value ?? 0.0;
     return SizedBox(
-      width: MediaQuery.of(context).size.width / value,
+      width: double.infinity,
       child: Card(
         child: Column(
             children: [
@@ -44,9 +36,8 @@ final class _ListSeasonStatsUserViewState extends State<ListSeasonStatsUserView>
                 child: Wrap(
                   alignment: WrapAlignment.center,
                   children: [
-                    Icon(Icons.rocket, color: Colors.white,),
-                    SizedBox(width: 2,),
-                    Icon(Icons.query_stats, color: Colors.white,),
+                    Icon(Icons.rocket),
+                    Icon(Icons.query_stats),
                     SizedBox(width: 2,),
                     Padding(
                       padding: EdgeInsets.only(top: 3.0),

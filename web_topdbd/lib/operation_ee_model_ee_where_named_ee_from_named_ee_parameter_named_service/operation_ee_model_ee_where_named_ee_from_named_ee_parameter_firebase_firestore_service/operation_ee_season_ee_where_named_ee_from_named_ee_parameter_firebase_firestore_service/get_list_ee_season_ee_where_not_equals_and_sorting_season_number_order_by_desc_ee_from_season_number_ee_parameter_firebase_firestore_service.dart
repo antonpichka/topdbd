@@ -12,8 +12,7 @@ base class GetListEESeasonEEWhereNotEqualsAndSortingSeasonNumberOrderByDescEEFro
   @protected
   final firebaseFirestoreService = FirebaseFirestoreService.instance;
 
-  Future<Result<Y>> getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService(int seasonNumber)
-  async {
+  Future<Result<Y>> getListSeasonWhereNotEqualsAndSortingSeasonNumberOrderByDescFromSeasonNumberParameterFirebaseFirestoreService(int seasonNumber) async {
     try {
       final listDocumentBySeason = await firebaseFirestoreService
           .getParameterFirebaseFirestore
@@ -25,8 +24,8 @@ base class GetListEESeasonEEWhereNotEqualsAndSortingSeasonNumberOrderByDescEEFro
       for(QueryDocumentSnapshot<Map<String,dynamic>> documentBySeason in listDocumentBySeason?.docs ?? List.empty(growable: true)) {
         listSeason.add(Season(
             documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQSeasonNumber] ?? 0,
-            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfMatchesPlayedPerSeason] ?? "",
-            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQStrNumberOfUniquePlayersWhoPlayedInASeason] ?? "",
+            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQNumberOfMatchesPlayedPerSeason] ?? 0,
+            documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQNumberOfUniquePlayersWhoPlayedInASeason] ?? 0,
             (documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQStartOfSeasonTime]).toDate() ?? DateTime.now(),
             (documentBySeason.data()[KeysFirebaseFirestoreServiceUtility.seasonQQEndOfSeasonTime]).toDate() ?? DateTime.now()) as T);
       }

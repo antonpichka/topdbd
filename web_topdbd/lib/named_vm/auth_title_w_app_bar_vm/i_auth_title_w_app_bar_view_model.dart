@@ -6,5 +6,4 @@ abstract interface class IAuthTitleWAppBarViewModel {
 
   void clickOnMyUser(Function(String) callback);
   void logout(Function() callback);
-  void download();
 }

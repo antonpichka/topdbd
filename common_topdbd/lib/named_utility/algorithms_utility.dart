@@ -8,6 +8,104 @@ import 'package:meta/meta.dart';
 final class AlgorithmsUtility {
   const AlgorithmsUtility._();
 
+  static List<String> getListStringWhereSearchAlgorithmByPrefixWAllCharactersThatWereEnteredFromTwo(List<String> listString,String prefix) {
+    final listStringToAddAllWordsWThePrefix = List.empty(growable: true);
+    if(listString.isEmpty) {
+      return List.empty(growable: true);
+    }
+    /// 1 Step
+    for(String itemString in listString) {
+      for(int i = 0; i < itemString.length; i++) {
+        if(prefix.length < (i+1)) {
+          break;
+        }
+        bool isNotAddedElement = true;
+        for(int j = 0; j < prefix.length; j++) {
+          if(prefix[j] == itemString[i]) {
+            isNotAddedElement = false;
+            break;
+          }
+        }
+        if(isNotAddedElement) {
+          continue;
+        }
+        bool isHasElement = false;
+        for(String itemStringToAddAllWordsWThePrefix in listStringToAddAllWordsWThePrefix) {
+          if(itemStringToAddAllWordsWThePrefix == itemString) {
+            isHasElement = true;
+            break;
+          }
+        }
+        if(isHasElement) {
+          break;
+        }
+        listStringToAddAllWordsWThePrefix.add(itemString);
+        break;
+      }
+    }
+    /// 2 Step
+    final Map<String,int> mapPrefixAndImportancePrefix = {};
+    for(int i = 0; i < prefix.length; i++) {
+      final importancePrefix = prefix.length - i;
+      mapPrefixAndImportancePrefix[prefix[i]] = importancePrefix;
+    }
+    /// 3 Step
+    final mapItemStringToAddAllWordsWThePrefixAndImportancePrefix = {};
+    for(String itemStringToAddAllWordsWThePrefix in listStringToAddAllWordsWThePrefix) { // oolvoooeooo
+      final listSymbolWStringToAddAllWordsWThePrefix = List.empty(growable: true);
+      int iterationCombinationOfIdenticalSymbols = 0; // 1,2
+      for(int i = 0; i < itemStringToAddAllWordsWThePrefix.length; i++) { // 0,1,2
+        for(MapEntry<String,int> itemEntries in mapPrefixAndImportancePrefix.entries) { // o,r
+          if(itemEntries.key != itemStringToAddAllWordsWThePrefix[i]) {
+            continue;
+          }
+          if(!mapItemStringToAddAllWordsWThePrefixAndImportancePrefix.containsKey(itemStringToAddAllWordsWThePrefix)) {
+            mapItemStringToAddAllWordsWThePrefixAndImportancePrefix[itemStringToAddAllWordsWThePrefix] = itemEntries.value;
+            listSymbolWStringToAddAllWordsWThePrefix.add(itemStringToAddAllWordsWThePrefix[i]);
+            iterationCombinationOfIdenticalSymbols++;
+            break;
+          }
+          bool isHasElement = false;
+          for(String itemSymbolWStringToAddAllWordsWThePrefix in listSymbolWStringToAddAllWordsWThePrefix) {
+            if(itemSymbolWStringToAddAllWordsWThePrefix == itemStringToAddAllWordsWThePrefix[i]) {
+              isHasElement = true;
+              break;
+            }
+          }
+          final combinationOfIdenticalSymbols = iterationCombinationOfIdenticalSymbols == i
+              ? math.pow(iterationCombinationOfIdenticalSymbols,2).toInt()
+              : 0;
+          final importancePrefix = isHasElement
+              ? (mapItemStringToAddAllWordsWThePrefixAndImportancePrefix[itemStringToAddAllWordsWThePrefix] ?? 0) + combinationOfIdenticalSymbols // 3
+              : (mapItemStringToAddAllWordsWThePrefixAndImportancePrefix[itemStringToAddAllWordsWThePrefix] ?? 0) + itemEntries.value + combinationOfIdenticalSymbols;
+          mapItemStringToAddAllWordsWThePrefixAndImportancePrefix[itemStringToAddAllWordsWThePrefix] = importancePrefix;
+          listSymbolWStringToAddAllWordsWThePrefix.add(itemStringToAddAllWordsWThePrefix[i]);
+          iterationCombinationOfIdenticalSymbols++;
+          break;
+        }
+      }
+    }
+    /// 4 Step
+    final List<String> listStringWResult = List.empty(growable: true);
+    final length = mapItemStringToAddAllWordsWThePrefixAndImportancePrefix.length;
+    while(listStringWResult.length < length) {
+      int index = 0;
+      int first = mapItemStringToAddAllWordsWThePrefixAndImportancePrefix.values.first;
+      for(int i = 1; i < mapItemStringToAddAllWordsWThePrefixAndImportancePrefix.length; i++) {
+        final itemImportancePrefix = mapItemStringToAddAllWordsWThePrefixAndImportancePrefix.values.toList()[i];
+        if(itemImportancePrefix > first) {
+          first = itemImportancePrefix;
+          index = i;
+          continue;
+        }
+      }
+      final elementAt = mapItemStringToAddAllWordsWThePrefixAndImportancePrefix.entries.elementAt(index);
+      mapItemStringToAddAllWordsWThePrefixAndImportancePrefix.removeWhere((key,value)=> key == elementAt.key);
+      listStringWResult.add(elementAt.key);
+    }
+    return listStringWResult;
+  }
+
   static String getStringWhereRandomNumbersFromNumberOfScrolls(int numberOfScrolls) {
     String result = "";
     final rng = math.Random();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_topdbd/named_vm/search_users_vm/test_search_users_view_model.dart';
 
 final class SearchUsersView extends StatefulWidget {
   @override
@@ -6,17 +7,27 @@ final class SearchUsersView extends StatefulWidget {
 }
 
 final class _SearchUsersViewState extends State<SearchUsersView> {
+  /// RELEASE CODE
+  // late final SearchUsersViewModel _viewModel;
+  /// TEST CODE
+  late final TestSearchUsersViewModel _viewModel;
   late final TextEditingController _textEditingController;
 
   @override
   void initState() {
+    /// RELEASE CODE
+    // _viewModel = SearchUsersViewModel();
+    /// TEST CODE
+    _viewModel = TestSearchUsersViewModel();
     _textEditingController = TextEditingController();
     super.initState();
+    _initParameterViewModel();
   }
 
   @override
   void dispose() {
     _textEditingController.dispose();
+    _viewModel.dispose();
     super.dispose();
   }
 
@@ -71,5 +82,16 @@ final class _SearchUsersViewState extends State<SearchUsersView> {
               )
           ),
         ]);
+  }
+
+  Future<void> _initParameterViewModel() async {
+    _viewModel
+        .getStreamDataForNamedParameterNamedStreamWState
+        .listen((event) {
+          setState(() {});
+        });
+    final result = await _viewModel.init();
+    debugPrint("SearchUsersView: $result");
+    _viewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

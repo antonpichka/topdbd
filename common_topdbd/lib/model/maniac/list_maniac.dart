@@ -14,8 +14,4 @@ base class ListManiac<T extends Maniac> extends BaseListModel<T> {
     }
     return ListManiac<T>(newListModel);
   }
-
-  void deleteFromUniqueIdByManiacParameterListModel(String uniqueIdByManiac) {
-    super.deleteFromUniqueIdByModelParameterListModel(uniqueIdByManiac);
-  }
 }

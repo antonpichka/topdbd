@@ -807,7 +807,7 @@ base class Matches extends BaseModel {
           : false;
       middlegameWMatches
           .listRoundWMatches
-          .insertFromRoundWMatchesParameterListModel(RoundWMatches(round, itemModel.getClone, EnumRoundStatus.firstManiac.name, isRoleManiacWFirstUniqueIdByUser, false, false, 0, 0));
+          .insertFromNewModelParameterListModel(RoundWMatches(round, itemModel.getClone, EnumRoundStatus.firstManiac.name, isRoleManiacWFirstUniqueIdByUser, false, false, 0, 0));
       round++;
     }
   }

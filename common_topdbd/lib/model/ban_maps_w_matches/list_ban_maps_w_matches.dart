@@ -21,12 +21,8 @@ base class ListBanMapsWMatches<T extends BanMapsWMatches> extends BaseListModel<
       if(itemModel.uniqueIdByUser != uniqueIdByUser) {
         continue;
       }
-      listBanMapsWMatches.insertFromBanMapsWMatchesParameterListModel(itemModel.getClone as T);
+      listBanMapsWMatches.insertFromNewModelParameterListModel(itemModel.getClone as T);
     }
     return listBanMapsWMatches.listModel;
-  }
-
-  void insertFromBanMapsWMatchesParameterListModel(T banMapsWMatches) {
-    super.insertFromNewModelParameterListModel(banMapsWMatches);
   }
 }

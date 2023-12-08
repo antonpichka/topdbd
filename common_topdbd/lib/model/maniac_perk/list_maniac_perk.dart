@@ -14,16 +14,4 @@ base class ListManiacPerk<T extends ManiacPerk> extends BaseListModel<T> {
     }
     return ListManiacPerk<T>(newListModel);
   }
-
-  void insertFromManiacPerkParameterListModel(T maniacPerk) {
-    super.insertFromNewModelParameterListModel(maniacPerk);
-  }
-
-  void insertFromListManiacPerkParameterListModel(List<T> listManiacPerk) {
-    super.insertFromNewListModelParameterListModel(listManiacPerk);
-  }
-
-  void deleteFromUniqueIdByManiacPerkParameterListModel(String uniqueIdByManiacPerk) {
-    super.deleteFromUniqueIdByModelParameterListModel(uniqueIdByManiacPerk);
-  }
 }

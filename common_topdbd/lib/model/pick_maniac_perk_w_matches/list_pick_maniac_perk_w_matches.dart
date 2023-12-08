@@ -38,8 +38,4 @@ base class ListPickManiacPerkWMatches<T extends PickManiacPerkWMatches> extends 
     }
     return name;
   }
-
-  void insertFromPickManiacPerkWMatchesParameterListModel(T pickManiacPerkWMatches) {
-    super.insertFromNewModelParameterListModel(pickManiacPerkWMatches);
-  }
 }

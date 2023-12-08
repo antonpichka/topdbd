@@ -19,14 +19,10 @@ base class ListBanManiacWMatches<T extends BanManiacWMatches> extends BaseListMo
     final listBanManiacWMatches = ListBanManiacWMatches<T>(List.empty(growable: true));
     for(T itemModel in listModel) {
       if(itemModel.uniqueIdByUser == uniqueIdByUser) {
-        listBanManiacWMatches.insertFromBanManiacWMatchesParameterListModel(itemModel.getClone as T);
+        listBanManiacWMatches.insertFromNewModelParameterListModel(itemModel.getClone as T);
         continue;
       }
     }
     return listBanManiacWMatches.listModel;
-  }
-
-  void insertFromBanManiacWMatchesParameterListModel(T banManiacWMatches) {
-    super.insertFromNewModelParameterListModel(banManiacWMatches);
   }
 }

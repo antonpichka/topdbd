@@ -1,5 +1,5 @@
 import 'package:common_topdbd/model/pick_maniac_w_matches/pick_maniac_w_matches.dart';
-import 'package:common_topdbd/model/pick_maniac_w_matches/pick_maniac_w_matches_w_named_w_named_iterator/pick_maniac_w_matches_w_order_by_asc_w_creation_time_iterator.dart';
+import 'package:common_topdbd/model/pick_maniac_w_matches/pick_maniac_w_matches_w_named_w_named_w_named_iterator/pick_maniac_w_matches_w_order_by_asc_w_creation_time_iterator.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -20,7 +20,7 @@ base class ListPickManiacWMatches<T extends PickManiacWMatches> extends BaseList
     final listPickManiacWMatches = ListPickManiacWMatches<T>(List.empty(growable: true));
     for(T itemModel in listModel) {
       if(itemModel.uniqueIdByUser == uniqueIdByUser) {
-        listPickManiacWMatches.insertFromPickManiacWMatchesParameterListModel(itemModel.getClone as T);
+        listPickManiacWMatches.insertFromNewModelParameterListModel(itemModel.getClone as T);
         continue;
       }
     }
@@ -33,7 +33,7 @@ base class ListPickManiacWMatches<T extends PickManiacWMatches> extends BaseList
       if(itemModel.uniqueIdByUser != firstUniqueIdByUser &&
           itemModel.uniqueIdByUser != secondUniqueIdByUser)
       {
-        listPickManiacWMatches.insertFromPickManiacWMatchesParameterListModel(itemModel.getClone as T);
+        listPickManiacWMatches.insertFromNewModelParameterListModel(itemModel.getClone as T);
         continue;
       }
     }
@@ -41,14 +41,6 @@ base class ListPickManiacWMatches<T extends PickManiacWMatches> extends BaseList
   }
 
   void sortingWherePickManiacWMatchesWOrderByAscWCreationTimeIterator() {
-    sortingFromModelWNamedWNamedIteratorParameterListModel(PickManiacWMatchesWOrderByAscWCreationTimeIterator());
-  }
-
-  void insertFromPickManiacWMatchesParameterListModel(T pickManiacWMatches) {
-    insertFromNewModelParameterListModel(pickManiacWMatches);
-  }
-
-  void updateFromPickManiacWMatchesParameterListModel(T pickManiacWMatches) {
-    updateFromNewModelParameterListModel(pickManiacWMatches);
+    super.sortingFromModelWNamedWNamedWNamedIteratorParameterListModel(PickManiacWMatchesWOrderByAscWCreationTimeIterator());
   }
 }

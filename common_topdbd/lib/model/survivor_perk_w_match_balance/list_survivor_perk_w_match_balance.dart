@@ -14,8 +14,4 @@ base class ListSurvivorPerkWMatchBalance<T extends SurvivorPerkWMatchBalance> ex
     }
     return ListSurvivorPerkWMatchBalance<T>(newListModel);
   }
-
-  void deleteFromUniqueIdBySurvivorPerkWMatchBalanceParameterListModel(String uniqueIdBySurvivorPerkWMatchBalance) {
-    super.deleteFromUniqueIdByModelParameterListModel(uniqueIdBySurvivorPerkWMatchBalance);
-  }
 }

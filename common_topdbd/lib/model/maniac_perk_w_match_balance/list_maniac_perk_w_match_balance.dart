@@ -14,8 +14,4 @@ base class ListManiacPerkWMatchBalance<T extends ManiacPerkWMatchBalance> extend
     }
     return ListManiacPerkWMatchBalance<T>(newListModel);
   }
-
-  void deleteFromUniqueIdByManiacPerkWMatchBalanceParameterListModel(String uniqueIdByManiacPerkWMatchBalance) {
-    super.deleteFromUniqueIdByModelParameterListModel(uniqueIdByManiacPerkWMatchBalance);
-  }
 }

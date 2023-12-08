@@ -3,7 +3,7 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 
 @immutable
-base class DiscordUserFirestoreWFirstWListStringWUsernameIterator<T extends DiscordUserFirestore> extends BaseModelWNamedWNamedIterator<T> {
+base class DiscordUserFirestoreWFirstWListStringWUsernameIterator<T extends DiscordUserFirestore> extends BaseModelWNamedWNamedWNamedIterator<T> {
   final List<String> listString;
 
   DiscordUserFirestoreWFirstWListStringWUsernameIterator(this.listString);

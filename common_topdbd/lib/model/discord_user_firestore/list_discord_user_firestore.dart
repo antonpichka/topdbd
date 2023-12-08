@@ -1,5 +1,5 @@
 import 'package:common_topdbd/model/discord_user_firestore/discord_user_firestore.dart';
-import 'package:common_topdbd/model/discord_user_firestore/discord_user_firestore_w_named_w_named_iterator/discord_user_firestore_w_first_w_list_string_w_username_iterator.dart';
+import 'package:common_topdbd/model/discord_user_firestore/discord_user_firestore_w_named_w_named_w_named_iterator/discord_user_firestore_w_first_w_list_string_w_username_iterator.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -33,6 +33,6 @@ base class ListDiscordUserFirestore<T extends DiscordUserFirestore> extends Base
   }
 
   void sortingWhereDiscordUserFirestoreWFirstWListStringWUsernameIteratorFromListString(List<String> listString) {
-    sortingFromModelWNamedWNamedIteratorParameterListModel(DiscordUserFirestoreWFirstWListStringWUsernameIterator(listString));
+    sortingFromModelWNamedWNamedWNamedIteratorParameterListModel(DiscordUserFirestoreWFirstWListStringWUsernameIterator(listString));
   }
 }

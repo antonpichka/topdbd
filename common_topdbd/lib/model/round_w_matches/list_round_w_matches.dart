@@ -25,7 +25,7 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
       if(itemModel.enumRoundStatus != endOfTheRoundByEnumRoundStatus) {
         continue;
       }
-      listRoundWMatches.insertFromRoundWMatchesParameterListModel(itemModel.getClone as T);
+      listRoundWMatches.insertFromNewModelParameterListModel(itemModel.getClone as T);
     }
     return listRoundWMatches.listModel;
   }
@@ -37,7 +37,7 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
       if(itemModel.enumRoundStatus == endOfTheRoundByEnumRoundStatus) {
         continue;
       }
-      listRoundWMatches.insertFromRoundWMatchesParameterListModel(itemModel.getClone as T);
+      listRoundWMatches.insertFromNewModelParameterListModel(itemModel.getClone as T);
     }
     return listRoundWMatches.listModel;
   }
@@ -102,19 +102,11 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
     return "$firstItemListWithTwoItemWhereCountingWhoWonTheMatch:$secondItemListWithTwoItemWhereCountingWhoWonTheMatch";
   }
 
-  void insertFromRoundWMatchesParameterListModel(T roundWMatches) {
-    super.insertFromNewModelParameterListModel(roundWMatches);
-  }
-
-  void updateFromRoundWMatchesParameterListModel(T roundWMatches) {
-    super.updateFromNewModelParameterListModel(roundWMatches);
-  }
-
   void updateWhereIsStartTimerWFirstUniqueIdByUserSettingTrueParameterListModel() {
     final first = getUnfinishedListRoundWMatchesParameterListModel.first;
     for(T itemModel in listModel) {
       if(itemModel.round == first.round) {
-        updateFromRoundWMatchesParameterListModel(RoundWMatches(
+        updateFromNewModelParameterListModel(RoundWMatches(
             itemModel.round,
             itemModel.pickManiacWMatches.getClone,
             itemModel.enumRoundStatus.name,
@@ -132,7 +124,7 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
     final first = getUnfinishedListRoundWMatchesParameterListModel.first;
     for(T itemModel in listModel) {
       if(itemModel.round == first.round) {
-        updateFromRoundWMatchesParameterListModel(RoundWMatches(
+        updateFromNewModelParameterListModel(RoundWMatches(
             itemModel.round,
             itemModel.pickManiacWMatches.getClone,
             itemModel.enumRoundStatus.name,
@@ -150,7 +142,7 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
     final first = getUnfinishedListRoundWMatchesParameterListModel.first;
     for(T itemModel in listModel) {
       if(itemModel.round == first.round) {
-        updateFromRoundWMatchesParameterListModel(RoundWMatches(
+        updateFromNewModelParameterListModel(RoundWMatches(
             itemModel.round,
             itemModel.pickManiacWMatches.getClone,
             EnumRoundStatus.endOfTheRound.name,
@@ -178,7 +170,7 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
     final first = getUnfinishedListRoundWMatchesParameterListModel.first;
     for(T itemModel in listModel) {
       if(itemModel.round == first.round) {
-        updateFromRoundWMatchesParameterListModel(RoundWMatches(
+        updateFromNewModelParameterListModel(RoundWMatches(
             itemModel.round,
             itemModel.pickManiacWMatches.getClone,
             itemModel.getChangedParameterEnumRoundStatus.name,
@@ -197,7 +189,7 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
     final first = getUnfinishedListRoundWMatchesParameterListModel.first;
     for(T itemModel in listModel) {
       if(itemModel.round == first.round) {
-        updateFromRoundWMatchesParameterListModel(RoundWMatches(
+        updateFromNewModelParameterListModel(RoundWMatches(
             itemModel.round,
             itemModel.pickManiacWMatches.getClone,
             itemModel.getChangedParameterEnumRoundStatus.name,

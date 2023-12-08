@@ -22,21 +22,17 @@ base class ListManiacWMatchBalance<T extends ManiacWMatchBalance> extends BaseLi
     for(T itemModel in listModel) {
       for(BanManiacWMatches itemBanManiacWMatches in listBanManiacWMatches) {
         if(itemBanManiacWMatches.name == itemModel.name) {
-          clone.deleteFromUniqueIdByManiacWMatchBalanceParameterListModel(itemModel.uniqueId);
+          clone.deleteFromUniqueIdByModelParameterListModel(itemModel.uniqueId);
           break;
         }
       }
       for(PickManiacWMatches itemPickManiacWMatches in listPickManiacWMatches) {
         if(itemPickManiacWMatches.name == itemModel.name) {
-          clone.deleteFromUniqueIdByManiacWMatchBalanceParameterListModel(itemModel.uniqueId);
+          clone.deleteFromUniqueIdByModelParameterListModel(itemModel.uniqueId);
           break;
         }
       }
     }
     return clone.listModel;
-  }
-
-  void deleteFromUniqueIdByManiacWMatchBalanceParameterListModel(String uniqueIdByManiacWMatchBalance) {
-    super.deleteFromUniqueIdByModelParameterListModel(uniqueIdByManiacWMatchBalance);
   }
 }

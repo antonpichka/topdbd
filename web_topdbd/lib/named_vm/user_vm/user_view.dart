@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 final class UserView extends StatefulWidget {
-  final String username;
+  final String usernameByDiscordUser;
   final Widget namedNavigationUserView;
   final Widget namedUserView;
 
-  const UserView(this.username,this.namedNavigationUserView,this.namedUserView);
+  const UserView(this.usernameByDiscordUser,this.namedNavigationUserView,this.namedUserView);
 
   @override
   State<UserView> createState() => _UserViewStats();
@@ -24,7 +24,7 @@ final class _UserViewStats extends State<UserView> {
 
   @override
   Widget build(BuildContext context) {
-    /// THERE THIRD
+    /// THERE SECOND
     return SizedBox(
       width: double.infinity,
       child: Card(
@@ -52,7 +52,7 @@ final class _UserViewStats extends State<UserView> {
                   const SizedBox(width: 1,),
                   Padding(
                     padding: const EdgeInsets.only(top: 5),
-                    child: Text(widget.username,
+                    child: Text(widget.usernameByDiscordUser,
                       style: Theme.of(context).textTheme.bodyLarge,),
                   ),
                 ],

@@ -4,7 +4,7 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 base class PickManiacWMatchesWOrderByAscWCreationTimeIterator<T extends PickManiacWMatches> extends BaseModelWNamedWNamedIterator<T> {
   @override
   T get current {
-    T clone = listModelIterator[0].getClone as T;
+    T clone = listModelIterator.first.getClone as T;
     if (listModelIterator.length <= 1) {
       listModelIterator.removeAt(0);
       return clone;

@@ -2,7 +2,10 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:web_topdbd/named_vm/search_users_vm/enum_data_for_search_users_view.dart';
 
 final class DataForSearchUsersView extends BaseDataForNamed<EnumDataForSearchUsersView> {
-  DataForSearchUsersView(super.isLoading);
+  bool isNotSpamButton;
+  String value;
+
+  DataForSearchUsersView(super.isLoading,this.isNotSpamButton,this.value);
 
   @override
   EnumDataForSearchUsersView get getEnumDataForNamed {

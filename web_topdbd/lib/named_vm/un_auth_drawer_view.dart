@@ -13,7 +13,7 @@ final class UnAuthDrawerView extends StatelessWidget {
           tileColor: Theme.of(context).colorScheme.surface,
           onTap: () {
             WebNavigationUtility
-                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.navigationViewQQLogin);
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQLogin);
           },),
         const SizedBox(height: 2,),
         ListTile(

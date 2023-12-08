@@ -2,6 +2,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 final class SearchUsersToListView extends StatefulWidget {
+  final String value;
+
+  const SearchUsersToListView(this.value);
+
   @override
   State<SearchUsersToListView> createState() => _SearchUsersToListViewState();
 }
@@ -19,7 +23,7 @@ final class _SearchUsersToListViewState extends State<SearchUsersToListView> {
 
   @override
   Widget build(BuildContext context) {
-    /// THERE SECOND
+    /// THERE FIRST
     return SizedBox(
       width: double.infinity,
       child: Card(

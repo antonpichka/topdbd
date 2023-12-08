@@ -24,7 +24,7 @@ final class _UnAuthTitleWAppBarViewState extends State<UnAuthTitleWAppBarView> {
                 icon: const Icon(Icons.login),
                 iconSize: 30,
                 onPressed: () {
-                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.navigationViewQQLogin);
+                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQLogin);
                 },
               ),
             ),

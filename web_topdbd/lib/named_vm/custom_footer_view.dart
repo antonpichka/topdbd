@@ -15,7 +15,7 @@ final class CustomFooterView extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
               recognizer: TapGestureRecognizer()..onTap = () {
                 WebNavigationUtility
-                    .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.navigationViewQQTermsOfUse);
+                    .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.customFooterViewQQTermsOfUse);
               }
           ),
         ),

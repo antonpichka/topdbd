@@ -2,32 +2,40 @@ import 'package:meta/meta.dart';
 
 @immutable
 final class KeysNavigationUtility {
-  /* NavigationView */
-  static const String navigationViewQQHome = "/";
-  static const String navigationViewQQTopPlayers = "#/top_players";
-  static const String navigationViewQQBalance = "#/balance";
-  static const String navigationViewQQLogin = "#/login";
-  static const String navigationViewQQTermsOfUse = "#/terms_of_use";
-  static const String navigationViewQQTournaments = "#/tournaments";
-  /* NavigationUserView */
-  static const String navigationUserViewQQUserQQId = "#/user/id";
-  static const String navigationUserViewQQUserQQIdQQStats = "#/user/id/stats";
-  static const String navigationUserViewQQUserQQIdQQMatches = "#/user/id/matches";
+  /* UnAuthNavigationView */
+  static const String unAuthNavigationViewQQHome = "/";
+  static const String unAuthNavigationViewQQTopPlayers = "#/top_players";
+  static const String unAuthNavigationViewQQBalance = "#/balance";
+  static const String unAuthNavigationViewQQLogin = "#/login";
+  static const String unAuthNavigationViewQQTournaments = "#/tournaments";
+  /* CustomFooterView */
+  static const String customFooterViewQQTermsOfUse = "#/terms_of_use";
+  /* SearchUsersView */
+  static const String searchUsersViewQQSearchPlayers = "#/search_players?q=id";
+  /* UnAuthNavigationUserView */
+  static const String unAuthNavigationUserViewQQUserQQId = "#/user/id";
+  static const String unAuthNavigationUserViewQQUserQQIdQQStats = "#/user/id/stats";
+  static const String unAuthNavigationUserViewQQUserQQIdQQMatches = "#/user/id/matches";
   /* AuthNavigationUserView */
   static const String authNavigationUserViewQQUserQQIdQQSettings = "#/user/id/settings";
 
   const KeysNavigationUtility._();
 
-  /* NavigationUserView */
-  static String getNavigationUserViewQQUserQQIdFromId(String id) {
+  /* SearchUsersView */
+  static String getSearchUsersViewQQSearchPlayersFromId(String id) {
+    return "#/search_players?q=$id";
+  }
+
+  /* UnAuthNavigationUserView */
+  static String getUnAuthNavigationUserViewQQUserQQIdFromId(String id) {
     return "#/user/$id";
   }
 
-  static String getNavigationUserViewQQUserQQIdQQStatsFromId(String id) {
+  static String getUnAuthNavigationUserViewQQUserQQIdQQStatsFromId(String id) {
     return "#/user/$id/stats";
   }
 
-  static String getNavigationUserViewQQUserQQIdQQMatchesFromId(String id) {
+  static String getUnAuthNavigationUserViewQQUserQQIdQQMatchesFromId(String id) {
     return "#/user/$id/matches";
   }
 

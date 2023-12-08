@@ -13,6 +13,7 @@ import 'package:web_topdbd/named_vm/balance_view.dart';
 import 'package:web_topdbd/named_vm/home_view.dart';
 import 'package:web_topdbd/named_vm/list_matches_user_w_statistics_on_maniacs_user_view.dart';
 import 'package:web_topdbd/named_vm/login_vm/login_view.dart';
+import 'package:web_topdbd/named_vm/search_users_to_list_vm/search_users_to_list_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_main_vm/un_auth_main_view.dart';
 import 'package:web_topdbd/named_vm/not_found_view.dart';
 import 'package:web_topdbd/named_vm/settings_user_view.dart';
@@ -124,6 +125,9 @@ final class _AppViewState extends State<AppView> {
             case EnumDataForAppView.authMainViewWTermsOfUse:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   TermsOfUseView()));
+            case EnumDataForAppView.authMainViewWSearchPlayers:
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
+                  SearchUsersToListView(dataForNamedParameterNamedStreamWState.getIdWhereSearchPlayersParameterNameRoute)));
             case EnumDataForAppView.authMainViewWUserWId:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   UserView(
@@ -190,6 +194,9 @@ final class _AppViewState extends State<AppView> {
             case EnumDataForAppView.unAuthMainViewWTermsOfUse:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
                   TermsOfUseView()));
+            case EnumDataForAppView.unAuthMainViewWSearchPlayers:
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
+                  SearchUsersToListView(dataForNamedParameterNamedStreamWState.getIdWhereSearchPlayersParameterNameRoute)));
             case EnumDataForAppView.unAuthMainViewWUserWId:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
                   UserView(

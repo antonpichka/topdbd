@@ -56,7 +56,7 @@ final class _AuthDrawerViewState extends State<AuthDrawerView> {
               tileColor: Theme.of(context).colorScheme.surface,
               onTap: () {
                 _viewModel.clickOnMyUser((p1)=> WebNavigationUtility
-                    .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getNavigationUserViewQQUserQQIdFromId(p1)));
+                    .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getUnAuthNavigationUserViewQQUserQQIdFromId(p1)));
               },),
             const SizedBox(height: 2,),
             ListTile(
@@ -75,7 +75,7 @@ final class _AuthDrawerViewState extends State<AuthDrawerView> {
                               onPressed: () {
                                 Navigator.of(context).pop();
                                 _viewModel.logout(()=> WebNavigationUtility
-                                    .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.navigationViewQQHome));
+                                    .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQHome));
                               },
                               child: Text("Yes",
                                   style: Theme.of(context).textTheme.bodyMedium)),

@@ -12,11 +12,38 @@ final class TestSearchUsersViewModel extends BaseNamedViewModel<DataForSearchUse
   // NamedUtility
 
   TestSearchUsersViewModel()
-      : super(DefaultStreamWState(DataForSearchUsersView(true)));
+      : super(DefaultStreamWState(DataForSearchUsersView(true,false,"")));
 
   @override
   Future<String> init() async {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     return KeysSuccessUtility.sUCCESS;
+  }
+
+  @override
+  void setValue(String value) {
+    getDataForNamedParameterNamedStreamWState.value = value;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  @override
+  void clearValue() {
+    getDataForNamedParameterNamedStreamWState.value = "";
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+  
+  @override
+  void send(Function(String) callbackSuccess,Function(String) callbackException) {
+    if(getDataForNamedParameterNamedStreamWState.value.isEmpty) {
+      return;
+    }
+    if(getDataForNamedParameterNamedStreamWState.isNotSpamButton) {
+      return;
+    }
+    getDataForNamedParameterNamedStreamWState.isNotSpamButton = true;
+    final value = getDataForNamedParameterNamedStreamWState.value;
+    getDataForNamedParameterNamedStreamWState.isNotSpamButton = false;
+    getDataForNamedParameterNamedStreamWState.value = "";
+    callbackSuccess(value);
   }
 }

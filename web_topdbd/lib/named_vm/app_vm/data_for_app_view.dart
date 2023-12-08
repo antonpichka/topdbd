@@ -26,62 +26,67 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
       return EnumDataForAppView.thoseWorks;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        nameRoute == KeysNavigationUtility.navigationViewQQHome)
+        nameRoute == KeysNavigationUtility.unAuthNavigationViewQQHome)
     {
       return EnumDataForAppView.authMainViewWHome;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        nameRoute == KeysNavigationUtility.navigationViewQQTopPlayers)
+        nameRoute == KeysNavigationUtility.unAuthNavigationViewQQTopPlayers)
     {
       return EnumDataForAppView.authMainViewWTopPlayers;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        nameRoute == KeysNavigationUtility.navigationViewQQBalance)
+        nameRoute == KeysNavigationUtility.unAuthNavigationViewQQBalance)
     {
       return EnumDataForAppView.authMainViewWBalance;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        nameRoute == KeysNavigationUtility.navigationViewQQLogin)
+        nameRoute == KeysNavigationUtility.unAuthNavigationViewQQLogin)
     {
       return EnumDataForAppView.authMainViewWLogin;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        nameRoute == KeysNavigationUtility.navigationViewQQTermsOfUse)
+        nameRoute == KeysNavigationUtility.customFooterViewQQTermsOfUse)
     {
       return EnumDataForAppView.authMainViewWTermsOfUse;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQId &&
+        getUrlWhereSearchPlayersParameterNameRoute == KeysNavigationUtility.searchUsersViewQQSearchPlayers)
+    {
+      return EnumDataForAppView.authMainViewWSearchPlayers;
+    }
+    if(uniqueIdByUser.isNotEmpty &&
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQId &&
         usernameByDiscordUser == getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWId;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQId &&
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQId &&
         usernameByDiscordUser != getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdFIRST;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQStats &&
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQStats &&
         usernameByDiscordUser == getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdWStats;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQStats &&
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQStats &&
         usernameByDiscordUser != getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdWStatsFIRST;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQMatches &&
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQMatches &&
         usernameByDiscordUser == getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdWMatches;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQMatches &&
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQMatches &&
         usernameByDiscordUser != getIdWhereUserParameterNameRoute)
     {
       return EnumDataForAppView.authMainViewWUserWIdWMatchesFIRST;
@@ -96,46 +101,74 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
       return EnumDataForAppView.authMainViewWNotFound;
     }
     if(uniqueIdByUser.isEmpty &&
-        nameRoute == KeysNavigationUtility.navigationViewQQHome)
+        nameRoute == KeysNavigationUtility.unAuthNavigationViewQQHome)
     {
       return EnumDataForAppView.unAuthMainViewWHome;
     }
     if(uniqueIdByUser.isEmpty &&
-        nameRoute == KeysNavigationUtility.navigationViewQQTopPlayers)
+        nameRoute == KeysNavigationUtility.unAuthNavigationViewQQTopPlayers)
     {
       return EnumDataForAppView.unAuthMainViewWTopPlayers;
     }
     if(uniqueIdByUser.isEmpty &&
-        nameRoute == KeysNavigationUtility.navigationViewQQBalance)
+        nameRoute == KeysNavigationUtility.unAuthNavigationViewQQBalance)
     {
       return EnumDataForAppView.unAuthMainViewWBalance;
     }
     if(uniqueIdByUser.isEmpty &&
-        nameRoute == KeysNavigationUtility.navigationViewQQLogin)
+        nameRoute == KeysNavigationUtility.unAuthNavigationViewQQLogin)
     {
       return EnumDataForAppView.unAuthMainViewWLogin;
     }
     if(uniqueIdByUser.isEmpty &&
-        nameRoute == KeysNavigationUtility.navigationViewQQTermsOfUse)
+        nameRoute == KeysNavigationUtility.customFooterViewQQTermsOfUse)
     {
       return EnumDataForAppView.unAuthMainViewWTermsOfUse;
     }
     if(uniqueIdByUser.isEmpty &&
-        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQId)
+        getUrlWhereSearchPlayersParameterNameRoute == KeysNavigationUtility.searchUsersViewQQSearchPlayers)
+    {
+      return EnumDataForAppView.unAuthMainViewWSearchPlayers;
+    }
+    if(uniqueIdByUser.isEmpty &&
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQId)
     {
       return EnumDataForAppView.unAuthMainViewWUserWId;
     }
     if(uniqueIdByUser.isEmpty &&
-        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQStats)
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQStats)
     {
       return EnumDataForAppView.unAuthMainViewWUserWIdWStats;
     }
     if(uniqueIdByUser.isEmpty &&
-        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.navigationUserViewQQUserQQIdQQMatches)
+        getUrlWhereUserParameterNameRoute == KeysNavigationUtility.unAuthNavigationUserViewQQUserQQIdQQMatches)
     {
       return EnumDataForAppView.unAuthMainViewWUserWIdWMatches;
     }
     return EnumDataForAppView.unAuthMainViewWNotFound;
+  }
+
+  String get getUrlWhereSearchPlayersParameterNameRoute {
+    String url = "";
+    for(int i = 0; i < nameRoute.split("=").length; i++) {
+      final itemNameRoute = nameRoute.split("=")[i];
+      if(itemNameRoute == "#/search_players?q") {
+        url += "$itemNameRoute=";
+        continue;
+      }
+      url += "id";
+    }
+    return url;
+  }
+
+  String get getIdWhereSearchPlayersParameterNameRoute {
+    if(nameRoute.split("=").length < 2) {
+      return "";
+    }
+    if(nameRoute.split("=")[0] != "#/search_players?q") {
+      return "";
+    }
+    return nameRoute.split("=")[1];
   }
 
   String get getUrlWhereUserParameterNameRoute {

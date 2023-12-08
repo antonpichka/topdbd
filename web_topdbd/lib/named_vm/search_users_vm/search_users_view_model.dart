@@ -11,12 +11,27 @@ final class SearchUsersViewModel extends BaseNamedViewModel<DataForSearchUsersVi
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   // NamedUtility
 
-  SearchUsersViewModel()
-      : super(DefaultStreamWState(DataForSearchUsersView(true)));
+  SearchUsersViewModel(String value)
+      : super(DefaultStreamWState(DataForSearchUsersView(true,false,value)));
 
   @override
   Future<String> init() async {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     return KeysSuccessUtility.sUCCESS;
+  }
+
+  @override
+  void send(Function(String p1) callbackSuccess, Function(String p2) callbackException) {
+    // TODO: implement send
+  }
+
+  @override
+  void setValue(String value) {
+    // TODO: implement setValue
+  }
+
+  @override
+  void clearValue() {
+    // TODO: implement clearValue
   }
 }

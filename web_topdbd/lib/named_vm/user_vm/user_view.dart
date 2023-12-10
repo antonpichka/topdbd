@@ -24,7 +24,6 @@ final class _UserViewStats extends State<UserView> {
 
   @override
   Widget build(BuildContext context) {
-    /// THERE SECOND
     return SizedBox(
       width: double.infinity,
       child: Card(

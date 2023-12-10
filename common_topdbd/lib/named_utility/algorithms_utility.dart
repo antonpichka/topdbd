@@ -178,4 +178,16 @@ final class AlgorithmsUtility {
     }
     return countryRD ?? listCountryRD.listModel.last;
   }
+
+  static int getFormulaWPercentageDifferenceButDistanceTraveledFromSmallerNumberAndLargerNumber(int smallerNumber, int largerNumber) {
+    if(smallerNumber < 0 || largerNumber < 0) {
+      return 0;
+    }
+    final result = ((smallerNumber/largerNumber-1)*100).toInt();
+    return result < 0 ? 100-(-result) : 100-result;
+  }
+
+  static int getDifferenceInDaysFromStartDateTimeAndEndDateTime(DateTime startDateTime,DateTime endDateTime) {
+    return (endDateTime.difference(startDateTime).inHours / 24).round();
+  }
 }

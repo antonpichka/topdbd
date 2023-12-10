@@ -18,4 +18,11 @@ base class RoleUser extends BaseModel {
         "isAdmin: $isAdmin, "
         "isTest: $isTest)";
   }
+
+  List<String> get getListStringWhereRolesEqualTrueParametersTwo {
+    final List<String> listString = List.empty(growable: true);
+    isAdmin ? listString.add("Admin") : null;
+    isTest ? listString.add("Test") : null;
+    return listString;
+  }
 }

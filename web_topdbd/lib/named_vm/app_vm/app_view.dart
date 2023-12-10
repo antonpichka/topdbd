@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/l10n/l10n.dart';
+import 'package:web_topdbd/named_utility/algorithms_utility.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_vm/about_me_user_view.dart';
 import 'package:web_topdbd/named_vm/already_logged_view.dart';
@@ -127,7 +128,7 @@ final class _AppViewState extends State<AppView> {
                   TermsOfUseView()));
             case EnumDataForAppView.authMainViewWSearchPlayers:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
-                  SearchUsersToListView(dataForNamedParameterNamedStreamWState.getIdWhereSearchPlayersParameterNameRoute)));
+                  SearchUsersToListView(ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),dataForNamedParameterNamedStreamWState.getIdWhereSearchPlayersParameterNameRoute)));
             case EnumDataForAppView.authMainViewWUserWId:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   UserView(
@@ -196,7 +197,7 @@ final class _AppViewState extends State<AppView> {
                   TermsOfUseView()));
             case EnumDataForAppView.unAuthMainViewWSearchPlayers:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
-                  SearchUsersToListView(dataForNamedParameterNamedStreamWState.getIdWhereSearchPlayersParameterNameRoute)));
+                  SearchUsersToListView(ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),dataForNamedParameterNamedStreamWState.getIdWhereSearchPlayersParameterNameRoute)));
             case EnumDataForAppView.unAuthMainViewWUserWId:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
                   UserView(

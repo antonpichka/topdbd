@@ -19,4 +19,8 @@ base class DiscordUserFirestore extends BaseModel {
         "username: $username, "
         "globalName: $globalName)";
   }
+
+  String get getStringWhereSubstringParameterUsername {
+    return username.length >  9 ? "${username.substring(0,9)}..." : username;
+  }
 }

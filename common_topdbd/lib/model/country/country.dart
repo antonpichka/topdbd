@@ -1,3 +1,5 @@
+import 'package:common_topdbd/model/country_rd/country_rd.dart';
+import 'package:common_topdbd/named_utility/algorithms_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -15,5 +17,9 @@ base class Country extends BaseModel {
   String toString() {
     return "Country(uniqueIdByUser: $uniqueIdByUser, "
         "nameCountry: $nameCountry)";
+  }
+
+  CountryRD get getCountryRDWhereListCountryRDWReadyDataUtilityParameterNameCountry {
+    return AlgorithmsUtility.getCountryRDWhereListCountryRDWReadyDataUtilityFromCountryAbbreviation(nameCountry);
   }
 }

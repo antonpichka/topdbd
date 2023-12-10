@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 import 'package:common_topdbd/named_utility/keys_api_utility.dart';
+import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
@@ -80,8 +81,7 @@ final class AppView extends StatelessWidget {
 final class DiscordAuthAPI {
   final httpClientService = HttpClientService.instance;
 
-  Future<Result<Strings>> discordAuthAPI()
-  async {
+  Future<Result<Strings>> discordAuthAPI() async {
     try {
       final responseAuthenticateDiscord = await FlutterWebAuth2.authenticate(
           url: Uri.https('discord.com', '/api/oauth2/authorize', {
@@ -107,24 +107,24 @@ final class DiscordAuthAPI {
                 .queryParameters['code'],
           });
       if (responseDiscordOauth2Token?.statusCode != 200) {
-        throw NetworkException.fromKeyAndStatusCode(this, responseDiscordOauth2Token!.statusCode.toString(), responseDiscordOauth2Token.statusCode);
+        throw NetworkException.fromKeyAndStatusCode(this,responseDiscordOauth2Token?.statusCode.toString() ?? "", responseDiscordOauth2Token?.statusCode ?? 0);
       }
-      final jsonFromResponseDiscordOauth2Token = jsonDecode(responseDiscordOauth2Token!.body);
+      final jsonWResponseDiscordOauth2Token = jsonDecode(responseDiscordOauth2Token?.body ?? "");
       final responseDiscordUser = await httpClientService
           .getParameterHttpClient
           ?.get(Uri.parse('https://discord.com/api/users/@me'),
           headers: {
-            'authorization': '${jsonFromResponseDiscordOauth2Token["token_type"]} ${jsonFromResponseDiscordOauth2Token["access_token"]}',
+            'authorization': '${jsonWResponseDiscordOauth2Token["token_type"]} ${jsonWResponseDiscordOauth2Token["access_token"]}',
           });
       if(responseDiscordUser?.statusCode != 200) {
-        throw NetworkException.fromKeyAndStatusCode(this, responseDiscordUser!.statusCode.toString(), responseDiscordUser.statusCode);
+        throw NetworkException.fromKeyAndStatusCode(this,responseDiscordUser?.statusCode.toString() ?? "", responseDiscordUser?.statusCode ?? 0);
       }
-      final Map<String,dynamic> data = jsonDecode(responseDiscordUser!.body);
+      final Map<String,dynamic> data = jsonDecode(responseDiscordUser?.body ?? "");
       return Result.success(Strings(data.toString()));
     } on NetworkException catch(e) {
       return Result.exception(e);
     } catch(e) {
-      return Result.exception(LocalException(this,EnumGuilty.device,e.toString()));
+      return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

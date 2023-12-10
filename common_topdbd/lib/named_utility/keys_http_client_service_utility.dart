@@ -9,6 +9,8 @@ final class KeysHttpClientServiceUtility {
   /* IPAddress */
   static const String iPAddressQQIp = "ip";
   static const String iPAddressQQNameCountry = "country";
+  /* DatesTimes */
+  static const String datesTimesQQUtcDatetime = "utc_datetime";
 
   const KeysHttpClientServiceUtility._();
 }

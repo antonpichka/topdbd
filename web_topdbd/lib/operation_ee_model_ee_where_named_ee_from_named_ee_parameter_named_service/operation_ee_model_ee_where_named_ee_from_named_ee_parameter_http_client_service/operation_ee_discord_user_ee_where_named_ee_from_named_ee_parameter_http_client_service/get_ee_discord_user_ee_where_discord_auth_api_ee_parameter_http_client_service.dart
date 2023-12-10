@@ -14,8 +14,7 @@ base class GetEEDiscordUserEEWhereDiscordAuthAPIEEParameterHttpClientService<T e
   @protected
   final httpClientService = HttpClientService.instance;
 
-  Future<Result<T>> getDiscordUserWhereDiscordAuthAPIParameterHttpClientService()
-  async {
+  Future<Result<T>> getDiscordUserWhereDiscordAuthAPIParameterHttpClientService() async {
     try {
       final responseAuthenticateDiscord = await FlutterWebAuth2.authenticate(
           url: Uri.https('discord.com', '/api/oauth2/authorize', {
@@ -43,17 +42,17 @@ base class GetEEDiscordUserEEWhereDiscordAuthAPIEEParameterHttpClientService<T e
       if (responseDiscordOauth2Token?.statusCode != 200) {
         throw NetworkException.fromKeyAndStatusCode(this, responseDiscordOauth2Token?.statusCode.toString() ?? "", responseDiscordOauth2Token?.statusCode ?? 0);
       }
-      final jsonFromResponseDiscordOauth2Token = jsonDecode(responseDiscordOauth2Token!.body);
+      final jsonWResponseDiscordOauth2Token = jsonDecode(responseDiscordOauth2Token?.body ?? "");
       final responseDiscordUser = await httpClientService
           .getParameterHttpClient
           ?.get(Uri.parse('https://discord.com/api/users/@me'),
           headers: {
-            'authorization': '${jsonFromResponseDiscordOauth2Token["token_type"]} ${jsonFromResponseDiscordOauth2Token["access_token"]}',
+            'authorization': '${jsonWResponseDiscordOauth2Token["token_type"]} ${jsonWResponseDiscordOauth2Token["access_token"]}',
           });
       if(responseDiscordUser?.statusCode != 200) {
-        throw NetworkException.fromKeyAndStatusCode(this, responseDiscordUser?.statusCode.toString() ?? "", responseDiscordUser?.statusCode ?? 0);
+        throw NetworkException.fromKeyAndStatusCode(this,responseDiscordUser?.statusCode.toString() ?? "",responseDiscordUser?.statusCode ?? 0);
       }
-      final Map<String,dynamic> data = jsonDecode(responseDiscordUser!.body);
+      final Map<String,dynamic> data = jsonDecode(responseDiscordUser?.body ?? "");
       return Result<T>.success(DiscordUser(
           data[KeysHttpClientServiceUtility.discordUserQQId] ?? "",
           data[KeysHttpClientServiceUtility.discordUserQQUsername] ?? "",
@@ -61,7 +60,7 @@ base class GetEEDiscordUserEEWhereDiscordAuthAPIEEParameterHttpClientService<T e
     } on NetworkException catch(e) {
       return Result<T>.exception(e);
     } catch(e) {
-      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN));
+      return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }
   }
 }

@@ -33,6 +33,10 @@ base class ListDiscordUserFirestore<T extends DiscordUserFirestore> extends Base
   }
 
   void sortingWhereDiscordUserFirestoreWFirstWListStringWUsernameIteratorFromListString(List<String> listString) {
+    if(listString.isEmpty) {
+      listModel.clear();
+      return;
+    }
     sortingFromModelWNamedWNamedWNamedIteratorParameterListModel(DiscordUserFirestoreWFirstWListStringWUsernameIterator(listString));
   }
 }

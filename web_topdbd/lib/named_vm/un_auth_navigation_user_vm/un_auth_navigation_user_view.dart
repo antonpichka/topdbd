@@ -54,6 +54,7 @@ final class _UnAuthNavigationUserViewState extends State<UnAuthNavigationUserVie
         return TabBar(
             controller: _tabController,
             isScrollable: true,
+            tabAlignment: TabAlignment.center,
             tabs: _getListWidgetWhereTabs,
             onTap: (int index) {
               _goWhereNavigationFromIndexWListWidgetParameterViewModel(index);

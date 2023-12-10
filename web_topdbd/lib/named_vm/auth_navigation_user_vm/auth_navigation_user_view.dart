@@ -57,6 +57,7 @@ final class _AuthNavigationUserViewState extends State<AuthNavigationUserView> w
         return TabBar(
           controller: _tabController,
           isScrollable: true,
+          tabAlignment: TabAlignment.center,
           tabs: dataForNamedParameterNamedStreamWState.isAuthMyUser
               ? _getListWidgetWhereTabsAndIsAuthMyUser
               : _getListWidgetWhereTabsAndIsNotAuthMyUser,

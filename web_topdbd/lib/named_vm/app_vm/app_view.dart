@@ -21,7 +21,7 @@ import 'package:web_topdbd/named_vm/settings_user_view.dart';
 import 'package:web_topdbd/named_vm/stats_user_view.dart';
 import 'package:web_topdbd/named_vm/stats_user_w_list_season_stats_user_view.dart';
 import 'package:web_topdbd/named_vm/terms_of_use_vm/terms_of_use_view.dart';
-import 'package:web_topdbd/named_vm/top_players_view.dart';
+import 'package:web_topdbd/named_vm/top_players_vm/top_players_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_navigation_user_vm/un_auth_navigation_user_view.dart';
 import 'package:web_topdbd/named_vm/user_vm/user_view.dart';
 

@@ -2,28 +2,238 @@ import 'package:common_topdbd/model/country/country.dart';
 import 'package:common_topdbd/model/country/list_country.dart';
 import 'package:common_topdbd/model/discord_user_firestore/discord_user_firestore.dart';
 import 'package:common_topdbd/model/discord_user_firestore/list_discord_user_firestore.dart';
-import 'package:common_topdbd/model/duf_w_country_w_role_user/list_duf_w_country_w_role_user.dart';
 import 'package:common_topdbd/model/role_user/list_role_user.dart';
 import 'package:common_topdbd/model/role_user/role_user.dart';
-import 'package:common_topdbd/named_utility/algorithms_utility.dart';
+import 'package:common_topdbd/model/stats/list_stats.dart';
+import 'package:common_topdbd/model/stats/stats.dart';
+import 'package:common_topdbd/model/top_players/list_top_players.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
-import 'package:web_topdbd/named_vm/search_users_to_list_vm/data_for_search_users_to_list_view.dart';
-import 'package:web_topdbd/named_vm/search_users_to_list_vm/i_search_users_to_list_view_model.dart';
+import 'package:web_topdbd/named_vm/top_players_vm/data_for_top_players_view.dart';
+import 'package:web_topdbd/named_vm/top_players_vm/i_top_players_view_model.dart';
 
 @immutable
-final class TestSearchUsersToListViewModel extends BaseNamedViewModel<DataForSearchUsersToListView, DefaultStreamWState<DataForSearchUsersToListView>>
-    implements ISearchUsersToListViewModel
+final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayersView,
+    DefaultStreamWState<DataForTopPlayersView>> implements ITopPlayersViewModel
 {
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   // NamedUtility
 
-  TestSearchUsersToListViewModel(String value)
-      : super(DefaultStreamWState(DataForSearchUsersToListView(true,value,ListDUFWCountryWRoleUser(List.empty(growable: true)))));
+  TestTopPlayersViewModel()
+      : super(DefaultStreamWState(DataForTopPlayersView(true,"1 - ∞",false,ListTopPlayers(List.empty(growable: true)))));
 
   @override
   Future<String> init() async {
+    /// getListStatsWhereOrderByDescWRatingPointsParameterFirebaseFirestoreService
+    final listStats = ListStats<Stats>(
+        List.of([
+          const Stats(
+              "18022712-959f-11ee-b9d1-0242ac120002",
+              10,
+              12,
+              10,
+              500),
+          const Stats(
+              "4d41ada8-959f-11ee-b9d1-0242ac120002",
+              10,
+              5,
+              0,
+              450),
+          const Stats(
+              "6190ec42-959f-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              450),
+          const Stats(
+              "7eb5a664-959f-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              430),
+          const Stats(
+              "929fe8f6-959f-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              420),
+          const Stats(
+              "acbfb59a-959f-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              420),
+          const Stats(
+              "c4017cca-959f-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              420),
+          const Stats(
+              "d92c1434-959f-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              419),
+          const Stats(
+              "e853dbea-959f-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              418),
+          const Stats(
+              "fd7861e4-959f-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              418),
+          const Stats(
+              "1408e258-95a0-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              417),
+          const Stats(
+              "2b6512b4-95a0-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              416),
+          const Stats(
+              "42420032-95a0-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              415),
+          const Stats(
+              "543a4c90-95a0-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              414),
+          const Stats(
+              "63d2c56a-95a0-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              413),
+          const Stats(
+              "74eded70-95a0-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              400),
+          const Stats(
+              "8b088304-95a0-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              399),
+          const Stats(
+              "9d5bb24c-95a0-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              395),
+          const Stats(
+              "b212c202-95a0-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              335),
+          const Stats(
+              "c0ff038e-95a0-11ee-b9d1-0242ac120002",
+              10,
+              0,
+              0,
+              320),
+        ]));
+    /// getListRoleUserFromListStringWUniqueIdByUserParameterFirebaseFirestoreService
+    final listRoleUser = ListRoleUser<RoleUser>(
+        List.of([
+          const RoleUser(
+              "18022712-959f-11ee-b9d1-0242ac120002",
+              true,
+              true),
+          const RoleUser(
+              "4d41ada8-959f-11ee-b9d1-0242ac120002",
+              false,
+              true),
+          const RoleUser(
+              "6190ec42-959f-11ee-b9d1-0242ac120002",
+              false,
+              true),
+          const RoleUser(
+              "7eb5a664-959f-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "929fe8f6-959f-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "acbfb59a-959f-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "c4017cca-959f-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "d92c1434-959f-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "e853dbea-959f-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "fd7861e4-959f-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "1408e258-95a0-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "2b6512b4-95a0-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "42420032-95a0-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "543a4c90-95a0-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "63d2c56a-95a0-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "74eded70-95a0-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "8b088304-95a0-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "9d5bb24c-95a0-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "b212c202-95a0-11ee-b9d1-0242ac120002",
+              false,
+              false),
+          const RoleUser(
+              "c0ff038e-95a0-11ee-b9d1-0242ac120002",
+              false,
+              false)
+        ]));
+    /// getListDiscordUserFirestoreFromListStringWUniqueIdByUserParameterFirebaseFirestoreService
     final listDiscordUserFirestore = ListDiscordUserFirestore<DiscordUserFirestore>(
         List.of([
           const DiscordUserFirestore(
@@ -127,11 +337,6 @@ final class TestSearchUsersToListViewModel extends BaseNamedViewModel<DataForSea
               "mami",
               "Mame")
         ]));
-    final listStringWhereSearchAlgorithmByPrefixWAllCharactersThatWereEnteredFromTwo = AlgorithmsUtility.getListStringWhereSearchAlgorithmByPrefixWAllCharactersThatWereEnteredFromTwo(
-        listDiscordUserFirestore.getListStringWhereAdditionUsernameParameterListModel,
-        getDataForNamedParameterNamedStreamWState.value);
-    listDiscordUserFirestore
-        .sortingWhereDiscordUserFirestoreWFirstWListStringWUsernameIteratorFromListString(listStringWhereSearchAlgorithmByPrefixWAllCharactersThatWereEnteredFromTwo);
     /// getListCountryFromListStringWUniqueIdByUserParameterFirebaseFirestoreService
     final listCountry = ListCountry<Country>(
         List.of([
@@ -196,95 +401,21 @@ final class TestSearchUsersToListViewModel extends BaseNamedViewModel<DataForSea
               "c0ff038e-95a0-11ee-b9d1-0242ac120002",
               "GB")
         ]));
-    /// getListRoleUserFromListStringWUniqueIdByUserParameterFirebaseFirestoreService
-    final listRoleUser = ListRoleUser<RoleUser>(
-        List.of([
-          const RoleUser(
-              "18022712-959f-11ee-b9d1-0242ac120002",
-              true,
-              true),
-          const RoleUser(
-              "4d41ada8-959f-11ee-b9d1-0242ac120002",
-              false,
-              true),
-          const RoleUser(
-              "6190ec42-959f-11ee-b9d1-0242ac120002",
-              false,
-              true),
-          const RoleUser(
-              "7eb5a664-959f-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "929fe8f6-959f-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "acbfb59a-959f-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "c4017cca-959f-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "d92c1434-959f-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "e853dbea-959f-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "fd7861e4-959f-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "1408e258-95a0-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "2b6512b4-95a0-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "42420032-95a0-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "543a4c90-95a0-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "63d2c56a-95a0-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "74eded70-95a0-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "8b088304-95a0-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "9d5bb24c-95a0-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "b212c202-95a0-11ee-b9d1-0242ac120002",
-              false,
-              false),
-          const RoleUser(
-              "c0ff038e-95a0-11ee-b9d1-0242ac120002",
-              false,
-              false)
-        ]));
     getDataForNamedParameterNamedStreamWState.isLoading = false;
-    getDataForNamedParameterNamedStreamWState
-        .listDUFWCountryWRoleUser
-        .insertListWhereEqualsUniqueIdByUserFromListDiscordUserFirestoreAndListCountryAndListRoleUser(listDiscordUserFirestore,listCountry,listRoleUser);
     return KeysSuccessUtility.sUCCESS;
   }
 
+  @override
+  void setValueToDropdownButton(String? value) {
+    getDataForNamedParameterNamedStreamWState.valueToDropdownButton = value ?? "";
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  @override
+  void refreshListTopPlayers() {
+    if(getDataForNamedParameterNamedStreamWState.isHasReachedMax) {
+      return;
+    }
+    /// getListStatsWhereWRatingPointsMoreWEqualFromLastRatingPointsParameterFirebaseFirestoreService
+  }
 }

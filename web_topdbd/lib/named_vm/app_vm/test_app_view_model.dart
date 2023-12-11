@@ -19,6 +19,8 @@ import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_uibu_w_ubdu_ee_where_named_ee_from_named_ee_parameters_temp_cache_service_and_stream_subscription/start_listening_and_cancel_listening_ee_uibu_w_ubdu_ee_from_callback_ee_parameters_temp_cache_service_and_stream_subscription.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
+import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
+import 'package:web_topdbd/named_utility/web_navigation_utility.dart';
 import 'package:web_topdbd/named_vm/app_vm/data_for_app_view.dart';
 import 'package:web_topdbd/named_vm/app_vm/i_app_view_model.dart';
 
@@ -88,6 +90,12 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
     /// AUTH
     const uniqueIdByUser = "4b08db90-9114-11ee-b9d1-0242ac120002";
     const usernameByDiscordUser = "wwwwwwqwwwwwwwwwwwqqwwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq";
+    _updateEEIntsEEWhereSeasonNumberBySeasonEEFromIntsEEParameterTempCacheService
+        .updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(const Ints(10));
+    _updateEEDatesTimesEEWhereStartOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
+        .updateDatesTimesWhereStartOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(DateTime.parse("2023-12-01")));
+    _updateEEDatesTimesEEWhereEndOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
+        .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(DateTime.parse("2023-12-31")));
     _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
         .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(const Strings(uniqueIdByUser));
     _updateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService
@@ -114,12 +122,6 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
         .updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(const Bools(true));
     _updateEEBoolsEEWhereIsTestByRoleUserEEFromBoolsEEParameterTempCacheService
        .updateBoolsWhereIsTestByRoleUserFromBoolsParameterTempCacheService(const Bools(true));
-    _updateEEIntsEEWhereSeasonNumberBySeasonEEFromIntsEEParameterTempCacheService
-        .updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(const Ints(10));
-    _updateEEDatesTimesEEWhereStartOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
-        .updateDatesTimesWhereStartOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(DateTime.parse("2023-12-01")));
-    _updateEEDatesTimesEEWhereEndOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
-        .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(DateTime.parse("2023-12-31")));
     getDataForNamedParameterNamedStreamWState.listLoaded = List<bool>.of([true,true]);
     getDataForNamedParameterNamedStreamWState.uniqueIdByUser = uniqueIdByUser;
     getDataForNamedParameterNamedStreamWState.usernameByDiscordUser = usernameByDiscordUser;
@@ -133,6 +135,9 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
     {
       getDataForNamedParameterNamedStreamWState.uniqueIdByUser = uIBUWUBDU.parameter?.uniqueIdByUser ?? "";
       getDataForNamedParameterNamedStreamWState.usernameByDiscordUser = uIBUWUBDU.parameter?.usernameByDiscordUser ?? "";
+      getDataForNamedParameterNamedStreamWState.nameRoute = KeysNavigationUtility.unAuthNavigationViewQQHome;
+      WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromNameRoute(KeysNavigationUtility.unAuthNavigationViewQQHome);
+      notifyStreamDataForAppView();
     });
   }
 

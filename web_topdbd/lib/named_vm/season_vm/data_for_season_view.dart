@@ -22,37 +22,29 @@ final class DataForSeasonView extends BaseDataForNamed<EnumDataForSeasonView> {
   }
 
   String get getStringWhereFormattedParameterStartOfSeasonTimeBySeason {
-    return "${startOfSeasonTimeBySeason.year}-${startOfSeasonTimeBySeason.month >= 10
-        ? startOfSeasonTimeBySeason.month
-        : "0${startOfSeasonTimeBySeason.month}"}-${startOfSeasonTimeBySeason.day >= 10
-        ? startOfSeasonTimeBySeason.day
-        : "0${startOfSeasonTimeBySeason.day}"}";
+    return AlgorithmsUtility.getStringWhereFormattedFromDateTime(startOfSeasonTimeBySeason);
   }
 
   String get getStringWhereFormattedParameterEndOfSeasonTimeBySeason {
-    return "${endOfSeasonTimeBySeason.year}-${endOfSeasonTimeBySeason.month >= 10
-        ? endOfSeasonTimeBySeason.month
-        : "0${endOfSeasonTimeBySeason.month}"}-${endOfSeasonTimeBySeason.day >= 10
-        ? endOfSeasonTimeBySeason.day
-        : "0${endOfSeasonTimeBySeason.day}"}";
+    return AlgorithmsUtility.getStringWhereFormattedFromDateTime(endOfSeasonTimeBySeason);
   }
 
-  int get getIntWhereFormulaWPercentageDifferenceButDistanceTraveledParametersThree {
+  int get getIntWhereInReverseOrderWFormulaPercentageDifferenceButDistanceTraveledParametersThree {
     final differenceInDaysFromStartDateTimeAndEndDateTime = AlgorithmsUtility.getDifferenceInDaysFromStartDateTimeAndEndDateTime(startOfSeasonTimeBySeason,endOfSeasonTimeBySeason);
     final differenceInDaysFromStartDateTimeAndEndDateTimeFIRST = AlgorithmsUtility.getDifferenceInDaysFromStartDateTimeAndEndDateTime(todayTime,endOfSeasonTimeBySeason);
-    final formulaWPercentageDifferenceButDistanceTraveledFromSmallerNumberAndLargerNumber = (-AlgorithmsUtility
-        .getFormulaWPercentageDifferenceButDistanceTraveledFromSmallerNumberAndLargerNumber(differenceInDaysFromStartDateTimeAndEndDateTimeFIRST,differenceInDaysFromStartDateTimeAndEndDateTime)+100);
-    return formulaWPercentageDifferenceButDistanceTraveledFromSmallerNumberAndLargerNumber;
+    final inReverseOrderWhereFormulaPercentageDifferenceButDistanceTraveledFromTwo = AlgorithmsUtility
+        .getInReverseOrderWhereFormulaPercentageDifferenceButDistanceTraveledFromTwo(differenceInDaysFromStartDateTimeAndEndDateTimeFIRST,differenceInDaysFromStartDateTimeAndEndDateTime);
+    return inReverseOrderWhereFormulaPercentageDifferenceButDistanceTraveledFromTwo;
   }
 
   double get getDoubleWhereIntWFormulaWPercentageDifferenceButDistanceTraveled {
-    final intWhereFormulaWPercentageDifferenceButDistanceTraveledParametersThree = getIntWhereFormulaWPercentageDifferenceButDistanceTraveledParametersThree;
-    if(intWhereFormulaWPercentageDifferenceButDistanceTraveledParametersThree <= 0) {
+    final intWhereInReverseOrderWFormulaPercentageDifferenceButDistanceTraveledParametersThree = getIntWhereInReverseOrderWFormulaPercentageDifferenceButDistanceTraveledParametersThree;
+    if(intWhereInReverseOrderWFormulaPercentageDifferenceButDistanceTraveledParametersThree <= 0) {
       return 0.0;
     }
-    if(intWhereFormulaWPercentageDifferenceButDistanceTraveledParametersThree >= 100) {
+    if(intWhereInReverseOrderWFormulaPercentageDifferenceButDistanceTraveledParametersThree >= 100) {
       return 1.0;
     }
-    return intWhereFormulaWPercentageDifferenceButDistanceTraveledParametersThree / 100;
+    return intWhereInReverseOrderWFormulaPercentageDifferenceButDistanceTraveledParametersThree / 100;
   }
 }

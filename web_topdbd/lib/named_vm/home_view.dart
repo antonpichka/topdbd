@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_topdbd/named_vm/list_season_view.dart';
+import 'package:web_topdbd/named_vm/list_season_vm/list_season_view.dart';
 import 'package:web_topdbd/named_vm/season_vm/season_view.dart';
 
 final class HomeView extends StatelessWidget {

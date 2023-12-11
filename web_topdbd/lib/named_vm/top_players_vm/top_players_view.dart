@@ -7,13 +7,20 @@ final class TopPlayersView extends StatefulWidget {
 }
 
 final class _TopPlayersViewState extends State<TopPlayersView> {
+  late final ScrollController _scrollController;
+
   @override
   void initState() {
+    _scrollController = ScrollController();
+    _scrollController.addListener(_goScrollWhereWeveReachedTheBottom);
     super.initState();
   }
 
   @override
   void dispose() {
+    _scrollController
+      ..removeListener(_goScrollWhereWeveReachedTheBottom)
+      ..dispose();
     super.dispose();
   }
 
@@ -86,9 +93,9 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
                 scrollDirection: Axis.vertical,
                 itemCount: 100, /// hasReachedMax == true ? listModel.length : listModel.length + 1
                 itemBuilder: (context,index) {
-                 /*if(index >= listModel.length) {
-                    return buildButtonMoreDataToListView();
-                  }*/
+                  if(index >= listModel.length) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
                   if(index == 0) {
                     return _getHeaderToListViewWhereItemToListViewFromIndexAndUsername(index,"Vicar32");
                   }
@@ -149,16 +156,12 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
                   "Total matches played",
                   style: Theme.of(context).textTheme.bodyLarge),
             ),
-           /* Expanded(
-                child: Text(
-                    'Favorite Maniacs',
-                    style: Theme.of(context).textTheme.bodyLarge)),*/
           ],
         ),
         Divider(
           height: 2.0,
           thickness: 2.0,
-          color: Theme.of(context).dividerColor,),
+          color: Theme.of(context).dividerColor),
         _getItemToListViewFromIndexAndUsername(index,username),
       ],
     );
@@ -205,27 +208,21 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
         const Expanded(
           child: Text("10"),
         ),
-       /* Expanded(
-            child: Wrap(
-              children: [
-                Image.asset(
-                    'assets/icon/dbd/maniac/maniac_trapper.png',
-                    width: 32,
-                    height: 32,
-                    fit: BoxFit.cover),
-                Image.asset(
-                    'assets/icon/dbd/maniac/maniac_kolya.png',
-                    width: 32,
-                    height: 32,
-                    fit: BoxFit.cover),
-                Image.asset(
-                    'assets/icon/dbd/maniac/maniac_nurse.png',
-                    width: 32,
-                    height: 32,
-                    fit: BoxFit.cover),
-              ],)
-        ),*/
       ],
     );
+  }
+
+  void _goScrollWhereWeveReachedTheBottom() {
+    if (_isWhereWeveReachedTheBottomParameterScrollController()) {
+      // qw
+      return;
+    }
+  }
+
+  bool _isWhereWeveReachedTheBottomParameterScrollController() {
+    if (!_scrollController.hasClients) return false;
+    final maxScrollExtent = _scrollController.position.maxScrollExtent;
+    final offset = _scrollController.offset;
+    return offset >= (maxScrollExtent * 0.9);
   }
 }

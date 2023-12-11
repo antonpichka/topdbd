@@ -14,4 +14,12 @@ base class ListStats<T extends Stats> extends BaseListModel<T> {
     }
     return ListStats<T>(newListModel);
   }
+
+  List<String> get getListStringWhereAdditionUniqueIdByUserParameterListModel {
+    final List<String> listString = List.empty(growable: true);
+    for(T itemModel in listModel) {
+      listString.add(itemModel.uniqueIdByUser);
+    }
+    return listString;
+  }
 }

@@ -131,6 +131,14 @@ final class AlgorithmsUtility {
         : "#$nameRoute";
   }
 
+  static String getStringWhereFormattedFromDateTime(DateTime dateTime) {
+    return "${dateTime.year}-${dateTime.month >= 10
+        ? dateTime.month
+        : "0${dateTime.month}"}-${dateTime.day >= 10
+        ? dateTime.day
+        : "0${dateTime.day}"}";
+  }
+
   static int getInterestFormulaFromNumberAndFindPercent(int number, int findPercent) {
     return ((number / 100) * findPercent).toInt();
   }
@@ -179,12 +187,16 @@ final class AlgorithmsUtility {
     return countryRD ?? listCountryRD.listModel.last;
   }
 
-  static int getFormulaWPercentageDifferenceButDistanceTraveledFromSmallerNumberAndLargerNumber(int smallerNumber, int largerNumber) {
+  static int getFormulaPercentageDifferenceButDistanceTraveledFromSmallerNumberAndLargerNumber(int smallerNumber, int largerNumber) {
     if(smallerNumber < 0 || largerNumber < 0) {
       return 0;
     }
     final result = ((smallerNumber/largerNumber-1)*100).toInt();
     return result < 0 ? 100-(-result) : 100-result;
+  }
+
+  static int getInReverseOrderWhereFormulaPercentageDifferenceButDistanceTraveledFromTwo(int smallerNumber, int largerNumber) {
+    return -getFormulaPercentageDifferenceButDistanceTraveledFromSmallerNumberAndLargerNumber(smallerNumber,largerNumber)+100;
   }
 
   static int getDifferenceInDaysFromStartDateTimeAndEndDateTime(DateTime startDateTime,DateTime endDateTime) {

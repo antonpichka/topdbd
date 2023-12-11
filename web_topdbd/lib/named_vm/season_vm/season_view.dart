@@ -71,7 +71,7 @@ final class _SeasonViewState extends State<SeasonView> {
                         lineHeight: 20.0,
                         animationDuration: 2500,
                         percent: dataForNamedParameterNamedStreamWState.getDoubleWhereIntWFormulaWPercentageDifferenceButDistanceTraveled,
-                        center: Text("${dataForNamedParameterNamedStreamWState.getIntWhereFormulaWPercentageDifferenceButDistanceTraveledParametersThree}%"),
+                        center: Text("${dataForNamedParameterNamedStreamWState.getIntWhereInReverseOrderWFormulaPercentageDifferenceButDistanceTraveledParametersThree}%"),
                         barRadius: Radius.zero,
                         backgroundColor: Theme.of(context).colorScheme.background,
                         progressColor: Colors.green,
@@ -92,7 +92,6 @@ final class _SeasonViewState extends State<SeasonView> {
         );
     }
   }
-
 
   Future<void> _initParameterViewModel() async {
     _viewModel

@@ -1,3 +1,4 @@
+import 'package:common_topdbd/model/season/season.dart';
 import 'package:common_topdbd/model/those_works/those_works.dart';
 import 'package:common_topdbd/named_utility/algorithms_utility.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
@@ -21,6 +22,8 @@ import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_uibu_w_ubdu_ee_where_named_ee_from_named_ee_parameters_temp_cache_service_and_stream_subscription/start_listening_and_cancel_listening_ee_uibu_w_ubdu_ee_from_callback_ee_parameters_temp_cache_service_and_stream_subscription.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
+import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
+import 'package:web_topdbd/named_utility/web_navigation_utility.dart';
 import 'package:web_topdbd/named_vm/app_vm/data_for_app_view.dart';
 import 'package:web_topdbd/named_vm/app_vm/i_app_view_model.dart';
 import 'package:web_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_named_service/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_firebase_firestore_service/operation_ee_about_me_ee_where_named_ee_from_named_ee_parameter_firebase_firestore_service/get_ee_about_me_ee_from_unique_id_by_user_ee_parameter_firebase_firestore_service.dart';
@@ -112,8 +115,15 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
   }
 
   @override
-  Future<String> init()
-  async {
+  Future<String> init() async {
+    final getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService = await _getEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService
+        .getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService();
+    if(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService
+        .exceptionController
+        .isWhereNotEqualsNullParameterException())
+    {
+      return _firstQQInitQQGetSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.exceptionController);
+    }
     final getUserParameterSharedPreferencesService = await _getEEUserEEParameterSharedPreferencesService
         .getUserParameterSharedPreferencesService();
     if(getUserParameterSharedPreferencesService
@@ -127,7 +137,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
         ?.getExceptionInStringWhereIsEmptyParameterUniqueId
         ?? "";
     if(getExceptionInStringWhereIsEmptyParameterUniqueId.isNotEmpty) {
-      return _firstQQInitQQGetExceptionInStringWhereIsEmptyParameterUniqueId(getExceptionInStringWhereIsEmptyParameterUniqueId);
+      return _firstQQInitQQGetExceptionInStringWhereIsEmptyParameterUniqueId(getExceptionInStringWhereIsEmptyParameterUniqueId,getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter!);
     }
     final getDiscordUserFirestoreFromUniqueIdByUserParameterFirebaseFirestoreService = await _getEEDiscordUserFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService
         .getDiscordUserFirestoreFromUniqueIdByUserParameterFirebaseFirestoreService(getUserParameterSharedPreferencesService.parameter?.uniqueId ?? "");
@@ -158,7 +168,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
         ?.getExceptionInStringWhereNotEqualsFromIpParameterIp(getIPAddressFirestoreFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.ip ?? "")
         ?? "";
     if(getExceptionInStringWhereNotEqualsFromIpParameterIp.isNotEmpty) {
-      return _firstQQInitQQGetExceptionInStringWhereNotEqualsFromIpParameterIp(getExceptionInStringWhereNotEqualsFromIpParameterIp);
+      return _firstQQInitQQGetExceptionInStringWhereNotEqualsFromIpParameterIp(getExceptionInStringWhereNotEqualsFromIpParameterIp,getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter!);
     }
     final getCountryFromUniqueIdByUserParameterFirebaseFirestoreService = await _getEECountryEEFromUniqueIdByUserEEParameterFirebaseFirestoreService
         .getCountryFromUniqueIdByUserParameterFirebaseFirestoreService(getUserParameterSharedPreferencesService.parameter?.uniqueId ?? "");
@@ -184,14 +194,6 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
     {
       return _firstQQInitQQGetAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService(getAboutMeFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController);
     }
-    final getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService = await _getEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService
-        .getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService();
-    if(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService
-        .exceptionController
-        .isWhereNotEqualsNullParameterException())
-    {
-      return _firstQQInitQQGetSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.exceptionController);
-    }
     final getStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService = await _getEEStatsEEFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityEEParameterFirebaseFirestoreService
         .getStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService(UniqueIdByUserWSeasonNumberBySeasonToStatsUtility(getUserParameterSharedPreferencesService.parameter?.uniqueId ?? "",getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.seasonNumber ?? 0));
     if(getStatsFromUniqueIdByUserWSeasonNumberBySeasonToStatsUtilityParameterFirebaseFirestoreService
@@ -208,6 +210,12 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
     {
       return _firstQQInitQQUpdateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService(updateLastLoginTimeUserFromUniqueIdByUserParameterFirebaseFirestoreService.exceptionController);
     }
+    _updateEEIntsEEWhereSeasonNumberBySeasonEEFromIntsEEParameterTempCacheService
+        .updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(Ints(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.seasonNumber ?? 0));
+    _updateEEDatesTimesEEWhereStartOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
+        .updateDatesTimesWhereStartOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.startOfSeasonTime ?? DateTime.now()));
+    _updateEEDatesTimesEEWhereEndOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
+        .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.endOfSeasonTime ?? DateTime.now()));
     _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
         .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(Strings(getUserParameterSharedPreferencesService.parameter?.uniqueId ?? ""));
     _updateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService
@@ -234,12 +242,6 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
         .updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(Bools(getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false));
     _updateEEBoolsEEWhereIsTestByRoleUserEEFromBoolsEEParameterTempCacheService
         .updateBoolsWhereIsTestByRoleUserFromBoolsParameterTempCacheService(Bools(getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isTest ?? false));
-    _updateEEIntsEEWhereSeasonNumberBySeasonEEFromIntsEEParameterTempCacheService
-        .updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(Ints(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.seasonNumber ?? 0));
-    _updateEEDatesTimesEEWhereStartOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
-        .updateDatesTimesWhereStartOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.startOfSeasonTime ?? DateTime.now()));
-    _updateEEDatesTimesEEWhereEndOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
-        .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.endOfSeasonTime ?? DateTime.now()));
     getDataForNamedParameterNamedStreamWState.insertWhereLengthMoreThanOrEqualTwoParameterListLoaded();
     getDataForNamedParameterNamedStreamWState.uniqueIdByUser = getUserParameterSharedPreferencesService.parameter?.uniqueId ?? "";
     getDataForNamedParameterNamedStreamWState.usernameByDiscordUser = getDiscordUserFirestoreFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.username ?? "";
@@ -253,7 +255,9 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
     {
       getDataForNamedParameterNamedStreamWState.uniqueIdByUser = uIBUWUBDU.parameter?.uniqueIdByUser ?? "";
       getDataForNamedParameterNamedStreamWState.usernameByDiscordUser = uIBUWUBDU.parameter?.usernameByDiscordUser ?? "";
-      notifyStreamDataForNamedParameterNamedStreamWState();
+      getDataForNamedParameterNamedStreamWState.nameRoute = KeysNavigationUtility.unAuthNavigationViewQQHome;
+      WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromNameRoute(KeysNavigationUtility.unAuthNavigationViewQQHome);
+      notifyStreamDataForAppView();
     });
   }
 
@@ -308,21 +312,13 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
-  Future<String> _firstQQInitQQGetExceptionInStringWhereIsEmptyParameterUniqueId(String getExceptionInStringWhereIsEmptyParameterUniqueId) async {
-    final getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService = await _getEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService
-        .getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService();
-    if(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService
-        .exceptionController
-        .isWhereNotEqualsNullParameterException())
-    {
-      return _firstBranchOneQQInitQQGetExceptionInStringWhereIsEmptyParameterUniqueId(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.exceptionController);
-    }
+  Future<String> _firstQQInitQQGetExceptionInStringWhereIsEmptyParameterUniqueId(String getExceptionInStringWhereIsEmptyParameterUniqueId,Season season) async {
     _updateEEIntsEEWhereSeasonNumberBySeasonEEFromIntsEEParameterTempCacheService
-        .updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(Ints(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.seasonNumber ?? 0));
+        .updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(Ints(season.seasonNumber));
     _updateEEDatesTimesEEWhereStartOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
-        .updateDatesTimesWhereStartOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.startOfSeasonTime ?? DateTime.now()));
+        .updateDatesTimesWhereStartOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(season.startOfSeasonTime));
     _updateEEDatesTimesEEWhereEndOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
-        .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.endOfSeasonTime ?? DateTime.now()));
+        .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(season.endOfSeasonTime));
     getDataForNamedParameterNamedStreamWState.insertWhereLengthMoreThanOrEqualTwoParameterListLoaded();
     return getExceptionInStringWhereIsEmptyParameterUniqueId;
   }
@@ -381,36 +377,16 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
-  Future<String> _firstQQInitQQGetExceptionInStringWhereNotEqualsFromIpParameterIp(String getExceptionInStringWhereNotEqualsFromIpParameterIp) async {
-    final getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService = await _getEESeasonEEWhereSortingSeasonNumberOrderByDescEEParameterFirebaseFirestoreService
-        .getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService();
-    if(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService
-        .exceptionController
-        .isWhereNotEqualsNullParameterException())
-    {
-      return _firstBranchOneQQInitQQGetExceptionInStringWhereNotEqualsFromIpParameterIp(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.exceptionController);
-    }
+  Future<String> _firstQQInitQQGetExceptionInStringWhereNotEqualsFromIpParameterIp(String getExceptionInStringWhereNotEqualsFromIpParameterIp,Season season) async {
     await _deleteEEUserEEParameterSharedPreferencesService.deleteUserParameterSharedPreferencesService();
     _updateEEIntsEEWhereSeasonNumberBySeasonEEFromIntsEEParameterTempCacheService
-        .updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(Ints(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.seasonNumber ?? 0));
+        .updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(Ints(season.seasonNumber));
     _updateEEDatesTimesEEWhereStartOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
-        .updateDatesTimesWhereStartOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.startOfSeasonTime ?? DateTime.now()));
+        .updateDatesTimesWhereStartOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(season.startOfSeasonTime));
     _updateEEDatesTimesEEWhereEndOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
-        .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(getSeasonWhereSortingSeasonNumberOrderByDescParameterFirebaseFirestoreService.parameter?.endOfSeasonTime ?? DateTime.now()));
+        .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(season.endOfSeasonTime));
     getDataForNamedParameterNamedStreamWState.insertWhereLengthMoreThanOrEqualTwoParameterListLoaded();
     return getExceptionInStringWhereNotEqualsFromIpParameterIp;
-  }
-
-  Future<String> _firstBranchOneQQInitQQGetExceptionInStringWhereIsEmptyParameterUniqueId(ExceptionController exceptionController) async {
-    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
-    getDataForNamedParameterNamedStreamWState.insertWhereLengthMoreThanOrEqualTwoParameterListLoaded();
-    return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
-  }
-
-  Future<String> _firstBranchOneQQInitQQGetExceptionInStringWhereNotEqualsFromIpParameterIp(ExceptionController exceptionController) async {
-    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
-    getDataForNamedParameterNamedStreamWState.insertWhereLengthMoreThanOrEqualTwoParameterListLoaded();
-    return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
   void _firstQQListeningStreamsFirebaseFirestoreServiceQQStartListeningThoseWorksFromCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(ExceptionController exceptionController) {

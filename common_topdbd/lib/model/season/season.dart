@@ -1,3 +1,4 @@
+import 'package:common_topdbd/named_utility/algorithms_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -21,5 +22,10 @@ base class Season extends BaseModel {
         "numberOfUniquePlayersWhoPlayedInASeason: $numberOfUniquePlayersWhoPlayedInASeason, "
         "startOfSeasonTime: $startOfSeasonTime, "
         "endOfSeasonTime: $endOfSeasonTime)";
+  }
+
+  String get getStringWhereFormattedParametersStartOfSeasonTimeAndEndOfSeasonTime {
+    return "${AlgorithmsUtility.getStringWhereFormattedFromDateTime(startOfSeasonTime)} "
+        "~ ${AlgorithmsUtility.getStringWhereFormattedFromDateTime(endOfSeasonTime)}";
   }
 }

@@ -14,4 +14,23 @@ base class ListRoleUser<T extends RoleUser> extends BaseListModel<T> {
     }
     return ListRoleUser<T>(newListModel);
   }
+
+  List<String> get getListStringWhereAdditionUniqueIdByUserParameterListModel {
+    final List<String> listString = List.empty(growable: true);
+    for(T itemModel in listModel) {
+      listString.add(itemModel.uniqueIdByUser);
+    }
+    return listString;
+  }
+  
+  void deleteWhereIsTestEqualsTrueParameterListModel() {
+    final clone = getClone;
+    for(int i = 0; i < clone.listModel.length; i++) {
+      final itemModel = clone.listModel[i];
+      if(!itemModel.isTest) {
+        continue;
+      }
+      listModel.removeAt(i);
+    }
+  }
 }

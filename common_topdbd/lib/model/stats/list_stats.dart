@@ -22,4 +22,27 @@ base class ListStats<T extends Stats> extends BaseListModel<T> {
     }
     return listString;
   }
+
+  void deleteWhereWDoNotDeleteButViceVersaFromListStringWUniqueIdByUserParameterListModel(List<String> listStringWUniqueIdByUser) {
+    final Map<String,int> mapUniqueIdByUserAndIteration = {};
+    for(T itemModel in listModel) {
+      mapUniqueIdByUserAndIteration[itemModel.uniqueIdByUser] = 0;
+      for(String itemStringWUniqueIdByUser in listStringWUniqueIdByUser) {
+        if(itemStringWUniqueIdByUser == itemModel.uniqueIdByUser) {
+          break;
+        }
+        mapUniqueIdByUserAndIteration[itemModel.uniqueIdByUser] = (mapUniqueIdByUserAndIteration[itemStringWUniqueIdByUser] ?? 0) + 1;
+      }
+    }
+    for(MapEntry<String,int> entries in mapUniqueIdByUserAndIteration.entries) {
+      if(entries.value != listStringWUniqueIdByUser.length) {
+        continue;
+      }
+      super.deleteFromUniqueIdByModelParameterListModel(entries.key);
+    }
+  }
+
+  bool isWhereLengthLessTwentyParameterListModel() {
+    return listModel.length < 20;
+  }
 }

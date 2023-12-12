@@ -131,7 +131,7 @@ final class TestSearchUsersToListViewModel extends BaseNamedViewModel<DataForSea
         listDiscordUserFirestore.getListStringWhereAdditionUsernameParameterListModel,
         getDataForNamedParameterNamedStreamWState.value);
     listDiscordUserFirestore
-        .sortingWhereDiscordUserFirestoreWFirstWListStringWUsernameIteratorFromListString(listStringWhereSearchAlgorithmByPrefixWAllCharactersThatWereEnteredFromTwo);
+        .sortingWhereDiscordUserFirestoreWFirstWListStringWUsernameIteratorFromListStringParameterOne(listStringWhereSearchAlgorithmByPrefixWAllCharactersThatWereEnteredFromTwo);
     /// getListCountryFromListStringWUniqueIdByUserParameterFirebaseFirestoreService
     final listCountry = ListCountry<Country>(
         List.of([

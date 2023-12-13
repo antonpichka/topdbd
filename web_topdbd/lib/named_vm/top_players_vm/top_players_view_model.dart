@@ -22,12 +22,12 @@ final class TopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayersView
   }
 
   @override
-  void setValueToDropdownButton(String? value) {
+  Future<void> setValueToDropdownButtonAndRefreshListTopPlayers(String? value) async {
     // TODO: implement setValueToDropdownButton
   }
 
   @override
-  void refreshListTopPlayers() {
+  Future<void> refreshListTopPlayers() async {
     // TODO: implement refreshListTopPlayers
   }
 }

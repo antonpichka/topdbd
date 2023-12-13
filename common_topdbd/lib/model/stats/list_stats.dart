@@ -31,7 +31,7 @@ base class ListStats<T extends Stats> extends BaseListModel<T> {
         if(itemStringWUniqueIdByUser == itemModel.uniqueIdByUser) {
           break;
         }
-        mapUniqueIdByUserAndIteration[itemModel.uniqueIdByUser] = (mapUniqueIdByUserAndIteration[itemStringWUniqueIdByUser] ?? 0) + 1;
+        mapUniqueIdByUserAndIteration[itemModel.uniqueIdByUser] = (mapUniqueIdByUserAndIteration[itemModel.uniqueIdByUser] ?? 0) + 1;
       }
     }
     for(MapEntry<String,int> entries in mapUniqueIdByUserAndIteration.entries) {

@@ -94,7 +94,7 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
                 itemCount: 100, /// hasReachedMax == true ? listModel.length : listModel.length + 1
                 itemBuilder: (context,index) {
                   if(index >= listModel.length) {
-                    return const Center(child: CircularProgressIndicator());
+                    return _getWidgetWhereRefreshListTopPlayersParameterViewModel();
                   }
                   if(index == 0) {
                     return _getHeaderToListViewWhereItemToListViewFromIndexAndUsername(index,"Vicar32");
@@ -209,6 +209,21 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
           child: Text("10"),
         ),
       ],
+    );
+  }
+
+  Widget _getWidgetWhereRefreshListTopPlayersParameterViewModel() {
+    return Center(
+      child: OutlinedButton(
+        onPressed: () {
+          // qw
+        },
+        child: const SizedBox(
+          height: 24,
+          width: 24,
+          child: CircularProgressIndicator(strokeWidth: 1.5),
+        ),
+      ),
     );
   }
 

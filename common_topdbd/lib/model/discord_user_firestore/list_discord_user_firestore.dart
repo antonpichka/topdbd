@@ -24,19 +24,30 @@ base class ListDiscordUserFirestore<T extends DiscordUserFirestore> extends Base
     return listString;
   }
 
-  List<String> get getListStringWhereAdditionUniqueIdByUserParameterListModel {
-    final List<String> listString = List.empty(growable: true);
-    for(T itemModel in listModel) {
-      listString.add(itemModel.uniqueIdByUser);
-    }
-    return listString;
-  }
-
   void sortingWhereDiscordUserFirestoreWFirstWListStringWUsernameIteratorFromListStringParameterOne(List<String> listString) {
     if(listString.isEmpty) {
       listModel.clear();
       return;
     }
     super.sortingFromModelWNamedWNamedWNamedIteratorParameterListModel(DiscordUserFirestoreWFirstWListStringWUsernameIterator(listString));
+  }
+
+  void deleteWhereWDoNotDeleteButViceVersaFromListStringWUniqueIdByUserParameterListModel(List<String> listStringWUniqueIdByUser) {
+    final Map<String,int> mapUniqueIdByUserAndIteration = {};
+    for(T itemModel in listModel) {
+      mapUniqueIdByUserAndIteration[itemModel.uniqueIdByUser] = 0;
+      for(String itemStringWUniqueIdByUser in listStringWUniqueIdByUser) {
+        if(itemStringWUniqueIdByUser == itemModel.uniqueIdByUser) {
+          break;
+        }
+        mapUniqueIdByUserAndIteration[itemModel.uniqueIdByUser] = (mapUniqueIdByUserAndIteration[itemModel.uniqueIdByUser] ?? 0) + 1;
+      }
+    }
+    for(MapEntry<String,int> entries in mapUniqueIdByUserAndIteration.entries) {
+      if(entries.value != listStringWUniqueIdByUser.length) {
+        continue;
+      }
+      super.deleteFromUniqueIdByModelParameterListModel(entries.key);
+    }
   }
 }

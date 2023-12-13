@@ -25,7 +25,7 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
 
   @override
   Future<String> init() async {
-    /// getListStatsWhereOrderByDescWLimitTwentyWRatingPointsParameterFirebaseFirestoreService
+    /// getListStatsWhereOrderByDescWRatingPointsFromLimitParameterFirebaseFirestoreService
     final listStats = ListStats<Stats>(
         List.of([
           const Stats(
@@ -158,7 +158,7 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
     if(isWhereLengthLessTwentyParameterListModel) {
       return _firstQQInitQQIsWhereLengthLessTwentyParameterListModel(listStats);
     }
-    /// getListRoleUserFromListStringWUniqueIdByUserParameterFirebaseFirestoreService
+    /// getListRoleUserFromListStringWUniqueIdByUserParameterFirebaseFirestoreService (ListStats)
     final listRoleUser = ListRoleUser<RoleUser>(
         List.of([
           const RoleUser(
@@ -242,7 +242,14 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
               false,
               false)
         ]));
-    listRoleUser.deleteWhereIsTestEqualsTrueParameterListModel();
+    listRoleUser
+        .deleteWhereIsTestEqualsTrueParameterListModel();
+    final isEmptyFIRST = listRoleUser.listModel.isEmpty;
+    if(isEmptyFIRST) {
+      return _firstQQInitQQIsEmptyFIRST(listStats);
+    }
+    listStats
+        .deleteWhereWDoNotDeleteButViceVersaFromListStringWUniqueIdByUserParameterListModel(listRoleUser.getListStringWhereAdditionUniqueIdByUserParameterListModel);
     /// getListDiscordUserFirestoreFromListStringWUniqueIdByUserParameterFirebaseFirestoreService
     final listDiscordUserFirestore = ListDiscordUserFirestore<DiscordUserFirestore>(
         List.of([
@@ -347,6 +354,8 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
               "mami",
               "Mame")
         ]));
+    listDiscordUserFirestore
+        .deleteWhereWDoNotDeleteButViceVersaFromListStringWUniqueIdByUserParameterListModel(listRoleUser.getListStringWhereAdditionUniqueIdByUserParameterListModel);
     /// getListCountryFromListStringWUniqueIdByUserParameterFirebaseFirestoreService
     final listCountry = ListCountry<Country>(
         List.of([
@@ -411,26 +420,41 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
               "c0ff038e-95a0-11ee-b9d1-0242ac120002",
               "GB")
         ]));
+    listCountry
+        .deleteWhereWDoNotDeleteButViceVersaFromListStringWUniqueIdByUserParameterListModel(listRoleUser.getListStringWhereAdditionUniqueIdByUserParameterListModel);
+    final listTopPlayers = getDataForNamedParameterNamedStreamWState
+        .listTopPlayers;
+    listTopPlayers
+        .insertFromListStatsAndListDiscordUserFirestoreAndListCountry(listStats,listDiscordUserFirestore,listCountry);
+    final isWhereLengthLessTwentyParameterListModelFIRST = listTopPlayers
+        .isWhereLengthLessTwentyParameterListModel();
+    if(isWhereLengthLessTwentyParameterListModelFIRST) {
+      return _firstQQInitQQIsWhereLengthLessTwentyParameterListModelFIRST();
+    }
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     return KeysSuccessUtility.sUCCESS;
   }
 
   @override
-  void setValueToDropdownButton(String? value) {
+  Future<void> setValueToDropdownButtonAndRefreshListTopPlayers(String? value) async {
+    if(getDataForNamedParameterNamedStreamWState.isHasReachedMax) {
+      return;
+    }
     getDataForNamedParameterNamedStreamWState.valueToDropdownButton = value ?? "";
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   @override
-  void refreshListTopPlayers() {
+  Future<void> refreshListTopPlayers() async {
     if(getDataForNamedParameterNamedStreamWState.isHasReachedMax) {
       return;
     }
-    /// getListStatsWhereWRatingPointsMoreWEqualFromLastRatingPointsParameterFirebaseFirestoreService
+    /// getListStatsWhereLessThanWEqualAndOrderByDescFromLimitAndRatingPointsParameterFirebaseFirestoreService
   }
 
   Future<String> _firstQQInitQQIsEmpty() async {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.isHasReachedMax = true;
     return KeysSuccessUtility.sUCCESS;
   }
 
@@ -519,8 +543,14 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
               false,
               false)
         ]));
-    listRoleUser.deleteWhereIsTestEqualsTrueParameterListModel();
-    listStats.deleteWhereWDoNotDeleteButViceVersaFromListStringWUniqueIdByUserParameterListModel(listRoleUser.getListStringWhereAdditionUniqueIdByUserParameterListModel);
+    listRoleUser
+        .deleteWhereIsTestEqualsTrueParameterListModel();
+    final isEmpty = listRoleUser.listModel.isEmpty;
+    if(isEmpty) {
+      return _firstBranchOneQQInitQQIsWhereLengthLessTwentyParameterListModel();
+    }
+    listStats
+        .deleteWhereWDoNotDeleteButViceVersaFromListStringWUniqueIdByUserParameterListModel(listRoleUser.getListStringWhereAdditionUniqueIdByUserParameterListModel);
     /// getListDiscordUserFirestoreFromListStringWUniqueIdByUserParameterFirebaseFirestoreService (ListRoleUser)
     final listDiscordUserFirestore = ListDiscordUserFirestore<DiscordUserFirestore>(
         List.of([
@@ -625,6 +655,8 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
               "mami",
               "Mame")
         ]));
+    listDiscordUserFirestore
+        .deleteWhereWDoNotDeleteButViceVersaFromListStringWUniqueIdByUserParameterListModel(listRoleUser.getListStringWhereAdditionUniqueIdByUserParameterListModel);
     /// getListCountryFromListStringWUniqueIdByUserParameterFirebaseFirestoreService (ListRoleUser)
     final listCountry = ListCountry<Country>(
         List.of([
@@ -689,5 +721,72 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
               "c0ff038e-95a0-11ee-b9d1-0242ac120002",
               "GB")
         ]));
+    listCountry
+        .deleteWhereWDoNotDeleteButViceVersaFromListStringWUniqueIdByUserParameterListModel(listRoleUser.getListStringWhereAdditionUniqueIdByUserParameterListModel);
+    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.isHasReachedMax = true;
+    getDataForNamedParameterNamedStreamWState
+        .listTopPlayers
+        .insertFromListStatsAndListDiscordUserFirestoreAndListCountry(listStats,listDiscordUserFirestore,listCountry);
+    return KeysSuccessUtility.sUCCESS;
+  }
+
+  Future<String> _firstBranchOneQQInitQQIsWhereLengthLessTwentyParameterListModel() async {
+    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.isHasReachedMax = true;
+    return KeysSuccessUtility.sUCCESS;
+  }
+
+  Future<String> _firstQQInitQQIsEmptyFIRST(ListStats listStats) async {
+    Stats clone = listStats.listModel.last.getClone;
+    listStats.listModel.clear();
+    int lengthListTopPlayers = 0;
+    bool isHasReachedMax = false;
+    while(lengthListTopPlayers < 20) {
+      /// getListStatsWhereLessThanWEqualAndOrderByDescFromLimitAndRatingPointsParameterFirebaseFirestoreService
+      final listStatsFIRST = ListStats<Stats>(
+          List.of([
+            const Stats(
+                "c0ff038e-95a0-11ee-b9d1-0242ac120002",
+                10,
+                0,
+                0,
+                320),
+            const Stats(
+                "q",
+                10,
+                0,
+                0,
+                320),
+            const Stats(
+                "w",
+                10,
+                0,
+                0,
+                319),
+          ]));
+      final isEmpty = listStatsFIRST.listModel.isEmpty;
+      if(isEmpty) {
+        isHasReachedMax = true;
+        break;
+      }
+      /// getListRoleUserFromListStringWUniqueIdByUserParameterFirebaseFirestoreService (ListStats)
+      /// deleteRoleUserWhereIsTrueTestParameterListModel
+      /// set clone stats
+      /// is empty role user, continue
+      /// get discord,country
+      /// set clone stats
+      /// set listTopPlayers  (ListDiscord, Role, Country)
+      /// set lengthListTopPlayers (ListTopPlayers)
+    }
+    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    getDataForNamedParameterNamedStreamWState.isHasReachedMax = isHasReachedMax;
+    return KeysSuccessUtility.sUCCESS;
+  }
+
+  Future<String> _firstQQInitQQIsWhereLengthLessTwentyParameterListModelFIRST() async {
+    // NEXT CODE
+    getDataForNamedParameterNamedStreamWState.isLoading = false;
+    return KeysSuccessUtility.sUCCESS;
   }
 }

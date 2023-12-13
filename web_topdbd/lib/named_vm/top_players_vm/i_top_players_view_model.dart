@@ -4,6 +4,6 @@ import 'package:meta/meta.dart';
 abstract interface class ITopPlayersViewModel {
   const ITopPlayersViewModel();
 
-  void setValueToDropdownButton(String? value);
-  void refreshListTopPlayers();
+  Future<void> setValueToDropdownButtonAndRefreshListTopPlayers(String? value);
+  Future<void> refreshListTopPlayers();
 }

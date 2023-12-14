@@ -172,8 +172,8 @@ final class _SearchUsersToListViewState extends State<SearchUsersToListView> {
         ),
         Expanded(
             child: Wrap(
-              children: List<Widget>.generate(dUFWCountryWRoleUser.roleUser.getListStringWhereRolesEqualTrueParametersTwo.length, (int index) {
-                final itemStringWhereRolesEqualTrueParametersTwo = dUFWCountryWRoleUser.roleUser.getListStringWhereRolesEqualTrueParametersTwo[index];
+              children: List<Widget>.generate(dUFWCountryWRoleUser.roleUser.getListStringWhereRolesEqualTrueParameterIsAdmin.length, (int index) {
+                final itemStringWhereRolesEqualTrueParametersTwo = dUFWCountryWRoleUser.roleUser.getListStringWhereRolesEqualTrueParameterIsAdmin[index];
                 return _getItemRoleToListViewFromRole(itemStringWhereRolesEqualTrueParametersTwo);
               }),
             )

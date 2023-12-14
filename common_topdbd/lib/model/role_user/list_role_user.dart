@@ -22,15 +22,4 @@ base class ListRoleUser<T extends RoleUser> extends BaseListModel<T> {
     }
     return listString;
   }
-  
-  void deleteWhereIsTestEqualsTrueParameterListModel() {
-    final clone = getClone;
-    for(int i = 0; i < clone.listModel.length; i++) {
-      final itemModel = clone.listModel[i];
-      if(!itemModel.isTest) {
-        continue;
-      }
-      listModel.removeAt(i);
-    }
-  }
 }

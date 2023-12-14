@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:web_topdbd/named_vm/top_players_vm/data_for_top_players_view.dart';
 
 final class TopPlayersView extends StatefulWidget {
   @override
@@ -60,24 +61,16 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
                 child: DropdownButton<String>(
                   isExpanded: true,
                   value: "1 - ∞",
-                  items: const [
-                    DropdownMenuItem<String>(
-                      value: "1 - ∞",
-                      child: Center(
-                          child: Text(
-                              "1 - ∞",
-                              textAlign: TextAlign.center)
-                      )
-                    ),
-                    DropdownMenuItem<String>(
-                        value: "25 - ∞",
+                  items: DataForTopPlayersView.getListStringWhereValueToDropdownButton.map((e) {
+                    return DropdownMenuItem<String>(
+                        value: e,
                         child: Center(
                             child: Text(
-                                "25 - ∞",
+                                e,
                                 textAlign: TextAlign.center)
                         )
-                    ),
-                  ],
+                    );
+                  }).toList(),
                   onChanged: (String? value) {
 
                   },
@@ -87,6 +80,7 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
             Divider(
               height: 1.0,
               color: Theme.of(context).dividerColor,),
+            //There are currently less than 25 players in the database, so going from 25 to ∞ is not possible
             ListView.separated(
                 primary: false,
                 shrinkWrap: true,

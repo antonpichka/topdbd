@@ -39,7 +39,12 @@ base class ListTopPlayers<T extends TopPlayers> extends BaseListModel<T> {
     }
   }
 
-  bool isWhereLengthLessTwentyParameterListModel() {
-    return listModel.length < 20;
+  void deleteWhereRangeOrClearFromNumberParameterListModel(int number) {
+    final length = listModel.length;
+    if(length >= number) {
+      listModel.removeRange(0,(number-1));
+      return;
+    }
+    listModel.clear();
   }
 }

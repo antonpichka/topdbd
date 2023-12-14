@@ -1,4 +1,4 @@
-enum EnumWinNumberUser {
+enum EnumWinNumberUserUtility {
   winFirstUser,
   winSecondUser
 }

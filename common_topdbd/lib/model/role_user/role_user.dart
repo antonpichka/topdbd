@@ -5,24 +5,21 @@ import 'package:meta/meta.dart';
 base class RoleUser extends BaseModel {
   final String uniqueIdByUser;
   final bool isAdmin;
-  final bool isTest;
 
-  const RoleUser(this.uniqueIdByUser,this.isAdmin,this.isTest) : super(uniqueIdByUser);
+  const RoleUser(this.uniqueIdByUser,this.isAdmin) : super(uniqueIdByUser);
 
   @override
-  RoleUser get getClone => RoleUser(uniqueIdByUser,isAdmin,isTest);
+  RoleUser get getClone => RoleUser(uniqueIdByUser,isAdmin);
 
   @override
   String toString() {
     return "RoleUser(uniqueIdByUser: $uniqueIdByUser, "
-        "isAdmin: $isAdmin, "
-        "isTest: $isTest)";
+        "isAdmin: $isAdmin)";
   }
 
-  List<String> get getListStringWhereRolesEqualTrueParametersTwo {
+  List<String> get getListStringWhereRolesEqualTrueParameterIsAdmin {
     final List<String> listString = List.empty(growable: true);
     isAdmin ? listString.add("Admin") : null;
-    isTest ? listString.add("Test") : null;
     return listString;
   }
 }

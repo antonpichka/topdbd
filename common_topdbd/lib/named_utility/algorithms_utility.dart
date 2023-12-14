@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 import 'package:common_topdbd/model/country_rd/country_rd.dart';
-import 'package:common_topdbd/named_utility/enum_win_number_user.dart';
+import 'package:common_topdbd/named_utility/enum_win_number_user_utility.dart';
 import 'package:common_topdbd/named_utility/ready_data_utility.dart';
 import 'package:meta/meta.dart';
 
@@ -151,11 +151,11 @@ final class AlgorithmsUtility {
     return interestFormula;
   }
 
-  static int getEloWhereCalculationWFirstUserFromKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(int kFactor,int ratingFirstUser,int ratingSecondUser,EnumWinNumberUser enumWinNumberUser) {
+  static int getEloWhereCalculationWFirstUserFromKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(int kFactor,int ratingFirstUser,int ratingSecondUser,EnumWinNumberUserUtility enumWinNumberUser) {
     final n = ratingFirstUser >= ratingSecondUser
         ? ratingSecondUser
         : ratingFirstUser;
-    final score = enumWinNumberUser == EnumWinNumberUser.winFirstUser ? 1.0 : 0.0;
+    final score = enumWinNumberUser == EnumWinNumberUserUtility.winFirstUser ? 1.0 : 0.0;
     final diff = ratingFirstUser - ratingSecondUser;
     final exponent = -(diff / n);
     final expected = 1.0 / (1.0 + math.pow(10.0, exponent));
@@ -163,11 +163,11 @@ final class AlgorithmsUtility {
     return resultRatingFirstUser.toInt();
   }
 
-  static int getEloWhereCalculationWSecondUserFromKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(int kFactor,int ratingFirstUser,int ratingSecondUser,EnumWinNumberUser enumWinNumberUser) {
+  static int getEloWhereCalculationWSecondUserFromKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(int kFactor,int ratingFirstUser,int ratingSecondUser,EnumWinNumberUserUtility enumWinNumberUser) {
     final n = ratingFirstUser >= ratingSecondUser
         ? ratingSecondUser
         : ratingFirstUser;
-    final score = enumWinNumberUser == EnumWinNumberUser.winSecondUser ? 0.0 : 1.0;
+    final score = enumWinNumberUser == EnumWinNumberUserUtility.winSecondUser ? 0.0 : 1.0;
     final diff = ratingFirstUser - ratingSecondUser;
     final exponent = -(diff / n);
     final expected = 1.0 / (1.0 + math.pow(10.0, -exponent));

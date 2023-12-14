@@ -201,83 +201,63 @@ final class TestSearchUsersToListViewModel extends BaseNamedViewModel<DataForSea
         List.of([
           const RoleUser(
               "18022712-959f-11ee-b9d1-0242ac120002",
-              true,
               true),
           const RoleUser(
               "4d41ada8-959f-11ee-b9d1-0242ac120002",
-              false,
-              true),
+              false),
           const RoleUser(
               "6190ec42-959f-11ee-b9d1-0242ac120002",
-              false,
-              true),
+              false),
           const RoleUser(
               "7eb5a664-959f-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "929fe8f6-959f-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "acbfb59a-959f-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "c4017cca-959f-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "d92c1434-959f-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "e853dbea-959f-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "fd7861e4-959f-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "1408e258-95a0-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "2b6512b4-95a0-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "42420032-95a0-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "543a4c90-95a0-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "63d2c56a-95a0-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "74eded70-95a0-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "8b088304-95a0-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "9d5bb24c-95a0-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "b212c202-95a0-11ee-b9d1-0242ac120002",
-              false,
               false),
           const RoleUser(
               "c0ff038e-95a0-11ee-b9d1-0242ac120002",
-              false,
               false)
         ]));
     getDataForNamedParameterNamedStreamWState.isLoading = false;

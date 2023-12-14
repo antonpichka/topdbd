@@ -13,7 +13,7 @@ final class TopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayersView
   // NamedUtility
 
   TopPlayersViewModel()
-      : super(DefaultStreamWState(DataForTopPlayersView(true,"1 - ∞",false,ListTopPlayers(List.empty(growable: true)))));
+      : super(DefaultStreamWState(DataForTopPlayersView(true,false,false,false,ListTopPlayers(List.empty(growable: true)))));
 
   @override
   Future<String> init() async {
@@ -22,7 +22,7 @@ final class TopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayersView
   }
 
   @override
-  Future<void> setValueToDropdownButtonAndRefreshListTopPlayers(String? value) async {
+  Future<void> setValueToDropdownButton(String? value) async {
     // TODO: implement setValueToDropdownButton
   }
 

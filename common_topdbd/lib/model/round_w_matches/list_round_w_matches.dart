@@ -1,7 +1,7 @@
 import 'package:common_topdbd/model/round_w_matches/enum_round_status.dart';
 import 'package:common_topdbd/model/round_w_matches/round_w_matches.dart';
 import 'package:common_topdbd/named_utility/algorithms_utility.dart';
-import 'package:common_topdbd/named_utility/enum_win_number_user.dart';
+import 'package:common_topdbd/named_utility/enum_win_number_user_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -63,13 +63,13 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
           50,
           ratingPointsByStatsWFirstUniqueIdByUser,
           ratingPointsByStatsWSecondUniqueIdByUser,
-          EnumWinNumberUser.winFirstUser);
+          EnumWinNumberUserUtility.winFirstUser);
     }
     return AlgorithmsUtility.getEloWhereCalculationWFirstUserFromKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(
         50,
         ratingPointsByStatsWFirstUniqueIdByUser,
         ratingPointsByStatsWSecondUniqueIdByUser,
-        EnumWinNumberUser.winSecondUser);
+        EnumWinNumberUserUtility.winSecondUser);
   }
 
   int getNewStatsWSecondUniqueIdByUserWhereThereIsEloFromTwo(int ratingPointsByStatsWFirstUniqueIdByUser,int ratingPointsByStatsWSecondUniqueIdByUser) {
@@ -78,13 +78,13 @@ base class ListRoundWMatches<T extends RoundWMatches> extends BaseListModel<T> {
           50,
           ratingPointsByStatsWFirstUniqueIdByUser,
           ratingPointsByStatsWSecondUniqueIdByUser,
-          EnumWinNumberUser.winFirstUser);
+          EnumWinNumberUserUtility.winFirstUser);
     }
     return AlgorithmsUtility.getEloWhereCalculationWSecondUserFromKFactorAndRatingFirstUserAndRatingSecondUserAndEnumWinNumberUser(
         50,
         ratingPointsByStatsWFirstUniqueIdByUser,
         ratingPointsByStatsWSecondUniqueIdByUser,
-        EnumWinNumberUser.winSecondUser);
+        EnumWinNumberUserUtility.winSecondUser);
   }
 
   int getNumberOfRatingPointsPerMatchWFirstUniqueIdByUserWhereNewStatsFromTwo(int ratingPointsByStatsWFirstUniqueIdByUser,int ratingPointsByStatsWSecondUniqueIdByUser) {

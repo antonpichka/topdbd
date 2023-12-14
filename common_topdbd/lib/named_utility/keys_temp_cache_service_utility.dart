@@ -16,7 +16,6 @@ final class KeysTempCacheServiceUtility {
   static const String intsQQRatingPointsByStats = "intsQQRatingPointsByStats";
   /* Bools */
   static const String boolsQQIsAdminByRoleUser = "boolsQQIsAdminByRoleUser";
-  static const String boolsQQIsTestByRoleUser = "boolsQQIsTestByRoleUser";
   /* DatesTimes */
   static const String datesTimesQQCreationTimeByUser = "datesTimesQQCreationTimeByUser";
   static const String datesTimesQQLastLoginTimeByLastLoginTimeUser = "datesTimesQQLastLoginTimeByLastLoginTimeUser";

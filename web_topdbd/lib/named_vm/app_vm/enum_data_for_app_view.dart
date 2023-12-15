@@ -5,6 +5,8 @@ enum EnumDataForAppView {
   authMainViewWHome,
   authMainViewWTopPlayers,
   authMainViewWBalance,
+  authMainViewWBalanceFIRST,
+  authMainViewWBalanceWSettings,
   authMainViewWLogin,
   authMainViewWTermsOfUse,
   authMainViewWSearchPlayers,

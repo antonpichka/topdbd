@@ -63,7 +63,7 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
 
   // NamedUtility
 
-  TestAppViewModel() : super(DefaultStreamWState(DataForAppView(false,List<bool>.empty(growable: true),false,"","","")));
+  TestAppViewModel() : super(DefaultStreamWState(DataForAppView(false,List<bool>.empty(growable: true),false,"","",false,"")));
 
   @override
   void dispose() {
@@ -87,6 +87,7 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
     /// AUTH
     const uniqueIdByUser = "4b08db90-9114-11ee-b9d1-0242ac120002";
     const usernameByDiscordUser = "wwwwwwqwwwwwwwwwwwqqwwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq";
+    const isAdminByRoleUser = true;
     _updateEEIntsEEWhereSeasonNumberBySeasonEEFromIntsEEParameterTempCacheService
         .updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(const Ints(10));
     _updateEEDatesTimesEEWhereStartOfSeasonTimeBySeasonEEFromDatesTimesEEParameterTempCacheService
@@ -116,10 +117,11 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
     _updateEEIntsEEWhereRatingPointsByStatsEEFromIntsEEParameterTempCacheService
         .updateIntsWhereRatingPointsByStatsFromIntsParameterTempCacheService(const Ints(534));
     _updateEEBoolsEEWhereIsAdminByRoleUserEEFromBoolsEEParameterTempCacheService
-        .updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(const Bools(true));
+        .updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(const Bools(isAdminByRoleUser));
     getDataForNamedParameterNamedStreamWState.listLoaded = List<bool>.of([true,true]);
     getDataForNamedParameterNamedStreamWState.uniqueIdByUser = uniqueIdByUser;
     getDataForNamedParameterNamedStreamWState.usernameByDiscordUser = usernameByDiscordUser;
+    getDataForNamedParameterNamedStreamWState.isAdminByRoleUser = isAdminByRoleUser;
     return KeysSuccessUtility.sUCCESS;
   }
 

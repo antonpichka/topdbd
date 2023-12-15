@@ -20,7 +20,7 @@ base class DiscordUserFirestore extends BaseModel {
         "globalName: $globalName)";
   }
 
-  String get getStringWhereSubstringParameterUsername {
-    return username.length >  9 ? "${username.substring(0,9)}..." : username;
+  String getStringWhereSubstringFromEndParameterUsername(int end) {
+    return username.length >  end ? "${username.substring(0,end)}..." : username;
   }
 }

@@ -2,10 +2,10 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:web_topdbd/named_vm/app_vm/data_for_app_view.dart';
 
 void main() {
-  final dataForAppView = DataForAppView(false,List.empty(growable: true),false,"","","#/user/vicar32/stats");
+  final dataForAppView = DataForAppView(false,List.empty(growable: true),false,"","",false,"#/user/vicar32/stats");
   debugPrint(dataForAppView.getUrlWhereUserParameterNameRoute);
   debugPrint(dataForAppView.getIdWhereUserParameterNameRoute);
-  final dataForAppViewFIRST = DataForAppView(false,List.empty(growable: true),false,"","","#/search_players?q=vicar32q");
+  final dataForAppViewFIRST = DataForAppView(false,List.empty(growable: true),false,"","",false,"#/search_players?q=vicar32q");
   debugPrint(dataForAppViewFIRST.getUrlWhereSearchPlayersParameterNameRoute);
   debugPrint(dataForAppViewFIRST.getIdWhereSearchPlayersParameterNameRoute);
   // EXPECTED OUTPUT:

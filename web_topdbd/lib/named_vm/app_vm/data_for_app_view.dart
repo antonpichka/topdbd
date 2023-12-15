@@ -7,9 +7,10 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
   bool isThoseWorks;
   String uniqueIdByUser;
   String usernameByDiscordUser;
+  bool isAdminByRoleUser;
   String nameRoute;
 
-  DataForAppView(super.isLoading,this.listLoaded,this.isThoseWorks,this.uniqueIdByUser,this.usernameByDiscordUser,this.nameRoute);
+  DataForAppView(super.isLoading,this.listLoaded,this.isThoseWorks,this.uniqueIdByUser,this.usernameByDiscordUser,this.isAdminByRoleUser,this.nameRoute);
 
   @override
   EnumDataForAppView get getEnumDataForNamed {
@@ -36,9 +37,22 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
       return EnumDataForAppView.authMainViewWTopPlayers;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        nameRoute == KeysNavigationUtility.unAuthNavigationViewQQBalance)
+        nameRoute == KeysNavigationUtility.unAuthNavigationViewQQBalance &&
+        isAdminByRoleUser)
     {
       return EnumDataForAppView.authMainViewWBalance;
+    }
+    if(uniqueIdByUser.isNotEmpty &&
+        nameRoute == KeysNavigationUtility.unAuthNavigationViewQQBalance &&
+        !isAdminByRoleUser)
+    {
+      return EnumDataForAppView.authMainViewWBalanceFIRST;
+    }
+    if(uniqueIdByUser.isNotEmpty &&
+        nameRoute == KeysNavigationUtility.authNavigationBalanceViewQQBalanceWSettings &&
+        isAdminByRoleUser)
+    {
+      return EnumDataForAppView.authMainViewWBalanceWSettings;
     }
     if(uniqueIdByUser.isNotEmpty &&
         nameRoute == KeysNavigationUtility.unAuthNavigationViewQQLogin)

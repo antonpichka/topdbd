@@ -1,3 +1,4 @@
+import 'package:common_topdbd/named_utility/algorithms_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -21,6 +22,14 @@ base class Stats extends BaseModel {
         "matchesWon: $matchesWon, "
         "matchesLost: $matchesLost, "
         "ratingPoints: $ratingPoints)";
+  }
+
+  int get getIntWhereTotalMatchesParametersMatchesWonAndMatchesLost {
+    return matchesWon + matchesLost;
+  }
+
+  double get getDoubleWherePercentageWinRateAndTotalMatchesParameterMatchesWon {
+    return AlgorithmsUtility.getPercentageWinRateFromFirstNumberAndTotalFirstWSecondNumber(matchesWon,getIntWhereTotalMatchesParametersMatchesWonAndMatchesLost);
   }
 
   Stats getStatsWhereNewAndWinMatchFromOneParametersFour(int newRatingPoints) {

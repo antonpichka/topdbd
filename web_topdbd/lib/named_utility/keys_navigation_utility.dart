@@ -12,6 +12,8 @@ final class KeysNavigationUtility {
   static const String customFooterViewQQTermsOfUse = "#/terms_of_use";
   /* SearchUsersView */
   static const String searchUsersViewQQSearchPlayers = "#/search_players?q=id";
+  /* AuthNavigationBalanceView */
+  static const String authNavigationBalanceViewQQBalanceWSettings = "#/balance/settings";
   /* UnAuthNavigationUserView */
   static const String unAuthNavigationUserViewQQUserQQId = "#/user/id";
   static const String unAuthNavigationUserViewQQUserQQIdQQStats = "#/user/id/stats";

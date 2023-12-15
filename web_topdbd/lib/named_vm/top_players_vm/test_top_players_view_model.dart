@@ -329,9 +329,6 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
 
   @override
   Future<void> setValueToDropdownButton(String? value) async {
-    if(getDataForNamedParameterNamedStreamWState.isHasReachedMax) {
-      return;
-    }
     if(getDataForNamedParameterNamedStreamWState.isLoadingWSetValueToDropdownButton) {
       return;
     }
@@ -353,8 +350,10 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
 
   @override
   Future<void> refreshListTopPlayers() async {
-    await Future.delayed(const Duration(seconds: 1));
     if(getDataForNamedParameterNamedStreamWState.isHasReachedMax) {
+      return;
+    }
+    if(getDataForNamedParameterNamedStreamWState.isLoadingWSetValueToDropdownButton) {
       return;
     }
     if(getDataForNamedParameterNamedStreamWState.isSpamWRefreshListTopPlayers) {
@@ -362,6 +361,7 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
     }
     getDataForNamedParameterNamedStreamWState.isSpamWRefreshListTopPlayers = true;
     notifyStreamDataForNamedParameterNamedStreamWState();
+    // ignore: unused_local_variable
     final uniqueIdByUser = getDataForNamedParameterNamedStreamWState
         .listTopPlayers
         .listModel
@@ -375,10 +375,12 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
         .stats
         .ratingPoints;
     final stringWhereV1ByUuid = AlgorithmsUtility.getStringWhereV1ByUuid;
+    final intWhereLengthParameterListTopPlayersWFullData = getDataForNamedParameterNamedStreamWState
+        .getIntWhereLengthParameterListTopPlayersWFullData;
     /// getListStatsWhereLessThanWEqualAndNotEqualAndOrderByDescWRatingPointsFromLimitAndUniqueIdByUserAndRatingPointsParameterFirebaseFirestoreService (20,uniqueIdByUser,ratingPoints)
     final listStats = ListStats(List.generate(
-        20, (index) {
-          if(index > 2) {
+        intWhereLengthParameterListTopPlayersWFullData >= 1000 ? 0 : 20, (index) {
+          if(index < 2) {
             return Stats(
                 "$stringWhereV1ByUuid-$index",
                 10,
@@ -407,6 +409,12 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
         "$stringWhereV1ByUuid-$index",
         "unknown-$stringWhereV1ByUuid-$index",
         "unknown-$stringWhereV1ByUuid-$index")));
+    final isWhereLengthMoreWEqualFromNumberParameterListTopPlayersWFullData = getDataForNamedParameterNamedStreamWState
+        .isWhereLengthMoreWEqualFromNumberParameterListTopPlayersWFullData(101);
+    if(isWhereLengthMoreWEqualFromNumberParameterListTopPlayersWFullData) {
+      _firstQQRefreshListTopPlayersQQIsWhereLengthMoreWEqualFromNumberParameterListTopPlayersWFullData(listStats,listDiscordUserFirestore);
+      return;
+    }
     /// getListCountryFromListStringWUniqueIdByUserParameterFirebaseFirestoreService (ListStats.getListStringWhereAdditionUniqueIdByUserParameterListModel)
     final listCountry = ListCountry(List.generate(
         20, (index) => Country(
@@ -426,7 +434,7 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
 
   void _firstQQSetValueToDropdownButtonQQIsWhereEqualsOneItemWListStringParameterValueToDropdownButton() {
     final isWhereLengthLessThanFromNumberParameterListTopPlayers = getDataForNamedParameterNamedStreamWState
-        .isWhereLengthLessThanFromNumberParameterListTopPlayers(44);
+        .isWhereLengthLessThanFromNumberParameterListTopPlayers(50);
     if(isWhereLengthLessThanFromNumberParameterListTopPlayers) {
       _firstBranchOneQQSetValueToDropdownButtonQQIsWhereEqualsOneItemWListStringParameterValueToDropdownButton();
       return;
@@ -437,6 +445,7 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
   }
 
   void _firstBranchOneQQSetValueToDropdownButtonQQIsWhereEqualsOneItemWListStringParameterValueToDropdownButton() {
+    // ignore: unused_local_variable
     final uniqueIdByUser = getDataForNamedParameterNamedStreamWState
         .listTopPlayers
         .listModel
@@ -450,13 +459,13 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
         .stats
         .ratingPoints;
     final intWhereSubtractFromNumberParameterListTopPlayers = getDataForNamedParameterNamedStreamWState
-        .getIntWhereSubtractFromNumberParameterListTopPlayers(44);
+        .getIntWhereSubtractFromNumberParameterListTopPlayers(50);
     final stringWhereV1ByUuid = AlgorithmsUtility.getStringWhereV1ByUuid;
     /// getListStatsWhereLessThanWEqualAndNotEqualAndOrderByDescWRatingPointsFromLimitAndUniqueIdByUserAndRatingPointsParameterFirebaseFirestoreService (intWhereSubtractFromNumberParameterListTopPlayers,uniqueIdByUser,ratingPoints)
     final listStats = ListStats(List.generate(
         intWhereSubtractFromNumberParameterListTopPlayers,
             (index) {
-              if(index > 2) {
+              if(index < 2) {
                 return Stats(
                     "$stringWhereV1ByUuid-$index",
                     10,
@@ -510,6 +519,13 @@ final class TestTopPlayersViewModel extends BaseNamedViewModel<DataForTopPlayers
   void _firstQQRefreshListTopPlayersQQIsEmpty() {
     getDataForNamedParameterNamedStreamWState.isSpamWRefreshListTopPlayers = false;
     getDataForNamedParameterNamedStreamWState.isHasReachedMax = true;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  void _firstQQRefreshListTopPlayersQQIsWhereLengthMoreWEqualFromNumberParameterListTopPlayersWFullData(ListStats<Stats> listStats, ListDiscordUserFirestore<DiscordUserFirestore> listDiscordUserFirestore) {
+    getDataForNamedParameterNamedStreamWState.isSpamWRefreshListTopPlayers = false;
+    getDataForNamedParameterNamedStreamWState.isHasReachedMax = listStats.isWhereLengthLessFromNumberParameterListModel(20);
+    getDataForNamedParameterNamedStreamWState.insertTopPlayersFromListStatsAndListDiscordUserFirestoreAndListCountryParametersTwo(listStats,listDiscordUserFirestore,ListCountry(List.empty(growable: true)));
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

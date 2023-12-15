@@ -9,12 +9,15 @@ import 'package:web_topdbd/named_vm/already_logged_view.dart';
 import 'package:web_topdbd/named_vm/app_vm/enum_data_for_app_view.dart';
 import 'package:web_topdbd/named_vm/app_vm/test_app_view_model.dart';
 import 'package:web_topdbd/named_vm/auth_main_vm/auth_main_view.dart';
+import 'package:web_topdbd/named_vm/auth_navigation_balance_view.dart';
 import 'package:web_topdbd/named_vm/auth_navigation_user_vm/auth_navigation_user_view.dart';
-import 'package:web_topdbd/named_vm/balance_view.dart';
+import 'package:web_topdbd/named_vm/balance_vm/balance_view.dart';
+import 'package:web_topdbd/named_vm/balanced_balance_view.dart';
 import 'package:web_topdbd/named_vm/home_view.dart';
 import 'package:web_topdbd/named_vm/list_matches_user_w_statistics_on_maniacs_user_view.dart';
 import 'package:web_topdbd/named_vm/login_vm/login_view.dart';
 import 'package:web_topdbd/named_vm/search_users_to_list_vm/search_users_to_list_view.dart';
+import 'package:web_topdbd/named_vm/settings_balance_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_main_vm/un_auth_main_view.dart';
 import 'package:web_topdbd/named_vm/not_found_view.dart';
 import 'package:web_topdbd/named_vm/settings_user_view.dart';
@@ -22,6 +25,7 @@ import 'package:web_topdbd/named_vm/stats_user_view.dart';
 import 'package:web_topdbd/named_vm/stats_user_w_list_season_stats_user_view.dart';
 import 'package:web_topdbd/named_vm/terms_of_use_vm/terms_of_use_view.dart';
 import 'package:web_topdbd/named_vm/top_players_vm/top_players_view.dart';
+import 'package:web_topdbd/named_vm/un_auth_navigation_balance_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_navigation_user_vm/un_auth_navigation_user_view.dart';
 import 'package:web_topdbd/named_vm/user_vm/user_view.dart';
 
@@ -55,7 +59,7 @@ final class _AppViewState extends State<AppView> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-        debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: true,
         title: "",
         themeMode: ThemeMode.dark,
         theme: FlutterThemeUtility.light,
@@ -119,7 +123,22 @@ final class _AppViewState extends State<AppView> {
                   TopPlayersView()));
             case EnumDataForAppView.authMainViewWBalance:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
-                  BalanceView()));
+                  BalanceView(
+                      const AuthNavigationBalanceView(true),
+                      BalancedBalanceView())
+              ));
+            case EnumDataForAppView.authMainViewWBalanceFIRST:
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
+                  BalanceView(
+                      const AuthNavigationBalanceView(false),
+                      BalancedBalanceView())
+              ));
+            case EnumDataForAppView.authMainViewWBalanceWSettings:
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
+                  BalanceView(
+                      const AuthNavigationBalanceView(true),
+                      SettingsBalanceView())
+              ));
             case EnumDataForAppView.authMainViewWLogin:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   AlreadyLoggedView()));
@@ -188,7 +207,10 @@ final class _AppViewState extends State<AppView> {
                   TopPlayersView()));
             case EnumDataForAppView.unAuthMainViewWBalance:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
-                  BalanceView()));
+                  BalanceView(
+                      UnAuthNavigationBalanceView(),
+                      BalancedBalanceView())
+              ));
             case EnumDataForAppView.unAuthMainViewWLogin:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
                   LoginView()));

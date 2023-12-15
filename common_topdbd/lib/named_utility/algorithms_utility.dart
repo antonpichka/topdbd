@@ -175,18 +175,6 @@ final class AlgorithmsUtility {
     return resultRatingSecondUser.toInt();
   }
 
-  static CountryRD getCountryRDWhereListCountryRDWReadyDataUtilityFromCountryAbbreviation(String countryAbbreviation) {
-    CountryRD? countryRD;
-    final listCountryRD = ReadyDataUtility.getListCountryRD;
-    for(CountryRD itemModel in listCountryRD.listModel) {
-      if(itemModel.countryAbbreviation != countryAbbreviation) {
-        continue;
-      }
-      countryRD = itemModel.getClone;
-    }
-    return countryRD ?? listCountryRD.listModel.last;
-  }
-
   static int getFormulaPercentageDifferenceButDistanceTraveledFromSmallerNumberAndLargerNumber(int smallerNumber, int largerNumber) {
     if(smallerNumber < 0 || largerNumber < 0) {
       return 0;
@@ -201,5 +189,25 @@ final class AlgorithmsUtility {
 
   static int getDifferenceInDaysFromStartDateTimeAndEndDateTime(DateTime startDateTime,DateTime endDateTime) {
     return (endDateTime.difference(startDateTime).inHours / 24).round();
+  }
+
+  static double getPercentageWinRateFromFirstNumberAndTotalFirstWSecondNumber(int wonMatches, int totalMatches) {
+    final result = ((wonMatches / totalMatches) * 100).ceilToDouble();
+    if(result.isNaN) {
+      return 0.0;
+    }
+    return result;
+  }
+
+  static CountryRD getCountryRDWhereListCountryRDWReadyDataUtilityFromCountryAbbreviation(String countryAbbreviation) {
+    CountryRD? countryRD;
+    final listCountryRD = ReadyDataUtility.getListCountryRD;
+    for(CountryRD itemModel in listCountryRD.listModel) {
+      if(itemModel.countryAbbreviation != countryAbbreviation) {
+        continue;
+      }
+      countryRD = itemModel.getClone;
+    }
+    return countryRD ?? listCountryRD.listModel.last;
   }
 }

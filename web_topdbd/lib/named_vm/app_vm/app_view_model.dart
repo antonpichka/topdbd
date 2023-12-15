@@ -102,7 +102,7 @@ final class AppViewModel extends BaseNamedViewModel<DataForAppView,DefaultStream
 
   // NamedUtility
 
-  AppViewModel() : super(DefaultStreamWState(DataForAppView(false,List<bool>.empty(growable: true),false,"","","")));
+  AppViewModel() : super(DefaultStreamWState(DataForAppView(false,List<bool>.empty(growable: true),false,"","",false,"")));
 
   @override
   void dispose() {

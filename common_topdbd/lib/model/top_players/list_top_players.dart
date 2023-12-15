@@ -27,6 +27,13 @@ base class ListTopPlayers<T extends TopPlayers> extends BaseListModel<T> {
         if(itemModelFIRST.uniqueIdByUser != itemModel.uniqueIdByUser) {
           continue;
         }
+        if(listCountry
+            .listModel
+            .isEmpty)
+        {
+          super.insertFromNewModelParameterListModel(TopPlayers(itemModelFIRST.getClone,Country("",""),itemModel.getClone) as T);
+          break;
+        }
         for(Country itemModelSECOND in listCountry.listModel) {
           if(itemModelSECOND.uniqueIdByUser != itemModel.uniqueIdByUser) {
             continue;

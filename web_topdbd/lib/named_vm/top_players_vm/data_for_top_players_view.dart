@@ -37,9 +37,6 @@ final class DataForTopPlayersView extends BaseDataForNamed<EnumDataForTopPlayers
     if(isLoadingWSetValueToDropdownButton) {
       return EnumDataForTopPlayersView.isLoadingWSetValueToDropdownButton;
     }
-    if(isSpamWRefreshListTopPlayers) {
-      return EnumDataForTopPlayersView.isSpamWRefreshListTopPlayers;
-    }
     if(isWhereEqualsOneItemWListStringAndLessThanWEqualFromNumberParametersTwo(24)) {
       return EnumDataForTopPlayersView.lessThanTwentyFiveByListTopPlayers;
     }
@@ -49,8 +46,25 @@ final class DataForTopPlayersView extends BaseDataForNamed<EnumDataForTopPlayers
     return EnumDataForTopPlayersView.success;
   }
 
+  int get getIntWhereLengthParameterListTopPlayersWFullData {
+    return _listTopPlayersWFullData.listModel.length;
+  }
+
   int getIntWhereSubtractFromNumberParameterListTopPlayers(int number) {
     return number - listTopPlayers.listModel.length;
+  }
+
+  int getIntFromIndex(int index) {
+    if(isWhereEqualsOneItemWListStringParameterValueToDropdownButton()) {
+      return 24+(index+1);
+    }
+    return index+1;
+  }
+
+  int get getIntWhereLengthDefinesBoolParametersIsHasReachedMaxAndListTopPlayers {
+    return isHasReachedMax
+        ? listTopPlayers.listModel.length
+        : listTopPlayers.listModel.length + 1;
   }
 
   void setFromValueParametersFour(String value) {
@@ -96,5 +110,15 @@ final class DataForTopPlayersView extends BaseDataForNamed<EnumDataForTopPlayers
 
   bool isWhereLengthLessThanFromNumberParameterListTopPlayers(int number) {
     return listTopPlayers.listModel.length < number;
+  }
+
+  bool isWhereLengthMoreWEqualFromNumberParameterListTopPlayersWFullData(int number) {
+    return _listTopPlayersWFullData
+        .listModel
+        .length >= number;
+  }
+
+  bool isWhereIndexMoreWEqualFromIndexAndNumberParameterListTopPlayers(int index,int number) {
+    return getIntFromIndex(index) >= number;
   }
 }

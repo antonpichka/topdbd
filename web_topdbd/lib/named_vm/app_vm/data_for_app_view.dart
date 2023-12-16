@@ -49,7 +49,7 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
       return EnumDataForAppView.authMainViewWBalanceFIRST;
     }
     if(uniqueIdByUser.isNotEmpty &&
-        nameRoute == KeysNavigationUtility.authNavigationBalanceViewQQBalanceWSettings &&
+        nameRoute == KeysNavigationUtility.authNavigationBalanceViewQQBalanceQQSettings &&
         isAdminByRoleUser)
     {
       return EnumDataForAppView.authMainViewWBalanceWSettings;

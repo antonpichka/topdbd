@@ -223,6 +223,19 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
     return nameRoute.split("/")[3];
   }
 
+  String get getSuffixUrlWhereBalanceParameterNameRoute {
+    if(nameRoute.split("/").length < 2) {
+      return "";
+    }
+    if(nameRoute.split("/")[1] != "balance") {
+      return "";
+    }
+    if(nameRoute.split("/").length < 3) {
+      return "";
+    }
+    return nameRoute.split("/")[2];
+  }
+
   void insertWhereLengthMoreThanOrEqualTwoParameterListLoaded() {
     if(listLoaded.length >= 2) {
       return;

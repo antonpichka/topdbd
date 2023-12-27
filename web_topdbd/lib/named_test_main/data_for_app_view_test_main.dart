@@ -8,12 +8,15 @@ void main() {
   final dataForAppViewFIRST = DataForAppView(false,List.empty(growable: true),false,"","",false,"#/search_players?q=vicar32q");
   debugPrint(dataForAppViewFIRST.getUrlWhereSearchPlayersParameterNameRoute);
   debugPrint(dataForAppViewFIRST.getIdWhereSearchPlayersParameterNameRoute);
+  final dataForAppViewSECOND = DataForAppView(false,List.empty(growable: true),false,"","",false,"#/balance/settings");
+  debugPrint(dataForAppViewSECOND.getSuffixUrlWhereBalanceParameterNameRoute);
   // EXPECTED OUTPUT:
   //
   // #/user/id/stats
   // vicar32
   // #/search_players?q=id
   // vicar32q
+  // settings
   //
   // Process finished with exit code 0
 }

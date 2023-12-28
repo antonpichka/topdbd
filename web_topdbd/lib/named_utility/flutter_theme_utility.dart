@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 @immutable
 final class FlutterThemeUtility {
-  static const Color seedColor = Color.fromRGBO(13, 17, 23,1.0);
+  static const Color seedColor = Colors.orange;
   static const Color discordLogoColor = Color.fromRGBO(88, 101, 242,1.0);
 
   const FlutterThemeUtility._();
@@ -11,8 +11,6 @@ final class FlutterThemeUtility {
   static ThemeData get light {
     return ThemeData(
       useMaterial3: true,
-      iconTheme: const IconThemeData(
-          color: Colors.black38),
       colorScheme: ColorScheme.fromSeed(
         brightness: Brightness.light,
         seedColor: seedColor,
@@ -35,8 +33,6 @@ final class FlutterThemeUtility {
   static ThemeData get dark {
     return ThemeData(
       useMaterial3: true,
-      iconTheme: const IconThemeData(
-          color: Colors.white),
       colorScheme: ColorScheme.fromSeed(
         brightness: Brightness.dark,
         seedColor: seedColor,

@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -11,7 +12,7 @@ import 'package:web_topdbd/named_vm/app_vm/test_app_view_model.dart';
 import 'package:web_topdbd/named_vm/auth_main_vm/auth_main_view.dart';
 import 'package:web_topdbd/named_vm/auth_navigation_balance_vm/auth_navigation_balance_view.dart';
 import 'package:web_topdbd/named_vm/auth_navigation_user_vm/auth_navigation_user_view.dart';
-import 'package:web_topdbd/named_vm/balance_vm/balance_view.dart';
+import 'package:web_topdbd/named_vm/balance_view.dart';
 import 'package:web_topdbd/named_vm/home_view.dart';
 import 'package:web_topdbd/named_vm/list_matches_user_w_statistics_on_maniacs_user_view.dart';
 import 'package:web_topdbd/named_vm/login_vm/login_view.dart';
@@ -23,7 +24,7 @@ import 'package:web_topdbd/named_vm/stats_user_view.dart';
 import 'package:web_topdbd/named_vm/stats_user_w_list_season_stats_user_view.dart';
 import 'package:web_topdbd/named_vm/terms_of_use_vm/terms_of_use_view.dart';
 import 'package:web_topdbd/named_vm/top_players_vm/top_players_view.dart';
-import 'package:web_topdbd/named_vm/list_w_item_maniac_w_match_balance_view.dart';
+import 'package:web_topdbd/named_vm/list_w_item_maniac_w_match_balance_vm/list_w_item_maniac_w_match_balance_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_main_vm/un_auth_main_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_navigation_balance_vm/un_auth_navigation_balance_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_navigation_user_vm/un_auth_navigation_user_view.dart';
@@ -60,6 +61,12 @@ final class _AppViewState extends State<AppView> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
         debugShowCheckedModeBanner: true,
+        scrollBehavior: const MaterialScrollBehavior().copyWith(
+          dragDevices: {
+            PointerDeviceKind.mouse,
+            PointerDeviceKind.touch
+          },
+        ),
         title: "",
         themeMode: ThemeMode.dark,
         theme: FlutterThemeUtility.light,

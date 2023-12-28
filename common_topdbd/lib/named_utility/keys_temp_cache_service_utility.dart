@@ -21,6 +21,8 @@ final class KeysTempCacheServiceUtility {
   static const String datesTimesQQLastLoginTimeByLastLoginTimeUser = "datesTimesQQLastLoginTimeByLastLoginTimeUser";
   static const String datesTimesQQStartOfSeasonTimeBySeason = "datesTimesQQStartOfSeasonTimeBySeason";
   static const String datesTimesQQEndOfSeasonTimeBySeason = "datesTimesQQEndOfSeasonTimeBySeason";
+  /* MatchBalance */
+  static const String matchBalance = "matchBalance";
   /* ListSeason */
   static const String listSeason = "listSeason";
   /* UIBUWUBDU */

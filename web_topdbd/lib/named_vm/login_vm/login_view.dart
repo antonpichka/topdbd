@@ -107,8 +107,7 @@ final class _LoginViewState extends State<LoginView> {
         .listen((event) {
           setState(() {});
         });
-    final result = await _viewModel
-        .init();
+    final result = await _viewModel.init();
     debugPrint("LoginView: $result");
     if(!mounted) {
       return;

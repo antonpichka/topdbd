@@ -1572,7 +1572,7 @@ final class ReadyDataUtility {
             EnumStageNamed.banManiac.name,
             const MatchBalance(1,3,ListManiacWMatchBalance([
               ManiacWMatchBalance(
-                  "Anna",
+                  "Huntress",
                   1,
                   1,
                   ListMapsWMatchBalance([
@@ -1589,24 +1589,24 @@ final class ReadyDataUtility {
                   ])
               ),
              ManiacWMatchBalance(
-                  "Bilyas",
-                  1,
-                  1,
-                  ListMapsWMatchBalance([
-                    MapsWMatchBalance("Chapel"),
-                    MapsWMatchBalance("Coal Tower"),
-                    MapsWMatchBalance("Mine"),
-                  ]),
-                  ListManiacPerkWMatchBalance([
-                    ManiacPerkWMatchBalance("Brutal strength"),
-                    ManiacPerkWMatchBalance("Raffle")
-                  ]),
-                  ListSurvivorPerkWMatchBalance([
-                    SurvivorPerkWMatchBalance("Sprint"),
-                  ])
+                 "Hillbilly",
+                 1,
+                 1,
+                 ListMapsWMatchBalance([
+                   MapsWMatchBalance("Chapel"),
+                   MapsWMatchBalance("Coal Tower"),
+                   MapsWMatchBalance("Mine"),
+                 ]),
+                 ListManiacPerkWMatchBalance([
+                   ManiacPerkWMatchBalance("Brutal strength"),
+                   ManiacPerkWMatchBalance("Raffle")
+                 ]),
+                 ListSurvivorPerkWMatchBalance([
+                   SurvivorPerkWMatchBalance("Sprint"),
+                 ])
               ),
               ManiacWMatchBalance(
-                  "Bubba",
+                  "Cannibal",
                   0,
                   1,
                   ListMapsWMatchBalance([
@@ -1641,7 +1641,7 @@ final class ReadyDataUtility {
                   ])
               ),
               ManiacWMatchBalance(
-                  "Mor",
+                  "Blight",
                   0,
                   1,
                   ListMapsWMatchBalance([
@@ -1671,7 +1671,7 @@ final class ReadyDataUtility {
                   ListSurvivorPerkWMatchBalance([])
               ),
               ManiacWMatchBalance(
-                  "Kolya",
+                  "Wraith",
                   1,
                   1,
                   ListMapsWMatchBalance([
@@ -1710,7 +1710,7 @@ final class ReadyDataUtility {
                   ])
               ),
               ManiacWMatchBalance(
-                  "Vesker",
+                  "Mastermind",
                   1,
                   1,
                   ListMapsWMatchBalance([

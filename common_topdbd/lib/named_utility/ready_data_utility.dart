@@ -6,6 +6,7 @@ import 'package:common_topdbd/model/maniac_perk/list_maniac_perk.dart';
 import 'package:common_topdbd/model/maniac_perk/maniac_perk.dart';
 import 'package:common_topdbd/model/maps/list_maps.dart';
 import 'package:common_topdbd/model/maps/maps.dart';
+import 'package:common_topdbd/model/perk/perk.dart';
 import 'package:common_topdbd/model/survivor_perk/list_survivor_perk.dart';
 import 'package:common_topdbd/model/survivor_perk/survivor_perk.dart';
 import 'package:meta/meta.dart';
@@ -16,16 +17,16 @@ final class ReadyDataUtility {
 
   static ListManiac<Maniac> get getListManiac {
     final listManiac = List<Maniac>.empty(growable: true);
-    listManiac.add(const Maniac("Anna", "assets/icon/dbd/maniac/maniac_anna.png"));
-    listManiac.add(const Maniac("Bilyas", "assets/icon/dbd/maniac/maniac_bilyas.png"));
-    listManiac.add(const Maniac("Bubba", "assets/icon/dbd/maniac/maniac_bubba.png"));
+    listManiac.add(const Maniac("Huntress", "assets/icon/dbd/maniac/maniac_huntress.png"));
+    listManiac.add(const Maniac("Hillbilly", "assets/icon/dbd/maniac/maniac_hillbilly.png"));
+    listManiac.add(const Maniac("Cannibal", "assets/icon/dbd/maniac/maniac_cannibal.png"));
     listManiac.add(const Maniac("Demogorgon", "assets/icon/dbd/maniac/maniac_demogorgon.png"));
     listManiac.add(const Maniac("Doctor", "assets/icon/dbd/maniac/maniac_doctor.png"));
-    listManiac.add(const Maniac("Kolya", "assets/icon/dbd/maniac/maniac_kolya.png"));
-    listManiac.add(const Maniac("Mor", "assets/icon/dbd/maniac/maniac_mor.png"));
+    listManiac.add(const Maniac("Wraith", "assets/icon/dbd/maniac/maniac_wraith.png"));
+    listManiac.add(const Maniac("Blight", "assets/icon/dbd/maniac/maniac_blight.png"));
     listManiac.add(const Maniac("Nurse", "assets/icon/dbd/maniac/maniac_nurse.png"));
     listManiac.add(const Maniac("Trapper", "assets/icon/dbd/maniac/maniac_trapper.png"));
-    listManiac.add(const Maniac("Vesker", "assets/icon/dbd/maniac/maniac_vesker.png"));
+    listManiac.add(const Maniac("Mastermind", "assets/icon/dbd/maniac/maniac_mastermind.png"));
     return ListManiac(listManiac);
   }
 
@@ -42,11 +43,16 @@ final class ReadyDataUtility {
 
   static ListManiacPerk<ManiacPerk> get getListManiacPerk {
     final listManiacPerk = List<ManiacPerk>.empty(growable: true);
+    listManiacPerk.add(ManiacPerk(Perk("Bamboozle","assets/icon/dbd/maniac_perk/maniac_perk_bamboozle.png")));
+    listManiacPerk.add(ManiacPerk(Perk("Brutal Strength","assets/icon/dbd/maniac_perk/maniac_perk_brutal_strength.png")));
     return ListManiacPerk(listManiacPerk);
   }
 
   static ListSurvivorPerk<SurvivorPerk> get getListSurvivorPerk {
     final listSurvivorPerk = List<SurvivorPerk>.empty(growable: true);
+    listSurvivorPerk.add(SurvivorPerk(Perk("Lithe","assets/icon/dbd/survivor_perk/survivor_perk_lithe.png")));
+    listSurvivorPerk.add(SurvivorPerk(Perk("Balanced Landing","assets/icon/dbd/survivor_perk/survivor_perk_balanced_landing.png")));
+    listSurvivorPerk.add(SurvivorPerk(Perk("Sprint Burst","assets/icon/dbd/survivor_perk/survivor_perk_sprint_burst.png")));
     return ListSurvivorPerk(listSurvivorPerk);
   }
 

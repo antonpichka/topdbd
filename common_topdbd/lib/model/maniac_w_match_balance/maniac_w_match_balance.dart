@@ -1,6 +1,8 @@
+import 'package:common_topdbd/model/maniac/maniac.dart';
 import 'package:common_topdbd/model/maniac_perk_w_match_balance/list_maniac_perk_w_match_balance.dart';
 import 'package:common_topdbd/model/maps_w_match_balance/list_maps_w_match_balance.dart';
 import 'package:common_topdbd/model/survivor_perk_w_match_balance/list_survivor_perk_w_match_balance.dart';
+import 'package:common_topdbd/named_utility/algorithms_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -28,6 +30,14 @@ base class ManiacWMatchBalance extends BaseModel {
         "listSurvivorPerkWMatchBalance: ${listSurvivorPerkWMatchBalance.listModel})";
   }
 
+  Maniac get getManiacWhereListManiacWReadyDataUtilityParameterName {
+    return AlgorithmsUtility.getManiacWhereListManiacWReadyDataUtilityFromName(name);
+  }
+
+  String getStringWhereSubstringFromEndParameterName(int end) {
+    return AlgorithmsUtility.getStringWhereSubstringFromNameAndEnd(name,end);
+  }
+
   bool isWhereNotEqualsParametersNecessaryLengthPickedManiacPerkAndListManiacPerkWMatchBalance() {
     return necessaryLengthPickedManiacPerk != listManiacPerkWMatchBalance.listModel.length;
   }
@@ -39,5 +49,9 @@ base class ManiacWMatchBalance extends BaseModel {
   bool isWhereNotEmptyAndEqualsParametersNecessaryLengthPickedSurvivorPerkAndListSurvivorPerkWMatchBalance() {
     return listSurvivorPerkWMatchBalance.listModel.isNotEmpty &&
         necessaryLengthPickedSurvivorPerk == listSurvivorPerkWMatchBalance.listModel.length;
+  }
+
+  bool isWhereEqualsFromNameParameterName(String name) {
+    return this.name == name;
   }
 }

@@ -58,7 +58,7 @@ final class _AuthTitleWAppBarViewState extends State<AuthTitleWAppBarView> {
                       width: 32,
                       height: 32,
                       fit: BoxFit.cover),
-                  title: Text(dataForNamedParameterNamedStreamWState.getStringWhereSubstringParameterUsernameByDiscordUser,
+                  title: Text(dataForNamedParameterNamedStreamWState.getStringWhereSubstringFromEndParameterUsernameByDiscordUser(9),
                     style: Theme.of(context).textTheme.bodyMedium,),
                 ),
               ),

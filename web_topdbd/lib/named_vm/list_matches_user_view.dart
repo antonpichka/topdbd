@@ -293,7 +293,7 @@ final class _ListMatchesUserViewState extends State<ListMatchesUserView> {
                                               Tooltip(
                                                 message: "Kolya",
                                                 child: Image.asset(
-                                                    'assets/icon/dbd/maniac/maniac_kolya.png',
+                                                    'assets/icon/dbd/maniac/maniac_wraith.png',
                                                     width: 42,
                                                     height: 42,
                                                     fit: BoxFit.cover),
@@ -387,7 +387,7 @@ final class _ListMatchesUserViewState extends State<ListMatchesUserView> {
                                                 Tooltip(
                                                   message: "Kolya",
                                                   child: Image.asset(
-                                                      'assets/icon/dbd/maniac/maniac_kolya.png',
+                                                      'assets/icon/dbd/maniac/maniac_wraith.png',
                                                       width: 42,
                                                       height: 42,
                                                       fit: BoxFit.cover),
@@ -556,7 +556,7 @@ final class _ListMatchesUserViewState extends State<ListMatchesUserView> {
                                                 Tooltip(
                                                   message: "Kolya",
                                                   child: Image.asset(
-                                                      'assets/icon/dbd/maniac/maniac_kolya.png',
+                                                      'assets/icon/dbd/maniac/maniac_wraith.png',
                                                       width: 42,
                                                       height: 42,
                                                       fit: BoxFit.cover),
@@ -665,7 +665,7 @@ final class _ListMatchesUserViewState extends State<ListMatchesUserView> {
                                                           Tooltip(
                                                             message: "Kolya",
                                                             child: Image.asset(
-                                                                'assets/icon/dbd/maniac/maniac_kolya.png',
+                                                                'assets/icon/dbd/maniac/maniac_wraith.png',
                                                                 width: 42,
                                                                 height: 42,
                                                                 fit: BoxFit.cover),

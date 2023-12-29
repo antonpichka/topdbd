@@ -43,22 +43,27 @@ flutter:
     - assets/icon/app_icon.ico
     - assets/icon/app_icon.png
     - assets/icon/background.png
-    - assets/icon/dbd/maniac/maniac_anna.png
-    - assets/icon/dbd/maniac/maniac_bilyas.png
-    - assets/icon/dbd/maniac/maniac_bubba.png
+    - assets/icon/dbd/maniac/maniac_huntress.png
+    - assets/icon/dbd/maniac/maniac_hillbilly.png
+    - assets/icon/dbd/maniac/maniac_cannibal.png
     - assets/icon/dbd/maniac/maniac_demogorgon.png
     - assets/icon/dbd/maniac/maniac_doctor.png
-    - assets/icon/dbd/maniac/maniac_kolya.png
-    - assets/icon/dbd/maniac/maniac_mor.png
+    - assets/icon/dbd/maniac/maniac_wraith.png
+    - assets/icon/dbd/maniac/maniac_blight.png
     - assets/icon/dbd/maniac/maniac_nurse.png
     - assets/icon/dbd/maniac/maniac_trapper.png
-    - assets/icon/dbd/maniac/maniac_vesker.png
+    - assets/icon/dbd/maniac/maniac_mastermind.png
     - assets/icon/dbd/maps/maps_asy_chapel.png
     - assets/icon/dbd/maps/maps_ind_coal_tower.png
     - assets/icon/dbd/maps/maps_ind_mine.png
     - assets/icon/dbd/maps/maps_ind_storehouse.png
     - assets/icon/dbd/maps/maps_jnk_gas_station.png
     - assets/icon/dbd/maps/maps_jnk_scrapyard.png
+    - assets/icon/dbd/maniac_perk/maniac_perk_bamboozle.png
+    - assets/icon/dbd/maniac_perk/maniac_perk_brutal_strength.png
+    - assets/icon/dbd/survivor_perk/survivor_perk_balanced_landing.png
+    - assets/icon/dbd/survivor_perk/survivor_perk_lithe.png
+    - assets/icon/dbd/survivor_perk/survivor_perk_sprint_burst.png
     - assets/icon/flags/abkhazia.png
     - assets/icon/flags/afghanistan.png
     - assets/icon/flags/aland.png

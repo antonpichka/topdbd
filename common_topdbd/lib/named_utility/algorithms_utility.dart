@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:common_topdbd/model/country_rd/country_rd.dart';
+import 'package:common_topdbd/model/maniac/maniac.dart';
 import 'package:common_topdbd/named_utility/enum_win_number_user_utility.dart';
 import 'package:common_topdbd/named_utility/ready_data_utility.dart';
 import 'package:meta/meta.dart';
@@ -139,6 +140,10 @@ final class AlgorithmsUtility {
         : "0${dateTime.day}"}";
   }
 
+  static String getStringWhereSubstringFromNameAndEnd(String name,int end) {
+    return name.length >  end ? "${name.substring(0,end)}..." : name;
+  }
+
   static int getInterestFormulaFromNumberAndFindPercent(int number, int findPercent) {
     return ((number / 100) * findPercent).toInt();
   }
@@ -209,5 +214,17 @@ final class AlgorithmsUtility {
       countryRD = itemModel.getClone;
     }
     return countryRD ?? listCountryRD.listModel.last;
+  }
+
+  static Maniac getManiacWhereListManiacWReadyDataUtilityFromName(String name) {
+    Maniac? maniac;
+    final listManiac = ReadyDataUtility.getListManiac;
+    for(Maniac itemModel in listManiac.listModel) {
+      if(itemModel.name != name) {
+        continue;
+      }
+      maniac = itemModel.getClone;
+    }
+    return maniac ?? listManiac.listModel.last;
   }
 }

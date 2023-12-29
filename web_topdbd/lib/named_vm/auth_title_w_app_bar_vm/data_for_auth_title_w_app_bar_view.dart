@@ -20,8 +20,8 @@ final class DataForAuthTitleWAppBarView extends BaseDataForNamed<EnumDataForAuth
     return EnumDataForAuthTitleWAppBarView.success;
   }
 
-  String get getStringWhereSubstringParameterUsernameByDiscordUser {
-    return usernameByDiscordUser.length >  9 ? "${usernameByDiscordUser.substring(0,9)}..." : usernameByDiscordUser;
+  String getStringWhereSubstringFromEndParameterUsernameByDiscordUser(int end) {
+    return AlgorithmsUtility.getStringWhereSubstringFromNameAndEnd(usernameByDiscordUser,end);
   }
 
   CountryRD get getCountryRDWhereListCountryRDWReadyDataUtilityParameterOne {

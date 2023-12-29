@@ -45,161 +45,161 @@ final class TestListWItemManiacWMatchBalanceViewModel extends BaseNamedViewModel
         getIntsWhereSeasonNumberBySeasonParameterTempCacheService.parameter?.field ?? 0,
         3,
         ListManiacWMatchBalance(List.of([
-          const ManiacWMatchBalance(
+          ManiacWMatchBalance(
               "Huntress",
               1,
               1,
-              ListMapsWMatchBalance([
-                MapsWMatchBalance("Chapel"),
-                MapsWMatchBalance("Coal Tower"),
-                MapsWMatchBalance("Mine"),
-              ]),
-              ListManiacPerkWMatchBalance([
-                ManiacPerkWMatchBalance("Brutal strength"),
-                ManiacPerkWMatchBalance("Raffle")
-              ]),
-              ListSurvivorPerkWMatchBalance([
-                SurvivorPerkWMatchBalance("Sprint"),
-              ])
+              ListMapsWMatchBalance(List.of([
+                const MapsWMatchBalance("Chapel"),
+                const MapsWMatchBalance("Coal Tower"),
+                const MapsWMatchBalance("Mine"),
+              ])),
+              ListManiacPerkWMatchBalance(List.of([
+                const ManiacPerkWMatchBalance("Brutal Strength"),
+                const ManiacPerkWMatchBalance("Bamboozle")
+              ])),
+              ListSurvivorPerkWMatchBalance(List.of([
+                const SurvivorPerkWMatchBalance("Sprint Burst"),
+              ]))
           ),
-          const ManiacWMatchBalance(
+          ManiacWMatchBalance(
               "Hillbilly",
               1,
               1,
-              ListMapsWMatchBalance([
-                MapsWMatchBalance("Chapel"),
-                MapsWMatchBalance("Coal Tower"),
-                MapsWMatchBalance("Mine"),
-              ]),
-              ListManiacPerkWMatchBalance([
-                ManiacPerkWMatchBalance("Brutal strength"),
-                ManiacPerkWMatchBalance("Raffle")
-              ]),
-              ListSurvivorPerkWMatchBalance([
-                SurvivorPerkWMatchBalance("Sprint"),
-              ])
+              ListMapsWMatchBalance(List.of([
+                const MapsWMatchBalance("Chapel"),
+                const MapsWMatchBalance("Coal Tower"),
+                const MapsWMatchBalance("Mine"),
+              ])),
+              ListManiacPerkWMatchBalance(List.of([
+                const ManiacPerkWMatchBalance("Brutal Strength"),
+                const ManiacPerkWMatchBalance("Bamboozle")
+              ])),
+              ListSurvivorPerkWMatchBalance(List.of([
+                const SurvivorPerkWMatchBalance("Sprint Burst"),
+              ]))
           ),
-          const ManiacWMatchBalance(
+          ManiacWMatchBalance(
               "Cannibal",
               0,
               1,
-              ListMapsWMatchBalance([
-                MapsWMatchBalance("Chapel"),
-                MapsWMatchBalance("Coal Tower"),
-                MapsWMatchBalance("Mine"),
-              ]),
-              ListManiacPerkWMatchBalance([]),
-              ListSurvivorPerkWMatchBalance([
-                SurvivorPerkWMatchBalance("Sprint"),
-                SurvivorPerkWMatchBalance("Flexibility")
-              ])
+              ListMapsWMatchBalance(List.of([
+                const MapsWMatchBalance("Chapel"),
+                const MapsWMatchBalance("Coal Tower"),
+                const MapsWMatchBalance("Mine"),
+              ])),
+              ListManiacPerkWMatchBalance(List.of([])),
+              ListSurvivorPerkWMatchBalance(List.of([
+                const SurvivorPerkWMatchBalance("Sprint Burst"),
+                const SurvivorPerkWMatchBalance("Lithe")
+              ]))
           ),
-          const ManiacWMatchBalance(
+          ManiacWMatchBalance(
               "Trapper",
               2,
               2,
-              ListMapsWMatchBalance([
-                MapsWMatchBalance("Chapel"),
-                MapsWMatchBalance("Gas Station"),
-                MapsWMatchBalance("Coal Tower"),
-                MapsWMatchBalance("Mine"),
-                MapsWMatchBalance("StoreHouse"),
-              ]),
-              ListManiacPerkWMatchBalance([
-                ManiacPerkWMatchBalance("Brutal strength"),
-                ManiacPerkWMatchBalance("Raffle")
-              ]),
-              ListSurvivorPerkWMatchBalance([
-                SurvivorPerkWMatchBalance("Sprint"),
-                SurvivorPerkWMatchBalance("Flexibility")
-              ])
+              ListMapsWMatchBalance(List.of([
+                const MapsWMatchBalance("Chapel"),
+                const MapsWMatchBalance("Gas Station"),
+                const MapsWMatchBalance("Coal Tower"),
+                const MapsWMatchBalance("Mine"),
+                const MapsWMatchBalance("StoreHouse"),
+              ])),
+              ListManiacPerkWMatchBalance(List.of([
+                const ManiacPerkWMatchBalance("Brutal Strength"),
+                const ManiacPerkWMatchBalance("Bamboozle")
+              ])),
+              ListSurvivorPerkWMatchBalance(List.of([
+                const SurvivorPerkWMatchBalance("Sprint Burst"),
+                const SurvivorPerkWMatchBalance("Lithe")
+              ]))
           ),
-          const ManiacWMatchBalance(
+          ManiacWMatchBalance(
               "Blight",
               0,
               1,
-              ListMapsWMatchBalance([
-                MapsWMatchBalance("StoreHouse"),
-                MapsWMatchBalance("Gas Station"),
-                MapsWMatchBalance("Scrapyard")
-              ]),
-              ListManiacPerkWMatchBalance([]),
-              ListSurvivorPerkWMatchBalance([
-                SurvivorPerkWMatchBalance("Sprint"),
-                SurvivorPerkWMatchBalance("Flexibility")
-              ])
+              ListMapsWMatchBalance(List.of([
+                const MapsWMatchBalance("StoreHouse"),
+                const MapsWMatchBalance("Gas Station"),
+                const MapsWMatchBalance("Scrapyard")
+              ])),
+              ListManiacPerkWMatchBalance(List.of([])),
+              ListSurvivorPerkWMatchBalance(List.of([
+                const SurvivorPerkWMatchBalance("Sprint Burst"),
+                const SurvivorPerkWMatchBalance("Lithe")
+              ]))
           ),
-          const ManiacWMatchBalance(
+          ManiacWMatchBalance(
               "Nurse",
               1,
               0,
-              ListMapsWMatchBalance([
-                MapsWMatchBalance("StoreHouse"),
-                MapsWMatchBalance("Gas Station"),
-                MapsWMatchBalance("Scrapyard")
-              ]),
-              ListManiacPerkWMatchBalance([
-                ManiacPerkWMatchBalance("Brutal strength"),
-                ManiacPerkWMatchBalance("Raffle")
-              ]),
-              ListSurvivorPerkWMatchBalance([])
+              ListMapsWMatchBalance(List.of([
+                const MapsWMatchBalance("StoreHouse"),
+                const MapsWMatchBalance("Gas Station"),
+                const MapsWMatchBalance("Scrapyard")
+              ])),
+              ListManiacPerkWMatchBalance(List.of([
+                const ManiacPerkWMatchBalance("Brutal Strength"),
+                const ManiacPerkWMatchBalance("Bamboozle")
+              ])),
+              ListSurvivorPerkWMatchBalance(List.of([]))
           ),
-          const ManiacWMatchBalance(
+          ManiacWMatchBalance(
               "Wraith",
               1,
               1,
-              ListMapsWMatchBalance([
-                MapsWMatchBalance("Chapel"),
-                MapsWMatchBalance("StoreHouse"),
-                MapsWMatchBalance("Gas Station"),
-                MapsWMatchBalance("Scrapyard"),
-                MapsWMatchBalance("Coal Tower"),
-              ]),
-              ListManiacPerkWMatchBalance([
-                ManiacPerkWMatchBalance("Brutal strength"),
-              ]),
-              ListSurvivorPerkWMatchBalance([
-                SurvivorPerkWMatchBalance("Sprint"),
-                SurvivorPerkWMatchBalance("Flexibility")
-              ])
+              ListMapsWMatchBalance(List.of([
+                const MapsWMatchBalance("Chapel"),
+                const MapsWMatchBalance("StoreHouse"),
+                const MapsWMatchBalance("Gas Station"),
+                const MapsWMatchBalance("Scrapyard"),
+                const MapsWMatchBalance("Coal Tower"),
+              ])),
+              ListManiacPerkWMatchBalance(List.of([
+                const ManiacPerkWMatchBalance("Brutal Strength"),
+              ])),
+              ListSurvivorPerkWMatchBalance(List.of([
+                const SurvivorPerkWMatchBalance("Sprint Burst"),
+                const SurvivorPerkWMatchBalance("Lithe")
+              ]))
           ),
-          const ManiacWMatchBalance(
+          ManiacWMatchBalance(
               "Doctor",
               1,
               2,
-              ListMapsWMatchBalance([
-                MapsWMatchBalance("Chapel"),
-                MapsWMatchBalance("Coal Tower"),
-                MapsWMatchBalance("StoreHouse"),
-                MapsWMatchBalance("Gas Station"),
-                MapsWMatchBalance("Scrapyard")
-              ]),
-              ListManiacPerkWMatchBalance([
-                ManiacPerkWMatchBalance("Brutal strength"),
-                ManiacPerkWMatchBalance("Raffle")
-              ]),
-              ListSurvivorPerkWMatchBalance([
-                SurvivorPerkWMatchBalance("Sprint"),
-                SurvivorPerkWMatchBalance("Flexibility")
-              ])
+              ListMapsWMatchBalance(List.of([
+                const MapsWMatchBalance("Chapel"),
+                const MapsWMatchBalance("Coal Tower"),
+                const MapsWMatchBalance("StoreHouse"),
+                const MapsWMatchBalance("Gas Station"),
+                const MapsWMatchBalance("Scrapyard")
+              ])),
+              ListManiacPerkWMatchBalance(List.of([
+                const ManiacPerkWMatchBalance("Brutal Strength"),
+                const ManiacPerkWMatchBalance("Bamboozle")
+              ])),
+              ListSurvivorPerkWMatchBalance(List.of([
+                const SurvivorPerkWMatchBalance("Sprint Burst"),
+                const SurvivorPerkWMatchBalance("Lithe")
+              ]))
           ),
-          const ManiacWMatchBalance(
+          ManiacWMatchBalance(
               "Mastermind",
               1,
               1,
-              ListMapsWMatchBalance([
-                MapsWMatchBalance("StoreHouse"),
-                MapsWMatchBalance("Gas Station"),
-                MapsWMatchBalance("Scrapyard")
-              ]),
-              ListManiacPerkWMatchBalance([
-                ManiacPerkWMatchBalance("Brutal strength"),
-                ManiacPerkWMatchBalance("Raffle")
-              ]),
-              ListSurvivorPerkWMatchBalance([
-                SurvivorPerkWMatchBalance("Sprint"),
-                SurvivorPerkWMatchBalance("Flexibility")
-              ])
+              ListMapsWMatchBalance(List.of([
+                const MapsWMatchBalance("StoreHouse"),
+                const MapsWMatchBalance("Gas Station"),
+                const MapsWMatchBalance("Scrapyard")
+              ])),
+              ListManiacPerkWMatchBalance(List.of([
+                const ManiacPerkWMatchBalance("Brutal Strength"),
+                const ManiacPerkWMatchBalance("Bamboozle")
+              ])),
+              ListSurvivorPerkWMatchBalance(List.of([
+                const SurvivorPerkWMatchBalance("Sprint Burst"),
+                const SurvivorPerkWMatchBalance("Lithe")
+              ]))
           ),
         ])));
     _updateEEMatchBalanceEEFromMatchBalanceEEParameterTempCacheService

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_topdbd/named_vm/item_maniac_w_match_balance_view.dart';
+import 'package:web_topdbd/named_vm/item_maniac_w_match_balance_vm/item_maniac_w_match_balance_view.dart';
 import 'package:web_topdbd/named_vm/list_maniac_w_match_balance_vm/list_maniac_w_match_balance_view.dart';
 import 'package:web_topdbd/named_vm/list_w_item_maniac_w_match_balance_vm/enum_data_for_list_w_item_maniac_w_match_balance_view.dart';
 import 'package:web_topdbd/named_vm/list_w_item_maniac_w_match_balance_vm/test_list_w_item_maniac_w_match_balance_view_model.dart';

@@ -45,87 +45,89 @@ final class _ListManiacWMatchBalanceViewState extends State<ListManiacWMatchBala
       case EnumDataForListManiacWMatchBalanceView.exception:
         return Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"));
       case EnumDataForListManiacWMatchBalanceView.success:
-        return Column(
-          children: [
-            Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text("Number of Rounds: ${dataForNamedParameterNamedStreamWState.matchBalance.numberOfRounds}"),
-                )),
-            Stack(
-              children: [
-                SizedBox(
-                  height: 120,
+        return Card(
+          child: Column(
+            children: [
+              Card(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                    child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        physics: const ClampingScrollPhysics(),
-                        controller: _scrollController,
-                        itemCount: dataForNamedParameterNamedStreamWState
-                            .matchBalance
-                            .listManiacWMatchBalance
-                            .listModel
-                            .length,
-                        separatorBuilder: (context,index) {
-                          return const SizedBox(width: 12,);
-                        },
-                        itemBuilder: (context,index) {
-                          final itemModel = dataForNamedParameterNamedStreamWState
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("Number of Rounds: ${dataForNamedParameterNamedStreamWState.matchBalance.numberOfRounds}"),
+                  )),
+              Stack(
+                children: [
+                  SizedBox(
+                    height: 120,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                      child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          physics: const ClampingScrollPhysics(),
+                          controller: _scrollController,
+                          itemCount: dataForNamedParameterNamedStreamWState
                               .matchBalance
                               .listManiacWMatchBalance
-                              .listModel[index];
-                          final selectedItemManiacWMatchBalance = dataForNamedParameterNamedStreamWState
-                              .selectedItemManiacWMatchBalance;
-                          return _getWidgetWhereItemToListViewFromTwoParameterViewModel(itemModel,selectedItemManiacWMatchBalance);
-                        }),
+                              .listModel
+                              .length,
+                          separatorBuilder: (context,index) {
+                            return const SizedBox(width: 12,);
+                          },
+                          itemBuilder: (context,index) {
+                            final itemModel = dataForNamedParameterNamedStreamWState
+                                .matchBalance
+                                .listManiacWMatchBalance
+                                .listModel[index];
+                            final selectedItemManiacWMatchBalance = dataForNamedParameterNamedStreamWState
+                                .selectedItemManiacWMatchBalance;
+                            return _getWidgetWhereItemToListViewFromTwoParameterViewModel(itemModel,selectedItemManiacWMatchBalance);
+                          }),
+                    ),
                   ),
-                ),
-                dataForNamedParameterNamedStreamWState.isMaxLeftScroll
-                    ? Container()
-                    : Positioned.fill(
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: IconButton(
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
+                  dataForNamedParameterNamedStreamWState.isMaxLeftScroll
+                      ? Container()
+                      : Positioned.fill(
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: IconButton(
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
                             ),
                           ),
-                        ),
-                        icon: const Icon(Icons.arrow_back),
-                        onPressed: () {
-                          _scrollController.position.animateTo(_scrollController.position.minScrollExtent,
-                              duration: const Duration(milliseconds: 200),
-                              curve: Curves.ease);
-                        }),
+                          icon: const Icon(Icons.arrow_back),
+                          onPressed: () {
+                            _scrollController.position.animateTo(_scrollController.position.minScrollExtent,
+                                duration: const Duration(milliseconds: 200),
+                                curve: Curves.ease);
+                          }),
+                    ),
                   ),
-                ),
-                dataForNamedParameterNamedStreamWState.isMaxRightScroll
-                    ? Container()
-                    : Positioned.fill(
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: IconButton(
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
+                  dataForNamedParameterNamedStreamWState.isMaxRightScroll
+                      ? Container()
+                      : Positioned.fill(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: IconButton(
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
                             ),
                           ),
-                        ),
-                        icon: const Icon(Icons.arrow_forward),
-                        onPressed: () {
-                          _scrollController.position.animateTo(_scrollController.position.maxScrollExtent,
-                              duration: const Duration(milliseconds: 200),
-                              curve: Curves.ease);
-                        }),
+                          icon: const Icon(Icons.arrow_forward),
+                          onPressed: () {
+                            _scrollController.position.animateTo(_scrollController.position.maxScrollExtent,
+                                duration: const Duration(milliseconds: 200),
+                                curve: Curves.ease);
+                          }),
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         );
     }
   }
@@ -146,7 +148,7 @@ final class _ListManiacWMatchBalanceViewState extends State<ListManiacWMatchBala
 
   Widget _getWidgetWhereItemToListViewFromTwoParameterViewModel(ManiacWMatchBalance itemManiacWMatchBalance,String selectedItemManiacWMatchBalance) {
     return SizedBox(
-      width: 120,
+      width: 140,
       child: ListTile(
         onTap: () {
           _viewModel.onTapItemToListView(itemManiacWMatchBalance);
@@ -157,13 +159,13 @@ final class _ListManiacWMatchBalanceViewState extends State<ListManiacWMatchBala
           children: [
             Image.asset(
                 itemManiacWMatchBalance.getManiacWhereListManiacWReadyDataUtilityParameterName.imagePath,
-                width: 80,
+                width: 100,
                 height: 80,
                 fit: BoxFit.cover),
             Flexible(
                 child: Tooltip(
                     message: itemManiacWMatchBalance.name,
-                    child: Text(itemManiacWMatchBalance.getStringWhereSubstringFromEndParameterName(8))))
+                    child: Text(itemManiacWMatchBalance.getStringWhereSubstringFromEndParameterName(12))))
           ],
         ),
       ),

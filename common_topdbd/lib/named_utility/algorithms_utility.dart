@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 import 'package:common_topdbd/model/country_rd/country_rd.dart';
 import 'package:common_topdbd/model/maniac/maniac.dart';
+import 'package:common_topdbd/model/maps/maps.dart';
 import 'package:common_topdbd/named_utility/enum_win_number_user_utility.dart';
 import 'package:common_topdbd/named_utility/ready_data_utility.dart';
 import 'package:meta/meta.dart';
@@ -226,5 +227,17 @@ final class AlgorithmsUtility {
       maniac = itemModel.getClone;
     }
     return maniac ?? listManiac.listModel.last;
+  }
+
+  static Maps getMapsWhereListMapsWReadyDataUtilityFromName(String name) {
+    Maps? maps;
+    final listMaps = ReadyDataUtility.getListMaps;
+    for(Maps itemModel in listMaps.listModel) {
+      if(itemModel.name != name) {
+        continue;
+      }
+      maps = itemModel.getClone;
+    }
+    return maps ?? listMaps.listModel.last;
   }
 }

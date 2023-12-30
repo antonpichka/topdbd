@@ -23,6 +23,8 @@ final class KeysTempCacheServiceUtility {
   static const String datesTimesQQEndOfSeasonTimeBySeason = "datesTimesQQEndOfSeasonTimeBySeason";
   /* MatchBalance */
   static const String matchBalance = "matchBalance";
+  /* ManiacWMatchBalance */
+  static const String maniacWMatchBalance = "maniacWMatchBalance";
   /* ListSeason */
   static const String listSeason = "listSeason";
   /* UIBUWUBDU */

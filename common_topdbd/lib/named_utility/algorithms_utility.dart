@@ -1,7 +1,9 @@
 import 'dart:math' as math;
 import 'package:common_topdbd/model/country_rd/country_rd.dart';
 import 'package:common_topdbd/model/maniac/maniac.dart';
+import 'package:common_topdbd/model/maniac_perk/maniac_perk.dart';
 import 'package:common_topdbd/model/maps/maps.dart';
+import 'package:common_topdbd/model/survivor_perk/survivor_perk.dart';
 import 'package:common_topdbd/named_utility/enum_win_number_user_utility.dart';
 import 'package:common_topdbd/named_utility/ready_data_utility.dart';
 import 'package:meta/meta.dart';
@@ -197,6 +199,10 @@ final class AlgorithmsUtility {
     return (endDateTime.difference(startDateTime).inHours / 24).round();
   }
 
+  static int getTryParseFromStr(String str) {
+    return int.tryParse(str) ?? 0;
+  }
+
   static double getPercentageWinRateFromFirstNumberAndTotalFirstWSecondNumber(int wonMatches, int totalMatches) {
     final result = ((wonMatches / totalMatches) * 100).ceilToDouble();
     if(result.isNaN) {
@@ -239,5 +245,29 @@ final class AlgorithmsUtility {
       maps = itemModel.getClone;
     }
     return maps ?? listMaps.listModel.last;
+  }
+
+  static ManiacPerk getManiacPerkWhereListManiacPerkWReadyDataUtilityFromName(String name) {
+    ManiacPerk? maniacPerk;
+    final listManiacPerk = ReadyDataUtility.getListManiacPerk;
+    for(ManiacPerk itemModel in listManiacPerk.listModel) {
+      if(itemModel.perk.name != name) {
+        continue;
+      }
+      maniacPerk = itemModel.getClone;
+    }
+    return maniacPerk ?? listManiacPerk.listModel.last;
+  }
+
+  static SurvivorPerk getSurvivorPerkWhereListSurvivorPerkWReadyDataUtilityFromName(String name) {
+    SurvivorPerk? survivorPerk;
+    final listSurvivorPerk = ReadyDataUtility.getListSurvivorPerk;
+    for(SurvivorPerk itemModel in listSurvivorPerk.listModel) {
+      if(itemModel.perk.name != name) {
+        continue;
+      }
+      survivorPerk = itemModel.getClone;
+    }
+    return survivorPerk ?? listSurvivorPerk.listModel.last;
   }
 }

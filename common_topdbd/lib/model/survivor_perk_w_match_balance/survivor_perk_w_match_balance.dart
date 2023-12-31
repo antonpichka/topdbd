@@ -1,3 +1,5 @@
+import 'package:common_topdbd/model/survivor_perk/survivor_perk.dart';
+import 'package:common_topdbd/named_utility/algorithms_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
@@ -13,5 +15,13 @@ base class SurvivorPerkWMatchBalance extends BaseModel {
   @override
   String toString() {
     return "SurvivorPerkWMatchBalance(name: $name)";
+  }
+
+  SurvivorPerk get getSurvivorPerkWhereListSurvivorPerkWReadyDataUtilityParameterName {
+    return AlgorithmsUtility.getSurvivorPerkWhereListSurvivorPerkWReadyDataUtilityFromName(name);
+  }
+
+  String getStringWhereSubstringFromEndParameterName(int end) {
+    return AlgorithmsUtility.getStringWhereSubstringFromNameAndEnd(name,end);
   }
 }

@@ -46,8 +46,6 @@ final class _ListWItemManiacWMatchBalanceViewState extends State<ListWItemManiac
               ListManiacWMatchBalanceView(),
               ItemManiacWMatchBalanceView()
             ]);
-      default:
-        return Container();
     }
   }
 

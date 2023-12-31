@@ -45,89 +45,105 @@ final class _ListManiacWMatchBalanceViewState extends State<ListManiacWMatchBala
       case EnumDataForListManiacWMatchBalanceView.exception:
         return Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"));
       case EnumDataForListManiacWMatchBalanceView.success:
-        return Card(
-          child: Column(
-            children: [
-              Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text("Number of Rounds: ${dataForNamedParameterNamedStreamWState.matchBalance.numberOfRounds}"),
-                  )),
-              Stack(
+        return Column(
+          children: [
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                  child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("Number of Rounds: ${dataForNamedParameterNamedStreamWState.matchBalance.numberOfRounds}"),
+                      ))),
+            ),
+            Card(
+              child: Column(
                 children: [
-                  SizedBox(
-                    height: 120,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                      child: ListView.separated(
-                          scrollDirection: Axis.horizontal,
-                          physics: const ClampingScrollPhysics(),
-                          controller: _scrollController,
-                          itemCount: dataForNamedParameterNamedStreamWState
-                              .matchBalance
-                              .listManiacWMatchBalance
-                              .listModel
-                              .length,
-                          separatorBuilder: (context,index) {
-                            return const SizedBox(width: 12,);
-                          },
-                          itemBuilder: (context,index) {
-                            final itemModel = dataForNamedParameterNamedStreamWState
-                                .matchBalance
-                                .listManiacWMatchBalance
-                                .listModel[index];
-                            final selectedItemManiacWMatchBalance = dataForNamedParameterNamedStreamWState
-                                .selectedItemManiacWMatchBalance;
-                            return _getWidgetWhereItemToListViewFromTwoParameterViewModel(itemModel,selectedItemManiacWMatchBalance);
-                          }),
-                    ),
-                  ),
-                  dataForNamedParameterNamedStreamWState.isMaxLeftScroll
-                      ? Container()
-                      : Positioned.fill(
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: IconButton(
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
+                  Align(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 8.0,bottom: 8.0,left: 16.0),
+                        child: Text(
+                          "Maniacs",
+                          style: Theme.of(context).textTheme.displaySmall,),
+                      )),
+                  Stack(
+                    children: [
+                      SizedBox(
+                        height: 120,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                          child: ListView.separated(
+                              scrollDirection: Axis.horizontal,
+                              physics: const ClampingScrollPhysics(),
+                              controller: _scrollController,
+                              itemCount: dataForNamedParameterNamedStreamWState
+                                  .matchBalance
+                                  .listManiacWMatchBalance
+                                  .listModel
+                                  .length,
+                              separatorBuilder: (context,index) {
+                                return const SizedBox(width: 12,);
+                              },
+                              itemBuilder: (context,index) {
+                                final itemModel = dataForNamedParameterNamedStreamWState
+                                    .matchBalance
+                                    .listManiacWMatchBalance
+                                    .listModel[index];
+                                final selectedItemManiacWMatchBalance = dataForNamedParameterNamedStreamWState
+                                    .selectedItemManiacWMatchBalance;
+                                return _getWidgetWhereItemToListViewFromTwoParameterViewModel(itemModel,selectedItemManiacWMatchBalance);
+                              }),
+                        ),
+                      ),
+                      dataForNamedParameterNamedStreamWState.isMaxLeftScroll
+                          ? Container()
+                          : Positioned.fill(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: IconButton(
+                              style: ButtonStyle(
+                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          icon: const Icon(Icons.arrow_back),
-                          onPressed: () {
-                            _scrollController.position.animateTo(_scrollController.position.minScrollExtent,
-                                duration: const Duration(milliseconds: 200),
-                                curve: Curves.ease);
-                          }),
-                    ),
-                  ),
-                  dataForNamedParameterNamedStreamWState.isMaxRightScroll
-                      ? Container()
-                      : Positioned.fill(
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: IconButton(
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
+                              icon: const Icon(Icons.arrow_back),
+                              onPressed: () {
+                                _scrollController.position.animateTo(_scrollController.position.minScrollExtent,
+                                    duration: const Duration(milliseconds: 200),
+                                    curve: Curves.ease);
+                              }),
+                        ),
+                      ),
+                      dataForNamedParameterNamedStreamWState.isMaxRightScroll
+                          ? Container()
+                          : Positioned.fill(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: IconButton(
+                              style: ButtonStyle(
+                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          icon: const Icon(Icons.arrow_forward),
-                          onPressed: () {
-                            _scrollController.position.animateTo(_scrollController.position.maxScrollExtent,
-                                duration: const Duration(milliseconds: 200),
-                                curve: Curves.ease);
-                          }),
-                    ),
+                              icon: const Icon(Icons.arrow_forward),
+                              onPressed: () {
+                                _scrollController.position.animateTo(_scrollController.position.maxScrollExtent,
+                                    duration: const Duration(milliseconds: 200),
+                                    curve: Curves.ease);
+                              }),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         );
     }
   }
@@ -165,7 +181,9 @@ final class _ListManiacWMatchBalanceViewState extends State<ListManiacWMatchBala
             Flexible(
                 child: Tooltip(
                     message: itemManiacWMatchBalance.name,
-                    child: Text(itemManiacWMatchBalance.getStringWhereSubstringFromEndParameterName(12))))
+                    child: Text(
+                        itemManiacWMatchBalance.getStringWhereSubstringFromEndParameterName(12),
+                        maxLines: 1)))
           ],
         ),
       ),

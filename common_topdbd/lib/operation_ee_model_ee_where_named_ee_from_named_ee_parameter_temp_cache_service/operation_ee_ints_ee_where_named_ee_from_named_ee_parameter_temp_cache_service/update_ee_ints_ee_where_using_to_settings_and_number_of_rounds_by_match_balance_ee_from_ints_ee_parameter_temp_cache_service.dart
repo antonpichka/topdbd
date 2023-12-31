@@ -4,13 +4,13 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 
 @immutable
-base class UpdateEEIntsEEWhereRatingPointsByStatsEEFromIntsEEParameterTempCacheService<T extends Ints,Y extends ListInts<T>> {
+base class UpdateEEIntsEEWhereUsingToSettingsAndNumberOfRoundsByMatchBalanceEEFromIntsEEParameterTempCacheService<T extends Ints,Y extends ListInts<T>> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Result<bool> updateIntsWhereRatingPointsByStatsFromIntsParameterTempCacheService(T ints) {
+  Result<bool> updateIntsWhereUsingToSettingsAndNumberOfRoundsByMatchBalanceFromIntsParameterTempCacheService(T ints) {
     try {
-      tempCacheService.updateFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.intsQQRatingPointsByStats,ints);
+      tempCacheService.updateFromKeyTempCacheAndValueParameterTempCache(KeysTempCacheServiceUtility.intsQQNumberOfRoundsByMatchBalance,ints);
       return Result.success(true);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

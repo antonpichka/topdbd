@@ -4,13 +4,13 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 
 @immutable
-base class DeleteEEIntsEEWhereRatingPointsByStatsEEParameterTempCacheService<T extends Ints,Y extends ListInts<T>> {
+base class DeleteEEIntsEEWhereUsingToSettingsAndNumberOfRoundsByMatchBalanceEEParameterTempCacheService<T extends Ints,Y extends ListInts<T>> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Result<bool> deleteIntsWhereRatingPointsByStatsParameterTempCacheService() {
+  Result<bool> deleteIntsWhereUsingToSettingsAndNumberOfRoundsByMatchBalanceParameterTempCacheService() {
     try {
-      tempCacheService.deleteFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.intsQQRatingPointsByStats);
+      tempCacheService.deleteFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.intsQQNumberOfRoundsByMatchBalance);
       return Result<bool>.success(true);
     } on LocalException catch(e) {
       return Result<bool>.exception(e);

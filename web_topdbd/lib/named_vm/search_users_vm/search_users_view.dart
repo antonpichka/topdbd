@@ -29,8 +29,8 @@ final class _SearchUsersViewState extends State<SearchUsersView> {
 
   @override
   void dispose() {
-    _viewModel.dispose();
     _textEditingController.dispose();
+    _viewModel.dispose();
     super.dispose();
   }
 

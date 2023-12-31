@@ -20,7 +20,7 @@ final class TestItemManiacWMatchBalanceViewModel extends BaseNamedViewModel<Data
   // NamedUtility
 
   TestItemManiacWMatchBalanceViewModel()
-      : super(DefaultStreamWState(DataForItemManiacWMatchBalanceView(true,true,false,ManiacWMatchBalance("",0,0,ListMapsWMatchBalance(List.empty(growable: true)),ListManiacPerkWMatchBalance(List.empty(growable: true)),ListSurvivorPerkWMatchBalance(List.empty(growable: true))))));
+      : super(DefaultStreamWState(DataForItemManiacWMatchBalanceView(true,true,false,true,false,true,false,ManiacWMatchBalance("",0,0,ListMapsWMatchBalance(List.empty(growable: true)),ListManiacPerkWMatchBalance(List.empty(growable: true)),ListSurvivorPerkWMatchBalance(List.empty(growable: true))))));
 
   @override
   void dispose() {
@@ -55,6 +55,34 @@ final class TestItemManiacWMatchBalanceViewModel extends BaseNamedViewModel<Data
   void setMinScrollExtent() {
     getDataForNamedParameterNamedStreamWState.isMaxLeftScroll = true;
     getDataForNamedParameterNamedStreamWState.isMaxRightScroll = false;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  @override
+  void setMaxScrollExtentFIRST() {
+    getDataForNamedParameterNamedStreamWState.isMaxLeftScrollFIRST = false;
+    getDataForNamedParameterNamedStreamWState.isMaxRightScrollFIRST = true;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  @override
+  void setMinScrollExtentFIRST() {
+    getDataForNamedParameterNamedStreamWState.isMaxLeftScrollFIRST = true;
+    getDataForNamedParameterNamedStreamWState.isMaxRightScrollFIRST = false;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  @override
+  void setMaxScrollExtentSECOND() {
+    getDataForNamedParameterNamedStreamWState.isMaxLeftScrollSECOND = false;
+    getDataForNamedParameterNamedStreamWState.isMaxRightScrollSECOND = true;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  @override
+  void setMinScrollExtentSECOND() {
+    getDataForNamedParameterNamedStreamWState.isMaxLeftScrollSECOND = true;
+    getDataForNamedParameterNamedStreamWState.isMaxRightScrollSECOND = false;
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

@@ -16,7 +16,7 @@ final class ItemManiacWMatchBalanceViewModel extends BaseNamedViewModel<DataForI
   // NamedUtility
 
   ItemManiacWMatchBalanceViewModel()
-      : super(DefaultStreamWState(DataForItemManiacWMatchBalanceView(true,true,false,ManiacWMatchBalance("",0,0,ListMapsWMatchBalance(List.empty(growable: true)),ListManiacPerkWMatchBalance(List.empty(growable: true)),ListSurvivorPerkWMatchBalance(List.empty(growable: true))))));
+      : super(DefaultStreamWState(DataForItemManiacWMatchBalanceView(true,true,false,true,false,true,false,ManiacWMatchBalance("",0,0,ListMapsWMatchBalance(List.empty(growable: true)),ListManiacPerkWMatchBalance(List.empty(growable: true)),ListSurvivorPerkWMatchBalance(List.empty(growable: true))))));
 
   @override
   Future<String> init() async {
@@ -37,5 +37,25 @@ final class ItemManiacWMatchBalanceViewModel extends BaseNamedViewModel<DataForI
   @override
   void setMinScrollExtent() {
     // TODO: implement setMinScrollExtent
+  }
+
+  @override
+  void setMaxScrollExtentFIRST() {
+    // TODO: implement setMaxScrollExtentFIRST
+  }
+
+  @override
+  void setMinScrollExtentFIRST() {
+    // TODO: implement setMinScrollExtentFIRST
+  }
+
+  @override
+  void setMaxScrollExtentSECOND() {
+    // TODO: implement setMaxScrollExtentSECOND
+  }
+
+  @override
+  void setMinScrollExtentSECOND() {
+    // TODO: implement setMinScrollExtentSECOND
   }
 }

@@ -1,0 +1,1 @@
+enum EnumDataForSettingsNumberOfRoundsToMatchBalanceView { isLoading, exception, success }

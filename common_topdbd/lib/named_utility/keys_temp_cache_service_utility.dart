@@ -8,12 +8,9 @@ final class KeysTempCacheServiceUtility {
   static const String stringsQQGlobalNameByDiscordUser = "stringsQQGlobalNameByDiscordUser";
   static const String stringsQQIpByIPAddress = "stringsQQIpByIPAddress";
   static const String stringsQQNameCountryByCountry = "stringsQQNameCountryByCountry";
-  static const String stringsQQCodeDBDByAboutMe = "stringsQQCodeDBDByAboutMe";
   /* Ints */
   static const String intsQQSeasonNumberBySeason = "intsQQSeasonNumberBySeason";
-  static const String intsQQMatchesWonByStats = "intsQQMatchesWonByStats";
-  static const String intsQQMatchesLostByStats = "intsQQMatchesLostByStats";
-  static const String intsQQRatingPointsByStats = "intsQQRatingPointsByStats";
+  static const String intsQQNumberOfRoundsByMatchBalance = "intsQQNumberOfRoundsByMatchBalance";
   /* Bools */
   static const String boolsQQIsAdminByRoleUser = "boolsQQIsAdminByRoleUser";
   /* DatesTimes */

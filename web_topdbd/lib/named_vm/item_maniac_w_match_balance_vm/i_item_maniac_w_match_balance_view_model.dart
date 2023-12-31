@@ -7,4 +7,8 @@ abstract interface class IItemManiacWMatchBalanceViewModel {
   void listeningTempCacheService();
   void setMinScrollExtent();
   void setMaxScrollExtent();
+  void setMinScrollExtentFIRST();
+  void setMaxScrollExtentFIRST();
+  void setMinScrollExtentSECOND();
+  void setMaxScrollExtentSECOND();
 }

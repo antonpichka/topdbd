@@ -18,7 +18,7 @@ import 'package:web_topdbd/named_vm/list_matches_user_w_statistics_on_maniacs_us
 import 'package:web_topdbd/named_vm/login_vm/login_view.dart';
 import 'package:web_topdbd/named_vm/not_found_view.dart';
 import 'package:web_topdbd/named_vm/search_users_to_list_vm/search_users_to_list_view.dart';
-import 'package:web_topdbd/named_vm/settings_balance_view.dart';
+import 'package:web_topdbd/named_vm/settings_balance_vm/settings_balance_view.dart';
 import 'package:web_topdbd/named_vm/settings_user_view.dart';
 import 'package:web_topdbd/named_vm/stats_user_view.dart';
 import 'package:web_topdbd/named_vm/stats_user_w_list_season_stats_user_view.dart';

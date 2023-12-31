@@ -54,4 +54,9 @@ base class ManiacWMatchBalance extends BaseModel {
   bool isWhereEqualsFromNameParameterName(String name) {
     return this.name == name;
   }
+
+  bool isWhereEmptyParametersListManiacPerkWMatchBalanceAndListSurvivorPerkWMatchBalance() {
+    return listManiacPerkWMatchBalance.listModel.isEmpty &&
+        listSurvivorPerkWMatchBalance.listModel.isEmpty;
+  }
 }

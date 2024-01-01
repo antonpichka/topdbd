@@ -21,6 +21,13 @@ base class MatchBalance extends BaseModel {
         "ListManiacWMatchBalance: ${listManiacWMatchBalance.listModel})";
   }
 
+  MatchBalance getMatchBalanceFromNewNumberOfRoundsParametersTwo(int newNumberOfRounds) {
+    return MatchBalance(
+        seasonNumberBySeason,
+        newNumberOfRounds,
+        listManiacWMatchBalance.getClone);
+  }
+
   int get getNumberOfBannedManiacsParametersListManiacWMatchBalanceAndNumberOfRounds  {
     return listManiacWMatchBalance.listModel.length - numberOfRounds;
   }

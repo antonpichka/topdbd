@@ -1,17 +1,19 @@
+import 'package:common_topdbd/model/match_balance/list_match_balance.dart';
+import 'package:common_topdbd/model/match_balance/match_balance.dart';
 import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
 import 'package:common_topdbd/named_utility/keys_temp_cache_service_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 
 @immutable
-base class GetEEIntsEEWhereUsingToSettingsAndNumberOfRoundsByMatchBalanceEEParameterTempCacheService<T extends Ints,Y extends ListInts<T>> {
+base class GetEEMatchBalanceEEWhereItsLikeMutableEEParameterTempCacheService<T extends MatchBalance,Y extends ListMatchBalance<T>> {
   @protected
   final tempCacheService = TempCacheService.instance;
 
-  Result<T> getIntsWhereUsingToSettingsAndNumberOfRoundsByMatchBalanceParameterTempCacheService() {
+  Result<T> getMatchBalanceWhereItsLikeMutableParameterTempCacheService() {
     try {
-      final ints = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.intsQQNumberOfRoundsByMatchBalance) as T;
-      return Result<T>.success(ints);
+      final matchBalance = tempCacheService.getFromKeyTempCacheParameterTempCache(KeysTempCacheServiceUtility.matchBalanceQQItsLikeMutable) as T;
+      return Result<T>.success(matchBalance);
     } on LocalException catch(e) {
       return Result<T>.exception(e);
     } catch(e) {

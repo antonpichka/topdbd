@@ -1,7 +1,7 @@
 import 'package:common_topdbd/named_utility/algorithms_utility.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_ints_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_ints_ee_where_using_to_settings_and_number_of_rounds_by_match_balance_ee_from_ints_ee_parameter_temp_cache_service.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/get_ee_match_balance_ee_parameter_temp_cache_service.dart';
+import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/get_ee_match_balance_ee_where_its_like_mutable_ee_parameter_temp_cache_service.dart';
+import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_match_balance_ee_where_its_like_mutable_ee_from_match_balance_ee_parameter_temp_cache_service.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_vm/settings_number_of_rounds_to_match_balance_vm/data_for_settings_number_of_rounds_to_match_balance_view.dart';
@@ -12,10 +12,10 @@ final class TestSettingsNumberOfRoundsToMatchBalanceViewModel extends BaseNamedV
     DefaultStreamWState<DataForSettingsNumberOfRoundsToMatchBalanceView>> implements ISettingsNumberOfRoundsToMatchBalanceViewModel
 {
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
-  final _getEEMatchBalanceEEParameterTempCacheService =
-  GetEEMatchBalanceEEParameterTempCacheService();
-  final _updateEEIntsEEWhereUsingToSettingsAndNumberOfRoundsByMatchBalanceEEFromIntsEEParameterTempCacheService =
-  UpdateEEIntsEEWhereUsingToSettingsAndNumberOfRoundsByMatchBalanceEEFromIntsEEParameterTempCacheService();
+  final _getEEMatchBalanceEEWhereItsLikeMutableEEParameterTempCacheService =
+  GetEEMatchBalanceEEWhereItsLikeMutableEEParameterTempCacheService();
+  final _updateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService =
+  UpdateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService();
 
   // NamedUtility
 
@@ -24,32 +24,48 @@ final class TestSettingsNumberOfRoundsToMatchBalanceViewModel extends BaseNamedV
 
   @override
   Future<String> init() async {
-    final getMatchBalanceParameterTempCacheService = _getEEMatchBalanceEEParameterTempCacheService
-        .getMatchBalanceParameterTempCacheService();
-    if(getMatchBalanceParameterTempCacheService
+    final getMatchBalanceWhereItsLikeMutableParameterTempCacheService = _getEEMatchBalanceEEWhereItsLikeMutableEEParameterTempCacheService
+        .getMatchBalanceWhereItsLikeMutableParameterTempCacheService();
+    if(getMatchBalanceWhereItsLikeMutableParameterTempCacheService
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      return _firstQQInitQQGetMatchBalanceParameterTempCacheService(getMatchBalanceParameterTempCacheService.exceptionController);
+      return _firstQQInitQQGetMatchBalanceWhereItsLikeMutableParameterTempCacheService(getMatchBalanceWhereItsLikeMutableParameterTempCacheService.exceptionController);
     }
     getDataForNamedParameterNamedStreamWState.isLoading = false;
-    getDataForNamedParameterNamedStreamWState.numberOfRoundsByMatchBalance = getMatchBalanceParameterTempCacheService.parameter?.numberOfRounds ?? 0;
+    getDataForNamedParameterNamedStreamWState.numberOfRoundsByMatchBalance = getMatchBalanceWhereItsLikeMutableParameterTempCacheService.parameter?.numberOfRounds ?? 0;
     return KeysSuccessUtility.sUCCESS;
   }
 
   @override
   void setNumberOfRoundsByMatchBalance(String strNumberOfRoundsByMatchBalance) {
     final tryParseFromStr = AlgorithmsUtility.getTryParseFromStr(strNumberOfRoundsByMatchBalance);
-    _updateEEIntsEEWhereUsingToSettingsAndNumberOfRoundsByMatchBalanceEEFromIntsEEParameterTempCacheService
-        .updateIntsWhereUsingToSettingsAndNumberOfRoundsByMatchBalanceFromIntsParameterTempCacheService(Ints(tryParseFromStr));
+    final getMatchBalanceWhereItsLikeMutableParameterTempCacheService = _getEEMatchBalanceEEWhereItsLikeMutableEEParameterTempCacheService
+        .getMatchBalanceWhereItsLikeMutableParameterTempCacheService();
+    if(getMatchBalanceWhereItsLikeMutableParameterTempCacheService
+        .exceptionController
+        .isWhereNotEqualsNullParameterException())
+    {
+      _firstQQSetNumberOfRoundsByMatchBalanceQQGetMatchBalanceWhereItsLikeMutableParameterTempCacheService(getMatchBalanceWhereItsLikeMutableParameterTempCacheService.exceptionController);
+      return;
+    }
+    final parameter = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
+        .parameter
+        !.getMatchBalanceFromNewNumberOfRoundsParametersTwo(tryParseFromStr);
+    _updateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService
+        .updateMatchBalanceWhereItsLikeMutableFromMatchBalanceParameterTempCacheService(parameter);
     getDataForNamedParameterNamedStreamWState.numberOfRoundsByMatchBalance = tryParseFromStr;
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
-  Future<String> _firstQQInitQQGetMatchBalanceParameterTempCacheService(ExceptionController exceptionController) async {
+  Future<String> _firstQQInitQQGetMatchBalanceWhereItsLikeMutableParameterTempCacheService(ExceptionController exceptionController) async {
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
+  }
 
+  void _firstQQSetNumberOfRoundsByMatchBalanceQQGetMatchBalanceWhereItsLikeMutableParameterTempCacheService(ExceptionController exceptionController) {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

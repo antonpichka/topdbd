@@ -58,7 +58,7 @@ final class TestListManiacWMatchBalanceViewModel extends BaseNamedViewModel<Data
     getDataForNamedParameterNamedStreamWState
         .selectedItemManiacWMatchBalance = itemManiacWMatchBalance.name;
     _updateEEManiacWMatchBalanceEEWhereStreamNotificationIsPossibleEEFromManiacWMatchBalanceEEParameterTempCacheService
-        .updateManiacWMatchBalanceWhereStreamNotificationIsPossibleFromManiacWMatchBalanceParameterTempCacheService(itemManiacWMatchBalance);
+        .updateManiacWMatchBalanceWhereStreamNotificationIsPossibleFromManiacWMatchBalanceParameterTempCacheService(itemManiacWMatchBalance.getClone);
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 

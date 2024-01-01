@@ -44,6 +44,22 @@ final class _ListManiacWMatchBalanceViewState extends State<ListManiacWMatchBala
         return const Center(child: CircularProgressIndicator());
       case EnumDataForListManiacWMatchBalanceView.exception:
         return Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"));
+      case EnumDataForListManiacWMatchBalanceView.isEmpty:
+        return Column(
+          children: [
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                  child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("Number of Rounds: ${dataForNamedParameterNamedStreamWState.matchBalance.numberOfRounds}"),
+                      ))),
+            ),
+            const Card(
+                child: Center(
+                    child: Text("Empty List"))),
+          ]);
       case EnumDataForListManiacWMatchBalanceView.success:
         return Column(
           children: [

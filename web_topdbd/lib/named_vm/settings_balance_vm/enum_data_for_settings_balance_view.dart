@@ -1,1 +1,5 @@
-enum EnumDataForSettingsBalanceView { isLoading, exception, success }
+enum EnumDataForSettingsBalanceView {
+  isLoading,
+  exception,
+  success
+}

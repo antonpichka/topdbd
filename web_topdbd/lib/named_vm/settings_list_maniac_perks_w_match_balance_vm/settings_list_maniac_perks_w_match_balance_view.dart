@@ -8,7 +8,6 @@ final class SettingsListManiacPerksWMatchBalanceView extends StatefulWidget {
 final class _SettingsListManiacPerksWMatchBalanceViewState extends State<SettingsListManiacPerksWMatchBalanceView> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Container();
   }
 }

@@ -8,7 +8,6 @@ final class SettingsListSurvivorPerksWMatchBalanceView extends StatefulWidget {
 final class _SettingsListSurvivorPerksWMatchBalanceViewState extends State<SettingsListSurvivorPerksWMatchBalanceView> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Container();
   }
 }

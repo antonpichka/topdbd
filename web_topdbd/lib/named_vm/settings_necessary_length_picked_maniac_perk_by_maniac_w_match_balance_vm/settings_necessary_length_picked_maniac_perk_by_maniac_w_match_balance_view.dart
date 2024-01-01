@@ -8,7 +8,6 @@ final class SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView ext
 final class _SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewState extends State<SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Container();
   }
 }

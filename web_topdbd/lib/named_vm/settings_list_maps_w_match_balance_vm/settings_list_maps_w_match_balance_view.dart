@@ -8,7 +8,6 @@ final class SettingsListMapsWMatchBalanceView extends StatefulWidget {
 final class _SettingsListMapsWMatchBalanceViewState extends State<SettingsListMapsWMatchBalanceView> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Container();
   }
 }

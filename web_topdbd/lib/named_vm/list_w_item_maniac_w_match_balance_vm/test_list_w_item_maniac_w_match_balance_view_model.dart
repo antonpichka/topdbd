@@ -203,7 +203,7 @@ final class TestListWItemManiacWMatchBalanceViewModel extends BaseNamedViewModel
           ),
         ])));
     _updateEEMatchBalanceEEFromMatchBalanceEEParameterTempCacheService
-        .updateMatchBalanceFromMatchBalanceParameterTempCacheService(matchBalance);
+        .updateMatchBalanceFromMatchBalanceParameterTempCacheService(matchBalance.getClone);
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     return KeysSuccessUtility.sUCCESS;
   }

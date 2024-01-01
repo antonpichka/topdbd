@@ -8,9 +8,9 @@ import 'package:common_topdbd/model/match_balance/match_balance.dart';
 import 'package:common_topdbd/model/survivor_perk_w_match_balance/list_survivor_perk_w_match_balance.dart';
 import 'package:common_topdbd/model/survivor_perk_w_match_balance/survivor_perk_w_match_balance.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_ints_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/delete_ee_ints_ee_where_using_to_settings_and_number_of_rounds_by_match_balance_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_ints_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/get_ee_ints_ee_where_season_number_by_season_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_match_balance_ee_from_match_balance_ee_parameter_temp_cache_service.dart';
+import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_match_balance_ee_where_its_like_mutable_ee_from_match_balance_ee_parameter_temp_cache_service.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_vm/settings_balance_vm/data_for_settings_balance_view.dart';
@@ -25,8 +25,8 @@ final class TestSettingsBalanceViewModel extends BaseNamedViewModel<DataForSetti
   GetEEIntsEEWhereSeasonNumberBySeasonEEParameterTempCacheService();
   final _updateEEMatchBalanceEEFromMatchBalanceEEParameterTempCacheService =
   UpdateEEMatchBalanceEEFromMatchBalanceEEParameterTempCacheService();
-  final _deleteEEIntsEEWhereUsingToSettingsAndNumberOfRoundsByMatchBalanceEEParameterTempCacheService =
-  DeleteEEIntsEEWhereUsingToSettingsAndNumberOfRoundsByMatchBalanceEEParameterTempCacheService();
+  final _updateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService =
+  UpdateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService();
 
   // NamedUtility
 
@@ -206,9 +206,9 @@ final class TestSettingsBalanceViewModel extends BaseNamedViewModel<DataForSetti
           ),
         ])));
     _updateEEMatchBalanceEEFromMatchBalanceEEParameterTempCacheService
-        .updateMatchBalanceFromMatchBalanceParameterTempCacheService(matchBalance);
-    _deleteEEIntsEEWhereUsingToSettingsAndNumberOfRoundsByMatchBalanceEEParameterTempCacheService
-        .deleteIntsWhereUsingToSettingsAndNumberOfRoundsByMatchBalanceParameterTempCacheService();
+        .updateMatchBalanceFromMatchBalanceParameterTempCacheService(matchBalance.getClone);
+    _updateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService
+        .updateMatchBalanceWhereItsLikeMutableFromMatchBalanceParameterTempCacheService(matchBalance.getClone);
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     return KeysSuccessUtility.sUCCESS;
   }

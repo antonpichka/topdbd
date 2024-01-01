@@ -18,6 +18,13 @@ final class DataForListManiacWMatchBalanceView extends BaseDataForNamed<EnumData
     if (exceptionController.isWhereNotEqualsNullParameterException()) {
       return EnumDataForListManiacWMatchBalanceView.exception;
     }
+    if(matchBalance
+        .listManiacWMatchBalance
+        .listModel
+        .isEmpty)
+    {
+      return EnumDataForListManiacWMatchBalanceView.isEmpty;
+    }
     return EnumDataForListManiacWMatchBalanceView.success;
   }
 }

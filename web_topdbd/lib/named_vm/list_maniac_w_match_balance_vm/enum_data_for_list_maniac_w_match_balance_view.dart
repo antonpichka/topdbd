@@ -1,1 +1,6 @@
-enum EnumDataForListManiacWMatchBalanceView { isLoading, exception, success }
+enum EnumDataForListManiacWMatchBalanceView {
+  isLoading,
+  exception,
+  isEmpty,
+  success
+}

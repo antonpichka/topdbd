@@ -1,0 +1,1 @@
+enum EnumDataForSettingsListManiacWMatchBalanceView { isLoading, exception, success }

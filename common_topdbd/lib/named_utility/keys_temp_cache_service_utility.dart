@@ -10,7 +10,6 @@ final class KeysTempCacheServiceUtility {
   static const String stringsQQNameCountryByCountry = "stringsQQNameCountryByCountry";
   /* Ints */
   static const String intsQQSeasonNumberBySeason = "intsQQSeasonNumberBySeason";
-  static const String intsQQNumberOfRoundsByMatchBalance = "intsQQNumberOfRoundsByMatchBalance";
   /* Bools */
   static const String boolsQQIsAdminByRoleUser = "boolsQQIsAdminByRoleUser";
   /* DatesTimes */
@@ -20,6 +19,7 @@ final class KeysTempCacheServiceUtility {
   static const String datesTimesQQEndOfSeasonTimeBySeason = "datesTimesQQEndOfSeasonTimeBySeason";
   /* MatchBalance */
   static const String matchBalance = "matchBalance";
+  static const String matchBalanceQQItsLikeMutable = "matchBalanceQQItsLikeMutable";
   /* ManiacWMatchBalance */
   static const String maniacWMatchBalance = "maniacWMatchBalance";
   /* ListSeason */

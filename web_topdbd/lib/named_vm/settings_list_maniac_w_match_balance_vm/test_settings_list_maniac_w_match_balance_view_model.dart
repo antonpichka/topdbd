@@ -5,6 +5,7 @@ import 'package:common_topdbd/model/maps_w_match_balance/list_maps_w_match_balan
 import 'package:common_topdbd/model/match_balance/match_balance.dart';
 import 'package:common_topdbd/model/survivor_perk_w_match_balance/list_survivor_perk_w_match_balance.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
+import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_list_strings_ee_where_named_ee_from_named_ee_parameters_temp_cache_service_and_stream_subscription/start_listening_and_cancel_listening_ee_list_strings_ee_where_w_list_maniac_w_checkbox_ee_from_callback_ee_parameters_temp_cache_service_and_stream_subscription.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_maniac_w_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_maniac_w_match_balance_ee_where_stream_notification_is_possible_ee_from_maniac_w_match_balance_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/get_ee_match_balance_ee_where_its_like_mutable_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_match_balance_ee_where_its_like_mutable_ee_from_match_balance_ee_parameter_temp_cache_service.dart';
@@ -24,11 +25,20 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
   UpdateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService();
   final _updateEEManiacWMatchBalanceEEWhereStreamNotificationIsPossibleEEFromManiacWMatchBalanceEEParameterTempCacheService =
   UpdateEEManiacWMatchBalanceEEWhereStreamNotificationIsPossibleEEFromManiacWMatchBalanceEEParameterTempCacheService();
+  final _startListeningAndCancelListeningEEListStringsEEWhereWListManiacWCheckboxEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription =
+  StartListeningAndCancelListeningEEListStringsEEWhereWListManiacWCheckboxEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription();
 
   // NamedUtility
 
   TestSettingsListManiacWMatchBalanceViewModel()
       : super(DefaultStreamWState(DataForSettingsListManiacWMatchBalanceView(true,ListStrings(List.empty(growable: true)),true,false,"",ListManiacWMatchBalance(List.empty(growable: true)))));
+
+  @override
+  void dispose() {
+    _startListeningAndCancelListeningEEListStringsEEWhereWListManiacWCheckboxEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
+        .cancelListeningListStringsWhereWListManiacWCheckboxParameterStreamSubscription();
+    super.dispose();
+  }
 
   @override
   Future<String> init() async {
@@ -43,6 +53,14 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     getDataForNamedParameterNamedStreamWState.listManiacWMatchBalanceByMatchBalance = getMatchBalanceWhereItsLikeMutableParameterTempCacheService.parameter!.listManiacWMatchBalance.getClone;
     return KeysSuccessUtility.sUCCESS;
+  }
+
+  @override
+  void listeningTempCacheService() {
+    _startListeningAndCancelListeningEEListStringsEEWhereWListManiacWCheckboxEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
+        .startListeningListStringsWhereWListManiacWCheckboxFromCallbackParametersTempCacheServiceAndStreamSubscription((p0) {
+          getDataForNamedParameterNamedStreamWState.listStringsWListManiacWCheckbox = p0.parameter!.getClone;
+        });
   }
 
   @override
@@ -98,15 +116,54 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
   }
 
   @override
-  void checkItemToListView(bool? value, String nameByManiac) {
-    if(value ?? false) {
-      _firstQQCheckItemToListViewQQValue(nameByManiac);
+  void addItemsBottomSheet() {
+    final isEmpty = getDataForNamedParameterNamedStreamWState
+        .listStringsWListManiacWCheckbox
+        .listModel
+        .isEmpty;
+    if(isEmpty) {
+      _firstQQAddItemsBottomSheetQQIsEmpty();
+      return;
+    }
+    final getMatchBalanceWhereItsLikeMutableParameterTempCacheService = _getEEMatchBalanceEEWhereItsLikeMutableEEParameterTempCacheService
+        .getMatchBalanceWhereItsLikeMutableParameterTempCacheService();
+    if(getMatchBalanceWhereItsLikeMutableParameterTempCacheService
+        .exceptionController
+        .isWhereNotEqualsNullParameterException())
+    {
+      _firstQQAddItemsBottomSheetQQGetMatchBalanceWhereItsLikeMutableParameterTempCacheService(getMatchBalanceWhereItsLikeMutableParameterTempCacheService.exceptionController);
+      return;
+    }
+    final listStringsWListManiacWCheckbox = getDataForNamedParameterNamedStreamWState.listStringsWListManiacWCheckbox;
+    final parameter = getMatchBalanceWhereItsLikeMutableParameterTempCacheService.parameter!;
+    parameter
+        .listManiacWMatchBalance
+        .insertListFromListStrings(listStringsWListManiacWCheckbox);
+    _updateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService
+        .updateMatchBalanceWhereItsLikeMutableFromMatchBalanceParameterTempCacheService(parameter.getClone);
+    getDataForNamedParameterNamedStreamWState
+        .insertListManiacWMatchBalanceByMatchBalanceParametersTwo();
+    getDataForNamedParameterNamedStreamWState
+        .listStringsWListManiacWCheckbox
+        .listModel
+        .clear();
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  @override
+  void closeBottomSheet() {
+    final isEmpty = getDataForNamedParameterNamedStreamWState
+        .listStringsWListManiacWCheckbox
+        .listModel
+        .isEmpty;
+    if(isEmpty) {
+      _firstQQCloseBottomSheetQQIsEmpty();
       return;
     }
     getDataForNamedParameterNamedStreamWState
         .listStringsWListManiacWCheckbox
-        .deleteFromUniqueIdByModelParameterListModel(nameByManiac);
-    notifyStreamDataForNamedParameterNamedStreamWState();
+        .listModel
+        .clear();
   }
 
   Future<String> _firstQQInitQQGetMatchBalanceWhereItsLikeMutableParameterTempCacheService(ExceptionController exceptionController) async {
@@ -115,8 +172,9 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
-  void _firstQQDeleteItemToListViewQQGetMatchBalanceWhereItsLikeMutableParameterTempCacheService(ExceptionController exceptionController) async {
+  void _firstQQDeleteItemToListViewQQGetMatchBalanceWhereItsLikeMutableParameterTempCacheService(ExceptionController exceptionController) {
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   void _firstQQDeleteItemToListViewQQIsWhereEqualsFromNameParameterSelectedItemManiacWMatchBalance(MatchBalance matchBalance, ManiacWMatchBalance itemManiacWMatchBalance) {
@@ -135,10 +193,12 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
-  void _firstQQCheckItemToListViewQQValue(String nameByManiac) {
-    getDataForNamedParameterNamedStreamWState
-        .listStringsWListManiacWCheckbox
-        .insertFromNewModelParameterListModel(Strings(nameByManiac));
+  void _firstQQAddItemsBottomSheetQQIsEmpty() {}
+
+  void _firstQQCloseBottomSheetQQIsEmpty() {}
+
+  void _firstQQAddItemsBottomSheetQQGetMatchBalanceWhereItsLikeMutableParameterTempCacheService(ExceptionController exceptionController) {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

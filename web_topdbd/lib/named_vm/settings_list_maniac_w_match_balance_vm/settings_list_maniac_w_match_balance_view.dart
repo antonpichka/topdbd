@@ -1,6 +1,5 @@
 import 'package:common_topdbd/model/maniac_w_match_balance/maniac_w_match_balance.dart';
 import 'package:flutter/material.dart';
-import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart' as lamm;
 import 'package:web_topdbd/named_vm/bottom_sheet_check_list_maniac_vm/bottom_sheet_check_list_maniac_view.dart';
 import 'package:web_topdbd/named_vm/settings_list_maniac_w_match_balance_vm/data_for_settings_list_maniac_w_match_balance_view.dart';
 import 'package:web_topdbd/named_vm/settings_list_maniac_w_match_balance_vm/enum_data_for_settings_list_maniac_w_match_balance_view.dart';
@@ -135,8 +134,9 @@ final class _SettingsListManiacWMatchBalanceViewState extends State<SettingsList
         .listen((event) {
           setState(() {});
         });
+    _viewModel.listeningTempCacheService();
     final result = await _viewModel.init();
-    lamm.debugPrint("SettingsListManiacWMatchBalanceView: $result");
+    debugPrint("SettingsListManiacWMatchBalanceView: $result");
     if(!mounted) {
       return;
     }
@@ -217,6 +217,7 @@ final class _SettingsListManiacWMatchBalanceViewState extends State<SettingsList
         onPressed: () {
           showModalBottomSheet<void>(
               context: context,
+              isDismissible: false,
               builder: (BuildContext context) {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -230,20 +231,26 @@ final class _SettingsListManiacWMatchBalanceViewState extends State<SettingsList
                           Text("Close"),
                         ],
                       ),
-                      onPressed: () => Navigator.pop(context),
+                      onPressed: () {
+                        Navigator.pop(context);
+                        _viewModel.closeBottomSheet();
+                      },
                     ),
                     ElevatedButton(
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.done_all),
-                          Text("Done all"),
+                          Icon(Icons.add),
+                          Text("Add"),
                         ],
                       ),
-                      onPressed: () => Navigator.pop(context),
+                      onPressed: () {
+                        Navigator.pop(context);
+                        _viewModel.addItemsBottomSheet();
+                      },
                     ),
                     BottomSheetCheckListManiacView(
-                        dataForNamedParameterNamedStreamWState.getListManiacWhereWithoutElementsOfAnotherListParametersTwo)
+                        dataForNamedParameterNamedStreamWState.getListManiacWhereWithoutElementsOfAnotherListParametersTwo),
                   ],
                 );
               });

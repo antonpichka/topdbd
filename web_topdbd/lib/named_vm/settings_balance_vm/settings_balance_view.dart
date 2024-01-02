@@ -4,6 +4,7 @@ import 'package:web_topdbd/named_vm/settings_balance_vm/test_settings_balance_vi
 import 'package:web_topdbd/named_vm/settings_item_maniac_w_match_balance_vm/settings_item_maniac_w_match_balance_view.dart';
 import 'package:web_topdbd/named_vm/settings_list_maniac_w_match_balance_vm/settings_list_maniac_w_match_balance_view.dart';
 import 'package:web_topdbd/named_vm/settings_number_of_rounds_to_match_balance_vm/settings_number_of_rounds_to_match_balance_view.dart';
+import 'package:web_topdbd/named_vm/settings_save_changes_to_match_balance_vm/settings_save_changes_to_match_balance_view.dart';
 
 final class SettingsBalanceView extends StatefulWidget {
   @override
@@ -44,6 +45,8 @@ final class _SettingsBalanceViewState extends State<SettingsBalanceView> {
       case EnumDataForSettingsBalanceView.success:
         return Column(
             children: [
+              const SizedBox(height: 3),
+              SettingsSaveChangesToMatchBalanceView(),
               SettingsNumberOfRoundsToMatchBalanceView(),
               Card(
                   child: Column(

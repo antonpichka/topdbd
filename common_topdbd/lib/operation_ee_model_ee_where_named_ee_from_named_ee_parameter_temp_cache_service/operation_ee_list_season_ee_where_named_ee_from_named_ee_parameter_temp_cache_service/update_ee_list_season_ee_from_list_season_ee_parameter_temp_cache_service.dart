@@ -6,7 +6,7 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:meta/meta.dart';
 
 @immutable
-base class UpdateListEESeasonEEFromListSeasonEEParameterTempCacheService<T extends Season,Y extends ListSeason<T>> {
+base class UpdateEEListSeasonEEFromListSeasonEEParameterTempCacheService<T extends Season,Y extends ListSeason<T>> {
   @protected
   final tempCacheService = TempCacheService.instance;
 

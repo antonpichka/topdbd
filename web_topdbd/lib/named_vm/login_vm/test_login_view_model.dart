@@ -65,7 +65,7 @@ final class TestLoginViewModel extends BaseNamedViewModel<DataForLoginView,Defau
   }
 
   @override
-  Future<void> signInWithDiscord(Function(String) callbackException) async {
+  Future<void> signInWithDiscord(Function() callbackSuccess,Function(String) callbackException) async {
     if(getDataForNamedParameterNamedStreamWState.isLoading) {
       return;
     }
@@ -73,6 +73,7 @@ final class TestLoginViewModel extends BaseNamedViewModel<DataForLoginView,Defau
     notifyStreamDataForNamedParameterNamedStreamWState();
     const uniqueIdByUser = "4b08db90-9114-11ee-b9d1-0242ac120002";
     const usernameByDiscordUser = "wwwwwwqwwwwwwwwwwwqqwwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq";
+    const isAdminByRoleUser = true;
     _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
         .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(const Strings(uniqueIdByUser));
     _updateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService
@@ -88,8 +89,9 @@ final class TestLoginViewModel extends BaseNamedViewModel<DataForLoginView,Defau
     _updateEEStringsEEWhereNameCountryByCountryEEFromStringsEEParameterTempCacheService
         .updateStringsWhereNameCountryByCountryFromStringsParameterTempCacheService(const Strings("UA"));
     _updateEEBoolsEEWhereIsAdminByRoleUserEEFromBoolsEEParameterTempCacheService
-        .updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(const Bools(true));
+        .updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(const Bools(isAdminByRoleUser));
     _updateEEUIBUWUBDUEEWhereStreamNotificationIsPossibleEEFromUIBUWUBDUEEParameterTempCacheService
-        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(const UIBUWUBDU(uniqueIdByUser,usernameByDiscordUser));
+        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(const UIBUWUBDU(uniqueIdByUser,usernameByDiscordUser,isAdminByRoleUser));
+    callbackSuccess();
   }
 }

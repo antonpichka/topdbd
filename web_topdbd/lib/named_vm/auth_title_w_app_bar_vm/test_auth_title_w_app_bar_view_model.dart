@@ -96,7 +96,7 @@ final class TestAuthTitleWAppBarViewModel extends BaseNamedViewModel<DataForAuth
     _deleteEEBoolsEEWhereIsAdminByRoleUserEEParameterTempCacheService
         .deleteBoolsWhereIsAdminByRoleUserParameterTempCacheService();
     _updateEEUIBUWUBDUEEWhereStreamNotificationIsPossibleEEFromUIBUWUBDUEEParameterTempCacheService
-        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(const UIBUWUBDU("",""));
+        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(const UIBUWUBDU("","",false));
     callback();
   }
 

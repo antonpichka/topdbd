@@ -5,9 +5,11 @@ import 'package:meta/meta.dart';
 abstract interface class ISettingsListManiacWMatchBalanceViewModel {
   const ISettingsListManiacWMatchBalanceViewModel();
 
+  void listeningTempCacheService();
   void setMinScrollExtent();
   void setMaxScrollExtent();
   void onTapItemToListView(ManiacWMatchBalance itemManiacWMatchBalance);
   void deleteItemToListView(ManiacWMatchBalance itemManiacWMatchBalance);
-  void checkItemToListView(bool? value,String nameByManiac);
+  void closeBottomSheet();
+  void addItemsBottomSheet();
 }

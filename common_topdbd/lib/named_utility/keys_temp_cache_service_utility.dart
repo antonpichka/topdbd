@@ -8,6 +8,8 @@ final class KeysTempCacheServiceUtility {
   static const String stringsQQGlobalNameByDiscordUser = "stringsQQGlobalNameByDiscordUser";
   static const String stringsQQIpByIPAddress = "stringsQQIpByIPAddress";
   static const String stringsQQNameCountryByCountry = "stringsQQNameCountryByCountry";
+  /* ListStrings */
+  static const String listStringsQQWListManiacWCheckbox = "listStringsQQWListManiacWCheckbox";
   /* Ints */
   static const String intsQQSeasonNumberBySeason = "intsQQSeasonNumberBySeason";
   /* Bools */

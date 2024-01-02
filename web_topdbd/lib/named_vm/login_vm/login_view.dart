@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
+import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
+import 'package:web_topdbd/named_utility/web_navigation_utility.dart';
 import 'package:web_topdbd/named_vm/login_vm/enum_data_for_login_view.dart';
 import 'package:web_topdbd/named_vm/login_vm/test_login_view_model.dart';
 
@@ -91,7 +93,11 @@ final class _LoginViewState extends State<LoginView> {
                       leading: const Icon(FontAwesomeIcons.discord),
                       tileColor: FlutterThemeUtility.discordLogoColor,
                       onTap: () {
-                        _viewModel.signInWithDiscord((p0) => {});
+                        _viewModel.signInWithDiscord(
+                                () {
+                                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQHome);
+                                },
+                                (p0) => {});
                       },),)
                       : Container(),
                   const SizedBox(height: 5,),

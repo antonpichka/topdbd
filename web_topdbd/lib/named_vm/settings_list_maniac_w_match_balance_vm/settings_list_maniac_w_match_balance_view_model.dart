@@ -23,6 +23,11 @@ final class SettingsListManiacWMatchBalanceViewModel extends BaseNamedViewModel<
   }
 
   @override
+  void listeningTempCacheService() {
+    // TODO: implement listeningTempCacheService
+  }
+
+  @override
   void onTapItemToListView(ManiacWMatchBalance itemManiacWMatchBalance) {
     // TODO: implement onTapItemToListView
   }
@@ -43,7 +48,12 @@ final class SettingsListManiacWMatchBalanceViewModel extends BaseNamedViewModel<
   }
 
   @override
-  void checkItemToListView(bool? value, String nameByManiac) {
-    // TODO: implement checkItemToListView
+  void addItemsBottomSheet() {
+    // TODO: implement addItemsBottomSheet
+  }
+
+  @override
+  void closeBottomSheet() {
+    // TODO: implement closeBottomSheet
   }
 }

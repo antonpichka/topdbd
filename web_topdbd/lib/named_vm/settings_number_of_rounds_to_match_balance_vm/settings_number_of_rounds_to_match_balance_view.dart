@@ -43,22 +43,21 @@ final class _SettingsNumberOfRoundsToMatchBalanceViewState extends State<Setting
         return SizedBox(
           width: double.infinity,
           child: Card(
-              child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextFormField(
-                        initialValue: dataForNamedParameterNamedStreamWState
-                            .numberOfRoundsByMatchBalance
-                            .toString(),
-                        decoration: const InputDecoration(labelText: "Number of Rounds"),
-                        keyboardType: TextInputType.number,
-                        inputFormatters: <TextInputFormatter>[
-                          FilteringTextInputFormatter.digitsOnly
-                        ],
-                        onChanged: (String value) {
-                          _viewModel.setNumberOfRoundsByMatchBalance(value);
-                        }),
-                  ))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8.0,right: 8.0,bottom: 8.0),
+                child: TextFormField(
+                    initialValue: dataForNamedParameterNamedStreamWState
+                        .numberOfRoundsByMatchBalance
+                        .toString(),
+                    decoration: const InputDecoration(labelText: "Number of Rounds"),
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
+                    onChanged: (String value) {
+                      _viewModel.setNumberOfRoundsByMatchBalance(value);
+                    }),
+              )),
         );
     }
   }

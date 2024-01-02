@@ -5,5 +5,5 @@ abstract interface class ILoginViewModel {
   const ILoginViewModel();
 
   void setCheckAgreeTermsOfUse(bool? isCheck);
-  Future<void> signInWithDiscord(Function(String) callbackException);
+  Future<void> signInWithDiscord(Function() callbackSuccess,Function(String) callbackException);
 }

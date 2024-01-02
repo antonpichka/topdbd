@@ -144,7 +144,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
   }
 
   @override
-  Future<void> signInWithDiscord(Function(String) callbackException) async {
+  Future<void> signInWithDiscord(Function() callbackSuccess,Function(String) callbackException) async {
     if(getDataForNamedParameterNamedStreamWState.isLoading) {
       return;
     }
@@ -165,7 +165,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.exceptionController,callbackException,getDiscordUserWhereDiscordAuthAPIParameterHttpClientService.parameter!);
+      _firstQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.exceptionController,callbackSuccess,callbackException,getDiscordUserWhereDiscordAuthAPIParameterHttpClientService.parameter!);
       return;
     }
     final getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName = getDiscordUserWhereDiscordAuthAPIParameterHttpClientService
@@ -173,7 +173,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
         ?.getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.parameter?.username ?? "",getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.parameter?.globalName ?? "")
         ?? "";
     if(getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName.isNotEmpty) {
-      _firstQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName,callbackException,getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.parameter!);
+      _firstQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName,callbackSuccess,callbackException,getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.parameter!);
       return;
     }
     final getUserFromUniqueIdParameterFirebaseFirestoreService = await _getEEUserEEFromUniqueIdEEParameterFirebaseFirestoreService
@@ -276,7 +276,8 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     _updateEEBoolsEEWhereIsAdminByRoleUserEEFromBoolsEEParameterTempCacheService
         .updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(Bools(getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false));
     _updateEEUIBUWUBDUEEWhereStreamNotificationIsPossibleEEFromUIBUWUBDUEEParameterTempCacheService
-        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(UIBUWUBDU(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "",getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.parameter?.username ?? ""));
+        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(UIBUWUBDU(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "",getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.parameter?.username ?? "",getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false));
+    callbackSuccess();
   }
 
   void _firstQQSignInWithDiscordQQGetDiscordUserWhereDiscordAuthAPIParameterHttpClientService(ExceptionController exceptionController,Function(String) callbackException) {
@@ -285,7 +286,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     callbackException(exceptionController.getKeyParameterException);
   }
 
-  Future<void> _firstQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException, DiscordUser parameter) async {
+  Future<void> _firstQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function() callbackSuccess,Function(String) callbackException, DiscordUser parameter) async {
     if(exceptionController.getKeyParameterException == KeysExceptionUtility.uNKNOWN) {
       getDataForNamedParameterNamedStreamWState.isLoading = false;
       notifyStreamDataForNamedParameterNamedStreamWState();
@@ -410,7 +411,8 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     _updateEEBoolsEEWhereIsAdminByRoleUserEEFromBoolsEEParameterTempCacheService
         .updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(Bools(insertRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false));
     _updateEEUIBUWUBDUEEWhereStreamNotificationIsPossibleEEFromUIBUWUBDUEEParameterTempCacheService
-        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(UIBUWUBDU(insertUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "",insertDiscordUserFirestoreFromRegistrationDiscordUserFirestoreUtilityParameterFirebaseFirestoreService.parameter?.username ?? ""));
+        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(UIBUWUBDU(insertUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "",insertDiscordUserFirestoreFromRegistrationDiscordUserFirestoreUtilityParameterFirebaseFirestoreService.parameter?.username ?? "",insertRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false));
+    callbackSuccess();
   }
 
   void _firstBranchOneQQSignInWithDiscordQQGetDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService(ExceptionController exceptionController,Function(String) callbackException) {
@@ -479,7 +481,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     callbackException(exceptionController.getKeyParameterException);
   }
 
-  Future<void> _firstQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(String getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName,Function(String) callbackException, DiscordUserFirestore parameter) async {
+  Future<void> _firstQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(String getExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName,Function() callbackSuccess,Function(String) callbackException, DiscordUserFirestore parameter) async {
     final updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService = await _updateEEDiscordUserFirestoreEEFromUsernameWGlobalNameToDiscordUserFirestoreUtilityEEParameterFirebaseFirestoreService
         .updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService(UsernameWGlobalNameToDiscordUserFirestoreUtility(parameter.uniqueId, parameter.uniqueIdByUser, parameter.username, parameter.globalName));
     if(updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService
@@ -589,7 +591,8 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     _updateEEBoolsEEWhereIsAdminByRoleUserEEFromBoolsEEParameterTempCacheService
         .updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(Bools(getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false));
     _updateEEUIBUWUBDUEEWhereStreamNotificationIsPossibleEEFromUIBUWUBDUEEParameterTempCacheService
-        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(UIBUWUBDU(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "",updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService.parameter?.username ?? ""));
+        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(UIBUWUBDU(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "",updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService.parameter?.username ?? "",getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false));
+    callbackSuccess();
   }
 
   void _firstBranchOneQQSignInWithDiscordQQGetExceptionInStringWhereNotEqualsFromUsernameAndGlobalNameParametersUsernameAndGlobalName(ExceptionController exceptionController,Function(String) callbackException) {

@@ -5,15 +5,17 @@ import 'package:meta/meta.dart';
 base class UIBUWUBDU extends BaseModel {
   final String uniqueIdByUser;
   final String usernameByDiscordUser;
+  final bool isAdminByRoleUser;
 
-  const UIBUWUBDU(this.uniqueIdByUser, this.usernameByDiscordUser) : super(uniqueIdByUser);
+  const UIBUWUBDU(this.uniqueIdByUser,this.usernameByDiscordUser,this.isAdminByRoleUser) : super(uniqueIdByUser);
 
   @override
-  UIBUWUBDU get getClone => UIBUWUBDU(uniqueIdByUser,usernameByDiscordUser);
+  UIBUWUBDU get getClone => UIBUWUBDU(uniqueIdByUser,usernameByDiscordUser,isAdminByRoleUser);
 
   @override
   String toString() {
     return "UIBUWUBDU(uniqueIdByUser: $uniqueIdByUser, "
-        "usernameByDiscordUser: $usernameByDiscordUser)";
+        "usernameByDiscordUser: $usernameByDiscordUser, "
+        "isAdminByRoleUser: $isAdminByRoleUser)";
   }
 }

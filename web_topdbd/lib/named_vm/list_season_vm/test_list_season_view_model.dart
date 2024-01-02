@@ -2,8 +2,8 @@ import 'package:common_topdbd/model/season/list_season.dart';
 import 'package:common_topdbd/model/season/season.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_ints_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/get_ee_ints_ee_where_season_number_by_season_ee_parameter_temp_cache_service.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_season_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/get_list_ee_season_ee_parameter_temp_cache_service.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_season_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_list_ee_season_ee_from_list_season_ee_parameter_temp_cache_service.dart';
+import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_list_season_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/get_ee_list_season_ee_parameter_temp_cache_service.dart';
+import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_list_season_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_list_season_ee_from_list_season_ee_parameter_temp_cache_service.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_vm/list_season_vm/data_for_list_season_view.dart';
@@ -14,12 +14,12 @@ final class TestListSeasonViewModel extends BaseNamedViewModel<DataForListSeason
     DefaultStreamWState<DataForListSeasonView>> implements IListSeasonViewModel
 {
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
-  final _getListEESeasonEEParameterTempCacheService =
-  GetListEESeasonEEParameterTempCacheService();
+  final _getEEListSeasonEEParameterTempCacheService =
+  GetEEListSeasonEEParameterTempCacheService();
   final _getEEIntsEEWhereSeasonNumberBySeasonEEParameterTempCacheService =
   GetEEIntsEEWhereSeasonNumberBySeasonEEParameterTempCacheService();
-  final _updateListEESeasonEEFromListSeasonEEParameterTempCacheService =
-  UpdateListEESeasonEEFromListSeasonEEParameterTempCacheService();
+  final _updateEEListSeasonEEFromListSeasonEEParameterTempCacheService =
+  UpdateEEListSeasonEEFromListSeasonEEParameterTempCacheService();
 
   // NamedUtility
 
@@ -28,7 +28,7 @@ final class TestListSeasonViewModel extends BaseNamedViewModel<DataForListSeason
 
   @override
   Future<String> init() async {
-    final getListSeasonParameterTempCacheService = _getListEESeasonEEParameterTempCacheService
+    final getListSeasonParameterTempCacheService = _getEEListSeasonEEParameterTempCacheService
         .getListSeasonParameterTempCacheService();
     if(getListSeasonParameterTempCacheService
         .exceptionController
@@ -63,7 +63,7 @@ final class TestListSeasonViewModel extends BaseNamedViewModel<DataForListSeason
           Season(2,2100,340,DateTime.parse("2023-02-01"),DateTime.parse("2023-02-28")),
           Season(1,1000000000000000000,5000000000000000000,DateTime.parse("2023-01-01"),DateTime.parse("2023-01-31")),
         ]));
-    _updateListEESeasonEEFromListSeasonEEParameterTempCacheService
+    _updateEEListSeasonEEFromListSeasonEEParameterTempCacheService
         .updateListSeasonFromListSeasonParameterTempCacheService(listSeason);
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     getDataForNamedParameterNamedStreamWState.listSeason = listSeason.getClone;

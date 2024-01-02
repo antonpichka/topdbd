@@ -14,7 +14,7 @@ final class SettingsListManiacWMatchBalanceViewModel extends BaseNamedViewModel<
   // NamedUtility
 
   SettingsListManiacWMatchBalanceViewModel()
-      : super(DefaultStreamWState(DataForSettingsListManiacWMatchBalanceView(true,true,false,"",ListManiacWMatchBalance(List.empty(growable: true)))));
+      : super(DefaultStreamWState(DataForSettingsListManiacWMatchBalanceView(true,ListStrings(List.empty(growable: true)),true,false,"",ListManiacWMatchBalance(List.empty(growable: true)))));
 
   @override
   Future<String> init() async {
@@ -35,5 +35,15 @@ final class SettingsListManiacWMatchBalanceViewModel extends BaseNamedViewModel<
   @override
   void setMinScrollExtent() {
     // TODO: implement setMinScrollExtent
+  }
+
+  @override
+  void deleteItemToListView(ManiacWMatchBalance itemManiacWMatchBalance) {
+    // TODO: implement deleteItemToListView
+  }
+
+  @override
+  void checkItemToListView(bool? value, String nameByManiac) {
+    // TODO: implement checkItemToListView
   }
 }

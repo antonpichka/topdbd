@@ -1,5 +1,8 @@
 import 'package:common_topdbd/model/maniac_w_match_balance/maniac_w_match_balance.dart';
 import 'package:flutter/material.dart';
+import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart' as lamm;
+import 'package:web_topdbd/named_vm/bottom_sheet_check_list_maniac_vm/bottom_sheet_check_list_maniac_view.dart';
+import 'package:web_topdbd/named_vm/settings_list_maniac_w_match_balance_vm/data_for_settings_list_maniac_w_match_balance_view.dart';
 import 'package:web_topdbd/named_vm/settings_list_maniac_w_match_balance_vm/enum_data_for_settings_list_maniac_w_match_balance_view.dart';
 import 'package:web_topdbd/named_vm/settings_list_maniac_w_match_balance_vm/test_settings_list_maniac_w_match_balance_view_model.dart';
 
@@ -55,20 +58,24 @@ final class _SettingsListManiacWMatchBalanceViewState extends State<SettingsList
                     scrollDirection: Axis.horizontal,
                     physics: const ClampingScrollPhysics(),
                     controller: _scrollController,
-                    itemCount: dataForNamedParameterNamedStreamWState.getIntWhereLengthDefinesEqualsParametersListManiacWMatchBalanceByMatchBalanceAndListManiac,
+                    itemCount: dataForNamedParameterNamedStreamWState.getIntWhereLengthLessTwoAndEqualParametersListManiacWMatchBalanceByMatchBalanceAndListManiac,
                     separatorBuilder: (context,index) {
                       return const SizedBox(width: 12,);
                     },
                     itemBuilder: (context,index) {
-                      if(index == 0) {
-                        return _getWidgetWhereAddingItemToListViewParameterViewModel();
+                      if(dataForNamedParameterNamedStreamWState.isWhereLengthLessTwoAndEqualParametersListManiacWMatchBalanceByMatchBalanceAndListManiac()) {
+                        return _getWidgetWhereCreateItemBuilderFromTwo(index,dataForNamedParameterNamedStreamWState);
                       }
-                      if((index-1) >= dataForNamedParameterNamedStreamWState.listManiacWMatchBalanceByMatchBalance.listModel.length) {
-                        return _getWidgetWhereAddingItemToListViewParameterViewModel();
+                      if(index == 0) {
+                        return _getWidgetWhereAddingItemToListViewFromOneParameterViewModel(dataForNamedParameterNamedStreamWState);
+                      }
+                      final newIndex = index-1;
+                      if(newIndex >= dataForNamedParameterNamedStreamWState.listManiacWMatchBalanceByMatchBalance.listModel.length) {
+                        return _getWidgetWhereAddingItemToListViewFromOneParameterViewModel(dataForNamedParameterNamedStreamWState);
                       }
                       final itemModel = dataForNamedParameterNamedStreamWState
                           .listManiacWMatchBalanceByMatchBalance
-                          .listModel[index-1];
+                          .listModel[newIndex];
                       final selectedItemManiacWMatchBalance = dataForNamedParameterNamedStreamWState
                           .selectedItemManiacWMatchBalance;
                       return _getWidgetWhereItemToListViewFromTwoParameterViewModel(itemModel,selectedItemManiacWMatchBalance);
@@ -129,42 +136,75 @@ final class _SettingsListManiacWMatchBalanceViewState extends State<SettingsList
           setState(() {});
         });
     final result = await _viewModel.init();
-    debugPrint("SettingsListManiacWMatchBalanceView: $result");
+    lamm.debugPrint("SettingsListManiacWMatchBalanceView: $result");
     if(!mounted) {
       return;
     }
     _viewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
+  Widget _getWidgetWhereCreateItemBuilderFromTwo(int index, DataForSettingsListManiacWMatchBalanceView dataForNamedParameterNamedStreamWState) {
+    if(index >= dataForNamedParameterNamedStreamWState.listManiacWMatchBalanceByMatchBalance.listModel.length) {
+      return _getWidgetWhereAddingItemToListViewFromOneParameterViewModel(dataForNamedParameterNamedStreamWState);
+    }
+    final itemModel = dataForNamedParameterNamedStreamWState
+        .listManiacWMatchBalanceByMatchBalance
+        .listModel[index];
+    final selectedItemManiacWMatchBalance = dataForNamedParameterNamedStreamWState
+        .selectedItemManiacWMatchBalance;
+    return _getWidgetWhereItemToListViewFromTwoParameterViewModel(itemModel,selectedItemManiacWMatchBalance);
+  }
+
   Widget _getWidgetWhereItemToListViewFromTwoParameterViewModel(ManiacWMatchBalance itemManiacWMatchBalance,String selectedItemManiacWMatchBalance) {
     return SizedBox(
       width: 140,
-      child: ListTile(
-        onTap: () {
-          _viewModel.onTapItemToListView(itemManiacWMatchBalance);
-        },
-        selected: itemManiacWMatchBalance.isWhereEqualsFromNameParameterName(selectedItemManiacWMatchBalance),
-        selectedTileColor: Theme.of(context).colorScheme.surfaceVariant,
-        title: Column(
-          children: [
-            Image.asset(
-                itemManiacWMatchBalance.getManiacWhereListManiacWReadyDataUtilityParameterName.imagePath,
-                width: 100,
-                height: 80,
-                fit: BoxFit.cover),
-            Flexible(
-                child: Tooltip(
-                    message: itemManiacWMatchBalance.name,
-                    child: Text(
-                        itemManiacWMatchBalance.getStringWhereSubstringFromEndParameterName(12),
-                        maxLines: 1)))
-          ],
-        ),
+      child: Stack(
+        children: [
+          ListTile(
+            onTap: () {
+              _viewModel.onTapItemToListView(itemManiacWMatchBalance);
+            },
+            selected: itemManiacWMatchBalance.isWhereEqualsFromNameParameterName(selectedItemManiacWMatchBalance),
+            selectedTileColor: Theme.of(context).colorScheme.surfaceVariant,
+            title: Column(
+              children: [
+                Image.asset(
+                    itemManiacWMatchBalance.getManiacWhereListManiacWReadyDataUtilityParameterName.imagePath,
+                    width: 100,
+                    height: 80,
+                    fit: BoxFit.cover),
+                Flexible(
+                    child: Tooltip(
+                        message: itemManiacWMatchBalance.name,
+                        child: Text(
+                            itemManiacWMatchBalance.getStringWhereSubstringFromEndParameterName(12),
+                            maxLines: 1)))
+              ],
+            ),
+          ),
+          Positioned.fill(
+            child: Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                  icon: const Icon(Icons.delete),
+                  onPressed: () {
+                    _viewModel.deleteItemToListView(itemManiacWMatchBalance);
+                  }),
+            ),
+          )
+        ],
       ),
     );
   }
 
-  Widget _getWidgetWhereAddingItemToListViewParameterViewModel() {
+  Widget _getWidgetWhereAddingItemToListViewFromOneParameterViewModel(DataForSettingsListManiacWMatchBalanceView dataForNamedParameterNamedStreamWState) {
     return IconButton(
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -175,7 +215,38 @@ final class _SettingsListManiacWMatchBalanceViewState extends State<SettingsList
         ),
         icon: const Icon(Icons.add),
         onPressed: () {
-
+          showModalBottomSheet<void>(
+              context: context,
+              builder: (BuildContext context) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ElevatedButton(
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.close),
+                          Text("Close"),
+                        ],
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    ElevatedButton(
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.done_all),
+                          Text("Done all"),
+                        ],
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    BottomSheetCheckListManiacView(
+                        dataForNamedParameterNamedStreamWState.getListManiacWhereWithoutElementsOfAnotherListParametersTwo)
+                  ],
+                );
+              });
         });
   }
 

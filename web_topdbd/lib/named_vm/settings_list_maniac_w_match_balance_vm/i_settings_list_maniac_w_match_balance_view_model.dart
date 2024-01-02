@@ -8,4 +8,6 @@ abstract interface class ISettingsListManiacWMatchBalanceViewModel {
   void setMinScrollExtent();
   void setMaxScrollExtent();
   void onTapItemToListView(ManiacWMatchBalance itemManiacWMatchBalance);
+  void deleteItemToListView(ManiacWMatchBalance itemManiacWMatchBalance);
+  void checkItemToListView(bool? value,String nameByManiac);
 }

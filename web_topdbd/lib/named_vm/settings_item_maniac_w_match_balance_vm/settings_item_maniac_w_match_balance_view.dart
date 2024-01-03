@@ -60,7 +60,9 @@ final class _SettingsItemManiacWMatchBalanceViewState extends State<SettingsItem
                                 style: Theme.of(context).textTheme.displaySmall,),
                             )
                         ),
-                        SettingsListMapsWMatchBalanceView()
+                        SettingsListMapsWMatchBalanceView(dataForNamedParameterNamedStreamWState
+                            .selectedItemManiacWMatchBalance
+                            .getClone)
                       ])
               ),
               Card(
@@ -75,8 +77,12 @@ final class _SettingsItemManiacWMatchBalanceViewState extends State<SettingsItem
                                 style: Theme.of(context).textTheme.displaySmall,),
                             )
                         ),
-                        SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView(),
-                        SettingsListManiacPerksWMatchBalanceView()
+                        SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView(dataForNamedParameterNamedStreamWState
+                            .selectedItemManiacWMatchBalance
+                            .getClone),
+                        SettingsListManiacPerksWMatchBalanceView(dataForNamedParameterNamedStreamWState
+                            .selectedItemManiacWMatchBalance
+                            .getClone)
                       ])
               ),
               Card(
@@ -91,8 +97,12 @@ final class _SettingsItemManiacWMatchBalanceViewState extends State<SettingsItem
                                 style: Theme.of(context).textTheme.displaySmall,),
                             )
                         ),
-                        SettingsNecessaryLengthPickedSurvivorPerkByManiacWMatchBalanceView(),
-                        SettingsListSurvivorPerksWMatchBalanceView()
+                        SettingsNecessaryLengthPickedSurvivorPerkByManiacWMatchBalanceView(dataForNamedParameterNamedStreamWState
+                            .selectedItemManiacWMatchBalance
+                            .getClone),
+                        SettingsListSurvivorPerksWMatchBalanceView(dataForNamedParameterNamedStreamWState
+                            .selectedItemManiacWMatchBalance
+                            .getClone)
                       ])
               ),
             ]);

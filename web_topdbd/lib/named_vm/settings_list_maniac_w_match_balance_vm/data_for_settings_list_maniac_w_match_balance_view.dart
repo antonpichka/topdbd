@@ -35,11 +35,6 @@ final class DataForSettingsListManiacWMatchBalanceView extends BaseDataForNamed<
     return clone;
   }
 
-  void insertListManiacWMatchBalanceByMatchBalanceParametersTwo() {
-    listManiacWMatchBalanceByMatchBalance
-        .insertListFromListStrings(listStringsWListManiacWCheckbox);
-  }
-
   int get getIntWhereLengthLessTwoAndEqualParametersListManiacWMatchBalanceByMatchBalanceAndListManiac {
     if(listManiacWMatchBalanceByMatchBalance.listModel.length < 2) {
       return listManiacWMatchBalanceByMatchBalance.listModel.length + 1;
@@ -48,6 +43,11 @@ final class DataForSettingsListManiacWMatchBalanceView extends BaseDataForNamed<
       return listManiacWMatchBalanceByMatchBalance.listModel.length;
     }
     return listManiacWMatchBalanceByMatchBalance.listModel.length + 2;
+  }
+
+  void insertListManiacWMatchBalanceByMatchBalanceParametersTwo() {
+    listManiacWMatchBalanceByMatchBalance
+        .insertListFromListStrings(listStringsWListManiacWCheckbox);
   }
 
   bool isWhereLengthLessTwoAndEqualParametersListManiacWMatchBalanceByMatchBalanceAndListManiac() {

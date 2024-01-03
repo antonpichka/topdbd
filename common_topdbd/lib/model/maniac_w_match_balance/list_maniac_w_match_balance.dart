@@ -2,6 +2,7 @@ import 'package:common_topdbd/model/ban_maniac_w_matches/ban_maniac_w_matches.da
 import 'package:common_topdbd/model/maniac_perk_w_match_balance/list_maniac_perk_w_match_balance.dart';
 import 'package:common_topdbd/model/maniac_w_match_balance/maniac_w_match_balance.dart';
 import 'package:common_topdbd/model/maps_w_match_balance/list_maps_w_match_balance.dart';
+import 'package:common_topdbd/model/maps_w_match_balance/maps_w_match_balance.dart';
 import 'package:common_topdbd/model/pick_maniac_w_matches/pick_maniac_w_matches.dart';
 import 'package:common_topdbd/model/survivor_perk_w_match_balance/list_survivor_perk_w_match_balance.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
@@ -42,6 +43,40 @@ base class ListManiacWMatchBalance<T extends ManiacWMatchBalance> extends BaseLi
   void insertListFromListStrings(ListStrings listStrings) {
     for(Strings itemModel in listStrings.listModel) {
       super.insertFromNewModelParameterListModel(ManiacWMatchBalance(itemModel.uniqueId,0,0,ListMapsWMatchBalance(List.empty(growable: true)),ListManiacPerkWMatchBalance(List.empty(growable: true)),ListSurvivorPerkWMatchBalance(List.empty(growable: true))) as T);
+    }
+  }
+
+  void updateWhereNecessaryLengthPickedManiacPerkFromTwoParameterListModel(String nameByManiacWMatchBalance,int necessaryLengthPickedManiacPerkByManiacWMatchBalance) {
+    for(T itemModel in listModel) {
+      if(itemModel.name != nameByManiacWMatchBalance) {
+        continue;
+      }
+      super.updateFromNewModelParameterListModel(itemModel.getManiacWMatchBalanceFromNewNecessaryLengthPickedManiacPerkParametersFive(necessaryLengthPickedManiacPerkByManiacWMatchBalance) as T);
+      break;
+    }
+  }
+
+  void insertMapsWMatchBalanceFromNameByManiacWMatchBalanceAndListStringsParameterListModel(String nameByManiacWMatchBalance,ListStrings listStrings) {
+    for(T itemModel in listModel) {
+      if(itemModel.name != nameByManiacWMatchBalance) {
+        continue;
+      }
+      itemModel
+          .listMapsWMatchBalance
+          .insertListFromListStrings(listStrings);
+      break;
+    }
+  }
+
+  void deleteMapsWMatchBalanceFromNameByManiacWMatchBalanceAndMapsWMatchBalanceParameterListModel(String nameByManiacWMatchBalance,MapsWMatchBalance mapsWMatchBalance) {
+    for(T itemModel in listModel) {
+      if(itemModel.name != nameByManiacWMatchBalance) {
+        continue;
+      }
+      itemModel
+          .listMapsWMatchBalance
+          .deleteFromUniqueIdByModelParameterListModel(mapsWMatchBalance.uniqueId);
+      break;
     }
   }
 }

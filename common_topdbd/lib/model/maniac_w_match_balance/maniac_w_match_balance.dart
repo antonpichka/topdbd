@@ -30,6 +30,16 @@ base class ManiacWMatchBalance extends BaseModel {
         "listSurvivorPerkWMatchBalance: ${listSurvivorPerkWMatchBalance.listModel})";
   }
 
+  ManiacWMatchBalance getManiacWMatchBalanceFromNewNecessaryLengthPickedManiacPerkParametersFive(int newNecessaryLengthPickedManiacPerk) {
+    return ManiacWMatchBalance(
+        name,
+        newNecessaryLengthPickedManiacPerk,
+        necessaryLengthPickedSurvivorPerk,
+        listMapsWMatchBalance.getClone,
+        listManiacPerkWMatchBalance.getClone,
+        listSurvivorPerkWMatchBalance.getClone);
+  }
+
   Maniac get getManiacWhereListManiacWReadyDataUtilityParameterName {
     return AlgorithmsUtility.getManiacWhereListManiacWReadyDataUtilityFromName(name);
   }

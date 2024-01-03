@@ -14,4 +14,10 @@ base class ListMapsWMatchBalance<T extends MapsWMatchBalance> extends BaseListMo
     }
     return ListMapsWMatchBalance<T>(newListModel);
   }
+
+  void insertListFromListStrings(ListStrings listStrings) {
+    for(Strings itemModel in listStrings.listModel) {
+      super.insertFromNewModelParameterListModel(MapsWMatchBalance(itemModel.uniqueId) as T);
+    }
+  }
 }

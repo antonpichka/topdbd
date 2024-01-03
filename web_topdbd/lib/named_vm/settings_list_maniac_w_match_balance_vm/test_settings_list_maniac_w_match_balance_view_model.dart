@@ -86,15 +86,17 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
     final isWhereEqualsFromNameParameterSelectedItemManiacWMatchBalance = getDataForNamedParameterNamedStreamWState
         .isWhereEqualsFromNameParameterSelectedItemManiacWMatchBalance(itemManiacWMatchBalance.name);
     if(isWhereEqualsFromNameParameterSelectedItemManiacWMatchBalance) {
-      _firstQQDeleteItemToListViewQQIsWhereEqualsFromNameParameterSelectedItemManiacWMatchBalance(getMatchBalanceWhereItsLikeMutableParameterTempCacheService.parameter!,itemManiacWMatchBalance);
+      _firstQQDeleteItemToListViewQQIsWhereEqualsFromNameParameterSelectedItemManiacWMatchBalance(getMatchBalanceWhereItsLikeMutableParameterTempCacheService.parameter!.getClone,itemManiacWMatchBalance);
       return;
     }
-    final parameter = getMatchBalanceWhereItsLikeMutableParameterTempCacheService.parameter!;
+    final parameter = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
+        .parameter
+        !.getClone;
     parameter
         .listManiacWMatchBalance
         .deleteFromUniqueIdByModelParameterListModel(itemManiacWMatchBalance.uniqueId);
     _updateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService
-        .updateMatchBalanceWhereItsLikeMutableFromMatchBalanceParameterTempCacheService(parameter.getClone);
+        .updateMatchBalanceWhereItsLikeMutableFromMatchBalanceParameterTempCacheService(parameter);
     getDataForNamedParameterNamedStreamWState
         .listManiacWMatchBalanceByMatchBalance
         .deleteFromUniqueIdByModelParameterListModel(itemManiacWMatchBalance.uniqueId);
@@ -135,12 +137,14 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
       return;
     }
     final listStringsWListManiacWCheckbox = getDataForNamedParameterNamedStreamWState.listStringsWListManiacWCheckbox;
-    final parameter = getMatchBalanceWhereItsLikeMutableParameterTempCacheService.parameter!;
+    final parameter = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
+        .parameter
+        !.getClone;
     parameter
         .listManiacWMatchBalance
         .insertListFromListStrings(listStringsWListManiacWCheckbox);
     _updateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService
-        .updateMatchBalanceWhereItsLikeMutableFromMatchBalanceParameterTempCacheService(parameter.getClone);
+        .updateMatchBalanceWhereItsLikeMutableFromMatchBalanceParameterTempCacheService(parameter);
     getDataForNamedParameterNamedStreamWState
         .insertListManiacWMatchBalanceByMatchBalanceParametersTwo();
     getDataForNamedParameterNamedStreamWState
@@ -182,7 +186,7 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
         .listManiacWMatchBalance
         .deleteFromUniqueIdByModelParameterListModel(itemManiacWMatchBalance.uniqueId);
     _updateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService
-        .updateMatchBalanceWhereItsLikeMutableFromMatchBalanceParameterTempCacheService(matchBalance.getClone);
+        .updateMatchBalanceWhereItsLikeMutableFromMatchBalanceParameterTempCacheService(matchBalance);
     _updateEEManiacWMatchBalanceEEWhereStreamNotificationIsPossibleEEFromManiacWMatchBalanceEEParameterTempCacheService
         .updateManiacWMatchBalanceWhereStreamNotificationIsPossibleFromManiacWMatchBalanceParameterTempCacheService(ManiacWMatchBalance("",0,0,ListMapsWMatchBalance(List.empty(growable: true)),ListManiacPerkWMatchBalance(List.empty(growable: true)),ListSurvivorPerkWMatchBalance(List.empty(growable: true))));
     getDataForNamedParameterNamedStreamWState

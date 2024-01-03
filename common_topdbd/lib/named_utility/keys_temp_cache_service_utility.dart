@@ -10,6 +10,7 @@ final class KeysTempCacheServiceUtility {
   static const String stringsQQNameCountryByCountry = "stringsQQNameCountryByCountry";
   /* ListStrings */
   static const String listStringsQQWListManiacWCheckbox = "listStringsQQWListManiacWCheckbox";
+  static const String listStringsQQWListMapsWCheckbox = "listStringsQQWListMapsWCheckbox";
   /* Ints */
   static const String intsQQSeasonNumberBySeason = "intsQQSeasonNumberBySeason";
   /* Bools */

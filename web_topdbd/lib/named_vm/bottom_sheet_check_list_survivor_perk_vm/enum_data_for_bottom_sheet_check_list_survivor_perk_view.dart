@@ -1,0 +1,1 @@
+enum EnumDataForBottomSheetCheckListSurvivorPerkView { isLoading, exception, success }

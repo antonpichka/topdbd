@@ -1,12 +1,10 @@
-import 'package:common_topdbd/model/maniac_w_match_balance/maniac_w_match_balance.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:web_topdbd/named_vm/settings_necessary_length_picked_maniac_perk_by_maniac_w_match_balance_vm/enum_data_for_settings_necessary_length_picked_maniac_perk_by_maniac_w_match_balance_view.dart';
 import 'package:web_topdbd/named_vm/settings_necessary_length_picked_maniac_perk_by_maniac_w_match_balance_vm/test_settings_necessary_length_picked_maniac_perk_by_maniac_w_match_balance_view_model.dart';
 
 final class SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView extends StatefulWidget {
-  final ManiacWMatchBalance selectedItemManiacWMatchBalance;
-
-  const SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView(this.selectedItemManiacWMatchBalance);
+  const SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView(Key key) : super(key: key);
 
   @override
   State<SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView> createState() => _SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewState();
@@ -21,9 +19,9 @@ final class _SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewSta
   @override
   void initState() {
     /// RELEASE CODE
-    // _viewModel = SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewModel(widget.selectedItemManiacWMatchBalance.name,widget.selectedItemManiacWMatchBalance.necessaryLengthPickedManiacPerk,widget.selectedItemManiacWMatchBalance.listManiacPerkWMatchBalance.listModel.length);
+    // _viewModel = SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewModel();
     /// TEST CODE
-    _viewModel = TestSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewModel(widget.selectedItemManiacWMatchBalance.name, widget.selectedItemManiacWMatchBalance.necessaryLengthPickedManiacPerk, widget.selectedItemManiacWMatchBalance.listManiacPerkWMatchBalance.listModel.length);
+    _viewModel = TestSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewModel();
     super.initState();
     _initParameterViewModel();
   }
@@ -44,15 +42,21 @@ final class _SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewSta
       case EnumDataForSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView.exception:
         return Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"));
       case EnumDataForSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView.success:
-        return DropdownButton<int>(
-            value: dataForNamedParameterNamedStreamWState.necessaryLengthPickedManiacPerkByManiacWMatchBalance,
-            items: dataForNamedParameterNamedStreamWState
-                .getListIntWhereLocalLengthLessThanParameterLengthByListManiacPerkWMatchBalance
-                .map((e) => DropdownMenuItem<int>(child: Center(child: Text("$e"))))
-                .toList(),
-            onChanged: (int? value) {
-              _viewModel.onChangedToDropdownButton(value);
-            });
+        return Padding(
+          padding: const EdgeInsets.only(left: 8.0,right: 8.0,bottom: 8.0),
+          child: TextFormField(
+              initialValue: dataForNamedParameterNamedStreamWState
+                  .necessaryLengthPickedManiacPerkByManiacWMatchBalance
+                  .toString(),
+              decoration: const InputDecoration(labelText: "How many maniac perks should be picked ?"),
+              keyboardType: TextInputType.number,
+              inputFormatters: <TextInputFormatter>[
+                FilteringTextInputFormatter.digitsOnly
+              ],
+              onChanged: (String? value) {
+                _viewModel.setNecessaryLengthPickedManiacPerkByManiacWMatchBalance(value);
+              }),
+        );
     }
   }
 
@@ -62,7 +66,6 @@ final class _SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewSta
         .listen((event) {
           setState(() {});
         });
-    _viewModel.listeningTempCacheService();
     final result = await _viewModel.init();
     debugPrint("SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView: $result");
     if(!mounted) {

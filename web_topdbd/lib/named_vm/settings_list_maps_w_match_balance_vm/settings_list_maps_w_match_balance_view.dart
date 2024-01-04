@@ -1,4 +1,3 @@
-import 'package:common_topdbd/model/maniac_w_match_balance/maniac_w_match_balance.dart';
 import 'package:common_topdbd/model/maps_w_match_balance/maps_w_match_balance.dart';
 import 'package:flutter/material.dart';
 import 'package:web_topdbd/named_vm/bottom_sheet_check_list_maps_vm/bottom_sheet_check_list_maps_view.dart';
@@ -7,9 +6,7 @@ import 'package:web_topdbd/named_vm/settings_list_maps_w_match_balance_vm/enum_d
 import 'package:web_topdbd/named_vm/settings_list_maps_w_match_balance_vm/test_settings_list_maps_w_match_balance_view_model.dart';
 
 final class SettingsListMapsWMatchBalanceView extends StatefulWidget {
-  final ManiacWMatchBalance selectedItemManiacWMatchBalance;
-
-  const SettingsListMapsWMatchBalanceView(this.selectedItemManiacWMatchBalance);
+  const SettingsListMapsWMatchBalanceView(Key key) : super(key: key);
 
   @override
   State<SettingsListMapsWMatchBalanceView> createState() => _SettingsListMapsWMatchBalanceViewState();
@@ -25,9 +22,9 @@ final class _SettingsListMapsWMatchBalanceViewState extends State<SettingsListMa
   @override
   void initState() {
     /// RELEASE CODE
-    // _viewModel = SettingsListMapsWMatchBalanceViewModel(widget.selectedItemManiacWMatchBalance.name,widget.selectedItemManiacWMatchBalance.listMapsWMatchBalance);
+    // _viewModel = SettingsListMapsWMatchBalanceViewModel();
     /// TEST CODE
-    _viewModel = TestSettingsListMapsWMatchBalanceViewModel(widget.selectedItemManiacWMatchBalance.name,widget.selectedItemManiacWMatchBalance.listMapsWMatchBalance);
+    _viewModel = TestSettingsListMapsWMatchBalanceViewModel();
     _scrollController = ScrollController();
     _scrollController.addListener(_listenerWhereScrollControllerParametersTwo);
     super.initState();

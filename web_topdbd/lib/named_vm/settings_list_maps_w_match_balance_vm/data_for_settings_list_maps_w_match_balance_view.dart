@@ -7,13 +7,13 @@ import 'package:web_topdbd/named_vm/settings_list_maps_w_match_balance_vm/enum_d
 
 final class DataForSettingsListMapsWMatchBalanceView extends BaseDataForNamed<EnumDataForSettingsListMapsWMatchBalanceView> {
   final ListMaps listMaps;
-  final String nameByManiacWMatchBalance;
+  String nameByManiacWMatchBalance;
+  ListMapsWMatchBalance listMapsWMatchBalance;
   ListStrings listStringsWListMapsWCheckbox;
   bool isMaxLeftScroll;
   bool isMaxRightScroll;
-  ListMapsWMatchBalance listMapsWMatchBalance;
 
-  DataForSettingsListMapsWMatchBalanceView(super.isLoading,this.nameByManiacWMatchBalance,this.listStringsWListMapsWCheckbox,this.isMaxLeftScroll,this.isMaxRightScroll,this.listMapsWMatchBalance)
+  DataForSettingsListMapsWMatchBalanceView(super.isLoading,this.nameByManiacWMatchBalance,this.listMapsWMatchBalance,this.listStringsWListMapsWCheckbox,this.isMaxLeftScroll,this.isMaxRightScroll)
       : listMaps = ReadyDataUtility.getListMaps;
 
   @override

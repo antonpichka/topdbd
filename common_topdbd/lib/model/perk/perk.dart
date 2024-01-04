@@ -16,4 +16,16 @@ base class Perk extends BaseModel {
     return "Perk(name: $name, "
         "imagePath: $imagePath)";
   }
+
+  bool isWhereEqualsFromListStringsParameterName(ListStrings listStrings) {
+    bool isEquals = false;
+    for(Strings itemStrings in listStrings.listModel) {
+      if(itemStrings.field != name) {
+        continue;
+      }
+      isEquals = true;
+      break;
+    }
+    return isEquals;
+  }
 }

@@ -11,6 +11,8 @@ final class KeysTempCacheServiceUtility {
   /* ListStrings */
   static const String listStringsQQWListManiacWCheckbox = "listStringsQQWListManiacWCheckbox";
   static const String listStringsQQWListMapsWCheckbox = "listStringsQQWListMapsWCheckbox";
+  static const String listStringsQQWListManiacPerkWCheckbox = "listStringsQQWListManiacPerkWCheckbox";
+  static const String listStringsQQWListSurvivorPerkWCheckbox = "listStringsQQWListSurvivorPerkWCheckbox";
   /* Ints */
   static const String intsQQSeasonNumberBySeason = "intsQQSeasonNumberBySeason";
   /* Bools */

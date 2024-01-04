@@ -9,6 +9,7 @@ import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_maniac_w_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_maniac_w_match_balance_ee_where_stream_notification_is_possible_ee_from_maniac_w_match_balance_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/get_ee_match_balance_ee_where_its_like_mutable_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_match_balance_ee_where_its_like_mutable_ee_from_match_balance_ee_parameter_temp_cache_service.dart';
+import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service_and_stream_subscription/start_listening_and_cancel_listening_ee_match_balance_ee_where_its_like_mutable_ee_from_callback_ee_parameters_temp_cache_service_and_stream_subscription.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
 import 'package:web_topdbd/named_vm/settings_list_maniac_w_match_balance_vm/data_for_settings_list_maniac_w_match_balance_view.dart';
@@ -27,6 +28,8 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
   UpdateEEManiacWMatchBalanceEEWhereStreamNotificationIsPossibleEEFromManiacWMatchBalanceEEParameterTempCacheService();
   final _startListeningAndCancelListeningEEListStringsEEWhereWListManiacWCheckboxEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription =
   StartListeningAndCancelListeningEEListStringsEEWhereWListManiacWCheckboxEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription();
+  final _startListeningAndCancelListeningEEMatchBalanceEEWhereItsLikeMutableEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription =
+  StartListeningAndCancelListeningEEMatchBalanceEEWhereItsLikeMutableEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription();
 
   // NamedUtility
 
@@ -37,6 +40,8 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
   void dispose() {
     _startListeningAndCancelListeningEEListStringsEEWhereWListManiacWCheckboxEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
         .cancelListeningListStringsWhereWListManiacWCheckboxParameterStreamSubscription();
+    _startListeningAndCancelListeningEEMatchBalanceEEWhereItsLikeMutableEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
+        .cancelListeningMatchBalanceWhereItsLikeMutableParameterStreamSubscription();
     super.dispose();
   }
 
@@ -51,7 +56,10 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
       return _firstQQInitQQGetMatchBalanceWhereItsLikeMutableParameterTempCacheService(getMatchBalanceWhereItsLikeMutableParameterTempCacheService.exceptionController);
     }
     getDataForNamedParameterNamedStreamWState.isLoading = false;
-    getDataForNamedParameterNamedStreamWState.listManiacWMatchBalanceByMatchBalance = getMatchBalanceWhereItsLikeMutableParameterTempCacheService.parameter!.listManiacWMatchBalance.getClone;
+    getDataForNamedParameterNamedStreamWState.listManiacWMatchBalanceByMatchBalance = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
+        .parameter
+        !.listManiacWMatchBalance
+        .getClone;
     return KeysSuccessUtility.sUCCESS;
   }
 
@@ -60,6 +68,11 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
     _startListeningAndCancelListeningEEListStringsEEWhereWListManiacWCheckboxEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
         .startListeningListStringsWhereWListManiacWCheckboxFromCallbackParametersTempCacheServiceAndStreamSubscription((p0) {
           getDataForNamedParameterNamedStreamWState.listStringsWListManiacWCheckbox = p0.parameter!.getClone;
+        });
+    _startListeningAndCancelListeningEEMatchBalanceEEWhereItsLikeMutableEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription
+        .startListeningMatchBalanceWhereItsLikeMutableFromCallbackParametersTempCacheServiceAndStreamSubscription((p0) {
+          getDataForNamedParameterNamedStreamWState.listManiacWMatchBalanceByMatchBalance = p0.parameter!.listManiacWMatchBalance.getClone;
+          notifyStreamDataForNamedParameterNamedStreamWState();
         });
   }
 

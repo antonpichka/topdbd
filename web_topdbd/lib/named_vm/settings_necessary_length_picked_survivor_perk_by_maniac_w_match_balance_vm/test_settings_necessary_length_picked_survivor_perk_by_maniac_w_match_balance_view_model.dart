@@ -5,12 +5,12 @@ import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_match_balance_ee_where_its_like_mutable_and_stream_notification_is_possible_ee_from_match_balance_ee_parameter_temp_cache_service.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
-import 'package:web_topdbd/named_vm/settings_necessary_length_picked_maniac_perk_by_maniac_w_match_balance_vm/data_for_settings_necessary_length_picked_maniac_perk_by_maniac_w_match_balance_view.dart';
-import 'package:web_topdbd/named_vm/settings_necessary_length_picked_maniac_perk_by_maniac_w_match_balance_vm/i_settings_necessary_length_picked_maniac_perk_by_maniac_w_match_balance_view_model.dart';
+import 'package:web_topdbd/named_vm/settings_necessary_length_picked_survivor_perk_by_maniac_w_match_balance_vm/data_for_settings_necessary_length_picked_survivor_perk_by_maniac_w_match_balance_view.dart';
+import 'package:web_topdbd/named_vm/settings_necessary_length_picked_survivor_perk_by_maniac_w_match_balance_vm/i_settings_necessary_length_picked_survivor_perk_by_maniac_w_match_balance_view_model.dart';
 
 @immutable
-final class TestSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewModel extends BaseNamedViewModel<DataForSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView,
-    DefaultStreamWState<DataForSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView>> implements ISettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewModel
+final class TestSettingsNecessaryLengthPickedSurvivorPerkByManiacWMatchBalanceViewModel extends BaseNamedViewModel<DataForSettingsNecessaryLengthPickedSurvivorPerkByManiacWMatchBalanceView,
+    DefaultStreamWState<DataForSettingsNecessaryLengthPickedSurvivorPerkByManiacWMatchBalanceView>> implements ISettingsNecessaryLengthPickedSurvivorPerkByManiacWMatchBalanceViewModel
 {
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   final _getEEManiacWMatchBalanceEEParameterTempCacheService =
@@ -22,8 +22,8 @@ final class TestSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView
 
   // NamedUtility
 
-  TestSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewModel()
-      : super(DefaultStreamWState(DataForSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView(true,"",0)));
+  TestSettingsNecessaryLengthPickedSurvivorPerkByManiacWMatchBalanceViewModel()
+      : super(DefaultStreamWState(DataForSettingsNecessaryLengthPickedSurvivorPerkByManiacWMatchBalanceView(true,"",0)));
 
   @override
   Future<String> init() async {
@@ -37,19 +37,19 @@ final class TestSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView
     }
     getDataForNamedParameterNamedStreamWState.isLoading = false;
     getDataForNamedParameterNamedStreamWState.nameByManiacWMatchBalance = getManiacWMatchBalanceParameterTempCacheService.parameter?.name ?? "";
-    getDataForNamedParameterNamedStreamWState.necessaryLengthPickedManiacPerkByManiacWMatchBalance = getManiacWMatchBalanceParameterTempCacheService.parameter?.necessaryLengthPickedManiacPerk ?? 0;
+    getDataForNamedParameterNamedStreamWState.necessaryLengthPickedSurvivorPerkByManiacWMatchBalance = getManiacWMatchBalanceParameterTempCacheService.parameter?.necessaryLengthPickedSurvivorPerk ?? 0;
     return KeysSuccessUtility.sUCCESS;
   }
 
   @override
-  void setNecessaryLengthPickedManiacPerkByManiacWMatchBalance(String? value) {
+  void setNecessaryLengthPickedSurvivorPerkByManiacWMatchBalance(String? value) {
     final getMatchBalanceWhereItsLikeMutableParameterTempCacheService = _getEEMatchBalanceEEWhereItsLikeMutableEEParameterTempCacheService
         .getMatchBalanceWhereItsLikeMutableParameterTempCacheService();
     if(getMatchBalanceWhereItsLikeMutableParameterTempCacheService
         .exceptionController
         .isWhereNotEqualsNullParameterException())
     {
-      _firstQQSetNecessaryLengthPickedManiacPerkByManiacWMatchBalanceQQGetMatchBalanceWhereItsLikeMutableParameterTempCacheService(getMatchBalanceWhereItsLikeMutableParameterTempCacheService.exceptionController);
+      _firstQQSetNecessaryLengthPickedSurvivorPerkByManiacWMatchBalanceQQGetMatchBalanceWhereItsLikeMutableParameterTempCacheService(getMatchBalanceWhereItsLikeMutableParameterTempCacheService.exceptionController);
       return;
     }
     final tryParseFromStr = AlgorithmsUtility.getTryParseFromStr(value ?? "");
@@ -59,10 +59,10 @@ final class TestSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView
         !.getClone;
     parameter
         .listManiacWMatchBalance
-        .updateWhereNecessaryLengthPickedManiacPerkFromTwoParameterListModel(nameByManiacWMatchBalance,tryParseFromStr);
+        .updateWhereNecessaryLengthPickedSurvivorPerkFromTwoParameterListModel(nameByManiacWMatchBalance,tryParseFromStr);
     _updateEEMatchBalanceEEWhereItsLikeMutableAndStreamNotificationIsPossibleEEFromMatchBalanceEEParameterTempCacheService
         .updateMatchBalanceWhereItsLikeMutableAndStreamNotificationIsPossibleFromMatchBalanceParameterTempCacheService(parameter);
-    getDataForNamedParameterNamedStreamWState.necessaryLengthPickedManiacPerkByManiacWMatchBalance = tryParseFromStr;
+    getDataForNamedParameterNamedStreamWState.necessaryLengthPickedSurvivorPerkByManiacWMatchBalance = tryParseFromStr;
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
@@ -71,7 +71,7 @@ final class TestSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView
     return getDataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException;
   }
 
-  void _firstQQSetNecessaryLengthPickedManiacPerkByManiacWMatchBalanceQQGetMatchBalanceWhereItsLikeMutableParameterTempCacheService(ExceptionController exceptionController) {
+  void _firstQQSetNecessaryLengthPickedSurvivorPerkByManiacWMatchBalanceQQGetMatchBalanceWhereItsLikeMutableParameterTempCacheService(ExceptionController exceptionController) {
     getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     notifyStreamDataForNamedParameterNamedStreamWState();
   }

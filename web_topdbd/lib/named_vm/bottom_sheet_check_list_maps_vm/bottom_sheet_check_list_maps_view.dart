@@ -23,7 +23,7 @@ final class _BottomSheetCheckListMapsViewState extends State<BottomSheetCheckLis
   @override
   void initState() {
     /// RELEASE CODE
-    // _viewModel = BottomSheetCheckListMapsViewModel(widget.listManiac);
+    // _viewModel = BottomSheetCheckListMapsViewModel(widget.listMaps);
     /// TEST CODE
     _viewModel = TestBottomSheetCheckListMapsViewModel(widget.listMaps);
     super.initState();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_topdbd/named_utility/algorithms_utility.dart';
 import 'package:web_topdbd/named_vm/settings_item_maniac_w_match_balance_vm/enum_data_for_settings_item_maniac_w_match_balance_view.dart';
 import 'package:web_topdbd/named_vm/settings_item_maniac_w_match_balance_vm/test_settings_item_maniac_w_match_balance_view_model.dart';
 import 'package:web_topdbd/named_vm/settings_list_maniac_perks_w_match_balance_vm/settings_list_maniac_perks_w_match_balance_view.dart';
@@ -60,9 +61,7 @@ final class _SettingsItemManiacWMatchBalanceViewState extends State<SettingsItem
                                 style: Theme.of(context).textTheme.displaySmall,),
                             )
                         ),
-                        SettingsListMapsWMatchBalanceView(dataForNamedParameterNamedStreamWState
-                            .selectedItemManiacWMatchBalance
-                            .getClone)
+                        SettingsListMapsWMatchBalanceView(ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid))
                       ])
               ),
               Card(
@@ -77,12 +76,8 @@ final class _SettingsItemManiacWMatchBalanceViewState extends State<SettingsItem
                                 style: Theme.of(context).textTheme.displaySmall,),
                             )
                         ),
-                        SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView(dataForNamedParameterNamedStreamWState
-                            .selectedItemManiacWMatchBalance
-                            .getClone),
-                        SettingsListManiacPerksWMatchBalanceView(dataForNamedParameterNamedStreamWState
-                            .selectedItemManiacWMatchBalance
-                            .getClone)
+                        SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView(ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid)),
+                        SettingsListManiacPerksWMatchBalanceView(ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid))
                       ])
               ),
               Card(
@@ -97,12 +92,8 @@ final class _SettingsItemManiacWMatchBalanceViewState extends State<SettingsItem
                                 style: Theme.of(context).textTheme.displaySmall,),
                             )
                         ),
-                        SettingsNecessaryLengthPickedSurvivorPerkByManiacWMatchBalanceView(dataForNamedParameterNamedStreamWState
-                            .selectedItemManiacWMatchBalance
-                            .getClone),
-                        SettingsListSurvivorPerksWMatchBalanceView(dataForNamedParameterNamedStreamWState
-                            .selectedItemManiacWMatchBalance
-                            .getClone)
+                        SettingsNecessaryLengthPickedSurvivorPerkByManiacWMatchBalanceView(ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid)),
+                        SettingsListSurvivorPerksWMatchBalanceView(ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid))
                       ])
               ),
             ]);

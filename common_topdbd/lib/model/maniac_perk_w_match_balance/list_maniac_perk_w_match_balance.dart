@@ -14,4 +14,10 @@ base class ListManiacPerkWMatchBalance<T extends ManiacPerkWMatchBalance> extend
     }
     return ListManiacPerkWMatchBalance<T>(newListModel);
   }
+
+  void insertListFromListStrings(ListStrings listStrings) {
+    for(Strings itemModel in listStrings.listModel) {
+      super.insertFromNewModelParameterListModel(ManiacPerkWMatchBalance(itemModel.uniqueId) as T);
+    }
+  }
 }

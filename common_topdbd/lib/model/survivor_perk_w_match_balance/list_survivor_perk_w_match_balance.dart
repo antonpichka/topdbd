@@ -14,4 +14,10 @@ base class ListSurvivorPerkWMatchBalance<T extends SurvivorPerkWMatchBalance> ex
     }
     return ListSurvivorPerkWMatchBalance<T>(newListModel);
   }
+
+  void insertListFromListStrings(ListStrings listStrings) {
+    for(Strings itemModel in listStrings.listModel) {
+      super.insertFromNewModelParameterListModel(SurvivorPerkWMatchBalance(itemModel.uniqueId) as T);
+    }
+  }
 }

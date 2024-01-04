@@ -4,6 +4,5 @@ import 'package:meta/meta.dart';
 abstract interface class ISettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewModel {
   const ISettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewModel();
 
-  void listeningTempCacheService();
-  void onChangedToDropdownButton(int? value);
+  void setNecessaryLengthPickedManiacPerkByManiacWMatchBalance(String? value);
 }

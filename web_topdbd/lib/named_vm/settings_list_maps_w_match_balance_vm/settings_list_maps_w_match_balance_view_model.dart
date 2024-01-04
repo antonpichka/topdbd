@@ -13,8 +13,8 @@ final class SettingsListMapsWMatchBalanceViewModel extends BaseNamedViewModel<Da
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   // NamedUtility
 
-  SettingsListMapsWMatchBalanceViewModel(String nameByManiacWMatchBalance,ListMapsWMatchBalance listMapsWMatchBalance)
-      : super(DefaultStreamWState(DataForSettingsListMapsWMatchBalanceView(true,nameByManiacWMatchBalance,ListStrings(List.empty(growable: true)),true,false,listMapsWMatchBalance)));
+  SettingsListMapsWMatchBalanceViewModel()
+      : super(DefaultStreamWState(DataForSettingsListMapsWMatchBalanceView(true,"",ListMapsWMatchBalance(List.empty(growable: true)),ListStrings(List.empty(growable: true)),true,false)));
 
   @override
   Future<String> init() async {

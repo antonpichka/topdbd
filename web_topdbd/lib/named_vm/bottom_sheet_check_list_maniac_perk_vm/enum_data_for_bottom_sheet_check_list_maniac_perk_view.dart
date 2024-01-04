@@ -1,0 +1,1 @@
+enum EnumDataForBottomSheetCheckListManiacPerkView { isLoading, exception, success }

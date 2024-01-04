@@ -11,8 +11,8 @@ final class SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewMode
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   // NamedUtility
 
-  SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewModel(String nameByManiacWMatchBalance,int necessaryLengthPickedManiacPerkByManiacWMatchBalance, int lengthByListManiacPerkWMatchBalance)
-      : super(DefaultStreamWState(DataForSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView(true,nameByManiacWMatchBalance,necessaryLengthPickedManiacPerkByManiacWMatchBalance,lengthByListManiacPerkWMatchBalance)));
+  SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewModel(String nameByManiacWMatchBalance,int necessaryLengthPickedManiacPerkByManiacWMatchBalance)
+      : super(DefaultStreamWState(DataForSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView(true,nameByManiacWMatchBalance,necessaryLengthPickedManiacPerkByManiacWMatchBalance)));
 
   @override
   Future<String> init() async {
@@ -21,12 +21,7 @@ final class SettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceViewMode
   }
 
   @override
-  void listeningTempCacheService() {
-    // TODO: implement listeningTempCacheService
-  }
-
-  @override
-  void onChangedToDropdownButton(int? value) {
+  void setNecessaryLengthPickedManiacPerkByManiacWMatchBalance(String? value) {
     // TODO: implement onChangedToDropdownButton
   }
 }

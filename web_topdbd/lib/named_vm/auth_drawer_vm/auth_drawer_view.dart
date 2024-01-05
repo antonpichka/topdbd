@@ -44,7 +44,7 @@ final class _AuthDrawerViewState extends State<AuthDrawerView> {
         return Column(
           children: [
             ListTile(
-              title: Text(dataForNamedParameterNamedStreamWState.getStringWhereSubstringParameterUsernameByDiscordUser,
+              title: Text(dataForNamedParameterNamedStreamWState.getStringWhereSubstringFromEndParameterUsernameByDiscordUser(9),
                 style: Theme.of(context).textTheme.bodyMedium,),
               leading: Image.asset(
                   dataForNamedParameterNamedStreamWState

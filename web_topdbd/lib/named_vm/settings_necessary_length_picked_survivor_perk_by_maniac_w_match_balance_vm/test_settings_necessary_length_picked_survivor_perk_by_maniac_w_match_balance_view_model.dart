@@ -54,14 +54,14 @@ final class TestSettingsNecessaryLengthPickedSurvivorPerkByManiacWMatchBalanceVi
     }
     final tryParseFromStr = AlgorithmsUtility.getTryParseFromStr(value ?? "");
     final nameByManiacWMatchBalance = getDataForNamedParameterNamedStreamWState.nameByManiacWMatchBalance;
-    final parameter = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
+    final clone = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
         .parameter
         !.getClone;
-    parameter
+    clone
         .listManiacWMatchBalance
         .updateWhereNecessaryLengthPickedSurvivorPerkFromTwoParameterListModel(nameByManiacWMatchBalance,tryParseFromStr);
     _updateEEMatchBalanceEEWhereItsLikeMutableAndStreamNotificationIsPossibleEEFromMatchBalanceEEParameterTempCacheService
-        .updateMatchBalanceWhereItsLikeMutableAndStreamNotificationIsPossibleFromMatchBalanceParameterTempCacheService(parameter);
+        .updateMatchBalanceWhereItsLikeMutableAndStreamNotificationIsPossibleFromMatchBalanceParameterTempCacheService(clone);
     getDataForNamedParameterNamedStreamWState.necessaryLengthPickedSurvivorPerkByManiacWMatchBalance = tryParseFromStr;
     notifyStreamDataForNamedParameterNamedStreamWState();
   }

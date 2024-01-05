@@ -25,7 +25,9 @@ base class GetEEVerifiedUserEEFromUniqueIdByUserEEParameterFirebaseFirestoreServ
       }
       return Result<T>.success(VerifiedUser(
           documentByVerifiedUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.verifiedUserQQUniqueIdByUser] ?? "",
-          documentByVerifiedUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser] ?? false) as T);
+          documentByVerifiedUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser] ?? false,
+          (documentByVerifiedUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.verifiedUserQQStartOfTemporaryAccess]).toDate() ?? DateTime(0),
+          (documentByVerifiedUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.verifiedUserQQEndOfTemporaryAccess]).toDate() ?? DateTime(0)) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

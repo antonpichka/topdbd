@@ -17,18 +17,18 @@ base class InsertEEIPAddressFirestoreEEFromRegistrationIPAddressFirestoreUtility
     try {
       final documentByIPAddressWhereAdding = await firebaseFirestoreService
           .getParameterFirebaseFirestore
-          ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
+          ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddressFirestore)
           .add({
-        KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser : registrationIPAddressFirestoreUtility.uniqueIdByUser,
-        KeysFirebaseFirestoreServiceUtility.ipAddressQQIp : registrationIPAddressFirestoreUtility.ip
+        KeysFirebaseFirestoreServiceUtility.ipAddressFirestoreQQUniqueIdByUser : registrationIPAddressFirestoreUtility.uniqueIdByUser,
+        KeysFirebaseFirestoreServiceUtility.ipAddressFirestoreQQIp : registrationIPAddressFirestoreUtility.ip
           });
       final documentByIPAddress = await documentByIPAddressWhereAdding?.get();
       if(!(documentByIPAddress?.exists ?? false)) {
         return Result<T>.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.insertEEIPAddressFirestoreEEFromRegistrationIPAddressFirestoreUtilityEEParameterFirebaseFirestoreService));
       }
       return Result<T>.success(IPAddressFirestore(
-          documentByIPAddress?.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser] ?? "",
-          documentByIPAddress?.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressQQIp] ?? "") as T);
+          documentByIPAddress?.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressFirestoreQQUniqueIdByUser] ?? "",
+          documentByIPAddress?.data()?[KeysFirebaseFirestoreServiceUtility.ipAddressFirestoreQQIp] ?? "") as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

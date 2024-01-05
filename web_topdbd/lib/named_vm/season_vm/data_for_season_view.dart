@@ -1,4 +1,5 @@
 import 'package:common_topdbd/named_utility/algorithms_utility.dart';
+import 'package:web_topdbd/named_utility/algorithms_utility.dart' as web_au;
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:web_topdbd/named_vm/season_vm/enum_data_for_season_view.dart';
 
@@ -22,11 +23,11 @@ final class DataForSeasonView extends BaseDataForNamed<EnumDataForSeasonView> {
   }
 
   String get getStringWhereFormattedParameterStartOfSeasonTimeBySeason {
-    return AlgorithmsUtility.getStringWhereFormattedFromDateTime(startOfSeasonTimeBySeason);
+    return web_au.AlgorithmsUtility.getStringWhereFormatByDateFormatFromDateTime(startOfSeasonTimeBySeason);
   }
 
   String get getStringWhereFormattedParameterEndOfSeasonTimeBySeason {
-    return AlgorithmsUtility.getStringWhereFormattedFromDateTime(endOfSeasonTimeBySeason);
+    return web_au.AlgorithmsUtility.getStringWhereFormatByDateFormatFromDateTime(endOfSeasonTimeBySeason);
   }
 
   int get getIntWhereInReverseOrderWFormulaPercentageDifferenceButDistanceTraveledParametersThree {

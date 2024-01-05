@@ -4,13 +4,16 @@ import 'package:web_topdbd/named_vm/app_vm/enum_data_for_app_view.dart';
 
 final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
   List<bool> listLoaded;
-  bool isThoseWorks;
+  String nameRoute;
+  bool isThoseWorksByThoseWorks;
   String uniqueIdByUser;
   String usernameByDiscordUser;
   bool isAdminByRoleUser;
-  String nameRoute;
+  bool isVerifiedUserByVerifiedUser;
+  DateTime startOfTemporaryAccessByVerifiedUser;
+  DateTime endOfTemporaryAccessByVerifiedUser;
 
-  DataForAppView(super.isLoading,this.listLoaded,this.isThoseWorks,this.uniqueIdByUser,this.usernameByDiscordUser,this.isAdminByRoleUser,this.nameRoute);
+  DataForAppView(super.isLoading,this.listLoaded,this.nameRoute,this.isThoseWorksByThoseWorks,this.uniqueIdByUser,this.usernameByDiscordUser,this.isAdminByRoleUser,this.isVerifiedUserByVerifiedUser,this.startOfTemporaryAccessByVerifiedUser,this.endOfTemporaryAccessByVerifiedUser);
 
   @override
   EnumDataForAppView get getEnumDataForNamed {
@@ -23,7 +26,7 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
     if(isWhereLengthSmallerThanTwoParameterListLoaded()) {
       return EnumDataForAppView.isLoading;
     }
-    if(isThoseWorks) {
+    if(isThoseWorksByThoseWorks) {
       return EnumDataForAppView.thoseWorks;
     }
     if(uniqueIdByUser.isNotEmpty &&
@@ -53,6 +56,12 @@ final class DataForAppView extends BaseDataForNamed<EnumDataForAppView> {
         isAdminByRoleUser)
     {
       return EnumDataForAppView.authMainViewWBalanceWSettings;
+    }
+    if(uniqueIdByUser.isNotEmpty &&
+        nameRoute == KeysNavigationUtility.authNavigationViewQQAdmin &&
+        isAdminByRoleUser)
+    {
+      return EnumDataForAppView.authMainViewWAdmin;
     }
     if(uniqueIdByUser.isNotEmpty &&
         nameRoute == KeysNavigationUtility.unAuthNavigationViewQQLogin)

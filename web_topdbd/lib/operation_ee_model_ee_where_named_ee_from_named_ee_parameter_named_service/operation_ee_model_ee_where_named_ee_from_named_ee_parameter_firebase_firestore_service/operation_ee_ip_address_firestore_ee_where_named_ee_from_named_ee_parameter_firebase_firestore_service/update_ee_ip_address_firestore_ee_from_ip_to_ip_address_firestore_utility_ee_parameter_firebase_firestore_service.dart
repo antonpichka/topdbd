@@ -17,8 +17,8 @@ base class UpdateEEIPAddressFirestoreEEFromIPToIPAddressFirestoreUtilityEEParame
     try {
       final listDocumentByIPAddress = await firebaseFirestoreService
           .getParameterFirebaseFirestore
-          ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
-          .where(KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser, isEqualTo: iPToIPAddressFirestoreUtility.uniqueIdByUser)
+          ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddressFirestore)
+          .where(KeysFirebaseFirestoreServiceUtility.ipAddressFirestoreQQUniqueIdByUser, isEqualTo: iPToIPAddressFirestoreUtility.uniqueIdByUser)
           .limit(1)
           .get();
       if(!(listDocumentByIPAddress?.docs[0].exists ?? false)) {
@@ -27,14 +27,14 @@ base class UpdateEEIPAddressFirestoreEEFromIPToIPAddressFirestoreUtilityEEParame
       final firstItemDocumentByIPAddress = listDocumentByIPAddress?.docs[0];
       await firebaseFirestoreService
           .getParameterFirebaseFirestore
-          ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
+          ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddressFirestore)
           .doc(firstItemDocumentByIPAddress?.id)
           .update({
-        KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser : firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser] ?? "",
-        KeysFirebaseFirestoreServiceUtility.ipAddressQQIp : iPToIPAddressFirestoreUtility.ip,
+        KeysFirebaseFirestoreServiceUtility.ipAddressFirestoreQQUniqueIdByUser : firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressFirestoreQQUniqueIdByUser] ?? "",
+        KeysFirebaseFirestoreServiceUtility.ipAddressFirestoreQQIp : iPToIPAddressFirestoreUtility.ip,
       });
       return Result<T>.success(IPAddressFirestore(
-          firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser] ?? "",
+          firstItemDocumentByIPAddress?.data()[KeysFirebaseFirestoreServiceUtility.ipAddressFirestoreQQUniqueIdByUser] ?? "",
           iPToIPAddressFirestoreUtility.ip) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));

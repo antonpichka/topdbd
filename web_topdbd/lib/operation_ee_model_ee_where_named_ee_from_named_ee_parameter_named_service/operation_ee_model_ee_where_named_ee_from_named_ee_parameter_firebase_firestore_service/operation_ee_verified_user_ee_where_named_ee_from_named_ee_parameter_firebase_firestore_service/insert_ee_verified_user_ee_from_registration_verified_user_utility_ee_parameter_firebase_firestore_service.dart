@@ -21,6 +21,8 @@ base class InsertEEVerifiedUserEEFromRegistrationVerifiedUserUtilityEEParameterF
           .add({
         KeysFirebaseFirestoreServiceUtility.verifiedUserQQUniqueIdByUser : registrationVerifiedUserUtility.uniqueIdByUser,
         KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser : registrationVerifiedUserUtility.isVerifiedUser,
+        KeysFirebaseFirestoreServiceUtility.verifiedUserQQStartOfTemporaryAccess : DateTime(0),
+        KeysFirebaseFirestoreServiceUtility.verifiedUserQQEndOfTemporaryAccess : DateTime(0),
       });
       final documentByVerifiedUser = await documentByVerifiedUserWhereAdding?.get();
       if(!(documentByVerifiedUser?.exists ?? false)) {
@@ -28,7 +30,9 @@ base class InsertEEVerifiedUserEEFromRegistrationVerifiedUserUtilityEEParameterF
       }
       return Result<T>.success(VerifiedUser(
           documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQQUniqueIdByUser] ?? "",
-          documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser] ?? false) as T);
+          documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQQIsVerifiedUser] ?? false,
+          (documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQQStartOfTemporaryAccess]).toDate() ?? DateTime(0),
+          (documentByVerifiedUser?.data()?[KeysFirebaseFirestoreServiceUtility.verifiedUserQQEndOfTemporaryAccess]).toDate() ?? DateTime(0)) as T);
     } catch(e) {
       return Result<T>.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

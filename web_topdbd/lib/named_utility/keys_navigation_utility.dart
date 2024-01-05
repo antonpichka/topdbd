@@ -8,6 +8,8 @@ final class KeysNavigationUtility {
   static const String unAuthNavigationViewQQBalance = "#/balance";
   static const String unAuthNavigationViewQQLogin = "#/login";
   static const String unAuthNavigationViewQQTournaments = "#/tournaments";
+  /* AuthNavigationView */
+  static const String authNavigationViewQQAdmin = "#/admin";
   /* CustomFooterView */
   static const String customFooterViewQQTermsOfUse = "#/terms_of_use";
   /* SearchUsersView */

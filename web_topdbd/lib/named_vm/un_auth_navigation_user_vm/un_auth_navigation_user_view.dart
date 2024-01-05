@@ -8,7 +8,7 @@ final class UnAuthNavigationUserView extends StatefulWidget {
   final String usernameByDiscordUser;
   final String suffixUrlWUserWNameRoute;
 
-  const UnAuthNavigationUserView(this.usernameByDiscordUser,this.suffixUrlWUserWNameRoute);
+  const UnAuthNavigationUserView(Key key,this.usernameByDiscordUser,this.suffixUrlWUserWNameRoute) : super(key: key);
 
   @override
   State<UnAuthNavigationUserView> createState() => _UnAuthNavigationUserViewState();

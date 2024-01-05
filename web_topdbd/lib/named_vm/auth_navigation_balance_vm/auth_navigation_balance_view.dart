@@ -8,7 +8,7 @@ final class AuthNavigationBalanceView extends StatefulWidget {
   final bool isAdminByRoleUser;
   final String suffixUrlWBalanceWNameRoute;
 
-  const AuthNavigationBalanceView(this.isAdminByRoleUser,this.suffixUrlWBalanceWNameRoute);
+  const AuthNavigationBalanceView(Key key,this.isAdminByRoleUser,this.suffixUrlWBalanceWNameRoute) : super(key: key);
 
   @override
   State<AuthNavigationBalanceView> createState() => _AuthNavigationBalanceViewState();

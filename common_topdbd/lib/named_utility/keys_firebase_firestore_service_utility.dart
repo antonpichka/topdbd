@@ -24,18 +24,16 @@ final class KeysFirebaseFirestoreServiceUtility {
   static const String verifiedUser = "verifiedUser";
   static const String verifiedUserQQUniqueIdByUser = "uniqueIdByUser";
   static const String verifiedUserQQIsVerifiedUser = "isVerifiedUser";
+  static const String verifiedUserQQStartOfTemporaryAccess = "startOfTemporaryAccess";
+  static const String verifiedUserQQEndOfTemporaryAccess = "endOfTemporaryAccess";
   /* RoleUser */
   static const String roleUser = "roleUser";
   static const String roleUserQQUniqueIdByUser = "uniqueIdByUser";
   static const String roleUserQQIsAdmin = "isAdmin";
-  /* LastLoginTimeUser */
-  static const String lastLoginTimeUser = "lastLoginTimeUser";
-  static const String lastLoginTimeUserQQUniqueIdByUser = "uniqueIdByUser";
-  static const String lastLoginTimeUserQQLastLoginTime = "lastLoginTime";
-  /* IPAddress as IPAddressFirestore */
-  static const String ipAddress = "ipAddress";
-  static const String ipAddressQQUniqueIdByUser = "uniqueIdByUser";
-  static const String ipAddressQQIp = "ip";
+  /* IPAddressFirestore */
+  static const String ipAddressFirestore = "ipAddress";
+  static const String ipAddressFirestoreQQUniqueIdByUser = "uniqueIdByUser";
+  static const String ipAddressFirestoreQQIp = "ip";
   /* Country */
   static const String country = "country";
   static const String countryQQUniqueIdByUser = "uniqueIdByUser";

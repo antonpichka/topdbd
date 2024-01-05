@@ -331,7 +331,8 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
           title: "Admin",
           icon: Icons.lock,
           onTap: () {
-
+            WebNavigationUtility
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.authNavigationViewQQAdmin);
           }),
       PlutoMenuItem(
           title: "",

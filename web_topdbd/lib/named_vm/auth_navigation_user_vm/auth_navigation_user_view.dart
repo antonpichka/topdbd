@@ -9,7 +9,7 @@ final class AuthNavigationUserView extends StatefulWidget {
   final bool isAuthMyUser;
   final String suffixUrlWUserWNameRoute;
 
-  const AuthNavigationUserView(this.usernameByDiscordUser,this.isAuthMyUser, this.suffixUrlWUserWNameRoute);
+  const AuthNavigationUserView(Key key,this.usernameByDiscordUser,this.isAuthMyUser, this.suffixUrlWUserWNameRoute) : super(key: key);
 
   @override
   State<AuthNavigationUserView> createState() => _AuthNavigationUserViewState();

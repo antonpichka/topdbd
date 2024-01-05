@@ -2,13 +2,13 @@ import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modif
 import 'package:web_topdbd/named_vm/app_vm/data_for_app_view.dart';
 
 void main() {
-  final dataForAppView = DataForAppView(false,List.empty(growable: true),false,"","",false,"#/user/vicar32/stats");
+  final dataForAppView = DataForAppView(false,List.empty(growable: true),"#/user/vicar32/stats",false,"","",false,false,DateTime(0),DateTime(0));
   debugPrint(dataForAppView.getUrlWhereUserParameterNameRoute);
   debugPrint(dataForAppView.getIdWhereUserParameterNameRoute);
-  final dataForAppViewFIRST = DataForAppView(false,List.empty(growable: true),false,"","",false,"#/search_players?q=vicar32q");
+  final dataForAppViewFIRST = DataForAppView(false,List.empty(growable: true),"#/search_players?q=vicar32q",false,"","",false,false,DateTime(0),DateTime(0));
   debugPrint(dataForAppViewFIRST.getUrlWhereSearchPlayersParameterNameRoute);
   debugPrint(dataForAppViewFIRST.getIdWhereSearchPlayersParameterNameRoute);
-  final dataForAppViewSECOND = DataForAppView(false,List.empty(growable: true),false,"","",false,"#/balance/settings");
+  final dataForAppViewSECOND = DataForAppView(false,List.empty(growable: true),"#/balance/settings",false,"","",false,false,DateTime(0),DateTime(0));
   debugPrint(dataForAppViewSECOND.getSuffixUrlWhereBalanceParameterNameRoute);
   // EXPECTED OUTPUT:
   //

@@ -5,6 +5,8 @@ import 'package:web_topdbd/named_vm/un_auth_navigation_balance_vm/enum_data_for_
 import 'package:web_topdbd/named_vm/un_auth_navigation_balance_vm/test_un_auth_navigation_balance_view_model.dart';
 
 final class UnAuthNavigationBalanceView extends StatefulWidget {
+  const UnAuthNavigationBalanceView(Key key) : super(key: key);
+
   @override
   State<UnAuthNavigationBalanceView> createState() => _UnAuthNavigationBalanceViewState();
 }

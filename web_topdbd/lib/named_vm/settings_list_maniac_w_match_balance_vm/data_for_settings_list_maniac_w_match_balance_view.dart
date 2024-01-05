@@ -45,11 +45,6 @@ final class DataForSettingsListManiacWMatchBalanceView extends BaseDataForNamed<
     return listManiacWMatchBalanceByMatchBalance.listModel.length + 2;
   }
 
-  void insertListManiacWMatchBalanceByMatchBalanceParametersTwo() {
-    listManiacWMatchBalanceByMatchBalance
-        .insertListFromListStrings(listStringsWListManiacWCheckbox);
-  }
-
   bool isWhereLengthLessTwoAndEqualParametersListManiacWMatchBalanceByMatchBalanceAndListManiac() {
     if(listManiacWMatchBalanceByMatchBalance.listModel.length < 2) {
       return true;

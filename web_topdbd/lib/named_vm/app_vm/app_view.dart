@@ -6,6 +6,7 @@ import 'package:web_topdbd/l10n/l10n.dart';
 import 'package:web_topdbd/named_utility/algorithms_utility.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
 import 'package:web_topdbd/named_vm/about_me_user_view.dart';
+import 'package:web_topdbd/named_vm/admin_view.dart';
 import 'package:web_topdbd/named_vm/already_logged_view.dart';
 import 'package:web_topdbd/named_vm/app_vm/enum_data_for_app_view.dart';
 import 'package:web_topdbd/named_vm/app_vm/test_app_view_model.dart';
@@ -124,133 +125,200 @@ final class _AppViewState extends State<AppView> {
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,valueFIRST);
             case EnumDataForAppView.authMainViewWHome:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
-                  HomeView()));
+                  HomeView()
+              ));
             case EnumDataForAppView.authMainViewWTopPlayers:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
-                  TopPlayersView()));
+                  TopPlayersView()
+              ));
             case EnumDataForAppView.authMainViewWBalance:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   BalanceView(
-                      AuthNavigationBalanceView(true,dataForNamedParameterNamedStreamWState.getSuffixUrlWhereBalanceParameterNameRoute),
+                      AuthNavigationBalanceView(
+                          ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                          true,
+                          dataForNamedParameterNamedStreamWState.getSuffixUrlWhereBalanceParameterNameRoute),
                       ListWItemManiacWMatchBalanceView())
               ));
             case EnumDataForAppView.authMainViewWBalanceFIRST:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   BalanceView(
-                      AuthNavigationBalanceView(false,dataForNamedParameterNamedStreamWState.getSuffixUrlWhereBalanceParameterNameRoute),
+                      AuthNavigationBalanceView(
+                          ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                          false,
+                          dataForNamedParameterNamedStreamWState.getSuffixUrlWhereBalanceParameterNameRoute),
                       ListWItemManiacWMatchBalanceView())
               ));
             case EnumDataForAppView.authMainViewWBalanceWSettings:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   BalanceView(
-                      AuthNavigationBalanceView(true,dataForNamedParameterNamedStreamWState.getSuffixUrlWhereBalanceParameterNameRoute),
+                      AuthNavigationBalanceView(
+                          ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                          true,
+                          dataForNamedParameterNamedStreamWState.getSuffixUrlWhereBalanceParameterNameRoute),
                       SettingsBalanceView())
+              ));
+            case EnumDataForAppView.authMainViewWAdmin:
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
+                  AdminView()
               ));
             case EnumDataForAppView.authMainViewWLogin:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
-                  AlreadyLoggedView()));
+                  AlreadyLoggedView()
+              ));
             case EnumDataForAppView.authMainViewWTermsOfUse:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
-                  TermsOfUseView()));
+                  TermsOfUseView()
+              ));
             case EnumDataForAppView.authMainViewWSearchPlayers:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
-                  SearchUsersToListView(ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),dataForNamedParameterNamedStreamWState.getIdWhereSearchPlayersParameterNameRoute)));
+                  SearchUsersToListView(
+                      ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                      dataForNamedParameterNamedStreamWState.getIdWhereSearchPlayersParameterNameRoute)
+              ));
             case EnumDataForAppView.authMainViewWUserWId:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   UserView(
                       dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                      AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true,dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
+                      AuthNavigationUserView(
+                          ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          true,
+                          dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
                       AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
               ));
             case EnumDataForAppView.authMainViewWUserWIdFIRST:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   UserView(
                       dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                      AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,false,dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
+                      AuthNavigationUserView(
+                          ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          false,
+                          dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
                       AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
               ));
             case EnumDataForAppView.authMainViewWUserWIdWStats:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   UserView(
                       dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                      AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true,dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
+                      AuthNavigationUserView(
+                          ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          true,
+                          dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
                       StatsUserWListSeasonStatsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
               ));
             case EnumDataForAppView.authMainViewWUserWIdWStatsFIRST:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   UserView(
                       dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                      AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,false,dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
+                      AuthNavigationUserView(
+                          ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          false,
+                          dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
                       StatsUserWListSeasonStatsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
               ));
             case EnumDataForAppView.authMainViewWUserWIdWMatches:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   UserView(
                       dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                      AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true,dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
+                      AuthNavigationUserView(
+                          ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          true,
+                          dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
                       ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
               ));
             case EnumDataForAppView.authMainViewWUserWIdWMatchesFIRST:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   UserView(
                       dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                      AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,false,dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
+                      AuthNavigationUserView(
+                          ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          false,
+                          dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
                       ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
               ));
             case EnumDataForAppView.authMainViewWUserWIdWSettings:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   UserView(
                       dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                      AuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,true,dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
+                      AuthNavigationUserView(
+                          ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          true,
+                          dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
                       SettingsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
               ));
             case EnumDataForAppView.authMainViewWNotFound:
-              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(NotFoundView(dataForNamedParameterNamedStreamWState.nameRoute)));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
+                  NotFoundView(dataForNamedParameterNamedStreamWState.nameRoute)
+              ));
             case EnumDataForAppView.unAuthMainViewWHome:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
-                  HomeView()));
+                  HomeView()
+              ));
             case EnumDataForAppView.unAuthMainViewWTopPlayers:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
-                  TopPlayersView()));
+                  TopPlayersView()
+              ));
             case EnumDataForAppView.unAuthMainViewWBalance:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
                   BalanceView(
-                      UnAuthNavigationBalanceView(),
+                      UnAuthNavigationBalanceView(ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid)),
                       ListWItemManiacWMatchBalanceView())
               ));
             case EnumDataForAppView.unAuthMainViewWLogin:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
-                  LoginView()));
+                  LoginView()
+              ));
             case EnumDataForAppView.unAuthMainViewWTermsOfUse:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
-                  TermsOfUseView()));
+                  TermsOfUseView()
+              ));
             case EnumDataForAppView.unAuthMainViewWSearchPlayers:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
-                  SearchUsersToListView(ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),dataForNamedParameterNamedStreamWState.getIdWhereSearchPlayersParameterNameRoute)));
+                  SearchUsersToListView(
+                      ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                      dataForNamedParameterNamedStreamWState.getIdWhereSearchPlayersParameterNameRoute)
+              ));
             case EnumDataForAppView.unAuthMainViewWUserWId:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
                   UserView(
                       dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                      UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
+                      UnAuthNavigationUserView(
+                          ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
                       AboutMeUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
               ));
             case EnumDataForAppView.unAuthMainViewWUserWIdWStats:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
                   UserView(
                       dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                      UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
+                      UnAuthNavigationUserView(
+                          ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
                       StatsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
               ));
             case EnumDataForAppView.unAuthMainViewWUserWIdWMatches:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
                   UserView(
                       dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
-                      UnAuthNavigationUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
+                      UnAuthNavigationUserView(
+                          ValueKey<String>(AlgorithmsUtility.getStringWhereV1ByUuid),
+                          dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute,
+                          dataForNamedParameterNamedStreamWState.getSuffixUrlWhereUserParameterNameRoute),
                       ListMatchesUserWStatisticsOnManiacsUserView(dataForNamedParameterNamedStreamWState.getIdWhereUserParameterNameRoute))
               ));
             case EnumDataForAppView.unAuthMainViewWNotFound:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,UnAuthMainView(
-                  NotFoundView(dataForNamedParameterNamedStreamWState.nameRoute)));
+                  NotFoundView(dataForNamedParameterNamedStreamWState.nameRoute)
+              ));
           }
         });
   }

@@ -15,11 +15,10 @@ final class KeysTempCacheServiceUtility {
   static const String listStringsQQWListSurvivorPerkWCheckbox = "listStringsQQWListSurvivorPerkWCheckbox";
   /* Ints */
   static const String intsQQSeasonNumberBySeason = "intsQQSeasonNumberBySeason";
+  static const String intsQQNumberOfRoundsByMatchBalance = "intsQQNumberOfRoundsByMatchBalance";
   /* Bools */
   static const String boolsQQIsAdminByRoleUser = "boolsQQIsAdminByRoleUser";
   /* DatesTimes */
-  static const String datesTimesQQCreationTimeByUser = "datesTimesQQCreationTimeByUser";
-  static const String datesTimesQQLastLoginTimeByLastLoginTimeUser = "datesTimesQQLastLoginTimeByLastLoginTimeUser";
   static const String datesTimesQQStartOfSeasonTimeBySeason = "datesTimesQQStartOfSeasonTimeBySeason";
   static const String datesTimesQQEndOfSeasonTimeBySeason = "datesTimesQQEndOfSeasonTimeBySeason";
   /* MatchBalance */

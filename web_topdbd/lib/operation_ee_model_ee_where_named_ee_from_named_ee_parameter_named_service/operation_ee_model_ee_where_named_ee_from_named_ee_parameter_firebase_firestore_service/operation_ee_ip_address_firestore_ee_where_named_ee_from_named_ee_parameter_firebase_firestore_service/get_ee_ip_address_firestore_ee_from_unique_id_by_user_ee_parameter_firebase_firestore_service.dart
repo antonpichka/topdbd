@@ -16,16 +16,16 @@ base class GetEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFiresto
     try {
       final documentByDiscordUser = await firebaseFirestoreService
           .getParameterFirebaseFirestore
-          ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddress)
-          .where(KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
+          ?.collection(KeysFirebaseFirestoreServiceUtility.ipAddressFirestore)
+          .where(KeysFirebaseFirestoreServiceUtility.ipAddressFirestoreQQUniqueIdByUser,isEqualTo: uniqueIdByUser)
           .limit(1)
           .get();
       if((documentByDiscordUser?.size ?? 0) <= 0) {
         return Result.exception(LocalException(this,EnumGuilty.user,KeysExceptionUtility.getEEIPAddressFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService));
       }
       return Result.success(IPAddressFirestore(
-          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQUniqueIdByUser] ?? "",
-          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressQQIp] ?? "") as T);
+          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressFirestoreQQUniqueIdByUser] ?? "",
+          documentByDiscordUser?.docs[0].data()[KeysFirebaseFirestoreServiceUtility.ipAddressFirestoreQQIp] ?? "") as T);
     } catch(e) {
       return Result.exception(LocalException(this,EnumGuilty.device,KeysExceptionUtility.uNKNOWN,e.toString()));
     }

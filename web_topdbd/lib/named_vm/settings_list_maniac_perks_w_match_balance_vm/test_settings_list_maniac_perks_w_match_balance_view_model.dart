@@ -81,14 +81,14 @@ final class TestSettingsListManiacPerksWMatchBalanceViewModel extends BaseNamedV
     }
     final nameByManiacWMatchBalance = getDataForNamedParameterNamedStreamWState.nameByManiacWMatchBalance;
     final listStringsWListManiacPerkWCheckbox = getDataForNamedParameterNamedStreamWState.listStringsWListManiacPerkWCheckbox;
-    final parameter = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
+    final clone = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
         .parameter
         !.getClone;
-    parameter
+    clone
         .listManiacWMatchBalance
         .insertManiacPerkWMatchBalanceFromNameByManiacWMatchBalanceAndListStringsParameterListModel(nameByManiacWMatchBalance,listStringsWListManiacPerkWCheckbox);
     _updateEEMatchBalanceEEWhereItsLikeMutableAndStreamNotificationIsPossibleEEFromMatchBalanceEEParameterTempCacheService
-        .updateMatchBalanceWhereItsLikeMutableAndStreamNotificationIsPossibleFromMatchBalanceParameterTempCacheService(parameter);
+        .updateMatchBalanceWhereItsLikeMutableAndStreamNotificationIsPossibleFromMatchBalanceParameterTempCacheService(clone);
     getDataForNamedParameterNamedStreamWState
         .insertListManiacPerkWMatchBalanceParametersTwo();
     getDataForNamedParameterNamedStreamWState
@@ -126,12 +126,14 @@ final class TestSettingsListManiacPerksWMatchBalanceViewModel extends BaseNamedV
       return;
     }
     final nameByManiacWMatchBalance = getDataForNamedParameterNamedStreamWState.nameByManiacWMatchBalance;
-    final parameter = getMatchBalanceWhereItsLikeMutableParameterTempCacheService.parameter!.getClone;
-    parameter
+    final clone = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
+        .parameter
+        !.getClone;
+    clone
         .listManiacWMatchBalance
         .deleteManiacPerkWMatchBalanceFromNameByManiacWMatchBalanceAndManiacPerkWMatchBalanceParameterListModel(nameByManiacWMatchBalance,itemManiacPerkWMatchBalance);
     _updateEEMatchBalanceEEWhereItsLikeMutableAndStreamNotificationIsPossibleEEFromMatchBalanceEEParameterTempCacheService
-        .updateMatchBalanceWhereItsLikeMutableAndStreamNotificationIsPossibleFromMatchBalanceParameterTempCacheService(parameter);
+        .updateMatchBalanceWhereItsLikeMutableAndStreamNotificationIsPossibleFromMatchBalanceParameterTempCacheService(clone);
     getDataForNamedParameterNamedStreamWState
         .listManiacPerkWMatchBalance
         .deleteFromUniqueIdByModelParameterListModel(itemManiacPerkWMatchBalance.uniqueId);

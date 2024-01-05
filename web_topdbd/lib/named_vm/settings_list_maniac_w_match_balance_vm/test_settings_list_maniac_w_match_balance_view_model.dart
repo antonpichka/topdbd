@@ -8,7 +8,7 @@ import 'package:common_topdbd/named_utility/keys_success_utility.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_list_strings_ee_where_named_ee_from_named_ee_parameters_temp_cache_service_and_stream_subscription/start_listening_and_cancel_listening_ee_list_strings_ee_where_w_list_maniac_w_checkbox_ee_from_callback_ee_parameters_temp_cache_service_and_stream_subscription.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_maniac_w_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_maniac_w_match_balance_ee_where_stream_notification_is_possible_ee_from_maniac_w_match_balance_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/get_ee_match_balance_ee_where_its_like_mutable_ee_parameter_temp_cache_service.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_match_balance_ee_where_its_like_mutable_ee_from_match_balance_ee_parameter_temp_cache_service.dart';
+import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_match_balance_ee_where_its_like_mutable_and_stream_notification_is_possible_ee_from_match_balance_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_match_balance_ee_where_named_ee_from_named_ee_parameter_temp_cache_service_and_stream_subscription/start_listening_and_cancel_listening_ee_match_balance_ee_where_its_like_mutable_ee_from_callback_ee_parameters_temp_cache_service_and_stream_subscription.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
@@ -22,8 +22,8 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   final _getEEMatchBalanceEEWhereItsLikeMutableEEParameterTempCacheService =
   GetEEMatchBalanceEEWhereItsLikeMutableEEParameterTempCacheService();
-  final _updateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService =
-  UpdateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService();
+  final _updateEEMatchBalanceEEWhereItsLikeMutableAndStreamNotificationIsPossibleEEFromMatchBalanceEEParameterTempCacheService =
+  UpdateEEMatchBalanceEEWhereItsLikeMutableAndStreamNotificationIsPossibleEEFromMatchBalanceEEParameterTempCacheService();
   final _updateEEManiacWMatchBalanceEEWhereStreamNotificationIsPossibleEEFromManiacWMatchBalanceEEParameterTempCacheService =
   UpdateEEManiacWMatchBalanceEEWhereStreamNotificationIsPossibleEEFromManiacWMatchBalanceEEParameterTempCacheService();
   final _startListeningAndCancelListeningEEListStringsEEWhereWListManiacWCheckboxEEFromCallbackEEParametersTempCacheServiceAndStreamSubscription =
@@ -99,21 +99,17 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
     final isWhereEqualsFromNameParameterSelectedItemManiacWMatchBalance = getDataForNamedParameterNamedStreamWState
         .isWhereEqualsFromNameParameterSelectedItemManiacWMatchBalance(itemManiacWMatchBalance.name);
     if(isWhereEqualsFromNameParameterSelectedItemManiacWMatchBalance) {
-      _firstQQDeleteItemToListViewQQIsWhereEqualsFromNameParameterSelectedItemManiacWMatchBalance(getMatchBalanceWhereItsLikeMutableParameterTempCacheService.parameter!.getClone,itemManiacWMatchBalance);
+      _firstQQDeleteItemToListViewQQIsWhereEqualsFromNameParameterSelectedItemManiacWMatchBalance(getMatchBalanceWhereItsLikeMutableParameterTempCacheService.parameter!,itemManiacWMatchBalance);
       return;
     }
-    final parameter = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
+    final clone = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
         .parameter
         !.getClone;
-    parameter
+    clone
         .listManiacWMatchBalance
         .deleteFromUniqueIdByModelParameterListModel(itemManiacWMatchBalance.uniqueId);
-    _updateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService
-        .updateMatchBalanceWhereItsLikeMutableFromMatchBalanceParameterTempCacheService(parameter);
-    getDataForNamedParameterNamedStreamWState
-        .listManiacWMatchBalanceByMatchBalance
-        .deleteFromUniqueIdByModelParameterListModel(itemManiacWMatchBalance.uniqueId);
-    notifyStreamDataForNamedParameterNamedStreamWState();
+    _updateEEMatchBalanceEEWhereItsLikeMutableAndStreamNotificationIsPossibleEEFromMatchBalanceEEParameterTempCacheService
+        .updateMatchBalanceWhereItsLikeMutableAndStreamNotificationIsPossibleFromMatchBalanceParameterTempCacheService(clone);
   }
 
   @override
@@ -150,21 +146,18 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
       return;
     }
     final listStringsWListManiacWCheckbox = getDataForNamedParameterNamedStreamWState.listStringsWListManiacWCheckbox;
-    final parameter = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
+    final clone = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
         .parameter
         !.getClone;
-    parameter
+    clone
         .listManiacWMatchBalance
         .insertListFromListStrings(listStringsWListManiacWCheckbox);
-    _updateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService
-        .updateMatchBalanceWhereItsLikeMutableFromMatchBalanceParameterTempCacheService(parameter);
-    getDataForNamedParameterNamedStreamWState
-        .insertListManiacWMatchBalanceByMatchBalanceParametersTwo();
     getDataForNamedParameterNamedStreamWState
         .listStringsWListManiacWCheckbox
         .listModel
         .clear();
-    notifyStreamDataForNamedParameterNamedStreamWState();
+    _updateEEMatchBalanceEEWhereItsLikeMutableAndStreamNotificationIsPossibleEEFromMatchBalanceEEParameterTempCacheService
+        .updateMatchBalanceWhereItsLikeMutableAndStreamNotificationIsPossibleFromMatchBalanceParameterTempCacheService(clone);
   }
 
   @override
@@ -195,19 +188,15 @@ final class TestSettingsListManiacWMatchBalanceViewModel extends BaseNamedViewMo
   }
 
   void _firstQQDeleteItemToListViewQQIsWhereEqualsFromNameParameterSelectedItemManiacWMatchBalance(MatchBalance matchBalance, ManiacWMatchBalance itemManiacWMatchBalance) {
-    matchBalance
+    getDataForNamedParameterNamedStreamWState.selectedItemManiacWMatchBalance = "";
+    final clone = matchBalance.getClone;
+    clone
         .listManiacWMatchBalance
         .deleteFromUniqueIdByModelParameterListModel(itemManiacWMatchBalance.uniqueId);
-    _updateEEMatchBalanceEEWhereItsLikeMutableEEFromMatchBalanceEEParameterTempCacheService
-        .updateMatchBalanceWhereItsLikeMutableFromMatchBalanceParameterTempCacheService(matchBalance);
     _updateEEManiacWMatchBalanceEEWhereStreamNotificationIsPossibleEEFromManiacWMatchBalanceEEParameterTempCacheService
         .updateManiacWMatchBalanceWhereStreamNotificationIsPossibleFromManiacWMatchBalanceParameterTempCacheService(ManiacWMatchBalance("",0,0,ListMapsWMatchBalance(List.empty(growable: true)),ListManiacPerkWMatchBalance(List.empty(growable: true)),ListSurvivorPerkWMatchBalance(List.empty(growable: true))));
-    getDataForNamedParameterNamedStreamWState
-        .selectedItemManiacWMatchBalance = "";
-    getDataForNamedParameterNamedStreamWState
-        .listManiacWMatchBalanceByMatchBalance
-        .deleteFromUniqueIdByModelParameterListModel(itemManiacWMatchBalance.uniqueId);
-    notifyStreamDataForNamedParameterNamedStreamWState();
+    _updateEEMatchBalanceEEWhereItsLikeMutableAndStreamNotificationIsPossibleEEFromMatchBalanceEEParameterTempCacheService
+        .updateMatchBalanceWhereItsLikeMutableAndStreamNotificationIsPossibleFromMatchBalanceParameterTempCacheService(clone);
   }
 
   void _firstQQAddItemsBottomSheetQQIsEmpty() {}

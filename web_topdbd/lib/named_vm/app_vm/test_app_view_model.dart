@@ -1,9 +1,7 @@
 import 'package:common_topdbd/named_utility/algorithms_utility.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_bools_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_bools_ee_where_is_admin_by_role_user_ee_from_bools_ee_parameter_temp_cache_service.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_dates_times_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_dates_times_ee_where_creation_time_by_user_ee_from_dates_times_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_dates_times_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_dates_times_ee_where_end_of_season_time_by_season_ee_from_dates_times_ee_parameter_temp_cache_service.dart';
-import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_dates_times_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_dates_times_ee_where_last_login_time_by_last_login_time_user_ee_from_dates_times_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_dates_times_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_dates_times_ee_where_start_of_season_time_by_season_ee_from_dates_times_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_ints_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_ints_ee_where_season_number_by_season_ee_from_ints_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_strings_ee_where_global_name_by_discord_user_ee_from_strings_ee_parameter_temp_cache_service.dart';
@@ -24,10 +22,6 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
   // OperationEEModel(EEWhereNamed)[EEFromNamed]EEParameterNamedService
   final _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService =
   UpdateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService();
-  final _updateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService =
-  UpdateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService();
-  final _updateEEDatesTimesEEWhereLastLoginTimeByLastLoginTimeUserEEFromDatesTimesEEParameterTempCacheService =
-  UpdateEEDatesTimesEEWhereLastLoginTimeByLastLoginTimeUserEEFromDatesTimesEEParameterTempCacheService();
   final _updateEEStringsEEWhereUsernameByDiscordUserEEFromStringsEEParameterTempCacheService =
   UpdateEEStringsEEWhereUsernameByDiscordUserEEFromStringsEEParameterTempCacheService();
   final _updateEEStringsEEWhereGlobalNameByDiscordUserEEFromStringsEEParameterTempCacheService =
@@ -49,7 +43,7 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
 
   // NamedUtility
 
-  TestAppViewModel() : super(DefaultStreamWState(DataForAppView(false,List<bool>.empty(growable: true),false,"","",false,"")));
+  TestAppViewModel() : super(DefaultStreamWState(DataForAppView(false,List<bool>.empty(growable: true),"",false,"","",false,false,DateTime(0),DateTime(0))));
 
   @override
   void dispose() {
@@ -59,7 +53,7 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
 
   @override
   Future<String> init() async {
-    /// UNAUTH
+    /// UnAuth
     /*
      _updateEEIntsEEWhereSeasonNumberBySeasonEEFromIntsEEParameterTempCacheService
         .updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(const Ints(10));
@@ -70,9 +64,9 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
      getDataForNamedParameterNamedStreamWState.listLoaded = List<bool>.of([true,true]);
      return KeysSuccessUtility.sUCCESS;
     */
-    /// AUTH
+    /// Auth
     const uniqueIdByUser = "4b08db90-9114-11ee-b9d1-0242ac120002";
-    const usernameByDiscordUser = "wwwwwwqwwwwwwwwwwwqqwwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq";
+    const usernameByDiscordUser = "vicar32";
     const isAdminByRoleUser = true;
     _updateEEIntsEEWhereSeasonNumberBySeasonEEFromIntsEEParameterTempCacheService
         .updateIntsWhereSeasonNumberBySeasonFromIntsParameterTempCacheService(const Ints(10));
@@ -82,14 +76,10 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
         .updateDatesTimesWhereEndOfSeasonTimeBySeasonFromDatesTimesParameterTempCacheService(DatesTimes(DateTime.parse("2023-12-31")));
     _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
         .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(const Strings(uniqueIdByUser));
-    _updateEEDatesTimesEEWhereCreationTimeByUserEEFromDatesTimesEEParameterTempCacheService
-        .updateDatesTimesWhereCreationTimeByUserFromDatesTimesParameterTempCacheService(DatesTimes(DateTime.parse("2012-02-27")));
-    _updateEEDatesTimesEEWhereLastLoginTimeByLastLoginTimeUserEEFromDatesTimesEEParameterTempCacheService
-        .updateDatesTimesWhereLastLoginTimeByLastLoginTimeUserFromDatesTimesParameterTempCacheService(DatesTimes(DateTime.now()));
     _updateEEStringsEEWhereUsernameByDiscordUserEEFromStringsEEParameterTempCacheService
         .updateStringsWhereUsernameByDiscordUserFromStringsParameterTempCacheService(const Strings(usernameByDiscordUser));
     _updateEEStringsEEWhereGlobalNameByDiscordUserEEFromStringsEEParameterTempCacheService
-        .updateStringsWhereGlobalNameByDiscordUserFromStringsParameterTempCacheService(const Strings("Top1World"));
+        .updateStringsWhereGlobalNameByDiscordUserFromStringsParameterTempCacheService(const Strings("Vicar"));
     _updateEEStringsEEWhereIpByIPAddressEEFromStringsEEParameterTempCacheService
         .updateStringsWhereIpByIPAddressFromStringsParameterTempCacheService(const Strings("135.125.26.42"));
     _updateEEStringsEEWhereNameCountryByCountryEEFromStringsEEParameterTempCacheService

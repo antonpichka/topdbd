@@ -54,14 +54,14 @@ final class TestSettingsNecessaryLengthPickedManiacPerkByManiacWMatchBalanceView
     }
     final tryParseFromStr = AlgorithmsUtility.getTryParseFromStr(value ?? "");
     final nameByManiacWMatchBalance = getDataForNamedParameterNamedStreamWState.nameByManiacWMatchBalance;
-    final parameter = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
+    final clone = getMatchBalanceWhereItsLikeMutableParameterTempCacheService
         .parameter
         !.getClone;
-    parameter
+    clone
         .listManiacWMatchBalance
         .updateWhereNecessaryLengthPickedManiacPerkFromTwoParameterListModel(nameByManiacWMatchBalance,tryParseFromStr);
     _updateEEMatchBalanceEEWhereItsLikeMutableAndStreamNotificationIsPossibleEEFromMatchBalanceEEParameterTempCacheService
-        .updateMatchBalanceWhereItsLikeMutableAndStreamNotificationIsPossibleFromMatchBalanceParameterTempCacheService(parameter);
+        .updateMatchBalanceWhereItsLikeMutableAndStreamNotificationIsPossibleFromMatchBalanceParameterTempCacheService(clone);
     getDataForNamedParameterNamedStreamWState.necessaryLengthPickedManiacPerkByManiacWMatchBalance = tryParseFromStr;
     notifyStreamDataForNamedParameterNamedStreamWState();
   }

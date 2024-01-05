@@ -5,15 +5,19 @@ import 'package:meta/meta.dart';
 base class VerifiedUser extends BaseModel {
   final String uniqueIdByUser;
   final bool isVerifiedUser;
+  final DateTime startOfTemporaryAccess;
+  final DateTime endOfTemporaryAccess;
 
-  const VerifiedUser(this.uniqueIdByUser,this.isVerifiedUser) : super(uniqueIdByUser);
+  const VerifiedUser(this.uniqueIdByUser,this.isVerifiedUser,this.startOfTemporaryAccess,this.endOfTemporaryAccess) : super(uniqueIdByUser);
 
   @override
-  VerifiedUser get getClone => VerifiedUser(uniqueIdByUser,isVerifiedUser);
+  VerifiedUser get getClone => VerifiedUser(uniqueIdByUser,isVerifiedUser,startOfTemporaryAccess,endOfTemporaryAccess);
 
   @override
   String toString() {
     return "VerifiedUser(uniqueIdByUser: $uniqueIdByUser, "
-        "isVerifiedUser: $isVerifiedUser)";
+        "isVerifiedUser: $isVerifiedUser, "
+        "startOfTemporaryAccess: $startOfTemporaryAccess, "
+        "endOfTemporaryAccess: $endOfTemporaryAccess)";
   }
 }

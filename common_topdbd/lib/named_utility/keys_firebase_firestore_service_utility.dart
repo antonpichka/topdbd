@@ -1,15 +1,10 @@
-// ignore_for_file: constant_identifier_names
-
 import 'package:meta/meta.dart';
 
 @immutable
 final class KeysFirebaseFirestoreServiceUtility {
-  /* ThoseWorks  */
-  static const String thoseWorks = "thoseWorks";
-  static const String thoseWorksQQIsThoseWorks = "isThoseWorks";
-  /* TOPDBDVersionWindows */
-  static const String TOPDBDVersionWindows = "TOPDBDVersionWindows";
-  static const String TOPDBDVersionWindowsQQVersion = "version";
+  /* VersionWindows */
+  static const String versionWindows = "versionWindows";
+  static const String versionWindowsQQVersion = "version";
   /* User */
   static const String user = "user";
   static const String userQQUniqueId = "uniqueId";

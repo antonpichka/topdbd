@@ -408,7 +408,7 @@ final class _TopPlayersViewState extends State<TopPlayersView> {
                         fontSize: Theme.of(context).textTheme.bodyMedium?.fontSize),
                     recognizer: TapGestureRecognizer()..onTap = () {
                       WebNavigationUtility
-                          .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getUnAuthNavigationUserViewQQUserQQIdQQStatsFromId(topPlayers.discordUserFirestore.username));
+                          .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getUserQQIdQQStatsFromId(topPlayers.discordUserFirestore.username));
                     },
                   ))
             ],

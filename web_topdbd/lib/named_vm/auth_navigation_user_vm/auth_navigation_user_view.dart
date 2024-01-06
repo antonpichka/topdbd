@@ -138,22 +138,22 @@ final class _AuthNavigationUserViewState extends State<AuthNavigationUserView> w
       case 0:
         WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(
             context,
-            KeysNavigationUtility.getUnAuthNavigationUserViewQQUserQQIdFromId(dataForNamedParameterNamedStreamWState.usernameByDiscordUser));
+            KeysNavigationUtility.getUserQQIdFromId(dataForNamedParameterNamedStreamWState.usernameByDiscordUser));
         break;
       case 1:
         WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(
             context,
-            KeysNavigationUtility.getUnAuthNavigationUserViewQQUserQQIdQQStatsFromId(dataForNamedParameterNamedStreamWState.usernameByDiscordUser));
+            KeysNavigationUtility.getUserQQIdQQStatsFromId(dataForNamedParameterNamedStreamWState.usernameByDiscordUser));
         break;
       case 2:
         WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(
             context,
-            KeysNavigationUtility.getUnAuthNavigationUserViewQQUserQQIdQQMatchesFromId(dataForNamedParameterNamedStreamWState.usernameByDiscordUser));
+            KeysNavigationUtility.getUserQQIdQQMatchesFromId(dataForNamedParameterNamedStreamWState.usernameByDiscordUser));
         break;
       case 3:
         WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(
             context,
-            KeysNavigationUtility.getAuthNavigationUserViewQQUserQQIdQQSettingsFromId(dataForNamedParameterNamedStreamWState.usernameByDiscordUser));
+            KeysNavigationUtility.getUserQQIdQQSettingsFromId(dataForNamedParameterNamedStreamWState.usernameByDiscordUser));
         break;
     }
   }

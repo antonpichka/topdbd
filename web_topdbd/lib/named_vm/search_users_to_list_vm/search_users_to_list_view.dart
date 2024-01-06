@@ -162,7 +162,7 @@ final class _SearchUsersToListViewState extends State<SearchUsersToListView> {
                           fontSize: Theme.of(context).textTheme.bodyMedium?.fontSize),
                       recognizer: TapGestureRecognizer()..onTap = () {
                         WebNavigationUtility
-                            .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getUnAuthNavigationUserViewQQUserQQIdFromId(dUFWCountryWRoleUser.discordUserFirestore.username));
+                            .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getUserQQIdFromId(dUFWCountryWRoleUser.discordUserFirestore.username));
                       },
                     )
                 ),

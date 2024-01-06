@@ -11,4 +11,8 @@ final class WebNavigationUtility {
     html.window.history.pushState(null, '',nameRoute);
     context.go(nameRoute);
   }
+
+  static void goWhereChangeUrlAddressFromNameRoute(String nameRoute) {
+    html.window.history.pushState(null, '',nameRoute);
+  }
 }

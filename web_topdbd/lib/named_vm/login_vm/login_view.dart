@@ -95,7 +95,7 @@ final class _LoginViewState extends State<LoginView> {
                       onTap: () {
                         _viewModel.signInWithDiscord(
                                 () {
-                                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQHome);
+                                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.home);
                                 },
                                 (p0) => {});
                       },),)

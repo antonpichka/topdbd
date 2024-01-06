@@ -13,8 +13,7 @@ base class StartListeningAndCancelListeningEEIPAddressFirestoreEEFromUniqueIdByU
   @protected
   StreamSubscription<dynamic>? streamSubscription;
 
-  Future<void> startListeningIPAddressFirestoreFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(String uniqueIdByUser,Function(Result<T>) callback)
-  async {
+  Future<void> startListeningIPAddressFirestoreFromUniqueIdByUserAndCallbackParametersFirebaseFirestoreServiceAndStreamSubscription(String uniqueIdByUser,Function(Result<T>) callback) async {
     try {
       final listDocumentByIPAddress = await firebaseFirestoreService
           .getParameterFirebaseFirestore

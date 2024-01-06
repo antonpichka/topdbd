@@ -86,7 +86,7 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
           icon: Icons.home,
           onTap: () {
             WebNavigationUtility
-                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQHome);
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.home);
           }),
       PlutoMenuItem(
           title: "|",
@@ -96,7 +96,7 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
           icon: Icons.stacked_bar_chart,
           onTap: () {
             WebNavigationUtility
-                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQTopPlayers);
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.topPlayers);
           }),
       PlutoMenuItem(
           title: "|",
@@ -106,7 +106,7 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
           icon: Icons.balance,
           onTap: () {
             WebNavigationUtility
-                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQBalance);
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.balance);
           }),
     ];
   }
@@ -118,7 +118,7 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
           icon: Icons.home,
           onTap: () {
             WebNavigationUtility
-                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQHome);
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.home);
           }),
       PlutoMenuItem(
           title: "|",
@@ -128,7 +128,7 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
           icon: Icons.stacked_bar_chart,
           onTap: () {
             WebNavigationUtility
-                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQTopPlayers);
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.topPlayers);
           }),
       PlutoMenuItem(
           title: "|",
@@ -138,7 +138,7 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
           icon: Icons.balance,
           onTap: () {
             WebNavigationUtility
-                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQBalance);
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.balance);
           }),
       PlutoMenuItem(
           title: "|",
@@ -198,7 +198,7 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
           icon: Icons.home,
           onTap: () {
             WebNavigationUtility
-                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQHome);
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.home);
           }),
       PlutoMenuItem(
           title: "|",
@@ -208,7 +208,7 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
           icon: Icons.stacked_bar_chart,
           onTap: () {
             WebNavigationUtility
-                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQTopPlayers);
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.topPlayers);
           }),
       PlutoMenuItem(
           title: "|",
@@ -218,7 +218,7 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
           icon: Icons.balance,
           onTap: () {
             WebNavigationUtility
-                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQBalance);
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.balance);
           }),
       PlutoMenuItem(
           title: "",
@@ -302,7 +302,7 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
           icon: Icons.home,
           onTap: () {
             WebNavigationUtility
-                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQHome);
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.home);
           }),
       PlutoMenuItem(
           title: "|",
@@ -312,7 +312,7 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
           icon: Icons.stacked_bar_chart,
           onTap: () {
             WebNavigationUtility
-                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQTopPlayers);
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.topPlayers);
           }),
       PlutoMenuItem(
           title: "|",
@@ -322,7 +322,7 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
           icon: Icons.balance,
           onTap: () {
             WebNavigationUtility
-                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQBalance);
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.balance);
           }),
       PlutoMenuItem(
           title: "|",
@@ -332,7 +332,7 @@ final class _AuthNavigationViewState extends State<AuthNavigationView> {
           icon: Icons.lock,
           onTap: () {
             WebNavigationUtility
-                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.authNavigationViewQQAdmin);
+                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.admin);
           }),
       PlutoMenuItem(
           title: "",

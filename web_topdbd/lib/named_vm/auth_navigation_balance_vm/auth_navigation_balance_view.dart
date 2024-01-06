@@ -117,12 +117,12 @@ final class _AuthNavigationBalanceViewState extends State<AuthNavigationBalanceV
       case 0:
         WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(
             context,
-            KeysNavigationUtility.unAuthNavigationViewQQBalance);
+            KeysNavigationUtility.balance);
         break;
       case 1:
         WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(
             context,
-            KeysNavigationUtility.authNavigationBalanceViewQQBalanceQQSettings);
+            KeysNavigationUtility.balanceQQSettings);
         break;
     }
   }

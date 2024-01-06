@@ -5,7 +5,5 @@ abstract interface class IAppViewModel {
   const IAppViewModel();
 
   void listeningStreamsTempCacheService();
-  void listeningStreamsFirebaseFirestoreService();
-  void setNameRoute(String rawNameRoute);
-  void notifyStreamDataForAppView();
+  void setNameRoute(String rawNameRoute,Function(String) callbackWRedirect);
 }

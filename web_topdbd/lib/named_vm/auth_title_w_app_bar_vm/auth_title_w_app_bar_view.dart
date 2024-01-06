@@ -49,7 +49,7 @@ final class _AuthTitleWAppBarViewState extends State<AuthTitleWAppBarView> {
                 child: ListTile(
                   onTap: () {
                     _viewModel.clickOnMyUser((p1)=> WebNavigationUtility
-                        .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getUnAuthNavigationUserViewQQUserQQIdFromId(p1)));
+                        .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getUserQQIdFromId(p1)));
                   },
                   leading: Image.asset(
                       dataForNamedParameterNamedStreamWState
@@ -91,7 +91,7 @@ final class _AuthTitleWAppBarViewState extends State<AuthTitleWAppBarView> {
                                           onPressed: () {
                                             Navigator.of(context).pop();
                                             _viewModel.logout(()=> WebNavigationUtility
-                                                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.unAuthNavigationViewQQHome));
+                                                .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.home));
                                           },
                                           child: Text("Yes",
                                               style: Theme.of(context).textTheme.bodyMedium)),

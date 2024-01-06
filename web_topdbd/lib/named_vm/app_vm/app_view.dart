@@ -5,6 +5,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_topdbd/l10n/l10n.dart';
 import 'package:web_topdbd/named_utility/algorithms_utility.dart';
 import 'package:web_topdbd/named_utility/flutter_theme_utility.dart';
+import 'package:web_topdbd/named_utility/web_navigation_utility.dart';
 import 'package:web_topdbd/named_vm/about_me_user_view.dart';
 import 'package:web_topdbd/named_vm/admin_view.dart';
 import 'package:web_topdbd/named_vm/already_logged_view.dart';
@@ -16,6 +17,7 @@ import 'package:web_topdbd/named_vm/auth_navigation_user_vm/auth_navigation_user
 import 'package:web_topdbd/named_vm/balance_view.dart';
 import 'package:web_topdbd/named_vm/home_view.dart';
 import 'package:web_topdbd/named_vm/list_matches_user_w_statistics_on_maniacs_user_view.dart';
+import 'package:web_topdbd/named_vm/list_w_item_maniac_w_match_balance_vm/list_w_item_maniac_w_match_balance_view.dart';
 import 'package:web_topdbd/named_vm/login_vm/login_view.dart';
 import 'package:web_topdbd/named_vm/not_found_view.dart';
 import 'package:web_topdbd/named_vm/search_users_to_list_vm/search_users_to_list_view.dart';
@@ -25,7 +27,6 @@ import 'package:web_topdbd/named_vm/stats_user_view.dart';
 import 'package:web_topdbd/named_vm/stats_user_w_list_season_stats_user_view.dart';
 import 'package:web_topdbd/named_vm/terms_of_use_vm/terms_of_use_view.dart';
 import 'package:web_topdbd/named_vm/top_players_vm/top_players_view.dart';
-import 'package:web_topdbd/named_vm/list_w_item_maniac_w_match_balance_vm/list_w_item_maniac_w_match_balance_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_main_vm/un_auth_main_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_navigation_balance_vm/un_auth_navigation_balance_view.dart';
 import 'package:web_topdbd/named_vm/un_auth_navigation_user_vm/un_auth_navigation_user_view.dart';
@@ -92,13 +93,12 @@ final class _AppViewState extends State<AppView> {
           setState(() {});
         });
     _viewModel.listeningStreamsTempCacheService();
-    _viewModel.listeningStreamsFirebaseFirestoreService();
     final result = await _viewModel.init();
     debugPrint("AppView: $result");
     if(!mounted) {
       return;
     }
-    _viewModel.notifyStreamDataForAppView();
+    _viewModel.notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
   RouterConfig<RouteMatchList> get _getRouterConfigParameterViewModel {
@@ -106,23 +106,18 @@ final class _AppViewState extends State<AppView> {
         routes: [],
         errorPageBuilder: (BuildContext context, GoRouterState state) {
           final value = state.pageKey.value;
-          _viewModel.setNameRoute(value);
-          final valueFIRST = ResponsiveValue<Widget>(
-              context,
-              conditionalValues: [
-                Condition.equals(name: MOBILE, value: _getWidgetWhereThoseWorksFromThree(context,250,18)),
-                Condition.equals(name: TABLET, value: _getWidgetWhereThoseWorksFromThree(context,300,24)),
-                Condition.equals(name: DESKTOP, value: _getWidgetWhereThoseWorksFromThree(context,400,30)),
-              ]
-          ).value ?? Container();
+          _viewModel.setNameRoute(value,(p0) {
+            WebNavigationUtility.goWhereChangeUrlAddressFromNameRoute(p0);
+          });
           final dataForNamedParameterNamedStreamWState = _viewModel.getDataForNamedParameterNamedStreamWState;
           switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
             case EnumDataForAppView.isLoading:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,const Scaffold(body: Center(child: CircularProgressIndicator())));
             case EnumDataForAppView.exception:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,Scaffold(body: Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"))));
-            case EnumDataForAppView.thoseWorks:
-              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,valueFIRST);
+            case EnumDataForAppView.notVerifiedUser:
+            case EnumDataForAppView.hacked:
+            case EnumDataForAppView.login:
             case EnumDataForAppView.authMainViewWHome:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   HomeView()
@@ -336,39 +331,6 @@ final class _AppViewState extends State<AppView> {
           ),
           child: child,
         )
-    );
-  }
-
-  Widget _getWidgetWhereThoseWorksFromThree(BuildContext context,double sizedBoxWidth,double textSize) {
-    return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-            child: Column(
-                children: [
-                  SizedBox(
-                    width: sizedBoxWidth,
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.all(16.0),
-                        child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                "Engineering works. Check back later",
-                                style: TextStyle(
-                                  fontSize: textSize,
-                                  fontWeight: FontWeight.w400,
-                                  letterSpacing: 1.8,
-                                ),
-                              ),
-                            ]
-                        ),
-                      ),
-                    ),
-                  ),
-                ])
-        ),
-      ),
     );
   }
 }

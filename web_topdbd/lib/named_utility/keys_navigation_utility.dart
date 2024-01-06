@@ -2,49 +2,40 @@ import 'package:meta/meta.dart';
 
 @immutable
 final class KeysNavigationUtility {
-  /* UnAuthNavigationView */
-  static const String unAuthNavigationViewQQHome = "/";
-  static const String unAuthNavigationViewQQTopPlayers = "#/top_players";
-  static const String unAuthNavigationViewQQBalance = "#/balance";
-  static const String unAuthNavigationViewQQLogin = "#/login";
-  static const String unAuthNavigationViewQQTournaments = "#/tournaments";
-  /* AuthNavigationView */
-  static const String authNavigationViewQQAdmin = "#/admin";
-  /* CustomFooterView */
-  static const String customFooterViewQQTermsOfUse = "#/terms_of_use";
-  /* SearchUsersView */
-  static const String searchUsersViewQQSearchPlayers = "#/search_players?q=id";
-  /* AuthNavigationBalanceView */
-  static const String authNavigationBalanceViewQQBalanceQQSettings = "#/balance/settings";
-  /* UnAuthNavigationUserView */
-  static const String unAuthNavigationUserViewQQUserQQId = "#/user/id";
-  static const String unAuthNavigationUserViewQQUserQQIdQQStats = "#/user/id/stats";
-  static const String unAuthNavigationUserViewQQUserQQIdQQMatches = "#/user/id/matches";
-  /* AuthNavigationUserView */
-  static const String authNavigationUserViewQQUserQQIdQQSettings = "#/user/id/settings";
+  static const String notVerifiedUser = "#/not_verified_user";
+  static const String hacked = "#/hacked";
+  static const String home = "/";
+  static const String topPlayers = "#/top_players";
+  static const String balance = "#/balance";
+  static const String login = "#/login";
+  static const String admin = "#/admin";
+  static const String termsOfUse = "#/terms_of_use";
+  static const String searchPlayers = "#/search_players?q=id";
+  static const String balanceQQSettings = "#/balance/settings";
+  static const String userQQId = "#/user/id";
+  static const String userQQIdQQStats = "#/user/id/stats";
+  static const String userQQIdQQMatches = "#/user/id/matches";
+  static const String userQQIdQQSettings = "#/user/id/settings";
 
   const KeysNavigationUtility._();
 
-  /* SearchUsersView */
-  static String getSearchUsersViewQQSearchPlayersFromId(String id) {
+  static String getSearchPlayersFromId(String id) {
     return "#/search_players?q=$id";
   }
 
-  /* UnAuthNavigationUserView */
-  static String getUnAuthNavigationUserViewQQUserQQIdFromId(String id) {
+  static String getUserQQIdFromId(String id) {
     return "#/user/$id";
   }
 
-  static String getUnAuthNavigationUserViewQQUserQQIdQQStatsFromId(String id) {
+  static String getUserQQIdQQStatsFromId(String id) {
     return "#/user/$id/stats";
   }
 
-  static String getUnAuthNavigationUserViewQQUserQQIdQQMatchesFromId(String id) {
+  static String getUserQQIdQQMatchesFromId(String id) {
     return "#/user/$id/matches";
   }
 
-  /* AuthNavigationUserView */
-  static String getAuthNavigationUserViewQQUserQQIdQQSettingsFromId(String id) {
+  static String getUserQQIdQQSettingsFromId(String id) {
     return "#/user/$id/settings";
   }
 }

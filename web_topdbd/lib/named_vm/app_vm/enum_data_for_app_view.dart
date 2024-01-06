@@ -1,7 +1,9 @@
 enum EnumDataForAppView {
   isLoading,
   exception,
-  thoseWorks,
+  notVerifiedUser,
+  hacked,
+  login,
   authMainViewWHome,
   authMainViewWTopPlayers,
   authMainViewWBalance,

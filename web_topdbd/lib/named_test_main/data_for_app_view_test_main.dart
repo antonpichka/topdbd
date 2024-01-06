@@ -1,14 +1,15 @@
+import 'package:common_topdbd/model/uibu_w_ubdu/uibu_w_ubdu.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:web_topdbd/named_vm/app_vm/data_for_app_view.dart';
 
 void main() {
-  final dataForAppView = DataForAppView(false,List.empty(growable: true),"#/user/vicar32/stats",false,"","",false,false,DateTime(0),DateTime(0));
+  final dataForAppView = DataForAppView(true,"#/user/vicar32/stats",UIBUWUBDU("","",false,false,DateTime(0),false),DateTime.now());
   debugPrint(dataForAppView.getUrlWhereUserParameterNameRoute);
   debugPrint(dataForAppView.getIdWhereUserParameterNameRoute);
-  final dataForAppViewFIRST = DataForAppView(false,List.empty(growable: true),"#/search_players?q=vicar32q",false,"","",false,false,DateTime(0),DateTime(0));
+  final dataForAppViewFIRST = DataForAppView(true,"#/search_players?q=vicar32q",UIBUWUBDU("","",false,false,DateTime(0),false),DateTime.now());
   debugPrint(dataForAppViewFIRST.getUrlWhereSearchPlayersParameterNameRoute);
   debugPrint(dataForAppViewFIRST.getIdWhereSearchPlayersParameterNameRoute);
-  final dataForAppViewSECOND = DataForAppView(false,List.empty(growable: true),"#/balance/settings",false,"","",false,false,DateTime(0),DateTime(0));
+  final dataForAppViewSECOND = DataForAppView(true,"#/balance/settings",UIBUWUBDU("","",false,false,DateTime(0),false),DateTime.now());
   debugPrint(dataForAppViewSECOND.getSuffixUrlWhereBalanceParameterNameRoute);
   // EXPECTED OUTPUT:
   //

@@ -88,7 +88,7 @@ final class _SearchUsersViewState extends State<SearchUsersView> {
                                   (value) {
                                     _textEditingController.clear();
                                     WebNavigationUtility
-                                        .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getSearchUsersViewQQSearchPlayersFromId(value));
+                                        .goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.getSearchPlayersFromId(value));
                                   },(p0) => null);
                           },
                         style: OutlinedButton.styleFrom(

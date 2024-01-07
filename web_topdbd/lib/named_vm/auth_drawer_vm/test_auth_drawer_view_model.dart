@@ -89,7 +89,7 @@ final class TestAuthDrawerViewModel extends BaseNamedViewModel<DataForAuthDrawer
     _deleteEEBoolsEEWhereIsAdminByRoleUserEEParameterTempCacheService
         .deleteBoolsWhereIsAdminByRoleUserParameterTempCacheService();
     _updateEEUIBUWUBDUEEWhereStreamNotificationIsPossibleEEFromUIBUWUBDUEEParameterTempCacheService
-        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(const UIBUWUBDU("","",false));
+        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(UIBUWUBDU("","",false,false,DateTime(0),false));
     callback();
   }
 

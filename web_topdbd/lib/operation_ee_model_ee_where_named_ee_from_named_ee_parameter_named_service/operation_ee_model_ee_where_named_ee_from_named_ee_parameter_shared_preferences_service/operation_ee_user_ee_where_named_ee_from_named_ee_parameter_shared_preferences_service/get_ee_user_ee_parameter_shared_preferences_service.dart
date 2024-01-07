@@ -11,8 +11,7 @@ base class GetEEUserEEParameterSharedPreferencesService<T extends User,Y extends
   @protected
   final sharedPreferencesService = SharedPreferencesService.instance;
 
-  Future<Result<T>> getUserParameterSharedPreferencesService()
-  async {
+  Future<Result<T>> getUserParameterSharedPreferencesService() async {
     try {
       final sharedPreferences = await sharedPreferencesService.getParameterSharedPreferences;
       final uniqueId = sharedPreferences?.getString(KeysSharedPreferencesServiceUtility.userQQUniqueId) ?? "";

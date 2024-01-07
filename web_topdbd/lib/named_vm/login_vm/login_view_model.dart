@@ -238,7 +238,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     _updateEEBoolsEEWhereIsAdminByRoleUserEEFromBoolsEEParameterTempCacheService
         .updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(Bools(getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false));
     _updateEEUIBUWUBDUEEWhereStreamNotificationIsPossibleEEFromUIBUWUBDUEEParameterTempCacheService
-        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(UIBUWUBDU(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "",getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.parameter?.username ?? "",getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false));
+        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(UIBUWUBDU(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "",getDiscordUserFirestoreFromUniqueIdParameterFirebaseFirestoreService.parameter?.username ?? "",getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false,true, DateTime(0), false));
     callbackSuccess();
   }
 
@@ -360,7 +360,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     _updateEEBoolsEEWhereIsAdminByRoleUserEEFromBoolsEEParameterTempCacheService
         .updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(Bools(insertRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false));
     _updateEEUIBUWUBDUEEWhereStreamNotificationIsPossibleEEFromUIBUWUBDUEEParameterTempCacheService
-        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(UIBUWUBDU(insertUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "",insertDiscordUserFirestoreFromRegistrationDiscordUserFirestoreUtilityParameterFirebaseFirestoreService.parameter?.username ?? "",insertRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false));
+        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(UIBUWUBDU(insertUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "", insertDiscordUserFirestoreFromRegistrationDiscordUserFirestoreUtilityParameterFirebaseFirestoreService.parameter?.username ?? "", insertRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false, true, DateTime(0), false));
     callbackSuccess();
   }
 
@@ -512,7 +512,7 @@ final class LoginViewModel extends BaseNamedViewModel<DataForLoginView,DefaultSt
     _updateEEBoolsEEWhereIsAdminByRoleUserEEFromBoolsEEParameterTempCacheService
         .updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(Bools(getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false));
     _updateEEUIBUWUBDUEEWhereStreamNotificationIsPossibleEEFromUIBUWUBDUEEParameterTempCacheService
-        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(UIBUWUBDU(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "",updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService.parameter?.username ?? "",getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false));
+        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(UIBUWUBDU(getUserFromUniqueIdParameterFirebaseFirestoreService.parameter?.uniqueId ?? "",updateDiscordUserFirestoreFromUsernameWGlobalNameToDiscordUserFirestoreUtilityParameterFirebaseFirestoreService.parameter?.username ?? "",getRoleUserFromUniqueIdByUserParameterFirebaseFirestoreService.parameter?.isAdmin ?? false,true, DateTime(0), false));
     callbackSuccess();
   }
 

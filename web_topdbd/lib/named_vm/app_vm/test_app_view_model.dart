@@ -72,7 +72,7 @@ final class TestAppViewModel extends BaseNamedViewModel<DataForAppView,DefaultSt
     const uniqueIdByUser = "4b08db90-9114-11ee-b9d1-0242ac120002";
     const usernameByDiscordUser = "vicar32";
     const isAdminByRoleUser = true;
-    const isVerifiedUserByVerifiedUser = false;
+    const isVerifiedUserByVerifiedUser = true;
     final endOfTemporaryAccessByVerifiedUser = DateTime(0);
     final currentTime = DateTime.now();
     _updateEEIntsEEWhereSeasonNumberBySeasonEEFromIntsEEParameterTempCacheService

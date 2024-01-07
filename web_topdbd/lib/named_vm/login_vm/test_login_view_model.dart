@@ -66,14 +66,16 @@ final class TestLoginViewModel extends BaseNamedViewModel<DataForLoginView,Defau
     getDataForNamedParameterNamedStreamWState.isLoading = true;
     notifyStreamDataForNamedParameterNamedStreamWState();
     const uniqueIdByUser = "4b08db90-9114-11ee-b9d1-0242ac120002";
-    const usernameByDiscordUser = "wwwwwwqwwwwwwwwwwwqqwwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq";
+    const usernameByDiscordUser = "vicar32";
     const isAdminByRoleUser = true;
+    const isVerifiedUserByVerifiedUser = true;
+    final endOfTemporaryAccessByVerifiedUser = DateTime(0);
     _updateEEStringsEEWhereUniqueIdByUserEEFromStringsEEParameterTempCacheService
         .updateStringsWhereUniqueIdByUserFromStringsParameterTempCacheService(const Strings(uniqueIdByUser));
     _updateEEStringsEEWhereUsernameByDiscordUserEEFromStringsEEParameterTempCacheService
         .updateStringsWhereUsernameByDiscordUserFromStringsParameterTempCacheService(const Strings(usernameByDiscordUser));
     _updateEEStringsEEWhereGlobalNameByDiscordUserEEFromStringsEEParameterTempCacheService
-        .updateStringsWhereGlobalNameByDiscordUserFromStringsParameterTempCacheService(const Strings("Top1World"));
+        .updateStringsWhereGlobalNameByDiscordUserFromStringsParameterTempCacheService(const Strings("Vicar"));
     _updateEEStringsEEWhereIpByIPAddressEEFromStringsEEParameterTempCacheService
         .updateStringsWhereIpByIPAddressFromStringsParameterTempCacheService(const Strings("135.125.26.42"));
     _updateEEStringsEEWhereNameCountryByCountryEEFromStringsEEParameterTempCacheService
@@ -81,7 +83,7 @@ final class TestLoginViewModel extends BaseNamedViewModel<DataForLoginView,Defau
     _updateEEBoolsEEWhereIsAdminByRoleUserEEFromBoolsEEParameterTempCacheService
         .updateBoolsWhereIsAdminByRoleUserFromBoolsParameterTempCacheService(const Bools(isAdminByRoleUser));
     _updateEEUIBUWUBDUEEWhereStreamNotificationIsPossibleEEFromUIBUWUBDUEEParameterTempCacheService
-        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(const UIBUWUBDU(uniqueIdByUser,usernameByDiscordUser,isAdminByRoleUser));
+        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(UIBUWUBDU(uniqueIdByUser,usernameByDiscordUser,isAdminByRoleUser,isVerifiedUserByVerifiedUser,endOfTemporaryAccessByVerifiedUser,false));
     callbackSuccess();
   }
 }

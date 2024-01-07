@@ -25,6 +25,26 @@ base class UIBUWUBDU extends BaseModel {
         "isHacked: $isHacked)";
   }
 
+  UIBUWUBDU getUIBUWUBDUFromNewIsVerifiedUserByVerifiedUserParametersFive(bool newIsVerifiedUserByVerifiedUser) {
+    return UIBUWUBDU(
+        uniqueIdByUser,
+        usernameByDiscordUser,
+        isAdminByRoleUser,
+        newIsVerifiedUserByVerifiedUser,
+        endOfTemporaryAccessByVerifiedUser,
+        isHacked);
+  }
+
+  UIBUWUBDU getUIBUWUBDUFromNewIsHackedParametersFive(bool newIsHacked) {
+    return UIBUWUBDU(
+        uniqueIdByUser,
+        usernameByDiscordUser,
+        isAdminByRoleUser,
+        isVerifiedUserByVerifiedUser,
+        endOfTemporaryAccessByVerifiedUser,
+        newIsHacked);
+  }
+
   bool isWhereNotEmptyAndNotVerifiedUserParametersUniqueIdByUserAndIsVerifiedUserByVerifiedUser() {
     return uniqueIdByUser.isNotEmpty && !isVerifiedUserByVerifiedUser;
   }
@@ -40,5 +60,23 @@ base class UIBUWUBDU extends BaseModel {
 
   bool isWhereNotEmptyAndTrueParametersUniqueIdByUserAndIsHacked() {
     return uniqueIdByUser.isNotEmpty && isHacked;
+  }
+
+  bool isWhereNotEmptyAndTrueParametersUniqueIdByUserAndIsAdminByRoleUser() {
+    return uniqueIdByUser.isNotEmpty && isAdminByRoleUser;
+  }
+
+  bool isWhereNotEmptyAndFalseParametersUniqueIdByUserAndIsAdminByRoleUser() {
+    return uniqueIdByUser.isNotEmpty && !isAdminByRoleUser;
+  }
+
+  bool isWhereNotEmptyAndEqualsFromStrParametersUniqueIdByUserAndUsernameByDiscordUser(String str) {
+    return uniqueIdByUser.isNotEmpty &&
+        usernameByDiscordUser == str;
+  }
+
+  bool isWhereNotEmptyAndNotEqualsFromStrParametersUniqueIdByUserAndUsernameByDiscordUser(String str) {
+    return uniqueIdByUser.isNotEmpty &&
+        usernameByDiscordUser != str;
   }
 }

@@ -1,6 +1,6 @@
 enum EnumDataForAntiDDosSystemView {
   isLoading,
   exception,
-  form,
+  waiting,
   success
 }

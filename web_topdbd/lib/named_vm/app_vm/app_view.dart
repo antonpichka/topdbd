@@ -9,6 +9,7 @@ import 'package:web_topdbd/named_utility/web_navigation_utility.dart';
 import 'package:web_topdbd/named_vm/about_me_user_view.dart';
 import 'package:web_topdbd/named_vm/admin_view.dart';
 import 'package:web_topdbd/named_vm/already_logged_view.dart';
+import 'package:web_topdbd/named_vm/anti_ddos_system_vm/anti_ddos_system_view.dart';
 import 'package:web_topdbd/named_vm/app_vm/enum_data_for_app_view.dart';
 import 'package:web_topdbd/named_vm/app_vm/test_app_view_model.dart';
 import 'package:web_topdbd/named_vm/auth_main_vm/auth_main_view.dart';
@@ -106,18 +107,43 @@ final class _AppViewState extends State<AppView> {
         routes: [],
         errorPageBuilder: (BuildContext context, GoRouterState state) {
           final value = state.pageKey.value;
-          _viewModel.setNameRoute(value,(p0) {
-            WebNavigationUtility.goWhereChangeUrlAddressFromNameRoute(p0);
-          });
+          _viewModel.setNameRoute(value,(p0) => WebNavigationUtility.goWhereChangeUrlAddressFromNameRoute(p0));
+          final valueFIRST = ResponsiveValue<Widget>(
+              context,
+              conditionalValues: [
+                Condition.equals(name: MOBILE, value: _getWidgetWhereNotVerifiedUserFromSizedBoxWidthAndTextSizeAndTextButtonSize(250,18,18)),
+                Condition.equals(name: TABLET, value: _getWidgetWhereNotVerifiedUserFromSizedBoxWidthAndTextSizeAndTextButtonSize(300,24,24)),
+                Condition.equals(name: DESKTOP, value: _getWidgetWhereNotVerifiedUserFromSizedBoxWidthAndTextSizeAndTextButtonSize(400,30,30)),
+              ]
+          ).value ?? Container();
+          final valueSECOND = ResponsiveValue<Widget>(
+              context,
+              conditionalValues: [
+                Condition.equals(name: MOBILE, value: _getWidgetWhereHackedFromSizedBoxWidthAndTextSize(250,18)),
+                Condition.equals(name: TABLET, value: _getWidgetWhereHackedFromSizedBoxWidthAndTextSize(300,24)),
+                Condition.equals(name: DESKTOP, value: _getWidgetWhereHackedFromSizedBoxWidthAndTextSize(400,30)),
+              ]
+          ).value ?? Container();
           final dataForNamedParameterNamedStreamWState = _viewModel.getDataForNamedParameterNamedStreamWState;
           switch(dataForNamedParameterNamedStreamWState.getEnumDataForNamed) {
             case EnumDataForAppView.isLoading:
-              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,const Scaffold(body: Center(child: CircularProgressIndicator())));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,const Scaffold(
+                  body: Center(
+                      child: CircularProgressIndicator())
+              ));
             case EnumDataForAppView.exception:
-              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,Scaffold(body: Center(child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"))));
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,Scaffold(
+                  body: Center(
+                      child: Text("Exception: ${dataForNamedParameterNamedStreamWState.exceptionController.getKeyParameterException}"))
+              ));
             case EnumDataForAppView.notVerifiedUser:
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,valueFIRST);
             case EnumDataForAppView.hacked:
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,valueSECOND);
             case EnumDataForAppView.login:
+              return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AntiDDosSystemView(
+                  LoginView()
+              ));
             case EnumDataForAppView.authMainViewWHome:
               return _getMaterialPageWhereMaxWidthBoxWMaxWidthFromContextAndChild(context,AuthMainView(
                   HomeView()
@@ -331,6 +357,72 @@ final class _AppViewState extends State<AppView> {
           ),
           child: child,
         )
+    );
+  }
+
+  Widget _getWidgetWhereNotVerifiedUserFromSizedBoxWidthAndTextSizeAndTextButtonSize(double sizedBoxWidth,double textSize,double textButtonSize) {
+    return Scaffold(
+      body: Center(
+        child: SingleChildScrollView(
+            child: Column(
+                children: [
+                  SizedBox(
+                    width: sizedBoxWidth,
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.all(16.0),
+                        child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                "You are not a verified user",
+                                style: TextStyle(
+                                  fontSize: textSize,
+                                  fontWeight: FontWeight.w400,
+                                  letterSpacing: 1.8,
+                                ),
+                              ),
+                            ]
+                        ),
+                      ),
+                    ),
+                  ),
+                ])
+        ),
+      ),
+    );
+  }
+
+  Widget _getWidgetWhereHackedFromSizedBoxWidthAndTextSize(double sizedBoxWidth,double textSize) {
+    return Scaffold(
+      body: Center(
+        child: SingleChildScrollView(
+            child: Column(
+                children: [
+                  SizedBox(
+                    width: sizedBoxWidth,
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.all(16.0),
+                        child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                "Someone logged into your account OR your ip address has changed (IP addresses do not match)",
+                                style: TextStyle(
+                                  fontSize: textSize,
+                                  fontWeight: FontWeight.w400,
+                                  letterSpacing: 1.8,
+                                ),
+                              ),
+                            ]
+                        ),
+                      ),
+                    ),
+                  ),
+                ])
+        ),
+      ),
     );
   }
 }

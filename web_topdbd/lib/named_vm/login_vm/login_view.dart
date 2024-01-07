@@ -94,16 +94,13 @@ final class _LoginViewState extends State<LoginView> {
                       tileColor: FlutterThemeUtility.discordLogoColor,
                       onTap: () {
                         _viewModel.signInWithDiscord(
-                                () {
-                                  WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.home);
-                                },
+                                () => WebNavigationUtility.goWhereChangeUrlAddressAndNewViewFromTwo(context,KeysNavigationUtility.home),
                                 (p0) => {});
                       },),)
                       : Container(),
                   const SizedBox(height: 5,),
-                ],),),),);
-      default:
-        return Container();
+                ],),),),
+        );
     }
   }
 

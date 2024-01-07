@@ -8,7 +8,7 @@ import 'package:web_topdbd/named_vm/auth_main_vm/i_auth_main_view_model.dart';
 final class TestAuthMainViewModel extends BaseNamedViewModel<DataForAuthMainView,DefaultStreamWState<DataForAuthMainView>>
     implements IAuthMainViewModel
 {
-  TestAuthMainViewModel() : super(DefaultStreamWState(DataForAuthMainView(true,false,false)));
+  TestAuthMainViewModel() : super(DefaultStreamWState(DataForAuthMainView(true)));
 
   @override
   Future<String> init() async {
@@ -17,6 +17,6 @@ final class TestAuthMainViewModel extends BaseNamedViewModel<DataForAuthMainView
   }
 
   @override
-  Future<void> listeningStreamsFirebaseFirestoreService() async {
+  Future<void> listeningStreamsFirebaseFirestoreService(Function(String) callback) async {
   }
 }

@@ -3,8 +3,11 @@ import 'package:common_topdbd/model/verified_user/verified_user.dart';
 import 'package:common_topdbd/named_utility/keys_success_utility.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/get_ee_strings_ee_where_ip_by_ip_address_ee_parameter_temp_cache_service.dart';
 import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_strings_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/get_ee_strings_ee_where_unique_id_by_user_ee_parameter_temp_cache_service.dart';
+import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_uibu_w_ubdu_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/get_ee_uibu_w_ubdu_ee_parameter_temp_cache_service.dart';
+import 'package:common_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/operation_ee_uibu_w_ubdu_ee_where_named_ee_from_named_ee_parameter_temp_cache_service/update_ee_uibu_w_ubdu_ee_where_stream_notification_is_possible_ee_from_uibu_w_ubdu_ee_parameter_temp_cache_service.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:meta/meta.dart';
+import 'package:web_topdbd/named_utility/keys_navigation_utility.dart';
 import 'package:web_topdbd/named_vm/auth_main_vm/data_for_auth_main_view.dart';
 import 'package:web_topdbd/named_vm/auth_main_vm/i_auth_main_view_model.dart';
 import 'package:web_topdbd/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_named_service/operation_ee_model_ee_where_named_ee_from_named_ee_parameter_shared_preferences_service/operation_ee_user_ee_where_named_ee_from_named_ee_parameter_shared_preferences_service/delete_ee_user_ee_parameter_shared_preferences_service.dart';
@@ -20,6 +23,10 @@ final class AuthMainViewModel extends BaseNamedViewModel<DataForAuthMainView,Def
   GetEEStringsEEWhereUniqueIdByUserEEParameterTempCacheService();
   final _getEEStringsEEWhereIpByIPAddressEEParameterTempCacheService =
   GetEEStringsEEWhereIpByIPAddressEEParameterTempCacheService();
+  final _getEEUIBUWUBDUEEParameterTempCacheService =
+  GetEEUIBUWUBDUEEParameterTempCacheService();
+  final _updateEEUIBUWUBDUEEWhereStreamNotificationIsPossibleEEFromUIBUWUBDUEEParameterTempCacheService =
+  UpdateEEUIBUWUBDUEEWhereStreamNotificationIsPossibleEEFromUIBUWUBDUEEParameterTempCacheService();
   final _deleteEEUserEEParameterSharedPreferencesService =
   DeleteEEUserEEParameterSharedPreferencesService();
   final _startListeningAndCancelListeningEEVerifiedUserEEFromUniqueIdByUserAndCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription =
@@ -29,7 +36,7 @@ final class AuthMainViewModel extends BaseNamedViewModel<DataForAuthMainView,Def
 
   // NamedUtility
 
-  AuthMainViewModel() : super(DefaultStreamWState(DataForAuthMainView(true,false,false)));
+  AuthMainViewModel() : super(DefaultStreamWState(DataForAuthMainView(true)));
 
   @override
   void dispose() {
@@ -45,7 +52,7 @@ final class AuthMainViewModel extends BaseNamedViewModel<DataForAuthMainView,Def
   }
 
   @override
-  Future<void> listeningStreamsFirebaseFirestoreService() async {
+  Future<void> listeningStreamsFirebaseFirestoreService(Function(String) callback) async {
     final getStringsWhereUniqueIdByUserParameterTempCacheService = _getEEStringsEEWhereUniqueIdByUserEEParameterTempCacheService
         .getStringsWhereUniqueIdByUserParameterTempCacheService();
     if(getStringsWhereUniqueIdByUserParameterTempCacheService
@@ -69,7 +76,7 @@ final class AuthMainViewModel extends BaseNamedViewModel<DataForAuthMainView,Def
           .parameter
           ?.isVerifiedUser ?? false);
       if(isNotVerifiedUser) {
-        _firstQQListeningStreamsFirebaseFirestoreServiceQQIsNotVerifiedUser();
+        _firstQQListeningStreamsFirebaseFirestoreServiceQQIsNotVerifiedUser(callback);
         return;
       }
     });
@@ -97,7 +104,7 @@ final class AuthMainViewModel extends BaseNamedViewModel<DataForAuthMainView,Def
           ?.getExceptionInStringWhereNotEqualsFromIpParameterIp(getStringsWhereIpByIPAddressParameterTempCacheService.parameter?.field ?? "")
           ?? "";
       if(getExceptionInStringWhereNotEqualsFromIpParameterIp.isNotEmpty) {
-        _firstQQListeningStreamsFirebaseFirestoreServiceQQGetExceptionInStringWhereNotEqualsFromIpParameterIp();
+        _firstQQListeningStreamsFirebaseFirestoreServiceQQGetExceptionInStringWhereNotEqualsFromIpParameterIp(callback);
         return;
       }
     });
@@ -118,14 +125,23 @@ final class AuthMainViewModel extends BaseNamedViewModel<DataForAuthMainView,Def
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
-  Future<void> _firstQQListeningStreamsFirebaseFirestoreServiceQQIsNotVerifiedUser() async {
+  Future<void> _firstQQListeningStreamsFirebaseFirestoreServiceQQIsNotVerifiedUser(Function(String p1) callback) async {
+    final getUIBUWUBDUParameterTempCacheService = _getEEUIBUWUBDUEEParameterTempCacheService
+        .getUIBUWUBDUParameterTempCacheService();
+    if(getUIBUWUBDUParameterTempCacheService
+        .exceptionController
+        .isWhereNotEqualsNullParameterException())
+    {
+      _firstBranchOneQQListeningStreamsFirebaseFirestoreServiceQQIsNotVerifiedUser(getUIBUWUBDUParameterTempCacheService.exceptionController);
+      return;
+    }
     await _deleteEEUserEEParameterSharedPreferencesService.deleteUserParameterSharedPreferencesService();
-    _startListeningAndCancelListeningEEVerifiedUserEEFromUniqueIdByUserAndCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription
-        .cancelListeningVerifiedUserParameterStreamSubscription();
-    _startListeningAndCancelListeningEEIPAddressFirestoreEEFromUniqueIdByUserAndCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription
-        .cancelListeningIPAddressFirestoreParameterStreamSubscription();
-    getDataForNamedParameterNamedStreamWState.isNotVerifiedUserByVerifiedUser = true;
-    notifyStreamDataForNamedParameterNamedStreamWState();
+    final parameter = getUIBUWUBDUParameterTempCacheService.parameter!;
+    final uIBUWUBDUFromNewIsVerifiedUserByVerifiedUserParametersFive = parameter
+        .getUIBUWUBDUFromNewIsVerifiedUserByVerifiedUserParametersFive(false);
+    _updateEEUIBUWUBDUEEWhereStreamNotificationIsPossibleEEFromUIBUWUBDUEEParameterTempCacheService
+        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(uIBUWUBDUFromNewIsVerifiedUserByVerifiedUserParametersFive);
+    callback(KeysNavigationUtility.notVerifiedUser);
   }
 
   void _firstQQListeningStreamsFirebaseFirestoreServiceQQGetStringsWhereIpByIPAddressParameterTempCacheService(ExceptionController exceptionController) {
@@ -133,13 +149,32 @@ final class AuthMainViewModel extends BaseNamedViewModel<DataForAuthMainView,Def
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 
-  Future<void> _firstQQListeningStreamsFirebaseFirestoreServiceQQGetExceptionInStringWhereNotEqualsFromIpParameterIp() async {
+  Future<void> _firstQQListeningStreamsFirebaseFirestoreServiceQQGetExceptionInStringWhereNotEqualsFromIpParameterIp(Function(String p1) callback) async {
+    final getUIBUWUBDUParameterTempCacheService = _getEEUIBUWUBDUEEParameterTempCacheService
+        .getUIBUWUBDUParameterTempCacheService();
+    if(getUIBUWUBDUParameterTempCacheService
+        .exceptionController
+        .isWhereNotEqualsNullParameterException())
+    {
+      _firstBranchOneQQListeningStreamsFirebaseFirestoreServiceQQGetExceptionInStringWhereNotEqualsFromIpParameterIp(getUIBUWUBDUParameterTempCacheService.exceptionController);
+      return;
+    }
     await _deleteEEUserEEParameterSharedPreferencesService.deleteUserParameterSharedPreferencesService();
-    _startListeningAndCancelListeningEEVerifiedUserEEFromUniqueIdByUserAndCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription
-        .cancelListeningVerifiedUserParameterStreamSubscription();
-    _startListeningAndCancelListeningEEIPAddressFirestoreEEFromUniqueIdByUserAndCallbackEEParametersFirebaseFirestoreServiceAndStreamSubscription
-        .cancelListeningIPAddressFirestoreParameterStreamSubscription();
-    getDataForNamedParameterNamedStreamWState.isHackedBySecurity = true;
+    final parameter = getUIBUWUBDUParameterTempCacheService.parameter!;
+    final uIBUWUBDUFromNewIsHackedParametersFive = parameter
+        .getUIBUWUBDUFromNewIsHackedParametersFive(true);
+    _updateEEUIBUWUBDUEEWhereStreamNotificationIsPossibleEEFromUIBUWUBDUEEParameterTempCacheService
+        .updateUIBUWUBDUWhereStreamNotificationIsPossibleFromUIBUWUBDUParameterTempCacheService(uIBUWUBDUFromNewIsHackedParametersFive);
+    callback(KeysNavigationUtility.hacked);
+  }
+
+  void _firstBranchOneQQListeningStreamsFirebaseFirestoreServiceQQIsNotVerifiedUser(ExceptionController exceptionController) {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
+    notifyStreamDataForNamedParameterNamedStreamWState();
+  }
+
+  void _firstBranchOneQQListeningStreamsFirebaseFirestoreServiceQQGetExceptionInStringWhereNotEqualsFromIpParameterIp(ExceptionController exceptionController) {
+    getDataForNamedParameterNamedStreamWState.exceptionController = exceptionController;
     notifyStreamDataForNamedParameterNamedStreamWState();
   }
 }

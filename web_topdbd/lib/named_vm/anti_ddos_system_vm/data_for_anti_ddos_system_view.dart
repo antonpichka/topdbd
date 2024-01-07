@@ -1,13 +1,11 @@
-import 'package:common_topdbd/named_utility/keys_exception_utility.dart';
 import 'package:library_architecture_mvvm_modify/library_architecture_mvvm_modify.dart';
 import 'package:web_topdbd/named_vm/anti_ddos_system_vm/enum_data_for_anti_ddos_system_view.dart';
 
 final class DataForAntiDDosSystemView extends BaseDataForNamed<EnumDataForAntiDDosSystemView> {
-  String code;
-  bool isSuccessCode;
-  String inputCode;
+  int expectedSeconds;
+  String showSeconds;
 
-  DataForAntiDDosSystemView(super.isLoading,this.code,this.isSuccessCode,this.inputCode) : super();
+  DataForAntiDDosSystemView(super.isLoading,this.expectedSeconds,this.showSeconds) : super();
 
   @override
   EnumDataForAntiDDosSystemView get getEnumDataForNamed {
@@ -17,20 +15,21 @@ final class DataForAntiDDosSystemView extends BaseDataForNamed<EnumDataForAntiDD
     if(exceptionController.isWhereNotEqualsNullParameterException()) {
       return EnumDataForAntiDDosSystemView.exception;
     }
-    if(isWhereNotSuccessCodeParameterIsSuccessCode()) {
-      return EnumDataForAntiDDosSystemView.form;
+    if(expectedSeconds > 0) {
+      return EnumDataForAntiDDosSystemView.waiting;
     }
     return EnumDataForAntiDDosSystemView.success;
   }
 
-  String get getExceptionInStringWhereNotEqualsParametersCodeAndInputCode {
-    if(code != inputCode) {
-      return KeysExceptionUtility.dataForAntiDDosSystemViewQQGetExceptionInStringWhereNotEqualsParametersCodeAndInputCode;
+  void setWhereSubtractionAndOneOperationFromElapsedTimeInSecondsParametersTwo(int elapsedTimeInSeconds) {
+    showSeconds = "${(expectedSeconds - elapsedTimeInSeconds)}";
+    if(elapsedTimeInSeconds < expectedSeconds) {
+      return;
     }
-    return "";
+    expectedSeconds = expectedSeconds - elapsedTimeInSeconds;
   }
 
-  bool isWhereNotSuccessCodeParameterIsSuccessCode() {
-    return !isSuccessCode;
+  bool isWhereLessWEqualZeroParameterExpectedSeconds() {
+    return expectedSeconds <= 0;
   }
 }

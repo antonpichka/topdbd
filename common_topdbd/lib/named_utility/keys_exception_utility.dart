@@ -4,8 +4,6 @@ import 'package:meta/meta.dart';
 final class KeysExceptionUtility {
   /* UNKNOWN */
   static const String uNKNOWN = "uNKNOWN";
-  /* DataForAntiDDosSystemView */
-  static const String dataForAntiDDosSystemViewQQGetExceptionInStringWhereNotEqualsParametersCodeAndInputCode = "dataForAntiDDosSystemViewQQGetExceptionInStringWhereNotEqualsParametersCodeAndInputCode";
   /* GetEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreService */
   static const String getEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreService = "getEEDiscordUserFirestoreEEFromUniqueIdEEParameterFirebaseFirestoreService";
   /* GetEEDiscordUserFirestoreEEFromUniqueIdByUserEEParameterFirebaseFirestoreService */
@@ -68,6 +66,8 @@ final class KeysExceptionUtility {
   static const String userQQGetExceptionInStringWhereIsEmptyParameterUniqueId = "userQQGetExceptionInStringWhereIsEmptyParameterUniqueId";
   /* TimerUtility */
   static const String timerUtilityQQStartTimerFromCallbackParametersTwo = "timerUtilityQQStartTimerFromCallbackParametersTwo";
+  /* TimerWSecondsUtility */
+  static const String timerWSecondsUtilityQQStartTimerFromCallbackParametersTwo = "timerWSecondsUtilityQQStartTimerFromCallbackParametersTwo";
 
   const KeysExceptionUtility._();
 }

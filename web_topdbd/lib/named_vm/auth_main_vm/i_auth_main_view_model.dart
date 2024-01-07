@@ -4,5 +4,5 @@ import 'package:meta/meta.dart';
 abstract interface class IAuthMainViewModel {
   const IAuthMainViewModel();
 
-  Future<void> listeningStreamsFirebaseFirestoreService();
+  Future<void> listeningStreamsFirebaseFirestoreService(Function(String) callback);
 }
